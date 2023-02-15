@@ -1,0 +1,49 @@
+/* -- Home nav -- */
+#navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #E5E7E8;
+}
+
+#search {
+  border: 2px solid #d6d9db;
+  border-radius: 8px;
+  width: 221px;
+  height: 24px;
+  font-family: "TT Ripple", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  color: #5e676e;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 1;
+  background-color: #ffffff;
+}
+
+/* ----- This configures the footer ----- */
+#gatsby-focus-wrapper > div > footer {
+  line-height: 16px;
+  font-size: 12px;
+  font-family: "TT Ripple", sans-serif;
+  z-index: 1;
+  margin-top: 1px;
+  border-top: 1px solid #E5E7E8;
+}
+
+.external-link::after {
+  display: inline-block;
+  width: 21px;
+  height: 21px;
+  margin-left: 10px;
+  background-color: currentcolor;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: '';
+  mask: url('../images/externalLink.svg') no-repeat 100% 100%;
+  vertical-align: text-top;
+}

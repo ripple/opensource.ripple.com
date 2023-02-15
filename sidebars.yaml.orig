@@ -1,0 +1,34 @@
+dcm:
+  - label: Welcome
+    page: dcm/index.md
+  - group: Release Notes
+    expanded: false
+    page: dcm/news/release-notes/index.md
+    pages:
+      - label: DCM 0.3
+        page: dcm/news/release-notes/dcm-0.3.md
+      - label: DCM 0.2
+        page: dcm/news/release-notes/dcm-0.2.md
+  - group: Overview
+    expanded: false
+    pages:
+      - label: Payment Systems Overview
+        page: dcm/overview/pso.md
+      - label: DCM Overview
+        page: dcm/overview/dcm.md
+  - group: Use DCM
+    page: dcm/use/index.md
+    expanded: false
+    pages:
+      - label: Chief Admin
+        page: dcm/use/chief-admin.mdx
+      - label: Chief Cashier
+        page: dcm/use/chief-cashier.mdx
+      - label: Distribution Officer
+        page: dcm/use/distribution-officer.mdx
+      - label: Use the Ledger Nano with DCM
+        page: dcm/use/use-ledger-nano.md
+      - label: Transaction Exporter
+        page: dcm/use/transaction-exporter.md
+      - label: Appendix - Supported Browsers
+        page: dcm/use/appx-supported-browsers.md

@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: 
+Sitemap:  https://dcm-docs.redoc.ly/sitemap.xml

@@ -1,0 +1,26 @@
+@font-face {
+  font-family: "TT Ripple";
+  src: url("./fonts/TT_Ripple_Light.woff") format("woff"),
+    url("./fonts/TT_Ripple_Light.woff2") format("woff2");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "TT Ripple";
+  src: url("./fonts/TT_Ripple_Regular.woff") format("woff"),
+    url("./fonts/TT_Ripple_Regular.woff2") format("woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "TT Ripple";
+  src: url("./fonts/TT_Ripple_Bold.woff") format("woff"),
+    url("./fonts/TT_Ripple_Bold.woff2") format("woff2");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Space Mono";
+  src: url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
+  font-weight: 400;
+}

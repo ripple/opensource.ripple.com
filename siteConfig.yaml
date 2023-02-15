@@ -1,0 +1,55 @@
+meta:
+  title: Prerelease Documentation
+  description: Prerelease documentation for XRP Ledger features being developed by Ripple.
+  siteUrl: https://xrpl-prerelease-docs.redoc.ly
+  keywords: xrpl docs, prerelease docs, beta api reference docs
+  lang: en-US
+disableImagesOptimization: true
+linkChecker:
+  severity: warning
+  options:
+    CheckExternal: false
+logo:
+  image: ./images/ripple-logo.svg
+  altText: Prerelease Documentation
+toc:
+  enable: true
+# oasDefinitions:
+#   DCM: ./openapi/dcm-swagger.yaml
+  # add links to definitions in our API registry by using a fully qualified URL.
+stylesheets:
+  - https://fonts.googleapis.com/css2?family=Space+Mono&display=swap
+  - ./static/style.css
+  - ./static/fonts.css
+#analytics:
+# ga:
+# note that GA doesn't work in the development environment
+#  trackingId: UA-45997213-1
+#scripts:
+#  - ./static/intercom.js
+nav:
+  - label: Home
+    page: index.mdx 
+  - search: true
+
+showNextButton: false
+
+footer:
+  copyrightText: © 2013 - 2023 Ripple, All Rights Reserved.
+  columns:
+    - group: Support
+      items:
+        - label: FAQ
+          page: faq.md
+        - label: Contact us
+          page: contact.mdx
+    - group: Resources
+      items:
+        - label: XRP Ledger Docs
+          href: https://xrpl.org/docs.html
+          external: true
+        - label: ripple.com
+          href: https://ripple.com
+          external: true
+
+disableLastModified: true

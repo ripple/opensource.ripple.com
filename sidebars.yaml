@@ -1,0 +1,60 @@
+prerelease:
+  - label: Prerelease Docs
+    page: docs/index.md
+  - group: Sidechains
+    page: docs/xls-40d-sidechains/xrpl-interoperability.md
+    expanded: false
+    pages:
+      - page: docs/xls-40d-sidechains/cross-chain-bridges.md
+      - page: docs/xls-40d-sidechains/witness-server.md
+      - page: docs/xls-40d-sidechains/parallel-networks-list.md
+      - group: Ledger Object Types
+        expanded: false
+        pages:
+          - page: docs/xls-40d-sidechains/ledger-object-types/bridge.md
+          - page: docs/xls-40d-sidechains/ledger-object-types/xchainclaim.md
+          - page: docs/xls-40d-sidechains/ledger-object-types/xchainclaimid.md
+      - group: Transaction Types
+        page: concepts/introduction/other-topics-placeholder.md
+        expanded: false
+        pages:
+          - page: docs/xls-40d-sidechains/transaction-types/xchainaccountcreatecommit.md
+          - page: docs/xls-40d-sidechains/transaction-types/xchainaddattestation.md
+          - page: docs/xls-40d-sidechains/transaction-types/xchaincommit.md
+          - page: docs/xls-40d-sidechains/transaction-types/xchaincreateaccountclaimid.md
+          - page: docs/xls-40d-sidechains/transaction-types/xchaincreatebridge.md
+          - page: docs/xls-40d-sidechains/transaction-types/xchaincreateclaimid.md
+          - page: docs/xls-40d-sidechains/transaction-types/xchainmodifybridge.md
+  - group: EVM Sidechains
+    page: docs/evm-sidechain/intro-to-evm-sidechain.md
+    expanded: false
+    pages:
+      - group: Quickstart
+        page: tutorials/quickstart/index.md
+        expanded: false
+        pages:
+          - page: tutorials/quickstart/create-accounts-send-xrp.md
+  - group: AMM
+    page: concepts/understanding-xrpl/understanding-xrpl.md
+    expanded: false
+    pages:
+      - group: XRP Ledger Ecosystem
+        page: concepts/understanding-xrpl/xrpl/xrpl-ecosystem.md
+        expanded: false
+        items:
+          - label: Ledger Structure
+            page: concepts/understanding-xrpl/xrpl/ledger-structure.md
+          - group: Consensus
+            page: concepts/understanding-xrpl/xrpl/consensus.md
+            expanded: false
+            items:
+              - page: concepts/understanding-xrpl/xrpl/double-spend.md
+              - page: concepts/understanding-xrpl/xrpl/consensus-protocol-properties.md
+              - page: concepts/understanding-xrpl/xrpl/how-consensus-works.md
+              - page: concepts/understanding-xrpl/xrpl/consensus-protections.md
+              - page: concepts/understanding-xrpl/xrpl/consensus-research.md
+          - group: Validation
+            page: concepts/understanding-xrpl/xrpl/validation.md
+            items:
+              - page: concepts/understanding-xrpl/xrpl/fee-voting.md
+              - page: concepts/understanding-xrpl/xrpl/negative-unl.md

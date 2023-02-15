@@ -1,0 +1,84 @@
+import {
+  Box,
+  Button,
+  FlexSection,
+  Flex,
+  Jumbotron,
+  H1,
+  H2,
+  Link,
+  ThinTile,
+  WideTile,
+  Emphasis,
+  SectionHeader,
+  OpenApiResponse,
+} from '@redocly/developer-portal/ui';
+
+import icon3 from '../images/icon3.png';
+
+# Using MDX
+
+Use MDX by naming the file extension as `.mdx` and importing the components at the top of the file.
+
+You can import a single extension:
+
+```jsx
+import { OpenApiResponse } from '@redocly/developer-portal/ui';
+```
+
+Or multiple extensions at the same time:
+
+```jsx
+import {
+  Box,
+  Button,
+  FlexSection,
+  Flex,
+  Jumbotron,
+  H1,
+  H2,
+  Link,
+  ThinTile,
+  WideTile,
+  Emphasis,
+  SectionHeader,
+} from '@redocly/developer-portal/ui';
+```
+
+We created a library (`@redocly/developer-portal/ui`) with components you can reference.
+
+Try and create an MDX file which renders one of your API's response objects.
+
+With Samples Panel:
+
+```jsx
+<OpenApiResponse definitionId="petstore" pointer="#/components/responses/PetResponse" />
+```
+
+<OpenApiResponse definitionId="petstore" pointer="#/components/responses/PetResponse" />
+
+Without Samples Panel:
+
+```jsx
+<OpenApiResponse
+  definitionId="petstore"
+  pointer="#/components/responses/PetResponse"
+  hideSamples={true}
+/>
+```
+
+<OpenApiResponse
+  definitionId="petstore"
+  pointer="#/components/responses/PetResponse"
+  hideSamples={true}
+/>
+
+## Other components
+
+What other components would you like to see? Let us know. We're adding new components.
+
+## Developing new components
+
+A developer familiar with React can create new components.
+We left a sample component at `/components/Counter.tsx`.
+Inspect it and its usage at `/developer-portal/custom-component.mdx`.

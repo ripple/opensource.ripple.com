@@ -1,0 +1,135 @@
+---
+title: XRP Ledger Prerelease Documentation
+---
+
+import {
+  LandingLayout,
+  Button,
+  Box,
+  FlexSection,
+  Flex,
+  Jumbotron,
+  ThinTile,
+  WideTile,
+  Emphasis,
+  H1,
+  H2,
+  Typography,
+  SectionHeader,
+  NavBar,
+} from '@redocly/developer-portal/ui';
+
+import icon1 from './images/icon1.png';
+import heroImage from './images/heroimg.png';
+import launchFastIcon from './images/launch-fast.svg';
+import icon3 from './images/icon3.png';
+import bookManagementIcon from './images/book-management.svg';
+import foundOrPrivate from './images/found-or-private.svg';
+
+export default LandingLayout;
+
+<NavBar location={props.location} standalone={false} />
+
+<Jumbotron bgImage={heroImage} textColor="white" height="350px" width="3440px" pb="8.5em">
+  <H1>XRP Ledger Prerelease Documentation</H1>
+  <H2>Prerelease documentation for XRP Ledger features being developed by Ripple</H2>
+</Jumbotron>
+
+<Box p={{ _: "8px", sm: "12px", md: "16px", lg: "24px" }}>
+  <FlexSection justifyContent="space-around" flexWrap="wrap">
+    <WideTile 
+      to="docs/xls-40d-sidechains/cross-chain-bridges.md"
+      textAlign="left"
+      headerAlign="left"
+      color="#141A1F"
+      header="Sidechains"
+      disableArrow
+    >
+      <Typography style={{
+        fontSize: "14px",
+        lineHeight: "20px",
+        color: "#5E676E",
+        marginTop: 0
+      }}>
+        Learn about cross-chain bridges for the XRP 
+        Ledger which enable value in the form of XRP 
+        and other tokens (IOUs) to move efficiently 
+        between blockchains.
+      </Typography>
+      <Flex pt={5}>
+        <Button  style={{
+            padding: "8px 16px",
+            borderRadius: "20px",
+            fontSize: "14px",
+            lineHeight: "20px",
+            color: "#FFFFFF",
+            background: "#005BCC",
+          }}>
+          Go to Docs
+        </Button>
+      </Flex>
+    </WideTile>
+    <WideTile 
+      to="docs/evm-sidechain/intro-to-evm-sidechain.md"
+      textAlign="left"
+      headerAlign="left"
+      color="#141A1F"
+      header="EVM Sidechain"
+      disableArrow
+    >
+      <Typography style={{
+        fontSize: "14px",
+        lineHeight: "20px",
+        color: "#5E676E",
+        marginTop: 0
+      }}>
+        Learn about the Ethereum Virtual Machine (EVM) 
+        compatible XRP Ledger sidechain, a secure and 
+        fast public blockchain that brings all kinds 
+        of web3 applications to the XRP Ledger community.
+      </Typography>
+      <Flex pt={5}>
+        <Button  style={{
+            padding: "8px 16px",
+            borderRadius: "20px",
+            fontSize: "14px",
+            lineHeight: "20px",
+            color: "#FFFFFF",
+            background: "#005BCC",
+          }}>
+          Go to Docs
+        </Button>
+      </Flex>
+    </WideTile>
+    <WideTile 
+      to="docs/xls-30d-amm/introduction.md"
+      textAlign="left"
+      headerAlign="left"
+      color="#141A1F"
+      header="Automated Market Maker(AMM)"
+      disableArrow
+    >
+      <Typography style={{
+        fontSize: "14px",
+        lineHeight: "20px",
+        color: "#5E676E",
+        marginTop: 0
+      }}>
+        Learn about Automated Market Maker(AMM)
+        for the XRP Ledger.
+      </Typography>
+      <Flex pt={5}>
+        <Button  style={{
+            padding: "8px 16px",
+            borderRadius: "20px",
+            fontSize: "14px",
+            lineHeight: "20px",
+            color: "#FFFFFF",
+            background: "#005BCC",
+          }}>
+          Go to Docs
+        </Button>
+      </Flex>
+    </WideTile>
+  </FlexSection>
+</Box>
