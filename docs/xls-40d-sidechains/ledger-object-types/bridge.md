@@ -1,3 +1,4 @@
+---
 html: bridge.html
 parent: ledger-object-types.html
 blurb: A `bridge` object represents a single cross-chain bridge that connects and enables value to move efficiently between two blockchains. 

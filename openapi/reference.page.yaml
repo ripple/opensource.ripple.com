@@ -1,8 +1,0 @@
-type: reference-docs
-definitionId: DCM
-settings:
-  generateCodeSamples:
-    languages:
-      - lang: curl
-      - lang: JavaScript
-      - lang: Node.js

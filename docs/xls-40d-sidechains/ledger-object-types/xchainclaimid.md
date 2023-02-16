@@ -1,3 +1,4 @@
+---
 html: xchainclaimid.html
 parent: ledger-object-types.html
 blurb: An `XChainClaimID` object represents *one* cross-chain transfer of value. 

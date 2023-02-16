@@ -29,32 +29,13 @@ prerelease:
     page: docs/evm-sidechain/intro-to-evm-sidechain.md
     expanded: false
     pages:
-      - group: Quickstart
-        page: tutorials/quickstart/index.md
-        expanded: false
-        pages:
-          - page: tutorials/quickstart/create-accounts-send-xrp.md
+      - page: docs/evm-sidechain/get-started-evm-sidechain.md
+      - page: docs/evm-sidechain/connect-metamask-to-xrpl-evm-sidechain.md
+      - page: docs/evm-sidechain/evm-sidechain-run-a-validator-node.md
+      - page: docs/evm-sidechain/evm-sidechain-validator-security.md
+      - page: docs/evm-sidechain/join-evm-sidechain-devnet.md
   - group: AMM
-    page: concepts/understanding-xrpl/understanding-xrpl.md
+    page: docs/xls-30d-amm/amm-uc.md
     expanded: false
     pages:
-      - group: XRP Ledger Ecosystem
-        page: concepts/understanding-xrpl/xrpl/xrpl-ecosystem.md
-        expanded: false
-        items:
-          - label: Ledger Structure
-            page: concepts/understanding-xrpl/xrpl/ledger-structure.md
-          - group: Consensus
-            page: concepts/understanding-xrpl/xrpl/consensus.md
-            expanded: false
-            items:
-              - page: concepts/understanding-xrpl/xrpl/double-spend.md
-              - page: concepts/understanding-xrpl/xrpl/consensus-protocol-properties.md
-              - page: concepts/understanding-xrpl/xrpl/how-consensus-works.md
-              - page: concepts/understanding-xrpl/xrpl/consensus-protections.md
-              - page: concepts/understanding-xrpl/xrpl/consensus-research.md
-          - group: Validation
-            page: concepts/understanding-xrpl/xrpl/validation.md
-            items:
-              - page: concepts/understanding-xrpl/xrpl/fee-voting.md
-              - page: concepts/understanding-xrpl/xrpl/negative-unl.md
+      - page: docs/xls-30d-amm/automated-market-makers.md

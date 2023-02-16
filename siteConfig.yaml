@@ -14,9 +14,6 @@ logo:
   altText: Prerelease Documentation
 toc:
   enable: true
-# oasDefinitions:
-#   DCM: ./openapi/dcm-swagger.yaml
-  # add links to definitions in our API registry by using a fully qualified URL.
 stylesheets:
   - https://fonts.googleapis.com/css2?family=Space+Mono&display=swap
   - ./static/style.css
@@ -37,19 +34,21 @@ showNextButton: false
 footer:
   copyrightText: © 2013 - 2023 Ripple, All Rights Reserved.
   columns:
-    - group: Support
+    - group: About
       items:
-        - label: FAQ
-          page: faq.md
-        - label: Contact us
-          page: contact.mdx
+        - label: Ripple
+          href: https://ripple.com
+          external: true 
+        - label: XRPL Overview
+          href: https://xrpl.org/xrp-ledger-overview.html
+          external: true                            
     - group: Resources
       items:
         - label: XRP Ledger Docs
           href: https://xrpl.org/docs.html
           external: true
-        - label: ripple.com
-          href: https://ripple.com
-          external: true
+        - label: Contribute to the XRP Ledger 
+          href: https://xrpl.org/contribute-code.html
+          external: true  
 
 disableLastModified: true
