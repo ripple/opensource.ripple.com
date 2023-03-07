@@ -12,16 +12,17 @@ prerelease:
         expanded: false
         pages:
           - page: docs/xls-38d-cross-chain-bridge/ledger-object-types/bridge.md
-          - page: docs/xls-38d-cross-chain-bridge/ledger-object-types/xchainclaim.md
-          - page: docs/xls-38d-cross-chain-bridge/ledger-object-types/xchainclaimid.md
+          - page: docs/xls-38d-cross-chain-bridge/ledger-object-types/xchainownedcreateaccountclaimid.md
+          - page: docs/xls-38d-cross-chain-bridge/ledger-object-types/xchainownedclaimid.md
       - group: Transaction Types
         page: concepts/introduction/other-topics-placeholder.md
         expanded: false
         pages:
           - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchainaccountcreatecommit.md
-          - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchainaddattestation.md
+          - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchainaddaccountcreateattestation.md
+          - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchainaddclaimattestation.md
+          - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchainclaim.md
           - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchaincommit.md
-          - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchaincreateaccountclaimid.md
           - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchaincreatebridge.md
           - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchaincreateclaimid.md
           - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchainmodifybridge.md
