@@ -40,16 +40,15 @@ It also includes the account on the source chain that locks or burns the funds o
 
 {% include '_snippets/tx-fields-intro.md' %}
 
-| Field         | JSON Type           | [Internal Type][] | Description        |
-|:--------------|:--------------------|:------------------|:-------------------|
-| `OtherChainSource` | String | AccountID | The source account on the other chain. |
-| `SignatureReward`  | Number  | Token |  _Required_ The total amount, in XRP, to be rewarded for providing a signature for cross-chain transfer or for signing for the cross-chain reward. This amount will be split among the signers. This must be at least the value of `SignaturesReward` in the `Bridge` ledger object. |
-| `XChainBridge`| String | Object | _Required_ The XChainBridge stanza represents the bridge for which the witness is attesting transactions. |
-| `LockingChainDoor` | String | AccountID | The door account on the locking chain. |
-| `LockingChainIssue` | String | Token | The token that is bridged on the locking chain. |
-| `IssuingChainDoor` | String  |  AccountID | The door account on the issuing chain. |
-| `IssuingChainIssue` | String | Token | The token that is bridged on the issuing chain. |
-| `MinAccountCreateAmount`  | Number  |   |  _Optional_ The minimum amount, in XRP, required for a `XChainCreateAccountCommit` transaction. This is only applicable for XRP-XRP bridges and transactions fail if this field is not present. |
+| Field                            | JSON Type         | [Internal Type][] | Required? | Description |
+|:---------------------------------|:------------------|:------------------|:----------|-------------|
+| `XChainBridge`                   | `XChainBridge`    | `XCHAIN_BRIDGE`   | Yes       | The bridge to create the claim ID for. |
+| `XChainBridge.LockingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the locking chain. |
+| `XChainBridge.LockingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is locked and unlocked on the locking chain. |
+| `XChainBridge.IssuingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the issuing chain. For an XRP-XRP bridge, this must be the genesis account (the account that is created when the network is first started, which contains all of the XRP). |
+| `XChainBridge.IssuingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is minted and burned on the issuing chain. For an IOU-IOU bridge, the issuer of the asset must be the door account on the issuing chain, to avoid supply issues. |
+| `SignatureReward`                | `string`          | `ACCOUNT`         | Yes       | The amount, in XRP, to reward the witness servers for providing signatures. This must match the amount on the `Bridge` ledger object.
+| `OtherChainSource`               | `string`          | `ACCOUNT`         | Yes       | The account that must send the `XChainCommit` transaction on the source chain.
 
 
 <!-- ## Error Cases

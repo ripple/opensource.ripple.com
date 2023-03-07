@@ -8,12 +8,14 @@ status: not_enabled
 ---
 # XChainClaim
 
-The `XChainClaim` transaction completes a cross-chain transfer of value. It allows a user to claim the value on the destination chain - the equivalent of the value locked on the source chain. A user can only claim the value if they own the cross-chain claim ID associated with the value locked on the source chain (the `Account` field). The user can send the funds to anyone (the `Destination` field). This transaction is only needed if an `OtherChainDestination` is not specified in the XChainCommit transaction, or if something goes wrong with the automatic transfer of funds.
+The `XChainClaim` transaction completes a cross-chain transfer of value. It allows a user to claim the value on the destination chain - the equivalent of the value locked on the source chain. A user can only claim the value if they own the cross-chain claim ID associated with the value locked on the source chain (the `Account` field). The user can send the funds to anyone (the `Destination` field). This transaction is only needed if an `OtherChainDestination` isn't specified in the `XChainCommit` transaction, or if something goes wrong with the automatic transfer of funds.
+
+If the transaction succeeds in moving funds, the referenced `XChainOwnedClaimID` ledger object will be destroyed. This prevents transaction replay. If the transaction fails, the `XChainOwnedClaimID` won't be destroyed and the transaction can be re-run with different parameters.
 
 
 ## Example {{currentpage.name}} JSON
 
-
+***TODO: Double-check JSON example is correct for `XChainBridge` field.***
 ```json
 {
   "Account": "rahDmoXrtPdh7sUdrPjini3gcnTVYjbjjw",
@@ -37,16 +39,18 @@ The `XChainClaim` transaction completes a cross-chain transfer of value. It allo
 
 {% include '_snippets/tx-fields-intro.md' %}
 
-| Field         | JSON Type           | [Internal Type][] | Description        |
-|:--------------|:--------------------|:------------------|:-------------------|
-| `XChainBridge`| String | Object | _Required_ The XChainBridge stanza represents the bridge for which the witness is attesting transactions. |
-| `LockingChainDoor` | String | AccountID | The door account on the locking chain. |
-| `LockingChainIssue` | String | Token | The token that is bridged on the locking chain. |
-| `IssuingChainDoor` | String  |  AccountID | The door account on the issuing chain. |
-| `IssuingChainIssue` | String | Token | The token that is bridged on the issuing chain. |
-| `SignatureReward`  | Number  | Token |  _Required_ The total amount, in XRP, to be rewarded for providing a signature for cross-chain transfer or for signing for the cross-chain reward. This amount will be split among the signers. |
-| `MinAccountCreateAmount`  | Number  |   |  _Optional_ The minimum amount, in XRP, required for a `XChainCreateAccountCommit` transaction. This is only applicable for XRP-XRP bridges and transactions fail if this field is not present. |
-
+| Field                            | JSON Type         | [Internal Type][] | Required? | Description |
+|:---------------------------------|:------------------|:------------------|:----------|-------------|
+| `XChainBridge`                   | `XChainBridge`    | `XCHAIN_BRIDGE`   | Yes       | The bridge to use for the transfer. |
+| `XChainBridge.LockingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the locking chain. |
+| `XChainBridge.LockingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is locked and unlocked on the locking chain. |
+| `XChainBridge.IssuingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the issuing chain. For an XRP-XRP bridge, this must be the genesis account (the account that is created when the network is first started, which contains all of the XRP). |
+| `XChainBridge.IssuingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is minted and burned on the issuing chain. For an IOU-IOU bridge, the issuer of the asset must be the door account on the issuing chain, to avoid supply issues. |
+| `XChainClaimID`                  | `string`          | `UINT64`          | Yes       | The unique integer ID for the cross-chain transfer that was referenced in the corresponding `XChainCommit` transaction. |
+| `Destination`                    | `string`          | `ACCOUNT`         | Yes       | The destination account on the destination chain. It must exist or the transaction will fail. However, if the transaction fails in this case, the sequence number and collected signatures won't be destroyed, and the transaction can be rerun with a different destination. |
+| `DestinationTag`                 | `int`             | `UINT32`          | No        | An integer destination tag. |
+| `OtherChainDestination`          | `string`          | `ACCOUNT`         | Yes       | The destination account on the destination chain.
+| `Amount`                         | `Currency Amount` | `AMOUNT`          | Yes       | The amount to claim on the destination chain. This must match the amount attested to on the attestations associated with this `XChainClaimID`. |
 
 
 <!-- ## Error Cases

@@ -42,11 +42,15 @@ To mitigate the possibility of creating a duplicate bridge, ensure the following
 
 {% include '_snippets/tx-fields-intro.md' %}
 
-| Field         | JSON Type           | [Internal Type][] | Required? | Description        |
-|:--------------|:--------------------|:------------------|:----------|:-------------------|
-| `XChainBridge`| XChainBridge        | XCHAIN_BRIDGE     | Yes       | The bridge (door accounts and assets) to create. |
-| `SignatureReward` | Currency Amount | Amount            | Yes       | The total amount to pay the witness servers for their signatures. This amount will be split among the signers. |
-| `MinAccountCreateAmount` | Currency Amount | Amount     |  No       | The minimum amount, in XRP, required for a `XChainCreateAccountCommit` transaction. This is only applicable for XRP-XRP bridges and transactions fail if this field is not present. |
+| Field                            | JSON Type         | [Internal Type][] | Required? | Description        |
+|:---------------------------------|:------------------|:------------------|:----------------|:-------------------|
+| `XChainBridge`                   | `XChainBridge`    | `XCHAIN_BRIDGE`   | Yes       | The bridge (door accounts and assets) to create. |
+| `XChainBridge.LockingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the locking chain. |
+| `XChainBridge.LockingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is locked and unlocked on the locking chain. |
+| `XChainBridge.IssuingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the issuing chain. For an XRP-XRP bridge, this must be the genesis account (the account that is created when the network is first started, which contains all of the XRP). |
+| `XChainBridge.IssuingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is minted and burned on the issuing chain. For an IOU-IOU bridge, the issuer of the asset must be the door account on the issuing chain, to avoid supply issues. |
+| `SignatureReward`                | `Currency Amount` | `AMOUNT`          | Yes       | The total amount to pay the witness servers for their signatures. This amount will be split among the signers. |
+| `MinAccountCreateAmount`         | `Currency Amount` | `AMOUNT`          | No        | The minimum amount, in XRP, required for a `XChainAccountCreateCommit` transaction. If this isn't present, the `XChainAccountCreateCommit` transaction will fail. This field can only be present on XRP-XRP bridges. |
 
 <!-- ## Error Cases
 

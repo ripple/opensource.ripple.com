@@ -8,13 +8,16 @@ status: not_enabled
 ---
 # XChainAccountCreateCommit
 
-The `XChainAccountCreateCommit` transaction defines a new cross-chain bridge entrance on one of the chains that the bridge connects. It includes information about the type of tokens being exchanged. To fully set up a bridge, this transaction must be executed on both chains, alongside setting up witness servers.
+This transaction can only be used for XRP-XRP bridges.
 
-The complete production-grade setup would also include a `SignerListSet` transaction on the two door accounts for the witnesses’ signing keys, as well as disabling the door accounts’ master key. This would ensure that the funds are truly in control of the witness servers.
+The `XChainAccountCreateCommit` transaction creates a new account on one of the chains a bridge connects, which serves as the bridge entrance for that chain. To fully set up a bridge, this transaction must be executed on both chains, alongside setting up witness servers.
+
+**Warning:** This transaction should only be executed if the witness attestations will be reliably delivered to the destination chain. If the signatures aren't delivered, then account creation will be blocked until attestations are received. This can be used maliciously; to disable this transaction on XRP-XRP bridges, the bridge's `MinAccountCreateAmount` shouldn't be present.
+
 
 ## Example {{currentpage.name}} JSON
 
-
+***TODO: Double-check JSON example is up-to-date.***
 ```json
 {
   "Account": "rwEqJ2UaQHe7jihxGqmx6J4xdbGiiyMaGa",
@@ -38,12 +41,16 @@ The complete production-grade setup would also include a `SignerListSet` transac
 
 {% include '_snippets/tx-fields-intro.md' %}
 
-| Field         | JSON Type           | [Internal Type][] | Required? | Description        |
-|:--------------|:--------------------|:------------------|:----------| :------------------|
-| `Destination` | String              | Object            | Yes       | The destination account on the destination chain. |
-| `Amount`      | Currency Amount     | Amount            | Yes       | The amount, in XRP, to use for account creation. This must be greater than or equal to the `MinAccountCreateAmount` specified in the `Bridge` ledger object. |
-| `SignatureReward` | Currency Amount | Amount            | Yes       | The total amount to pay the witness servers for their signatures. This amount must match the amount on the `Bridge` ledger object. These funds will be deducted from the sender's account. |
-| `XChainBridge` | XChainBridge       | XCHAIN_BRIDGE     | Yes       | The bridge including door accounts and assets. |
+| Field                            | JSON Type         | [Internal Type][] | Required? | Description |
+|:---------------------------------|:------------------|:------------------|:----------| :-----------|
+| `XChainBridge`                   | `XChainBridge`    | `XCHAIN_BRIDGE`   | Yes       | The bridge to create accounts for. |
+| `XChainBridge.LockingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the locking chain. |
+| `XChainBridge.LockingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is locked and unlocked on the locking chain. |
+| `XChainBridge.IssuingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the issuing chain. For an XRP-XRP bridge, this must be the genesis account (the account that is created when the network is first started, which contains all of the XRP). |
+| `XChainBridge.IssuingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is minted and burned on the issuing chain. For an IOU-IOU bridge, the issuer of the asset must be the door account on the issuing chain, to avoid supply issues. |
+| `SignatureReward`                | `Currency Amount` | `AMOUNT`          | No        | The amount, in XRP, to be used to reward the witness servers for providing signatures. This must match the amount on the `Bridge` ledger object. |
+| `Destination`                    | `string`          | `ACCOUNT`         | Yes       | The destination account on the destination chain. |
+| `Amount`                         | `Currency Amount` | `AMOUNT`          | Yes       | The amount, in XRP, to use for account creation. This must be greater than or equal to the `MinAccountCreateAmount` specified in the `Bridge` ledger object. |
 
 
 <!-- ## Error Cases

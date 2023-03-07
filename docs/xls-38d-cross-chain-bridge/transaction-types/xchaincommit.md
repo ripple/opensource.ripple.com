@@ -8,13 +8,11 @@ status: not_enabled
 ---
 # XChainCommit
 
-The `XChainCommit` transaction initiates a cross-chain transfer of value. This is done on the source chain, and locks/burns the value (“commits” the value), so that the equivalent amount can be minted/unlocked on the destination chain. Essentially, it tells the witness servers that the value was locked/burned. This value is tied to a specific cross-chain claim ID (which is included in the transaction).
-
-The account that owns the cross-chain claim ID on the destination chain is the account that controls the funds on the other end of the bridge. The funds go to the destination account specified in the XChainCommit transaction, if specified. If the destination account is not specified, then the claim ID owner must submit an XChainClaim transaction to determine where the funds will go on the destination chain.
-
+The `XChainCommit` is the second step in a cross-chain transfer. It puts assets into trust on the locking chain so that they can be wrapped on the issuing chain, or burns wrapped assets on the issuing chain so that they can be returned on the locking chain.
 
 ## Example {{currentpage.name}} JSON
 
+***TODO: Need updated JSON example.***
 
 ```json
 {
@@ -38,17 +36,16 @@ The account that owns the cross-chain claim ID on the destination chain is the a
 
 {% include '_snippets/tx-fields-intro.md' %}
 
-| Field         | JSON Type           | [Internal Type][] | Description        |
-|:--------------|:--------------------|:------------------|:-------------------|
-| `Account` | String | AccountID | The account that has initiated the transaction and wants to commit funds. Funds will be deducted from this account. |
-| `XChainBridge`| String | Object | _Required_ The bridge for which the witness is attesting transactions. |
-| `LockingChainDoor` | String | AccountID | The door account on the locking chain. |
-| `LockingChainIssue` | String | Token | The token that is bridged on the locking chain. |
-| `IssuingChainDoor` | String  |  AccountID | The door account on the issuing chain. |
-| `IssuingChainIssue` | String | Token | The token that is bridged on the issuing chain. |
-| `Amount`  | Number  | Token |  _Required_ The total amount that the account wants to transfer. |
-| `XChainClaimID` | String | ID | The cross-chain claim ID from the `XChainCreateClaimID` transaction. |
-
+| Field                            | JSON Type         | [Internal Type][] | Description |
+|:---------------------------------|:------------------|:------------------|:------------|
+| `XChainBridge`                   | `XChainBridge`    | `XCHAIN_BRIDGE`   | Yes       | The bridge to use to transfer funds. |
+| `XChainBridge.LockingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the locking chain. |
+| `XChainBridge.LockingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is locked and unlocked on the locking chain. |
+| `XChainBridge.IssuingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the issuing chain. For an XRP-XRP bridge, this must be the genesis account (the account that is created when the network is first started, which contains all of the XRP). |
+| `XChainBridge.IssuingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is minted and burned on the issuing chain. For an IOU-IOU bridge, the issuer of the asset must be the door account on the issuing chain, to avoid supply issues. |
+| `XChainClaimID`                  | `string`          | `UINT64`          | Yes       |  The unique integer ID for a cross-chain transfer. This must be acquired on the destination chain (via a `XChainCreateClaimID` transaction) and checked from a validated ledger before submitting this transaction. If an incorrect sequence number is specified, the funds will be lost. |
+| `Amount`                         | `Currency Amount` | `AMOUNT`          | Yes       | The asset to commit, and the quantity. This must match the door account's `LockingChainIssue` (if on the locking chain) or the door account's `IssuingChainIssue` (if on the issuing chain).
+| `OtherChainDestination`          | `string`          | `ACCOUNT`         | No        | The destination account on the destination chain. If this is not specified, the account that submitted the `XChainCreateClaimID` transaction on the destination chain will need to submit a `XChainClaim` transaction to claim the funds.
 
 
 <!-- ## Error Cases
