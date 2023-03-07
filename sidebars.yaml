@@ -2,29 +2,29 @@ prerelease:
   - label: Prerelease Docs
     page: docs/index.md
   - group: Sidechains
-    page: docs/xls-40d-sidechains/xrpl-interoperability.md
+    page: docs/xls-38d-cross-chain-bridge/xrpl-interoperability.md
     expanded: false
     pages:
-      - page: docs/xls-40d-sidechains/cross-chain-bridges.md
-      - page: docs/xls-40d-sidechains/witness-server.md
-      - page: docs/xls-40d-sidechains/parallel-networks-list.md
+      - page: docs/xls-38d-cross-chain-bridge/cross-chain-bridges.md
+      - page: docs/xls-38d-cross-chain-bridge/witness-server.md
+      - page: docs/xls-38d-cross-chain-bridge/parallel-networks-list.md
       - group: Ledger Object Types
         expanded: false
         pages:
-          - page: docs/xls-40d-sidechains/ledger-object-types/bridge.md
-          - page: docs/xls-40d-sidechains/ledger-object-types/xchainclaim.md
-          - page: docs/xls-40d-sidechains/ledger-object-types/xchainclaimid.md
+          - page: docs/xls-38d-cross-chain-bridge/ledger-object-types/bridge.md
+          - page: docs/xls-38d-cross-chain-bridge/ledger-object-types/xchainclaim.md
+          - page: docs/xls-38d-cross-chain-bridge/ledger-object-types/xchainclaimid.md
       - group: Transaction Types
         page: concepts/introduction/other-topics-placeholder.md
         expanded: false
         pages:
-          - page: docs/xls-40d-sidechains/transaction-types/xchainaccountcreatecommit.md
-          - page: docs/xls-40d-sidechains/transaction-types/xchainaddattestation.md
-          - page: docs/xls-40d-sidechains/transaction-types/xchaincommit.md
-          - page: docs/xls-40d-sidechains/transaction-types/xchaincreateaccountclaimid.md
-          - page: docs/xls-40d-sidechains/transaction-types/xchaincreatebridge.md
-          - page: docs/xls-40d-sidechains/transaction-types/xchaincreateclaimid.md
-          - page: docs/xls-40d-sidechains/transaction-types/xchainmodifybridge.md
+          - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchainaccountcreatecommit.md
+          - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchainaddattestation.md
+          - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchaincommit.md
+          - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchaincreateaccountclaimid.md
+          - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchaincreatebridge.md
+          - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchaincreateclaimid.md
+          - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchainmodifybridge.md
   - group: EVM Sidechains
     page: docs/evm-sidechain/intro-to-evm-sidechain.md
     expanded: false
