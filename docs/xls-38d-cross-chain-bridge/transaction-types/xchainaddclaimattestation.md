@@ -1,14 +1,14 @@
 ---
-html: xchainaddattestation.html 
+html: xchainaddclaimattestation.html 
 parent: transaction-types.html
 blurb: Submit a proof (attestation) to the destination chain that an event that happened on the source chain.
 labels:
   - Interoperability
 status: not_enabled
 ---
-# XChainAddAttestation
+# XChainAddClaimAttestation
 
-The `XChainAddAddestation` transaction is submitted on the destination chain, by the witness server or anyone with access to the signatures from the witness server. It is a proof that an event (essentially just a locking/burning of funds) happened on the source chain.
+The `XChainAddClaimAttestation` transaction is submitted on the destination chain, by the witness server or anyone with access to the signatures from the witness server. It is a proof that an event (essentially just a locking/burning of funds) happened on the source chain.
 
 When enough witnesses have submitted their proofs on the destination chain that an event has occurred, the funds will be released to the destination account in the XChainCommit transaction, if specified. Otherwise, the claim ID owner must submit an XChainClaim transaction to determine where the funds will go on the destination chain.
 
@@ -17,7 +17,7 @@ When enough witnesses have submitted their proofs on the destination chain that 
 
 ```json
 {
-  "TransactionType": "XChainAddAttestation",
+  "TransactionType": "XChainAddClaimAttestation",
   "Account": "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh",
   "XChainAttestationBatch": {
     "XChainBridge": {
