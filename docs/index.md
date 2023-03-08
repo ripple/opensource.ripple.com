@@ -12,4 +12,4 @@ To learn more about the consensus process and the workflow for features to go fr
 
   - [Sidechains](docs/xls-40d-sidechains/cross-chain-bridges.md)
   - [EVM Sidechain](docs/evm-sidechain/intro-to-evm-sidechain.md)
-  - [AMM](docs/xls-30d-amm/intro.md)
+  - [AMM](docs/xls-30d-amm/amm-uc.md)

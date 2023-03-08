@@ -15,7 +15,6 @@ prerelease:
           - page: docs/xls-40d-sidechains/ledger-object-types/xchainclaim.md
           - page: docs/xls-40d-sidechains/ledger-object-types/xchainclaimid.md
       - group: Transaction Types
-        page: concepts/introduction/other-topics-placeholder.md
         expanded: false
         pages:
           - page: docs/xls-40d-sidechains/transaction-types/xchainaccountcreatecommit.md
@@ -39,3 +38,15 @@ prerelease:
     expanded: false
     pages:
       - page: docs/xls-30d-amm/automated-market-makers.md
+      - group: Ledger Object Types
+        expanded: false
+        pages:
+          - page: docs/xls-30d-amm/ledger-object-types/amm.md
+      - group: Transaction Types
+        expanded: false
+        pages:
+          - page: docs/xls-30d-amm/transaction-types/ammbid.md
+          - page: docs/xls-30d-amm/transaction-types/ammcreate.md
+          - page: docs/xls-30d-amm/transaction-types/ammdeposit.md
+          - page: docs/xls-30d-amm/transaction-types/ammvote.md
+          - page: docs/xls-30d-amm/transaction-types/ammwithdraw.md
