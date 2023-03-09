@@ -1,52 +1,54 @@
 prerelease:
-  - label: Prerelease Docs
+  - label: Open Source Projects 
     page: docs/index.md
-  - group: Sidechains
-    page: docs/xls-40d-sidechains/xrpl-interoperability.md
-    expanded: false
-    pages:
-      - page: docs/xls-40d-sidechains/cross-chain-bridges.md
-      - page: docs/xls-40d-sidechains/witness-server.md
-      - page: docs/xls-40d-sidechains/parallel-networks-list.md
-      - group: Ledger Object Types
-        expanded: false
-        pages:
-          - page: docs/xls-40d-sidechains/ledger-object-types/bridge.md
-          - page: docs/xls-40d-sidechains/ledger-object-types/xchainclaim.md
-          - page: docs/xls-40d-sidechains/ledger-object-types/xchainclaimid.md
-      - group: Transaction Types
-        expanded: false
-        pages:
-          - page: docs/xls-40d-sidechains/transaction-types/xchainaccountcreatecommit.md
-          - page: docs/xls-40d-sidechains/transaction-types/xchainaddattestation.md
-          - page: docs/xls-40d-sidechains/transaction-types/xchaincommit.md
-          - page: docs/xls-40d-sidechains/transaction-types/xchaincreateaccountclaimid.md
-          - page: docs/xls-40d-sidechains/transaction-types/xchaincreatebridge.md
-          - page: docs/xls-40d-sidechains/transaction-types/xchaincreateclaimid.md
-          - page: docs/xls-40d-sidechains/transaction-types/xchainmodifybridge.md
-  - group: EVM Sidechains
-    page: docs/evm-sidechain/intro-to-evm-sidechain.md
-    expanded: false
-    pages:
-      - page: docs/evm-sidechain/get-started-evm-sidechain.md
-      - page: docs/evm-sidechain/connect-metamask-to-xrpl-evm-sidechain.md
-      - page: docs/evm-sidechain/evm-sidechain-run-a-validator-node.md
-      - page: docs/evm-sidechain/evm-sidechain-validator-security.md
-      - page: docs/evm-sidechain/join-evm-sidechain-devnet.md
-  - group: AMM
-    page: docs/xls-30d-amm/amm-uc.md
-    expanded: false
-    pages:
-      - page: docs/xls-30d-amm/automated-market-makers.md
-      - group: Ledger Object Types
-        expanded: false
-        pages:
-          - page: docs/xls-30d-amm/ledger-object-types/amm.md
-      - group: Transaction Types
-        expanded: false
-        pages:
-          - page: docs/xls-30d-amm/transaction-types/ammbid.md
-          - page: docs/xls-30d-amm/transaction-types/ammcreate.md
-          - page: docs/xls-30d-amm/transaction-types/ammdeposit.md
-          - page: docs/xls-30d-amm/transaction-types/ammvote.md
-          - page: docs/xls-30d-amm/transaction-types/ammwithdraw.md
+    expanded: false 
+  - label: Prerelease Docs 
+    expanded: false 
+    - group: Cross-chain Bridges
+      page: docs/xls-40d-sidechains/cross-chain-bridges.md
+      expanded: false
+      pages:
+        - page: docs/xls-40d-sidechains/witness-server.md
+        - page: docs/xls-40d-sidechains/parallel-networks-list.md
+        - group: Ledger Object Types
+          expanded: false
+          pages:
+            - page: docs/xls-40d-sidechains/ledger-object-types/bridge.md
+            - page: docs/xls-40d-sidechains/ledger-object-types/xchainclaim.md
+            - page: docs/xls-40d-sidechains/ledger-object-types/xchainclaimid.md
+        - group: Transaction Types
+          expanded: false
+          pages:
+            - page: docs/xls-40d-sidechains/transaction-types/xchainaccountcreatecommit.md
+            - page: docs/xls-40d-sidechains/transaction-types/xchainaddattestation.md
+            - page: docs/xls-40d-sidechains/transaction-types/xchaincommit.md
+            - page: docs/xls-40d-sidechains/transaction-types/xchaincreateaccountclaimid.md
+            - page: docs/xls-40d-sidechains/transaction-types/xchaincreatebridge.md
+            - page: docs/xls-40d-sidechains/transaction-types/xchaincreateclaimid.md
+            - page: docs/xls-40d-sidechains/transaction-types/xchainmodifybridge.md
+    - group: EVM Sidechains
+      page: docs/evm-sidechain/intro-to-evm-sidechain.md
+      expanded: false
+      pages:
+        - page: docs/evm-sidechain/get-started-evm-sidechain.md
+        - page: docs/evm-sidechain/connect-metamask-to-xrpl-evm-sidechain.md
+        - page: docs/evm-sidechain/evm-sidechain-run-a-validator-node.md
+        - page: docs/evm-sidechain/evm-sidechain-validator-security.md
+        - page: docs/evm-sidechain/join-evm-sidechain-devnet.md
+    - group: AMM
+      page: docs/xls-30d-amm/amm-uc.md
+      expanded: false
+      pages:
+        - page: docs/xls-30d-amm/automated-market-makers.md
+        - group: Ledger Object Types
+          expanded: false
+          pages:
+            - page: docs/xls-30d-amm/ledger-object-types/amm.md
+        - group: Transaction Types
+          expanded: false
+          pages:
+            - page: docs/xls-30d-amm/transaction-types/ammbid.md
+            - page: docs/xls-30d-amm/transaction-types/ammcreate.md
+            - page: docs/xls-30d-amm/transaction-types/ammdeposit.md
+            - page: docs/xls-30d-amm/transaction-types/ammvote.md
+            - page: docs/xls-30d-amm/transaction-types/ammwithdraw.md
