@@ -15,8 +15,6 @@ To learn more about the consensus process and the workflow for features to go fr
 - [XLS-38d Proposal](https://github.com/XRPLF/XRPL-Standards/discussions/92)
 - [Documentation](docs/xls-40d-sidechains/cross-chain-bridges.md)
 
-
-
 ### EVM Sidechain
 
 - [Documentation](docs/evm-sidechain/intro-to-evm-sidechain.md)
