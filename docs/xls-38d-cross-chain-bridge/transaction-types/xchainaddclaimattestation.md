@@ -17,8 +17,7 @@ Any account can submit signatures.
 **Note:** The reward is only sent to accounts that have keys on the current list. A quorum of signers need to agree on the `SignatureReward`, the same way they need to agree on the other data. A single witness server can't provide an incorrect value for this in an attempt to collect a larger reward.
 
 
-## Example {{currentpage.name}} JSON
-
+## Example XChainAddClaimAttestation JSON
 
 ```json
 {
@@ -27,9 +26,13 @@ Any account can submit signatures.
   "XChainAttestationBatch": {
     "XChainBridge": {
       "IssuingChainDoor": "rKeSSvHvaMZJp9ykaxutVwkhZgWuWMLnQt",
-      "IssuingChainIssue": "XRP",
+      "IssuingChainIssue": {
+        "currency": "XRP"
+      },
       "LockingChainDoor": "rJvExveLEL4jNDEeLKCVdxaSCN9cEBnEQC",
-      "LockingChainIssue": "XRP"
+      "LockingChainIssue": {
+        "currency": "XRP"
+      }
     },
     "XChainClaimAttestationBatch" : [
       {
@@ -64,7 +67,8 @@ Any account can submit signatures.
 }
 ```
 
-{% include '_snippets/tx-fields-intro.md' %}
+
+## XChainAddClaimAttestation Fields
 
 | Field                            | JSON Type         | [Internal Type][] | Required? | Description |
 |:---------------------------------|:------------------|:------------------|:----------|-------------|
@@ -77,10 +81,10 @@ Any account can submit signatures.
 | `Signature`                      | `string`          | `BLOB`            | Yes       | The signature attesting to the event on the other chain. |
 | `WasLockingChainSend`            | `number`          | `UINT8`           | Yes       | A boolean representing the chain where the event occurred. |
 | `XChainBridge`                   | `XChainBridge`    | `XCHAIN_BRIDGE`   | Yes       | The bridge to use to transfer funds. |
-| `XChainBridge.LockingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the locking chain. |
-| `XChainBridge.LockingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is locked and unlocked on the locking chain. |
 | `XChainBridge.IssuingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the issuing chain. For an XRP-XRP bridge, this must be the genesis account (the account that is created when the network is first started, which contains all of the XRP). |
 | `XChainBridge.IssuingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is minted and burned on the issuing chain. For an IOU-IOU bridge, the issuer of the asset must be the door account on the issuing chain, to avoid supply issues. |
+| `XChainBridge.LockingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the locking chain. |
+| `XChainBridge.LockingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is locked and unlocked on the locking chain. |
 | `XChainClaimID`                  | `string`          | `UINT64`          | Yes       | The `XChainClaimID` associated with the transfer, which was included in the `XChainCommit` transaction. |
 
 
@@ -92,9 +96,3 @@ In addition to errors that can occur for all transactions, {{currentpage.name}} 
 |:------------------------------|:---------------------------------------------|
 | `temDISABLED`                 | The [NonFungibleTokensV1 amendment][] is not enabled. |
 -->
-
-
-<!--{# common link defs #}-->
-{% include '_snippets/rippled-api-links.md' %}
-{% include '_snippets/tx-type-links.md' %}
-{% include '_snippets/rippled_versions.md' %}

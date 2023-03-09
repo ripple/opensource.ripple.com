@@ -10,9 +10,8 @@ status: not_enabled
 
 The `XChainCommit` is the second step in a cross-chain transfer. It puts assets into trust on the locking chain so that they can be wrapped on the issuing chain, or burns wrapped assets on the issuing chain so that they can be returned on the locking chain.
 
-## Example {{currentpage.name}} JSON
 
-***TODO: Need updated JSON example.***
+## Example XChainCommit JSON
 
 ```json
 {
@@ -34,18 +33,18 @@ The `XChainCommit` is the second step in a cross-chain transfer. It puts assets 
 ```
 
 
-{% include '_snippets/tx-fields-intro.md' %}
+## XChainCommit Fields
 
 | Field                            | JSON Type         | [Internal Type][] | Description |
 |:---------------------------------|:------------------|:------------------|:------------|
+| `Amount`                         | `Currency Amount` | `AMOUNT`          | Yes       | The asset to commit, and the quantity. This must match the door account's `LockingChainIssue` (if on the locking chain) or the door account's `IssuingChainIssue` (if on the issuing chain). |
+| `OtherChainDestination`          | `string`          | `ACCOUNT`         | No        | The destination account on the destination chain. If this is not specified, the account that submitted the `XChainCreateClaimID` transaction on the destination chain will need to submit a `XChainClaim` transaction to claim the funds. |
 | `XChainBridge`                   | `XChainBridge`    | `XCHAIN_BRIDGE`   | Yes       | The bridge to use to transfer funds. |
-| `XChainBridge.LockingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the locking chain. |
-| `XChainBridge.LockingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is locked and unlocked on the locking chain. |
 | `XChainBridge.IssuingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the issuing chain. For an XRP-XRP bridge, this must be the genesis account (the account that is created when the network is first started, which contains all of the XRP). |
 | `XChainBridge.IssuingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is minted and burned on the issuing chain. For an IOU-IOU bridge, the issuer of the asset must be the door account on the issuing chain, to avoid supply issues. |
+| `XChainBridge.LockingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the locking chain. |
+| `XChainBridge.LockingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is locked and unlocked on the locking chain. |
 | `XChainClaimID`                  | `string`          | `UINT64`          | Yes       |  The unique integer ID for a cross-chain transfer. This must be acquired on the destination chain (via a `XChainCreateClaimID` transaction) and checked from a validated ledger before submitting this transaction. If an incorrect sequence number is specified, the funds will be lost. |
-| `Amount`                         | `Currency Amount` | `AMOUNT`          | Yes       | The asset to commit, and the quantity. This must match the door account's `LockingChainIssue` (if on the locking chain) or the door account's `IssuingChainIssue` (if on the issuing chain).
-| `OtherChainDestination`          | `string`          | `ACCOUNT`         | No        | The destination account on the destination chain. If this is not specified, the account that submitted the `XChainCreateClaimID` transaction on the destination chain will need to submit a `XChainClaim` transaction to claim the funds.
 
 
 <!-- ## Error Cases
@@ -56,9 +55,3 @@ In addition to errors that can occur for all transactions, {{currentpage.name}} 
 |:------------------------------|:---------------------------------------------|
 | `temDISABLED`                 | The [NonFungibleTokensV1 amendment][] is not enabled. |
 -->
-
-
-<!--{# common link defs #}-->
-{% include '_snippets/rippled-api-links.md' %}
-{% include '_snippets/tx-type-links.md' %}
-{% include '_snippets/rippled_versions.md' %}

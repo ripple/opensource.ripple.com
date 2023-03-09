@@ -16,18 +16,39 @@ Any account can submit signatures.
 
 **Note:** The reward is only sent to accounts that have keys on the current list. A quorum of signers need to agree on the `SignatureReward`, the same way they need to agree on the other data. A single witness server can't provide an incorrect value for this in an attempt to collect a larger reward.
 
-***TODO: Get example JSON.***
-<!--
-## Example {{currentpage.name}} JSON
+
+## Example XChainAddAccountCreateAttestation JSON
 
 ```json
-
+{
+  "Account": "rDr5okqGKmMpn44Bbhe5WAfDQx8e9XquEv",
+  "TransactionType": "XChainAddAccountCreateAttestation",
+  "OtherChainSource": "rUzB7yg1LcFa7m3q1hfrjr5w53vcWzNh3U",
+  "Destination": "rJMfWNVbyjcCtds8kpoEjEbYQ41J5B6MUd",
+  "Amount": "2000000000",
+  "PublicKey": "EDF7C3F9C80C102AF6D241752B37356E91ED454F26A35C567CF6F8477960F66614",
+  "Signature": "F95675BA8FDA21030DE1B687937A79E8491CE51832D6BEEBC071484FA5AF5B8A0E9AFF11A4AA46F09ECFFB04C6A8DAE8284AF3ED8128C7D0046D842448478500",
+  "WasLockingChainSend": 1,
+  "AttestationRewardAccount": "rpFp36UHW6FpEcZjZqq5jSJWY6UCj3k4Es",
+  "AttestationSignerAccount": "rpWLegmW9WrFBzHUj7brhQNZzrxgLj9oxw",
+  "XChainAccountCreateCount": "2",
+  "SignatureReward": "204",
+  "XChainBridge": {
+    "LockingChainDoor": "r3nCVTbZGGYoWvZ58BcxDmiMUU7ChMa1eC",
+    "LockingChainIssue": {
+      "currency": "XRP"
+    },
+    "IssuingChainDoor": "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh",
+    "IssuingChainIssue": {
+      "currency": "XRP"
+    }
+  },
+  "Fee": "20"
+}
 ```
--->
 
-## {{currentpage.name}} Fields
 
-{% include '_snippets/tx-fields-intro.md' %}
+## XChainAddAccountCreateAttestation Fields
 
 | Field                            | JSON Type         | [Internal Type][] | Required? | Description |
 |:---------------------------------|:------------------|:------------------|:----------|:------------|
@@ -42,10 +63,10 @@ Any account can submit signatures.
 | `WasLockingChainSend`            | `number`          | `UINT8`           | Yes       | A boolean representing the chain where the event occurred. |
 | `XChainAccountCreateCount`       | `string`          | `UINT64`          | Yes       | The counter that represents the order that the claims must be processed in. |
 | `XChainBridge`                   | `XChainBridge`    | `XCHAIN_BRIDGE`   | Yes       | The bridge associated with the attestation. |
-| `XChainBridge.LockingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the locking chain. |
-| `XChainBridge.LockingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is locked and unlocked on the locking chain. |
 | `XChainBridge.IssuingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the issuing chain. For an XRP-XRP bridge, this must be the genesis account (the account that is created when the network is first started, which contains all of the XRP). |
 | `XChainBridge.IssuingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is minted and burned on the issuing chain. For an IOU-IOU bridge, the issuer of the asset must be the door account on the issuing chain, to avoid supply issues. |
+| `XChainBridge.LockingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the locking chain. |
+| `XChainBridge.LockingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is locked and unlocked on the locking chain. |
 
 
 <!-- ## Error Cases

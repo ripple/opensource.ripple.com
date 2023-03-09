@@ -15,9 +15,8 @@ The `XChainAccountCreateCommit` transaction creates a new account on one of the 
 **Warning:** This transaction should only be executed if the witness attestations will be reliably delivered to the destination chain. If the signatures aren't delivered, then account creation will be blocked until attestations are received. This can be used maliciously; to disable this transaction on XRP-XRP bridges, the bridge's `MinAccountCreateAmount` shouldn't be present.
 
 
-## Example {{currentpage.name}} JSON
+## Example XChainAccountCreateCommit JSON
 
-***TODO: Double-check JSON example is up-to-date.***
 ```json
 {
   "Account": "rwEqJ2UaQHe7jihxGqmx6J4xdbGiiyMaGa",
@@ -39,18 +38,18 @@ The `XChainAccountCreateCommit` transaction creates a new account on one of the 
 ```
 
 
-{% include '_snippets/tx-fields-intro.md' %}
+## XChainAccountCreateCommit Fields
 
 | Field                            | JSON Type         | [Internal Type][] | Required? | Description |
 |:---------------------------------|:------------------|:------------------|:----------| :-----------|
+| `Amount`                         | `Currency Amount` | `AMOUNT`          | Yes       | The amount, in XRP, to use for account creation. This must be greater than or equal to the `MinAccountCreateAmount` specified in the `Bridge` ledger object. |
+| `Destination`                    | `string`          | `ACCOUNT`         | Yes       | The destination account on the destination chain. |
+| `SignatureReward`                | `Currency Amount` | `AMOUNT`          | No        | The amount, in XRP, to be used to reward the witness servers for providing signatures. This must match the amount on the `Bridge` ledger object. |
 | `XChainBridge`                   | `XChainBridge`    | `XCHAIN_BRIDGE`   | Yes       | The bridge to create accounts for. |
-| `XChainBridge.LockingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the locking chain. |
-| `XChainBridge.LockingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is locked and unlocked on the locking chain. |
 | `XChainBridge.IssuingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the issuing chain. For an XRP-XRP bridge, this must be the genesis account (the account that is created when the network is first started, which contains all of the XRP). |
 | `XChainBridge.IssuingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is minted and burned on the issuing chain. For an IOU-IOU bridge, the issuer of the asset must be the door account on the issuing chain, to avoid supply issues. |
-| `SignatureReward`                | `Currency Amount` | `AMOUNT`          | No        | The amount, in XRP, to be used to reward the witness servers for providing signatures. This must match the amount on the `Bridge` ledger object. |
-| `Destination`                    | `string`          | `ACCOUNT`         | Yes       | The destination account on the destination chain. |
-| `Amount`                         | `Currency Amount` | `AMOUNT`          | Yes       | The amount, in XRP, to use for account creation. This must be greater than or equal to the `MinAccountCreateAmount` specified in the `Bridge` ledger object. |
+| `XChainBridge.LockingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the locking chain. |
+| `XChainBridge.LockingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is locked and unlocked on the locking chain. |
 
 
 <!-- ## Error Cases

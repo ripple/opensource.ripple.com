@@ -15,8 +15,7 @@ This transaction is the first step of a cross-chain transfer of value and is sub
 It also includes the account on the source chain that locks or burns the funds on the source chain.
 
 
-## Example {{currentpage.name}} JSON
-
+## Example XChainCreateClaimID JSON
 
 ```json
 {
@@ -38,17 +37,17 @@ It also includes the account on the source chain that locks or burns the funds o
 ```
 
 
-{% include '_snippets/tx-fields-intro.md' %}
+## XChainCreateClaimID Fields
 
 | Field                            | JSON Type         | [Internal Type][] | Required? | Description |
 |:---------------------------------|:------------------|:------------------|:----------|-------------|
+| `OtherChainSource`               | `string`          | `ACCOUNT`         | Yes       | The account that must send the `XChainCommit` transaction on the source chain.
+| `SignatureReward`                | `string`          | `ACCOUNT`         | Yes       | The amount, in XRP, to reward the witness servers for providing signatures. This must match the amount on the `Bridge` ledger object.
 | `XChainBridge`                   | `XChainBridge`    | `XCHAIN_BRIDGE`   | Yes       | The bridge to create the claim ID for. |
-| `XChainBridge.LockingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the locking chain. |
-| `XChainBridge.LockingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is locked and unlocked on the locking chain. |
 | `XChainBridge.IssuingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the issuing chain. For an XRP-XRP bridge, this must be the genesis account (the account that is created when the network is first started, which contains all of the XRP). |
 | `XChainBridge.IssuingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is minted and burned on the issuing chain. For an IOU-IOU bridge, the issuer of the asset must be the door account on the issuing chain, to avoid supply issues. |
-| `SignatureReward`                | `string`          | `ACCOUNT`         | Yes       | The amount, in XRP, to reward the witness servers for providing signatures. This must match the amount on the `Bridge` ledger object.
-| `OtherChainSource`               | `string`          | `ACCOUNT`         | Yes       | The account that must send the `XChainCommit` transaction on the source chain.
+| `XChainBridge.LockingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the locking chain. |
+| `XChainBridge.LockingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is locked and unlocked on the locking chain. |
 
 
 <!-- ## Error Cases
@@ -59,9 +58,3 @@ In addition to errors that can occur for all transactions, {{currentpage.name}} 
 |:------------------------------|:---------------------------------------------|
 | `temDISABLED`                 | The [NonFungibleTokensV1 amendment][] is not enabled. |
 -->
-
-
-<!--{# common link defs #}-->
-{% include '_snippets/rippled-api-links.md' %}
-{% include '_snippets/tx-type-links.md' %}
-{% include '_snippets/rippled_versions.md' %}

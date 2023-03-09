@@ -21,8 +21,8 @@ To mitigate the possibility of creating a duplicate bridge, ensure the following
 * The issuing chain door account should only issue tokens for a single bridge. Do not create two(2) bridges with the same issuing asset on the same issuing chain. 
 * Do not create two (2) bridges with the same locking asset in the same door account. You can create them with different door accounts. 
 
-## Example {{currentpage.name}} JSON
 
+## Example XChainCreateBridge JSON
 
 ```json
 {
@@ -30,9 +30,13 @@ To mitigate the possibility of creating a duplicate bridge, ensure the following
   "Account": "rhWQzvdmhf5vFS35vtKUSUwNZHGT53qQsg",
   "XChainBridge": {
     "LockingChainDoor": "rhWQzvdmhf5vFS35vtKUSUwNZHGT53qQsg",
-    "LockingChainIssue": "XRP",
+    "LockingChainIssue": {
+      "currency": "XRP"
+    },
     "IssuingChainDoor": "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh",
-    "IssuingChainIssue": "XRP"
+    "IssuingChainIssue": {
+      "currency": "XRP"
+    }
   },
   "SignatureReward": 200,
   "MinAccountCreateAmount": 1000000
@@ -40,17 +44,18 @@ To mitigate the possibility of creating a duplicate bridge, ensure the following
 ```
 
 
-{% include '_snippets/tx-fields-intro.md' %}
+## XChainCreateBridge Fields
 
 | Field                            | JSON Type         | [Internal Type][] | Required? | Description        |
 |:---------------------------------|:------------------|:------------------|:----------------|:-------------------|
+| `MinAccountCreateAmount`         | `Currency Amount` | `AMOUNT`          | No        | The minimum amount, in XRP, required for a `XChainAccountCreateCommit` transaction. If this isn't present, the `XChainAccountCreateCommit` transaction will fail. This field can only be present on XRP-XRP bridges. |
+| `SignatureReward`                | `Currency Amount` | `AMOUNT`          | Yes       | The total amount to pay the witness servers for their signatures. This amount will be split among the signers. |
 | `XChainBridge`                   | `XChainBridge`    | `XCHAIN_BRIDGE`   | Yes       | The bridge (door accounts and assets) to create. |
-| `XChainBridge.LockingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the locking chain. |
-| `XChainBridge.LockingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is locked and unlocked on the locking chain. |
 | `XChainBridge.IssuingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the issuing chain. For an XRP-XRP bridge, this must be the genesis account (the account that is created when the network is first started, which contains all of the XRP). |
 | `XChainBridge.IssuingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is minted and burned on the issuing chain. For an IOU-IOU bridge, the issuer of the asset must be the door account on the issuing chain, to avoid supply issues. |
-| `SignatureReward`                | `Currency Amount` | `AMOUNT`          | Yes       | The total amount to pay the witness servers for their signatures. This amount will be split among the signers. |
-| `MinAccountCreateAmount`         | `Currency Amount` | `AMOUNT`          | No        | The minimum amount, in XRP, required for a `XChainAccountCreateCommit` transaction. If this isn't present, the `XChainAccountCreateCommit` transaction will fail. This field can only be present on XRP-XRP bridges. |
+| `XChainBridge.LockingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the locking chain. |
+| `XChainBridge.LockingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is locked and unlocked on the locking chain. |
+
 
 <!-- ## Error Cases
 
@@ -60,9 +65,3 @@ In addition to errors that can occur for all transactions, {{currentpage.name}} 
 |:------------------------------|:---------------------------------------------|
 | `temDISABLED`                 | The [NonFungibleTokensV1 amendment][] is not enabled. |
 -->
-
-
-<!--{# common link defs #}-->
-{% include '_snippets/rippled-api-links.md' %}
-{% include '_snippets/tx-type-links.md' %}
-{% include '_snippets/rippled_versions.md' %}
