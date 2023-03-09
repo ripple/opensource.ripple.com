@@ -39,25 +39,32 @@ This transaction must be sent by the door account and requires the entities that
 
 ## XChainModifyBridge Fields
 
-| Field                            | JSON Type         | [Internal Type][] | Required? | Description |
-|:---------------------------------|:------------------|:------------------|:----------|-------------|
-| `Flags`                          | `number`          | `UINT32`          | Yes       | Specifies the flags for this transaction. |
-| `MinAccountCreateAmount`         | `Currency Amount` | `AMOUNT`          | No        | The minimum amount, in XRP, required for a `XChainAccountCreateCommit` transaction. If this is not present, the `XChainAccountCreateCommit` transaction will fail. This field can only be present on XRP-XRP bridges. |
-| `SignatureReward`                | `Currency Amount` | `AMOUNT`          | No        | The signature reward split between the witnesses for submitting attestations. |
-| `XChainBridge`                   | `XChainBridge`    | `XCHAIN_BRIDGE`   | Yes       | The bridge to modify. |
-| `XChainBridge.IssuingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the issuing chain. For an XRP-XRP bridge, this must be the genesis account (the account that is created when the network is first started, which contains all of the XRP). |
-| `XChainBridge.IssuingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is minted and burned on the issuing chain. For an IOU-IOU bridge, the issuer of the asset must be the door account on the issuing chain, to avoid supply issues. |
-| `XChainBridge.LockingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the locking chain. |
-| `XChainBridge.LockingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is locked and unlocked on the locking chain. |
+| Field                    | JSON Type         | [Internal Type][] | Required? | Description |
+|:-------------------------|:------------------|:------------------|:----------|-------------|
+| `Flags`                  | `number`          | `UINT32`          | Yes       | Specifies the flags for this transaction. |
+| `MinAccountCreateAmount` | `Currency Amount` | `AMOUNT`          | No        | The minimum amount, in XRP, required for a `XChainAccountCreateCommit` transaction. If this is not present, the `XChainAccountCreateCommit` transaction will fail. This field can only be present on XRP-XRP bridges. |
+| `SignatureReward`        | `Currency Amount` | `AMOUNT`          | No        | The signature reward split between the witnesses for submitting attestations. |
+| `XChainBridge`           | `XChainBridge`    | `XCHAIN_BRIDGE`   | Yes       | The bridge to modify. |
 
 
-## Transaction Flags
+### XChainBridge Fields
+
+| Field               | JSON Type | [Internal Type][] | Required? | Description     |
+|:--------------------|:----------|:------------------|:----------|:----------------|
+| `IssuingChainDoor`  | `string`  | `ACCOUNT`         | Yes       | The door account on the issuing chain. For an XRP-XRP bridge, this must be the genesis account (the account that is created when the network is first started, which contains all of the XRP). |
+| `IssuingChainIssue` | `Issue`   | `ISSUE`           | Yes       | The asset that is minted and burned on the issuing chain. For an IOU-IOU bridge, the issuer of the asset must be the door account on the issuing chain, to avoid supply issues. |
+| `LockingChainDoor`  | `string`  | `ACCOUNT`         | Yes       | The door account on the locking chain. |
+| `LockingChainIssue` | `Issue`   | `ISSUE`           | Yes       | The asset that is locked and unlocked on the locking chain. |
+
+
+### Transaction Flags
 
 In addition to the universal transaction flags that are applicable to all transactions, you can specify this flag:
 
 | Flag Name                    | Flag Value   | Description |
 |------------------------------|--------------|-------------|
 | `tfClearAccountCreateAmount` | `0x00010000` | Clears the `MinAccountCreateAmount` of the bridge. |
+
 
 <!-- ## Error Cases
 

@@ -39,15 +39,21 @@ It also includes the account on the source chain that locks or burns the funds o
 
 ## XChainCreateClaimID Fields
 
-| Field                            | JSON Type         | [Internal Type][] | Required? | Description |
-|:---------------------------------|:------------------|:------------------|:----------|-------------|
-| `OtherChainSource`               | `string`          | `ACCOUNT`         | Yes       | The account that must send the `XChainCommit` transaction on the source chain.
-| `SignatureReward`                | `string`          | `ACCOUNT`         | Yes       | The amount, in XRP, to reward the witness servers for providing signatures. This must match the amount on the `Bridge` ledger object.
-| `XChainBridge`                   | `XChainBridge`    | `XCHAIN_BRIDGE`   | Yes       | The bridge to create the claim ID for. |
-| `XChainBridge.IssuingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the issuing chain. For an XRP-XRP bridge, this must be the genesis account (the account that is created when the network is first started, which contains all of the XRP). |
-| `XChainBridge.IssuingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is minted and burned on the issuing chain. For an IOU-IOU bridge, the issuer of the asset must be the door account on the issuing chain, to avoid supply issues. |
-| `XChainBridge.LockingChainDoor`  | `string`          | `ACCOUNT`         | Yes       | The door account on the locking chain. |
-| `XChainBridge.LockingChainIssue` | `Issue`           | `ISSUE`           | Yes       | The asset that is locked and unlocked on the locking chain. |
+| Field              | JSON Type         | [Internal Type][] | Required? | Description |
+|:-------------------|:------------------|:------------------|:----------|-------------|
+| `OtherChainSource` | `string`          | `ACCOUNT`         | Yes       | The account that must send the `XChainCommit` transaction on the source chain.
+| `SignatureReward`  | `string`          | `ACCOUNT`         | Yes       | The amount, in XRP, to reward the witness servers for providing signatures. This must match the amount on the `Bridge` ledger object.
+| `XChainBridge`     | `XChainBridge`    | `XCHAIN_BRIDGE`   | Yes       | The bridge to create the claim ID for. |
+
+
+### XChainBridge Fields
+
+| Field               | JSON Type | [Internal Type][] | Required? | Description     |
+|:--------------------|:----------|:------------------|:----------|:----------------|
+| `IssuingChainDoor`  | `string`  | `ACCOUNT`         | Yes       | The door account on the issuing chain. For an XRP-XRP bridge, this must be the genesis account (the account that is created when the network is first started, which contains all of the XRP). |
+| `IssuingChainIssue` | `Issue`   | `ISSUE`           | Yes       | The asset that is minted and burned on the issuing chain. For an IOU-IOU bridge, the issuer of the asset must be the door account on the issuing chain, to avoid supply issues. |
+| `LockingChainDoor`  | `string`  | `ACCOUNT`         | Yes       | The door account on the locking chain. |
+| `LockingChainIssue` | `Issue`   | `ISSUE`           | Yes       | The asset that is locked and unlocked on the locking chain. |
 
 
 <!-- ## Error Cases
