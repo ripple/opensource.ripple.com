@@ -1,7 +1,7 @@
 meta:
-  title: Prerelease Documentation
-  description: Prerelease documentation for XRP Ledger features being developed by Ripple.
-  siteUrl: https://xrpl-prerelease-docs.redoc.ly
+  title: Open Source @ Ripple
+  description: Open source projects and prerelease documentation being developed by Ripple engineers.
+  siteUrl: https://opensource-ripple.redoc.ly
   keywords: xrpl docs, prerelease docs, beta api reference docs
   lang: en-US
 disableImagesOptimization: true
@@ -11,7 +11,7 @@ linkChecker:
     CheckExternal: false
 logo:
   image: ./images/ripple-logo.svg
-  altText: Prerelease Documentation
+  altText: Open Source at Ripple Documentation
 toc:
   enable: true
 stylesheets:
@@ -25,8 +25,8 @@ stylesheets:
 #scripts:
 #  - ./static/intercom.js
 nav:
-  - label: Home
-    page: index.mdx 
+  - label: Projects
+    page: index.mdx  
   - search: true
 
 showNextButton: false
