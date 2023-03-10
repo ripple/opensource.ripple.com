@@ -40,3 +40,14 @@ Setting up an XRP-XRP bridge on a new issuing chain is somewhat complex because 
 9.  Submit a `SignerListSet` transaction from the genesis account on the issuing chain, using the witnesses' signing keys as the signers.
 
 10. Disable the master key on the issuing chain's genesis account with an `AccountSet` transaction.
+
+
+## See Also
+
+- **Transactions:**
+  - [AccountSet](https://xrpl.org/accountset.html)
+  - [SignerListSet](https://xrpl.org/signerlistset.html)
+  - [XChainCreateBridge](../transaction-types/xchaincreatebridge.md)
+  - [XChainAccountCreateCommit](../transaction-types/xchainaccountcreatecommit.md)
+  - [XChainAddAccountCreateAttestation](../transaction-types/xchainaddaccountcreateattestation.md)
+- [List of Parallel Networks](../parallel-networks-list.md)

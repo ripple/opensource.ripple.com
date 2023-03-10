@@ -7,6 +7,7 @@ labels:
 ---
 # Submit Cross-chain Transactions
 
+
 ## Prerequisites
 
 - The locking and issuing chains are both up and running.
@@ -29,3 +30,13 @@ labels:
 5. When enough `XChainAddClaimAttestation` signatures are submitted to reach quorum, the funds are automatically released on the issuing chain to the `OtherChainDestination` specified by the `XChainCommit` transaction.
 
 6. (Optional) If the funds aren't automatically released, you can submit an `XChainClaim` transaction with your account on the issuing chain.
+
+
+## See Also
+
+- **Transactions:**
+  - [XChainCreateClaimID](../transaction-types/xchaincreateclaimid.md)
+  - [XChainCommit](../transaction-types/xchaincommit.md)
+  - [XChainAddClaimAttestation](../transaction-types/xchainaddclaimattestation.md)
+  - [XChainClaim](../transaction-types/xchainclaim.md)
+- [List of Parallel Networks](../parallel-networks-list.md)

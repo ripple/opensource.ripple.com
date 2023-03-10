@@ -30,3 +30,12 @@ labels:
 5. Submit a `SignerListSet` transaction from the door account on the issuing chain, using the witnesses' signing keys as the signers.
 
 6. Disable the master key on the issuing chain's door account with an `AccountSet` transaction.
+
+
+## See Also
+
+- **Transactions:**
+  - [XChainCreateBridge](../transaction-types/xchaincreatebridge.md)
+  - [SignerListSet](https://xrpl.org/signerlistset.html)
+  - [AccountSet](https://xrpl.org/accountset.html)
+- [List of Parallel Networks](../parallel-networks-list.md)
