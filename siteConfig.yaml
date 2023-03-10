@@ -10,7 +10,7 @@ linkChecker:
   options:
     CheckExternal: false
 logo:
-  image: ./images/ripple-logo.svg
+  image: ./images/ripple-open-source-logo.svg
   altText: Open Source at Ripple Documentation
 toc:
   enable: true
