@@ -57,8 +57,7 @@ Follow the [tutorial](https://github.com/XRPLF/sidechain-cli/blob/main/scripts/t
 
 ## See Also
 
-**Tutorials:**
-- [Set Up an XRP-XRP Bridge](tutorials/set-up-xrp-xrp-bridge.md)
-- [Set Up an IOU-IOU Bridge](tutorials/set-up-iou-iou-bridge.md)
-- [Submit Cross-chain Transactions](tutorials/submit-cross-chain-transaction.md)
- 
+- **Tutorials:**
+  - [Set Up an XRP-XRP Bridge](tutorials/set-up-xrp-xrp-bridge.md)
+  - [Set Up an IOU-IOU Bridge](tutorials/set-up-iou-iou-bridge.md)
+  - [Submit Cross-chain Transactions](tutorials/submit-cross-chain-transaction.md)
