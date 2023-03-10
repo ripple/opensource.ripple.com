@@ -6,6 +6,6 @@ Documentation for features in development will be available on this preview site
 
 ## Features currently in development
 
-  - [Sidechains](docs/xls-38d-cross-chain-bridge/cross-chain-bridges.md)
-  - [EVM Sidechain](docs/evm-sidechain/intro-to-evm-sidechain.md)
-  - [AMM](docs/xls-30d-amm/intro.md)
+  - [Sidechains](xls-38d-cross-chain-bridge/cross-chain-bridges.md)
+  - [EVM Sidechain](evm-sidechain/intro-to-evm-sidechain.md)
+  - [AMM](xls-30d-amm/automated-market-makers.md)
