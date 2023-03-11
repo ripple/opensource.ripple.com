@@ -10,6 +10,12 @@ opensource:
         pages:
           - page: docs/xls-38d-cross-chain-bridge/witness-server.md
           - page: docs/xls-38d-cross-chain-bridge/parallel-networks-list.md
+          - group: Tutorials
+            expanded: false
+            pages:
+              - page: docs/xls-38d-cross-chain-bridge/tutorials/set-up-xrp-xrp-bridge.md
+              - page: docs/xls-38d-cross-chain-bridge/tutorials/set-up-iou-iou-bridge.md
+              - page: docs/xls-38d-cross-chain-bridge/tutorials/submit-cross-chain-transaction.md
           - group: Ledger Object Types
             expanded: false
             pages:

@@ -15,11 +15,11 @@ To learn more about the consensus process and the workflow for features to go fr
 ### Cross-chain Bridges
 
 - [XLS-38d Proposal](https://github.com/XRPLF/XRPL-Standards/discussions/92)
-- [Documentation](docs/xls-40d-sidechains/cross-chain-bridges.md)
+- [Documentation](xls-38d-cross-chain-bridge/cross-chain-bridges.md)
 
 ### EVM Sidechain
 
-- [Documentation](docs/evm-sidechain/intro-to-evm-sidechain.md)
+- [Documentation](evm-sidechain/intro-to-evm-sidechain.md)
 
 
 ### Automated Market Makers (AMM)

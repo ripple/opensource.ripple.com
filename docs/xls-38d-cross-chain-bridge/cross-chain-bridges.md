@@ -13,7 +13,7 @@ A locking chain is a blockchain that holds assets that are then put into trust w
 
 An issuing chain is an independent ledger with its own consensus algorithm and transaction types and rules. It acts as its own blockchain.
 
-Both the locking and issuing chains operate as parallel networks with independent nodes and validators. They rely on independent [witness servers](witness-server.html) to watch transactions between the two chains and attest that assets have moved into specifically designated accounts.
+Both the locking and issuing chains operate as parallel networks with independent nodes and validators. They rely on independent [witness servers](witness-server.md) to watch transactions between the two chains and attest that assets have moved into specifically designated accounts.
 
 
 ## Terminology
@@ -24,7 +24,7 @@ Both the locking and issuing chains operate as parallel networks with independen
 
 - **Issuing chain**: The chain on which the bridge mints and burns assets.
 
-- **Witness**: Independent servers that are aware of the locking and issuing chains. See [witness servers](witness-server.html) for more information.
+- **Witness**: Independent servers that are aware of the locking and issuing chains. See [witness servers](witness-server.md) for more information.
 
 - **Cross-chain transfer**: A transfer of assets from one chain to another.
 
@@ -57,6 +57,7 @@ Follow the [tutorial](https://github.com/XRPLF/sidechain-cli/blob/main/scripts/t
 
 ## See Also
 
-- [Witness Server](witness-server.html)
-- [Transaction Reference](transaction-types.html)
- 
+- **Tutorials:**
+  - [Set Up an XRP-XRP Bridge](tutorials/set-up-xrp-xrp-bridge.md)
+  - [Set Up an IOU-IOU Bridge](tutorials/set-up-iou-iou-bridge.md)
+  - [Submit Cross-chain Transactions](tutorials/submit-cross-chain-transaction.md)
