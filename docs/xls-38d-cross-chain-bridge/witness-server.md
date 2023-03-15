@@ -8,21 +8,16 @@ blurb: A witness server is a light-weight server that witnesses and signs transa
 
  _(Added by the in-development Sidechains feature)_ :not_enabled:
 
-The _witness server_ is a light-weight server that is aware of the locking and issuing chains in a bridging solution between blockchains. The witness server witnesses and signs transactions between [a locking chain and an issuing chain](cross-chain-bridges.md) when assets are moved to designated addresses, thus enabling cross-chain transactions. 
-
-The witness server is an independent server that has similar responsibilities as that of a validator server on the XRP Ledger's peer-to-peer network and helps avoid double-spend and collusion. 
-
-The witness server serves as a neutral witness for transactions between a locking chain and an issuing chain. 
-It listens to the door accounts on both sides of the bridge and signs attestations for cross-chain transfer transactions, essentially affirming that a transaction on the source account happened, so the value can be claimed on the destination account. They are essentially acting as an oracle, to “prove” that the value was locked/burned on the source account, which allows the recipient to then claim (via minting/ unlocking) the equivalent funds on the destination account.
+A _witness server_ acts as a neutral witness for transactions between a locking chain and an issuing chain. It listens to the door accounts on both sides of a bridge and signs attestations that confirm a transaction occurred. They are essentially acting as an oracle to “prove” that value was locked or burned on a source account, which allows the recipient to then claim (via minting or unlocking) the equivalent funds on the destination account.
 
 The bridge between the locking chain and the issuing chain includes the following information in its configuration: 
 
 * Witness servers that monitor transactions on the bridge. You can choose one or more witness servers. 
 * Fee for witness servers for their service.
  
-Anyone can run a witness server. However, the burden is on the participants of the issuing chain to evaluate the reliability of witness servers. 
+Anyone can run a witness server. However, the burden is on the participants of the issuing chain to evaluate the reliability of witness servers. If you run a witness server, you must also run a `rippled` node and sync it to the chain the witness server needs access to.
 
-Note that an issuing chain may choose to configure a bridge with only one witness server initially and run the witness server itself. This strategy may be helpful in the initial period when the issuing chain is yet to establish itself in the marketplace.
+**Note:** Issuing chains may choose to configure a bridge with only one witness server initially and run the witness server itself. This strategy is helpful in the initial period, when the issuing chain hasn't established itself yet in the marketplace.
 
 
 ## Witness Server Configuration
@@ -97,16 +92,24 @@ The witness server takes a JSON configuration file, specified using the `--conf`
 
 | Field Name      | JSON Type | Required? | Description |
 |-----------------|-----------|-----------|-------------|
-| `Endpoint`      | `object`  | Yes       | The websocket endpoint of a `rippled` node synced with the locking chain. |
-| `TxnSubmit`     | `object`  | Yes       | The parameters for transaction submission on the locking chain. |
-| `RewardAccount` | `string`  | Yes       | The account that should receive the witness's share of the `SignatureReward` on the locking chain. |
+| `Endpoint`      | `object`  | Yes       | The websocket endpoint of a `rippled` node synced with the chain. **Note:** This must be a node you run. |
+| `TxnSubmit`     | `object`  | Yes       | The parameters for transaction submission on the chain. |
+| `RewardAccount` | `string`  | Yes       | The account that should receive the witness's share of the `SignatureReward` on the chain. |
 
 
-#### Endpoint and RPCEndpoint Fields
+#### Endpoint Fields
 
 | Field Name | JSON Type | Required? | Description |
 |------------|-----------|-----------|-------------|
-| `IP`       | `string`  | Yes       | The IP address of the rippled node. **Note:** This doesn't accept URLs |
+| `IP`       | `string`  | Yes       | The IP address of the `rippled` node. **Note:** This doesn't accept URLs |
+| `Port`     | `string`  | Yes       | The port used for the websocket endpoint. |
+
+
+#### RPCEndpoint Fields
+
+| Field Name | JSON Type | Required? | Description |
+|------------|-----------|-----------|-------------|
+| `IP`       | `string`  | Yes       | The IP address of the witness server for RPC requests. **Note:** This doesn't accept URLs |
 | `Port`     | `string`  | Yes       | The port used for the websocket endpoint. |
 
 
