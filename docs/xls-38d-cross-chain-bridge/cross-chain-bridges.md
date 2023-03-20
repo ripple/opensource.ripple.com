@@ -7,6 +7,8 @@ labels:
 ---
 # Cross-Chain Bridges
 
+<embed src="/snippets/_xchain-bridges-disclaimer.md" />
+
 Cross-chain bridges for the XRP Ledger enable value in the form of XRP and other tokens (IOUs) to move efficiently between blockchains such as the XRP Ledger and its sidechains.
 
 A locking chain is a blockchain that holds assets that are then put into trust when a bridge to an issuing chain is created.

@@ -1,4 +1,4 @@
-# Open Source Projects @ Ripple
+# Open Source Projects
 
 Ripple contributes to the maintenance and development of the open source XRP Ledger. The XRP Ledger is a decentralized public blockchain and Ripple collaborates with the wider XRP Ledger community to develop new features and capabilities for the XRP Ledger.
 

@@ -9,6 +9,8 @@ status: not_enabled
 # Bridge
 [[Source]](https://github.com/seelabs/rippled/blob/xchain/src/ripple/protocol/impl/LedgerFormats.cpp#L265-L279 "Source")
 
+<embed src="/snippets/_xchain-bridges-disclaimer.md" />
+
 A bridge connects and enables value to move efficiently between two blockchains. A bridge connects the XRP Ledger with another blockchain, such as its sidechain, and enables value in the form of XRP and other tokens (IOUs) to move efficiently between the two blockchains.
 
 

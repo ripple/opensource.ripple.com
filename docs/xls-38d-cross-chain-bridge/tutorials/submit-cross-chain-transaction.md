@@ -7,6 +7,7 @@ labels:
 ---
 # Submit Cross-chain Transactions
 
+<embed src="/snippets/_xchain-bridges-disclaimer.md" />
 
 ## Prerequisites
 

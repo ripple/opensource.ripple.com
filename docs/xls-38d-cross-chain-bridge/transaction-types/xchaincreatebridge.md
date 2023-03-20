@@ -8,6 +8,8 @@ status: not_enabled
 ---
 # XChainCreateBridge
 
+<embed src="/snippets/_xchain-bridges-disclaimer.md" />
+
 The `XChainCreateBridge` transaction creates a new `Bridge` ledger object and defines a new cross-chain bridge entrance on the chain that the transaction is submitted on. It includes information about door accounts and assets for the bridge. 
 
 The transaction must be submitted by the door account. To set up a valid bridge, door accounts on both chains must submit this transaction, in addition to setting up witness servers.

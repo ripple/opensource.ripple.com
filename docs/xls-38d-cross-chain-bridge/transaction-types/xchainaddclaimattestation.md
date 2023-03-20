@@ -8,6 +8,8 @@ status: not_enabled
 ---
 # XChainAddClaimAttestation
 
+<embed src="/snippets/_xchain-bridges-disclaimer.md" />
+
 The `XChainAddClaimAttestation` transaction provides proof from a witness server, attesting to an `XChainCommit` transaction. 
 
 The signature must be from one of the keys on the door's signer list at the time the signature was provided. However, if the signature list changes between the time the signature was submitted and the quorum is reached, the new signature set is used and some of the currently collected signatures may be removed.

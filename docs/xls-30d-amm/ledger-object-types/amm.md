@@ -10,7 +10,10 @@ status: not_enabled
 [[Source]](https://github.com/gregtatcam/rippled/blob/c1e4bfb08bcc9f187d794a71d653003a6148dc68/src/ripple/protocol/impl/LedgerFormats.cpp#L265-L275 "Source")
 <!-- TODO: Update source link to merged version when available -->
 
-{% include '_snippets/amm-disclaimer.md' %}
+<!-- {% include '_snippets/amm-disclaimer.md' %} -->
+
+<embed src="/snippets/_amm-disclaimer.md" />
+
 
 The `AMM` object type describes a single [Automated Market Maker](automated-market-makers.html) (AMM) instance.
 

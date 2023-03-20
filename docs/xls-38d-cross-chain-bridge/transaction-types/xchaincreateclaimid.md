@@ -8,6 +8,8 @@ status: not_enabled
 ---
 # XChainCreateClaimID
 
+<embed src="/snippets/_xchain-bridges-disclaimer.md" />
+
 The `XChainCreateClaimID` transaction creates a new cross-chain claim ID that is used for a cross-chain transfer. A cross-chain claim ID represents *one* cross-chain transfer of value. 
 
 This transaction is the first step of a cross-chain transfer of value and is submitted on the destination chain, not the source chain. 

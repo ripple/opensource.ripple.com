@@ -8,6 +8,8 @@ status: not_enabled
 ---
 # Get Started with the EVM Sidechain
 
+<embed src="/snippets/_evm-sidechain-disclaimer.md" />
+
 This getting started tutorial walks you through the steps to set up your account and submit a transaction using the EVM sidechain bridge. 
 
 ## 1. Create an Account Using an EVM Compatible Wallet
@@ -24,7 +26,7 @@ Before you can start interacting with the EVM blockchain, you need to assign som
 
 To generate tokens in the XRP Ledger Devnet, go to the [XRP Faucets](xrp-testnet-faucet.html) page and click *Generate Devnet credentials* to generate a new Devnet account with some test XRP in it.
 
-![Generate XRP Ledger Devnet credentials](img/evm-sidechain-xrpl-devnet-faucet.png "Generate XRP Ledger Devnet credentials")
+![Generate XRP Ledger Devnet credentials](../img/evm-sidechain-xrpl-devnet-faucet.png '#width=300px;')
 
 Note the address and secret associated with your Devnet address. You need this information to set up your preferred XRP Ledger wallet. 
 
@@ -45,14 +47,14 @@ Ensure that you have created an account on the public XRP Ledger Devnet as descr
 
 To connect a Xumm wallet to the bridge, go to the [EVM Sidechain bridge](https://bridge.devnet.xrpl.org) and click “Connect with Xumm Wallet”. 
 
-![Connect XUMM Wallet](img/evm-sidechain-connect-xumm-wallet.png "Connect XUMM wallet")
+![Connect XUMM Wallet](../img/evm-sidechain-connect-xumm-wallet.png '#width=500px;')
 
 
 **Note:** Ensure that you are connected to XRP Ledger Devnet and that the application that you are connecting with is the correct one.
 
 Follow the instructions on screen to scan the QR code using the Xumm app. The Xumm wallet app displays a confirmation page.
 
-![Connect to XRP Ledger Devnet](img/evm-sidechain-bridge-sign-in.jpg "Connect to XRP Ledger Devnet")
+![Connect to XRP Ledger Devnet](../img/evm-sidechain-bridge-sign-in.jpg '#width=300px;')
 
 **Connect MetaMask Wallet**
 
@@ -61,7 +63,7 @@ Ensure that you have created a MetaMask account and connected to the public XRP 
 
 To connect a MetaMask wallet to the bridge, go to the [EVM Sidechain bridge](https://bridge.devnet.xrpl.org) and click “Connect with Metamask Wallet”.
 
-![Connect MetaMask Wallet](img/evm-sidechain-connect-metamask.png "Connect MetaMask wallet")
+![Connect MetaMask Wallet](../img/evm-sidechain-connect-metamask.png '#width=300px;')
 
 ### 2. Start the Transaction 
 
@@ -73,11 +75,11 @@ Now that both Xumm and MetaMask wallets are connected to the bridge, you can sel
     - Commission: The bridge applies a commission for every transaction completed. This is to prevent spam and distributed denial of service attacks (DDOS).
 - **To Address**: The address on the chain where you want the funds.
 
-    ![Start the transaction](img/evm-sidechain-initiate-transfer.png "Start the transaction")
+    ![Start the transaction](../img/evm-sidechain-initiate-transfer.png '#width=500px;')
 
 Enter the details for your transaction and click **Transfer**. Review the details of the transaction carefully before accepting the transaction in the corresponding wallet. 
 
-![Approve the transaction](img/evm-sidechain-approve-transaction.png "Approve the transaction")
+![Approve the transaction](../img/evm-sidechain-approve-transaction.png '#width=500px;')
 
 Depending on the direction of the transaction, you need to approve the transaction in the Xumm Wallet or in the Metamask.
 
@@ -88,7 +90,7 @@ For this direction you must approve the transaction in your Xumm Wallet. Before 
 - Destination address has to be: `radjmEZTb4zsyNUJGV4gcVPXrFTJAuskKa`
 - Memo has to be the same address that you entered in the destination field
 
-    ![Review the transaction](img/evm-sidechain-review-transaction.jpg)
+    ![Review the transaction](../img/evm-sidechain-review-transaction.jpg '#width=300px;')
 
 **EVM sidechain → XRP Ledger Devnet**
 
@@ -96,12 +98,12 @@ If this is the case, then you must approve the transaction in your Metamask. Bef
 
 - Destination address has to be: `0x8cDE56336E289c028C8f7CF5c20283fF02272182`
 
-    ![Review the transaction in MetaMask](img/evm-sidechain-metamask-confirmation.png "Review the transaction in MetaMask")
+    ![Review the transaction in MetaMask](../img/evm-sidechain-metamask-confirmation.png '#width=300px;')
 
 
 Once you approve the transaction either in Xumm wallet or in Metamask, a loading screen displays. This process can take up to a few minutes.
 
-![Transaction in progress](img/evm-sidechain-transfer-in-progress.png "Transaction in progress")
+![Transaction in progress](../img/evm-sidechain-transfer-in-progress.png '#width=500px;')
 
 ### 3. Receive the Funds
 
@@ -113,6 +115,6 @@ Following a few minutes of transaction processing time, you are redirected to th
 - **To address**: Address on the destination chain.
 - **Receive**: The amount received in the destination address.
 
-![Transaction confirmation](img/evm-sidechain-transaction-confirmation.png "Transaction confirmation")
+![Transaction confirmation](../img/evm-sidechain-transaction-confirmation.png '#width=500px;')
 
 Your transaction has completed successfully and the test XRP tokens are now available in the other chain.
