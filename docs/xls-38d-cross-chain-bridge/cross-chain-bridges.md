@@ -62,9 +62,9 @@ At a high-level, cross-chain transactions involve the following steps:
 
 ### Sidechain-CLI
 
-The [`xrpl-sidechain-cli`](https://github.com/XRPLF/sidechain-cli) is a commandline tool that simplifies setting up a cross-chain bridge and issuing chains on your local machine.
+The [`xbridge-cli`](https://github.com/XRPLF/xbridge-cli) is a commandline tool that simplifies setting up a cross-chain bridge on your local machine.
 
-Follow the [tutorial](https://github.com/XRPLF/sidechain-cli/blob/main/scripts/tutorial.sh) to walk through the steps of creating a bridge and completing your first cross-chain transaction.
+Follow the [tutorial](https://github.com/XRPLF/xbridge-cli/blob/main/scripts/tutorial.sh) to walk through the steps of creating a bridge and completing your first cross-chain transaction.
 
 
 ## FAQ
@@ -72,9 +72,8 @@ Follow the [tutorial](https://github.com/XRPLF/sidechain-cli/blob/main/scripts/t
 - _Do sidechains use their own nodes and validators?_ Yes. Sidechains are independent ledgers with their own set of servers (nodes and validators).
 - _Can I clone the rippled UNL to sync my sidechain server with?_ No. Sidechains use their own validators, and must use a separate UNL.
 - _So, would mainchain validators need to vote on sidechain transactions?_ No, the servers on the mainchain have no knowledge of the sidechain. For servers on the mainchain, the door account is treated as a multi-signature account on the mainchain.
-- _Can I roll up transactions and have an entry on the mainchain?_ Transactions on a sidechain are not visible to the servers on the mainchain. Only transactions submitted from the sidechain door account to a destination on the main chain are visible to the servers on the main chain and will have an entry on the mainchain. 
-- _When will side chains be available?_ Sidechains are available to develop and test starting XRPL 1.8. You can connect sidechains to the XRP Ledger Testnet, Devnet, or Mainnet as soon as network servers upgrade to XRPL 1.8.
-The sidechains feature will be proposed to the XRPl community via XLS-38d. It will be available on the XRPL Devnet once the code review/PR for XLS-38d is merged. At some point later, XLS-38d will be proposed as an amendment to the XRPL mainnet. 
+- _Can I roll up transactions and have an entry on the mainchain?_ Transactions on a sidechain are not visible to the servers on the mainchain. Only transactions submitted from the sidechain door account to a destination on the main chain are visible to the servers on the main chain and will have an entry on the mainchain.
+- _When will cross-chain bridges be available?_ Cross-chain bridges has been proposed to the XRPL community with [XLS-38d](https://github.com/XRPLF/XRPL-Standards/discussions/92). You can test the feature on the [`sidechain devnet`](parallel-networks-list.md).
 
 
 ## See Also
