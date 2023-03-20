@@ -19,7 +19,18 @@ Sidechains enable developers to launch new features and applications, using the 
 
 ## FAQ
 
-- _Can I clone the rippled UNL to sync my sidechain server with?_ No. Sidechains use their own validators and must use a separate UNL.
-- _So, would mainchain validators need to vote on sidechain transactions?_ No, the servers on the mainchain have no knowledge of the sidechain. Mainchain servers treat door accounts for bridges as just another multi-signature account on the mainchain.
-- _Can I roll up transactions and have an entry on the mainchain?_ Transactions on a sidechain are not visible to the servers on the mainchain. Only transactions submitted from the sidechain door account to a destination on the mainchain are visible to the mainchain and will have an entry on the mainchain.
-- _When will sidechains be available?_ Sidechains (and cross-chain bridges) have been proposed to the XRPL community with [XLS-38d](https://github.com/XRPLF/XRPL-Standards/discussions/92). You can test cross-chain bridge features on our [`sidechain devnet`](parallel-networks-list.md). You won't be able to test your own sidechain until XLS-38d is available on XRPL `Devnet` or `Mainnet`.
+- _Can I clone the rippled UNL to sync my sidechain server with?_
+
+    No. Sidechains use their own validators and must use a separate UNL.
+
+- _So, would mainchain validators need to vote on sidechain transactions?_
+
+    No, the servers on the mainchain have no knowledge of the sidechain. Mainchain servers treat door accounts for bridges as just another multi-signature account on the mainchain.
+
+- _Can I roll up transactions and have an entry on the mainchain?_
+
+    Transactions on a sidechain are not visible to the servers on the mainchain. Only transactions submitted from the sidechain door account to a destination on the mainchain are visible to the mainchain and will have an entry on the mainchain.
+
+- _When will sidechains be available?_
+
+    Sidechains (and cross-chain bridges) have been proposed to the XRPL community with [XLS-38d](https://github.com/XRPLF/XRPL-Standards/discussions/92). You can test cross-chain bridge features on our [`sidechain devnet](parallel-networks-list.md), which includes a locking chain and issuing chain. You can also connect your own sidechain to `sidechain devnet`.
