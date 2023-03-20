@@ -8,6 +8,8 @@ status: not_enabled
 ---
 # XChainAccountCreateCommit
 
+<embed src="/snippets/_xchain-bridges-disclaimer.md" />
+
 This transaction can only be used for XRP-XRP bridges.
 
 The `XChainAccountCreateCommit` transaction creates a new account on one of the chains a bridge connects, which serves as the bridge entrance for that chain. To fully set up a bridge, this transaction must be executed on both chains, alongside setting up witness servers.

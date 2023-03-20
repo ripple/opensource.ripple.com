@@ -10,11 +10,9 @@ status: not_enabled
 [[Source]](https://github.com/gregtatcam/rippled/blob/amm-core-functionality/src/ripple/app/tx/impl/AMMBid.cpp "Source")
 <!-- TODO: Update source link to merged version when available -->
 
-<!-- {% include '_snippets/amm-disclaimer.md' %} -->
-
 <embed src="/snippets/_amm-disclaimer.md" />
 
-Bid on an [Automated Market Maker](automated-market-makers.html)'s (AMM's) auction slot. If you win, you can trade against the AMM at a discounted fee until you are outbid or 24 hours have passed. If you are outbid before 24 hours have passed, you are refunded part of the cost of your bid based on how much time remains.
+Bid on an [Automated Market Maker](automated-market-makers.md)'s (AMM's) auction slot. If you win, you can trade against the AMM at a discounted fee until you are outbid or 24 hours have passed. If you are outbid before 24 hours have passed, you are refunded part of the cost of your bid based on how much time remains.
 
 You bid using the AMM's LP Tokens; the amount of a winning bid is returned to the AMM, decreasing the outstanding balance of LP Tokens.
 
@@ -106,7 +104,7 @@ If successful, the transaction automatically outbids the previous slot owner and
 
         P = M
 
-**Note:** To make sure all servers in the network reach the same results when building a ledger, time measurements are based on the [official close time](ledgers.html#ledger-close-times) of the previous ledger, which is approximate.
+**Note:** To make sure all servers in the network reach the same results when building a ledger, time measurements are based on the [official close time](https://xrpl.org/ledgers.html#ledger-close-times) of the previous ledger, which is approximate.
 
 ## Bid Refunds
 
@@ -122,11 +120,11 @@ R = B × (1 - t)
 
 As a special case, during the final (20th) interval of the auction slot, the refunded amount is zero.
 
-**Note:** As with all XRP Ledger times, transaction processing uses the [official close time](ledgers.html#ledger-close-times) of the _previous_ ledger, which can result in a difference of up to about 10 seconds from real time.
+**Note:** As with all XRP Ledger times, transaction processing uses the [official close time](https://xrpl.org/ledgers.html#ledger-close-times) of the _previous_ ledger, which can result in a difference of up to about 10 seconds from real time.
 
 
 ## AMM Cases previous holder
-Besides errors that can occur for all transactions, AMMBid transactions can result in the following [transaction result codes](transaction-results.html):
+Besides errors that can occur for all transactions, AMMBid transactions can result in the following [transaction result codes](https://xrpl.org/transaction-results.html):
 
 | Error Code              | Description                                  |
 |:------------------------|:---------------------------------------------|

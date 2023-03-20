@@ -8,6 +8,8 @@ status: not_enabled
 ---
 # XChainAddAccountCreateAttestation
 
+<embed src="/snippets/_xchain-bridges-disclaimer.md" />
+
 The `XChainAddAccountCreateAttestation` transaction provides an attestation from a witness server that a `XChainAccountCreateCommit` transaction occurred on the other chain.
 
 The signature must be from one of the keys on the door's signer list at the time the signature was provided. If the signature list changes between the time the signature was submitted and the quorum is reached, the new signature set is used and some of the currently collected signatures may be removed.

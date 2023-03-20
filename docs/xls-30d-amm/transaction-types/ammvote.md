@@ -10,11 +10,11 @@ status: not_enabled
 [[Source]](https://github.com/gregtatcam/rippled/blob/amm-core-functionality/src/ripple/app/tx/impl/AMMVote.cpp "Source")
 <!-- TODO: Update source link to merged version when available -->
 
-{% include '_snippets/amm-disclaimer.md' %}
+<embed src="/snippets/_amm-disclaimer.md" />
 
-Vote on the trading fee for an [Automated Market Maker](automated-market-makers.html) instance. Up to 8 accounts can vote in proportion to the amount of the AMM's LP Tokens they hold. Each new vote re-calculates the AMM's trading fee based on a weighted average of the votes.
+Vote on the trading fee for an [Automated Market Maker](automated-market-makers.md) instance. Up to 8 accounts can vote in proportion to the amount of the AMM's LP Tokens they hold. Each new vote re-calculates the AMM's trading fee based on a weighted average of the votes.
 
-## Example {{currentpage.name}} JSON
+## Example AMMVote JSON
 
 ```json
 {
@@ -34,7 +34,8 @@ Vote on the trading fee for an [Automated Market Maker](automated-market-makers.
 }
 ```
 
-{% include '_snippets/tx-fields-intro.md' %}
+In addition to the common fields, AMMVote transactions use the following fields:
+
 
 | Field        | JSON Type | [Internal Type][] | Required? | Description |
 |:-------------|:----------|:------------------|:----------|:------------|
@@ -44,7 +45,7 @@ Vote on the trading fee for an [Automated Market Maker](automated-market-makers.
 
 ## Error Cases
 
-Besides errors that can occur for all transactions, {{currentpage.name}} transactions can result in the following [transaction result codes](transaction-results.html):
+Besides errors that can occur for all transactions, AMMVote transactions can result in the following [transaction result codes](https://xrpl.org/transaction-results.html):
 
 | Error Code              | Description                                  |
 |:------------------------|:---------------------------------------------|
@@ -55,7 +56,7 @@ Besides errors that can occur for all transactions, {{currentpage.name}} transac
 | `terNO_AMM`             | The Automated Market Maker instance for the asset pair in this transaction does not exist. |
 
 
-<!--{# common link defs #}-->
+<!--{# common link defs #}
 {% include '_snippets/rippled-api-links.md' %}
 {% include '_snippets/tx-type-links.md' %}
-{% include '_snippets/rippled_versions.md' %}
+{% include '_snippets/rippled_versions.md' %} -->

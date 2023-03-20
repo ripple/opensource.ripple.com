@@ -8,6 +8,8 @@ status: not_enabled
 ---
 # XChainModifyBridge
 
+<embed src="/snippets/_xchain-bridges-disclaimer.md" />
+
 The `XChainModifyBridge` transaction allows bridge managers to modify the parameters of the bridge. They can only change the `SignatureReward` and the `MinAccountCreateAmount`.
 
 This transaction must be sent by the door account and requires the entities that control the witness servers to coordinate and provide the signatures for this transaction. This coordination happens outside the ledger.

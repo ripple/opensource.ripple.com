@@ -6,7 +6,7 @@ blurb: A witness server is a light-weight server that witnesses and signs transa
 # Witness Server
 [[Source]](https://github.com/seelabs/xbridge_witness "Source")
 
- _(Added by the in-development Sidechains feature)_ :not_enabled:
+<embed src="/snippets/_xchain-bridges-disclaimer.md" />
 
 The _witness server_ is a light-weight server that is aware of the locking and issuing chains in a bridging solution between blockchains. The witness server witnesses and signs transactions between [a locking chain and an issuing chain](cross-chain-bridges.md) when assets are moved to designated addresses, thus enabling cross-chain transactions. 
 
