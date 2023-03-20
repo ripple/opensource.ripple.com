@@ -14,9 +14,9 @@ logo:
   altText: Open Source at Ripple Documentation
 toc:
   enable: true
-editPage:
-  baseUrl: https://github.com/ripple/xrpl-prerelease-docs/tree/main/
-  icon: ./images/pen-to-square-solid.svg
+#editPage:
+#  baseUrl: https://github.com/ripple/xrpl-prerelease-docs/tree/main/
+#  icon: ./images/pen-to-square-solid.svg
 copyCodeSnippet:
   enable: true
   buttonText: Copy
