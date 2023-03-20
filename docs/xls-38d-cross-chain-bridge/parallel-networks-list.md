@@ -30,19 +30,3 @@ You can use the [XRP Ledger Custom Network Explorer](https://custom.xrpl.org/) t
   ```curl
   curl -X POST https://http://sidechain-faucet.devnet.rippletest.net/accounts
   ```
-
-
-The sidechains network is available at:
-Locking chain: sidechain-net1.devnet.rippletest.net 
-Websocket: wss://sidechain-net1.devnet.rippletest.net:51233
-JSON-RPC: http://sidechain-net1.devnet.rippletest.net:51234
-Issuing chain: sidechain-net2.devnet.rippletest.net
-Websocket: wss://sidechain-net2.devnet.rippletest.net:51233
-JSON-RPC: http://sidechain-net2.devnet.rippletest.net:51234
-
-Faucet:
-curl -X POST https://http://sidechain-faucet.devnet.rippletest.net/accounts
-
-Client Library Support (Beta):
-JavaScript library (xrpl.js@2.7.0-beta.3, ripple-binary-codec@1.5.0-beta.3)
-Python library (xrpl-py 1.8.0b2)
