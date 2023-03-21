@@ -8,9 +8,11 @@ labels:
 ---
 # XRPL Sidechains
 
-An XRPL sidechain is an independent ledger with its own consensus algorithm, transaction types, rules, and servers (including validators). It acts as its own blockchain and enables value in the form of XRP and other tokens to move efficiently between it and an XRP Ledger _mainchain_ (usually Mainnet, but could be [Testnet or Devnet](https://xrpl.org/parallel-networks.html#parallel-networks) for testing). XRPL sidechains operate without compromising the speed, efficiency, and throughput of the public Mainnet.
+<embed src="/snippets/_xchain-bridges-disclaimer.md" />
 
-Sidechains enable developers to launch new features and applications, using the foundation of XRP Ledger technology. Sidechains can customize the XRP Ledger protocol to the needs of a specific use case or project and run it as its own blockchain. Here are a few examples:
+A sidechain is an independent ledger with its own consensus algorithm, transaction types, rules, and servers (including validators). It acts as its own blockchain, running parallel to a mainchain, enabling value to move between the two without compromising the speed, efficiency, and throughput of the mainchain. In the context of XLS-38d, a sidechain is the issuing chain, and the mainchain is the locking chain.
+
+Sidechains can customize the XRP Ledger protocol to the needs of a specific use case or project and run it as its own blockchain. Here are a few examples:
 
 * Build a smart contract layer, powered by an engine compatible with the Ethereum Virtual Machine (EVM), web assembly, or a Move VM. For example, a [smart sidechain with Hooks](https://hooks-testnet.xrpl-labs.com/) enabled.
 * Build your own algorithmic stable coin with customised ledger types and transaction rules.
@@ -19,18 +21,10 @@ Sidechains enable developers to launch new features and applications, using the 
 
 ## FAQ
 
-- _Can I clone the rippled UNL to sync my sidechain server with?_
+- **Can I clone the rippled UNL to sync a sidechain server with?** No. Sidechains use their own validators and must use a separate UNL.
 
-    No. Sidechains use their own validators and must use a separate UNL.
+- **So, would mainchain validators need to vote on sidechain transactions?** No, servers on the mainchain have no knowledge of the sidechain. Door accounts on a mainchain are treated as standard multi-signature accounts.
 
-- _So, would mainchain validators need to vote on sidechain transactions?_
+- **Can I roll up transactions and have an entry on the mainchain?** Transactions on a sidechain aren't visible to servers on the mainchain. Only transactions submitted from the sidechain door account to a destination on the mainchain are visible and will have an entry on the mainchain.
 
-    No, the servers on the mainchain have no knowledge of the sidechain. Mainchain servers treat door accounts for bridges as just another multi-signature account on the mainchain.
-
-- _Can I roll up transactions and have an entry on the mainchain?_
-
-    Transactions on a sidechain are not visible to the servers on the mainchain. Only transactions submitted from the sidechain door account to a destination on the mainchain are visible to the mainchain and will have an entry on the mainchain.
-
-- _When will sidechains be available?_
-
-    Sidechains (and cross-chain bridges) have been proposed to the XRPL community with [XLS-38d](https://github.com/XRPLF/XRPL-Standards/discussions/92). You can test cross-chain bridge features on our [`sidechain devnet`](parallel-networks-list.md), using our locking and issuing chains.
+- **When will sidechains be available?** Cross-chain bridges and sidechains have been proposed to the XRPL community with [XLS-38d](https://github.com/XRPLF/XRPL-Standards/discussions/92). You can test cross-chain bridge features on the [`sidechain devnet`](parallel-networks-list.md), using the public locking and issuing chains. You can also use the [`xbridge-cli`](https://github.com/XRPLF/xbridge-cli) tool to set up your own sidechain and witness servers to connect to the locking chain on `sidechain devnet`.
