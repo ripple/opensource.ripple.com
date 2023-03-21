@@ -9,7 +9,7 @@ labels:
 
 <embed src="/snippets/_xchain-bridges-disclaimer.md" />
 
-Cross-chain bridges for the XRP Ledger enable value in the form of XRP and other tokens (IOUs) to move efficiently between blockchains such as the XRP Ledger and its sidechains.
+Cross-chain bridges for the XRP Ledger enable value in the form of XRP and other tokens (IOUs) to move efficiently between blockchains such as the XRP Ledger and its [sidechains](xrpl-sidechains.md).
 
 A locking chain is a blockchain that holds assets that are then put into trust when a bridge to an issuing chain is created.
 
@@ -50,11 +50,21 @@ At a high-level, cross-chain transactions involve the following steps:
 5. The rewards are then distributed to the witness servers' accounts on the issuing chain.
 
 
-## Test Cross-Chain Transactions Locally
+## Test Cross-Chain Transactions
 
-The [`xrpl-sidechain-cli`](https://github.com/XRPLF/sidechain-cli) is a commandline tool that simplifies setting up a cross-chain bridge and issuing chains on your local machine. 
 
-Follow the [tutorial](https://github.com/XRPLF/sidechain-cli/blob/main/scripts/tutorial.sh) to walk through the steps of creating a bridge and completing your first cross-chain transaction. 
+### Client Library Support (Beta)
+
+- **JavaScript:** xrpl.js 2.7.0-beta.3
+  - **Binary Codec:** ripple-binary-codec 1.5.0-beta.3
+- **Python:** xrpl-py 1.8.0b2
+
+
+### XBridge-CLI
+
+The [`xbridge-cli`](https://github.com/XRPLF/xbridge-cli) is a commandline tool that simplifies setting up a cross-chain bridge on your local machine.
+
+Follow the [tutorial](https://github.com/XRPLF/xbridge-cli/blob/main/scripts/tutorial.sh) to walk through the steps of creating a bridge and completing your first cross-chain transaction.
 
 
 ## See Also

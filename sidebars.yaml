@@ -8,6 +8,7 @@ opensource:
         page: docs/xls-38d-cross-chain-bridge/cross-chain-bridges.md
         expanded: false
         pages:
+          - page: docs/xls-38d-cross-chain-bridge/xrpl-sidechains.md
           - page: docs/xls-38d-cross-chain-bridge/witness-server.md
           - page: docs/xls-38d-cross-chain-bridge/parallel-networks-list.md
           - group: Tutorials
@@ -33,7 +34,7 @@ opensource:
               - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchaincreatebridge.md
               - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchaincreateclaimid.md
               - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchainmodifybridge.md
-      - group: EVM Sidechains
+      - group: EVM Sidechain
         page: docs/evm-sidechain/intro-to-evm-sidechain.md
         expanded: false
         pages:
