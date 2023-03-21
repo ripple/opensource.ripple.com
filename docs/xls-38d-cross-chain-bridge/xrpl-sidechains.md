@@ -30,3 +30,7 @@ Sidechains enable developers to launch new features and applications, using the 
 - _Can I roll up transactions and have an entry on the mainchain?_
 
     Transactions on a sidechain are not visible to the servers on the mainchain. Only transactions submitted from the sidechain door account to a destination on the mainchain are visible to the mainchain and will have an entry on the mainchain.
+
+- _When will sidechains be available?_
+
+    Sidechains (and cross-chain bridges) have been proposed to the XRPL community with [XLS-38d](https://github.com/XRPLF/XRPL-Standards/discussions/92). You can test cross-chain bridge features on our [`sidechain devnet`](parallel-networks-list.md), using our locking and issuing chains.

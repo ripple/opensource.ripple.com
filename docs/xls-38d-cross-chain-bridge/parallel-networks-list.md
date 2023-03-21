@@ -21,12 +21,11 @@ You can use the [XRP Ledger Custom Network Explorer](https://custom.xrpl.org/) t
 - **Locking Chain:** sidechain-net1.devnet.rippletest.net
   - **Websocket:** wss://sidechain-net1.devnet.rippletest.net:51233
   - **JSON-RPC:** http://sidechain-net1.devnet.rippletest.net:51234
+  - **Faucet:**
+    ```curl
+    curl -X POST https://sidechain-faucet.devnet.rippletest.net/accounts
+    ```
 
 - **Issuing Chain:** sidechain-net2.devnet.rippletest.net
   - **Websocket:** wss://sidechain-net2.devnet.rippletest.net:51233
   - **JSON-RPC**: http://sidechain-net2.devnet.rippletest.net:51234
-
-- **Faucet:**
-  ```curl
-  curl -X POST https://http://sidechain-faucet.devnet.rippletest.net/accounts
-  ```
