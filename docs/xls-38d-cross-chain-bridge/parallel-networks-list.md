@@ -16,7 +16,7 @@ You can use the [XRP Ledger Custom Network Explorer](https://custom.xrpl.org/) t
 **Note:** If you need to monitor a network with custom transactions, or just want to run your own instance of the explorer, see the [README](https://github.com/ripple/explorer).
 
 
-## Cross-Chain Bridges
+## XRPL Sidechains Devnet
 
 - **Locking Chain:** sidechain-net1.devnet.rippletest.net
   - **Websocket:** wss://sidechain-net1.devnet.rippletest.net:51233
