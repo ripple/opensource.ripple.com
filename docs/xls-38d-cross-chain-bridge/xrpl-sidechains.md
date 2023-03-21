@@ -33,4 +33,4 @@ Sidechains enable developers to launch new features and applications, using the 
 
 - _When will sidechains be available?_
 
-    Sidechains (and cross-chain bridges) have been proposed to the XRPL community with [XLS-38d](https://github.com/XRPLF/XRPL-Standards/discussions/92). You can test cross-chain bridge features on our [`sidechain devnet](parallel-networks-list.md), which includes a locking chain and issuing chain. You can also connect your own sidechain to `sidechain devnet`.
+    Sidechains (and cross-chain bridges) have been proposed to the XRPL community with [XLS-38d](https://github.com/XRPLF/XRPL-Standards/discussions/92). You can test cross-chain bridge features on our [`sidechain devnet`](parallel-networks-list.md), using our locking and issuing chains, or connect your own sidechain.
