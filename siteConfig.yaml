@@ -1,7 +1,7 @@
 meta:
   title: Open Source @ Ripple
   description: Open source projects and prerelease documentation being developed by Ripple engineers.
-  siteUrl: https://opensource-ripple.redoc.ly
+  siteUrl: https://opensource.ripple.com
   keywords: xrpl docs, prerelease docs, beta api reference docs
   lang: en-US
 disableImagesOptimization: true
@@ -14,9 +14,9 @@ logo:
   altText: Open Source at Ripple Documentation
 toc:
   enable: true
-#editPage:
-#  baseUrl: https://github.com/ripple/xrpl-prerelease-docs/tree/main/
-#  icon: ./images/pen-to-square-solid.svg
+editPage:
+  baseUrl: https://github.com/ripple/opensource.ripple.com/tree/main/
+  icon: ./images/pen-to-square-solid.svg
 copyCodeSnippet:
   enable: true
   buttonText: Copy
@@ -34,8 +34,10 @@ stylesheets:
 #scripts:
 #  - ./static/intercom.js
 nav:
-  - label: Projects
+  - label: Home
     page: index.mdx  
+  - label: Open Source Projects
+    page: docs/index.md    
   - search: true
 
 showNextButton: false

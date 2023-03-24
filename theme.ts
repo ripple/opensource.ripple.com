@@ -16,7 +16,7 @@ export const theme = {
   },
 
   logo: {
-    height: '1.4rem',
+    height: '1.3rem',
     maxWidth: '100%',
     margin: 0,
   },
