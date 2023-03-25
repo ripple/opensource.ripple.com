@@ -24,9 +24,10 @@ copyCodeSnippet:
   toasterText: Copied!
   toasterDuration: 1500   
 stylesheets:
-  - https://fonts.googleapis.com/css2?family=Space+Mono&display=swap
   - ./static/style.css
   - ./static/fonts.css
+  - ./static/interactive-tutorials.min.css
+  - ./static/fontawesome/css/font-awesome.min.css
 #analytics:
 # ga:
 # note that GA doesn't work in the development environment
@@ -62,3 +63,6 @@ footer:
           external: true  
     - label: © 2013 - 2023 Ripple, All Rights Reserved.
 disableLastModified: true
+
+scripts:
+  - https://code.jquery.com/jquery-3.6.4.min.js

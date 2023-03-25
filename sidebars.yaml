@@ -67,3 +67,7 @@ opensource:
             pages:
               - page: docs/xls-30d-amm/public-api-methods/amm_info.md
               - page: docs/xls-30d-amm/public-api-methods/ledger_entry.md
+          - group: Tutorials
+            expanded: false
+            pages:
+              - page: docs/xls-30d-amm/tutorials/create-an-automated-market-maker.md
