@@ -40,12 +40,11 @@ If the transaction succeeds in moving funds, the referenced `XChainOwnedClaimID`
 
 ## XChainClaim Fields
 
-| Field                   | JSON Type         | [Internal Type][] | Required? | Description |
+| Field                   | JSON Type         | Internal Type | Required? | Description |
 |:------------------------|:------------------|:------------------|:----------|-------------|
 | `Amount`                | `Currency Amount` | `AMOUNT`          | Yes       | The amount to claim on the destination chain. This must match the amount attested to on the attestations associated with this `XChainClaimID`. |
 | `Destination`           | `string`          | `ACCOUNT`         | Yes       | The destination account on the destination chain. It must exist or the transaction will fail. However, if the transaction fails in this case, the sequence number and collected signatures won't be destroyed, and the transaction can be rerun with a different destination. |
 | `DestinationTag`        | `int`             | `UINT32`          | No        | An integer destination tag. |
-| `OtherChainDestination` | `string`          | `ACCOUNT`         | Yes       | The destination account on the destination chain. |
 | `XChainBridge`          | `XChainBridge`    | `XCHAIN_BRIDGE`   | Yes       | The bridge to use for the transfer. |
 | `XChainClaimID`         | `string`          | `UINT64`          | Yes       | The unique integer ID for the cross-chain transfer that was referenced in the corresponding `XChainCommit` transaction. |
 

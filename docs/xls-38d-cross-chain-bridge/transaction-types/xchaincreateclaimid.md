@@ -41,7 +41,7 @@ It also includes the account on the source chain that locks or burns the funds o
 
 ## XChainCreateClaimID Fields
 
-| Field              | JSON Type         | [Internal Type][] | Required? | Description |
+| Field              | JSON Type         | Internal Type | Required? | Description |
 |:-------------------|:------------------|:------------------|:----------|-------------|
 | `OtherChainSource` | `string`          | `ACCOUNT`         | Yes       | The account that must send the `XChainCommit` transaction on the source chain.
 | `SignatureReward`  | `string`          | `ACCOUNT`         | Yes       | The amount, in XRP, to reward the witness servers for providing signatures. This must match the amount on the `Bridge` ledger object.

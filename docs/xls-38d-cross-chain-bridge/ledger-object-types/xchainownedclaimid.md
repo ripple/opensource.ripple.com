@@ -6,7 +6,7 @@ labels:
   - Interoperability
 status: not_enabled
 ---
-# XChainClaimID
+# XChainOwnedClaimID
 [[Source]](https://github.com/seelabs/rippled/blob/xchain/src/ripple/protocol/impl/LedgerFormats.cpp#L282-L295 "Source")
 
 <embed src="/snippets/_xchain-bridges-disclaimer.md" />
@@ -18,7 +18,7 @@ The `XChainOwnedClaimID` object must be acquired on the destination chain before
 An `XChainCreateClaimID` transaction is used to create a new `XChainOwnedClaimID`. The ledger object is destroyed when the funds are successfully claimed on the destination chain.
 
 
-## Example XChainClaimID JSON
+## Example XChainOwnedClaimID JSON
 
 ```json
 {
@@ -47,10 +47,11 @@ An `XChainCreateClaimID` transaction is used to create a new `XChainOwnedClaimID
 ```
 
 
-## XChainClaimID Fields
+## XChainOwnedClaimID Fields
 
-| Field                     | JSON Type         | [Internal Type][] | Required? | Description     |
+| Field                     | JSON Type         | Internal Type     | Required? | Description     |
 |:--------------------------|:------------------|:------------------|:----------|:----------------|
+| `Account`                 | `string`          | `ACCOUNT`         | Yes       | The account that owns this object. |
 | `LedgerIndex`             | `string`          | `HASH256`         | Yes       | The ledger index is a hash of a unique prefix for `XChainOwnedClaimID`s, the actual `XChainClaimID` value, and the fields in `XChainBridge`. |
 | `OtherChainSource`        | `string`          | `ACCOUNT`         | Yes       | The account that must send the corresponding `XChainCommit` on the source chain. The destination may be specified in the `XChainCommit` transaction, which means that if the `OtherChainSource` isn't specified, another account can try to specify a different destination and steal the funds. This also allows tracking only a single set of signatures, since we know which account will send the `XChainCommit` transaction. |
 | `SignatureReward`         | `Currency Amount` | `AMOUNT`          | Yes       | The total amount to pay the witness servers for their signatures. It must be at least the value of `SignatureReward` in the `Bridge` ledger object. |

@@ -37,12 +37,12 @@ The `XChainCommit` is the second step in a cross-chain transfer. It puts assets 
 
 ## XChainCommit Fields
 
-| Field                   | JSON Type         | [Internal Type][] | Description |
-|:------------------------|:------------------|:------------------|:------------|
+| Field                   | JSON Type         | Internal Type     | Required? | Description |
+|:------------------------|:------------------|:------------------|:----------|-------------|
 | `Amount`                | `Currency Amount` | `AMOUNT`          | Yes       | The asset to commit, and the quantity. This must match the door account's `LockingChainIssue` (if on the locking chain) or the door account's `IssuingChainIssue` (if on the issuing chain). |
 | `OtherChainDestination` | `string`          | `ACCOUNT`         | No        | The destination account on the destination chain. If this is not specified, the account that submitted the `XChainCreateClaimID` transaction on the destination chain will need to submit a `XChainClaim` transaction to claim the funds. |
 | `XChainBridge`          | `XChainBridge`    | `XCHAIN_BRIDGE`   | Yes       | The bridge to use to transfer funds. |
-| `XChainClaimID`         | `string`          | `UINT64`          | Yes       |  The unique integer ID for a cross-chain transfer. This must be acquired on the destination chain (via a `XChainCreateClaimID` transaction) and checked from a validated ledger before submitting this transaction. If an incorrect sequence number is specified, the funds will be lost. |
+| `XChainClaimID`         | `string`          | `UINT64`          | Yes       | The unique integer ID for a cross-chain transfer. This must be acquired on the destination chain (via a `XChainCreateClaimID` transaction) and checked from a validated ledger before submitting this transaction. If an incorrect sequence number is specified, the funds will be lost. |
 
 
 <embed src="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" />

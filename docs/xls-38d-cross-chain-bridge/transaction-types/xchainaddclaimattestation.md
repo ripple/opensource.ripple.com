@@ -72,7 +72,7 @@ Any account can submit signatures.
 
 ## XChainAddClaimAttestation Fields
 
-| Field                      | JSON Type         | [Internal Type][] | Required? | Description |
+| Field                      | JSON Type         | Internal Type | Required? | Description |
 |:---------------------------|:------------------|:------------------|:----------|-------------|
 | `Amount`                   | `Currency Amount` | `AMOUNT`          | Yes       | The amount committed by the `XChainCommit` transaction on the source chain. |
 | `AttestationRewardAccount` | `string`          | `ACCOUNT`         | Yes       | The account that should receive this signer's share of the `SignatureReward`. |

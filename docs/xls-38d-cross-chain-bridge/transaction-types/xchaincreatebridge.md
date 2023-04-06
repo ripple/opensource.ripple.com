@@ -48,7 +48,7 @@ To mitigate the possibility of creating a duplicate bridge, ensure the following
 
 ## XChainCreateBridge Fields
 
-| Field                    | JSON Type         | [Internal Type][] | Required? | Description |
+| Field                    | JSON Type         | Internal Type | Required? | Description |
 |:-------------------------|:------------------|:------------------|:----------------|:------|
 | `MinAccountCreateAmount` | `Currency Amount` | `AMOUNT`          | No        | The minimum amount, in XRP, required for a `XChainAccountCreateCommit` transaction. If this isn't present, the `XChainAccountCreateCommit` transaction will fail. This field can only be present on XRP-XRP bridges. |
 | `SignatureReward`        | `Currency Amount` | `AMOUNT`          | Yes       | The total amount to pay the witness servers for their signatures. This amount will be split among the signers. |

@@ -57,8 +57,9 @@ The ledger object is destroyed when all the attestations have been received and 
 
 ## XChainOwnedCreateAccountClaimID Fields
 
-| Field                             | JSON Type      | [Internal Type][] | Required? | Description |
+| Field                             | JSON Type      | Internal Type     | Required? | Description |
 |:----------------------------------|:---------------|:------------------|:----------|:------------|
+| `Account`                         | `string`       | `ACCOUNT`         | Yes       | The account that owns this object. |
 | `LedgerIndex`                     | `string`       | `HASH256`         | Yes       | The ledger index is a hash of a unique prefix for `XChainOwnedClaimID`s, the actual `XChainClaimID` value, and the fields in `XChainBridge`. |
 | `XChainAccountCreateCount`        | `number`       | `UINT64`          | Yes       | An integer that determines the order that accounts created through cross-chain transfers must be performed. Smaller numbers must execute before larger numbers. |
 | `XChainBridge`                    | `XChainBridge` | `XCHAIN_BRIDGE`   | Yes       | The door accounts and assets of the bridge this object correlates to. |

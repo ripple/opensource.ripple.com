@@ -41,7 +41,7 @@ This transaction must be sent by the door account and requires the entities that
 
 ## XChainModifyBridge Fields
 
-| Field                    | JSON Type         | [Internal Type][] | Required? | Description |
+| Field                    | JSON Type         | Internal Type | Required? | Description |
 |:-------------------------|:------------------|:------------------|:----------|-------------|
 | `Flags`                  | `number`          | `UINT32`          | Yes       | Specifies the flags for this transaction. |
 | `MinAccountCreateAmount` | `Currency Amount` | `AMOUNT`          | No        | The minimum amount, in XRP, required for a `XChainAccountCreateCommit` transaction. If this is not present, the `XChainAccountCreateCommit` transaction will fail. This field can only be present on XRP-XRP bridges. |
