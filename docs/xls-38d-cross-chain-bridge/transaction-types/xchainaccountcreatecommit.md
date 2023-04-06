@@ -10,6 +10,8 @@ status: not_enabled
 
 <embed src="/snippets/_xchain-bridges-disclaimer.md" />
 
+[[Source]](https://github.com/seelabs/rippled/blob/xbridge/src/ripple/protocol/impl/TxFormats.cpp#L414-L421 "Source")
+
 This transaction can only be used for XRP-XRP bridges.
 
 The `XChainAccountCreateCommit` transaction creates a new account on one of the chains a bridge connects, which serves as the bridge entrance for that chain.

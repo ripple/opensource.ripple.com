@@ -7,9 +7,10 @@ labels:
 status: not_enabled
 ---
 # XChainOwnedClaimID
-[[Source]](https://github.com/seelabs/rippled/blob/xchain/src/ripple/protocol/impl/LedgerFormats.cpp#L282-L295 "Source")
 
 <embed src="/snippets/_xchain-bridges-disclaimer.md" />
+
+[[Source]](https://github.com/seelabs/rippled/blob/xbridge/src/ripple/protocol/impl/LedgerFormats.cpp#L281-L293 "Source")
 
 An `XChainOwnedClaimID` object represents *one* cross-chain transfer of value and includes information of the account on the source chain that locks or burns the funds on the source chain.
 

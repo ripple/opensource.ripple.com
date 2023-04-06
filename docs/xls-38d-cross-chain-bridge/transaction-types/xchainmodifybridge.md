@@ -10,6 +10,8 @@ status: not_enabled
 
 <embed src="/snippets/_xchain-bridges-disclaimer.md" />
 
+[[Source]](https://github.com/seelabs/rippled/blob/xbridge/src/ripple/protocol/impl/TxFormats.cpp#L338-L344 "Source")
+
 The `XChainModifyBridge` transaction allows bridge managers to modify the parameters of the bridge. They can only change the `SignatureReward` and the `MinAccountCreateAmount`.
 
 This transaction must be sent by the door account and requires the entities that control the witness servers to coordinate and provide the signatures for this transaction. This coordination happens outside the ledger.

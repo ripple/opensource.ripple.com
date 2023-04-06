@@ -7,9 +7,10 @@ labels:
 status: not_enabled
 ---
 # XChainOwnedCreateAccountClaimID
-[[Source]](https://github.com/seelabs/rippled/blob/xchain/src/ripple/protocol/impl/LedgerFormats.cpp#L297-L308 "Source")
 
 <embed src="/snippets/_xchain-bridges-disclaimer.md" />
+
+[[Source]](https://github.com/seelabs/rippled/blob/xbridge/src/ripple/protocol/impl/LedgerFormats.cpp#L296-L306 "Source")
 
 The `XChainOwnedCreateAccountClaimID` ledger object is used to collect attestations for creating an account via a cross-chain transfer.
 

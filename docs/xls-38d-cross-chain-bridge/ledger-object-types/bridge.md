@@ -7,9 +7,10 @@ labels:
 status: not_enabled
 ---
 # Bridge
-[[Source]](https://github.com/seelabs/rippled/blob/xchain/src/ripple/protocol/impl/LedgerFormats.cpp#L265-L279 "Source")
 
 <embed src="/snippets/_xchain-bridges-disclaimer.md" />
+
+[[Source]](https://github.com/seelabs/rippled/blob/xbridge/src/ripple/protocol/impl/LedgerFormats.cpp#L265-L278 "Source")
 
 The `bridge` object represents a single cross-chain bridge that connects the XRP Ledger with another blockchain, such as its sidechain, and enables value in the form of XRP and other tokens (IOUs) to move efficiently between the two blockchains.
 
