@@ -3,7 +3,7 @@ title: Open Source Projects
 ---
 
 import {
-  LandingLayout,
+  LandingContainer,
   Button,
   Box,
   FlexSection,
@@ -14,49 +14,47 @@ import {
   Emphasis,
   H1,
   H2,
-  Typography,
   SectionHeader,
   NavBar,
 } from '@redocly/developer-portal/ui';
+import { Header1, Header2, TileText } from "./components";
 
-import icon1 from './images/icon1.png';
 import heroImage from './images/heroimg.png';
-import launchFastIcon from './images/launch-fast.svg';
-import icon3 from './images/icon3.png';
 import bookManagementIcon from './images/book-management.svg';
-import foundOrPrivate from './images/found-or-private.svg';
 
-export default LandingLayout;
+export default LandingContainer;
 
-<NavBar location={props.location} standalone={false} />
+<Jumbotron 
+  pb="8.5em"
+  bgImage={heroImage}
+  height="350px"
+  width="3440px"
+  bgColor="white"
+  textColor="black"
+>
 
-<Jumbotron bgImage={heroImage} textColor="white" height="350px" width="3440px" pb="8.5em">
-  <H1>Open Source Projects</H1>
-  <H2> Explore open source projects currently in development.</H2>
+  <NavBar location={props.location} standalone={false} />
+  <Header1>Open Source Projects</Header1>
+  <Header2>Explore open source projects currently in development.</Header2>
 </Jumbotron>
 
 <Box p={{ _: "8px", sm: "12px", md: "16px", lg: "24px" }}>
   <FlexSection justifyContent="space-around" flexWrap="wrap">
     <WideTile 
+      style={{ height: "284px"}}
       to="docs/xls-38d-cross-chain-bridge/cross-chain-bridges.md"
-      textAlign="left"
-      headerAlign="left"
-      color="#141A1F"
       header="Cross-chain Bridges"
+      color="#141A1F"
+      textAlign="left"
       disableArrow
     >
-      <Typography style={{
-        fontSize: "14px",
-        lineHeight: "20px",
-        color: "#5E676E",
-        marginTop: 0
-      }}>
+      <TileText>
         Cross-chain bridges for the XRP 
         Ledger enable value in the form of XRP 
         and other tokens (IOUs) to move efficiently 
         between blockchains.
-      </Typography>
-      <Flex pt={5}>
+      </TileText>
+      <div style={{ bottom: "36px", position: "absolute"}}>
         <Button  style={{
             padding: "8px 16px",
             borderRadius: "20px",
@@ -67,28 +65,23 @@ export default LandingLayout;
           }}>
           Go to Docs
         </Button>
-      </Flex>
+      </div>
     </WideTile>
     <WideTile 
+      style={{ height: "284px"}}
       to="docs/evm-sidechain/intro-to-evm-sidechain.md"
-      textAlign="left"
-      headerAlign="left"
-      color="#141A1F"
       header="EVM Sidechain"
+      color="#141A1F"
+      textAlign="left"
       disableArrow
     >
-      <Typography style={{
-        fontSize: "14px",
-        lineHeight: "20px",
-        color: "#5E676E",
-        marginTop: 0
-      }}>
+      <TileText>
         The Ethereum Virtual Machine (EVM) 
         compatible XRP Ledger sidechain is a secure and 
         fast public blockchain that brings all kinds 
         of web3 applications to the XRP Ledger community.
-      </Typography>
-      <Flex pt={5}>
+      </TileText>
+      <div style={{ bottom: "36px", position: "absolute"}}>
         <Button  style={{
             padding: "8px 16px",
             borderRadius: "20px",
@@ -99,29 +92,24 @@ export default LandingLayout;
           }}>
           Go to Docs
         </Button>
-      </Flex>
+      </div>
     </WideTile>
     <WideTile 
+      style={{ height: "284px"}}
       to="docs/xls-30d-amm/amm-uc.md"
-      textAlign="left"
-      headerAlign="left"
-      color="#141A1F"
       header="Automated Market Maker(AMM)"
+      color="#141A1F"
+      textAlign="left"
       disableArrow
     >
-      <Typography style={{
-        fontSize: "14px",
-        lineHeight: "20px",
-        color: "#5E676E",
-        marginTop: 0
-      }}>
+      <TileText>
         Automated Market Maker(AMM) for the 
         XRP Ledger is a protocol for the Decentralized 
         Exchange (DEX) that prices assets through an 
         algorithm, rather than using an order book like 
         a traditional exchange.
-      </Typography>
-      <Flex pt={5}>
+      </TileText>
+      <div style={{ bottom: "36px", position: "absolute"}}>
         <Button  style={{
             padding: "8px 16px",
             borderRadius: "20px",
@@ -132,7 +120,7 @@ export default LandingLayout;
           }}>
           Go to Docs
         </Button>
-      </Flex>
+      </div>
     </WideTile>
   </FlexSection>
 </Box>

@@ -43,7 +43,6 @@ nav:
 showNextButton: false
 
 footer:
-  copyrightText: © 2013 - 2023 Ripple, All Rights Reserved.
   columns:
     - group: About
       items:
@@ -61,5 +60,5 @@ footer:
         - label: Contribute to the XRP Ledger 
           href: https://xrpl.org/contribute-code.html
           external: true  
-
+    - label: © 2013 - 2023 Ripple, All Rights Reserved.
 disableLastModified: true
