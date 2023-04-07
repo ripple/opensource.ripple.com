@@ -10,6 +10,8 @@ status: not_enabled
 
 <embed src="/snippets/_xchain-bridges-disclaimer.md" />
 
+[[Source]](https://github.com/seelabs/rippled/blob/xbridge/src/ripple/protocol/impl/TxFormats.cpp#L329-L335 "Source")
+
 The `XChainCreateBridge` transaction creates a new `Bridge` ledger object and defines a new cross-chain bridge entrance on the chain that the transaction is submitted on. It includes information about door accounts and assets for the bridge. 
 
 The transaction must be submitted by the door account. To set up a valid bridge, door accounts on both chains must submit this transaction, in addition to setting up witness servers.
@@ -48,7 +50,7 @@ To mitigate the possibility of creating a duplicate bridge, ensure the following
 
 ## XChainCreateBridge Fields
 
-| Field                    | JSON Type         | [Internal Type][] | Required? | Description |
+| Field                    | JSON Type         | Internal Type | Required? | Description |
 |:-------------------------|:------------------|:------------------|:----------------|:------|
 | `MinAccountCreateAmount` | `Currency Amount` | `AMOUNT`          | No        | The minimum amount, in XRP, required for a `XChainAccountCreateCommit` transaction. If this isn't present, the `XChainAccountCreateCommit` transaction will fail. This field can only be present on XRP-XRP bridges. |
 | `SignatureReward`        | `Currency Amount` | `AMOUNT`          | Yes       | The total amount to pay the witness servers for their signatures. This amount will be split among the signers. |

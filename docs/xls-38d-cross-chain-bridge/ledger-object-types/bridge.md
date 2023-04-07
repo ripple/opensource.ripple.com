@@ -7,11 +7,12 @@ labels:
 status: not_enabled
 ---
 # Bridge
-[[Source]](https://github.com/seelabs/rippled/blob/xchain/src/ripple/protocol/impl/LedgerFormats.cpp#L265-L279 "Source")
 
 <embed src="/snippets/_xchain-bridges-disclaimer.md" />
 
-A bridge connects and enables value to move efficiently between two blockchains. A bridge connects the XRP Ledger with another blockchain, such as its sidechain, and enables value in the form of XRP and other tokens (IOUs) to move efficiently between the two blockchains.
+[[Source]](https://github.com/seelabs/rippled/blob/xbridge/src/ripple/protocol/impl/LedgerFormats.cpp#L265-L278 "Source")
+
+The `Bridge` object represents a single cross-chain bridge that connects the XRP Ledger with another blockchain, such as its sidechain, and enables value in the form of XRP and other tokens (IOUs) to move efficiently between the two blockchains.
 
 
 ## Example Bridge JSON
@@ -46,8 +47,9 @@ A bridge connects and enables value to move efficiently between two blockchains.
 
 ## Bridge Fields
 
-| Field                      | JSON Type         | [Internal Type][] | Required? | Description |
+| Field                      | JSON Type         | Internal Type     | Required? | Description |
 |:---------------------------|:------------------|:------------------|:----------|:------------|
+| `Account`                  | `string`          | `ACCOUNT`         | Yes       | The account that owns this object. |
 | `LedgerIndex`              | `string`          | `HASH256`         | Yes       | The ledger index is a hash of a unique prefix for a bridge object, and the fields in `XChainBridge`. |
 | `MinAccountCreateAmount`   | `Currency Amount` | `AMOUNT`          | No        | The minimum amount, in XRP, required for an `XChainAccountCreateCommit` transaction. If this isn't present, the `XChainAccountCreateCommit` transaction will fail. This field can only be present on XRP-XRP bridges. |
 | `SignatureReward`          | `Currency Amount` | `AMOUNT`          | Yes       | The total amount, in XRP, to be rewarded for providing a signature for cross-chain transfer or for signing for the cross-chain reward. This amount will be split among the signers. |

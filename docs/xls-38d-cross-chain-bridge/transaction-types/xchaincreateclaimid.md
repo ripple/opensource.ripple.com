@@ -10,6 +10,8 @@ status: not_enabled
 
 <embed src="/snippets/_xchain-bridges-disclaimer.md" />
 
+[[Source]](https://github.com/seelabs/rippled/blob/xbridge/src/ripple/protocol/impl/TxFormats.cpp#L347-L353 "Source")
+
 The `XChainCreateClaimID` transaction creates a new cross-chain claim ID that is used for a cross-chain transfer. A cross-chain claim ID represents *one* cross-chain transfer of value. 
 
 This transaction is the first step of a cross-chain transfer of value and is submitted on the destination chain, not the source chain. 
@@ -41,7 +43,7 @@ It also includes the account on the source chain that locks or burns the funds o
 
 ## XChainCreateClaimID Fields
 
-| Field              | JSON Type         | [Internal Type][] | Required? | Description |
+| Field              | JSON Type         | Internal Type | Required? | Description |
 |:-------------------|:------------------|:------------------|:----------|-------------|
 | `OtherChainSource` | `string`          | `ACCOUNT`         | Yes       | The account that must send the `XChainCommit` transaction on the source chain.
 | `SignatureReward`  | `string`          | `ACCOUNT`         | Yes       | The amount, in XRP, to reward the witness servers for providing signatures. This must match the amount on the `Bridge` ledger object.

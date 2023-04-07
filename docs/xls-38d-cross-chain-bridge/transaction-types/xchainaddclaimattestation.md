@@ -10,6 +10,8 @@ status: not_enabled
 
 <embed src="/snippets/_xchain-bridges-disclaimer.md" />
 
+[[Source]](https://github.com/seelabs/rippled/blob/xbridge/src/ripple/protocol/impl/TxFormats.cpp#L377-L392 "Source")
+
 The `XChainAddClaimAttestation` transaction provides proof from a witness server, attesting to an `XChainCommit` transaction. 
 
 The signature must be from one of the keys on the door's signer list at the time the signature was provided. However, if the signature list changes between the time the signature was submitted and the quorum is reached, the new signature set is used and some of the currently collected signatures may be removed.
@@ -72,7 +74,7 @@ Any account can submit signatures.
 
 ## XChainAddClaimAttestation Fields
 
-| Field                      | JSON Type         | [Internal Type][] | Required? | Description |
+| Field                      | JSON Type         | Internal Type | Required? | Description |
 |:---------------------------|:------------------|:------------------|:----------|-------------|
 | `Amount`                   | `Currency Amount` | `AMOUNT`          | Yes       | The amount committed by the `XChainCommit` transaction on the source chain. |
 | `AttestationRewardAccount` | `string`          | `ACCOUNT`         | Yes       | The account that should receive this signer's share of the `SignatureReward`. |

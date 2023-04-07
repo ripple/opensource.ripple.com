@@ -7,9 +7,10 @@ labels:
 status: not_enabled
 ---
 # XChainOwnedCreateAccountClaimID
-[[Source]](https://github.com/seelabs/rippled/blob/xchain/src/ripple/protocol/impl/LedgerFormats.cpp#L297-L308 "Source")
 
 <embed src="/snippets/_xchain-bridges-disclaimer.md" />
+
+[[Source]](https://github.com/seelabs/rippled/blob/xbridge/src/ripple/protocol/impl/LedgerFormats.cpp#L296-L306 "Source")
 
 The `XChainOwnedCreateAccountClaimID` ledger object is used to collect attestations for creating an account via a cross-chain transfer.
 
@@ -57,8 +58,9 @@ The ledger object is destroyed when all the attestations have been received and 
 
 ## XChainOwnedCreateAccountClaimID Fields
 
-| Field                             | JSON Type      | [Internal Type][] | Required? | Description |
+| Field                             | JSON Type      | Internal Type     | Required? | Description |
 |:----------------------------------|:---------------|:------------------|:----------|:------------|
+| `Account`                         | `string`       | `ACCOUNT`         | Yes       | The account that owns this object. |
 | `LedgerIndex`                     | `string`       | `HASH256`         | Yes       | The ledger index is a hash of a unique prefix for `XChainOwnedClaimID`s, the actual `XChainClaimID` value, and the fields in `XChainBridge`. |
 | `XChainAccountCreateCount`        | `number`       | `UINT64`          | Yes       | An integer that determines the order that accounts created through cross-chain transfers must be performed. Smaller numbers must execute before larger numbers. |
 | `XChainBridge`                    | `XChainBridge` | `XCHAIN_BRIDGE`   | Yes       | The door accounts and assets of the bridge this object correlates to. |
