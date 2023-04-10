@@ -21,6 +21,7 @@ An example of the request format:
 
 :::info Note
 There is no commandline syntax for this method. You can use the [json method](https://xrpl.org/json.html) to access this method from the commandline instead.
+:::
 
 <!-- MULTICODE_BLOCK_START -->
 
