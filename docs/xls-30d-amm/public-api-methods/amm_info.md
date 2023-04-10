@@ -188,14 +188,14 @@ An example of a successful response:
 
 <!-- MULTICODE_BLOCK_END -->
 
-The response follows the [standard format][], with a successful result containing the following fields:
+The response follows the [standard format](https://xrpl.org/response-formatting.html), with a successful result containing the following fields:
 
 | Field                  | Type             | Description                                               |
 |:-----------------------|:-----------------|:----------------------------------------------------------|
 | `amm`                  | Object           | An [**AMM Description Object**](#amm-description-object) for the requested asset pair. |
-| `ledger_current_index` | [Ledger Index][] | _(Omitted if `ledger_index` is provided instead)_ The [ledger index][] of the current in-progress ledger, which was used when retrieving this information. |
-| `ledger_hash`          | [Hash][]         | _(Omitted if `ledger_current_index` is provided instead)_ The identifying hash of the ledger version that was used when retrieving this data. |
-| `ledger_index`         | [Ledger Index][] | _(Omitted if `ledger_current_index` is provided instead)_ The [ledger index][] of the ledger version used when retrieving this information. |
+| `ledger_current_index` | [Ledger Index](https://xrpl.org/basic-data-types.html#ledger-index) | _(Omitted if `ledger_index` is provided instead)_ The ledger index of the current in-progress ledger, which was used when retrieving this information. |
+| `ledger_hash`          | [Hash](https://xrpl.org/basic-data-types.html#hashes) | _(Omitted if `ledger_current_index` is provided instead)_ The identifying hash of the ledger version that was used when retrieving this data. |
+| `ledger_index`         | [Ledger Index](https://xrpl.org/basic-data-types.html#ledger-index) | _(Omitted if `ledger_current_index` is provided instead)_ The ledger index of the ledger version used when retrieving this information. |
 | `validated`            | Boolean          | If `true`, the ledger used for this request is validated and these results are final; if omitted or set to `false`, the data is pending and may change. |
 
 
@@ -205,13 +205,13 @@ The `amm` field is an object describing the current status of an Automated Marke
 
 | Field           | Type                | Description |
 |-----------------|---------------------|-------------|
-| `amm_account`   | String              | The [Address][] of the AMM Account. |
-| `amount`        | [Currency Amount][] | The total amount of one asset in the AMM's pool. (Note: This could be `asset` _or_ `asset2` from the request.) |
-| `amount2`       | [Currency Amount][] | The total amount of the other asset in the AMM's pool. (Note: This could be `asset` _or_ `asset2` from the request.) |
-| `asset_frozen`  | Boolean             | _(Omitted for XRP)_ If `true`, the `amount` currency is currently [frozen](freezes.html). |
-| `asset2_frozen` | Boolean             | _(Omitted for XRP)_ If `true`, the `amount2` currency is currently [frozen](freezes.html). |
+| `amm_account`   | String              | The [Address](https://xrpl.org/basic-data-types.html#addresses) of the AMM Account. |
+| `amount`        | [Currency Amount](https://xrpl.org/basic-data-types.html#specifying-currency-amounts) | The total amount of one asset in the AMM's pool. (Note: This could be `asset` _or_ `asset2` from the request.) |
+| `amount2`       | [Currency Amount](https://xrpl.org/basic-data-types.html#specifying-currency-amounts) | The total amount of the other asset in the AMM's pool. (Note: This could be `asset` _or_ `asset2` from the request.) |
+| `asset_frozen`  | Boolean             | _(Omitted for XRP)_ If `true`, the `amount` currency is currently [frozen](https://xrpl.org/freezes.html). |
+| `asset2_frozen` | Boolean             | _(Omitted for XRP)_ If `true`, the `amount2` currency is currently [frozen](https://xrpl.org/freezes.html). |
 | `auction_slot`  | Object              | _(May be omitted)_ An [Auction Slot Object](#auction-slot-object) describing the current auction slot holder, if there is one. |
-| `lp_token`      | [Currency Amount][] | The total amount of this AMM's LP Tokens outstanding. |
+| `lp_token`      | [Currency Amount](https://xrpl.org/basic-data-types.html#specifying-currency-amounts) | The total amount of this AMM's LP Tokens outstanding. |
 | `trading_fee`   | Number              | The AMM's current trading fee, in units of 1/100,000; a value of 1 is equivalent to a 0.001% fee. |
 | `vote_slots`    | Array               | _(May be omitted)_ The current votes for the AMM's trading fee, as [Vote Slot Objects](#vote-slot-objects). |
 
@@ -222,11 +222,11 @@ The `auction_slot` field of the `amm` object describes the current auction slot 
 
 | Field            | Type                | Description |
 |------------------|---------------------|-------------|
-| `account`        | String              | The [Address][] of the account that owns the auction slot. |
+| `account`        | String              | The [Address](https://xrpl.org/basic-data-types.html#addresses) of the account that owns the auction slot. |
 | `auth_accounts`  | Array               | A list of additional accounts that the auction slot holder has designated as being eligible of the discounted trading fee. Each member of this array is an object with one field, `account`, containing the address of the designated account. |
 | `discounted_fee` | Number              | The discounted trading fee that applies to the auction slot holder, and any eligible accounts, when trading against this AMM. This is always 0. |
 | `expiration`     | String              | The ISO 8601 UTC timestamp after which this auction slot expires. After expired, the auction slot does not apply (but the data can remain in the ledger until another transaction replaces it or cleans it up). |
-| `price`          | [Currency Amount][] | The amount, in LP Tokens, that the auction slot holder paid to win the auction slot. This affects the price to outbid the current slot holder. |
+| `price`          | [Currency Amount](https://xrpl.org/basic-data-types.html#specifying-currency-amounts) | The amount, in LP Tokens, that the auction slot holder paid to win the auction slot. This affects the price to outbid the current slot holder. |
 | `time_interval`  | Number              | The current 72-minute time interval this auction slot is in, from 0 to 19. The auction slot expires after 24 hours (20 intervals of 72 minutes) and affects the cost to outbid the current holder and how much the current holder is refunded if someone outbids them. |
 
 
@@ -236,14 +236,14 @@ Each entry in the `vote_slots` array represents one liquidity provider's vote to
 
 | Field         | Type   | Description |
 |---------------|--------|-------------|
-| `account`     | String | The [Address]() of this liquidity provider. |
+| `account`     | String | The [Address](https://xrpl.org/basic-data-types.html#addresses) of this liquidity provider. |
 | `trading_fee` | Number | The trading fee this liquidity provider voted for, in units of 1/100,000. |
 | `vote_weight` | Number | How much this liquidity provider's vote counts towards the final trading fee. This is proportional to how much of the AMM's LP Tokens this liquidity provider holds. The value is equal to 100,000 times the number of this LP Tokens this liquidity provider holds, divided by the total number of LP Tokens outstanding. For example, a value of 1000 means that the liquidity provider holds 1% of this AMM's LP Tokens. |
 
 
 ### Possible Errors
 
-- Any of the [universal error types]().
+- Any of the [universal error types](https://xrpl.org/error-formatting.html#universal-errors).
 - `actNotFound` - The AMM for this asset pair does not exist, or an issuing account specified in the request does not exist.
 - `invalidParams` - One or more fields are specified incorrectly, or one or more required fields are missing.
 
