@@ -13,7 +13,7 @@ status: not_enabled
 <embed src="/snippets/_amm-disclaimer.md" />
 
 
-The `AMM` object type describes a single [Automated Market Maker](automated-market-makers.html) (AMM) instance.
+The `AMM` object type describes a single [Automated Market Maker](../automated-market-makers.html) (AMM) instance.
 
 
 ## Example AMM JSON
@@ -77,7 +77,7 @@ The `AMM` object has the following fields:
 |:-----------------|:--------------------|:------------------|:----------|--------------|
 | `Asset`          | Object              | STIssue           | Yes       | The definition for one of the two assets this AMM holds. In JSON, this is an object with `currency` and `issuer` fields. |
 | `Asset2`         | Object              | STIssue           | Yes       | The definition for the other asset this AMM holds. In JSON, this is an object with `currency` and `issuer` fields. |
-| `AMMAccount`     | String              | AccountID         | Yes       | The address of the [special account](accountroot.html#special-amm-accountroot-objects) that holds this AMM's assets. |
+| `AMMAccount`     | String              | AccountID         | Yes       | The address of the [special account](https://xrpl.org/accountroot.html#special-amm-accountroot-objects) that holds this AMM's assets. |
 | `AuctionSlot`    | Object              | STObject          | No        | Details of the current owner of the auction slot, as an [Auction Slot object](#auction-slot-object). |
 | `LPTokenBalance` | [Currency Amount][] | Amount            | Yes       | The total outstanding balance of liquidity provider tokens from this AMM instance. The holders of these tokens can vote on the AMM's trading fee in proportion to their holdings, or redeem the tokens for a share of the AMM's assets which grows with the trading fees collected. |
 | `TradingFee`     | Number              | UInt16            | Yes       | The percentage fee to be charged for trades against this AMM instance, in units of 1/100,000. The maximum value is 1000, for a 1% fee. |

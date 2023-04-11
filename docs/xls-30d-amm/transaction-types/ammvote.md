@@ -12,7 +12,7 @@ status: not_enabled
 
 <embed src="/snippets/_amm-disclaimer.md" />
 
-Vote on the trading fee for an [Automated Market Maker](automated-market-makers.md) instance. Up to 8 accounts can vote in proportion to the amount of the AMM's LP Tokens they hold. Each new vote re-calculates the AMM's trading fee based on a weighted average of the votes.
+Vote on the trading fee for an [Automated Market Maker](../automated-market-makers.md) instance. Up to 8 accounts can vote in proportion to the amount of the AMM's LP Tokens they hold. Each new vote re-calculates the AMM's trading fee based on a weighted average of the votes.
 
 ## Example AMMVote JSON
 

@@ -251,9 +251,9 @@ Each entry in the `vote_slots` array represents one liquidity provider's vote to
 
 ## See Also
 
- - [AMM object](amm.html) - The canonical storage format of the AMM object
- - [AMMBid](ammbid.html) - More info on the auction slot and bidding mechanism
- - [AMMVote](ammvote.html) - More info on the trading fee voting mechanism
+ - [AMM object](../ledger-object-types/amm.html) - The canonical storage format of the AMM object
+ - [AMMBid](../transaction-types/ammbid.html) - More info on the auction slot and bidding mechanism
+ - [AMMVote](../transaction-types/ammvote.html) - More info on the trading fee voting mechanism
 
 <!--{# common link defs #}
 {% include '_snippets/rippled-api-links.md' %}
