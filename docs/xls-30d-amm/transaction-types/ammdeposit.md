@@ -12,7 +12,7 @@ status: not_enabled
 
 <embed src="/snippets/_amm-disclaimer.md" />
 
-Deposit funds into an [Automated Market Maker](automated-market-makers.md) (AMM) instance and receive the AMM's liquidity provider tokens (_LP Tokens_) in exchange. You can deposit one or both of the assets in the AMM's pool.
+Deposit funds into an [Automated Market Maker](../automated-market-makers.md) (AMM) instance and receive the AMM's liquidity provider tokens (_LP Tokens_) in exchange. You can deposit one or both of the assets in the AMM's pool.
 
 If successful, this transaction creates a [trust line](https://xrpl.org/trust-lines-and-issuing.html) to the AMM Account (limit 0) to hold the LP Tokens.
 
@@ -108,7 +108,7 @@ Transactions of the AMMDeposit type support additional values in the [`Flags` fi
 | `tfOneAssetLPToken` | `0x00200000` | 2097152       | Perform a single-asset deposit and receive the specified amount of LP Tokens. |
 | `tfLimitLPToken`    | `0x00400000` | 4194304       | Perform a single-asset deposit with a specified effective price. |
 
-You must specify **exactly one** of these flags, plus any [global flags](transaction-common-fields.html#global-flags).
+You must specify **exactly one** of these flags, plus any [global flags](https://xrpl.org/transaction-common-fields.html#global-flags).
 
 
 ## Error Cases

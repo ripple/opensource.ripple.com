@@ -60,3 +60,7 @@ opensource:
               - page: docs/xls-30d-amm/transaction-types/ammdeposit.md
               - page: docs/xls-30d-amm/transaction-types/ammvote.md
               - page: docs/xls-30d-amm/transaction-types/ammwithdraw.md
+          - group: Public API Methods
+            expanded: false
+            pages:
+              - page: docs/xls-30d-amm/public-api-methods/amm_info.md

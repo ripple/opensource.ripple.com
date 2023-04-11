@@ -43,7 +43,7 @@ The first task is to initialize the node, which creates the necessary validator 
 
     Note the `key_name` you enter as you need to reference it in subsequent steps.
 
-    **Note** For more information on a more secure setup for your validator, refer to [cosmos-sdk keys and keyrings](https://docs.cosmos.network/v0.46/run-node/keyring.html) and [validator security](evm-sidechain-validator-security.html).
+    **Note** For more information on a more secure setup for your validator, refer to [cosmos-sdk keys and keyrings](https://docs.cosmos.network/v0.46/run-node/keyring.html) and [validator security](evm-sidechain-validator-security.md).
 
 
 3. Initialize the node using the following command:
@@ -107,7 +107,7 @@ exrpd tx staking create-validator \
   --from=<key_name>
 ```
 
-**Note** For more information on running a validator note, see [Run a validator](evm-sidechain-run-a-validator-node.html)
+**Note** For more information on running a validator note, see [Run a validator](evm-sidechain-run-a-validator-node.md)
 
 
 ## Start the Node

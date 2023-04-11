@@ -12,7 +12,7 @@ status: not_enabled
 
 <embed src="/snippets/_amm-disclaimer.md" />
 
-Withdraw assets from an [Automated Market Maker](automated-market-makers.md) (AMM) instance by returning the AMM's liquidity provider tokens (LP Tokens).
+Withdraw assets from an [Automated Market Maker](../automated-market-makers.md) (AMM) instance by returning the AMM's liquidity provider tokens (LP Tokens).
 
 ## Example AMMWithdraw JSON
 

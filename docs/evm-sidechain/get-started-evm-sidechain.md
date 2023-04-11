@@ -17,14 +17,14 @@ This getting started tutorial walks you through the steps to set up your account
 
 In order to interact with the network, you need to create an account in the EVM sidechain. To create and manage this account you can use any EVM compatible wallet such as MetaMask.
 
-For instructions on how to install and create an account using MetaMask, see [Connect MetaMask to XRP Ledger EVM Sidechain](connect-metamask-to-xrpl-evm-sidechain.html).
+For instructions on how to install and create an account using MetaMask, see [Connect MetaMask to XRP Ledger EVM Sidechain](connect-metamask-to-xrpl-evm-sidechain.md).
 
 
 ## 2. Assign your XRP Ledger Devnet Tokens to the EVM Sidechain
 
 Before you can start interacting with the EVM blockchain, you need to assign some of your XRP Ledger Devnet Tokens to the EVM Sidechain. 
 
-To generate tokens in the XRP Ledger Devnet, go to the [XRP Faucets](xrp-testnet-faucet.html) page and click *Generate Devnet credentials* to generate a new Devnet account with some test XRP in it.
+To generate tokens in the XRP Ledger Devnet, go to the [XRP Faucets](https://xrpl.org/xrp-testnet-faucet.html) page and click *Generate Devnet credentials* to generate a new Devnet account with some test XRP in it.
 
 ![Generate XRP Ledger Devnet credentials](../img/evm-sidechain-xrpl-devnet-faucet.png '#width=300px;')
 
@@ -59,7 +59,7 @@ Follow the instructions on screen to scan the QR code using the Xumm app. The Xu
 **Connect MetaMask Wallet**
 
 Use your MetaMask wallet to interact with the XRP Ledger EVM Sidechain. 
-Ensure that you have created a MetaMask account and connected to the public XRP Ledger Devnet as described in [Connect MetaMask to XRP Ledger EVM Sidechain](connect-metamask-to-xrpl-evm-sidechain.html).
+Ensure that you have created a MetaMask account and connected to the public XRP Ledger Devnet as described in [Connect MetaMask to XRP Ledger EVM Sidechain](connect-metamask-to-xrpl-evm-sidechain.md).
 
 To connect a MetaMask wallet to the bridge, go to the [EVM Sidechain bridge](https://bridge.devnet.xrpl.org) and click “Connect with Metamask Wallet”.
 
