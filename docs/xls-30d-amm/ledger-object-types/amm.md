@@ -13,7 +13,7 @@ status: not_enabled
 <embed src="/snippets/_amm-disclaimer.md" />
 
 
-The `AMM` object type describes a single [Automated Market Maker](../automated-market-makers.html) (AMM) instance.
+The `AMM` object type describes a single [Automated Market Maker](../../automated-market-makers.html) (AMM) instance.
 
 
 ## Example AMM JSON
