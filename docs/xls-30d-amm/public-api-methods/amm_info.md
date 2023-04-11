@@ -64,10 +64,10 @@ There is no commandline syntax for this method. You can use the [json method](ht
 
 The request includes the following parameters:
 
-| `Field`  | Type             | Description                        |
+| Field  | Type             | Description                        |
 |:---------|:-----------------|:-----------------------------------|
-| `asset`  | Object or String | One of the assets of the AMM to look up, as an object with `currency` and `issuer` fields (omit `issuer` for XRP), like [currency amounts][Currency Amount]. For XRP, you can specify as the string `XRP` instead of as an object. |
-| `asset2` | Object or String | The other of the assets of the AMM, as an object with `currency` and `issuer` fields (omit `issuer` for XRP), like [currency amounts][Currency Amount]. |
+| `asset`  | Object or String | One of the assets of the AMM to look up, as an object with `currency` and `issuer` fields (omit `issuer` for XRP), like [currency amounts](https://xrpl.org/basic-data-types.html#specifying-currency-amounts). For XRP, you can specify as the string `XRP` instead of as an object. |
+| `asset2` | Object or String | The other of the assets of the AMM, as an object with `currency` and `issuer` fields (omit `issuer` for XRP), like [currency amounts](https://xrpl.org/basic-data-types.html#specifying-currency-amounts). |
 
 
 ### Response Format
