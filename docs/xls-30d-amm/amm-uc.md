@@ -14,6 +14,6 @@ AMMs allow you to trade at a certain exchange rate on a DEX without having to fi
 
 AMMs allow people to trade tokens peer-to-peer through liquidity pools, which are token reserves secured by a smart contract. The more tokens available to trade, the lower the exchange fee to swap between the tokens.
 
-To learn more about AMMs, see [Automated Market Makers](../automated-market-makers.md).
+To learn more about AMMs, see [Automated Market Makers](automated-market-makers.md).
 
 
