@@ -63,6 +63,3 @@ footer:
           external: true  
     - label: © 2013 - 2023 Ripple, All Rights Reserved.
 disableLastModified: true
-
-scripts:
-  - https://code.jquery.com/jquery-3.6.4.min.js
