@@ -12,29 +12,29 @@ labels:
 ---
 # Create an Automated Market Maker
 
-An [Automated Market Maker (AMM)](automated-market-makers.html) can be an efficient way to facilitate exchanges between two assets, while earning its liquidity providers passive income. This tutorial shows how to create the AMM for a given asset pair.
+An [Automated Market Maker (AMM)](../automated-market-makers.md) can be an efficient way to facilitate exchanges between two assets, while earning its liquidity providers passive income. This tutorial shows how to create the AMM for a given asset pair.
 
 ## Prerequisites
 
 - You must have an XRP Ledger address and some XRP.
 - You should be familiar with the Getting Started instructions for your preferred client library. This page provides examples for the following:
-    - **JavaScript** with the [xrpl.js library](https://github.com/XRPLF/xrpl.js/) **version 2.8.0-beta.0 or later**. See [Get Started Using JavaScript](get-started-using-javascript.html) for setup steps.
+    - **JavaScript** with the [xrpl.js library](https://github.com/XRPLF/xrpl.js/) **version 2.8.0-beta.0 or later**. See [Get Started Using JavaScript](https://xrpl.org/get-started-using-javascript.html) for setup steps.
     - You can also use [an interactive version of this tutorial in your browser](https://mduo13.github.io/xrpl-dev-portal/pr-preview/amm/create-an-automated-market-maker.html).
-- You should have a basic understanding of how [tokens](tokens.html) work in the XRP Ledger.
+- You should have a basic understanding of how [tokens](https://xrpl.org/tokens.html) work in the XRP Ledger.
 
 
 ## Example Code
 
-Complete sample code for all of the steps of these tutorials is available under the [MIT license](https://github.com/XRPLF/xrpl-dev-portal/blob/master/LICENSE).
+Complete sample code for all of the steps of these tutorials is available under the MIT license.
 
-- See [Code Samples: Create an AMM](../code-samples/create-amm/) in the source repository for this website.
+- See [Code Samples: Create an AMM](https://github.com/ripple/opensource.ripple.com/tree/main/docs/xls-30d-amm/code-samples/create-amm) in the source repository for this website.
 
 
 ## Steps
 
 ### 1. Connect to the network
 
-You must be connected to the network to query it and submit transactions. The following code shows how to connect to a public server using a supported [client library](client-libraries.html):
+You must be connected to the network to query it and submit transactions. The following code shows how to connect to a public server using a supported [client library](https://xrpl.org/client-libraries.html):
 
 ```js JavaScript
 // In browsers, use a <script> tag. In Node.js, uncomment the following line:
@@ -77,7 +77,7 @@ When you're [building production-ready software](production-readiness.html), you
 
 As the creator of an AMM, you are also the first liquidity provider and you have to supply it with a starting pool of assets. Other users of the XRP Ledger can also become liquidity providers by supplying assets after the AMM exists. It's important to choose assets especially carefully because, as a liquidity provider for an AMM, you are supplying some amounts of both for users to swap between. If one of the AMM's assets becomes worthless, other users can use the AMM to trade for the other asset, leaving the AMM (and thus, its liquidity providers including you) holding only the worthless one. Technically, the AMM always holds some positive amount of both assets, but the amounts can be very small.
 
-You can choose any pair of fungible assets in the XRP Ledger, including XRP or tokens, including LP Tokens from another AMM. If you use a token, you must hold some amount of that token. (If a token's issuer uses, [authorized trust lines](authorized-trust-lines.html), that means you have to be authorized first.)
+You can choose any pair of fungible assets in the XRP Ledger, including XRP or tokens, including LP Tokens from another AMM. If you use a token, you must hold some amount of that token. (If a token's issuer uses, [authorized trust lines](https://xrpl.org/authorized-trust-lines.html), that means you have to be authorized first.)
 
 For each of the two assets, you need to know its currency code and issuer; as an exception, XRP has no issuer. For each of the assets, you must hold a balance of the asset (or _be_ the issuer). The following sample code acquires two assets, "TST" (which it buys using XRP) and "FOO" (which it receives from the issuer).
 
@@ -120,7 +120,7 @@ For each of the two assets, you need to know its currency code and issuer; as an
 
 This tutorial includes some example code to issue FOO tokens from a second test address. This is not realistic for a production scenario, because tokens do not inherently have value, but it makes it possible to demonstrate creating a new AMM for a unique currency pair. In production, you would acquire a second token in some other way, such as making an off-ledger deposit with the stablecoin issuer, or buying it in the decentralized exchange.
 
-The helper function for issuing follows an abbreviated version of the steps in the [Issue a Fungible Token](issue-a-fungible-token.html) tutorial:
+The helper function for issuing follows an abbreviated version of the steps in the [Issue a Fungible Token](https://xrpl.org/issue-a-fungible-token.html) tutorial:
 
 ```js JavaScript
 /* Issue tokens ---------------------------------------------------------------
@@ -205,7 +205,7 @@ async function get_new_token(client, wallet, currency_code, issue_quantity) {
 
 ### 4. Check if the AMM exists
 
-Use the [amm_info method][] to check whether the AMM already exists. For the request, you specify the two assets. The response should be an `actNotFound` error if the AMM does not exist.
+Use the [amm_info method](../public-api-methods/amm_info.md) to check whether the AMM already exists. For the request, you specify the two assets. The response should be an `actNotFound` error if the AMM does not exist.
 
 ```js JavaScript
 // Check if AMM already exists ----------------------------------------------
@@ -240,14 +240,14 @@ If the AMM does already exist, you should double-check that you specified the ri
 
 ### 5. Send AMMCreate transaction
 
-Send an [AMMCreate transaction][] to create the AMM. Important aspects of this transaction include:
+Send an [AMMCreate transaction](../transaction-types/ammcreate.md) to create the AMM. Important aspects of this transaction include:
 
 | Field | Value | Description |
 |-------|--------|-------------|
 | `Asset` | [Currency Amount][] | Starting amount of one asset to deposit in the AMM. |
 | `Asset2` | [Currency Amount][] | Starting amount of the other asset to deposit in the AMM. |
 | `TradingFee` | Number | The fee to charge when trading against this AMM instance. The maximum value is `1000`, meaning a 1% fee; the minimum value is `0`. If you set this too high, it may be too expensive for users to trade against the AMM; but the lower you set it, the more you expose yourself to currency risk from the AMM's assets changing in value relative to one another. |
-| `Fee` | String - XRP Amount | AMMCreate is a special case: for the [transaction cost][], you must burn at least one [owner reserve increment](reserves.html) of XRP. (Currently, on AMM-Devnet, this is 2 XRP.) Client libraries may require that you add a special exception or reconfigure a setting to specify a `Fee` value this high. |
+| `Fee` | String - XRP Amount | AMMCreate is a special case: for the [transaction cost][], you must burn at least one [owner reserve increment](https://xrpl.org/reserves.html) of XRP. (Currently, on AMM-Devnet, this is 2 XRP.) Client libraries may require that you add a special exception or reconfigure a setting to specify a `Fee` value this high. |
 
 For the two starting assets, it does not matter which is `Asset` and which is `Asset2`, but you should specify amounts that are about equal in total value, because otherwise other users can profit at your expense by trading against the AMM.
 
@@ -288,7 +288,7 @@ For the two starting assets, it does not matter which is `Asset` and which is `A
 
 ### 6. Check AMM info
 
-If the AMMCreate transaction succeeded, it creates the AMM and related objects in the ledger. You _could_ check the metadata of the AMMCreate transaction, but it is often easier to call the [amm_info method][] again to get the status of the newly-created AMM. 
+If the AMMCreate transaction succeeded, it creates the AMM and related objects in the ledger. You _could_ check the metadata of the AMMCreate transaction, but it is often easier to call the [amm_info method](../public-api-methods/amm_info.md) again to get the status of the newly-created AMM. 
 
 ```js JavaScript
 // Confirm that AMM exists --------------------------------------------------
@@ -325,27 +325,22 @@ You can also use the [account_lines method][] to get an updated view of your tok
   console.log(account_lines_result)
 ```
 
-The `account_lines` response shows only the tokens held by the account you looked up (probably yours). If you have a lot of tokens, you may want to specify the AMM address as the `peer` in the request so you don't have to [paginate](markers-and-pagination.html) over multiple requests to find the AMM's LP Tokens. In this tutorial, your account probably only holds the three different tokens, so you can see all three in the same response.
+The `account_lines` response shows only the tokens held by the account you looked up (probably yours). If you have a lot of tokens, you may want to specify the AMM address as the `peer` in the request so you don't have to [paginate](https://xrpl.org/markers-and-pagination.html) over multiple requests to find the AMM's LP Tokens. In this tutorial, your account probably only holds the three different tokens, so you can see all three in the same response.
 
 **Tip:** If one of the assets in the AMM's pool is XRP, you need to call the [account_info method][] on your account to see the difference in your balance (the `Balance` field of the account object).
 
 
 ## Next Steps
 
-At this point the AMM is up and running, and [trades in the DEX](trade-in-the-decentralized-exchange.html) automatically use this AMM in combination with Offers to achieve the best exchange rate possible between the two assets in the AMM's pool. If the flow of funds between the two assets is relatively balanced and there are no major shifts in the value of one asset compared to the other, this can become a source of passive income for you and anyone else who deposits liquidity into the AMM's pool.
+At this point the AMM is up and running, and [trades in the DEX](https://xrpl.org/trade-in-the-decentralized-exchange.html) automatically use this AMM in combination with Offers to achieve the best exchange rate possible between the two assets in the AMM's pool. If the flow of funds between the two assets is relatively balanced and there are no major shifts in the value of one asset compared to the other, this can become a source of passive income for you and anyone else who deposits liquidity into the AMM's pool.
 
-When you want to withdraw liquidity from the AMM, you can use [AMMDeposit][] to cash in your LP Tokens to receive a share of the AMM's assets. You can also use LP Tokens like any other tokens in the XRP Ledger, which means you can trade them, use them in payments, or even deposit them in another AMM.
+When you want to withdraw liquidity from the AMM, you can use [AMMDeposit](../transaction-types/ammdeposit.md) to cash in your LP Tokens to receive a share of the AMM's assets. You can also use LP Tokens like any other tokens in the XRP Ledger, which means you can trade them, use them in payments, or even deposit them in another AMM.
 
-However, you should keep an eye on market conditions, and use tools like [AMMBid][] and [AMMVote][] to insulate yourself from losses due to changes in the relative value of the two assets in the pool.
+However, you should keep an eye on market conditions, and use tools like [AMMBid](../transaction-types/ammbid.md) and [AMMVote](../transaction-types/ammvote.md) to insulate yourself from losses due to changes in the relative value of the two assets in the pool.
 
 
 <!-- MD: reusable link definitions: -->
-[account_info method]: account_info.html
-[amm_info method]: amm_info.html
-[account_lines method]: account_lines.html
-[Currency Amount]: basic-data-types.html#specifying-currency-amounts
-[transaction cost]: transaction-cost.html
-[AMMCreate transaction]: ammcreate.html
-[AMMBid]: ammbid.html
-[AMMDeposit]: ammdeposit.html
-[AMMVote]: ammvote.html
+[account_info method]: https://xrpl.org/account_info.html
+[account_lines method]: https://xrpl.org/account_lines.html
+[Currency Amount]: https://xrpl.org/basic-data-types.html#specifying-currency-amounts
+[transaction cost]: https://xrpl.org/transaction-cost.html

@@ -26,8 +26,6 @@ copyCodeSnippet:
 stylesheets:
   - ./static/style.css
   - ./static/fonts.css
-  - ./static/interactive-tutorials.min.css
-  - ./static/fontawesome/css/font-awesome.min.css
 #analytics:
 # ga:
 # note that GA doesn't work in the development environment
