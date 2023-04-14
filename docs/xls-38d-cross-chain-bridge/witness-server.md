@@ -31,7 +31,7 @@ The witness server takes a JSON configuration file, specified using the `--conf`
 {
   "LockingChain": {
     "Endpoint": {
-      "IP": "127.0.0.1",
+      "Host": "127.0.0.1",
       "Port": 6005
     },
     "TxnSubmit": {
@@ -44,7 +44,7 @@ The witness server takes a JSON configuration file, specified using the `--conf`
   },
   "IssuingChain": {
     "Endpoint": {
-      "IP": "127.0.0.1",
+      "Host": "127.0.0.1",
       "Port": 6007
     },
     "TxnSubmit": {
@@ -56,18 +56,26 @@ The witness server takes a JSON configuration file, specified using the `--conf`
     "RewardAccount": "rpFp36UHW6FpEcZjZqq5jSJWY6UCj3k4Es"
   },
   "RPCEndpoint": {
-    "IP": "127.0.0.1",
+    "Host": "127.0.0.1",
     "Port": 6010
   },
-  "DBDir": "/var/lib/witness0/db",
-  "LogFile": "/var/log/witness/witness0.log",
+  "DBDir": "/var/lib/witness/witness01/db",
+  "LogFile": "/var/log/witness/witness01.log",
   "SigningKeySeed": "spkHEwDKeChm8PAFApLkF1E2sDs6t",
   "SigningKeyType": "ed25519",
   "XChainBridge": {
     "LockingChainDoor": "r3nCVTbZGGYoWvZ58BcxDmiMUU7ChMa1eC",
-    "LockingChainIssue": {"currency": "XRP"},
+    "LockingChainIssue": {
+      "currency": "XRP"
+    },
     "IssuingChainDoor": "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh",
-    "IssuingChainIssue": {"currency": "XRP"}
+    "IssuingChainIssue": {
+      "currency": "XRP"
+    }
+  },
+  "Admin": {
+    "Username": "username01",
+    "Password": "password01"
   }
 }
 ```
@@ -77,6 +85,7 @@ The witness server takes a JSON configuration file, specified using the `--conf`
 
 | Field Name       | JSON Type      | Required? | Description |
 |------------------|----------------|-----------|-------------|
+| `Admin`          | `object`       | No        | The `Username` and `Password` fields (as strings) for privileged requests to the witness server. **Note:** Both or none of the admin fields must be set. |
 | `IssuingChain`   | `object`       | Yes       | The parameters for interacting with the issuing chain. |
 | `LockingChain`   | `object`       | Yes       | The parameters for interacting with the locking chain. |
 | `RPCEndpoint`    | `object`       | Yes       | The endpoint for RPC requests to the witness server. |
@@ -101,7 +110,7 @@ The witness server takes a JSON configuration file, specified using the `--conf`
 
 | Field Name | JSON Type | Required? | Description |
 |------------|-----------|-----------|-------------|
-| `IP`       | `string`  | Yes       | The IP address of the `rippled` node. **Note:** This doesn't accept URLs |
+| `Host`     | `string`  | Yes       | The IP address of the `rippled` node. **Note:** This doesn't accept URLs |
 | `Port`     | `string`  | Yes       | The port used for the websocket endpoint. |
 
 
@@ -109,7 +118,7 @@ The witness server takes a JSON configuration file, specified using the `--conf`
 
 | Field Name | JSON Type | Required? | Description |
 |------------|-----------|-----------|-------------|
-| `IP`       | `string`  | Yes       | The IP address of the witness server for RPC requests. **Note:** This doesn't accept URLs |
+| `Host`     | `string`  | Yes       | The IP address of the witness server for RPC requests. **Note:** This doesn't accept URLs |
 | `Port`     | `string`  | Yes       | The port used for the websocket endpoint. |
 
 
