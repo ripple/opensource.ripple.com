@@ -51,7 +51,6 @@ Besides errors that can occur for all transactions, AMMVote transactions can res
 |:------------------------|:---------------------------------------------|
 | `tecAMM_INVALID_TOKENS` | The sender cannot vote because they do not hold any of this AMM's LP Tokens. |
 | `tecAMM_FAILED_VOTE`    | There are already 8 votes from accounts that hold more LP Tokens than the sender of this transaction. |
-| `terNO_ACCOUNT`         | An account specified in this transaction does not exist. |
 | `temBAD_FEE`            | The `TradingFee` from this transaction is not valid. |
 | `terNO_AMM`             | The Automated Market Maker instance for the asset pair in this transaction does not exist. |
 

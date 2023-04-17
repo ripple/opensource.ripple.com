@@ -61,14 +61,12 @@ Besides errors that can occur for all transactions, AMMCreate transactions can r
 |:--------------------|:---------------------------------------------|
 | `temDISABLED`       | The AMM feature :not_enabled: is not enabled on this network. |
 | `temINVALID_FLAG`   | The transaction specified an invalid `Flags` value. Since there are currently no flags defined for this transaction type, only [Global Flags](https://xrpl.org/transaction-common-fields.html#global-flags) are allowed. |
-| `temBAD_AMM_TOKENS` | The values of `Amount` and `Amount2` are not valid: for example, both refer to the same token. |
+| `temAMM_BAD_TOKENS` | The values of `Amount` and `Amount2` are not valid: for example, both refer to the same token. |
 | `temBAD_FEE`        | The `TradingFee` value is invalid. It must be zero or a positive integer and cannot be over 1000. |
-| `terNO_ACCOUNT`     | One of the accounts referenced in the request does not exist. |
-| `tecNO_AUTH`        | The sender is not authorized to hold one of the deposit assets (`Amount` or `Amount2`). |
-| `tecNO_LINE`        | The sender does not have a trust line for one of the deposit assets (`Amount` or `Amount2`). |
+| `tecINSUF_RESERVE_LINE` | The sender of this transaction does meet the increased [reserve requirement](https://xrpl.org/reserves.html) of processing this transaction, probably because they need a new trust line to hold the LP Tokens, and they don't have enough XRP to meet the additional owner reserve for a new trust line. |
 | `tecFROZEN`         | At least one of the deposit assets (`Amount` or `Amount2`) is currently [frozen](https://xrpl.org/freezes.html). |
-| `tecUNFUNDED_AMM`   | The sender does not hold enough money to fund the AMM with the amounts specified in `Amount` and `Amount2`. |
-| `tecAMM_EXISTS`     | There is already another AMM trading this currency pair. |
+| `tecAMM_UNFUNDED`   | The sender does not hold enough of the assets specified in `Amount` and `Amount2` to fund the AMM. |
+| `tecDUPLICATE`      | There is already another AMM for this currency pair. |
 
 <!--{# common link defs #}
 {% include '_snippets/rippled-api-links.md' %}

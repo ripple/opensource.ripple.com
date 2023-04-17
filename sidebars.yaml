@@ -52,6 +52,7 @@ opensource:
             expanded: false
             pages:
               - page: docs/xls-30d-amm/ledger-object-types/amm.md
+              - page: docs/xls-30d-amm/ledger-object-types/accountroot.md
           - group: Transaction Types
             expanded: false
             pages:
@@ -60,7 +61,9 @@ opensource:
               - page: docs/xls-30d-amm/transaction-types/ammdeposit.md
               - page: docs/xls-30d-amm/transaction-types/ammvote.md
               - page: docs/xls-30d-amm/transaction-types/ammwithdraw.md
+          - page: docs/xls-30d-amm/transaction-result-codes/index.md
           - group: Public API Methods
             expanded: false
             pages:
               - page: docs/xls-30d-amm/public-api-methods/amm_info.md
+              - page: docs/xls-30d-amm/public-api-methods/ledger_entry.md
