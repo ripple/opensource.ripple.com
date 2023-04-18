@@ -117,16 +117,13 @@ Besides errors that can occur for all transactions, AMMDeposit transactions can 
 
 | Error Code              | Description                                  |
 |:------------------------|:---------------------------------------------|
-| `temBAD_AMM_OPTIONS`    | The transaction specified an invalid combination of fields. See [AMMDeposit Modes](#ammdeposit-modes). |
+| `temMALFORMED`          | The transaction specified an invalid combination of fields. See [AMMDeposit Modes](#ammdeposit-modes). |
 | `tecFROZEN`             | The transaction tried to deposit a [frozen](https://xrpl.org/freezes.html) token. |
 | `tecAMM_BALANCE`        | The AMM does not have enough of one of the assets to accept the deposit (for example, to satisfy the trade part of a single-asset deposit) or the sender does not have enough of a given token. |
-| `temBAD_AMM_TOKENS`     | The transaction specified the LP Tokens incorrectly; for example, the `issuer` is not the AMM's associated AccountRoot address or the `currency` is not the currency code for this AMM's LP Tokens, or the transaction specified this AMM's LP Tokens in one of the asset fields. |
+| `temAMM_BAD_TOKENS`     | The transaction specified the LP Tokens incorrectly; for example, the `issuer` is not the AMM's associated AccountRoot address or the `currency` is not the currency code for this AMM's LP Tokens, or the transaction specified this AMM's LP Tokens in one of the asset fields. |
 | `tecAMM_FAILED_DEPOSIT` | The conditions on the deposit could not be satisfied; for example, the requested effective price in the `EPrice` field is too low. |
-| `tecAMM_INVALID_TOKENS` | The AMM for this token pair does not exist, or one of the calculations resulted in a deposit amount rounding to zero. |
 | `tecINSUF_RESERVE_LINE` | The sender of this transaction does meet the increased [reserve requirement](https://xrpl.org/reserves.html) of processing this transaction, probably because they need a new trust line to hold the LP Tokens, and they don't have enough XRP to meet the additional owner reserve for a new trust line. |
-| `tecNO_AUTH`            | The sender is not authorized to hold one of the deposit assets. |
-| `tecNO_LINE`            | The sender does not have a trust line for one of the deposit assets. |
-| `tecUNFUNDED_AMM`       | The sender does not have a high enough balance to make the specified deposit. |
+| `tecAMM_UNFUNDED`       | The sender does not have a high enough balance to make the specified deposit. |
 | `terNO_ACCOUNT`         | An account specified in the request does not exist. |
 | `terNO_AMM`             | The Automated Market Maker instance for the asset pair in this transaction does not exist. |
 
