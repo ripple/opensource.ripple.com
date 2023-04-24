@@ -61,7 +61,7 @@ main()
 
 To transact on the XRP Ledger, you need an address and secret key, and some XRP. For development purposes, you can get these from the [Faucet](https://xrpl.org/xrp-testnet-faucet.html).
 
-When you're [building production-ready software](production-readiness.html), you should use an existing account, and manage your keys using a [secure signing configuration](set-up-secure-signing.html). The following code shows how to get a `Wallet` instance using either the faucet or a seed provided by environment variable:
+When you're [building production-ready software](https://xrpl.org/production-readiness.html), you should use an existing account, and manage your keys using a [secure signing configuration](https://xrpl.org/set-up-secure-signing.html). The following code shows how to get a `Wallet` instance using either the faucet or a seed provided by environment variable:
 
 ```js JavaScript
 // Get credentials from the Faucet -------------------------------------------
