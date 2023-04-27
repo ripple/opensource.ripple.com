@@ -119,7 +119,7 @@ For each of the two assets, you need to know its currency code and issuer; as an
   const foo_amount = await get_new_token(client, wallet, "FOO", "1000")
 ```
 
-This tutorial includes some example code to issue FOO tokens from a second test address. This is not realistic for a production scenario, because tokens do not inherently have value, but it makes it possible to demonstrate creating a new AMM for a unique currency pair. In production, you would acquire a second token in some other way, such as making an off-ledger deposit with the stablecoin issuer, or buying it in the decentralized exchange.
+This tutorial includes some example code to issue FOO tokens from a second test address. This is not realistic for a production scenario, because tokens do not inherently have value, but it makes it possible to demonstrate creating a new AMM for a unique currency pair. In production, you would acquire a second token in some other way, such as making an off-ledger deposit with the [stablecoin issuer](https://xrpl.org/become-an-xrp-ledger-gateway.html), or buying it in the [decentralized exchange](https://xrpl.org/decentralized-exchange.html).
 
 The helper function for issuing follows an abbreviated version of the steps in the [Issue a Fungible Token](https://xrpl.org/issue-a-fungible-token.html) tutorial:
 
