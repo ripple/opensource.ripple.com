@@ -16,11 +16,12 @@ An [Automated Market Maker (AMM)](../automated-market-makers.md) can be an effic
 
 ## Prerequisites
 
-- You must have an XRP Ledger address and some XRP.
+- You must have an XRP Ledger address and some XRP. For testing, you can get these from a [Faucet](https://xrpl.org/xrp-testnet-faucet.html).
 - You should be familiar with the Getting Started instructions for your preferred client library. This page provides examples for the following:
     - **JavaScript** with the [xrpl.js library](https://github.com/XRPLF/xrpl.js/) **version 2.8.0-beta.0 or later**. See [Get Started Using JavaScript](https://xrpl.org/get-started-using-javascript.html) for setup steps.
     - You can also use [an interactive version of this tutorial in your browser](https://mduo13.github.io/xrpl-dev-portal/pr-preview/amm/create-an-automated-market-maker.html).
 - You should have a basic understanding of how [tokens](https://xrpl.org/tokens.html) work in the XRP Ledger.
+- You may want to read about [Automated Market Makers in the XRP Ledger](../automated-market-makers.md) first.
 
 
 ## Example Code
@@ -205,7 +206,7 @@ async function get_new_token(client, wallet, currency_code, issue_quantity) {
 
 ### 4. Check if the AMM exists
 
-Use the [amm_info method](../public-api-methods/amm_info.md) to check whether the AMM already exists. For the request, you specify the two assets. The response should be an `actNotFound` error if the AMM does not exist.
+Since there can only be one AMM for a specific pair of assets, it's best to check first before trying to create one. Use the [amm_info method](../public-api-methods/amm_info.md) to see if the AMM already exists. For the request, you specify the two assets. The response should be an `actNotFound` error if the AMM does not exist.
 
 ```js JavaScript
 // Check if AMM already exists ----------------------------------------------
@@ -238,7 +239,25 @@ Use the [amm_info method](../public-api-methods/amm_info.md) to check whether th
 
 If the AMM does already exist, you should double-check that you specified the right pair of assets; if so, someone else has already created this AMM, but you can still deposit to it instead. <!-- TODO: link to a tutorial about depositing to and withdrawing from an AMM when one exists -->
 
-### 5. Send AMMCreate transaction
+
+### 5. Look up the AMMCreate transaction cost
+
+Creating an AMM has a special [transaction cost][] to prevent spam: since it creates objects in the ledger that no one owns, you must burn at least one [owner reserve increment](https://xrpl.org/reserves.html) of XRP to send the AMMCreate transaction. The exact value can change due to [fee voting](https://xrpl.org/fee-voting.html), so you should look up the current incremental reserve value using the [server_state method][].
+
+It is also a good practice to display this value and give a human operator a chance to stop before you send the transaction. Burning an owner reserve is typically a much higher cost than sending a normal transaction, so you don't want it to be a surprise. (Currently, on both Mainnet and AMM-Devnet, the cost of sending a typical transaction is 0.000010 XRP but the cost of AMMCreate is 2 XRP.)
+
+```js
+// Look up AMM transaction cost. --------------------------------------------
+  // AMMCreate requires burning one owner reserve. We can look up that amount
+  // (in drops) on the current network using server_state:
+  const ss = await client.request({"command": "server_state"})
+  const amm_fee_drops = ss.result.state.validated_ledger.reserve_inc.toString()
+  console.log(`Current AMMCreate transaction cost: 
+               ${xrpl.dropsToXrp(amm_fee_drops)} XRP`)
+```
+
+
+### 6. Send AMMCreate transaction
 
 Send an [AMMCreate transaction](../transaction-types/ammcreate.md) to create the AMM. Important aspects of this transaction include:
 
@@ -247,7 +266,7 @@ Send an [AMMCreate transaction](../transaction-types/ammcreate.md) to create the
 | `Asset` | [Currency Amount][] | Starting amount of one asset to deposit in the AMM. |
 | `Asset2` | [Currency Amount][] | Starting amount of the other asset to deposit in the AMM. |
 | `TradingFee` | Number | The fee to charge when trading against this AMM instance. The maximum value is `1000`, meaning a 1% fee; the minimum value is `0`. If you set this too high, it may be too expensive for users to trade against the AMM; but the lower you set it, the more you expose yourself to currency risk from the AMM's assets changing in value relative to one another. |
-| `Fee` | String - XRP Amount | AMMCreate is a special case: for the [transaction cost][], you must burn at least one [owner reserve increment](https://xrpl.org/reserves.html) of XRP. (Currently, on AMM-Devnet, this is 2 XRP.) Client libraries may require that you add a special exception or reconfigure a setting to specify a `Fee` value this high. |
+| `Fee` | String - XRP Amount | The transaction cost you looked up in the previous step. Client libraries may require that you add a special exception or reconfigure a setting to specify a `Fee` value this high. |
 
 For the two starting assets, it does not matter which is `Asset` and which is `Asset2`, but you should specify amounts that are about equal in total value, because otherwise other users can profit at your expense by trading against the AMM.
 
@@ -255,12 +274,6 @@ For the two starting assets, it does not matter which is `Asset` and which is `A
 
 ```js JavaScript
 // Create AMM ---------------------------------------------------------------
-  // AMMCreate requires burning one owner reserve. We can look up that amount
-  // (in drops) on the current network using server_state:
-  const ss = await client.request({"command": "server_state"})
-  const amm_fee_drops = ss.result.state.validated_ledger.reserve_inc.toString()
-  console.log(`Current AMMCreate transaction cost: ${xrpl.dropsToXrp(amm_fee_drops)} XRP`)
-
   // This example assumes that 15 TST ≈ 100 FOO in value.
   const ammcreate_result = await client.submitAndWait({
     "TransactionType": "AMMCreate",
@@ -286,7 +299,7 @@ For the two starting assets, it does not matter which is `Asset` and which is `A
   }
 ```
 
-### 6. Check AMM info
+### 7. Check AMM info
 
 If the AMMCreate transaction succeeded, it creates the AMM and related objects in the ledger. You _could_ check the metadata of the AMMCreate transaction, but it is often easier to call the [amm_info method](../public-api-methods/amm_info.md) again to get the status of the newly-created AMM. 
 
@@ -304,12 +317,12 @@ If the AMMCreate transaction succeeded, it creates the AMM and related objects i
                and ${amount2.value} ${amount2.currency}.${amount2.issuer}`)
 ```
 
-In the result, the `amm` object's `lp_token` field is particularly useful because it includes the issuer and currency code of the AMM's LP Tokens, which you need to know for many other AMM-related transactions. LP Tokens always have a hex currency code starting with `03`, which is derived from the issuers and currency codes of the tokens in the AMM's pool, but the issuer of the LP Tokens is the AMM address, which is randomly chosen when you create an AMM.
+In the result, the `amm` object's `lp_token` field is particularly useful because it includes the issuer and currency code of the AMM's LP Tokens, which you need to know for many other AMM-related transactions. LP Tokens always have a hex currency code starting with `03`, and the rest of the code is derived from the issuers and currency codes of the tokens in the AMM's pool. The issuer of the LP Tokens is the AMM address, which is randomly chosen when you create an AMM.
 
 Initially, the AMM's total outstanding LP Tokens, reported in the `lp_token` field of the `amm_info` response, match the tokens you hold as its first liquidity provider. However, after other accounts deposit liquidity to the same AMM, the amount shown in `amm_info` updates to reflect the total issued to all liquidity providers. Since others can deposit at any time, even potentially in the same ledger version where the AMM was created, you shouldn't assume that this amount represents your personal LP Tokens balance.
 
 
-###  7. Check trust lines
+###  8. Check trust lines
 
 You can also use the [account_lines method][] to get an updated view of your token balances. Your balances should be decreased by the amounts you deposited, but you now have a balance of LP Tokens that you received from the AMM.
 
@@ -342,5 +355,6 @@ However, you should keep an eye on market conditions, and use tools like [AMMBid
 <!-- MD: reusable link definitions: -->
 [account_info method]: https://xrpl.org/account_info.html
 [account_lines method]: https://xrpl.org/account_lines.html
+[server_state method]: https://xrpl.org/server_state.html
 [Currency Amount]: https://xrpl.org/basic-data-types.html#specifying-currency-amounts
 [transaction cost]: https://xrpl.org/transaction-cost.html

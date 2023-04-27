@@ -59,8 +59,8 @@ async function main() {
   // Successfully placing the offer doesn't necessarily mean that you have TST,
   // but for now, let's assume it matched existing Offers on ledger so you do.
   
-  // Call helper function to set up a new "FOO" issuer, create a trust line to them, 
-  // and receive 1000 FOO from them.
+  // Call helper function to set up a new "FOO" issuer, create a trust line
+  // to them, and receive 1000 FOO from them.
   const foo_amount = await get_new_token(client, wallet, "FOO", "1000")
 
   // Check if AMM already exists ----------------------------------------------
@@ -90,13 +90,16 @@ async function main() {
     }
   }
 
-  // Create AMM ---------------------------------------------------------------
+  // Look up AMM transaction cost. --------------------------------------------
   // AMMCreate requires burning one owner reserve. We can look up that amount
   // (in drops) on the current network using server_state:
   const ss = await client.request({"command": "server_state"})
   const amm_fee_drops = ss.result.state.validated_ledger.reserve_inc.toString()
-  console.log(`Current AMMCreate transaction cost: ${xrpl.dropsToXrp(amm_fee_drops)} XRP`)
+  console.log(`Current AMMCreate transaction cost: 
+               ${xrpl.dropsToXrp(amm_fee_drops)} XRP`)
 
+  
+  // Create AMM ---------------------------------------------------------------
   // This example assumes that 15 TST ≈ 100 FOO in value.
   const ammcreate_result = await client.submitAndWait({
     "TransactionType": "AMMCreate",
