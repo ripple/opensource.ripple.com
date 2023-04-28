@@ -1,0 +1,39 @@
+theme:
+  openapi:
+    pagination: none
+  seo:
+    title: Ripple Portal
+  editPage:
+    baseUrl: https://github.com/ripple/opensource.ripple.com/tree/main/
+    icon: ./images/pen-to-square-solid.svg
+  logo:
+    image: images/ripple-open-source-logo.svg
+    link: /
+  navbar:
+    items:
+      - label: Home
+        page: index.page.tsx
+      - label: Open Source Projects
+        page: docs/projects.md
+      - search: true
+  footer:
+    copyrightText: >-
+      © 2013 - 2023 Ripple, All Rights Reserved.
+    items:
+      - group: About
+        items:
+          - label: Ripple
+            href: https://ripple.com
+            external: true
+          - label: XRPL Overview
+            href: https://xrpl.org/xrp-ledger-overview.html
+            external: true
+      - group: Resources
+        items:
+          - label: XRP Ledger Docs
+            href: https://xrpl.org/docs.html
+            external: true
+          - label: Contribute to the XRP Ledger
+            href: https://xrpl.org/contribute-code.html
+            external: true
+

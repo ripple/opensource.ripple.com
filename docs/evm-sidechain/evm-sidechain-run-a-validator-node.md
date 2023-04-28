@@ -8,7 +8,7 @@ status: not_enabled
 ---
 # Run a Validator Node on an EVM Sidechain
 
-<embed src="/snippets/_evm-sidechain-disclaimer.md" />
+{% partial file="/snippets/_evm-sidechain-disclaimer.md" /%}
 
 ## Create Your Validator
 

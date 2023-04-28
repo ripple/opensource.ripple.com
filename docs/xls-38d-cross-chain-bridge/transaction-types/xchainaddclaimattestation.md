@@ -8,7 +8,7 @@ status: not_enabled
 ---
 # XChainAddClaimAttestation
 
-<embed src="/snippets/_xchain-bridges-disclaimer.md" />
+{% partial file="/snippets/_xchain-bridges-disclaimer.md" /%}
 
 [[Source]](https://github.com/seelabs/rippled/blob/xbridge/src/ripple/protocol/impl/TxFormats.cpp#L377-L392 "Source")
 

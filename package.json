@@ -1,20 +1,13 @@
 {
-  "name": "portal-template",
+  "name": "ripple-developer-portal",
+  "version": "1.0.0",
   "private": true,
-  "version": "0.0.1",
-  "description": "Redocly portal template repository",
-  "license": "MIT",
+  "description": "Ripple portal",
   "scripts": {
-    "start": "redocly-portal develop -p 3000",
-    "build": "redocly-portal build",
-    "clean": "redocly-portal clean",
-    "prettify": "prettier --write ."
+    "start": "portal develop",
+    "build": "portal build"
   },
   "dependencies": {
-    "@redocly/cli": "^1.0.0-beta.115",
-    "@redocly/developer-portal": "^1.1.0-beta.123"
-  },
-  "devDependencies": {
-    "prettier": "^2.6.2"
+    "@redocly/portal": "0.19.1"
   }
 }

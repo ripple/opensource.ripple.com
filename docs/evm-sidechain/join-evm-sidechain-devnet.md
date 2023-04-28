@@ -8,7 +8,7 @@ status: not_enabled
 ---
 # Join the XRP Ledger EVM Sidechain Devnet
 
-<embed src="/snippets/_evm-sidechain-disclaimer.md" />
+{% partial file="/snippets/_evm-sidechain-disclaimer.md" /%}
 
 This tutorial walks you through the steps to join the existing **XRP Ledger EVM Sidechain Devnet**. 
 

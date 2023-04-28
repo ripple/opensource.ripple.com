@@ -8,7 +8,7 @@ status: not_enabled
 ---
 # XChainOwnedClaimID
 
-<embed src="/snippets/_xchain-bridges-disclaimer.md" />
+{% partial file="/snippets/_xchain-bridges-disclaimer.md" /%}
 
 [[Source]](https://github.com/seelabs/rippled/blob/xbridge/src/ripple/protocol/impl/LedgerFormats.cpp#L281-L293 "Source")
 

@@ -2,7 +2,7 @@
 
 Ripple contributes to the maintenance and development of the open source XRP Ledger. The XRP Ledger is a decentralized public blockchain and Ripple collaborates with the wider XRP Ledger community to develop new features and capabilities for the XRP Ledger.
 
-This site provides information on open source projects that Ripple engineers are working on, including in-progress documentation for features that are in development. 
+This site provides information on open source projects that Ripple engineers are working on, including in-progress documentation for features that are in development.
 
 While Ripple may be the primary developer on these open source projects, it is not a centralized authority (there isn't one) and  there is no central actor. Community contributions and feedback are welcome!
 
@@ -25,4 +25,4 @@ To learn more about the consensus process and the workflow for features to go fr
 ### Automated Market Makers (AMM)
 
   - [XLS-30d Proposal](https://github.com/XRPLF/XRPL-Standards/discussions/78)
-  - [Documentation](./xls-30d-amm/amm-uc.md)
+  - [Documentation](xls-30d-amm/amm-uc.md)

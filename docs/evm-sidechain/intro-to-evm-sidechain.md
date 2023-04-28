@@ -8,7 +8,7 @@ status: not_enabled
 ---
 # Introduction to EVM Compatible XRP Ledger Sidechain
 
-<embed src="/snippets/_evm-sidechain-disclaimer.md" />
+{% partial file="/snippets/_evm-sidechain-disclaimer.md" /%}
 
 The Ethereum Virtual Machine (EVM) compatible XRP Ledger sidechain is a secure and fast public blockchain that brings all kinds of web3 applications to the XRP Ledger community. 
 

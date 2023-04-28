@@ -1,8 +1,8 @@
 opensource:
-  - label: Open Source Projects 
-    page: docs/index.md 
+  - label: Open Source Projects
+    page: docs/index.md
   - label: Prerelease Docs
-    expanded: true  
+    expanded: true
     pages:
       - group: XLS-38d Cross-chain Bridges
         page: docs/xls-38d-cross-chain-bridge/cross-chain-bridges.md
@@ -52,7 +52,7 @@ opensource:
             expanded: false
             pages:
               - page: docs/xls-30d-amm/ledger-object-types/amm.md
-              - page: docs/xls-30d-amm/ledger-object-types/accountroot.md
+               - page: docs/xls-30d-amm/ledger-object-types/accountroot.md
           - group: Transaction Types
             expanded: false
             pages:
@@ -64,7 +64,7 @@ opensource:
           - page: docs/xls-30d-amm/transaction-result-codes/index.md
           - group: Public API Methods
             expanded: false
-            pages:
+            items:
               - page: docs/xls-30d-amm/public-api-methods/amm_info.md
               - page: docs/xls-30d-amm/public-api-methods/ledger_entry.md
           - group: Tutorials

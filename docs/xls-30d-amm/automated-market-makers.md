@@ -72,7 +72,7 @@ In the ledger's state data, an AMM consists of multiple [ledger entries](https:/
 - An `AMM` object describing the automated market maker itself.
 
 - A special `AccountRoot` object that issues the AMM's LP Tokens, and holds the AMM's XRP (if it has any).
-    
+
     The address of this AccountRoot is chosen somewhat randomly when the AMM is created, and it is different if the AMM is deleted and re-created. This is to prevent people from funding the AMM account with excess XRP in advance.
 
 - [Trust lines](https://xrpl.org/trust-lines-and-issuing.html) to the special AMM Account for the tokens in the AMM's pool.

@@ -10,7 +10,7 @@ status: not_enabled
 [[Source]](https://github.com/gregtatcam/rippled/blob/amm-core-functionality/src/ripple/app/tx/impl/AMMCreate.cpp "Source")
 <!-- TODO: Update source link to merged version when available -->
 
-<embed src="/snippets/_amm-disclaimer.md" />
+{% partial file="/snippets/_amm-disclaimer.md" /%}
 
 Create a new [Automated Market Maker](../automated-market-makers.md) (AMM) instance for trading a pair of assets ([fungible tokens](https://xrpl.org/tokens.html) or [XRP](https://xrpl.org/xrp.html)).
 
