@@ -18,7 +18,6 @@ Creates both an [AMM object](../ledger-object-types/amm.md) and a [special Accou
 
 **Caution:** When you create the AMM, you should fund it with (approximately) equal-value amounts of each asset. Otherwise, other users can profit at your expense by trading with this AMM ([performing arbitrage](https://www.machow.ski/posts/an_introduction_to_automated_market_makers/#price-arbitrage)). The currency risk that liquidity providers take on increases with the volatility (potential for imbalance) of the asset pair. The higher the trading fee, the more it offsets this risk, so it's best to set the trading fee based on the volatility of the asset pair.
 
-<!-- ## Example {{currentpage.name}} JSON -->
 
 ## Example AMMCreate JSON
 
@@ -39,9 +38,6 @@ Creates both an [AMM object](../ledger-object-types/amm.md) and a [special Accou
 }
 ```
 
-<!-- {% include '_snippets/tx-fields-intro.md' %}
-{# fix md highlighting_ #}-->
-
 
 In addition to the common fields, AMMCreate transactions use the following fields:
 
@@ -59,14 +55,14 @@ Besides errors that can occur for all transactions, AMMCreate transactions can r
 
 | Error Code          | Description                                  |
 |:--------------------|:---------------------------------------------|
-| `temDISABLED`       | The AMM feature :not_enabled: is not enabled on this network. |
-| `temINVALID_FLAG`   | The transaction specified an invalid `Flags` value. Since there are currently no flags defined for this transaction type, only [Global Flags](https://xrpl.org/transaction-common-fields.html#global-flags) are allowed. |
-| `temAMM_BAD_TOKENS` | The values of `Amount` and `Amount2` are not valid: for example, both refer to the same token. |
-| `temBAD_FEE`        | The `TradingFee` value is invalid. It must be zero or a positive integer and cannot be over 1000. |
-| `tecINSUF_RESERVE_LINE` | The sender of this transaction does meet the increased [reserve requirement](https://xrpl.org/reserves.html) of processing this transaction, probably because they need a new trust line to hold the LP Tokens, and they don't have enough XRP to meet the additional owner reserve for a new trust line. |
-| `tecFROZEN`         | At least one of the deposit assets (`Amount` or `Amount2`) is currently [frozen](https://xrpl.org/freezes.html). |
 | `tecAMM_UNFUNDED`   | The sender does not hold enough of the assets specified in `Amount` and `Amount2` to fund the AMM. |
 | `tecDUPLICATE`      | There is already another AMM for this currency pair. |
+| `tecFROZEN`         | At least one of the deposit assets (`Amount` or `Amount2`) is currently [frozen](https://xrpl.org/freezes.html). |
+| `tecINSUF_RESERVE_LINE` | The sender of this transaction does meet the increased [reserve requirement](https://xrpl.org/reserves.html) of processing this transaction, probably because they need a new trust line to hold the LP Tokens, and they don't have enough XRP to meet the additional owner reserve for a new trust line. |
+| `temAMM_BAD_TOKENS` | The values of `Amount` and `Amount2` are not valid: for example, both refer to the same token. |
+| `temBAD_FEE`        | The `TradingFee` value is invalid. It must be zero or a positive integer and cannot be over 1000. |
+| `temDISABLED`       | The AMM feature is not enabled on this network. |
+| `temINVALID_FLAG`   | The transaction specified an invalid `Flags` value. Since there are currently no flags defined for this transaction type, only [Global Flags](https://xrpl.org/transaction-common-fields.html#global-flags) are allowed. |
 
 <!--{# common link defs #}
 {% include '_snippets/rippled-api-links.md' %}

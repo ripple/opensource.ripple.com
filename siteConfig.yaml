@@ -24,7 +24,6 @@ copyCodeSnippet:
   toasterText: Copied!
   toasterDuration: 1500   
 stylesheets:
-  - https://fonts.googleapis.com/css2?family=Space+Mono&display=swap
   - ./static/style.css
   - ./static/fonts.css
 #analytics:
