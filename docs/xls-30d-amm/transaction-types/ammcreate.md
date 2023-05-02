@@ -64,7 +64,5 @@ Besides errors that can occur for all transactions, AMMCreate transactions can r
 | `temDISABLED`       | The AMM feature is not enabled on this network. |
 | `temINVALID_FLAG`   | The transaction specified an invalid `Flags` value. Since there are currently no flags defined for this transaction type, only [Global Flags](https://xrpl.org/transaction-common-fields.html#global-flags) are allowed. |
 
-<!--{# common link defs #}
-{% include '_snippets/rippled-api-links.md' %}
-{% include '_snippets/tx-type-links.md' %}
-{% include '_snippets/rippled_versions.md' %} -->
+[Internal Type]: https://xrpl.org/serialization.html
+[Currency Amount]: https://xrpl.org/basic-data-types.html#specifying-currency-amounts

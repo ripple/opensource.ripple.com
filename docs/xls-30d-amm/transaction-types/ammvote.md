@@ -55,7 +55,5 @@ Besides errors that can occur for all transactions, AMMVote transactions can res
 | `terNO_AMM`             | The Automated Market Maker instance for the asset pair in this transaction does not exist. |
 
 
-<!--{# common link defs #}
-{% include '_snippets/rippled-api-links.md' %}
-{% include '_snippets/tx-type-links.md' %}
-{% include '_snippets/rippled_versions.md' %} -->
+[Internal Type]: https://xrpl.org/serialization.html
+[Currency Amount]: https://xrpl.org/basic-data-types.html#specifying-currency-amounts

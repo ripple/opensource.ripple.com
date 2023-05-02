@@ -111,7 +111,7 @@ The ID of an `AMM` object is the [SHA-512Half][] of the following values, concat
 
 For XRP, use all 0's for both the token and the issuer.
 
-<!--{# common link defs #}
-{% include '_snippets/rippled-api-links.md' %}			
-{% include '_snippets/tx-type-links.md' %}			
-{% include '_snippets/rippled_versions.md' %}-->
+[Internal Type]: https://xrpl.org/serialization.html
+[Currency Amount]: https://xrpl.org/basic-data-types.html#specifying-currency-amounts
+[SHA-512Half]: https://xrpl.org/basic-data-types.html#hashes
+[seconds since the Ripple Epoch]: https://xrpl.org/basic-data-types.html#specifying-time
