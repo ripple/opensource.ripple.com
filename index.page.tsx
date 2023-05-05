@@ -1,9 +1,10 @@
 import * as React from 'react';
 
-import { H1, H2 } from '@theme/Typography';
-import { Button } from '@theme/Button';
+import { H1, H2 } from '@theme/components/Typography';
+import { Button } from '@theme/components/Button';
 
-import { Box, FlexSection, Flex, Jumbotron, WideTile } from '@theme/ui';
+import { Box, FlexSection, Flex, Jumbotron } from '@theme/ui';
+import { WideTile } from '@theme/components/Tiles';
 
 import { Header1, Header2, TileText } from './components';
 
@@ -25,7 +26,7 @@ export default function () {
         width="3440px"
         pb="8.5em"
         flexWrap="no-wrap"
-        style={{ 'flex-wrap': 'nowrap' }}
+        style={{ flexWrap: 'nowrap' }}
       >
         <Header1>Open Source Projects</Header1>
         <Header2>Explore open source projects currently in development.</Header2>
@@ -34,7 +35,7 @@ export default function () {
       <Box p={{ _: '8px', sm: '12px', md: '16px', lg: '24px' }}>
         <FlexSection justifyContent="space-around" flexWrap="wrap" margin="auto">
           <WideTile
-            to="docs/xls-38d-cross-chain-bridge/cross-chain-bridges"
+            to="/docs/xls-38d-cross-chain-bridge/cross-chain-bridges"
             textAlign="left"
             header="Cross-chain Bridges"
             style={{ height: '284px' }}
@@ -59,13 +60,13 @@ export default function () {
             </Flex>
           </WideTile>
           <WideTile
-            to="docs/evm-sidechain/intro-to-evm-sidechain"
+            to="/docs/evm-sidechain/intro-to-evm-sidechain"
             textAlign="left"
             header="EVM Sidechain"
             disableArrow
             style={{ height: '284px' }}
           >
-             <TileText>
+            <TileText>
               The Ethereum Virtual Machine (EVM) compatible XRP Ledger sidechain is a secure and fast public blockchain
               that brings all kinds of web3 applications to the XRP Ledger community.
             </TileText>
@@ -85,7 +86,7 @@ export default function () {
             </Flex>
           </WideTile>
           <WideTile
-            to="docs/xls-30d-amm/amm-uc"
+            to="/docs/xls-30d-amm/amm-uc"
             textAlign="left"
             header="Automated Market Maker(AMM)"
             disableArrow
@@ -95,7 +96,7 @@ export default function () {
               Automated Market Maker(AMM) for the XRP Ledger is a protocol for the Decentralized Exchange (DEX) that
               prices assets through an algorithm, rather than using an order book like a traditional exchange.
             </TileText>
-            <div style={{ bottom: "36px", position: "absolute"}}>
+            <Flex pt={5}>
               <Button
                 style={{
                   padding: '8px 16px',
@@ -108,7 +109,7 @@ export default function () {
               >
                 Go to Docs
               </Button>
-            </div>
+            </Flex>
           </WideTile>
         </FlexSection>
       </Box>

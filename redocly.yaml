@@ -1,11 +1,21 @@
+i18n:
+  defaultLocale: en-US
+  locales:
+    - code: en-US
+      name: English
+    - code: ja
+      name: 日本
 theme:
+  feedback:
+    hide: true
   openapi:
     pagination: none
   seo:
     title: Ripple Portal
-  editPage:
-    baseUrl: https://github.com/ripple/opensource.ripple.com/tree/main/
-    icon: ./images/pen-to-square-solid.svg
+  markdown:
+    editPage:
+      baseUrl: https://github.com/ripple/opensource.ripple.com/tree/main/
+      icon: ./images/pen-to-square-solid.svg
   logo:
     image: images/ripple-open-source-logo.svg
     link: /

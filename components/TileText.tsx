@@ -1,12 +1,10 @@
 import styled from "styled-components";
-import { Typography } from "@redocly/developer-portal/ui";
-import { theme } from "../theme";
+import { Typography } from "@theme/components/Typography";
 
 const TileText = styled(Typography)`
   font-size: 14px;
   line-height: 20px;
-  color: ${(props) =>
-    props.color ? props.color : theme.colors.text.secondary};
+  color: var(--text-color);
   margin-top: 0;
 `;
 

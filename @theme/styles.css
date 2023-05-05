@@ -1,85 +1,71 @@
+@font-face {
+  font-family: "TT Ripple";
+  src: url("./fonts/TT_Ripple_Light.woff") format("woff"),
+    url("./fonts/TT_Ripple_Light.woff2") format("woff2");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "TT Ripple";
+  src: url("./fonts/TT_Ripple_Regular.woff") format("woff"),
+    url("./fonts/TT_Ripple_Regular.woff2") format("woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "TT Ripple";
+  src: url("./fonts/TT_Ripple_Bold.woff") format("woff"),
+    url("./fonts/TT_Ripple_Bold.woff2") format("woff2");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Space Mono";
+  src: url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
+  font-weight: 400;
+}
+
+
 :root {
-  --navbar-logo-height: 3.5rem;
-  --color-primary-500: #fc0;
-  --color-primary-600: #fb0;
-  --color-primary-700: #fa0;
-  --color-primary-700: #fa0;
-  --color-primary-900: #c60;
+  --text-color: #141a1f;
+  --color-primary-500: #003d99;
+  --navbar-logo-height: 20px;
+  --navbar-height: 75px;
   --navbar-background-color: #ffffff;
+  --navbar-text-color: var(--text-color);
   --navbar-item-hover-background-color: #f2f2f2;
   --navbar-item-active-background-color: #f2f2f2;
-  --text-color: #231f20;
-  --h3-color: var(--text-color);
-  --navbar-text-color: var(--text-color);
-  --link-text-color: #1175b5;
-  --panel-try-it-action-button-hover-background-color: var(--color-primary-600);
-  --panel-try-it-action-button-hover-border-color: var(--color-primary-600);
-  --panel-try-it-action-button-active-background-color: var(--color-primary-700);
-  --panel-try-it-action-button-active-border-color: var(--color-primary-700);
-  --panel-try-it-action-button-text-color: var(--color-emphasis-900);
+  --font-family-base: "TT Ripple", sans-serif;
+  --heading-font-family: "TT Ripple", sans-serif;
 
-  --footer-background-color: #f2f2f2;
+  --h3-line-height: 24px;
+
+  --border-color: #E5E7E8;
+
+  --sidebar-item-active-color: #005bcc;
+  --heading-text-color: var(--color-primary-500);
+  --h3-color: black;
+
+  --footer-background-color: #fff;
   --footer-text-color: var(--text-color);
   --footer-title-font-size: 16px;
   --footer-title-font-weight: var(--font-weight-bold);
 }
 
-:root label {
-  --checkbox-checked-backround-color: var(--color-primary-900) !important;
-}
-
-:root .button-color-primary {
-  --button-color: var(--color-emphasis-900);
-}
-
-.tag-production {
-  background-color: green;
-  color: white;
-}
-
 :root.dark {
   --text-color: #f0f0f0;
+  --sidebar-item-active-color: var(--color-primary-500);
 
   --navbar-item-hover-background-color: var(--color-secondary-900);
   --navbar-item-active-background-color: var(--color-secondary-900);
 
-  --panel-try-it-action-button-background-color: var(--color-primary-500);
-  --panel-try-it-action-button-hover-background-color: var(--color-primary-600);
-  --panel-try-it-action-button-hover-border-color: var(--color-primary-600);
-  --panel-try-it-action-button-active-background-color: var(--color-primary-700);
-  --panel-try-it-action-button-active-border-color: var(--color-primary-700);
-  --panel-try-it-action-button-text-color: var(--color-emphasis-900);
-  --panel-try-it-action-button-hover-text-color: var(--color-emphasis-900);
-  --checkbox-checked-backround-color: var(--color-primary-700);
-
-  --color-primary-400: #fd0;
-  --color-primary-500: #fc0;
-  --color-primary-600: #fb0;
-  --color-primary-700: #fa0;
+  --h3-color: white;
 }
 
-html.dark .jumbotron {
-  --text-color: #231f20;
-  --navbar-text-color: var(--text-color);
-  color: var(--text-color);
+nav {
+  border-bottom: 1px solid var(--border-color);
 }
 
 html.dark nav a > img {
   filter: invert(1);
-}
-
-.tag-deprecated {
-  background-color: #f3c583;
-}
-
-.tag-draft {
-  background-color: silver;
-}
-
-.tag-beta {
-  background-color: lightblue;
-}
-
-[data-component-name="Navbar/MobileNavbarMenu"] > ul {
-  border-right: 1px solid var(--border-color);
 }
