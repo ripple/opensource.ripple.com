@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { H1, H2 } from '@theme/components/Typography';
 import { Button } from '@theme/components/Button';
+import { useTranslate } from '@portal/hooks';
 
 import { Box, FlexSection, Flex, Jumbotron } from '@theme/ui';
 import { WideTile } from '@theme/components/Tiles';
@@ -17,6 +18,7 @@ export const frontmatter = {
 };
 
 export default function () {
+  const { translate } = useTranslate();
   return (
     <>
       <Jumbotron
@@ -28,7 +30,7 @@ export default function () {
         flexWrap="no-wrap"
         style={{ flexWrap: 'nowrap' }}
       >
-        <Header1>Open Source Projects</Header1>
+        <Header1>{translate('page-heading', 'Open Source Projects')}</Header1>
         <Header2>Explore open source projects currently in development.</Header2>
       </Jumbotron>
 
