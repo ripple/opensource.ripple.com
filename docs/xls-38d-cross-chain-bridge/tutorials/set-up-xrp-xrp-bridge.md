@@ -7,7 +7,7 @@ labels:
 ---
 # Set Up an XRP-XRP Bridge
 
-<embed src="/snippets/_xchain-bridges-disclaimer.md" />
+{% partial file="/snippets/_xchain-bridges-disclaimer.md" /%}
 
 Setting up an XRP-XRP bridge on a new issuing chain is somewhat complex because there are no accounts on the issuing chain, even for witnesses. The issuing chain must use its genesis account as a door account to submit attestations and create transaction submission accounts for witnesses.
 

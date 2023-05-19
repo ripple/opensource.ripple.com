@@ -8,7 +8,8 @@ status: not_enabled
 ---
 # Get Started with the EVM Sidechain
 
-<embed src="/snippets/_evm-sidechain-disclaimer.md" />
+
+{% partial file="/snippets/_evm-sidechain-disclaimer.md" /%}
 
 This getting started tutorial walks you through the steps to set up your account and submit a transaction using the EVM sidechain bridge. 
 

@@ -7,7 +7,7 @@ labels:
 ---
 # List of Parallel Networks
 
-<embed src="/snippets/_xchain-bridges-disclaimer.md" />
+{% partial file="/snippets/_xchain-bridges-disclaimer.md" /%}
 
 This page lists the parallel networks available for testing interoperability features.
 
