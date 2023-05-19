@@ -35,6 +35,7 @@
             - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchaincreateclaimid.md
             - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchainmodifybridge.md
     - group: EVM Sidechain
+      labelTranslationKey: evm-sidechain
       page: docs/evm-sidechain/intro-to-evm-sidechain.md
       expanded: false
       items:

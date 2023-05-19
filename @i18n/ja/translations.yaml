@@ -1,0 +1,4 @@
+evm-sidechain: EVMサイドチェーン
+page-heading: オープンソースプロジェクト
+theme.page.lastUpdated.timeago: '最終更新 '
+theme.page.previousButton: '前へ {{label}}'

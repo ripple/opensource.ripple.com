@@ -1,3 +1,5 @@
+ignore:
+  - snippets
 i18n:
   defaultLocale: en-US
   locales:
