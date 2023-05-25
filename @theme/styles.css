@@ -50,6 +50,8 @@
   --footer-text-color: var(--text-color);
   --footer-title-font-size: 16px;
   --footer-title-font-weight: var(--font-weight-bold);
+
+  --search-trigger-border: 2px solid #d6d9db;
 }
 
 :root.dark {

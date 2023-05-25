@@ -55,6 +55,7 @@ export default function () {
                   lineHeight: '20px',
                   color: '#FFFFFF',
                   background: '#005BCC',
+                  border: 'none',
                 }}
               >
                 Go to Docs
@@ -81,6 +82,7 @@ export default function () {
                   lineHeight: '20px',
                   color: '#FFFFFF',
                   background: '#005BCC',
+                  border: 'none',
                 }}
               >
                 Go to Docs
@@ -107,6 +109,7 @@ export default function () {
                   lineHeight: '20px',
                   color: '#FFFFFF',
                   background: '#005BCC',
+                  border: 'none',
                 }}
               >
                 Go to Docs

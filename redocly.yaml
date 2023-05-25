@@ -8,8 +8,15 @@ i18n:
     - code: ja
       name: 日本
 theme:
+  breadcrumbs:
+    hide: true
   feedback:
     hide: true
+  navigation:
+    nextButton:
+      hide: true
+    previousButton:
+      hide: true
   openapi:
     pagination: none
   seo:
