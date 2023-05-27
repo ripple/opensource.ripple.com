@@ -67,6 +67,9 @@
 nav {
   border-bottom: 1px solid var(--border-color);
 }
+footer {
+  border-top: 1px solid var(--border-color);
+}
 
 html.dark nav a > img {
   filter: invert(1);
