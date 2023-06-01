@@ -14,6 +14,9 @@ The Ethereum Virtual Machine (EVM) compatible XRP Ledger sidechain is a secure a
 
 - Explorer: [https://evm-sidechain.xrpl.org](https://evm-sidechain.xrpl.org/)
 - Public RPC: [https://rpc-evm-sidechain.xrpl.org](https://rpc-evm-sidechain.xrpl.org/)
+- Bridge: [https://bridge.devnet.xrpl.org](https://bridge.devnet.xrpl.org)
+- Network Identifier: 1440001
+- Digital Asset: eXRP
 
 
 The EVM Sidechain is a powerful latest generation blockchain with the following features:
