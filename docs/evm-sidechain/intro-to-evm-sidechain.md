@@ -10,7 +10,7 @@ status: not_enabled
 
 <embed src="/snippets/_evm-sidechain-disclaimer.md" />
 
-The Ethereum Virtual Machine (EVM) compatible XRP Ledger sidechain is a fast and secure blockchain that brings all kinds of web3 applications to the XRP Ledger community.
+The Ethereum Virtual Machine (EVM) compatible XRP Ledger sidechain is a fast and secure blockchain that brings web3 applications to the XRP Ledger community.
 
 - Explorer: [https://evm-poa-sidechain.peersyst.tech](https://evm-poa-sidechain.peersyst.tech/)
 - Public RPC: [https://rpc-evm-poa-sidechain.peersyst.tech](https://rpc-evm-poa-sidechain.peersyst.tech/)
@@ -21,7 +21,7 @@ Some highlights of the EVM sidechain include:
 - Support for 1000 transactions per second, enabling large loads and throughput.
 - Low transaction confirmation times, producing a block every 5 seconds.
 - 1 block finalization time; once a block is added to the chain and confirmed, it's considered final.
-- Full Ethereum Virtual Machine (EVM) compatibility, enabling you to connect your wallet and interact or deploy smart contracts written in Solidity. <!-- STYLE_OVERRIDE: wallet -->
+- Full Ethereum Virtual Machine (EVM) compatibility, enabling you to connect your wallet and interact with or deploy smart contracts written in Solidity. <!-- STYLE_OVERRIDE: wallet -->
 
 
 ## Consensus
