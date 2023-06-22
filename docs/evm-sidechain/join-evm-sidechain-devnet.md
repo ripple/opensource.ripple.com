@@ -22,7 +22,7 @@ Before proceeding to initialize the node, ensure that the following pre-requisit
 * Create an alias to run all commands in this tutorial inside a Docker container: 
 
     ```bash
-    alias exrpd="docker run -it --rm -v ~/.exrpd:/root/.exrpd peersyst/xrp-evm-client:latest exrpd"
+    alias exrpd="docker run -it --rm -v ~/.exrpd:/root/.exrpd peersyst/xrp-evm-blockchain:latest exrpd"
     ```
 
 ## Initialize Node
@@ -32,7 +32,7 @@ The first task is to initialize the node, which creates the necessary validator 
 1. Initialize the chain parameters using the following command:
 
     ```bash
-    exrpd config chain-id exrp_1440001-1
+    exrpd config chain-id exrp_1440002-1
     ```
 
 2. Create or add a key to your node. For this tutorial, we use the `test` keyring:
@@ -49,7 +49,7 @@ The first task is to initialize the node, which creates the necessary validator 
 3. Initialize the node using the following command:
 
     ```bash
-    exrpd init <your_custom_moniker> --chain-id exrp_1440001-1
+    exrpd init <your_custom_moniker> --chain-id exrp_1440002-1
     ```
 
     Monikers can contain only ASCII characters. Using Unicode characters renders your node unreachable.
@@ -63,7 +63,7 @@ All these commands create your `~/.exrpd` (i.e `$HOME`) directory with subfol
     Download the `genesis.json` file from here and copy it to the `config` directory: `~/.exrpd/config/genesis.json`. This is a genesis file with the chain-id and genesis accounts balances.
 
         ```bash
-        wget [https://raw.githubusercontent.com/Peersyst/xrp-evm-archive/main/devnet/genesis.json](https://raw.githubusercontent.com/Peersyst/xrp-evm-archive/main/devnet/genesis.json) ~/.exrpd/config/
+        wget https://raw.githubusercontent.com/Peersyst/xrp-evm-archive/main/poa-devnet/genesis.json ~/.exrpd/config/
         ```
 
     Verify the genesis configuration file:
@@ -79,7 +79,7 @@ All these commands create your `~/.exrpd` (i.e `$HOME`) directory with subfol
     To get a list of entries from the `peers.txt` file in the `PEERS` variable, run the following command:
 
         ```bash
-        PEERS=`curl -sL https://raw.githubusercontent.com/Peersyst/xrp-evm-archive/main/devnet/peers.txt | sort -R | head -n 10 | awk '{print $1}' | paste -s -d, -`
+        PEERS=`curl -sL https://raw.githubusercontent.com/Peersyst/xrp-evm-archive/main/poa-devnet/peers.txt | sort -R | head -n 10 | awk '{print $1}' | paste -s -d, -`
         ```
 
     Use `sed` to include them in the configuration. You can also add them manually:
@@ -94,7 +94,7 @@ Run the Devnet validator node using following command:
 
 ```bash
 exrpd tx staking create-validator \
-  --amount=1000000000000axrp \
+  --amount=1000000apoa \
   --pubkey=$(exrpd tendermint show-validator) \
   --moniker="<your_custom_moniker>" \
   --chain-id=<chain_id> \

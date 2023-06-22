@@ -10,34 +10,38 @@ status: not_enabled
 
 <embed src="/snippets/_evm-sidechain-disclaimer.md" />
 
-The Ethereum Virtual Machine (EVM) compatible XRP Ledger sidechain is a secure and fast public blockchain that brings all kinds of web3 applications to the XRP Ledger community. 
+The Ethereum Virtual Machine (EVM) compatible XRP Ledger sidechain is a fast and secure blockchain that brings all kinds of web3 applications to the XRP Ledger community.
 
-- Explorer: [https://evm-sidechain.xrpl.org](https://evm-sidechain.xrpl.org/)
-- Public RPC: [https://rpc-evm-sidechain.xrpl.org](https://rpc-evm-sidechain.xrpl.org/)
+- Explorer: [https://evm-poa-sidechain.peersyst.tech](https://evm-poa-sidechain.peersyst.tech/)
+- Public RPC: [https://rpc-evm-poa-sidechain.peersyst.tech](https://rpc-evm-poa-sidechain.peersyst.tech/)
+- Bridge UI: [https://witness-evm-sidechain.peersyst.tech](https://witness-evm-sidechain.peersyst.tech/)
 
+Some highlights of the EVM sidechain include:
 
-The EVM Sidechain is a powerful latest generation blockchain with the following features:
+- Support for 1000 transactions per second, enabling large loads and throughput.
+- Low transaction confirmation times, producing a block every 5 seconds.
+- 1 block finalization time; once a block is added to the chain and confirmed, it's considered final.
+- Full Ethereum Virtual Machine (EVM) compatibility, enabling you to connect your wallet and interact or deploy smart contracts written in Solidity. <!-- STYLE_OVERRIDE: wallet -->
 
-- Supports up to 1000 transactions per second, thus handling large loads and throughput.
-- Has a low transaction confirmation time, on average, as a block is produced every 5 seconds. 
-- Once a block is added to the chain and confirmed, it is considered final (1 block finalization time).
-- Provides full Ethereum Virtual Machine (EVM) compatibility, enabling you to connect your wallet and interact or deploy smart contracts written in Solidity. <!-- STYLE_OVERRIDE: wallet -->
 
 ## Consensus
 
-The EVM Sidechain runs on a proof-of-stake (PoS) consensus algorithm. Staking is when you pledge your coins to be used for verifying transactions. The proof-of-stake model allows you to stake cryptocurrency (also referred to as "coins") and create your own validator nodes. Your coins are locked up while you stake them, but you can unstake them if you want to trade your coins.
+The EVM sidechain runs on a proof of authority (PoA) consensus algorithm. Proof of authority gives a designated number of blockchain actors the power to:
 
-In a proof-of-stake blockchain, mining power depends on the amount of coins a validator is staking. Participants who stake more coins are more likely to be chosen to add new blocks.
+- Validate transactions or interactions on the network.
+- Update the network's registry.
 
-If you are interested in staking cryptocurrency and running your own validator, see [Join EVM Sidechain Devnet](join-evm-sidechain-devnet.md) for more information.
+One or more validating machines on the network are then responsible for generating new blocks of transactions to include on the blockchain.
 
-The underlying technology for the XRP Ledger EVM Sidechain consensus is [Tendermint](https://tendermint.com/), a Byzantine-Fault Tolerant engine for building blockchains.
+The underlying technology for the XRPL sidechain consensus is CometBFT, a fork of [Tendermint](https://tendermint.com/), which is a Byzantine fault tolerant engine for building blockchains.
 
-The blockchain uses the `cosmos-sdk` library on top of Tendermint to create and customize the blockchain using its built-in modules. The EVM sidechain uses the [Ethermint](https://github.com/evmos/ethermint) `cosmos-sdk` module, which provides EVM compatibility
+The blockchain uses the `cosmos-sdk` library on top of CometBFT to create and customize the blockchain using its built-in modules. The EVM sidechain uses the [Ethermint](https://github.com/evmos/ethermint) `cosmos-sdk` module to provides EVM compatibility.
+
+If you are interested in running your own node, please see: [Join the XRP Ledger EVM Sidechain Devnet](join-evm-sidechain-devnet.md).
 
 ## Interoperability Using the EVM Sidechain
 
-The EVM sidechain is directly connected to XRP Ledger through the XRP Ledger bridge [https://bridge.devnet.xrpl](https://bridge.devnet.xrpl.org/). Through this bridge, you can connect to the EVM Sidechain and use its features.
+The EVM sidechain is directly connected to XRP Ledger through the XRPL bridge [https://bridge.devnet.xrpl](https://bridge.devnet.xrpl.org/). Through this bridge, you can connect to the EVM Sidechain and use its features.
 
 ## See Also
 
