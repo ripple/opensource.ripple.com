@@ -39,7 +39,7 @@ npm install -g @peersyst/xrpl-evm-sidechain-cli
                 "host": "validator-0", // Node host name (if you are going to host it externally) 
             }
         ],
-				"extraAccounts": [ // Array of extra accounts that will have initial balance
+		"extraAccounts": [ // Array of extra accounts that will have initial balance
             {
                 "address": "0x68f727c3cd7aeB5a04acB864B770f5aa193676Bd",
                 "balance": 10
@@ -66,8 +66,8 @@ npm install -g @peersyst/xrpl-evm-sidechain-cli
     "explorer": { // Explorer related configuration 
         "disable": false // Disable the explorer
     }
-    }
-    ```
+   }
+   ```
 
 2. Run the creation command with the configuration JSON file.
    
@@ -108,8 +108,8 @@ npm install -g @peersyst/xrpl-evm-sidechain-cli
     "threshold": 1, // Bridge attestation threshold
     "minRewardAmount": 1, // Minimum reward amount of the bridge
     "minCreateAmount": 50 // Minimum create amount of the bridge
-    }
-    ```
+   }
+   ```
 
 2. Run the creation command with the configuration JSON file.
    
