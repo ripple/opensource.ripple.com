@@ -12,9 +12,9 @@ status: not_enabled
 
 The Ethereum Virtual Machine (EVM) compatible XRP Ledger sidechain is a fast and secure blockchain that brings web3 applications to the XRP Ledger community.
 
-- Explorer: [https://evm-poa-sidechain.peersyst.tech](https://evm-poa-sidechain.peersyst.tech/)
-- Public RPC: [https://rpc-evm-poa-sidechain.peersyst.tech](https://rpc-evm-poa-sidechain.peersyst.tech/)
-- Bridge UI: [https://witness-evm-sidechain.peersyst.tech](https://witness-evm-sidechain.peersyst.tech/)
+- Explorer: [https://evm-sidechain.xrpl.org](https://evm-sidechain.xrpl.org)
+- Public RPC: [https://rpc-evm-sidechain.xrpl.org](https://rpc-evm-sidechain.xrpl.org)
+- Bridge UI: [https://bridge.devnet.xrpl.org]( https://bridge.devnet.xrpl.org/)
 
 Some highlights of the EVM sidechain include:
 
