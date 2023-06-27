@@ -43,6 +43,7 @@ opensource:
           - page: docs/evm-sidechain/evm-sidechain-run-a-validator-node.md
           - page: docs/evm-sidechain/evm-sidechain-validator-security.md
           - page: docs/evm-sidechain/join-evm-sidechain-devnet.md
+          - page: docs/evm-sidechain/evm-cli.md
       - group: XLS-30d AMM
         page: docs/xls-30d-amm/amm-uc.md
         expanded: false
