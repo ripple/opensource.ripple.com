@@ -10,7 +10,7 @@ status: not_enabled
 
 <embed src="/snippets/_evm-sidechain-disclaimer.md" />
 
-The commandline tool for the XRPL EVM sidechain enables developers and operators to setup networks, create bridges, execute transactions, and more.
+The command line tool for the XRPL EVM sidechain enables developers and operators to set up networks, create bridges, execute transactions, and more.
 
 ## Prerequisites
 
@@ -47,13 +47,13 @@ npm install -g @peersyst/xrpl-evm-sidechain-cli
         ]
     },
     "bridge": { // Bridge configuration
-        "xrplRpc": "wss://sidechain-net1.devnet.rippletest.net", // XRPL Mainchain RPC  
+        "xrplRpc": "wss://sidechain-net1.devnet.rippletest.net", // XRPL Mainchain RPC
         "xrplSeed": "******", // XRPL Mainchain seed with funds to create bridge account and witnesses
         "minCreateAmount": 50, // Bridge min create amount
         "minRewardAmount": 1, // Bridge min reward amount
         "quorum": 1, // Bridge quorum
         "witnesses": [{
-            "type": "aws", // Signer type (only aws supported by now)
+            "type": "aws", // Signer type (only AWS supported for now)
             "evmAddress": "0x96329A50d10a3F69311E4f4E108672926c51c474", // Witness EVM address
             "xrpAddress": "rpSspP5yYyomcSrgsohyKMCnu5oJsTMkYP", // Witness XRP address
             "region": "eu-west-1", // AWS KMS Region
@@ -94,8 +94,8 @@ npm install -g @peersyst/xrpl-evm-sidechain-cli
     "lockingChain": { // Locking chain related configuration
         "type": "xrp", // Type of the locking chain (can be either xrp or evm)
         "url": "wss://sidechain-net1.devnet.rippletest.net", // Node url of this chain
-        "tokenCode": "JPY", // Token code if XRP means is native bridge
-        "tokenIssuer": "r353SQJb8PLhHtgo9DZ1uFmxhFjrpM3uDE", // Token issuer for xrp or token address for evm. Emtpy for native XRP
+        "tokenCode": "JPY", // Token code. Use XRP for the native bridge
+        "tokenIssuer": "r353SQJb8PLhHtgo9DZ1uFmxhFjrpM3uDE", // Token issuer for XRP or token address for EVM. Empty for native XRP
         "fundingPrivateKey": "****", // Private key with balance on this chain
         "witnesses": ["rpSspP5yYyomcSrgsohyKMCnu5oJsTMkYP"] // Witness array
     },
