@@ -56,21 +56,22 @@ The first task is to initialize the node, which creates the necessary validator 
 
 All these commands create your `~/.exrpd` (i.e `$HOME`) directory with subfolders `config/` and `data/`. In the `config` directory, the most important files for configuration are `app.toml` and `config.toml`.
 
+
 ## Genesis & Seeds
 
 1. Copy the Genesis File.
 
     Download the `genesis.json` file from here and copy it to the `config` directory: `~/.exrpd/config/genesis.json`. This is a genesis file with the chain-id and genesis accounts balances.
 
-        ```bash
-        wget https://raw.githubusercontent.com/Peersyst/xrp-evm-archive/main/poa-devnet/genesis.json ~/.exrpd/config/
-        ```
+    ```bash
+    wget https://raw.githubusercontent.com/Peersyst/xrp-evm-archive/main/poa-devnet/genesis.json ~/.exrpd/config/
+    ```
 
     Verify the genesis configuration file:
 
-        ```bash
-        exrpd validate-genesis
-        ```
+    ```bash
+    exrpd validate-genesis
+    ```
 
 2. Add Persistent Peer Nodes
 
@@ -78,19 +79,41 @@ All these commands create your `~/.exrpd` (i.e `$HOME`) directory with subfol
 
     To get a list of entries from the `peers.txt` file in the `PEERS` variable, run the following command:
 
-        ```bash
-        PEERS=`curl -sL https://raw.githubusercontent.com/Peersyst/xrp-evm-archive/main/poa-devnet/peers.txt | sort -R | head -n 10 | awk '{print $1}' | paste -s -d, -`
-        ```
+    ```bash
+    PEERS=`curl -sL https://raw.githubusercontent.com/Peersyst/xrp-evm-archive/main/poa-devnet/peers.txt | sort -R | head -n 10 | awk '{print $1}' | paste -s -d, -`
+    ```
 
     Use `sed` to include them in the configuration. You can also add them manually:
 
-        ```bash
-        sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" ~/.exrpd/config/config.toml
-        ```
+    ```bash
+    sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" ~/.exrpd/config/config.toml
+    ```
+
+
+## Start a Node
+
+1. Start a node container.
+
+    ```bash
+    exrpd start
+    ```
+
+2. Provide Peersyst with the key from this command:
+
+    ```bash
+    exrpd keys show <key_name> --keyring-backend=<keyring>
+    ```
+    
+    **Note:** Peersyst registers your node within 2-3 days.
+
 
 ## Run a Devnet Validator Node
 
-Run the Devnet validator node using following command:
+**Warning:** Before creating a Devnet validator node, ensure that:
+ - Peersyst has confirmed your node registration.
+ - You're running the node container.
+
+Create a Devnet validator node with this command:
 
 ```bash
 exrpd tx staking create-validator \
@@ -107,15 +130,16 @@ exrpd tx staking create-validator \
   --from=<key_name>
 ```
 
-**Note** For more information on running a validator note, see [Run a validator](evm-sidechain-run-a-validator-node.md)
+**Notes:**
 
+- If you used a different keyring backend from the default `os`, you need to include this option:
 
-## Start the Node
+    ```bash
+    --keyring-backend=<keyring>
+    ```
 
-Start the node. 
+- When specifying commission parameters, the `commission-max-change-rate` is used to measure % *point* change over the `commission-rate`. For example, 1% to 2% is a 100% rate increase, but only 1 percentage point.
 
-```bash
-exrpd start
-```
+- `Min-self-delegation` is a strictly positive integer that represents the minimum amount of self-delegated voting power your validator must always have. A `min-self-delegation` of `1000000` means your validator will never have a self-delegation lower than `1 axrp`. <!-- STYLE_OVERRIDE: will -->
 
 Once enough voting power (+2/3) from the genesis validators is up-and-running, the node starts producing blocks.
