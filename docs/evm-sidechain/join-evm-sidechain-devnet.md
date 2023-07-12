@@ -90,7 +90,9 @@ All these commands create your `~/.exrpd` (i.e `$HOME`) directory with subfol
 
 ## Run a Devnet Validator Node
 
-Run the Devnet validator node using following command:
+To run a PoA Devnet validator, you must have Proof-of-Authority power. This power is obtained by a democratic process done by the current set of validators. They initially make a proposal and then this proposal is voted. If it is accepted by a majority of votes, then the new validator receives the points and can run its node to start validating blocks and voting for future proposals.
+
+Once the PoA validator has points, it can must execute this transaction to bond the PoA points and start validating blocks:
 
 ```bash
 exrpd tx staking create-validator \
