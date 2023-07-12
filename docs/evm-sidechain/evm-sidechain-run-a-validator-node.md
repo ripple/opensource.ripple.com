@@ -12,7 +12,7 @@ status: not_enabled
 
 ## Create Your Validator
 
-Use your node consensus public key (`exrpvalconspub...`) to create a new validator by staking XRP tokens. You can find your validator public key by running:
+Use your node consensus public key (`exrpvalconspub...`) to create a new validator by bonding your Proof-of-Authority power. You can find your validator public key by running:
 
 ```bash
 exrpd tendermint show-validator
@@ -22,7 +22,7 @@ To create your validator on Devnet, use the following command:
 
 ```bash
 exrpd tx staking create-validator \
-  --amount=1000000000000000000000axrp \
+  --amount=1000000axrp \
   --pubkey=$(exrpd tendermint show-validator) \
   --moniker="<your_custom_moniker>" \
   --chain-id=<chain_id> \
@@ -31,7 +31,7 @@ exrpd tx staking create-validator \
   --commission-max-change-rate="0.01" \
   --min-self-delegation="1000000" \
   --gas="auto" \
-  --gas-prices="0.025aphoton" \
+  --gas-prices="0.025axrp" \
   --from=<key_name>
 ```
 
