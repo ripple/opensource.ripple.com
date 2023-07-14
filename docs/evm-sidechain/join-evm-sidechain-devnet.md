@@ -98,7 +98,7 @@ All these commands create your `~/.exrpd` (i.e `$HOME`) directory with subfol
     exrpd start
     ```
 
-2. Provide Peersyst with the key from this command:
+2. Provide [Peersyst](acarrera@peersyst.com) with the key from this command:
 
     ```bash
     exrpd keys show <key_name> --keyring-backend=<keyring>
