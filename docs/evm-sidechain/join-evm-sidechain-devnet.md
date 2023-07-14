@@ -104,20 +104,20 @@ All these commands create your `~/.exrpd` (i.e `$HOME`) directory with subfol
     exrpd keys show <key_name> --keyring-backend=<keyring>
     ```
     
-    **Note:** Peersyst registers your node within 2-3 days.
+    **Note:** Peersyst provides your node with proof of authority to validate blocks on Devnet. This process takes 2-3 days.
 
 
 ## Run a Devnet Validator Node
 
 **Warning:** Before creating a Devnet validator node, ensure that:
- - Peersyst has confirmed your node registration.
+ - Peersyst has provided your node with proof of authority.
  - You're running the node container.
 
 Create a Devnet validator node with this command:
 
 ```bash
 exrpd tx staking create-validator \
-  --amount=1000000apoa \
+  --amount=1000000axrp \
   --pubkey=$(exrpd tendermint show-validator) \
   --moniker="<your_custom_moniker>" \
   --chain-id=<chain_id> \

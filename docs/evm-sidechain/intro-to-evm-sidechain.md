@@ -30,8 +30,9 @@ The EVM sidechain runs on a proof of authority (PoA) consensus algorithm. Proof 
 
 - Validate transactions or interactions on the network.
 - Update the network's registry.
+- Add new validators to the network.
 
-One or more validating machines on the network are then responsible for generating new blocks of transactions to include on the blockchain.
+Validating machines on the network are then responsible for generating new blocks of transactions to include on the blockchain.
 
 The underlying technology for the XRPL sidechain consensus is CometBFT, a fork of [Tendermint](https://tendermint.com/), which is a Byzantine fault tolerant engine for building blockchains.
 
