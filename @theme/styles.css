@@ -33,8 +33,8 @@
   --navbar-height: 75px;
   --navbar-background-color: #ffffff;
   --navbar-text-color: var(--text-color);
-  --navbar-item-hover-background-color: #f2f2f2;
-  --navbar-item-active-background-color: #f2f2f2;
+  --navbar-item-hover-background-color: transparent;
+  --navbar-item-active-background-color: transparent;
   --font-family-base: "TT Ripple", sans-serif;
   --heading-font-family: "TT Ripple", sans-serif;
 
@@ -46,10 +46,21 @@
   --heading-text-color: var(--color-primary-500);
   --h3-color: black;
 
-  --footer-background-color: #fff;
+  /* --footer-background-color: #fff;
   --footer-text-color: var(--text-color);
   --footer-title-font-size: 16px;
-  --footer-title-font-weight: var(--font-weight-bold);
+  --footer-title-font-weight: var(--font-weight-bold); */
+
+  --footer-background-color: #fff;
+  --footer-text-color: #848587;
+  --footer-border-color: #e6ebe7;
+  --footer-title-font-size: 13px;
+  --footer-title-font-weight: 22px;
+  --footer-link-hover-color: var(--footer-text-color);
+  --footer-column-width: auto;
+  --font-weight-bold: 700;
+  --footer-title-margin-vertical: 20px;
+  --footer-container-max-width: 100%;
 
   --search-trigger-border: 2px solid #d6d9db;
 }

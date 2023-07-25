@@ -39,20 +39,27 @@ theme:
     copyrightText: >-
       © 2013 - 2023 Ripple, All Rights Reserved.
     items:
-      - group: About
+      - group: Support
         items:
-          - label: Ripple
-            href: https://ripple.com
+          - label: Ripple Help Center
+            href: https://technicalsupport.ripple.com/
             external: true
-          - label: XRPL Overview
-            href: https://xrpl.org/xrp-ledger-overview.html
-            external: true
+      - group: Development
+        items:
+          - label: RippleNet Server API
+            href: https://docs.ripple.com/openapi/ripplenet/reference
+          - label: RippleNet Orchestration API
+            href: https://docs.ripple.com/openapi/orchestration/reference
+          - label: Error codes
+            href: https://docs.ripple.com/ripplenet/implementation/developer-resources/error-codes
       - group: Resources
         items:
+          - label: Glossary
+            href: https://docs.ripple.com/ripplenet/glossary/
           - label: XRP Ledger Docs
             href: https://xrpl.org/docs.html
             external: true
-          - label: Contribute to the XRP Ledger
-            href: https://xrpl.org/contribute-code.html
+          - label: ripple.com
+            href: https://ripple.com/
             external: true
 
