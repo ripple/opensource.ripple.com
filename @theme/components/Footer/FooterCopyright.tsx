@@ -24,20 +24,21 @@ export function FooterCopyright({
   ) : null;
 }
 
-const Wrapper = styled.section`
+const Wrapper = styled.div`
   display: flex;
   font-size: 0.75em;
   font-weight: 600;
   align-items: center;
   padding: 0 0 30px 0;
   margin: 0;
-  margin-top: -100px;
+  height: 100%;
+  margin-top: -50px;
   background-color: var(--footer-background-color);
   color: var(--footer-text-color);
   text-align: center;
   @media (max-width: 798px) {
-    display: flex;
     justify-content: center;
     margin-top: 0;
+    height: auto;
   }
 `;

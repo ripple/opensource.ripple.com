@@ -52,7 +52,7 @@ const FooterContainer = styled.footer`
   a:hover {
     color: var(--footer-text-color);
   }
-  @media (max-width: 900px) {
+  @media (max-width: 798px) {
     display: flex;
     flex-direction: column;
   }
