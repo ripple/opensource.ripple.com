@@ -31,4 +31,4 @@ To learn more about the consensus process and the workflow for features to go fr
 ### Clawback
   - [Proposal](https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-39d-clawback)
   - [Documentation](./clawback/clawback-of-issued-currency.md)
-  - [Reference](./clawback/clawback.md])
+  - [Reference](./clawback/clawback.md)
