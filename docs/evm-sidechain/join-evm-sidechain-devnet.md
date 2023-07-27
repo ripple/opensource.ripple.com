@@ -110,7 +110,7 @@ All these commands create your `~/.exrpd` (i.e `$HOME`) directory with subfol
 ## Run a Devnet Validator Node
 
 **Warning:** Before creating a Devnet validator node, ensure that:
- - Peersyst has provided your node with proof of authority.
+ - Peersyst provides your node with proof of authority.
  - You're running the node container.
 
 Create a Devnet validator node with this command:

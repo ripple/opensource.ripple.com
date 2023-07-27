@@ -1,7 +1,7 @@
 ---
 html: manage-the-validator-node.html
 parent: evm-sidechains.html
-blurb: Learn how to run a validator node on the EVM Sidechain Devnet.
+blurb: Learn how to manage a validator node on the EVM Sidechain Devnet.
 labels:
   - Development, Interoperability
 status: not_enabled
