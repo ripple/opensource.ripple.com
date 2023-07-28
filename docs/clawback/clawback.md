@@ -10,6 +10,8 @@ status: not_enabled
 
 [[Source]](https://github.com/XRPLF/rippled/blob/master/src/ripple/app/tx/impl/Clawback.cpp "Source")
 
+<embed src="/snippets/_clawback-disclaimer.md" />
+
 Claw back an issued currency transfer between accounts in a trust set.
 
 ## Example {{currentpage.name}} JSON
