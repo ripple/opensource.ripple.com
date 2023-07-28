@@ -33,7 +33,7 @@ Claw back an issued currency transfer between accounts in a trust set.
 -->
 Clawback Fields
 
-In addition to the [common fields][], `Clawback` transactions use the following fields:
+In addition to the common fields, `Clawback` transactions use the following fields:
 
 
 | Field              | JSON Type | [Internal Type][] | Description       |
@@ -59,7 +59,8 @@ If you attempt to set `lsfAllowTrustLineClawback` while `lsfNoFreeze` is set, th
 Conversely, if you try to set `lsfNoFreeze` while `lsfAllowTrustLineClawback` is set, the transaction also returns `tecNO_PERMISSION`.
 
 
-<!--{# common link defs #}-->
+<!-- {# common link defs #} Commenting out for post on opensource.ripple.com
 {% include '_snippets/rippled-api-links.md' %}
 {% include '_snippets/tx-type-links.md' %}
 {% include '_snippets/rippled_versions.md' %}
+-->
