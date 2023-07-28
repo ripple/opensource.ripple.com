@@ -33,12 +33,12 @@ Claw back an issued currency transfer between accounts in a trust set.
 -->
 Clawback Fields
 
-In addition to the [common fields][], Clawback transactions use the following fields:
+In addition to the [common fields][], `Clawback` transactions use the following fields:
 
 
 | Field              | JSON Type | [Internal Type][] | Description       |
 |:-------------------|:----------|:------------------|:------------------|
-| `TransactionType`  | string    | `UINT16`          | Indicates the new transaction type `Clawback`. The integer value is `30`. The name is ttCLAWBACK. |
+| `TransactionType`  | string    | `UINT16`          | Indicates the new transaction type `Clawback`. The integer value is `30`. The name is `ttCLAWBACK`. |
 | `Account`          | string    | `ACCOUNT ID`      | The account executing this transaction. The account must be the issuer of the asset being clawed back. Note that in the XRP Ledger, trustlines are bidirectional and, under some configurations, both sides can be seen as the "issuer" of an asset. In this specification, the term issuer is used to mean the side of the trustline that has an outstanding balance (that is, 'owes' the issued asset) that it wants to claw back.|
 | `Flags`            | number    | `UINT32`          | (Optional) The universal transaction flags that are applicable to all transactions (for example, `tfFullyCanonicalSig`) are valid. This proposal introduces no new transaction-specific flags. |
 | `Amount`           | object     | `AMOUNT`          | Indicates the amount being clawed back, as well as the counterparty from which the amount is being clawed back from. |
