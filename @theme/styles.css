@@ -1,85 +1,90 @@
 @font-face {
-  font-family: "TT Ripple";
-  src: url("./fonts/TT_Ripple_Light.woff") format("woff"),
-    url("./fonts/TT_Ripple_Light.woff2") format("woff2");
+  font-family: 'TT Ripple';
+  src: url('./fonts/TT_Ripple_Light.woff') format('woff'), url('./fonts/TT_Ripple_Light.woff2') format('woff2');
   font-weight: 300;
 }
 
 @font-face {
-  font-family: "TT Ripple";
-  src: url("./fonts/TT_Ripple_Regular.woff") format("woff"),
-    url("./fonts/TT_Ripple_Regular.woff2") format("woff2");
+  font-family: 'TT Ripple';
+  src: url('./fonts/TT_Ripple_Regular.woff') format('woff'), url('./fonts/TT_Ripple_Regular.woff2') format('woff2');
   font-weight: 400;
 }
 
 @font-face {
-  font-family: "TT Ripple";
-  src: url("./fonts/TT_Ripple_Bold.woff") format("woff"),
-    url("./fonts/TT_Ripple_Bold.woff2") format("woff2");
+  font-family: 'TT Ripple';
+  src: url('./fonts/TT_Ripple_Bold.woff') format('woff'), url('./fonts/TT_Ripple_Bold.woff2') format('woff2');
   font-weight: 700;
 }
 
 @font-face {
-  font-family: "Space Mono";
-  src: url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
+  font-family: 'Space Mono';
+  src: url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
   font-weight: 400;
 }
 
-
-:root {
-  --text-color: #141a1f;
-  --color-primary-500: #003d99;
-  --navbar-logo-height: 20px;
-  --navbar-height: 75px;
-  --navbar-background-color: #ffffff;
-  --navbar-text-color: var(--text-color);
-  --navbar-item-hover-background-color: transparent;
-  --navbar-item-active-background-color: transparent;
-  --font-family-base: "TT Ripple", sans-serif;
-  --heading-font-family: "TT Ripple", sans-serif;
-
-  --h3-line-height: 24px;
-
-  --border-color: #E5E7E8;
+:root.light {
+  --border-secondary: #e5e7e8;
+  --link-text-color: #003d99;
+  --navbar-item-hover-text-color: var(--link-text-color);
+  --navbar-item-active-text-color: var(--link-text-color);
+  --heading-text-color: #003d99;
 
   --sidebar-item-active-color: #005bcc;
-  --heading-text-color: var(--color-primary-500);
-  --h3-color: black;
-
-  /* --footer-background-color: #fff;
-  --footer-text-color: var(--text-color);
-  --footer-title-font-size: 16px;
-  --footer-title-font-weight: var(--font-weight-bold); */
-
+  --sidebar-item-hover-color: #005bcc;
+  --sidebar-item-group-active-text-color: var(--text-secondary);
   --footer-background-color: #fff;
-  --footer-text-color: #848587;
-  --footer-border-color: #e6ebe7;
-  --footer-title-font-size: 13px;
-  --footer-title-font-weight: 22px;
-  --footer-link-hover-color: var(--footer-text-color);
-  --footer-column-width: auto;
-  --font-weight-bold: 700;
-  --footer-title-margin-vertical: 20px;
-  --footer-container-max-width: 100%;
+}
 
-  --search-trigger-border: 2px solid #d6d9db;
+:root {
+  --text-secondary: #161616;
+  --navbar-logo-height: 20px;
+  --navbar-height: 75px;
+  --font-family-base: 'TT Ripple', sans-serif;
+  --heading-font-family: 'TT Ripple', sans-serif;
+  --font-weight-bold: 700;
+
+  --footer-font-size: 12px;
+
+  --navbar-item-bottom-border: none;
+  --navbar-item-hover-bottom-border: none;
+  --navbar-item-active-bottom-border: none;
+
+  --sidebar-item-hover-background-color: var(--bg-overlay);
+  --bg-overlay: #e4e7eb;
+  --admonition-font-size: var(--font-size-base);
+  --code-block-tokens-property-color: var(--color-geekblue-6);
+  --code-block-tokens-boolean-color: var(--color-red-6);
+  --code-block-tokens-number-color: var(--color-red-6);
+  --md-table-font-size: var(--font-size-sm);
+  /* --md-table-head-background-color :#161616;
+  --md-table-head-text-color: white; */
+
+  --line-height-base: 24px;
+  --sidebar-item-font-size: 14px;
+  --toc-heading-font-size: 14px;
+  --toc-item-font-size: 14px;
+  --sidebar-item-line-height: 16px;
+
+  --code-font-family: 'Space Mono', monospace;
+  --code-font-size: 14px;
+
+  --menu-item-label-margin: 0 var(--sidebar-margin-horizontal) 1px var(--sidebar-margin-horizontal);
+
+  --inline-code-background-color: rgba(38, 50, 56, 0.04);
+
+  --h3-line-height: 22px;
+
+  --footer-font-size: 12px;
+  --footer-title-font-size: 12px;
+  --footer-title-font-weight: normal;
+  --footer-title-margin-vertical: 20px;
+  --footer-container-max-width: 1200px;
 }
 
 :root.dark {
-  --text-color: #f0f0f0;
-  --sidebar-item-active-color: var(--color-primary-500);
-
-  --navbar-item-hover-background-color: var(--color-secondary-900);
-  --navbar-item-active-background-color: var(--color-secondary-900);
-
-  --h3-color: white;
-}
-
-nav {
-  border-bottom: 1px solid var(--border-color);
-}
-footer {
-  border-top: 1px solid var(--border-color);
+  --heading-text-color: var(--color-blue-6);
+  --link-text-color: var(--color-blue-6);
+  --link-hover-text-color: var(--color-blue-7);
 }
 
 html.dark nav a > img {

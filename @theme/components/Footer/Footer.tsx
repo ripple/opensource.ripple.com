@@ -42,7 +42,7 @@ export function FooterPresentationalComponent({
 const FooterContainer = styled.footer`
   display: flex;
   justify-content: center;
-  border-top: 0.5px solid var(--footer-border-color);
+  border-top: 1px solid var(--footer-border-color);
   font-size: var(--footer-font-size);
   background-color: var(--footer-background-color);
   color: var(--footer-text-color);

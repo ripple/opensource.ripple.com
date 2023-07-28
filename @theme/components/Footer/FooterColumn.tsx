@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components';
 import { Link } from '@portal/Link';
 import type { ResolvedNavItem } from '@theme/types/portal';
 import { useTranslate } from '@portal/hooks';
+import { ExternalIcon } from '@theme/icons/ExternalIcon';
 
 interface FooterColumnProps {
   column: ResolvedNavItem;
@@ -11,7 +12,7 @@ interface FooterColumnProps {
 
 export function FooterColumn({ column }: FooterColumnProps): JSX.Element {
   const { translate } = useTranslate();
-  const hasIcon = column.items ? column.items.some((item) => !!item.icon) : false;
+  const hasIcon = column.items ? column.items.some(item => !!item.icon) : false;
 
   return (
     <FooterColumnContainer data-component-name="Footer/FooterColumn">
@@ -35,8 +36,9 @@ export function FooterColumn({ column }: FooterColumnProps): JSX.Element {
             target={columnItem.target}
             data-cy={columnItem.label}
           >
-            <FooterLinkIcon url={columnItem.icon} withIconPadding={hasIcon} />
+            {columnItem.icon && <FooterLinkIcon url={columnItem.icon} withIconPadding={hasIcon} />}
             {translate(columnItem.labelTranslationKey, columnItem.label)}
+            {columnItem.external ? <ExternalIcon dataComponentName="Sidebar/ExternalIcon" /> : null}
           </FooterLink>
         );
       })}
@@ -44,7 +46,7 @@ export function FooterColumn({ column }: FooterColumnProps): JSX.Element {
   );
 }
 
-const FooterColumnTitle = styled.p<{ withIconPadding: boolean }>`
+const FooterColumnTitle = styled.div<{ withIconPadding: boolean }>`
   display: inline-block;
   font-weight: var(--footer-title-font-weight);
   font-size: var(--footer-title-font-size);
@@ -61,26 +63,25 @@ const FooterColumnTitle = styled.p<{ withIconPadding: boolean }>`
 const FooterSeparator = styled.div`
   opacity: 0.75;
   margin: 10px 0 5px 0;
-  font-size: 0.75em;
   text-transform: uppercase;
   font-family: var(--footer-font-family);
 `;
 
 const FooterColumnContainer = styled.div`
   display: flex;
+  flex: 1;
   flex-direction: column;
   text-align: left;
   margin: var(--footer-column-margin-horizontal) var(--footer-column-margin-vertical);
   width: var(--footer-column-width);
   word-break: break-word;
-  margin-bottom: 40px;
 `;
 
 const FooterLink = styled(Link)`
-  font-size: 0.8rem;
-  font-weight: var(--font-weight-bold);
-  padding: var(--footer-item-padding-vertical) var(--footer-item-padding-horizontal);
+  font-size: var(--footer-font-size);
+  padding: var(--footer-link-padding-vertical) var(--footer-link-padding-horizontal);
   color: var(--footer-link-text-color);
+  font-weight: 600;
   text-decoration: none;
   &:hover {
     color: var(--footer-link-hover-color);

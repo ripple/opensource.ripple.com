@@ -1,6 +1,5 @@
 import * as React from 'react';
-
-import { H1, H2 } from '@theme/components/Typography';
+import styled from 'styled-components';
 import { Button } from '@theme/components/Button';
 import { useTranslate } from '@portal/hooks';
 
@@ -24,7 +23,7 @@ export default function () {
       <Jumbotron
         bgImage={heroImage}
         textColor="white"
-        height="350px"
+        height="275px"
         width="3440px"
         pb="8.5em"
         flexWrap="no-wrap"
@@ -36,17 +35,18 @@ export default function () {
 
       <Box p={{ _: '8px', sm: '12px', md: '16px', lg: '24px' }}>
         <FlexSection justifyContent="space-around" flexWrap="wrap" margin="auto">
-          <WideTile
+          <StyledWideTile
             to="/docs/xls-38d-cross-chain-bridge/cross-chain-bridges"
             textAlign="left"
             header="Cross-chain Bridges"
             style={{ height: '284px' }}
           >
-            <TileText>
-              Cross-chain bridges for the XRP Ledger enable value in the form of XRP and other tokens (IOUs) to move
-              efficiently between blockchains.
-            </TileText>
-            <Flex pt={5}>
+            <Flex flex="1" flexDirection="column" alignItems="flex-start" justifyContent="space-between">
+              <TileText>
+                Cross-chain bridges for the XRP Ledger enable value in the form of XRP and other tokens (IOUs) to move
+                efficiently between blockchains.
+              </TileText>
+
               <Button
                 style={{
                   padding: '8px 16px',
@@ -61,19 +61,21 @@ export default function () {
                 Go to Docs
               </Button>
             </Flex>
-          </WideTile>
-          <WideTile
+          </StyledWideTile>
+          <StyledWideTile
             to="/docs/evm-sidechain/intro-to-evm-sidechain"
             textAlign="left"
             header="EVM Sidechain"
             disableArrow
             style={{ height: '284px' }}
+            className="wide-tile"
           >
-            <TileText>
-              The Ethereum Virtual Machine (EVM) compatible XRP Ledger sidechain is a secure and fast public blockchain
-              that brings all kinds of web3 applications to the XRP Ledger community.
-            </TileText>
-            <Flex pt={5}>
+            <Flex flex="1" flexDirection="column" alignItems="flex-start" justifyContent="space-between">
+              <TileText>
+                The Ethereum Virtual Machine (EVM) compatible XRP Ledger sidechain is a secure and fast public
+                blockchain that brings all kinds of web3 applications to the XRP Ledger community.
+              </TileText>
+
               <Button
                 style={{
                   padding: '8px 16px',
@@ -88,19 +90,20 @@ export default function () {
                 Go to Docs
               </Button>
             </Flex>
-          </WideTile>
-          <WideTile
+          </StyledWideTile>
+          <StyledWideTile
             to="/docs/xls-30d-amm/amm-uc"
             textAlign="left"
             header="Automated Market Maker(AMM)"
             disableArrow
             style={{ height: '284px' }}
           >
-            <TileText>
-              Automated Market Maker(AMM) for the XRP Ledger is a protocol for the Decentralized Exchange (DEX) that
-              prices assets through an algorithm, rather than using an order book like a traditional exchange.
-            </TileText>
-            <Flex pt={5}>
+            <Flex flex="1" flexDirection="column" alignItems="flex-start" justifyContent="space-between">
+              <TileText>
+                Automated Market Maker(AMM) for the XRP Ledger is a protocol for the Decentralized Exchange (DEX) that
+                prices assets through an algorithm, rather than using an order book like a traditional exchange.
+              </TileText>
+
               <Button
                 style={{
                   padding: '8px 16px',
@@ -115,9 +118,34 @@ export default function () {
                 Go to Docs
               </Button>
             </Flex>
-          </WideTile>
+          </StyledWideTile>
         </FlexSection>
       </Box>
     </>
   );
 }
+
+const StyledWideTile = styled(WideTile)`
+  &::before {
+    display: none;
+  }
+
+  padding-right: 32px;
+  display: flex;
+  flex-direction: column;
+  > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    > span {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  ${Button} {
+    margin: 20px 0 0 0;
+  }
+`;

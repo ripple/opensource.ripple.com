@@ -35,6 +35,7 @@ export const FooterColumnsContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 100%;
+  max-width: var(--footer-container-max-width);
 
   ${({ theme }) => theme.mediaQueries.small} {
     padding: 5.625em 20px 3.9375em 20px;
@@ -51,11 +52,12 @@ export const FooterRow = styled.div`
   flex-wrap: wrap;
   justify-content: flex-start;
 
-  ${({ theme }) => theme.mediaQueries.small} {
+  /* ${({ theme }) => theme.mediaQueries.small} {
     justify-content: space-evenly;
-  }
+  } */
   @media (max-width: 635px) {
     display: flex;
     flex-direction: column;
+    gap: 40px;
   }
 `;
