@@ -26,3 +26,9 @@ To learn more about the consensus process and the workflow for features to go fr
 
   - [XLS-30d Proposal](https://github.com/XRPLF/XRPL-Standards/discussions/78)
   - [Documentation](./xls-30d-amm/amm-uc.md)
+
+
+### Clawback
+  - [Proposal](https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-39d-clawback)
+  - [Documentation](./clawback/clawback-of-issued-currency.md)
+  - [Reference](./clawback/clawback.md)
