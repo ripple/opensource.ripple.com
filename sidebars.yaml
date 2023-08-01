@@ -68,12 +68,6 @@ opensource:
                 pages:
                   - page: docs/evm-sidechain/configure-the-bridge-client.md
                   - page: docs/evm-sidechain/start-the-bridge-client.md            
-          - group: EVM CLI
-            expanded: false
-            page: docs/evm-sidechain/bridge-client.md
-            pages:
-              - page: docs/evm-sidechain/configure-the-bridge-client.md
-              - page: docs/evm-sidechain/start-the-bridge-client.md
           - page: docs/evm-sidechain/evm-cli.md
       - group: XLS-30d AMM
         page: docs/xls-30d-amm/amm-uc.md
