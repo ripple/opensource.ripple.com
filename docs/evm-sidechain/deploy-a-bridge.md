@@ -22,8 +22,7 @@ Before deploying a bridge, familiarize yourself with the parameters and terms us
 
 Before deploying a bridge, you have to create a Gnosis Safe. The safe is the multisig account that manages all of the bridge's assets.
 
-![How to Create a Safe Account](https://www.youtube.com/watch?v=s9J0516Ta64 "How to Create a Safe Account")
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/s9J0516Ta64" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 1. Connect a wallet to the [Gnosis Safe management platform](https://safe-evm-poa-sidechain.peersyst.tech/).
 
