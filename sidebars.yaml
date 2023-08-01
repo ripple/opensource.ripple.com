@@ -66,9 +66,8 @@ opensource:
                 page: docs/evm-sidechain/bridge-client.md
                 expanded: false
                 pages:
-                  - page:
-            expanded: false
-            pages:
+                  - page: docs/evm-sidechain/configure-the-bridge-client.md
+                  - page: docs/evm-sidechain/start-the-bridge-client.md            
           - group: EVM CLI
             expanded: false
             page: docs/evm-sidechain/bridge-client.md
