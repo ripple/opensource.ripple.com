@@ -48,6 +48,8 @@ opensource:
               - page: docs/evm-sidechain/evm-sidechain-validator-security.md
           - group: Bridges
             page: docs/evm-sidechain/bridges-intro.md
+            expanded: false
+            pages:
               - page: docs/evm-sidechain/deploy-a-bridge.md
               - group: Bridge Doors
                 page: docs/evm-sidechain/bridge-doors.md
@@ -69,7 +71,10 @@ opensource:
             pages:
           - group: EVM CLI
             expanded: false
-            pages:          
+            page: docs/evm-sidechain/bridge-client.md
+            pages:
+              - page: docs/evm-sidechain/configure-the-bridge-client.md
+              - page: docs/evm-sidechain/start-the-bridge-client.md
           - page: docs/evm-sidechain/evm-cli.md
       - group: XLS-30d AMM
         page: docs/xls-30d-amm/amm-uc.md
