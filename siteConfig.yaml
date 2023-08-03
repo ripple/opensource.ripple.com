@@ -27,10 +27,10 @@ stylesheets:
   - ./static/style.css
   - ./static/fonts.css
 analytics:
-ga:
-# note that GA doesn't work in the development environment
-  head: true
-  trackingId: G-S1KBMRJYKS
+  ga:
+  # note that GA doesn't work in the development environment
+    head: true
+    trackingId: G-S1KBMRJYKS
 #scripts:
 #  - ./static/intercom.js
 nav:
