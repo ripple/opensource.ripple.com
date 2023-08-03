@@ -26,10 +26,11 @@ copyCodeSnippet:
 stylesheets:
   - ./static/style.css
   - ./static/fonts.css
-#analytics:
-# ga:
-# note that GA doesn't work in the development environment
-#  trackingId: UA-45997213-1
+analytics:
+  ga:
+  # note that GA doesn't work in the development environment
+    head: true
+    trackingId: G-S1KBMRJYKS
 #scripts:
 #  - ./static/intercom.js
 nav:
