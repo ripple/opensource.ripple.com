@@ -26,11 +26,14 @@ copyCodeSnippet:
 stylesheets:
   - ./static/style.css
   - ./static/fonts.css
+# https://redocly.com/docs/developer-portal/configuration/siteconfig/analytics/#google-global-site-tag-gtagjs
 analytics:
-  ga:
-  # note that GA doesn't work in the development environment
-    head: true
-    trackingId: G-S1KBMRJYKS
+  gtag:
+    # note that GA doesn't work in the development environment
+    trackingIds:
+        - "G-S1KBMRJYKS" #Google Analytics / GA
+    pluginConfig:
+      head: true
 #scripts:
 #  - ./static/intercom.js
 nav:
