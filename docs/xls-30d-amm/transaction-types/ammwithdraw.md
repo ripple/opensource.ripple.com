@@ -84,6 +84,9 @@ The fee for a single asset withdrawal is calculated to be the same as if you had
 
 <!-- TODO: add a formula and example calculation(s) of single-asset withdrawal fees -->
 
+### AMM Deletion
+
+If the transaction withdraws the last of the AMM's assets, it tries to automatically delete the AMM along with all associated trust lines. However, there is no limit to the number of empty trust lines for LP Tokens that may exist associated with an AMM, so it is possible that the transaction cannot remove all of them. If this happens, the AMM remains in the ledger in an empty state; it can be deleted with further [AMMDelete transactions](./ammdelete.md), or it can be refilled with a special "empty AMM" two-asset [AMMDeposit transaction](./ammdeposit.md). While an AMM is empty, no other operations on it are valid.
 
 ### AMMWithdraw Flags
 
