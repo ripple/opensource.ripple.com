@@ -69,16 +69,26 @@ With any AMM, when the price of its assets shifts significantly in external mark
 
 In the ledger's state data, an AMM consists of multiple [ledger entries](https://xrpl.org/ledger-object-types.html):
 
-- An `AMM` object describing the automated market maker itself.
+- An `AMM` entry describing the automated market maker itself.
 
-- A special `AccountRoot` object that issues the AMM's LP Tokens, and holds the AMM's XRP (if it has any).
+- A special `AccountRoot` entry that issues the AMM's LP Tokens, and holds the AMM's XRP (if it has any).
     
     The address of this AccountRoot is chosen somewhat randomly when the AMM is created, and it is different if the AMM is deleted and re-created. This is to prevent people from funding the AMM account with excess XRP in advance.
 
 - [Trust lines](https://xrpl.org/trust-lines-and-issuing.html) to the special AMM Account for the tokens in the AMM's pool.
 
-These objects are not owned by any account, so the [reserve requirement](https://xrpl.org/reserves.html) does not apply to them. However, to prevent spam, the transaction to create an AMM has a special [transaction cost](https://xrpl.org/transaction-cost.html) that requires the sender to burn a larger than usual amount of XRP.
+These ledger entries are not owned by any account, so the [reserve requirement](https://xrpl.org/reserves.html) does not apply to them. However, to prevent spam, the transaction to create an AMM has a special [transaction cost](https://xrpl.org/transaction-cost.html) that requires the sender to burn a larger than usual amount of XRP.
 
+
+## Deletion
+
+An AMM is automatically deleted when an [AMMWithdraw transaction](./transaction-types/ammwithdraw.md) withdraws all assets from its pool. This can only happen by redeeming all of the AMM's outstanding LP Tokens. Deleting the AMM includes removing the `AMM` and `AccountRoot` ledger entries as well as all other ledger entries associated with them, such as trust lines for the AMM's LP Tokens.
+
+It is possible that there may be a large number of trust lines for the AMM's LP Tokens still attached to the AMM account when it would be deleted. Those trust lines would have a balance of 0 but may have other details, such as the limit, set to a non-default value. If there are more trust lines than can be deleted by one transaction (currently 512 trust lines), the withdraw succeeds and deletes as many trust lines as it can, but leaves the AMM object in the ledger in an empty state.
+
+While in an empty state, the AMM can be deleted by sending an [AMMDelete transaction](./transaction-types/ammdelete.md); if the remaining number of trust lines is still greater than the limit, multiple AMMDelete transactions may be necessary to fully delete the AMM. Alternatively, anyone can perform a special deposit, using an [AMMDeposit transaction](./transaction-types/ammdeposit.md), to fund an empty AMM as if it were new. No other operations are valid on an empty AMM.
+
+There is no refund or incentive for deleting an empty AMM.
 
 <!--{# common link defs #}
 {% include '_snippets/rippled-api-links.md' %}
