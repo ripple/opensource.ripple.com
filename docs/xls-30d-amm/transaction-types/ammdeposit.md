@@ -124,7 +124,7 @@ Besides errors that can occur for all transactions, AMMDeposit transactions can 
 
 | Error Code              | Description                                  |
 |:------------------------|:---------------------------------------------|
-| `tecAMM_EMPTY`          | The AMM currently holds no assets so you cannot do a normal deposit. |
+| `tecAMM_EMPTY`          | The AMM currently holds no assets, so you cannot do a normal deposit. You must use the Empty AMM Special Case deposit instead. |
 | `tecAMM_NOT_EMPTY`      | The transaction specified `tfTwoAssetIfEmpty` but the AMM was not empty. |
 | `tecAMM_FAILED`         | The conditions on the deposit could not be satisfied; for example, the requested effective price in the `EPrice` field is too low. |
 | `tecFROZEN`             | The transaction tried to deposit a [frozen](https://xrpl.org/freezes.html) token. |

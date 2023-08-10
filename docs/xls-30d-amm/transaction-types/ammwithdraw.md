@@ -109,17 +109,18 @@ You must specify **exactly one** of these flags, plus any [global flags](https:/
 
 Besides errors that can occur for all transactions, {{currentpage.name}} transactions can result in the following [transaction result codes](https://xrpl.org/transaction-results.html):
 
-| Error Code               | Description                                  |
-|:-------------------------|:---------------------------------------------|
-| `tecFROZEN`              | The transaction tried to withdraw a [frozen](https://xrpl.org/freezes.html) token. |
-| `tecAMM_BALANCE`         | The transaction would withdraw all of one asset from the pool, or rounding would cause a "withdraw all" to leave a nonzero amount behind. |
-| `tecAMM_FAILED_WITHDRAW` | The conditions on the withdrawal could not be satisfied; for example, the requested effective price in the `EPrice` field is too low. |
-| `tecAMM_INVALID_TOKENS`  | The AMM for this token pair does not exist, or one of the calculations resulted in a withdrawal amount rounding to zero. |
-| `tecINSUF_RESERVE_LINE`  | The sender of this transaction does not meet the increased [reserve requirement](https://xrpl.org/reserves.html) of processing this transaction, probably because they need at least one new trust line to hold one of the assets to be withdrawn, and they don't have enough XRP to meet the additional owner reserve for a new trust line. |
-| `tecNO_AUTH`             | The sender is not authorized to hold one of the AMM assets. |
-| `temMALFORMED`           | The transaction specified an invalid combination of fields. See [AMMWithdraw Modes](#ammwithdraw-modes). |
-| `temAMM_BAD_TOKENS`      | The transaction specified the LP Tokens incorrectly; for example, the `issuer` is not the AMM's associated AccountRoot address or the `currency` is not the currency code for this AMM's LP Tokens, or the transaction specified this AMM's LP Tokens in one of the asset fields.  |
-| `terNO_AMM`              | The Automated Market Maker instance for the asset pair in this transaction does not exist. |
+| Error Code              | Description                                  |
+|:------------------------|:---------------------------------------------|
+| `tecAMM_EMPTY`          | The AMM has no assets in its pool. In this state, you can only delete the AMM or fund it with a new deposit. |
+| `tecAMM_BALANCE`        | The transaction would withdraw all of one asset from the pool, or rounding would cause a "withdraw all" to leave a nonzero amount behind. |
+| `tecAMM_FAILED`         | The conditions on the withdrawal could not be satisfied; for example, the requested effective price in the `EPrice` field is too low. |
+| `tecAMM_INVALID_TOKENS` | The AMM for this token pair does not exist, or one of the calculations resulted in a withdrawal amount rounding to zero. |
+| `tecFROZEN`             | The transaction tried to withdraw a [frozen](https://xrpl.org/freezes.html) token. |
+| `tecINSUF_RESERVE_LINE` | The sender of this transaction does not meet the increased [reserve requirement](https://xrpl.org/reserves.html) of processing this transaction, probably because they need at least one new trust line to hold one of the assets to be withdrawn, and they don't have enough XRP to meet the additional owner reserve for a new trust line. |
+| `tecNO_AUTH`            | The sender is not authorized to hold one of the AMM assets. |
+| `temMALFORMED`          | The transaction specified an invalid combination of fields. See [AMMWithdraw Modes](#ammwithdraw-modes). (This error can also occur if the transaction is malformed in other ways.) |
+| `temBAD_AMM_TOKENS`     | The transaction specified the LP Tokens incorrectly; for example, the `issuer` is not the AMM's associated AccountRoot address or the `currency` is not the currency code for this AMM's LP Tokens, or the transaction specified this AMM's LP Tokens in one of the asset fields.  |
+| `terNO_AMM`             | The Automated Market Maker instance for the asset pair in this transaction does not exist. |
 
 
 [Internal Type]: https://xrpl.org/serialization.html
