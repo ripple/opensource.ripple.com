@@ -39,19 +39,15 @@ status: not_enabled
         yarn start
         ```
     
-    - Star each service separately. Open a new terminal window for each command.
+    - Start each service separately. Open a new terminal window for each command.
 
         ```bash
         # Starts the database
         docker-compose up
-        ```
 
-        ```bash
         # Starts the backend
         cd packages/bridge-client-backend && yarn start
-        ```
 
-        ```bash
         # Starts the frontend
         cd packages/bridge-client-frontend && yarn start
         ```
