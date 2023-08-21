@@ -10,7 +10,7 @@ status: not_enabled
 
 <embed src="/snippets/_evm-sidechain-disclaimer.md" />
 
-The `boostrap` command enables you to create a local environment that you can develop on. This environment consists of:
+The `boostrap` command enables you to create a local development environment. This environment consists of:
 
 - A blockchain configured with nodes and extra accounts.
 - An XRP bridge with witnesses configured.

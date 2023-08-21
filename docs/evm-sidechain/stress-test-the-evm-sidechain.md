@@ -48,7 +48,7 @@ Create a JSON config file in this format:
 | Key | Value Type | Required | Description | Example |
 |-----|------------|----------|-------------|---------|
 | evmRpc | string | Yes | The JSON RPC of the EVM sidechain. | `"http://78.46.163.92:8545"` |
-| redisUrl | string | Yes | the redis connection URL. | `"redis://127.0.0.1:6379"` |
+| redisUrl | string | Yes | The redis connection URL. | `"redis://127.0.0.1:6379"` |
 | fundingPrivateKey | string | Yes | A private key in the EVM sidechain that has enough balance to fund all the accounts. | `"0000000000000000000000000000000000000000000000000000000000000000"` |
 | accounts | number | Yes | The number of accounts to generate. | `100` |
 | amountPerAccount | number | Yes | The remaining amount of each account at the end of the test. | `10` |
@@ -91,8 +91,8 @@ Create a JSON config file in this format:
 | redisUrl | string | Yes | the redis connection URL. | `"redis://127.0.0.1:6379"` |
 | privateKeys | array | Yes | A set of private keys used to broadcast transactions. | `["0000000000000000000000000000000000000000000000000000000000000000"` |
 | accounts | number | Yes | The number of accounts to use in the stress run. | `100` |
-| txsPerAccount | number | Yes | The number of transactions each account will broadcast. | `10` |
-| concurrency | number | Yes | How many threads the stress test script will use. | `8` |
+| txsPerAccount | number | Yes | The number of transactions each account broadcasts. | `10` |
+| concurrency | number | Yes | How many threads the stress test script uses. | `8` |
 
 ### Run the Stress Test
 

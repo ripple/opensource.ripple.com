@@ -37,13 +37,13 @@ Create a JSON config file in this format:
 | nodes | number <br /> array | Yes | The amount and configuration of nodes. | `3` <br /> `[{name: "node-0", host: "node-0.peersyst.tech"}]` |
 | nodes[].name | string | Yes | The public name of the node. | `"node-0"` |
 | nodes[].host | string | Yes | The node host IP or DNS. | `"node-0.peersyst.tech"` |
-| extraAccounts | array | Yes | A set of accounts that will reserve balances in the genesis. | `[{ address: "0x0000000000000000000000000000000000000000", balance: 500 }]` |
+| extraAccounts | array | Yes | A set of accounts with reserve balances in the genesis. | `[{ address: "0x0000000000000000000000000000000000000000", balance: 500 }]` |
 | extraAccounts[].address | string | Yes | Addresses of the reserve accounts. | `"0x0000000000000000000000000000000000000000"` |
 | extraAccounts[].balance | number | Yes | The amount reserved. | `500` |
 | genesisConfig | object | No | General genesis paramater configuration. | |
 | genesisConfig.bondingTimeInSeconds | number | No | The number of seconds needed to unbound PoA power. | `172800` |
 | genesisConfig.minDeposit | string | No | The minimum deposit for a governance proposal. | `"1000000000000000000axrp"` |
-| safe | object | Yes | Configuration of the safe contract that will hold all the issuing XRP. | |
+| safe | object | Yes | Configuration of the safe contract that holds all the issuing XRP. | |
 | safe.owners | array | Yes | The safe owner addresses. | `["0x0000000000000000000000000000000000000000"]` |
 | safe.quorum | number | Yes | The number of signatures required to run an operation in the safe. | `1` |
 

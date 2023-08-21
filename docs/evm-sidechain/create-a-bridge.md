@@ -51,7 +51,7 @@ Create a JSON config file in this format:
 | lockingChain.url | string | Yes | The node URL of the locking chain. | `"wss://sidechain-net1.devnet.rippletest.net"` |
 | lockingChain.fundingPrivateKey | string | Yes | A private key that has enough balance in the locking chain to pay fees and activate witness accounts. | `"0000000000000000000000000000000000000000000000000000000000000000"` |
 | lockingChain.witnesses | array | Yes | A set of locking chain addresses that will be bridge witnesses. | `["rpSspP5yYyomcSrgsohyKMCnu5oJsTMkYP"]` |
-| lockingChain.tokenCode | string | Yes | The token code in the locking chain. If the t oken code is "XRP", the bridge will use the native XRP currency. | `"USD"` |
+| lockingChain.tokenCode | string | Yes | The token code in the locking chain. If the token code is "XRP", the bridge will use the native XRP currency. | `"USD"` |
 | lockingChain.tokenAddress | string | No | The token issuer if XRPL, or the token address if EVM. Only required if the token code isn't XRP. | `"rpSspP5yYyomcSrgsohyKMCnu5oJsTMkYP"` |
 | lockingChain.safeAddress | string | No | Only used if the locking chain is EVM, and the safe is already activated. | `"0x0000000000000000000000000000000000000000"` |
 | issuingChain | object | Yes | The issuing chain information. | |

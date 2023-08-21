@@ -14,7 +14,7 @@ This tutorial walks you through the process of creating a bridge account and tra
 
 ## Create Bridge Account
 
-This operation only works for XRP bridges (not IOUs) and can only be done once per account. If the destination account already exists or has previously executed a create account operation, this transactions will fail and you'll lose the funds used to create it.
+This operation only works for XRP bridges and can only be done once per account. If the destination account already exists or has previously executed a create account operation, this transactions will fail and you'll lose the funds used to create it.
 
 Before running this operation, you'll need:
 
