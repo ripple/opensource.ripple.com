@@ -40,9 +40,34 @@ opensource:
         pages:
           - page: docs/evm-sidechain/get-started-evm-sidechain.md
           - page: docs/evm-sidechain/connect-metamask-to-xrpl-evm-sidechain.md
-          - page: docs/evm-sidechain/evm-sidechain-validator-security.md
-          - page: docs/evm-sidechain/join-evm-sidechain-devnet.md
-          - page: docs/evm-sidechain/manage-the-validator-node.md
+          - group: Run a Validator
+            expanded: false
+            pages:
+              - page: docs/evm-sidechain/join-evm-sidechain-devnet.md 
+              - page: docs/evm-sidechain/manage-the-validator-node.md
+              - page: docs/evm-sidechain/evm-sidechain-validator-security.md
+          - group: Bridges
+            page: docs/evm-sidechain/bridges-intro.md
+            expanded: false
+            pages:
+              - page: docs/evm-sidechain/deploy-a-bridge.md
+              - group: Bridge Doors
+                page: docs/evm-sidechain/bridge-doors.md
+                expanded: false
+                pages:
+                  - page: docs/evm-sidechain/bridge-door-interface.md
+                  - page: docs/evm-sidechain/bridge-door-safety-mechanisms.md
+              - group: Witness Servers
+                expanded: false
+                pages:
+                  - page: docs/evm-sidechain/witness-server-configuration.md
+                  - page: docs/evm-sidechain/build-and-run-witness-servers.md
+              - group: Bridge Client
+                page: docs/evm-sidechain/bridge-client.md
+                expanded: false
+                pages:
+                  - page: docs/evm-sidechain/configure-the-bridge-client.md
+                  - page: docs/evm-sidechain/start-the-bridge-client.md            
           - page: docs/evm-sidechain/evm-cli.md
       - group: XLS-30d AMM
         page: docs/xls-30d-amm/amm-uc.md
