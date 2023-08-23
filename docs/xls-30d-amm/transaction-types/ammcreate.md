@@ -31,7 +31,7 @@ Creates both an [AMM object](../ledger-object-types/amm.md) and a [special Accou
     },
     "Amount2" : "250000000",
     "Fee" : "10",
-    "Flags" : 2147483648,
+    "Flags" : 0,
     "Sequence" : 6,
     "TradingFee" : 500,
     "TransactionType" : "AMMCreate"
