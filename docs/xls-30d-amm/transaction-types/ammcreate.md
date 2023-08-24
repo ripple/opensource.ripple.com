@@ -61,9 +61,9 @@ Besides errors that can occur for all transactions, AMMCreate transactions can r
 | `tecINSUF_RESERVE_LINE` | The sender of this transaction does meet the increased [reserve requirement](https://xrpl.org/reserves.html) of processing this transaction, probably because they need a new trust line to hold the LP Tokens, and they don't have enough XRP to meet the additional owner reserve for a new trust line. |
 | `tecNO_AUTH`        | At least one of the deposit assets uses [authorized trust lines](https://xrpl.org/authorized-trust-lines.html) and the sender does not have authorization to hold that asset. |
 | `tecNO_LINE`        | The sender does not have a trust line for at least one of the deposit assets. |
-| `tecNO_PERMISSION`  | At least one of the deposit assets cannot be used in an AMM, for example because the issuer has enabled Clawback support. |
+| `tecNO_PERMISSION`  | At least one of the deposit assets cannot be used in an AMM. For example, the issuer has enabled Clawback support. |
 | `tecUNFUNDED_AMM`   | The sender does not hold enough of the assets specified in `Amount` and `Amount2` to fund the AMM. |
-| `terNO_RIPPLE`      | The issuer of one at least one of the assets has not enabled the [Default Ripple flag](https://xrpl.org/rippling.html#the-default-ripple-flag). |
+| `terNO_RIPPLE`      | The issuer of at least one of the assets has not enabled the [Default Ripple flag](https://xrpl.org/rippling.html#the-default-ripple-flag). |
 | `temAMM_BAD_TOKENS` | The values of `Amount` and `Amount2` are not valid: for example, both refer to the same token. |
 | `temBAD_FEE`        | The `TradingFee` value is invalid. It must be zero or a positive integer and cannot be over 1000. |
 | `temDISABLED`       | The AMM feature is not enabled on this network. |

@@ -82,9 +82,13 @@ These ledger entries are not owned by any account, so the [reserve requirement](
 
 ## Deletion
 
-An AMM is automatically deleted when an [AMMWithdraw transaction](./transaction-types/ammwithdraw.md) withdraws all assets from its pool. This can only happen by redeeming all of the AMM's outstanding LP Tokens. Deleting the AMM includes removing the `AMM` and `AccountRoot` ledger entries as well as all other ledger entries associated with them, such as trust lines for the AMM's LP Tokens. (Those trust lines would have a balance of 0 but may have other details, such as the limit, set to a non-default value.)
+An AMM is deleted when an [AMMWithdraw transaction](./transaction-types/ammwithdraw.md) withdraws all assets from its pool. This only happens by redeeming all of the AMM's outstanding LP Tokens. Deleting the AMM removes all the ledger entries associated with it, such as:
 
-If there are more than 512 trust lines still attached to the AMM account when it would be deleted, the withdraw succeeds and deletes as many trust lines as it can, but leaves the AMM in the ledger with no assets in its pool.
+- `AMM`
+- `AccountRoot`
+- Trust lines for the AMM's LP Tokens. These trust lines would have a balance of 0 but may have other details, such as the limit, set to a non-default value.
+
+If there are more than 512 trust lines attached to the AMM account when it would be deleted, the withdraw succeeds and deletes as many trust lines as it can, but leaves the AMM in the ledger with no assets in its pool.
 
 While an AMM has no assets in its pool, anyone can delete it by sending an [AMMDelete transaction](./transaction-types/ammdelete.md); if the remaining number of trust lines is still greater than the limit, multiple AMMDelete transactions may be necessary to fully delete the AMM. Alternatively, anyone can perform a [special deposit](./transaction-types/ammdeposit.md#empty-amm-special-case) to fund the AMM as if it were new. No other operations are valid on an AMM with an empty asset pool.
 

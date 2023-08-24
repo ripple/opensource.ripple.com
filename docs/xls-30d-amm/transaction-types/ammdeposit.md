@@ -101,7 +101,7 @@ Where:
 
 In some cases, an AMM can exist with no assets in its pool. You cannot perform normal deposits into an AMM in such a state because the ratio between the assets is undefined (0/0). Instead, you can use a special "Empty AMM" deposit case with the flag `tfTwoAssetIfEmpty` and exact amounts of both assets. This directly sets the ratio between the assets in the same way an [AMMCreate transaction](./ammcreate.md) does when an AMM is initially created. Like a double-asset deposit, this is not subject to a fee.
 
-You can do a special "Empty AMM" deposit if and only if the AMM is empty.
+You can only do a special "Empty AMM" deposit if the AMM is empty.
 
 ### AMMDeposit Flags
 
@@ -125,14 +125,14 @@ Besides errors that can occur for all transactions, AMMDeposit transactions can 
 | Error Code              | Description                                  |
 |:------------------------|:---------------------------------------------|
 | `tecAMM_EMPTY`          | The AMM currently holds no assets, so you cannot do a normal deposit. You must use the Empty AMM Special Case deposit instead. |
-| `tecAMM_NOT_EMPTY`      | The transaction specified `tfTwoAssetIfEmpty` but the AMM was not empty. |
-| `tecAMM_FAILED`         | The conditions on the deposit could not be satisfied; for example, the requested effective price in the `EPrice` field is too low. |
+| `tecAMM_NOT_EMPTY`      | The transaction specified `tfTwoAssetIfEmpty`, but the AMM was not empty. |
+| `tecAMM_FAILED`         | The conditions on the deposit could not be satisfied. For example, the requested effective price in the `EPrice` field is too low. |
 | `tecFROZEN`             | The transaction tried to deposit a [frozen](https://xrpl.org/freezes.html) token. |
 | `tecINSUF_RESERVE_LINE` | The sender of this transaction does meet the increased [reserve requirement](https://xrpl.org/reserves.html) of processing this transaction, probably because they need a new trust line to hold the LP Tokens, and they don't have enough XRP to meet the additional owner reserve for a new trust line. |
 | `tecUNFUNDED_AMM`       | The sender does not have a high enough balance to make the specified deposit. |
-| `temBAD_AMM_TOKENS`     | The transaction specified the LP Tokens incorrectly; for example, the `issuer` is not the AMM's associated AccountRoot address or the `currency` is not the currency code for this AMM's LP Tokens, or the transaction specified this AMM's LP Tokens in one of the asset fields. |
-| `temBAD_AMOUNT`         | An amount specified in the transaction is invalid; for example, a deposit amount is negative. |
-| `temBAD_FEE`            | A fee value specified in the transaction is invalid; for example, the trading fee is outside the allowable range. |
+| `temBAD_AMM_TOKENS`     | The transaction specified the LP Tokens incorrectly. For example, the `issuer` is not the AMM's associated AccountRoot address or the `currency` is not the currency code for this AMM's LP Tokens, or the transaction specified this AMM's LP Tokens in one of the asset fields. |
+| `temBAD_AMOUNT`         | An amount specified in the transaction is invalid. For example, a deposit amount is negative. |
+| `temBAD_FEE`            | A fee value specified in the transaction is invalid. For example, the trading fee is outside the allowable range. |
 | `temMALFORMED`          | The transaction specified an invalid combination of fields. See [AMMDeposit Modes](#ammdeposit-modes). |
 | `terNO_ACCOUNT`         | An account specified in the request does not exist. |
 | `terNO_AMM`             | The Automated Market Maker instance for the asset pair in this transaction does not exist. |
