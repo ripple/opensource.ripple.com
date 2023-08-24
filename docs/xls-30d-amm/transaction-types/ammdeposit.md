@@ -7,8 +7,7 @@ labels:
 status: not_enabled
 ---
 # AMMDeposit
-[[Source]](https://github.com/gregtatcam/rippled/blob/amm-core-functionality/src/ripple/app/tx/impl/AMMDeposit.cpp "Source")
-<!-- TODO: Update source link to merged version when available -->
+[[Source]](https://github.com/XRPLF/rippled/blob/develop/src/ripple/app/tx/impl/AMMDeposit.cpp "Source")
 
 <embed src="/snippets/_amm-disclaimer.md" />
 
@@ -55,7 +54,7 @@ In addition to the common fields, AMMDeposit transactions use the following fiel
 
 ### AMMDeposit Modes
 
-This transaction has five modes, defined by which flag you specify. Each mode expects a specific combination of fields. The modes fall into two categories: 
+This transaction has five modes, defined by which flag you specify. Each mode expects a specific combination of fields. The modes fall into two categories:
 
 - **Double-asset deposits**, in which you provide both assets in the AMM's pool, proportional to the balance of the assets already there. These deposits are not subject to a fee.
 - **Single-asset deposits**, in which you provide only one of the AMM's two assets. The AMM charges a fee, debited from the LP Tokens paid out, based on how much your deposit shifts the balance of assets in the pool.
@@ -82,7 +81,7 @@ Any other combination of these fields and flags is invalid.
 ### Single Asset Deposit Fee
 
  The fee for a single asset deposit is calculated to be the same as if you had used the AMM to trade part of the deposit amount for the other asset, then done a double-asset deposit. The AMM's trading fee applies to the amount you would need to trade for, but not to the rest of the deposit. _For example, if the AMM's asset pool is split perfectly evenly between USD and EUR, and you try to deposit 100 USD, the amount of LP Tokens you receive is slightly less than if you had deposited 50 EUR + 50 USD, because you pay the trading fee to convert some of your USD to an equal amount of EUR._
- 
+
  The formula for how many LP Tokens you receive for a double-asset deposit is:
 
 {{ include_svg("img/amm-single-asset-deposit-formula.svg", "L = T × ( (( 1 + (B - (F × (1 - W) × B)) ÷ P)^W) - 1)") }}

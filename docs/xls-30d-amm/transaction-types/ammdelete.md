@@ -1,19 +1,20 @@
 ---
-html: ammcreate.html
+html: ammdelete.html
 parent: transaction-types.html
-blurb: Create a new Automated Market Maker for trading a given pair of assets.
+blurb: Delete an Automated Market Maker instance with an empty asset pool.
 labels:
   - AMM
 status: not_enabled
 ---
 # AMMDelete
-[[Source]](https://github.com/gregtatcam/rippled/blob/amm-fixes/src/ripple/app/tx/impl/AMMDelee.cpp "Source")
+[[Source]](https://github.com/XRPLF/rippled/blob/develop/src/ripple/app/tx/impl/AMMDelete.cpp "Source")
 
 <embed src="/snippets/_amm-disclaimer.md" />
 
 Delete an empty [Automated Market Maker](../automated-market-makers.md) (AMM) instance that could not be fully deleted automatically.
 
-**Tip:** The [AMMWithdraw transaction](./ammwithdraw.md) automatically tries to delete an AMM, along with associated ledger entries such as empty trust lines, if it withdrew all the assets from the AMM's pool. However, if there are too many trust lines to the AMM account to remove in one transaction, it may stop before fully removing the AMM. Similarly, an AMMDelete transaction removes up to a maximum number of trust lines; in extreme cases, it may take several AMMDelete transactions to fully delete the trust lines and the associated AMM. In all cases, the AMM ledger entry and AMM account are deleted by the last such transaction.
+Normally, an [AMMWithdraw transaction](./ammwithdraw.md) automatically deletes an AMM and all associated ledger entries when it withdraws all the assets from the AMM's pool. However, if there are too many trust lines to the AMM account to remove in one transaction, it may stop before fully removing the AMM. Similarly, an AMMDelete transaction removes up to a maximum of 512 trust lines; it may take several AMMDelete transactions to delete all the trust lines and the associated AMM. In all cases, only the last such transaction deletes the AMM and AccountRoot ledger entries.
+
 
 ## Example AMMDelete JSON
 

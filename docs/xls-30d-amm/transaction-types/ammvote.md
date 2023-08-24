@@ -7,8 +7,7 @@ labels:
 status: not_enabled
 ---
 # AMMVote
-[[Source]](https://github.com/gregtatcam/rippled/blob/amm-core-functionality/src/ripple/app/tx/impl/AMMVote.cpp "Source")
-<!-- TODO: Update source link to merged version when available -->
+[[Source]](https://github.com/XRPLF/rippled/blob/develop/src/ripple/app/tx/impl/AMMVote.cpp "Source")
 
 <embed src="/snippets/_amm-disclaimer.md" />
 
