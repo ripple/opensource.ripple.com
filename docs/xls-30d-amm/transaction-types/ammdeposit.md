@@ -7,8 +7,7 @@ labels:
 status: not_enabled
 ---
 # AMMDeposit
-[[Source]](https://github.com/gregtatcam/rippled/blob/amm-core-functionality/src/ripple/app/tx/impl/AMMDeposit.cpp "Source")
-<!-- TODO: Update source link to merged version when available -->
+[[Source]](https://github.com/XRPLF/rippled/blob/develop/src/ripple/app/tx/impl/AMMDeposit.cpp "Source")
 
 <embed src="/snippets/_amm-disclaimer.md" />
 
@@ -55,7 +54,7 @@ In addition to the common fields, AMMDeposit transactions use the following fiel
 
 ### AMMDeposit Modes
 
-This transaction has five modes, defined by which flag you specify. Each mode expects a specific combination of fields. The modes fall into two categories: 
+This transaction has five modes, defined by which flag you specify. Each mode expects a specific combination of fields. The modes fall into two categories:
 
 - **Double-asset deposits**, in which you provide both assets in the AMM's pool, proportional to the balance of the assets already there. These deposits are not subject to a fee.
 - **Single-asset deposits**, in which you provide only one of the AMM's two assets. The AMM charges a fee, debited from the LP Tokens paid out, based on how much your deposit shifts the balance of assets in the pool.
@@ -66,6 +65,7 @@ The following combinations of fields indicate a **double-asset deposit**:
 |--------------|--------------|------------------------|---------|
 | `tfLPToken`  | `0x00010000` | `LPTokenOut` only      | Deposit both of this AMM's assets, in amounts calculated so that you receive the specified amount of LP Tokens in return. The amounts deposited maintain the relative proportions of the two assets the AMM already holds. |
 | `tfTwoAsset` | `0x00100000` | `Amount` and `Amount2` | Deposit both of this AMM's assets, up to the specified amounts. The actual amounts deposited must maintain the same balance of assets as the AMM already holds, so the amount of either one deposited MAY be less than specified. The amount of LP Tokens you get in return is based on the total value deposited. |
+| `tfTwoAssetIfEmpty` | `0x00800000` | `Amount` and `Amount2` | Deposit both of this AMM's assets, in exactly the specified amounts, to an AMM with an empty asset pool. The amount of LP Tokens you get in return is based on the total value deposited. |
 
 The following combinations of fields indicate a **single asset deposit**:
 
@@ -81,7 +81,7 @@ Any other combination of these fields and flags is invalid.
 ### Single Asset Deposit Fee
 
  The fee for a single asset deposit is calculated to be the same as if you had used the AMM to trade part of the deposit amount for the other asset, then done a double-asset deposit. The AMM's trading fee applies to the amount you would need to trade for, but not to the rest of the deposit. _For example, if the AMM's asset pool is split perfectly evenly between USD and EUR, and you try to deposit 100 USD, the amount of LP Tokens you receive is slightly less than if you had deposited 50 EUR + 50 USD, because you pay the trading fee to convert some of your USD to an equal amount of EUR._
- 
+
  The formula for how many LP Tokens you receive for a double-asset deposit is:
 
 {{ include_svg("img/amm-single-asset-deposit-formula.svg", "L = T × ( (( 1 + (B - (F × (1 - W) × B)) ÷ P)^W) - 1)") }}
@@ -96,6 +96,12 @@ Where:
 - `W` is the weight of the deposit asset in the pool. This is defined as 0.5 for all AMM pools (meaning a 50/50 split), so exponentiation by W is equivalent to taking the square root.
 - `P` is the total amount of the deposit asset in the pool before the deposit
 
+### Empty AMM Special Case
+
+In some cases, an AMM can exist with no assets in its pool. You cannot perform normal deposits into an AMM in such a state because the ratio between the assets is undefined (0/0). Instead, you can use a special "Empty AMM" deposit case with the flag `tfTwoAssetIfEmpty` and exact amounts of both assets. This directly sets the ratio between the assets in the same way an [AMMCreate transaction](./ammcreate.md) does when an AMM is initially created. Like a double-asset deposit, this is not subject to a fee.
+
+You can only do a special "Empty AMM" deposit if the AMM is empty.
+
 ### AMMDeposit Flags
 
 Transactions of the AMMDeposit type support additional values in the [`Flags` field](https://xrpl.org/transaction-common-fields.html#flags-field), as follows:
@@ -107,9 +113,9 @@ Transactions of the AMMDeposit type support additional values in the [`Flags` fi
 | `tfTwoAsset`        | `0x00100000` | 1048576       | Perform a double-asset deposit with specified amounts of both assets. |
 | `tfOneAssetLPToken` | `0x00200000` | 2097152       | Perform a single-asset deposit and receive the specified amount of LP Tokens. |
 | `tfLimitLPToken`    | `0x00400000` | 4194304       | Perform a single-asset deposit with a specified effective price. |
+| `tfTwoAssetIfEmpty` | `0x00800000` | 8388608       | Perform a special double-asset deposit to an AMM with an empty pool. |
 
 You must specify **exactly one** of these flags, plus any [global flags](https://xrpl.org/transaction-common-fields.html#global-flags).
-
 
 ## Error Cases
 
@@ -117,13 +123,16 @@ Besides errors that can occur for all transactions, AMMDeposit transactions can 
 
 | Error Code              | Description                                  |
 |:------------------------|:---------------------------------------------|
-| `temMALFORMED`          | The transaction specified an invalid combination of fields. See [AMMDeposit Modes](#ammdeposit-modes). |
+| `tecAMM_EMPTY`          | The AMM currently holds no assets, so you cannot do a normal deposit. You must use the Empty AMM Special Case deposit instead. |
+| `tecAMM_NOT_EMPTY`      | The transaction specified `tfTwoAssetIfEmpty`, but the AMM was not empty. |
+| `tecAMM_FAILED`         | The conditions on the deposit could not be satisfied. For example, the requested effective price in the `EPrice` field is too low. |
 | `tecFROZEN`             | The transaction tried to deposit a [frozen](https://xrpl.org/freezes.html) token. |
-| `tecAMM_BALANCE`        | The AMM does not have enough of one of the assets to accept the deposit (for example, to satisfy the trade part of a single-asset deposit) or the sender does not have enough of a given token. |
-| `temAMM_BAD_TOKENS`     | The transaction specified the LP Tokens incorrectly; for example, the `issuer` is not the AMM's associated AccountRoot address or the `currency` is not the currency code for this AMM's LP Tokens, or the transaction specified this AMM's LP Tokens in one of the asset fields. |
-| `tecAMM_FAILED_DEPOSIT` | The conditions on the deposit could not be satisfied; for example, the requested effective price in the `EPrice` field is too low. |
 | `tecINSUF_RESERVE_LINE` | The sender of this transaction does meet the increased [reserve requirement](https://xrpl.org/reserves.html) of processing this transaction, probably because they need a new trust line to hold the LP Tokens, and they don't have enough XRP to meet the additional owner reserve for a new trust line. |
-| `tecAMM_UNFUNDED`       | The sender does not have a high enough balance to make the specified deposit. |
+| `tecUNFUNDED_AMM`       | The sender does not have a high enough balance to make the specified deposit. |
+| `temBAD_AMM_TOKENS`     | The transaction specified the LP Tokens incorrectly. For example, the `issuer` is not the AMM's associated AccountRoot address or the `currency` is not the currency code for this AMM's LP Tokens, or the transaction specified this AMM's LP Tokens in one of the asset fields. |
+| `temBAD_AMOUNT`         | An amount specified in the transaction is invalid. For example, a deposit amount is negative. |
+| `temBAD_FEE`            | A fee value specified in the transaction is invalid. For example, the trading fee is outside the allowable range. |
+| `temMALFORMED`          | The transaction specified an invalid combination of fields. See [AMMDeposit Modes](#ammdeposit-modes). |
 | `terNO_ACCOUNT`         | An account specified in the request does not exist. |
 | `terNO_AMM`             | The Automated Market Maker instance for the asset pair in this transaction does not exist. |
 
