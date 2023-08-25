@@ -1,0 +1,16 @@
+---
+html: witness-server.html
+blurb: Witness servers listen for bridge transactions and provide attestations.
+labels:
+  - Interoperability
+status: not_enabled
+---
+# Witness Servers
+
+A witness server enables bridge operators to listen for transactions on the connected chains and sign attestations. Attestations are used as proof that events on a chain occurred.
+
+Running a witness server requires you to:
+
+1. Create a bridge door account and be one of its witnesses or signer owners.
+2. [Create a witness server YAML config file](witness-server-configuration.md).
+3. [Build and run the witness server](build-and-run-witness-servers.md).
