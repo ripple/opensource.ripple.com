@@ -58,6 +58,7 @@ opensource:
                   - page: docs/evm-sidechain/bridge-door-interface.md
                   - page: docs/evm-sidechain/bridge-door-safety-mechanisms.md
               - group: Witness Servers
+                page: docs/evm-sidechain/witness-servers.md
                 expanded: false
                 pages:
                   - page: docs/evm-sidechain/witness-server-configuration.md
