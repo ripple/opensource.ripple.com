@@ -7,7 +7,7 @@ status: not_enabled
 ---
 # Bridge Client
 
-The bridge client provides a user-friendly interface to interact with your bridge. You can use the client to connect wallets and transfer XRP or tokens across XRPL chains.
+The bridge client provides a user interface to interact with your bridge. You can use the client to connect wallets and transfer XRP or tokens across XRPL chains.
 
 Running a bridge client requires you to:
 
