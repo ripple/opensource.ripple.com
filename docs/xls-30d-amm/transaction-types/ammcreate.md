@@ -46,7 +46,7 @@ In addition to the common fields, AMMCreate transactions use the following field
 | `Amount2`    | [Currency Amount][] | Amount            | Yes       | The second of the two assets to fund this AMM with. This must be a positive amount. |
 | `TradingFee` | Number              | UInt16            | Yes       | The fee to charge for trades against this AMM instance, in units of 1/100,000; a value of 1 is equivalent to 0.001%. The maximum value is `1000`, indicating a 1% fee. The minimum value is `0`. |
 
-One or both of `Amount` and `Amount2` can be [tokens](https://xrpl.org/tokens.html); at most one of them can be [XRP](https://xrpl.org/xrp.html). They cannot both have the same currency code and issuer. An AMM's LP tokens _can_ be used as one of the assets for another AMM.
+One or both of `Amount` and `Amount2` can be [tokens](https://xrpl.org/tokens.html); at most one of them can be [XRP](https://xrpl.org/xrp.html). They cannot both have the same currency code and issuer. The tokens' issuers must have [Default Ripple](https://xrpl.org/rippling.html#the-default-ripple-flag) enabled. If the Clawback amendment is enabled, those issuers must not have the ability to clawback their tokens. An AMM's LP tokens _can_ be used as one of the assets for another AMM.
 
 ## Error Cases
 

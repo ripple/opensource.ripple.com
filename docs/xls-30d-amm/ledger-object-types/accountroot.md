@@ -2,25 +2,28 @@
 
 The XLS-30d proposal includes some changes to the existing [AccountRoot ledger entry type](https://xrpl.org/accountroot.html).
 
-## AccountRoot Flags
+## AccountRoot Fields
 
-There is a new flag:
+There is a new field:
 
-| Flag Name | Hex Value    | Decimal Value | Corresponding [AccountSet Flag](https://xrpl.org/accountset.html#accountset-flags) | Description |
-|-----------|--------------|---------------|-----------------------------------|----|
-| `lsfAMM`  | `0x02000000` | 33554432      | (None)                            | This flag indicates that the account is an Automated Market Maker instance. |
+| Field            | JSON Type           | [Internal Type][] | Required? | Description  |
+|:-----------------|:--------------------|:------------------|:----------|--------------|
+| `AMMID`          | String              | Hash256           | No        | The ledger entry ID of the corresponding AMM ledger entry. Set during account creation; cannot be modified. If present, indicates that this is a special AMM AccountRoot; always omitted on non-AMM accounts. |
 
-You cannot set this flag on normal accounts.
 
 ## Special AMM AccountRoot Objects
 
-Automated Market Makers use an AccountRoot object to issue their LP Tokens and hold the assets in the AMM pool, and an [AMM object](amm.md) for tracking some of the details of the AMM. The address of an AMM's AccountRoot is randomized so that users cannot identify and fund the address in advance of the AMM being created. Unlike normal accounts, AMM AccountRoot objects are created with the following settings:
+Automated Market Makers use an AccountRoot ledger entry to issue their LP Tokens and hold the assets in the AMM pool, and an [AMM ledger entry](amm.md) for tracking some of the details of the AMM. The address of an AMM's AccountRoot is randomized so that users cannot identify and fund the address in advance of the AMM being created. Unlike normal accounts, AMM AccountRoot objects are created with the following settings:
 
-- `lsfAMM` **enabled**. This indicates that the AccountRoot is part of an AMM and is not a regular account.
-- `lsfDisableMaster` **enabled** and no other means of authorizing transactions. This ensures no one can control the account directly, and it cannot send transactions.
-- `lsfRequireAuth` **enabled** and no accounts preauthorized. This ensures that the only way to add money to the AMM Account is using the [AMMDeposit transaction](../transaction-types/ammdeposit.md).
+- `lsfDisableMaster` **enabled** and no means of authorizing transactions. This ensures no one can control the account directly, and it cannot send transactions.
+- `lsfDepositAuth` **enabled** and no accounts preauthorized. This ensures that the only way to add money to the AMM Account is using the [AMMDeposit transaction](../transaction-types/ammdeposit.md).
 - `lsfDefaultRipple` **enabled**. This ensures that users can send and trade the AMM's LP Tokens among themselves.
 
-These special accounts are not subject to the [reserve requirement](https://xrpl.org/reserves.html) but they can hold XRP if it is one of the two assets in the AMM's pool.
+In addition, the following special rules apply to an AMM's AccountRoot entry:
 
-In most other ways, these accounts function like ordinary accounts; the LP Tokens they issue behave like other [tokens](https://xrpl.org/tokens.html) except that those tokens can also be used in AMM-related transactions. You can check an AMM's balances and the history of transactions that affected it the same way you would with a regular account.
+- It is not subject to the [reserve requirement](https://xrpl.org/reserves.html). It can hold XRP only if XRP is one of the two assets in the AMM's pool.
+- It cannot be the destination of Checks, Escrows, or Payment Channels. Any transactions that would create such entries instead fail with the result code `tecNO_PERMISSION`.
+- Users cannot create trust lines to it for anything other than the AMM's LP Tokens. Transactions that would create such trust lines instead fail with result code `tecNO_PERMISSION`. (The AMM does have two trust lines to hold the tokens in its pool, or one trust line if the other asset in its pool is XRP.)
+- If [Clawback (XLS-39d)](https://github.com/XRPLF/XRPL-Standards/blob/master/XLS-39d-clawback/README.md) is also enabled, the issuer cannot clawback funds from an AMM.
+
+Other than those exceptions, these accounts are like ordinary accounts; the LP Tokens they issue behave like other [tokens](https://xrpl.org/tokens.html) except that those tokens can also be used in AMM-related transactions. You can check an AMM's balances and the history of transactions that affected it the same way you would with a regular account.
