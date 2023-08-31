@@ -34,7 +34,7 @@ opensource:
               - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchaincreatebridge.md
               - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchaincreateclaimid.md
               - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchainmodifybridge.md
-          - page: docs/xls-38d-cross-chain-bridge/transaction-types/cross-chain-bridging-legal-faqs.md
+          - page: docs/xls-38d-cross-chain-bridge/cross-chain-bridging-legal-faqs.md
       - group: EVM Sidechain
         page: docs/evm-sidechain/intro-to-evm-sidechain.md
         expanded: false
