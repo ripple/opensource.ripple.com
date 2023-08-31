@@ -29,7 +29,7 @@ There is no commandline syntax for this method. You can use the [json method](ht
 
 ```json
 {
-    "command": "{{currentpage.name}}",
+    "command": "amm_info",
     "asset": {
       "currency": "XRP"
     },
@@ -44,7 +44,7 @@ There is no commandline syntax for this method. You can use the [json method](ht
 
 ```json
 {
-    "method": "{{currentpage.name}}",
+    "method": "amm_info",
     "params": [{
       "asset": {
         "currency": "XRP"
@@ -59,7 +59,7 @@ There is no commandline syntax for this method. You can use the [json method](ht
 
 <!-- MULTICODE_BLOCK_END -->
 
-<!-- 
+<!--
 [Try it! >](websocket-api-tool.html?server=wss%3A%2F%2Famm.devnet.rippletest.net%3A51233%2F#amm_info)-->
 
 The request includes the following parameters:
