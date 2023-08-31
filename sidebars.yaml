@@ -100,7 +100,7 @@ opensource:
             pages:
               - page: docs/xls-30d-amm/transaction-types/ammbid.md
               - page: docs/xls-30d-amm/transaction-types/ammcreate.md
-              - page: docs/xls-30d-amm/transaction/types/ammdelete.md
+              - page: docs/xls-30d-amm/transaction-types/ammdelete.md
               - page: docs/xls-30d-amm/transaction-types/ammdeposit.md
               - page: docs/xls-30d-amm/transaction-types/ammvote.md
               - page: docs/xls-30d-amm/transaction-types/ammwithdraw.md
