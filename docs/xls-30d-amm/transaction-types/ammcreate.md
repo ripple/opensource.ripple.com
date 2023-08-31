@@ -29,14 +29,13 @@ Creates both an [AMM object](../ledger-object-types/amm.md) and a [special Accou
         "value" : "25"
     },
     "Amount2" : "250000000",
-    "Fee" : "10",
+    "Fee" : "2000000",
     "Flags" : 2147483648,
     "Sequence" : 6,
     "TradingFee" : 500,
     "TransactionType" : "AMMCreate"
 }
 ```
-
 
 In addition to the common fields, AMMCreate transactions use the following fields:
 
@@ -47,6 +46,10 @@ In addition to the common fields, AMMCreate transactions use the following field
 | `TradingFee` | Number              | UInt16            | Yes       | The fee to charge for trades against this AMM instance, in units of 1/100,000; a value of 1 is equivalent to 0.001%. The maximum value is `1000`, indicating a 1% fee. The minimum value is `0`. |
 
 One or both of `Amount` and `Amount2` can be [tokens](https://xrpl.org/tokens.html); at most one of them can be [XRP](https://xrpl.org/xrp.html). They cannot both have the same currency code and issuer. The tokens' issuers must have [Default Ripple](https://xrpl.org/rippling.html#the-default-ripple-flag) enabled. If the Clawback amendment is enabled, those issuers must not have the ability to clawback their tokens. An AMM's LP tokens _can_ be used as one of the assets for another AMM.
+
+## Special Transaction Cost
+
+Since each AMM instance involves an AccountRoot ledger entry, an AMM ledger entry, and one to two trust lines to hold the token or tokens in its pool, an AMMCreate transaction requires a much higher than usual [transaction cost](https://xrpl.org/transaction-cost.html) as a deterrent against ledger spam. Instead of the standard minimum of 0.00001 XRP, AMMCreate must destroy at least the incremental owner reserve amount, currently 2 XRP. This is the same special transaction cost as AccountDelete transactions.
 
 ## Error Cases
 
