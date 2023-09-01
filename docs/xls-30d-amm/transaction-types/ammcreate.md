@@ -49,7 +49,7 @@ One or both of `Amount` and `Amount2` can be [tokens](https://xrpl.org/tokens.ht
 
 ## Special Transaction Cost
 
-Since each AMM instance involves an AccountRoot ledger entry, an AMM ledger entry, and one to two trust lines to hold the token or tokens in its pool, an AMMCreate transaction requires a much higher than usual [transaction cost](https://xrpl.org/transaction-cost.html) as a deterrent against ledger spam. Instead of the standard minimum of 0.00001 XRP, AMMCreate must destroy at least the incremental owner reserve amount, currently 2 XRP. This is the same special transaction cost as AccountDelete transactions.
+Since each AMM instance involves an AccountRoot ledger entry, an AMM ledger entry, and a trust line for each token in its pool, an AMMCreate transaction requires a much higher than usual [transaction cost](https://xrpl.org/transaction-cost.html) to deter ledger spam. Instead of the standard minimum of 0.00001 XRP, AMMCreate must destroy at least the incremental owner reserve amount, currently 2 XRP. This is the same special transaction cost as AccountDelete transactions.
 
 ## Error Cases
 
