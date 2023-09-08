@@ -1,6 +1,6 @@
 # Introduction
 
-Claudia is a tool which helps with an make a few XRPL specific tasks look very easy. Tasks like running a local instance of rippled, managing a local network, managing a sidechain network, running tests and even learning a few neat tricks with XRPL in a quick fashion can be done effortlessly with this tool.
+Claudia is a tool which helps make a few XRPL specific tasks look very easy. Tasks like running a local instance of rippled, managing a local network, managing a sidechain network, running tests and even learning a few neat tricks with XRPL in a quick fashion can be done effortlessly with this tool.
 
 Claudia was developed by the XRPL Automation Team as an internal tool to help with XRPL local development, debugging and testing. As the tool matured, the team quickly realized its potential and decided to expose it outside of Ripple, so that everyone can benefit from its capabilities. 
 
@@ -47,7 +47,7 @@ From your terminal and run claudia demo
 From your terminal, run claudia ui. Alternatively, you can launch the UI via the Claudia demo mode by selecting Launch Claudia UI
 
 ## Features
-Claudia offers a bunch of features which allows you to manage local rippled instance, manage networks, run tests and even learn a few XRPL tricks. This section walks you through some of the major features.
+Claudia offers a bunch of features which allows you to manage local rippled instance, manage networks, run tests and even learn a few XRPL tricks. This section walks you through some major features.
 
 ### How to build rippled?
 Claudia offers a way to build rippled from local code. You will need to clone [rippled](https://github.com/XRPLF/rippled) repository first before starting with this step. If you intend to use sidechain functionality, please use [this](https://github.com/seelabs/rippled/tree/xbridge) rippled fork instead.
@@ -137,7 +137,7 @@ Before you can start a local sidechain network:
 3. `XChainBridge` rippled feature has to be enabled.
 4. The local-mainnet network has to be running. 
 
-Once all of the requirements have been met, you can start the local sidechain network  as follows:
+Once all the requirements have been met, you can start the local sidechain network  as follows:
 - UI
   - Navigate to `Custom XRPL Networks` and select `Start Sidechain Network`
 - CLI Mode
@@ -202,7 +202,7 @@ While using claudia, there are a few files created permanently. Also, there are 
   - Select `Settings` -> `Clean up the host and free resources`
 
 ### How to run XRPL Learning Center?
-Claudia offers a neat interactive learning environment in which you can a learn a few things about XRPL. These learning activities can be  performed on local-mainnet, local-sidechain, devnet and testnet networks. You can launch the XRPL Learning Center only via UI. 
+Claudia offers a neat interactive learning environment in which you can learn a few things about XRPL. These learning activities can be  performed on local-mainnet, local-sidechain, devnet and testnet networks. You can launch the XRPL Learning Center only via UI.
 
 Navigate to `XRPL Learning Center`, select a learning activity and follow the instructions. 
 
