@@ -129,7 +129,6 @@ Before you can stop a local mainnet network, it has to be running in the first p
 - Demo Mode
   - Select `Custom XRPL Networks` -> `Stop local-mainnet`
 
-
 ### How to start a local-sidechain network?
 Before you can start a local sidechain network:
 1. rippled has to be built/installed locally.
@@ -145,7 +144,6 @@ Once all the requirements have been met, you can start the local sidechain netwo
 - Demo Mode
   - Select `Custom XRPL Networks` -> `Start local-sidechain`
 
-
 ### How to stop a local-sidechain network?
 Before you can start a local sidechain network, it has to be running in the first place. Afterwards, you can stop the local sidechain network  as follows:
 - UI
@@ -154,7 +152,7 @@ Before you can start a local sidechain network, it has to be running in the firs
   - Run `claudia local-sidechain stop`
 - Demo Mode
   - Select `Custom XRPL Networks` -> `Stop local-sidechain`
-  - 
+
 Please note that once the sidechain has been stopped, local-mainnet has to be restarted before attempting to start the local-sidechain again.
 
 ### How to run unit tests?
@@ -176,7 +174,6 @@ The system tests can run using either JavaScript or Python client libraries. For
 These tests are broken down into different features and are tagged as well. You can choose to run a few or all tests. Please note that if you chose regression tag, all test in the chosen feature will be executed.
 
 The system tests can be configured to be run in any way you need them to. By default, the following configuration is selected:
-
 
 - **Client Library:** `Python`
 - **Connection:** `JSON-RPC`
