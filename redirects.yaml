@@ -1,0 +1,53 @@
+'/docs/clawback/clawback-of-issued-currency/':
+  to: 'https://xrpl.org/clawing-back-tokens.html'
+  type: 301
+'/docs/clawback/clawback/':
+  to: 'https://xrpl.org/clawback.html'
+  type: 301
+'/docs/xls-30d-amm/amm-uc/':
+  to: 'https://xrpl.org/automated-market-makers.html'
+  type: 301
+'/docs/xls-30d-amm/automated-market-makers/':
+  to: 'https://xrpl.org/automated-market-makers.html'
+  type: 301
+'/docs/xls-30d-amm/ledger-object-types/amm/':
+  to: 'https://xrpl.org/amm.html'
+  type: 301
+'/docs/xls-30d-amm/ledger-object-types/accountroot/':
+  to: 'https://xrpl.org/accountroot.html'
+  type: 301
+'/docs/xls-30d-amm/transaction-types/ammcreate/':
+  to: 'https://xrpl.org/ammcreate.html'
+  type: 301
+'/docs/xls-30d-amm/transaction-types/ammbid/':
+  to: 'https://xrpl.org/ammbid.html'
+  type: 301
+'/docs/xls-30d-amm/transaction-types/ammdeposit/':
+  to: 'https://xrpl.org/ammdeposit.html'
+  type: 301
+'/docs/xls-30d-amm/transaction-types/ammvote/':
+  to: 'https://xrpl.org/ammvote.html'
+  type: 301
+'/docs/xls-30d-amm/transaction-types/ammwithdraw/':
+  to: 'https://xrpl.org/ammwithdraw.html'
+  type: 301
+'/docs/xls-30d-amm/transaction-types/ammdelete/':
+  to: 'https://xrpl.org/ammdelete.html'
+  type: 301
+'/docs/xls-30d-amm/transaction-result-codes/':
+  to: 'https://xrpl.org/tec-codes.html'
+  type: 301
+'/docs/xls-30d-amm/public-api-methods/amm_info/':
+  to: 'https://xrpl.org/amm_info.html'
+  type: 301
+'/docs/xls-30d-amm/public-api-methods/ledger_entry/':
+  to: 'https://xrpl.org/ledger_entry.html'
+  type: 301
+'/docs/xls-30d-amm/tutorials/create-an-automated-market-maker/':
+  to: 'https://xrpl.org/create-an-automated-market-maker.html'
+  type: 301
+
+  
+
+
+
