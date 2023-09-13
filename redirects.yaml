@@ -1,0 +1,7 @@
+
+'docs/clawback/clawback-of-issued-currency.md':
+  to: 'https://xrpl.org/clawing-back-tokens.html'
+  type: 301
+'docs/clawback/clawback.md':
+  to: 'https://xrpl.org/clawing.html'
+  type: 301
