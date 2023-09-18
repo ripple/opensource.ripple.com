@@ -7,8 +7,7 @@ labels:
 status: not_enabled
 ---
 # AMMBid
-[[Source]](https://github.com/gregtatcam/rippled/blob/amm-core-functionality/src/ripple/app/tx/impl/AMMBid.cpp "Source")
-<!-- TODO: Update source link to merged version when available -->
+[[Source]](https://github.com/XRPLF/rippled/blob/develop/src/ripple/app/tx/impl/AMMBid.cpp "Source")
 
 {% partial file="/snippets/_amm-disclaimer.md" /%}
 
@@ -126,9 +125,10 @@ Besides errors that can occur for all transactions, AMMBid transactions can resu
 
 | Error Code              | Description                                  |
 |:------------------------|:---------------------------------------------|
-| `temAMM_BAD_TOKENS`     | The specified `BidMin` or `BidMax` were not specified as the correct LP Tokens for this AMM. |
-| `tecAMM_FAILED_BID`     | This transaction could not win the auction, either because the sender does not hold enough LP Tokens to pay the necessary bid or because the price to win the auction was higher than the transaction's specified `BidMax` value. |
+| `tecAMM_EMPTY`          | The AMM has no assets in its pool. In this state, you can only delete the AMM or fund it with a new deposit. |
+| `tecAMM_FAILED`         | This transaction could not win the auction, either because the sender does not hold enough LP Tokens to pay the necessary bid or because the price to win the auction was higher than the transaction's specified `BidMax` value. |
 | `tecAMM_INVALID_TOKENS` | The sender of this transaction does not hold enough LP Tokens to meet the slot price. |
+| `temBAD_AMM_TOKENS`     | The specified `BidMin` or `BidMax` were not specified as the correct LP Tokens for this AMM. |
 | `temDISABLED`           | The AMM feature is not enabled on this network. |
 | `temMALFORMED`          | The transaction specified invalid options, such as a list of `AuthAccounts` that is too long. |
 | `terNO_ACCOUNT`         | One of the accounts specified in this request do not exist. |

@@ -1,5 +1,5 @@
 ---
-html: xchainaddclaimattestation.html 
+html: xchainaddclaimattestation.html
 parent: transaction-types.html
 blurb: Submit proof (attestation) to the destination chain that an event that happened on the source chain.
 labels:
@@ -12,7 +12,7 @@ status: not_enabled
 
 [[Source]](https://github.com/seelabs/rippled/blob/xbridge/src/ripple/protocol/impl/TxFormats.cpp#L377-L392 "Source")
 
-The `XChainAddClaimAttestation` transaction provides proof from a witness server, attesting to an `XChainCommit` transaction. 
+The `XChainAddClaimAttestation` transaction provides proof from a witness server, attesting to an `XChainCommit` transaction.
 
 The signature must be from one of the keys on the door's signer list at the time the signature was provided. However, if the signature list changes between the time the signature was submitted and the quorum is reached, the new signature set is used and some of the currently collected signatures may be removed.
 
@@ -88,7 +88,7 @@ Any account can submit signatures.
 | `XChainClaimID`            | `string`          | `UINT64`          | Yes       | The `XChainClaimID` associated with the transfer, which was included in the `XChainCommit` transaction. |
 
 
-<embed src="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" />
+{% partial file="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" /%}
 
 
 <!-- ## Error Cases

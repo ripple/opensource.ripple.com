@@ -1,5 +1,5 @@
 ---
-html: xchainaccountcreatecommit.html 
+html: xchainaccountcreatecommit.html
 parent: transaction-types.html
 blurb: Create an account on one of the chains that the bridge connects. This account serves as the bridge entrance for that chain.
 labels:
@@ -52,7 +52,7 @@ The `XChainAccountCreateCommit` transaction creates a new account on one of the 
 | `XChainBridge`    | `XChainBridge`    | `XCHAIN_BRIDGE`   | Yes       | The bridge to create accounts for. |
 
 
-<embed src="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" />
+{% partial file="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" /%}
 
 <!-- ## Error Cases
 

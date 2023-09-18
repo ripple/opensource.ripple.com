@@ -1,7 +1,7 @@
 ---
 html: xchainownedclaimid.html
 parent: ledger-object-types.html
-blurb: An `XChainOwnedClaimID` object represents *one* cross-chain transfer of value. 
+blurb: An `XChainOwnedClaimID` object represents *one* cross-chain transfer of value.
 labels:
   - Interoperability
 status: not_enabled
@@ -61,4 +61,4 @@ An `XChainCreateClaimID` transaction is used to create a new `XChainOwnedClaimID
 | `XChainClaimID`           | `string`          | `UINT64`          | Yes       | The unique sequence number for a cross-chain transfer. |
 
 
-<embed src="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" />
+{% partial file="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" /%}

@@ -1,5 +1,5 @@
 ---
-html: xchaincommit.html 
+html: xchaincommit.html
 parent: transaction-types.html
 blurb: Initiate a cross-chain transfer of value.
 labels:
@@ -47,7 +47,7 @@ The `XChainCommit` is the second step in a cross-chain transfer. It puts assets 
 | `XChainClaimID`         | `string`          | `UINT64`          | Yes       | The unique integer ID for a cross-chain transfer. This must be acquired on the destination chain (via a `XChainCreateClaimID` transaction) and checked from a validated ledger before submitting this transaction. If an incorrect sequence number is specified, the funds will be lost. |
 
 
-<embed src="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" />
+{% partial file="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" /%}
 
 
 <!-- ## Error Cases
