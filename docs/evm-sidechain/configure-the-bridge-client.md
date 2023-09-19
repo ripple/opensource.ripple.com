@@ -7,6 +7,8 @@ status: not_enabled
 ---
 # Configure the Bridge Client
 
+<embed src="/snippets/_evm-sidechain-disclaimer.md" />
+
 The client requires separate configuration files for the backend frontend. Each environment setting also requires its own configuration files.
 
 
