@@ -7,6 +7,8 @@ status: not_enabled
 ---
 # Deploy a Bridge
 
+<embed src="/snippets/_evm-sidechain-disclaimer.md" />
+
 Before deploying a bridge, familiarize yourself with the parameters and terms used:
 
 - **Currency:** The currency used by the bridge. Depending on the token, the bridge has different setups. If the currency is XRP, the door account is called a _Native Bridge Door_; if the currency is a token, the door account is called a _Token Bridge Door_.

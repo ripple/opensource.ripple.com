@@ -86,6 +86,7 @@ opensource:
                   - page: docs/evm-sidechain/execute-bridge-operations.md
                   - page: docs/evm-sidechain/stress-test-the-bridge.md
               - page: docs/evm-sidechain/bootstrap-a-local-environment.md
+          - page: docs/evm-sidechain/xrpl-evm-sidechain-faq.md
       - group: XLS-30d AMM
         page: docs/xls-30d-amm/amm-uc.md
         expanded: false

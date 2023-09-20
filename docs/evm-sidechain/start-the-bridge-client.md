@@ -7,6 +7,8 @@ status: not_enabled
 ---
 # Start the Bridge Client
 
+<embed src="/snippets/_evm-sidechain-disclaimer.md" />
+
 ## Prerequisites
 
 - [Node 16.13.0+](https://nodejs.org/es)
