@@ -1,4 +1,3 @@
-
 - label: Open Source Projects
   page: docs/index.md
 - group: Prerelease Docs
@@ -41,9 +40,52 @@
       items:
         - page: docs/evm-sidechain/get-started-evm-sidechain.md
         - page: docs/evm-sidechain/connect-metamask-to-xrpl-evm-sidechain.md
-        - page: docs/evm-sidechain/evm-sidechain-run-a-validator-node.md
-        - page: docs/evm-sidechain/evm-sidechain-validator-security.md
-        - page: docs/evm-sidechain/join-evm-sidechain-devnet.md
+        - group: Run a Validator
+          expanded: false
+          items:
+            - page: docs/evm-sidechain/join-evm-sidechain-devnet.md
+            - page: docs/evm-sidechain/manage-the-validator-node.md
+            - page: docs/evm-sidechain/evm-sidechain-validator-security.md
+        - group: Bridges
+          page: docs/evm-sidechain/bridges-intro.md
+          expanded: false
+          items:
+            - page: docs/evm-sidechain/deploy-a-bridge.md
+            - group: Bridge Doors
+              page: docs/evm-sidechain/bridge-doors.md
+              expanded: false
+              items:
+                - page: docs/evm-sidechain/bridge-door-interface.md
+                - page: docs/evm-sidechain/bridge-door-safety-mechanisms.md
+            - group: Witness Servers
+              page: docs/evm-sidechain/witness-servers.md
+              expanded: false
+              items:
+                - page: docs/evm-sidechain/witness-server-configuration.md
+                - page: docs/evm-sidechain/build-and-run-witness-servers.md
+            - group: Bridge Client
+              page: docs/evm-sidechain/bridge-client.md
+              expanded: false
+              items:
+                - page: docs/evm-sidechain/configure-the-bridge-client.md
+                - page: docs/evm-sidechain/start-the-bridge-client.md
+        - group: EVM CLI
+          page: docs/evm-sidechain/evm-cli.md
+          expanded: false
+          items:
+            - group: Blockchain Commands
+              expanded: false
+              items:
+                - page: docs/evm-sidechain/set-up-an-evm-sidechain.md
+                - page: docs/evm-sidechain/stress-test-the-evm-sidechain.md
+            - group: Bridge Commands
+              expanded: false
+              items:
+                - page: docs/evm-sidechain/create-a-bridge.md
+                - page: docs/evm-sidechain/execute-bridge-operations.md
+                - page: docs/evm-sidechain/stress-test-the-bridge.md
+            - page: docs/evm-sidechain/bootstrap-a-local-environment.md
+
     - group: XLS-30d AMM
       page: docs/xls-30d-amm/amm-uc.md
       expanded: false
@@ -72,3 +114,8 @@
           expanded: false
           items:
             - page: docs/xls-30d-amm/tutorials/create-an-automated-market-maker.md
+    - group: Clawback
+      page: docs/clawback/clawback-of-issued-currency.md
+      expanded: false
+      items:
+        - page: docs/clawback/clawback.md

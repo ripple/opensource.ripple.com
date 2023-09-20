@@ -1,7 +1,7 @@
 ---
 html: bridge.html
 parent: ledger-object-types.html
-blurb: A `bridge` object represents a single cross-chain bridge that connects and enables value to move efficiently between two blockchains. 
+blurb: A `bridge` object represents a single cross-chain bridge that connects and enables value to move efficiently between two blockchains.
 labels:
   - Interoperability
 status: not_enabled
@@ -58,4 +58,4 @@ The `Bridge` object represents a single cross-chain bridge that connects the XRP
 | `XChainBridge`             | `XChainBridge`    | `XCHAIN_BRIDGE`   | Yes       | The door accounts and assets of the bridge this object correlates to. |
 | `XChainClaimID`            | `number`          | `UINT64`          | Yes       | The value of the next `XChainClaimID` to be created. |
 
-<embed src="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" />
+{% partial file="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" /%}

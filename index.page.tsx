@@ -119,6 +119,29 @@ export default function () {
               </Button>
             </Flex>
           </StyledWideTile>
+          <StyledWideTile
+            style={{ height: '284px' }}
+            to="/docs/clawback/clawback-of-issued-currency"
+            header="Clawback"
+            textAlign="left"
+            disableArrow
+          >
+            <TileText>Claw back issued currencies from a receiving account.</TileText>
+            <div style={{ bottom: '36px', position: 'absolute' }}>
+              <Button
+                style={{
+                  padding: '8px 16px',
+                  borderRadius: '20px',
+                  fontSize: '14px',
+                  lineHeight: '20px',
+                  color: '#FFFFFF',
+                  background: '#005BCC',
+                }}
+              >
+                Go to Docs
+              </Button>
+            </div>
+          </StyledWideTile>
         </FlexSection>
       </Box>
     </>

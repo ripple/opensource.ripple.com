@@ -1,5 +1,5 @@
 ---
-html: xchainclaim.html 
+html: xchainclaim.html
 parent: transaction-types.html
 blurb: Complete a cross-chain transfer of value by claiming the value on the destination chain.
 labels:
@@ -51,7 +51,7 @@ If the transaction succeeds in moving funds, the referenced `XChainOwnedClaimID`
 | `XChainClaimID`         | `string`          | `UINT64`          | Yes       | The unique integer ID for the cross-chain transfer that was referenced in the corresponding `XChainCommit` transaction. |
 
 
-<embed src="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" />
+{% partial file="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" /%}
 
 
 <!-- ## Error Cases

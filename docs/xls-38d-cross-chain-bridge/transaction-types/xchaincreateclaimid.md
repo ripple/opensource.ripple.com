@@ -1,5 +1,5 @@
 ---
-html: xchaincreateclaimid.html 
+html: xchaincreateclaimid.html
 parent: transaction-types.html
 blurb: Create a cross-chain claim ID that is used for a cross-chain transfer.
 labels:
@@ -12,9 +12,9 @@ status: not_enabled
 
 [[Source]](https://github.com/seelabs/rippled/blob/xbridge/src/ripple/protocol/impl/TxFormats.cpp#L347-L353 "Source")
 
-The `XChainCreateClaimID` transaction creates a new cross-chain claim ID that is used for a cross-chain transfer. A cross-chain claim ID represents *one* cross-chain transfer of value. 
+The `XChainCreateClaimID` transaction creates a new cross-chain claim ID that is used for a cross-chain transfer. A cross-chain claim ID represents *one* cross-chain transfer of value.
 
-This transaction is the first step of a cross-chain transfer of value and is submitted on the destination chain, not the source chain. 
+This transaction is the first step of a cross-chain transfer of value and is submitted on the destination chain, not the source chain.
 
 It also includes the account on the source chain that locks or burns the funds on the source chain.
 
@@ -50,7 +50,7 @@ It also includes the account on the source chain that locks or burns the funds o
 | `XChainBridge`     | `XChainBridge`    | `XCHAIN_BRIDGE`   | Yes       | The bridge to create the claim ID for. |
 
 
-<embed src="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" />
+{% partial file="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" /%}
 
 
 <!-- ## Error Cases

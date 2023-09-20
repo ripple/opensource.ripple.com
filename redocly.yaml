@@ -8,6 +8,11 @@ i18n:
     - code: ja
       name: 日本
 theme:
+  analytics:
+    ga:
+      # includeInDevelopment: true
+      trackingId: G-S1KBMRJYKS #Google Analytics / GA
+      head: true
   breadcrumbs:
     hide: true
   feedback:
@@ -26,8 +31,6 @@ theme:
       hide: true
     editPage:
       baseUrl: https://github.com/ripple/opensource.ripple.com/tree/main/
-      icon: ./images/pen-to-square-solid.svg
-      text: Edit # FIXME
   logo:
     image: images/ripple-open-source-logo.svg
     link: /

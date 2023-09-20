@@ -90,3 +90,8 @@
 html.dark nav a > img {
   filter: invert(1);
 }
+
+table.md th {
+  resize: horizontal;
+  overflow: hidden;
+}

@@ -7,8 +7,7 @@ labels:
 status: not_enabled
 ---
 # AMMVote
-[[Source]](https://github.com/gregtatcam/rippled/blob/amm-core-functionality/src/ripple/app/tx/impl/AMMVote.cpp "Source")
-<!-- TODO: Update source link to merged version when available -->
+[[Source]](https://github.com/XRPLF/rippled/blob/develop/src/ripple/app/tx/impl/AMMVote.cpp "Source")
 
 {% partial file="/snippets/_amm-disclaimer.md" /%}
 
@@ -49,6 +48,7 @@ Besides errors that can occur for all transactions, AMMVote transactions can res
 
 | Error Code              | Description                                  |
 |:------------------------|:---------------------------------------------|
+| `tecAMM_EMPTY`          | The AMM has no assets in its pool. In this state, you can only delete the AMM or fund it with a new deposit. |
 | `tecAMM_INVALID_TOKENS` | The sender cannot vote because they do not hold any of this AMM's LP Tokens. |
 | `tecAMM_FAILED_VOTE`    | There are already 8 votes from accounts that hold more LP Tokens than the sender of this transaction. |
 | `temBAD_FEE`            | The `TradingFee` from this transaction is not valid. |

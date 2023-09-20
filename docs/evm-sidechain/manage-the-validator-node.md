@@ -1,46 +1,15 @@
 ---
-html: evm-sidechain-run-a-validator-node.html
+html: manage-the-validator-node.html
 parent: evm-sidechains.html
-blurb: Learn how to run a validator node on the EVM Sidechain Devnet.
+blurb: Learn how to manage a validator node on the EVM Sidechain Devnet.
 labels:
   - Development, Interoperability
 status: not_enabled
 ---
-# Run a Validator Node on an EVM Sidechain
+# Manage the Validator Node
 
 {% partial file="/snippets/_evm-sidechain-disclaimer.md" /%}
 
-## Create Your Validator
-
-Use your node consensus public key (`exrpvalconspub...`) to create a new validator by staking XRP tokens. You can find your validator public key by running:
-
-```bash
-exrpd tendermint show-validator
-```
-
-To create your validator on Devnet, use the following command:
-
-```bash
-exrpd tx staking create-validator \
-  --amount=1000000000000000000000axrp \
-  --pubkey=$(exrpd tendermint show-validator) \
-  --moniker="<your_custom_moniker>" \
-  --chain-id=<chain_id> \
-  --commission-rate="0.05" \
-  --commission-max-rate="0.10" \
-  --commission-max-change-rate="0.01" \
-  --min-self-delegation="1000000" \
-  --gas="auto" \
-  --gas-prices="0.025aphoton" \
-  --from=<key_name>
-```
-
-**Note** When specifying commission parameters, the `commission-max-change-rate` is used to measure % *point* change over the `commission-rate`. For example, 1% to 2% is a 100% rate increase, but only 1 percentage point.
-
-
-**Note** `Min-self-delegation` is a strictly positive integer that represents the minimum amount of self-delegated voting power your validator must always have. A `min-self-delegation` of `1000000` means your validator will never have a self-delegation lower than `1 axrp`. <!-- STYLE_OVERRIDE: will -->
-
-You can confirm that you are in the validator set by using a third-party explorer.
 
 ## Edit Validator Description
 

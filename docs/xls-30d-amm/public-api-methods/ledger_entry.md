@@ -25,7 +25,7 @@ Retrieve an Automated Market-Maker (AMM) object from the ledger. This is similar
       "currency" : "TST",
       "issuer" : "rP9jPyP5kyvFRb6ZiRghAGw5u8SGAmU4bd"
     }
-  }
+  },
   "ledger_index": "validated"
 }
 ```
