@@ -76,7 +76,7 @@ Another segment of EVM developers is the EVM core developer that works on new pr
 
 ### What consensus algorithm does the EVM sidechain use?
 
-The EVM sidechain will use the Proof of Authority (PoA) consensus algorithm. A set of validators will confirm blocks on the EVM sidechain. New validators can join, existing validators can leave or based on voting by the existing set of validators.
+The EVM sidechain will use the Proof of Authority (PoA) consensus algorithm. A set of validators will confirm blocks on the EVM sidechain. New validators can join, or current validators can be updated or removed based on voting by the existing set of validators.
 
 
 ### Why should an EVM developer use the EVM sidechain of the XRPL as opposed to Ethereum or any other EVM compatible blockchain?
