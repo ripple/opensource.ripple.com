@@ -35,4 +35,4 @@ To learn more about the consensus process and the workflow for features to go fr
 
 
 ### Claudia
-- [Documentation](claudia/claudia.md)
+- [Documentation](https://pypi.org/project/claudia/)
