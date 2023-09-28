@@ -116,8 +116,4 @@ opensource:
             expanded: false
             pages:
               - page: docs/xls-30d-amm/tutorials/create-an-automated-market-maker.md
-      - group: Clawback
-        page: docs/clawback/clawback-of-issued-currency.md
-        expanded: false
-        pages:
-          - page: docs/clawback/clawback.md
+
