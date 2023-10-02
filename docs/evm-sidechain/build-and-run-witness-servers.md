@@ -12,6 +12,15 @@ status: not_enabled
 After creating a config file, you can build and run a witness server through _Docker_ or a local build.
 
 
+## Witness Server Hardware Requirements
+
+- Linux/AMD64 operating system.
+- 2 or more physical CPU cores.
+- At least 10GB of disk storage.
+- At least 8GB of RAM.
+- A stable connection to the RPC of an EVM Sidechain node.
+
+
 ## Using Docker
 
 1. Download [Docker 19+](https://docs.docker.com/get-docker/).
