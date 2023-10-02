@@ -66,5 +66,16 @@ The ledger object is destroyed when all the attestations have been received and 
 | `XChainBridge`                    | `XChainBridge` | `XCHAIN_BRIDGE`   | Yes       | The door accounts and assets of the bridge this object correlates to. |
 | `XChainCreateAccountAttestations` | `array`        | `ARRAY`           | Yes       | Attestations collected from the witness servers. This includes the parameters needed to recreate the message that was signed, including the amount, destination, signature reward amount, and reward account for that signature. With the exception of the reward account, all signatures must sign the message created with common parameters. |
 
+### XChainCreateAccountAttestations
+
+| Field | JSON Type | Internal Type | Required | Description |
+| -----|------------|-----------|------------|--------------|
+| `XChainClaimProofSig` | `array` | `OBJECT` | Yes | Signature from a witness server. |
+| `Amount` | `string` | `AMOUNT` | Yes | The amount locked or issued. |
+| `AttestationRewardAccount` | `string` | `ACCOUNT` | Yes | The account to send the reward to. |
+| `AttestationSignerAccount` | `string` | `ACCOUNT` | Yes | The account signing the attestation. |
+| `Destination` | `string` | `ACCOUNT` | No | The account to send the funds to on the chain. |
+| `PublicKey` | ??? | ??? | ??? | ??? |
+| `WasLockingChainSend` | `number` | `UINT8` | ??? | ??? |
 
 <embed src="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" />
