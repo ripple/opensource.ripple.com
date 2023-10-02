@@ -12,7 +12,17 @@ status: not_enabled
 
 This tutorial walks you through the steps to join the existing **XRP Ledger EVM Sidechain Devnet**. 
 
-For ease of use, create an alias, `exprd`, to run all commands inside your Docker container. 
+For ease of use, create an alias, `exprd`, to run all commands inside your Docker container.
+
+
+## EVM Sidechain Node Hardware Requirements
+
+- Linux/AMD64 operating system.
+- 4 or more physical CPU cores.
+- At least 500GB of NVME SSD disk storage.
+- At least 32GB of RAM.
+- At least 100Mbps network bandwidth.
+
 
 ## Pre-requisites
 
