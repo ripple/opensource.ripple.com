@@ -28,7 +28,7 @@ Both the locking and issuing chains operate as parallel networks with independen
 
 - **Witness**: Independent servers that are aware of the locking and issuing chains. See [witness servers](witness-server.md) for more information.
 
-- **Attestation**: A message signed by a witness server, verifying an event occurred on either the issuing or locking chain.
+- **Attestation**: A message signed by a witness server, verifying a transaction occurred on a chain. There are attestations for `XChainCommit` and `XChainAccountCreateCommit` transactions.
 
 - **Cross-chain transfer**: A transfer of assets from one chain to another.
 
