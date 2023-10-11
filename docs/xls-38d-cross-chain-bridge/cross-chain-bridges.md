@@ -22,11 +22,13 @@ Both the locking and issuing chains operate as parallel networks with independen
 
 - **Bridge**: A method of moving assets/value from one blockchain to another.
 
-- **Locking chain**: The chain on which the bridge locks and unlocks assets.
+- **Locking Chain**: The chain on which the bridge locks and unlocks assets.
 
-- **Issuing chain**: The chain on which the bridge mints and burns assets.
+- **Issuing Chain**: The chain on which the bridge mints and burns assets.
 
 - **Witness**: Independent servers that are aware of the locking and issuing chains. See [witness servers](witness-server.md) for more information.
+
+- **Attestation**: A message signed by a witness server, verifying a transaction occurred on a chain. There are attestations for `XChainCommit` and `XChainAccountCreateCommit` transactions.
 
 - **Cross-chain transfer**: A transfer of assets from one chain to another.
 

@@ -23,27 +23,48 @@ An `XChainCreateClaimID` transaction is used to create a new `XChainOwnedClaimID
 
 ```json
 {
-  "Account": "rHiNUTpDAiQLxMeg2Y9qbQYery1nK1MEmr",
+  "Account": "rBW1U7J9mEhEdk6dMHEFUjqQ7HW7WpaEMi",
   "Flags": 0,
-  "LedgerEntryType": "XChainOwnedClaimID",
-  "OtherChainSource": "raromgoXexgo2RnGBRchgL11bZdXdGagaC",
+  "OtherChainSource": "r9oXrvBX5aDoyMGkoYvzazxDhYoWFUjz8p",
   "OwnerNode": "0",
-  "PreviousTxnID": "E134CEC9B8799D6AE27011457C69D611ACC4FDD0772AAFFF3B85095EF0195572",
-  "PreviousTxnLgrSeq": 161,
-  "SignatureReward": "304",
+  "PreviousTxnID": "1CFD80E9CF232B8EED62A52857DE97438D12230C06496932A81DEFA6E66070A6",
+  "PreviousTxnLgrSeq": 58673,
+  "SignatureReward": "100",
   "XChainBridge": {
     "IssuingChainDoor": "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh",
     "IssuingChainIssue": {
       "currency": "XRP"
     },
-    "LockingChainDoor": "r3nCVTbZGGYoWvZ58BcxDmiMUU7ChMa1eC",
+    "LockingChainDoor": "rMAXACCrp3Y8PpswXcg3bKggHX76V3F8M4",
     "LockingChainIssue": {
       "currency": "XRP"
     }
   },
-  "XChainClaimAttestations": [],
-  "XChainClaimID": "2",
-  "index": "4D354A9DDCC2A5D7AEC166E633AF45360B3C31ECCCBD7ED4DA230DC1066E969E"
+  "XChainClaimAttestations": [
+    {
+      "XChainClaimProofSig": {
+        "Amount": "1000000",
+        "AttestationRewardAccount": "rfgjrgEJGDxfUY2U8VEDs7BnB1jiH3ofu6",
+        "AttestationSignerAccount": "rfsxNxZ6xB1nTPhTMwQajNnkCxWG8B714n",
+        "Destination": "rBW1U7J9mEhEdk6dMHEFUjqQ7HW7WpaEMi",
+        "PublicKey": "025CA526EF20567A50FEC504589F949E0E3401C13EF76DD5FD1CC2850FA485BD7B",
+        "WasLockingChainSend": 1
+      }
+    },
+    {
+      "XChainClaimProofSig": {
+        "Amount": "1000000",
+        "AttestationRewardAccount": "rUUL1tP523M8KimERqVS7sxb1tLLmpndyv",
+        "AttestationSignerAccount": "rEg5sHxZVTNwRL3BAdMwJatkmWDzHMmzDF",
+        "Destination": "rBW1U7J9mEhEdk6dMHEFUjqQ7HW7WpaEMi",
+        "PublicKey": "03D40434A6843638681E2F215310EBC4131AFB12EA85985DA073183B732525F7C9",
+        "WasLockingChainSend": 1
+      },
+    }
+  ],
+  "XChainClaimID": "b5",
+  "LedgerEntryType": "XChainOwnedClaimID",
+  "LedgerIndex": "20B136D7BF6D2E3D610E28E3E6BE09F5C8F4F0241BBF6E2D072AE1BACB1388F5"
 }
 ```
 
@@ -59,6 +80,19 @@ An `XChainCreateClaimID` transaction is used to create a new `XChainOwnedClaimID
 | `XChainBridge`            | `XChainBridge`    | `XCHAIN_BRIDGE`   | Yes       | The door accounts and assets of the bridge this object correlates to. |
 | `XChainClaimAttestations` | `array`           | `ARRAY`           | Yes       | Attestations collected from the witness servers. This includes the parameters needed to recreate the message that was signed, including the amount, which chain (locking or issuing), optional destination, and reward account for that signature. |
 | `XChainClaimID`           | `string`          | `UINT64`          | Yes       | The unique sequence number for a cross-chain transfer. |
+
+
+### XChainClaimAttestations
+
+| Field                         | JSON Type         | Internal Type | Required | Description |
+|-------------------------------|-------------------|---------------|----------|-------------|
+| `XChainClaimProofSig`         | `array`           | `OBJECT`      | Yes      | An attestation from one witness server. |
+| `Amount`                      | `Currency Amount` | `AMOUNT`      | Yes      | The amount to claim in the `XChainCommit` transaction on the destination chain. |
+| `AttestationRewardAccount`    | `string`          | `ACCOUNT`     | Yes      | The account that should receive this signer's share of the `SignatureReward`. |
+| `AttestationSignerAccount`    | `string`          | `ACCOUNT`     | Yes      | The account on the door account's signer list that is signing the transaction. |
+| `Destination`                 | `string`          | `ACCOUNT`     | No       | The destination account for the funds on the destination chain. |
+| `PublicKey`                   | `string`          | `BLOB`        | Yes      | The public key used to verify the signature. |
+| `WasLockingChainSend`         | `number`          | `UINT8`       | Yes      | A boolean representing the chain where the event occurred. |
 
 
 <embed src="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" />

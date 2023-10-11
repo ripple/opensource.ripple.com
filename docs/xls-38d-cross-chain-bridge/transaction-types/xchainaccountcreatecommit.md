@@ -14,7 +14,7 @@ status: not_enabled
 
 This transaction can only be used for XRP-XRP bridges.
 
-The `XChainAccountCreateCommit` transaction creates a new account on one of the chains a bridge connects, which serves as the bridge entrance for that chain.
+The `XChainAccountCreateCommit` transaction creates a new account for a witness server to submit transactions on an issuing chain.
 
 **Warning:** This transaction should only be executed if the witness attestations will be reliably delivered to the destination chain. If the signatures aren't delivered, then account creation will be blocked until attestations are received. This can be used maliciously; to disable this transaction on XRP-XRP bridges, the bridge's `MinAccountCreateAmount` shouldn't be present.
 

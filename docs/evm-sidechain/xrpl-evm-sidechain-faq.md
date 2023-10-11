@@ -7,7 +7,7 @@ labels:
 ---
 # XRPL EVM Sidechain FAQ
 
-### Why are Ripple and PeerSyst building an EVM sidechain?
+### Why are Ripple and Peersyst building an EVM sidechain?
 
 The XRPL natively lacks the full programmability option to add custom business logic. The only programmabilIty option XRPL has today is a “smart transactor” but it's very difficult to write one and any significant change that affects existing protocol needs to go through the amendment process to be approved by the XRPL community. The Hooks feature developed by XRPL Labs promises to bring native programmability to the XRPL. EVM compatible blockchains have “smart contract” functionality that enables developers to build and deploy new applications without a network vote.
 
@@ -49,7 +49,7 @@ From an XRPL community perspective, the EVM sidechain enables EVM developers to 
 
 ### How many EVM sidechains will there be? Can I set up my own?
 
-There will be one public EVM sidechain supported by Ripple and PeerSyst for the XRPL community. This EVM sidechain will have multiple validators run by XRPL community members. The software needed to run an EVM sidechain will be open source and any community member can use it to set up their own EVM sidechains, for permissioned use cases for example.
+There will be one public EVM sidechain supported by Ripple and Peersyst for the XRPL community. This EVM sidechain will have multiple validators run by XRPL community members. The software needed to run an EVM sidechain will be open source and any community member can use it to set up their own EVM sidechains, for permissioned use cases for example.
 
 
 ### What are any critical dependencies to the launch of the EVM sidechain?
