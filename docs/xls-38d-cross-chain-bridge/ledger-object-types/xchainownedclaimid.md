@@ -23,64 +23,48 @@ An `XChainCreateClaimID` transaction is used to create a new `XChainOwnedClaimID
 
 ```json
 {
-  "FinalFields": {
-    "Account": "rBW1U7J9mEhEdk6dMHEFUjqQ7HW7WpaEMi",
-    "Flags": 0,
-    "OtherChainSource": "r9oXrvBX5aDoyMGkoYvzazxDhYoWFUjz8p",
-    "OwnerNode": "0",
-    "PreviousTxnID": "1CFD80E9CF232B8EED62A52857DE97438D12230C06496932A81DEFA6E66070A6",
-    "PreviousTxnLgrSeq": 58673,
-    "SignatureReward": "100",
-    "XChainBridge": {
-      "IssuingChainDoor": "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh",
-      "IssuingChainIssue": {
-        "currency": "XRP"
-      },
-      "LockingChainDoor": "rMAXACCrp3Y8PpswXcg3bKggHX76V3F8M4",
-      "LockingChainIssue": {
-        "currency": "XRP"
+  "Account": "rBW1U7J9mEhEdk6dMHEFUjqQ7HW7WpaEMi",
+  "Flags": 0,
+  "OtherChainSource": "r9oXrvBX5aDoyMGkoYvzazxDhYoWFUjz8p",
+  "OwnerNode": "0",
+  "PreviousTxnID": "1CFD80E9CF232B8EED62A52857DE97438D12230C06496932A81DEFA6E66070A6",
+  "PreviousTxnLgrSeq": 58673,
+  "SignatureReward": "100",
+  "XChainBridge": {
+    "IssuingChainDoor": "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh",
+    "IssuingChainIssue": {
+      "currency": "XRP"
+    },
+    "LockingChainDoor": "rMAXACCrp3Y8PpswXcg3bKggHX76V3F8M4",
+    "LockingChainIssue": {
+      "currency": "XRP"
+    }
+  },
+  "XChainClaimAttestations": [
+    {
+      "XChainClaimProofSig": {
+        "Amount": "1000000",
+        "AttestationRewardAccount": "rfgjrgEJGDxfUY2U8VEDs7BnB1jiH3ofu6",
+        "AttestationSignerAccount": "rfsxNxZ6xB1nTPhTMwQajNnkCxWG8B714n",
+        "Destination": "rBW1U7J9mEhEdk6dMHEFUjqQ7HW7WpaEMi",
+        "PublicKey": "025CA526EF20567A50FEC504589F949E0E3401C13EF76DD5FD1CC2850FA485BD7B",
+        "WasLockingChainSend": 1
       }
     },
-    "XChainClaimAttestations": [
-      {
-        "XChainClaimProofSig": {
-          "Amount": "1000000",
-          "AttestationRewardAccount": "rfgjrgEJGDxfUY2U8VEDs7BnB1jiH3ofu6",
-          "AttestationSignerAccount": "rfsxNxZ6xB1nTPhTMwQajNnkCxWG8B714n",
-          "Destination": "rBW1U7J9mEhEdk6dMHEFUjqQ7HW7WpaEMi",
-          "PublicKey": "025CA526EF20567A50FEC504589F949E0E3401C13EF76DD5FD1CC2850FA485BD7B",
-          "WasLockingChainSend": 1
-        }
+    {
+      "XChainClaimProofSig": {
+        "Amount": "1000000",
+        "AttestationRewardAccount": "rUUL1tP523M8KimERqVS7sxb1tLLmpndyv",
+        "AttestationSignerAccount": "rEg5sHxZVTNwRL3BAdMwJatkmWDzHMmzDF",
+        "Destination": "rBW1U7J9mEhEdk6dMHEFUjqQ7HW7WpaEMi",
+        "PublicKey": "03D40434A6843638681E2F215310EBC4131AFB12EA85985DA073183B732525F7C9",
+        "WasLockingChainSend": 1
       },
-      {
-        "XChainClaimProofSig": {
-          "Amount": "1000000",
-          "AttestationRewardAccount": "rUUL1tP523M8KimERqVS7sxb1tLLmpndyv",
-          "AttestationSignerAccount": "rEg5sHxZVTNwRL3BAdMwJatkmWDzHMmzDF",
-          "Destination": "rBW1U7J9mEhEdk6dMHEFUjqQ7HW7WpaEMi",
-          "PublicKey": "03D40434A6843638681E2F215310EBC4131AFB12EA85985DA073183B732525F7C9",
-          "WasLockingChainSend": 1
-        }
-      }
-    ],
-    "XChainClaimID": "b5"
-  },
+    }
+  ],
+  "XChainClaimID": "b5",
   "LedgerEntryType": "XChainOwnedClaimID",
-  "LedgerIndex": "20B136D7BF6D2E3D610E28E3E6BE09F5C8F4F0241BBF6E2D072AE1BACB1388F5",
-  "PreviousFields": {
-    "XChainClaimAttestations": [
-      {
-        "XChainClaimProofSig": {
-          "Amount": "1000000",
-          "AttestationRewardAccount": "rfgjrgEJGDxfUY2U8VEDs7BnB1jiH3ofu6",
-          "AttestationSignerAccount": "rfsxNxZ6xB1nTPhTMwQajNnkCxWG8B714n",
-          "Destination": "rBW1U7J9mEhEdk6dMHEFUjqQ7HW7WpaEMi",
-          "PublicKey": "025CA526EF20567A50FEC504589F949E0E3401C13EF76DD5FD1CC2850FA485BD7B",
-          "WasLockingChainSend": 1
-        }
-      }
-    ]
-  }
+  "LedgerIndex": "20B136D7BF6D2E3D610E28E3E6BE09F5C8F4F0241BBF6E2D072AE1BACB1388F5"
 }
 ```
 
@@ -103,10 +87,10 @@ An `XChainCreateClaimID` transaction is used to create a new `XChainOwnedClaimID
 | Field                         | JSON Type         | Internal Type | Required | Description |
 |-------------------------------|-------------------|---------------|----------|-------------|
 | `XChainClaimProofSig`         | `array`           | `OBJECT`      | Yes      | An attestation from one witness server. |
-| `Amount`                      | `Currency Amount` | `AMOUNT`      | Yes      | The amount to claim on the destination chain. |
+| `Amount`                      | `Currency Amount` | `AMOUNT`      | Yes      | The amount to claim in the `XChainCommit` transaction on the destination chain. |
 | `AttestationRewardAccount`    | `string`          | `ACCOUNT`     | Yes      | The account that should receive this signer's share of the `SignatureReward`. |
 | `AttestationSignerAccount`    | `string`          | `ACCOUNT`     | Yes      | The account on the door account's signer list that is signing the transaction. |
-| `Destination`                 | `string`          | `ACCOUNT`     | Yes      | The destination account for the funds on the destination chain. |
+| `Destination`                 | `string`          | `ACCOUNT`     | No       | The destination account for the funds on the destination chain. |
 | `PublicKey`                   | `string`          | `BLOB`        | Yes      | The public key used to verify the signature. |
 | `WasLockingChainSend`         | `number`          | `UINT8`       | Yes      | A boolean representing the chain where the event occurred. |
 
