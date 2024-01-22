@@ -28,7 +28,7 @@ To learn more about the consensus process and the workflow for features to go fr
   - [Documentation](./xls-30d-amm/amm-uc.md)
 
 
-### Clawback
-  - [Proposal](https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-39d-clawback)
-  - [Documentation](./clawback/clawback-of-issued-currency.md)
-  - [Reference](./clawback/clawback.md)
+### Multi-purpose Tokens
+  - [Proposal](https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0033d-multi-purpose-tokens)
+  - [Documentation](xls-33d-multi-purpose-tokens/multi-purpose-tokens.md)
+  - [Reference](xls-33d-multi-purpose-tokens/reference/mpt-reference.md)
