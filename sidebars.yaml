@@ -124,6 +124,6 @@ opensource:
           - group: Reference
             expanded: false
             pages:
-              - page: docs/xls-33d-multi-purpose-tokens/mptoken.md
-              - page: docs/xls-33d-multi-purpose-tokens/mptokenissuance.md
+              - page: docs/xls-33d-multi-purpose-tokens/reference/mptoken.md
+              - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenissuance.md
 
