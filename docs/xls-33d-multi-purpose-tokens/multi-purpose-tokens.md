@@ -1,7 +1,7 @@
 ---
 html: multi-purpose-tokens.html
 parent: tokens.html
-blurb: Multi-purpose tokens are a more compact token type with flexible.
+blurb: Multi-purpose tokens offer a more compact, flexible token type than trust lines.
 labels:
   - Tokens
 status: not_enabled
