@@ -117,7 +117,7 @@ opensource:
             pages:
               - page: docs/xls-30d-amm/tutorials/create-an-automated-market-maker.md
       - group: XLS-33d MPTs
-        page: docs/xls-33d-multi-purpose-tokens/
+        page: docs/xls-33d-multi-purpose-tokens/multi-purpose-tokens.md
         expanded: false
         pages:
           - page: docs/xls-33d-multi-purpose-tokens/multi-purpose-tokens.md
