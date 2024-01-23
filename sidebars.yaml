@@ -127,4 +127,6 @@ opensource:
               - page: docs/xls-33d-multi-purpose-tokens/reference/mptoken.md
               - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenissuance.md
               - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenissuancecreate.md
+              - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenissuancedestroy.md
+              - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenissuanceset.md
 
