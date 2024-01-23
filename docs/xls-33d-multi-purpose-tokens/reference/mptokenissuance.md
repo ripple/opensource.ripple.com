@@ -42,7 +42,7 @@ MPToken objects have the following fields.
 | Field Name        | JSON Type | Internal Type | Description |
 |:------------------|:----------|:--------------|:------------|
 | LedgerEntryType   | number    | UInt16        | The value 0x007E, mapped to the string MPTokenIssuance, indicates that this object describes a Multi-Purpose Token (MPT). |
-| `Flags`             | number    | UInt32        | See [MPToken Flags](#mptokenissuance-flags) |
+| `Flags`             | number    | UInt32        | See [MPTokenIssuance Flags](#mptokenissuance-flags) |
 | `Issuer`           | string    | AccountID     | The address of the account that controls both the issuance amounts and characteristics of a particular fungible token. |
 | `AssetScale` | number    | UInt8       | An asset scale is the difference, in orders of magnitude, between a standard unit and a corresponding fractional unit. More formally, the asset scale is a non-negative integer (0, 1, 2, …) such that one standard unit equals 10^(-scale) of a corresponding fractional unit. If the fractional unit equals the standard unit, then the asset scale is 0. |
 | `MaximumAmount`         | string    | UInt64        | This value is an unsigned number that specifies the maximum number of MPTs that can be distributed to non-issuing accounts (i.e., minted). For issuances that do not have a maximum limit, this value should be set to 0xFFFFFFFFFFFFFFFF. |
@@ -58,7 +58,7 @@ MPToken objects have the following fields.
 Flags are properties or other options associated with the `MPToken` object.
 
 
-| Flag Name           | Flag Value | Description                               ----  |
+| Flag Name           | Flag Value | Description                                     |
 |:--------------------|:-----------|:------------------------------------------------|
 | `lsfMPTLocked`      | `0x0001`   | If set, indicates that all balances are locked. |
 | `lsfMPTAuthorized`  | `0x0002`   | If set, indicates that the issuer can lock an individual balance or all balances of this MPT. If not set, the MPT cannot be locked in any way.|
