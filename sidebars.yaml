@@ -122,6 +122,7 @@ opensource:
         pages:
           - page: docs/xls-33d-multi-purpose-tokens/multi-purpose-tokens.md
           - group: Reference
+            page: mpt-reference.md
             expanded: false
             pages:
               - page: docs/xls-33d-multi-purpose-tokens/reference/mptoken.md
