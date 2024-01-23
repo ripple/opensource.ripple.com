@@ -28,9 +28,8 @@ Use this transaction to update a mutable property for a Multi-purpose Token.
 |:-------------------|:--------------------|:------------------|:-------------------|
 | `TransactionType`  | object              | UInt16            | Indicates the new transaction type `MPTokenIssuanceSet`. The integer value is 28 (TODO). |
 | `MPTokenIssuanceID`| string              | UInt256           | The `MPTokenIssuance` identifier. |
-| `MPTokenHolder`  string ACCOUNTID
-(Optional) XRPL Address of an individual token holder balance to lock/unlock. If omitted, this transaction applies to all any accounts holding MPTs. |
-| `Flag`             | string               | UInt64           | Specifies flags for this transaction. See [MPTokenIssuanceSet-flags](#mptokenissuanceset-flags). |
+| `MPTokenHolder`    | string              | AccountID         | (Optional) XRPL Address of an individual token holder balance to lock/unlock. If omitted, this transaction applies to all any accounts holding MPTs. |
+| `Flag`             | string               | UInt64           | Specifies flags for this transaction. See [MPTokenIssuanceSet Flags](#mptokenissuanceset-flags). |
 
 ### MPTokenIssuanceSet Flags
 
@@ -39,4 +38,4 @@ Transactions of the `MPTokenIssuanceSet` type support additional values in the `
 | Flag Name          | Hex Value    | Decimal Value | Description                   |
 |:-------------------|:-------------|:--------------|:------------------------------|
 | `tfMPTLock`        | `0x0001`     | 1             | If set, indicates that all MPT balances for this asset should be locked. |
-| `tfMPTUnlock`      | `0x0002`     | If set, indicates that all MPT balances for this asset should be unlocked. |
+| `tfMPTUnlock`      | `0x0002`     | 2             | If set, indicates that all MPT balances for this asset should be unlocked. |
