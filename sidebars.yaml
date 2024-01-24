@@ -126,14 +126,20 @@ opensource:
             expanded: false
             pages:
               - group: Objects
+                expanded: false
+                pages:
                   - page: docs/xls-33d-multi-purpose-tokens/reference/mptoken.md
                   - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenissuance.md
               - group: Transactions
-                - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenissuancecreate.md
-                - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenissuancedestroy.md
-                - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenissuanceset.md
+                expanded: false
+                pages:
+                  - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenissuancecreate.md
+                  - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenissuancedestroy.md
+                  - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenissuanceset.md
               - group:
-                - page: docs/xls-33d-multi-purpose-tokens/reference/account_mpts.md
-                - page: docs/xls-33d-multi-purpose-tokens/reference/mpt_holders.md
-                - page: docs/xls-33d-multi-purpose-tokens/reference/mpts_by_issuer.md
+                expanded: false
+                pages:
+                  - page: docs/xls-33d-multi-purpose-tokens/reference/account_mpts.md
+                  - page: docs/xls-33d-multi-purpose-tokens/reference/mpt_holders.md
+                  - page: docs/xls-33d-multi-purpose-tokens/reference/mpts_by_issuer.md
                 
