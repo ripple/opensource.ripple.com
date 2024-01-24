@@ -4,6 +4,8 @@ parent: tokens.html
 blurb: Multi-purpose tokens offer a more compact, flexible token type than trust lines.
 labels:
   - Tokens
+  - MPTs
+  - Multi-purpose Tokens
 status: not_enabled
 ---
 # Multi-purpose Tokens
@@ -29,3 +31,11 @@ An account can issue a maximum of 32 number of unique MPT issuances. If an issue
 Since token holders will not acquire an MPT without first making an off-ledger trust decision, MPTs have no trust limits. For example, a common use case for an MPT is a fiat-backed stablecoin, where a token holder wouldn't purchase more stablecoins than they would feel comfortable holding.
 
 Unlike some existing capabilities of the ledger, MPTs are not subject to rippling, and  do not require configurability settings related to that functionality.
+
+## MPTs versus IOUs
+
+On a technical level, MPTs provide a fundamentally different way to represent fungible tokens on the ledger.  While IOUs are represented by trustlines and have bilateral debt relationships, MPTs use a simpler, unilateral relationship captured by an MPToken object. This results in substantial space savings on the ledger. The representation of a fungible token as a token object instead of a trustline makes it easier to enable functionality for real-world financial assets on-chain, such as token-level metadata, fixed supply, and fixed-point balance.
+
+On a usage level, MPTs provide a straightforward conceptual model compared to trustlines and rippling. Developers can more easily build web3 applications around `MPToken` and `MPTokenIssuance` objects, with some similarities to the conceptual model of XLS-20 NFTs.  It is also simpler for ordinary users to understand what tokens are available, what tokens they have issued, and what they hold in their wallet.  For both issuers and holders of MPTs, there will typically be a smaller XRP reserve compared to the equivalent representations with IOU trustlines.
+
+MPTs are intended to be complementary to IOUs.  While there may be use cases where either MPTs and IOUs might be suitable, we foresee a need for both over the long term.  There will be use cases such as credit lines for lending and borrowing that might be better represented by IOUs long term.  As the MPT feature set should evolve in an incremental manner to unlock more common use cases first and deliver other feature support at a later time. During the MPT development period, some cases might still be better represented by an IOU, then later be better supported with MPTs.
