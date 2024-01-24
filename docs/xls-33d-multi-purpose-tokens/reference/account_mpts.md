@@ -39,7 +39,7 @@ Returns all MPT balances held by a given account and ledger.
 
 The request contains the following parameters:
 
-| `Field`        | Type                 | Required? | Description |
+| Field          | Type                 | Required? | Description |
 |:---------------|:---------------------|:----------|-------------|
 | `account`      | string               | Yes       | The account to query. |
 | `ledger_index` | string or number (positive integer) | No | The ledger index of the max ledger to use, or a shortcut string to choose a ledger automatically. You must specify either `ledger_index` or `ledger_hash`. |
@@ -77,7 +77,7 @@ An example of a successful response:
 
 The response follows the [standard format][], with the result containing the following fields:
 
-| `Field`                | Type    | Description                               |
+| Field                  | Type    | Description                               |
 |:-----------------------|:--------|:------------------------------------------|
 | `mpts`                 | array   | An array of `MPToken` objects owned by the specified account. Includes all fields in the underlying object. |
 | `marker`               | string  | Used to continue your query where it left off in paginating. |

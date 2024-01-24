@@ -40,7 +40,7 @@ For a given `MPTokenIssuanceID` and ledger sequence, `mpt_holders` returns all h
 
 The request contains the following parameters:
 
-| `Field`        | Type                 | Required? | Description |
+| Field          | Type                 | Required? | Description |
 |:---------------|:---------------------|:----------|-------------|
 | `mpt_id`       | string               | Yes       | The `MPTokenIssuance` to query. |
 | `ledger_index` | string or number (positive integer) | No | The ledger index of the max ledger to use, ora shortcut string to choose a ledger automatically. You must specify either ledger_index or ledger_hash. |
@@ -75,7 +75,7 @@ The request contains the following parameters:
 
 The response follows the [standard format][], with the result containing the following fields:
 
-| `Field`                | Type    | Description                               |
+| Field                  | Type    | Description                               |
 |:-----------------------|:--------|:------------------------------------------|
 | `mpt_id`               | string  | The `MPTokenIssuance` queried.            |
 | `mpt_holders`          | object  | A JSON object representing a dictionary of accounts to `MPToken` objects. Includes all fields in the underlying `MPToken` object. |
