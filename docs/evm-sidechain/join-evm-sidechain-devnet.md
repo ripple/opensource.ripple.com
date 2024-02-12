@@ -32,7 +32,7 @@ Before proceeding to initialize the node, ensure that the following pre-requisit
 * Create an alias to run all commands in this tutorial inside a Docker container: 
 
     ```bash
-    alias exrpd="docker run -it --rm -v ~/.exrpd:/root/.exrpd peersyst/xrp-evm-blockchain:latest exrpd"
+    alias exrpd="docker run -it --rm -v ~/.exrpd:/root/.exrpd --entrypoint=\"\" peersyst/xrp-evm-blockchain:latest exrpd"
     ```
 
 ## Initialize Node
@@ -66,7 +66,6 @@ The first task is to initialize the node, which creates the necessary validator 
 
 All these commands create your `~/.exrpd` (i.e `$HOME`) directory with subfolders `config/` and `data/`. In the `config` directory, the most important files for configuration are `app.toml` and `config.toml`.
 
-
 ## Genesis & Seeds
 
 1. Copy the Genesis File.
@@ -74,8 +73,14 @@ All these commands create your `~/.exrpd` (i.e `$HOME`) directory with subfol
     Download the `genesis.json` file from here and copy it to the `config` directory: `~/.exrpd/config/genesis.json`. This is a genesis file with the chain-id and genesis accounts balances.
 
     ```bash
-    wget https://raw.githubusercontent.com/Peersyst/xrp-evm-archive/main/poa-devnet/genesis.json ~/.exrpd/config/
+    wget https://raw.githubusercontent.com/Peersyst/xrp-evm-archive/main/poa-devnet/genesis.json -O ~/.exrpd/config/genesis.json
     ```
+
+   :::attention Attention
+
+   Before jumping to the next item, make sure that the contents of the file `~/.exrpd/config/genesis.json` match the contents of the file [genesis.json](https://raw.githubusercontent.com/Peersyst/xrp-evm-archive/main/poa-devnet/genesis.json).
+
+   :::
 
     Verify the genesis configuration file:
 
@@ -85,7 +90,7 @@ All these commands create your `~/.exrpd` (i.e `$HOME`) directory with subfol
 
 2. Add Persistent Peer Nodes
 
-    Set the [`persistent_peer`](https://docs.tendermint.com/master/tendermint-core/using-tendermint.html#persistent-peer)s field in `~/.exrpd/config/config.toml` to specify peers with which your node maintains persistent connections. You can retrieve them from the list of available peers on the archive repo ([https://raw.githubusercontent.com/Peersyst/xrp-evm-archive/main/devnet/peers.txt](https://raw.githubusercontent.com/Peersyst/xrp-evm-archive/main/devnet/peers.txt)).
+    Set the [`persistent_peer`](https://docs.tendermint.com/master/tendermint-core/using-tendermint.html#persistent-peer)s field in `~/.exrpd/config/config.toml` to specify peers with which your node maintains persistent connections. You can retrieve them from the list of available peers on the archive repo ([https://raw.githubusercontent.com/Peersyst/xrp-evm-archive/main/poa-devnet/peers.txt](https://raw.githubusercontent.com/Peersyst/xrp-evm-archive/main/devnet/peers.txt)).
 
     To get a list of entries from the `peers.txt` file in the `PEERS` variable, run the following command:
 
@@ -98,58 +103,65 @@ All these commands create your `~/.exrpd` (i.e `$HOME`) directory with subfol
     ```bash
     sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" ~/.exrpd/config/config.toml
     ```
+ 
+   At this point you should have the list of the peers copied to the `persistent_peers` field in the `config.toml` file. You can verify this by running the following command:
 
+   ```bash
+   cat ~/.exrpd/config/config.toml | grep persistent_peers
+   ```
 
 ## Start a Node
 
-1. Start a node container.
+ You can start a node container with the following command:
 
-    ```bash
-    exrpd start
-    ```
+ ```bash
+ exrpd start
+ ```
 
-2. Provide Peersyst (<acarrera@peersyst.com>) with the key from this command:
+ If you would like to run it in Docker's deamon mode, you can use the following command:
 
-    ```bash
-    exrpd keys show <key_name> --keyring-backend=<keyring>
-    ```
-    
-    **Note:** Peersyst provides your node with proof of authority to validate blocks on Devnet. This process takes 2-3 days.
+  ```bash
+ docker run -d --name=node --entrypoint="" --restart=always -v ~/.exrpd:/root/.exrpd peersyst/xrp-evm-blockchain:latest exrpd start
+ ``` 
+
+ With this docker command, you will be creating a container with the image `peersyst/xrp-evm-blockchain:latest` 
+ that will run in background (`-d` flag) which will be named node (`--name=node`) that will be restarted in the case it stops (`--restart=always flag`) 
+ and that will have the folder `~/.exrpd`  mounted in the directory `/root/.exrpd` inside the container.
+
+ This command starts the node and begins syncing with the network. You can monitor the progress by watching the logs of the running container
+ 
+  ```bash
+ docker logs -f <container_id>
+   ```
+
+## Join the Proof of Authority with your node
+
+Similar to the XRPL mainnet, the Devnet runs in a Proof of Authority consensus mechanism. In order to start signing for new blocks and participate in the network consensus, 
+the current validators need to accept your node as a new trusted validator. This democratic process, requires the approval of the majority of the current validators.
+
+If you would like to be part of the Proof of Authority, you should join the [EVM Sidechain Discord channel](https://discord.gg/xrplevm) and submit your request to the *`#become-a-validator`* channel.
 
 
-## Run a Devnet Validator Node
+### Bond the authority points to your validator
 
 **Warning:** Before creating a Devnet validator node, ensure that:
- - Peersyst provides your node with proof of authority.
- - You're running the node container.
+ - The current validators have accepted your node as a new trusted validator through an on-chain governance proposal.
+ - You're running the node container and your node is fully synced with the network.
 
 Create a Devnet validator node with this command:
 
 ```bash
 exrpd tx staking create-validator \
-  --amount=1000000axrp \
+  --amount=1000000apoa \
   --pubkey=$(exrpd tendermint show-validator) \
-  --moniker="<your_custom_moniker>" \
-  --chain-id=<chain_id> \
-  --commission-rate="0.05" \
-  --commission-max-rate="0.20" \
-  --commission-max-change-rate="0.01" \
+  --moniker=<public_name_of_your_node> \
+  --chain-id="exrp_1440002-1" \
+  --commission-rate="0.00" \
+  --commission-max-rate="0.00" \
+  --commission-max-change-rate="0.00" \
   --min-self-delegation="1000000" \
-  --gas="auto" \
-  --gas-prices="0.025axrp" \
-  --from=<key_name>
+  --gas="300000" \
+  --gas-prices="7axrp" \
+  --keyring-backend=<your_keyring> \
+  --from=<your_key>
 ```
-
-**Notes:**
-
-- If you used a different keyring backend from the default `os`, you need to include this option:
-
-    ```bash
-    --keyring-backend=<keyring>
-    ```
-
-- When specifying commission parameters, the `commission-max-change-rate` is used to measure % *point* change over the `commission-rate`. For example, 1% to 2% is a 100% rate increase, but only 1 percentage point.
-
-- `Min-self-delegation` is a strictly positive integer that represents the minimum amount of self-delegated voting power your validator must always have. A `min-self-delegation` of `1000000` means your validator will never have a self-delegation lower than `1 axrp`. <!-- STYLE_OVERRIDE: will -->
-
-Once enough voting power (+2/3) from the genesis validators is up-and-running, the node starts producing blocks.
