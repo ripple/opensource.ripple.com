@@ -7,7 +7,7 @@ labels:
 ---
 # MPToken
 
-The `MPToken` object represents a number of tokens held by an account that is not the token issuer. MPTs are acquired via ordinary Payment or DEX transactions, and can optionally be redeemed or exchanged using these same types of transactions. The object key of the MPToken is derived from hashing the space key, holder's address and the MPTokenIssuanceID.
+The `MPToken` object represents a number of tokens held by an account that is not the token issuer. MPTs are acquired via ordinary payment or DEX transactions, and can optionally be redeemed or exchanged using these same types of transactions. The object key of the MPToken is derived from hashing the space key, the holder's address, and the `MPTokenIssuanceID`.
 
 _(Added by the [MPTokenV1_1 amendment][].)_
 
@@ -15,22 +15,27 @@ _(Added by the [MPTokenV1_1 amendment][].)_
 
 ```json
 {
-    "MPTokenID": "000B013A95F14B0044F78A264E41713C64B5F89242540EE208C3098E00000D65",
-    "MPTokenIssuanceID": --example ID--
+    "LedgerEntryType": "MPToken",
+    "Account": "rajgkBmMxmz161r8bWYH7CQAFZP5bA9oSG",
+    "MPTokenIssuanceID": "000004C463C52827307480341125DA0577DEFC38405B0E3E",
+    "Flags": 0,
+    "MPTAmount": "100000000",
+    "LockedAmount": "0",
+    "OwnerNode": 1
 }
 ```
 
 ## MPTokenID
 
-The MPTokenID is the result of SHA512-Half of the following values, concatenated in order:
+The `MPTokenID` is the result of SHA512-Half of the following values, concatenated in order:
 
-- The MPToken space key (0x0074).
-- The MPTokenIssuanceID for the issuance being held.
-- The AccountID of the token holder.
+- The `MPToken` space key (0x0074).
+- The `MPTokenIssuanceID` for the issuance being held.
+- The `AccountID` of the token holder.
 
 ## MPToken Fields
 
-MPToken objects have the following fields.
+`MPToken` objects have the following fields.
 
 | Field Name        | JSON Type | Internal Type | Description |
 |:------------------|:----------|:--------------|:------------|
@@ -38,13 +43,11 @@ MPToken objects have the following fields.
 | `Account`           | string    | AccountID     | The owner of the MPT. |
 | `MPTokenIssuanceID` | string    | UInt256       | The `MPTokenIssuance` identifier. |
 | `MPTAmount`         | string    | UInt64        | This value specifies a positive amount of tokens currently held by the owner. Valid values for this field are between 0x0 and 0xFFFFFFFFFFFFFFFF. |
-| `LockedAmount`      | string    | UInt64        | (Default) Specifies a positive amount of tokens that are currently held in a token holder's account but that are unavailable to be used by the token holder. Locked tokens might, for example, represent value currently being held in escrow, or value that is otherwise inaccessible to the token holder. |
+| `LockedAmount`      | string    | UInt64        | (Default) Specifies a positive amount of tokens that are currently held in a token holder's account but that are unavailable to be used by the token holder. Locked tokens might, for example, represent value currently being held in escrow, or value that is otherwise inaccessible to the token holder. The initial value is 0 in order to save space on the ledger for an empty MPT holding. |
 | `Flags`             | number    | UInt32        | (Default) See [MPToken Flags](#mptoken-flags) |
 | `PreviousTxnID`     | string    | Hash256       | Transaction ID of the transaction that most recently modified this object. |
 | `PreviousTxnLgrSeq` | number    | UInt32        | The sequence of the ledger that contains the transaction that most recently modified this object. |
 | `OwnerNode`         | number    | UInt64        | (Default) The page in the owner's directory where this item is referenced. |
-| `MPTokenNode`       | number    | UInt64        | (Default) The MPT directory has exactly the same structure as an Owner Directory, except this is a new type of directory that only indexes MPTs for a single `MPTokenIssuance`. |
-
 
 ### MPToken Flags
 
