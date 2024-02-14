@@ -41,7 +41,8 @@ In addition to the general fields above, you must specify *exactly 1* of the fol
 - [`deposit_preauth`](#get-depositpreauth-object)
 - [`ticket`](#get-ticket-object)
 - [`nft_page`](#get-nft-page)
-- [`mpt_issuance`](#get-mpt-issuance)
+- [`mpt_issuance`](#get-mpt-issuance-object)
+- [`mptoken`](#get-mptoken-object)
 
 **Caution:** If you specify more than 1 of these type-specific fields in a request, the server retrieves results for only 1 of them. It is not defined which one the server chooses, so you should avoid doing this.
 
@@ -698,9 +699,9 @@ Return an `MPTokenIssuance` object.
 ```sh
 rippled json ledger_entry '{ "mpt_issuance": "000004C463C52827307480341125DA0577DEFC38405B0E3E", "ledger_index": "validated" }'
 ```
-### Get MPT Issuance Object 
+### Get MPToken Object 
 
-Return an `MPTokenIssuance` object.
+Return an `MPToken` object.
 
 | Field                   | Type                       | Description           |
 |:------------------------|:---------------------------|:----------------------|
