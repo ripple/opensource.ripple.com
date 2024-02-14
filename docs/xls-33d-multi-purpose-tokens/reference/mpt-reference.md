@@ -10,6 +10,7 @@
 - [MPTokenIssuanceSet.md](mptokenissuanceset.md)
 - [MPTokenAuthorize.md](mptokenauthorize.md)-
 - [Clawback.md](clawback.md)
+- [LedgerEntry.md](ledger-entry.md)
 
 ## Requests
 - [account_mpts](account_mpts.md)
