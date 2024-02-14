@@ -138,6 +138,7 @@ opensource:
                   - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenissuancedestroy.md
                   - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenissuanceset.md
                   - page: docs/xls-33d-multi-purpose-tokens/reference/clawback.md
+                  - page: docs/xls-33d-multi-purpose-tokens/reference/ledger-entry.md
               - group: Requests
                 expanded: false
                 pages:
