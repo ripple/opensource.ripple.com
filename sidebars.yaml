@@ -137,6 +137,7 @@ opensource:
                   - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenissuancecreate.md
                   - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenissuancedestroy.md
                   - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenissuanceset.md
+                  - page: docs/xls-33d-multi-purpose-tokens/reference/clawback.md
               - group: Requests
                 expanded: false
                 pages:
