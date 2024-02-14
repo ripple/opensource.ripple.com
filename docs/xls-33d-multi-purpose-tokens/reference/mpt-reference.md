@@ -8,7 +8,8 @@
 - [MPTokenIssuanceCreate.md](mptokenissuance.md)
 - [MPTokenIssuanceDestroy.md](mptokenissuancedestroy.md)
 - [MPTokenIssuanceSet.md](mptokenissuanceset.md)
-- [MPTokenAuthorize.md](mptokenauthorize.md)
+- [MPTokenAuthorize.md](mptokenauthorize.md)-
+- [Clawback.md](clawback.md)
 
 ## Requests
 - [account_mpts](account_mpts.md)
