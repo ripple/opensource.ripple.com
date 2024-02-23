@@ -9,6 +9,8 @@ labels:
 # ledger_entry
 [[Source]](https://github.com/XRPLF/rippled/blob/bf6f5294a9b83653888600e78da8650896e9d393/src/ripple/rpc/handlers/LedgerEntry.cpp#L602-L646 "Source")
 
+<embed src="/snippets/_price-oracles-disclaimer.md" />
+
 You can use the existing `ledger_entry` method to retrieve an `Oracle` instance.
 
 

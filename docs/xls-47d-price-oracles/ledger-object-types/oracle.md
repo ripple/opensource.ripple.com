@@ -10,6 +10,8 @@ status: not_enabled
 [[Source]](https://github.com/XRPLF/rippled/blob/bf6f5294a9b83653888600e78da8650896e9d393/src/ripple/protocol/impl/LedgerFormats.cpp#L343-L356 "Source")
 <!-- TODO: Update source link to merged version when available -->
 
+<embed src="/snippets/_price-oracles-disclaimer.md" />
+
 An `Oracle` ledger entry holds references to, or data associated with, a single price oracle.
 
 

@@ -9,6 +9,8 @@ status: not_enabled
 # SetOracle
 [[Source]](https://github.com/XRPLF/rippled/blob/bf6f5294a9b83653888600e78da8650896e9d393/src/ripple/app/tx/impl/SetOracle.cpp "Source")
 
+<embed src="/snippets/_price-oracles-disclaimer.md" />
+
 Creates a new `Oracle` ledger entry or updates the fields of an existing one, using the Oracle ID.
 
 The oracle provider must complete these steps before submitting this transaction:
@@ -47,7 +49,7 @@ The oracle provider must complete these steps before submitting this transaction
 | Field              | JSON Type | Internal Type | Required? | Description |
 |--------------------|-----------|---------------|-----------|-------------|
 | `Account`          | String    | AccountID     | Yes       | This account must match the account in the `Owner` field of the `Oracle` object. |
-| `OracleDocumentID` | String    | UInt32        | Yes       | A unique identifier of the price oracle for the `Account`. |
+| `OracleDocumentID` | Number    | UInt32        | Yes       | A unique identifier of the price oracle for the `Account`. |
 | `Provider`         | String    | Blob          | Variable  | An arbitrary value that identifies an oracle provider, such as Chainlink, Band, or DIA. This field is a string, up to 256 ASCII hex encoded characters (0x20-0x7E). This field is required when creating a new `Oracle` ledger entry, but is optional for updates. |
 | `URI`              | String    | Blob          | No        | An optional Universal Resource Identifier to reference price data off-chain. This field is limited to 256 bytes. |
 | `LastUpdateTime`   | Number    | UInt32        | Yes       | The time the data was last updated, represented in the [ripple epoch time](https://xrpl.org/basic-data-types.html#specifying-time). |
