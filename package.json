@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "@redocly/cli": "^1.0.0-beta.115",
-    "@redocly/developer-portal": "^1.1.0-beta.123"
+    "@redocly/developer-portal": "^1.1.0-beta.123",
+    "@redocly/realm": "^0.77.5"
   },
   "devDependencies": {
     "prettier": "^2.6.2"
