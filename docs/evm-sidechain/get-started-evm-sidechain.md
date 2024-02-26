@@ -46,7 +46,7 @@ The EVM Sidechain bridge is a tool that enables transactions between chains in a
 Use your Xumm wallet to interact with the XRP Ledger Devnet chain.
 Ensure that you have created an account on the public XRP Ledger Devnet as described in Step 1. 
 
-To connect a Xumm wallet to the bridge, go to [EVM sidechain bridge](https://witness-evm-sidechain.peersyst.tech/) and click **Connect Xumm Wallet**.
+To connect a Xumm wallet to the bridge, go to [EVM sidechain bridge](https://beta.bridge.devnet.xrpl.org) and click **Connect Xumm Wallet**.
 
 ![Connect XUMM Wallet](../img/evm-sidechain-connect-xumm-wallet.png '#width=500px;')
 
@@ -63,7 +63,7 @@ Follow the instructions on screen to scan the QR code using the Xumm app. The Xu
 Use your MetaMask wallet to interact with the XRP Ledger EVM Sidechain. 
 Ensure that you have created a MetaMask account and connected to the public XRP Ledger Devnet as described in [Connect MetaMask to XRP Ledger EVM Sidechain](connect-metamask-to-xrpl-evm-sidechain.md).
 
-To connect a MetaMask wallet to the bridge, go to the [EVM sidechain bridge](https://witness-evm-sidechain.peersyst.tech/) and click **Connect Metamask Wallet**.
+To connect a MetaMask wallet to the bridge, go to the [EVM sidechain bridge](https://beta.bridge.devnet.xrpl.org) and click **Connect Metamask Wallet**.
 
 ![Connect MetaMask Wallet](../img/evm-sidechain-connect-metamask.png '#width=300px;')
 
