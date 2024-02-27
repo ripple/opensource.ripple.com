@@ -1,7 +1,110 @@
-
+# clawback docs
 '/docs/clawback/clawback-of-issued-currency/':
   to: 'https://xrpl.org/clawing-back-tokens.html'
   type: 301
 '/docs/clawback/clawback/':
   to: 'https://xrpl.org/clawback.html'
+  type: 301
+
+# xchainbridge docs
+'/docs/xls-38d-cross-chain-bridge/cross-chain-bridges/':
+  to: 'https://xrpl.org/cross-chain-bridges.html'
+  type: 301
+'/docs/xls-38d-cross-chain-bridge/xrpl-sidechains/':
+  to: 'https://xrpl.org/xrpl-sidechains.html'
+  type: 301
+'/docs/xls-38d-cross-chain-bridge/witness-server/':
+  to: 'https://xrpl.org/witness-servers.html'
+  type: 301
+'/docs/xls-38d-cross-chain-bridge/parallel-networks-list/':
+  to: 'https://xrpl.org/parallel-networks.html'
+  type: 301
+'/docs/xls-38d-cross-chain-bridge/tutorials/set-up-xrp-xrp-bridge/':
+  to: 'https://xrpl.org/set-up-xrp-xrp-bridge.html'
+  type: 301
+'/docs/xls-38d-cross-chain-bridge/tutorials/set-up-iou-iou-bridge/':
+  to: 'https://xrpl.org/set-up-iou-iou-bridge.html'
+  type: 301
+'/docs/xls-38d-cross-chain-bridge/tutorials/submit-cross-chain-transaction/':
+  to: 'https://xrpl.org/submit-cross-chain-transactions.html'
+  type: 301
+'/docs/xls-38d-cross-chain-bridge/ledger-object-types/bridge/':
+  to: 'https://xrpl.org/bridge.html'
+  type: 301
+'/docs/xls-38d-cross-chain-bridge/ledger-object-types/xchainownedcreateaccountclaimid/':
+  to: 'https://xrpl.org/xchainownedcreateaccountclaimid.html'
+  type: 301
+'/docs/xls-38d-cross-chain-bridge/ledger-object-types/xchainownedclaimid/':
+  to: 'https://xrpl.org/xchainownedclaimid.html'
+  type: 301
+'/docs/xls-38d-cross-chain-bridge/transaction-types/xchainaccountcreatecommit/':
+  to: 'https://xrpl.org/xchainaccountcreatecommit.html'
+  type: 301
+'/docs/xls-38d-cross-chain-bridge/transaction-types/xchainaddaccountcreateattestation/':
+  to: 'https://xrpl.org/xchainaddaccountcreateattestation.html'
+  type: 301
+'/docs/xls-38d-cross-chain-bridge/transaction-types/xchainaddclaimattestation/':
+  to: 'https://xrpl.org/xchainaddclaimattestation.html'
+  type: 301
+'/docs/xls-38d-cross-chain-bridge/transaction-types/xchainclaim/':
+  to: 'https://xrpl.org/xchainclaim.html'
+  type: 301
+'/docs/xls-38d-cross-chain-bridge/transaction-types/xchaincommit/':
+  to: 'https://xrpl.org/xchaincommit.html'
+  type: 301
+'/docs/xls-38d-cross-chain-bridge/transaction-types/xchaincreatebridge/':
+  to: 'https://xrpl.org/xchaincreatebridge.html'
+  type: 301
+'/docs/xls-38d-cross-chain-bridge/transaction-types/xchaincreateclaimid/':
+  to: 'https://xrpl.org/xchaincreateclaimid.html'
+  type: 301
+'/docs/xls-38d-cross-chain-bridge/transaction-types/xchainmodifybridge/':
+  to: 'https://xrpl.org/xchainmodifybridge.html'
+  type: 301
+'/docs/xls-38d-cross-chain-bridge/cross-chain-bridging-legal-faqs/':
+  to: 'https://xrpl.org/xrpl-sidechains.html#legal-faqs'
+  type: 301
+
+# amm docs
+'/docs/xls-30d-amm/amm-uc/':
+  to: 'https://xrpl.org/automated-market-makers.html'
+  type: 301
+'/docs/xls-30d-amm/automated-market-makers/':
+  to: 'https://xrpl.org/automated-market-makers.html'
+  type: 301
+'/docs/xls-30d-amm/ledger-object-types/amm/':
+  to: 'https://xrpl.org/amm.html'
+  type: 301
+'/docs/xls-30d-amm/ledger-object-types/accountroot/':
+  to: 'https://xrpl.org/accountroot.html'
+  type: 301
+'/docs/xls-30d-amm/transaction-types/ammbid/':
+  to: 'https://xrpl.org/ammbid.html'
+  type: 301
+'/docs/xls-30d-amm/transaction-types/ammcreate/':
+  to: 'https://xrpl.org/ammcreate.html'
+  type: 301
+'/docs/xls-30d-amm/transaction-types/ammdelete/':
+  to: 'https://xrpl.org/ammdelete.html'
+  type: 301
+'/docs/xls-30d-amm/transaction-types/ammdeposit/':
+  to: 'https://xrpl.org/ammdeposit.html'
+  type: 301
+'/docs/xls-30d-amm/transaction-types/ammvote/':
+  to: 'https://xrpl.org/ammvote.html'
+  type: 301
+'/docs/xls-30d-amm/transaction-types/ammwithdraw/':
+  to: 'https://xrpl.org/ammwithdraw.html'
+  type: 301
+'/docs/xls-30d-amm/transaction-result-codes/':
+  to: 'https://xrpl.org/transaction-results.html'
+  type: 301
+'/docs/xls-30d-amm/public-api-methods/amm_info/':
+  to: 'https://xrpl.org/amm_info.html'
+  type: 301
+'/docs/xls-30d-amm/public-api-methods/ledger_entry/':
+  to: 'https://xrpl.org/ledger_entry.html#get-amm-object'
+  type: 301
+'/docs/xls-30d-amm/tutorials/create-an-automated-market-maker/':
+  to: 'https://xrpl.org/create-an-automated-market-maker.html'
   type: 301
