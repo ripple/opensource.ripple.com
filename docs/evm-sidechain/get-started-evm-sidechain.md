@@ -75,7 +75,7 @@ Once you approve the transactions in either the Faucet Wallet or Metamask (depen
 ![Transaction in progress](../img/evm-sidechain-transfer-in-progress.png '#width=720px;')
 
 
-### 3. Receive the Funds
+### 5. Receive the Funds
 
 After a few minutes of transaction processing time, you are redirected to the **Transaction Confirmation** screen where you can verify the details of the bridge transaction.
 
