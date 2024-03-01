@@ -12,7 +12,9 @@ status: not_enabled
 
 <embed src="/snippets/_price-oracles-disclaimer.md" />
 
-An `Oracle` ledger entry holds references to, or data associated with, a single price oracle.
+An `Oracle` ledger entry holds data associated with a single price oracle object.
+
+**Note:** A price oracle object can store information for up to 10 token pairs.
 
 
 ## Example Oracle JSON
