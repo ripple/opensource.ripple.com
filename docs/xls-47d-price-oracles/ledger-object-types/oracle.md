@@ -17,8 +17,6 @@ An `Oracle` ledger entry holds references to, or data associated with, a single 
 
 ## Example Oracle JSON
 
-**TODO: Need sample.**
-
 ```json
 {
   "LedgerEntryType": "Oracle",
@@ -49,10 +47,10 @@ An `Oracle` ledger entry holds references to, or data associated with, a single 
 | `Owner`             | String    | AccountID     | Yes       | The XRPL account with update and delete privileges for the oracle. It's recommended to set up [multi-signing](https://xrpl.org/set-up-multi-signing.html) on this account. |
 | `Provider`          | String    | Blob          | Yes       | An arbitrary value that identifies an oracle provider, such as Chainlink, Band, or DIA. This field is a string, up to 256 ASCII hex encoded characters (0x20-0x7E). |
 | `PriceDataSeries`   | Array     | Array         | Yes       | An array of up to 10 `PriceData` objects, each representing the price information for a token pair. More than five `PriceData` objects require two owner reserves. |
-| `LastUpdateTime`    | Number    | UInt32        | Yes       | The time the data was last updated, represented in the [ripple epoch time](https://xrpl.org/basic-data-types.html#specifying-time). |
+| `LastUpdateTime`    | Number    | UInt32        | Yes       | The time the data was last updated, represented in Unix time. |
 | `URI`               | String    | Blob          | No        | An optional Universal Resource Identifier to reference price data off-chain. This field is limited to 256 bytes. |
 | `AssetClass`        | String    | Blob          | Yes       | Describes the type of asset, such as "currency", "commodity", or "index". This field is a string, up to 16 ASCII hex encoded characters (0x20-0x7E). |
-| `OwnerNode`         | ???       | ???           | Yes       | ??? |
+| `OwnerNode`         | String    | UInt64        | Yes       | A hint indicating which page of the oracle owner's owner directory links to this entry, in case the directory consists of multiple pages. |
 | `PreviousTxnID`     | String    | UInt256       | Yes       | The hash of the previous transaction that modified this entry. |
 | `PreviousTxnLgrSeq` | String    | UInt32        | Yes       | The ledger index that this object was most recently modified or created in. |
 
@@ -62,7 +60,7 @@ An `Oracle` ledger entry holds references to, or data associated with, a single 
 | Field               | JSON Type | Internal Type | Required? | Description |
 |---------------------|-----------|---------------|-----------|-------------|
 | `BaseAsset`         | String    | Currency      | Yes       | The primary asset in a trading pair. Any valid identifier, such as a stock symbol, bond CUSIP, or currency code is allowed. For example, in the BTC/USD pair, BTC is the base asset; in 912810RR9/BTC, 912810RR9 is the base asset. |
-| `QuoteAsset`        | String    | Currency      | Yes       | The quote asset in a trading pair. The quote asset denotes the price of one unit of the base asset. For example, in the BTC/USD pair, BTC is the base asset; in 912810RR9/BTC, 912810RR9 is the base asset. |
+| `QuoteAsset`        | String    | Currency      | Yes       | The quote asset in a trading pair. The quote asset denotes the price of one unit of the base asset. For example, in the BTC/USD pair, USD is the quote asset; in 912810RR9/BTC, BTC is the quote asset. |
 | `AssetPrice`        | Number    | UInt64        | No        | The asset price after applying the `Scale` precision level. It's not included if the last update transaction didn't include the `BaseAsset`/`QuoteAsset` pair. |
 | `Scale`             | Number    | UInt8         | No        | The scaling factor to apply to an asset price. For example, if `Scale` is 6 and original price is 0.155, then the scaled price is 155000. Valid scale ranges are 0-10. It's not included if the last update transaction didn't include the `BaseAsset`/`QuoteAsset` pair. |
 

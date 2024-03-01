@@ -71,7 +71,7 @@ The oracle provider must complete these steps before submitting this transaction
 - New token pairs in the transaction are added to the object.
 - Token pairs in the transaction overwrite corresponding token pairs in the object.
 - Token pairs in the transaction with a missing `AssetPrice` field delete corresponding token pairs in the object.
-- Token pairs that only appear in the object are left unchanged.
+- Token pairs that only appear in the object have `AssetPrice` and `Scale` removed to signify that the price is outdated.
 
 **Note:** The order of token pairs in the transaction aren't important because each token pair uniquely identifies the location of the `PriceData` object in the `PriceDataSeries`.
 
