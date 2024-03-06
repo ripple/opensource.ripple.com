@@ -56,3 +56,21 @@ opensource:
                   - page: docs/evm-sidechain/stress-test-the-bridge.md
               - page: docs/evm-sidechain/bootstrap-a-local-environment.md
           - page: docs/evm-sidechain/xrpl-evm-sidechain-faq.md
+      - group: Price Oracles
+        page: docs/xls-47d-price-oracles/price-oracles.md
+        expanded: false
+        pages:
+          - group: Ledger Entry Types
+            expanded: false
+            pages:
+              - page: docs/xls-47d-price-oracles/ledger-object-types/oracle.md
+          - group: Public API Methods
+            expanded: false
+            pages:
+              - page: docs/xls-47d-price-oracles/public-api-methods/ledger_entry.md
+              - page: docs/xls-47d-price-oracles/public-api-methods/get_aggregate_price.md
+          - group: Transaction Types
+            expanded: false
+            pages:
+              - page: docs/xls-47d-price-oracles/transaction-types/deleteoracle.md
+              - page: docs/xls-47d-price-oracles/transaction-types/setoracle.md
