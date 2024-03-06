@@ -29,6 +29,6 @@ This process can also work in reverse, pushing transaction information to extern
 
 ## Price Oracles on the XRP Ledger
 
-XLS-47d implements a native, on-chain price oracle, enhancing the native DeFi functionality of the XRP Ledger. Off-chain price oracles send their data to XRPL oracles, which store that information on-chain. Decentralized apps can then query the XRPL oracles for price data; multiple XRPL oracles can be queries to minimize risk and inaccuracies.
+XLS-47d implements a native, on-chain price oracle, enhancing the native DeFi functionality of the XRP Ledger. Off-chain price oracles send their data to XRPL oracles, which store that information on-chain. Decentralized apps can then query the XRPL oracles for price data; multiple XRPL oracles can be queried to minimize risk and inaccuracies.
 
 By standardizing price feeds in this manner, all XRPL apps can access a dependable, shared data source.
