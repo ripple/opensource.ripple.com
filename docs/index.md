@@ -12,23 +12,17 @@ To learn more about the consensus process and the workflow for features to go fr
 
 ## Features Currently in Development
 
-### Cross-chain Bridges
+### Claudia
 
-- [XLS-38d Proposal](https://github.com/XRPLF/XRPL-Standards/discussions/92)
-- [Documentation](xls-38d-cross-chain-bridge/cross-chain-bridges.md)
+- [Documentation](https://pypi.org/project/claudia/)
+
 
 ### EVM Sidechain
 
 - [Documentation](evm-sidechain/intro-to-evm-sidechain.md)
 
 
-### Automated Market Makers (AMM)
+### Price Oracles
 
-  - [XLS-30d Proposal](https://github.com/XRPLF/XRPL-Standards/discussions/78)
-  - [Documentation](./xls-30d-amm/amm-uc.md)
-
-
-### Clawback
-  - [Proposal](https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-39d-clawback)
-  - [Documentation](./clawback/clawback-of-issued-currency.md)
-  - [Reference](./clawback/clawback.md)
+- [XLS-47d Proposal](https://github.com/XRPLF/XRPL-Standards/blob/master/XLS-47d-PriceOracles/README.md)
+- [Documentation](./xls-47d-price-oracles/)
