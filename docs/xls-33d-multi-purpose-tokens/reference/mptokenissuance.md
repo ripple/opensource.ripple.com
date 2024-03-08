@@ -20,7 +20,7 @@ _(Added by the [MPTokenV1_1 amendment][].)_
     "Issuer": "rsA2LpzuawewSBQXkiju3YQTMzW13pAAdW",
     "AssetScale": "2",
     "MaximumAmount": "100000000",
-    "OutstandingAmount": "5",
+    "OutstandingAmount": "3e8",
     "TransferFee": 50000,     
     "MPTokenMetadata": "",
     "OwnerNode": "74"
