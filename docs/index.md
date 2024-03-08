@@ -12,23 +12,22 @@ To learn more about the consensus process and the workflow for features to go fr
 
 ## Features Currently in Development
 
-### Cross-chain Bridges
+### Claudia
 
-- [XLS-38d Proposal](https://github.com/XRPLF/XRPL-Standards/discussions/92)
-- [Documentation](xls-38d-cross-chain-bridge/cross-chain-bridges.md)
+- [Documentation](https://pypi.org/project/claudia/)
+
 
 ### EVM Sidechain
 
 - [Documentation](evm-sidechain/intro-to-evm-sidechain.md)
 
-
-### Automated Market Makers (AMM)
-
-  - [XLS-30d Proposal](https://github.com/XRPLF/XRPL-Standards/discussions/78)
-  - [Documentation](./xls-30d-amm/amm-uc.md)
-
-
 ### Multi-purpose Tokens
   - [Proposal](https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0033d-multi-purpose-tokens)
   - [Documentation](xls-33d-multi-purpose-tokens/multi-purpose-tokens.md)
   - [Reference](xls-33d-multi-purpose-tokens/reference/mpt-reference.md)
+
+### Price Oracles
+
+- [XLS-47d Proposal](https://github.com/XRPLF/XRPL-Standards/blob/master/XLS-47d-PriceOracles/README.md)
+- [Documentation](./xls-47d-price-oracles/)
+

@@ -4,37 +4,6 @@ opensource:
   - label: Prerelease Docs
     expanded: true  
     pages:
-      - group: XLS-38d Cross-chain Bridges
-        page: docs/xls-38d-cross-chain-bridge/cross-chain-bridges.md
-        expanded: false
-        pages:
-          - page: docs/xls-38d-cross-chain-bridge/xrpl-sidechains.md
-          - page: docs/xls-38d-cross-chain-bridge/witness-server.md
-          - page: docs/xls-38d-cross-chain-bridge/parallel-networks-list.md
-          - group: Tutorials
-            expanded: false
-            pages:
-              - page: docs/xls-38d-cross-chain-bridge/tutorials/set-up-xrp-xrp-bridge.md
-              - page: docs/xls-38d-cross-chain-bridge/tutorials/set-up-iou-iou-bridge.md
-              - page: docs/xls-38d-cross-chain-bridge/tutorials/submit-cross-chain-transaction.md
-          - group: Ledger Object Types
-            expanded: false
-            pages:
-              - page: docs/xls-38d-cross-chain-bridge/ledger-object-types/bridge.md
-              - page: docs/xls-38d-cross-chain-bridge/ledger-object-types/xchainownedcreateaccountclaimid.md
-              - page: docs/xls-38d-cross-chain-bridge/ledger-object-types/xchainownedclaimid.md
-          - group: Transaction Types
-            expanded: false
-            pages:
-              - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchainaccountcreatecommit.md
-              - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchainaddaccountcreateattestation.md
-              - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchainaddclaimattestation.md
-              - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchainclaim.md
-              - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchaincommit.md
-              - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchaincreatebridge.md
-              - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchaincreateclaimid.md
-              - page: docs/xls-38d-cross-chain-bridge/transaction-types/xchainmodifybridge.md
-          - page: docs/xls-38d-cross-chain-bridge/cross-chain-bridging-legal-faqs.md
       - group: EVM Sidechain
         page: docs/evm-sidechain/intro-to-evm-sidechain.md
         expanded: false
@@ -87,35 +56,6 @@ opensource:
                   - page: docs/evm-sidechain/stress-test-the-bridge.md
               - page: docs/evm-sidechain/bootstrap-a-local-environment.md
           - page: docs/evm-sidechain/xrpl-evm-sidechain-faq.md
-      - group: XLS-30d AMM
-        page: docs/xls-30d-amm/amm-uc.md
-        expanded: false
-        pages:
-          - page: docs/xls-30d-amm/automated-market-makers.md
-          - group: Ledger Object Types
-            expanded: false
-            pages:
-              - page: docs/xls-30d-amm/ledger-object-types/amm.md
-              - page: docs/xls-30d-amm/ledger-object-types/accountroot.md
-          - group: Transaction Types
-            expanded: false
-            pages:
-              - page: docs/xls-30d-amm/transaction-types/ammbid.md
-              - page: docs/xls-30d-amm/transaction-types/ammcreate.md
-              - page: docs/xls-30d-amm/transaction-types/ammdelete.md
-              - page: docs/xls-30d-amm/transaction-types/ammdeposit.md
-              - page: docs/xls-30d-amm/transaction-types/ammvote.md
-              - page: docs/xls-30d-amm/transaction-types/ammwithdraw.md
-          - page: docs/xls-30d-amm/transaction-result-codes/index.md
-          - group: Public API Methods
-            expanded: false
-            pages:
-              - page: docs/xls-30d-amm/public-api-methods/amm_info.md
-              - page: docs/xls-30d-amm/public-api-methods/ledger_entry.md
-          - group: Tutorials
-            expanded: false
-            pages:
-              - page: docs/xls-30d-amm/tutorials/create-an-automated-market-maker.md
       - group: XLS-33d MPTs
         page: docs/xls-33d-multi-purpose-tokens/index.md
         expanded: false
@@ -145,4 +85,23 @@ opensource:
                   - page: docs/xls-33d-multi-purpose-tokens/reference/mpt_holders.md
                   - page: docs/xls-33d-multi-purpose-tokens/reference/mpts_by_issuer.md
                   - page: docs/xls-33d-multi-purpose-tokens/reference/ledger-entry.md
+      - group: Price Oracles
+        page: docs/xls-47d-price-oracles/price-oracles.md
+        expanded: false
+        pages:
+          - group: Ledger Entry Types
+            expanded: false
+            pages:
+              - page: docs/xls-47d-price-oracles/ledger-object-types/oracle.md
+          - group: Public API Methods
+            expanded: false
+            pages:
+              - page: docs/xls-47d-price-oracles/public-api-methods/ledger_entry.md
+              - page: docs/xls-47d-price-oracles/public-api-methods/get_aggregate_price.md
+          - group: Transaction Types
+            expanded: false
+            pages:
+              - page: docs/xls-47d-price-oracles/transaction-types/deleteoracle.md
+              - page: docs/xls-47d-price-oracles/transaction-types/setoracle.md
+
 
