@@ -26,7 +26,7 @@ MPTs also improve node perfomance when processing large volumes of transactions.
 
 MPTs are unidirectional. While trust lines use "balance netting," MPTs have only a single balance.
 
-An account can issue a maximum of 32 number of unique MPT issuances. If an issuer wants to support more than this number of MPTs, they can open additional accounts.
+An account can issue a maximum of 32 unique MPT issuances. If an issuer wants to support more than this number of MPTs, they can open additional accounts.
 
 Since token holders will not acquire an MPT without first making an off-ledger trust decision, MPTs have no trust limits. For example, a common use case for an MPT is a fiat-backed stablecoin, where a token holder wouldn't purchase more stablecoins than they would feel comfortable holding.
 
