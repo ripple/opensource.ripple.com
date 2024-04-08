@@ -77,4 +77,6 @@ opensource:
       - group: LedgerStateFix
         page: docs/LedgerStateFix/ledgerstatefix.md
         expanded: false
+        pages:
+          - page: docs/LedgerStateFix/ledgerstatefix.md
 
