@@ -34,8 +34,8 @@ _(Added by the [fixNFTokenPageLinks amendment][].)_
 | `Account` | STAccount | Required | Identifies the account signing and submitting the transaction as well as paying the Fee. |
 | `Fee` | STAmount | Required | This transaction is rare and potentially compute intensive. The minimum fee is the same as the fee for an AccountDelete transaction. If the transaction fails with a tec code, the fee is still charged. |
 | `Flags` | uint32 | Optional | Not needed for `LedgerFixType` == 1. Reserved for a future type of ledger fix. |
-| `LedgerFixType` | uint16 | Required | Currently the only type is _1_, which fixes the NFToken directory for a single account. |
-| `Owner` | STAccount | Optional | Required if LedgerFixType == 1, the account ID that owns the NFToken directory that needs fixing. Need not have any relationship to Account. |
+| `LedgerFixType` | uint16 | Required | Currently the only type is _1_, which fixes the NFT directory for a single account. |
+| `Owner` | STAccount | Optional | Required if LedgerFixType == 1, the account ID that owns the NFT directory that needs fixing. Need not have any relationship to Account. |
 
 ## LedgerStateFix Flags
 
@@ -47,21 +47,23 @@ Potential errors are those that can occur for all transactions. {% $frontmatter.
 
 ## LedgerStateFix Types
 
-`LedgerStateFix` might sound like a general panacea for all your ledger's ills, but in practice it is a targeted solution for very rare, known, and specific issues.
+`LedgerStateFix` might sound like a general panacea for all your ledger's ills, but, in practice, it's a targeted solution for very rare, known, and specific issues.
 
 ### Type 1
 
+Fixes an issue where a new `NFTokenPage` object can be created without an index link to the preceding `NFTokenPage`.
+
 There are two different transactions that introduced corruptions to NFT directories. In both cases, the following conditions were met:
 
-- There were at least two NFToken pages in the directory.
-- The next-to-last page was completely full, holding 32 NFTokens.
-- The very last page of the directory contained only one NFToken.
+- There were at least two `NFTokenPages` in the directory.
+- The next-to-last page was completely full, holding 32 NFTs.
+- The very last page of the directory contained only one NFT.
 - The transaction removed the last remaining token from the last page.
 
-When these conditions were met, the last NFToken page was removed and the next-to-last page was left as the final page in the directory.
+When these conditions were met, the last `NFTokenPage` was removed and the next-to-last page was left as the final page in the directory.
 
-That would be fine, except the NFToken directory has an expectation that the last page has a specific index. The page with that index was just deleted. When an NFToken is added to the directory, and that token has a high enough value that it doesn't belong on the current last page, then a new last page is created that has no links to the previous page, creating a hole in the middle of the list.
+That would be fine, except the NFT directory has an expectation that the last page has a specific index. The page with that index was just deleted. When an NFT is added to the directory, and that token has a high enough value that it doesn't belong on the current last page, then a new last page is created that has no links to the previous page, creating a hole in the middle of the list.
 
-The `fixNFTokenPageLinks` amendment modifies the NFToken page, coalescing code to notice when the very last page of the directory would be removed. In that case, it moves all of the contents of the next lower page into the last page and deletes the next-to-last page. It then fixes up the links.
+The `fixNFTokenPageLinks` amendment modifies the `NFTokenPage`, coalescing code to notice when the very last page of the directory would be removed. In that case, it moves all of the contents of the next lower page into the last page and deletes the next-to-last page. It then fixes up the links.
 
-New invariant checks also validate aspects of the links on pages, so a similar corruption returns a tecINVARIANT_FAILED transaction result. That will prevent this specific type of corruption going forward.
+New invariant checks also validate aspects of the links on pages, so a similar corruption returns a `tecINVARIANT_FAILED` transaction result. That will prevent this specific type of corruption going forward.
