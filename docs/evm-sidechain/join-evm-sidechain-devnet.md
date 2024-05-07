@@ -137,15 +137,17 @@ All these commands create your `~/.exrpd` (i.e `$HOME`) directory with subfol
 ## Join the Proof of Authority with your node
 
 Similar to the XRPL mainnet, the Devnet runs in a Proof of Authority consensus mechanism. In order to start signing for new blocks and participate in the network consensus, 
-the current validators need to accept your node as a new trusted validator. This democratic process, requires the approval of the majority of the current validators.
+the current validators need to accept your node as a new trusted validator. This democratic process requires the approval of the majority of the current validators.
 
-If you would like to be part of the Proof of Authority, you should join the [EVM Sidechain Discord channel](https://discord.gg/xrplevm) and submit your request to the *`#become-a-validator`* channel.
+To begin the process, join the [EVM Sidechain Discord](https://discord.gg/xrplevm) and introduce yourself in the *`#intros`* channel. Explain who you are and why you want to run a validator. Generally, you will be accepted if you have a real interest in the project, either because you want to use the network for a company, are a recognized member of the community who wants to contribute to its long-term governance, or just have an academic interest.
+
+A proposal to accept your validator will be voted on over a period of 2 days. During this time, some members may write to you publicly or privately to ask more questions. You can view the process on the [EVM Sidechain Explorer](https://validators.evm-sidechain.xrpl.org/xrp/proposals).
 
 
 ### Bond the authority points to your validator
 
-**Warning:** Before creating a Devnet validator node, ensure that:
- - The current validators have accepted your node as a new trusted validator through an on-chain governance proposal.
+**Warning:** Before proceeding with this step, ensure that:
+ - The current validators have accepted your node as a new trusted validator. 
  - You're running the node container and your node is fully synced with the network.
 
 Create a Devnet validator node with this command:
