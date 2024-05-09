@@ -4,6 +4,9 @@ opensource:
   - label: Prerelease Docs
     expanded: true  
     pages:
+      - group: Axelar Bridge
+        page: docs/axelar/intro-to-axelar.md
+        expanded: false
       - group: EVM Sidechain
         page: docs/evm-sidechain/intro-to-evm-sidechain.md
         expanded: false
