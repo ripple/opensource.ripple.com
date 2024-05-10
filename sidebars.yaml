@@ -4,6 +4,12 @@ opensource:
   - label: Prerelease Docs
     expanded: true  
     pages:
+      - group: Axelar Bridge
+        page: docs/axelar/intro-to-axelar.md
+        expanded: false
+        pages:
+          - page: docs/axelar/bridge-tokens-axelar.md
+          - page: docs/axelar/call-a-smart-contract-function.md    
       - group: EVM Sidechain
         page: docs/evm-sidechain/intro-to-evm-sidechain.md
         expanded: false
