@@ -15,24 +15,26 @@ This tutorial describes how to transfer tokens between Ethereum `Sepolia` and th
 - [XRPL JS Library](https://js.xrpl.org/)
 
 
-## Steps
+## Bridge ETH
+
+![Bridge ETH](../../images/axelar-bridge-weth.png)
 
 ### Bridge ETH from Ethereum to XRPL
 
 1. Create a trust line on XRPL `testnet` between the Axelar multisig account and the destination account, using the `TrustSet` transaction.
 
-```javascript
-{
-    "TransactionType": "TrustSet",
-    "Account": user.address, // the XRPL address of the ETH transfer recipient
-    "LimitAmount": {
-        "currency": "ETH",
-        "issuer": "rfEf91bLxrTVC76vw1W3Ur8Jk4Lwujskmb",
-        "value": "10000000000",
+    ```javascript
+    {
+        "TransactionType": "TrustSet",
+        "Account": user.address, // the XRPL address of the ETH transfer recipient
+        "LimitAmount": {
+            "currency": "ETH",
+            "issuer": "rfEf91bLxrTVC76vw1W3Ur8Jk4Lwujskmb",
+            "value": "10000000000",
+        },
+        ...
     },
-    ...
-},
-```
+    ```
 
 2. Wrap ETH on Ethereum `Sepolia`. You can do this using the Foundry `cast` command, or directly on Etherscan.
 
@@ -68,82 +70,86 @@ This tutorial describes how to transfer tokens between Ethereum `Sepolia` and th
 5. The destination address should receive the bridged ETH in a few minutes. You can check for a successful transaction on the [XRPL Testnet explorer](https://testnet.xrpl.org/).
 
 
-### Bridge ETH from XRPL to Ethereum
+### Bridge Wrapped ETH from XRPL to Ethereum
 
 1. Deposit ETH into the XRPL multisig account, using a `Payment` transaction.
 
-```javascript
-{
-    TransactionType: "Payment",
-    Account: user.address, // The user initiating the transfer
-    Amount: {
-        currency: "ETH",
-        value: "0.001", // = 10^15 wei - the amount of ETH you want to bridge, in ETH
-        issuer: "rfEf91bLxrTVC76vw1W3Ur8Jk4Lwujskmb",
-    },
-    Destination: "rfEf91bLxrTVC76vw1W3Ur8Jk4Lwujskmb", // Axelar's XRPL multisig account
-    Memos: [
-        {
-            Memo: {
-                MemoData: "605459C28E6bE7B31B8b622FD29C82B3059dB1C6", // your ETH recipient address, without the 0x prefix
-                MemoType: "64657374696E6174696F6E5F61646472657373", // hex("destination_address")
-            },
+    ```javascript
+    {
+        TransactionType: "Payment",
+        Account: user.address, // The user initiating the transfer
+        Amount: {
+            currency: "ETH",
+            value: "0.001", // = 10^15 wei - the amount of ETH you want to bridge, in ETH
+            issuer: "rfEf91bLxrTVC76vw1W3Ur8Jk4Lwujskmb",
         },
-        {
-            Memo: {
-                MemoData: "657468657265756D", // hex("ethereum")
-                MemoType: "64657374696E6174696F6E5F636861696E", // hex("destination_chain")
+        Destination: "rfEf91bLxrTVC76vw1W3Ur8Jk4Lwujskmb", // Axelar's XRPL multisig account
+        Memos: [
+            {
+                Memo: {
+                    MemoData: "605459C28E6bE7B31B8b622FD29C82B3059dB1C6", // your ETH recipient address, without the 0x prefix
+                    MemoType: "64657374696E6174696F6E5F61646472657373", // hex("destination_address")
+                },
             },
-        },
-        {
-            Memo: {
-                MemoData: "0000000000000000000000000000000000000000000000000000000000000000", // bytes32(0) indicates pure token transfer, without GMP
-                MemoType: "7061796C6F61645F68617368", // hex("payload_hash")
+            {
+                Memo: {
+                    MemoData: "657468657265756D", // hex("ethereum")
+                    MemoType: "64657374696E6174696F6E5F636861696E", // hex("destination_chain")
+                },
             },
-        },
-    ],
-    ...
-}
-```
+            {
+                Memo: {
+                    MemoData: "0000000000000000000000000000000000000000000000000000000000000000", // bytes32(0) indicates pure token transfer, without GMP
+                    MemoType: "7061796C6F61645F68617368", // hex("payload_hash")
+                },
+            },
+        ],
+        ...
+    }
+    ```
 
 2. Within a few minutes, the `destination_address` should receive the bridged ETH on Ethereum `Sepolia`, as WETH. You can check for the transaction on the [Ethereum Sepolia explorer](https://sepolia.etherscan.io/).
 
+
+## Bridge XRP
+
+![Bridge ETH](../../images/axelar-bridge-xrp.png)
 
 ### Bridge XRP from XRPL to Ethereum
 
 1. Deposit XRP into the XRPL multisig account, using a `Payment` transaction.
 
-```javascript
-{
-    TransactionType: "Payment",
-    Account: user.address, // The user initiating the transfer
-    Amount: "1000000", // = 1 XRP - the amount of XRP you want to bridge, in drops
-    Destination: "rfEf91bLxrTVC76vw1W3Ur8Jk4Lwujskmb", // Axelar's XRPL multisig account
-    Memos: [
-        {
-            Memo: {
-                MemoData: "605459C28E6bE7B31B8b622FD29C82B3059dB1C6", // your ETH recipient address, without the 0x prefix
-                MemoType: "64657374696E6174696F6E5F61646472657373", // hex("destination_address")
+    ```javascript
+    {
+        TransactionType: "Payment",
+        Account: user.address, // The user initiating the transfer
+        Amount: "1000000", // = 1 XRP - the amount of XRP you want to bridge, in drops
+        Destination: "rfEf91bLxrTVC76vw1W3Ur8Jk4Lwujskmb", // Axelar's XRPL multisig account
+        Memos: [
+            {
+                Memo: {
+                    MemoData: "605459C28E6bE7B31B8b622FD29C82B3059dB1C6", // your ETH recipient address, without the 0x prefix
+                    MemoType: "64657374696E6174696F6E5F61646472657373", // hex("destination_address")
+                },
             },
-        },
-        {
-            Memo: {
-                MemoData: "657468657265756D", // hex("ethereum")
-                MemoType: "64657374696E6174696F6E5F636861696E", // hex("destination_chain")
+            {
+                Memo: {
+                    MemoData: "657468657265756D", // hex("ethereum")
+                    MemoType: "64657374696E6174696F6E5F636861696E", // hex("destination_chain")
+                },
             },
-        },
-        {
-            Memo: {
-                MemoData: "0000000000000000000000000000000000000000000000000000000000000000", // bytes32(0) indicates pure token transfer, without GMP
-                MemoType: "7061796C6F61645F68617368", // hex("payload_hash")
+            {
+                Memo: {
+                    MemoData: "0000000000000000000000000000000000000000000000000000000000000000", // bytes32(0) indicates pure token transfer, without GMP
+                    MemoType: "7061796C6F61645F68617368", // hex("payload_hash")
+                },
             },
-        },
-    ],
-    ...
-}
-```
+        ],
+        ...
+    }
+    ```
 
-2. Within a few minutes, the `destination_address` should receive the bridged XRP on Ethereum Sepolia, as axlXRP. You can check for the transaction on the [Ethereum Sepolia explorer](https://sepolia.etherscan.io/).
+2. Within a few minutes, the `destination_address` should receive the bridged XRP on Ethereum Sepolia, as Axelar-wrapped XRP (axlXRP). You can check for the transaction on the [Ethereum Sepolia explorer](https://sepolia.etherscan.io/).
 
 
 ### Bridge Wrapped XRP (axlXRP) from Ethereum Back to XRPL

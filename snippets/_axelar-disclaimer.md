@@ -1,6 +1,6 @@
 :::attention Attention
 
-Don't use any funds from a `mainnet` wallet to perform the actions in this tutorial. The steps outlined are for a `testnet` deployment, so any funds transferred from `mainnet` may be irrecoverable. Additionally:
+Don't use any funds from a `mainnet` wallet to perform the actions in this tutorial. The steps outlined are for a `testnet` deployment, so any funds transferred from `mainnet` may be lost. Additionally:
 
 - Gas payments aren't currently supported. You don't need to call `AxelarGasService` on Ethereum Sepolia to refund our relayer since it's running "pro bono".
 - The bridge doesn't charge any fees currently.

@@ -1,37 +1,54 @@
-# Axelar Integration
+# Axelar Network
 
-The Axelar-XRPL integration enables messages to pass between the XRPL and other Axelar-supported blockchains. This integration enables the transfer of XRP and XRPL-issued tokens to other chains and back; this also works for briding non-XRPL tokens from their native chains to XRPL.
+The [Axelar network](https://www.axelar.network/) is a Web3 interoperability platform, acting as a bridge between blockchains. The XRPL-Axelar integration enables the transfer of XRP and XRPL-issued tokens to other chains, and the transfer of tokens from other chains (such as ERC-20 tokens) to the XRPL.
 
-In addition to cross-chain features, the Axelar Amplifier network utilizes tickets to enable multiple in-flight transactions to improve throughput.
+At a high level, the bridging process is fairly simple.
 
-At a high-level, there are two main components that enable the Axelar-XRPL integration. On the XRPL-side, a multisig account is created; this account handles all incoming and outgoing transactions to the Axelar network by:
+For outbound transactions _from_ the XRPL:
 
-- Holding and releasing assets as native XRP assets are moved off and on-chain.
-- Issuing and burning wrapped assets as non-native XRP assets are bridged to XRPL.
+| Token Origin | Steps |
+|--------------|-------|
+| Native XRPL-issued tokens. | 1. XRPL locks assets.<br>2. Axelar confirms assets are locked on the XRPL.<br>3. Axelar issues wrapped assets on another chain. |
+| Non-native tokens. | 1. XRPL burns wrapped assets.<br>2. Axelar confirms assets are burned.<br>3. Axelar releases the locked assets on the other chain. |
 
-The multisig account is ultimately controlled by the Axelar Network validators, which serve as signers. The XRPL multisig account signers and their weights are kept in sync with the state of the validators on the Axelar network. The Axelar validators' are responsible for verifying transactions on multiple chains, minting and burning as assets are bridged.
 
-**Note:** Future enhancements are planned, such as General Message Passing (GMP), which would enable transactions on XRPL to trigger smart contract calls on other chains.
+For inbound transactions _to_ the XRPL:
+
+| Token Origin | Steps |
+|--------------|-------|
+| Native XRPL-issued tokens. | 1. Other chain burns the XRPL-issued tokens.<br>2. Axelar confirms assets are burned on the other chain.<br>3. Axelar releases locked assets on the XRPL. |
+| Non-native tokens. | 1. Other chain locks its native tokens.<br>2. Axelar confirms assets are locked.<br>3. Axelar issues wrapped assets on the XRPL. |
+
+To help facilitate bridging throughput, the Axelar network utilizes the [ticketing feature](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/ticket/) on XRPL to enable multiple in-flight transactions.
+
+
+## Security
+
+The XRPL-Axelar integration is secured by a multisig XRPL account owned by Axelar validators. The top 32 validators, ranked by the amount of AXL they stake on the Axelar PoS network, act as signers for the Axelar multisig account. The validators must agree on transaction data before sending sending a transaction across chains.
+
+You can learn more about the security of the Axelar network [here](https://www.axelar.network/blog/security-at-axelar-core).
 
 
 ## Components
 
 ### On-chain:
 
-The [XRPL multi-signing account](https://xrpl.org/docs/tutorials/how-tos/manage-account-settings/set-up-multi-signing) handles bridging by releasing/issuing assets, or issuing/burning assets. On EVM and Cosmos chains, the equivalent is a Gateway smart contract.
+The [XRPL multi-signing account](https://xrpl.org/docs/tutorials/how-tos/manage-account-settings/set-up-multi-signing) handles bridging on the XRPL side by releasing/issuing assets, or locking/burning assets. On EVM and Cosmos chains, the equivalent is a Gateway smart contract.
 
-The Axelar Networks is enabled by four smart contracts:
+The Axelar network is enabled by four smart contracts:
+
 - **Gateway:** A smart contract that handles incoming and outgoing messages for a particular chain.
 - **Voting Verifier:** A smart contract that verifies the authenticity and status of transactions on the XRPL multisig account by counting votes submitted by Axelar validators.
 - **Multisig Prover:** Constructs and serializes XRPL multisig transactions to be transmitted to XRPL. Calls the “Multisig” contract on Axelar to initiate a signing session.
 - **Multisig:** Handles collection of signatures and keeps record of the weight of each signer.
 
 ### Off-chain:
-– **relayer:** A permissionless off-chain process that informs the Axelar network of new transactions to be bridged from a source chain, or submits transactions prepared by the Amplifier network to a destination chain. The relayer consists of these sub-components:
-    - **Event Monitor:** A sub-component of the relayer that monitors events on the XRPL.
-    - **TX Broadcaster:** A sub-component of the relayer that submits serialized and signed transactions to XRPL.
-    – **Axelar Validator:** An off-chain component that votes whether transactions have been included on chain and signs new transactions.
-    - **Message Verifier:** A sub-component of the validator that verifies the inclusion of a transaction on the XRPL multisig account and the status of that transaction.
+
+– **Relayer:** A permissionless off-chain process that informs the Axelar network of new transactions from a source chain. The relayer also submits transactions prepared by the Amplifier network to a destination chain. The relayer consists of these sub-components:
+    - **Event Monitor:** Monitors events on the XRPL.
+    - **TX Broadcaster:** Submits serialized and signed transactions to XRPL.
+    – **Axelar Validator:** Votes if transactions have been included on chain and signs new transactions.
+    - **Message Verifier:** Verifies the inclusion of a transaction on the XRPL multisig account, and the status of that transaction.
 
 
 ## Cross-chain Flows
@@ -47,6 +64,7 @@ The Axelar Networks is enabled by four smart contracts:
 5. The relayer submits the signed transaction to the destination chain.
 6. The destination chain mints/releases assets on the destination chain to the destination address.
 
+
 ### Payments from another source chain to XRPL
 
 1. User transfers tokens to source chain’s Axelar Gateway smart contract, including the XRPL as the destination chain and the XRPL destination account in the contract call.
@@ -61,7 +79,7 @@ The Axelar Networks is enabled by four smart contracts:
 
 ## TicketCreate Flow
 
-As mentioned, tickets are used to enable multiple transactions to be in flight, enabling faster transaction confirmation. The XRPL limits the number of available tickets at any given time to 250. When the amount of tickets available matches a configurable threshold, a new `TicketCreate` transaction must be submitted.
+Tickets are used to enable multiple in-flight transactions and improve throughput. The XRPL limits the number of available tickets at any given time to 250. When the amount of tickets available matches a configurable threshold, a new `TicketCreate` transaction must be submitted.
 
 1. A `Payment` transaction is confirmed to be included in the XRPL by Axelar validators, making the number of available tickets less than the ticket creation threshold.
 2. A relayer requests a `TicketCreate` transaction from the Axelar network.
@@ -76,11 +94,11 @@ As mentioned, tickets are used to enable multiple transactions to be in flight, 
 
 ### Ticketing Logic
 
-A set of XRPL multisig tickets are always available: the tickets that have been created with `TicketCreate` but that are not known to have been consumed by transactions that made it to the XRPL ledger. If the number of available tickets falls below a configurable threshold, a new `TicketCreate` transaction is constructed and broadcasted. New transactions are assigned available tickets until they are all exhausted.
+A set of XRPL multisig tickets are always available: these tickets have been created with `TicketCreate`, but are not confirmed to have been consumed by transactions on the XRPL. If the number of available tickets falls below a configurable threshold, a new `TicketCreate` transaction is constructed and broadcasted. New transactions are assigned available tickets until they are all exhausted.
 
 ![Ticketing Logic 1](../../images/axelar-ticket-1.png)
 
-At that point, ticket assignment will wrap around to the first available tickets (similarl to “round robin” load balancing algorithms), leading to multiple tickets being assigned to the same transaction.
+At this point, ticket assignment will wrap around to the first available tickets (similar to “round robin” load-balancing algorithms), leading to multiple tickets being assigned to the same transaction.
 
 ![Ticketing Logic 2](../../images/axelar-ticket-2.png)
 
@@ -101,3 +119,10 @@ The list of signers and their weights must match the Axelar validators and their
 6. When it is included in the ledger, the relayer asks for the `SignerListSet` transaction to be confirmed on Axelar.
 7. Axelar validators vote on whether the `SignerListSet` transaction has been included in the XRPL.
 8. If verified by validators, the new signer list is used to sign future transactions. Until this step is reached, the previous signer list signs pending transactions.
+
+
+## EVM Sidechain Integration
+
+The Axelar network is also integrated with the [EVM compatible XRPL sidechain](https://opensource.ripple.com/docs/evm-sidechain/intro-to-evm-sidechain/), providing an alternative to the current XLS-38d bridge implementation.
+
+![Axelar Bridging Comparison](../../images/axelar-bridging-comparison.png)
