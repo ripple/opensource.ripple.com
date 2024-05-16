@@ -72,5 +72,5 @@ opensource:
           - group: Transaction Types
             expanded: false
             pages:
-              - page: docs/xls-47d-price-oracles/transaction-types/deleteoracle.md
-              - page: docs/xls-47d-price-oracles/transaction-types/setoracle.md
+              - page: docs/xls-47d-price-oracles/transaction-types/oracledelete.md
+              - page: docs/xls-47d-price-oracles/transaction-types/oracleset.md
