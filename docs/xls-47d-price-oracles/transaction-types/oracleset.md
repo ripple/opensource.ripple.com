@@ -1,13 +1,13 @@
 ---
-html: setoracle.html 
+html: OracleSet.html 
 parent: transaction-types.html
 blurb: Create or update an existing price oracle.
 labels:
   - Oracle
 status: not_enabled
 ---
-# SetOracle
-[[Source]](https://github.com/XRPLF/rippled/blob/bf6f5294a9b83653888600e78da8650896e9d393/src/ripple/app/tx/impl/SetOracle.cpp "Source")
+# OracleSet
+[[Source]](https://github.com/XRPLF/rippled/blob/develop/src/ripple/app/tx/impl/SetOracle.cpp "Source")
 
 <embed src="/snippets/_price-oracles-disclaimer.md" />
 
@@ -20,11 +20,11 @@ The oracle provider must complete these steps before submitting this transaction
 3. Publish a registry of available price oracles with their unique `OracleDocumentID`.
 
 
-## Example SetOracle JSON
+## Example OracleSet JSON
 
 ```json
 {
-  "TransactionType": "SetOracle",
+  "TransactionType": "OracleSet",
   "Account": "rsA2LpzuawewSBQXkiju3YQTMzW13pAAdW",
   "OracleDocumentID": 34,
   "Provider": "70726F7669646572",
@@ -44,7 +44,7 @@ The oracle provider must complete these steps before submitting this transaction
 ```
 
 
-## SetOracle Fields
+## OracleSet Fields
 
 | Field              | JSON Type | Internal Type | Required? | Description |
 |--------------------|-----------|---------------|-----------|-------------|
@@ -83,7 +83,7 @@ The owner reserve requirement is 1 for one to five `PriceData` objects, and 2 fo
 
 ## Error Cases
 
-Besides errors that can occur for all transactions, `SetOracle` transactions can result in the following transaction result codes.
+Besides errors that can occur for all transactions, `OracleSet` transactions can result in the following transaction result codes.
 
 | Error Code                | Description |
 |---------------------------|-------------|
