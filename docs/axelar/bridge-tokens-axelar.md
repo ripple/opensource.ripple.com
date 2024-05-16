@@ -19,7 +19,7 @@ This tutorial describes how to transfer tokens between Ethereum `Sepolia` and th
 
 ![Bridge ETH](../../images/axelar-bridge-weth.png)
 
-### Bridge ETH from Ethereum to XRPL
+### ETH from Ethereum to XRPL
 
 1. Create a trust line on XRPL `testnet` between the Axelar multisig account and the destination account, using the `TrustSet` transaction.
 
@@ -70,7 +70,7 @@ This tutorial describes how to transfer tokens between Ethereum `Sepolia` and th
 5. The destination address should receive the bridged ETH in a few minutes. You can check for a successful transaction on the [XRPL Testnet explorer](https://testnet.xrpl.org/).
 
 
-### Bridge Wrapped ETH from XRPL to Ethereum
+### Wrapped ETH from XRPL to Ethereum
 
 1. Deposit ETH into the XRPL multisig account, using a `Payment` transaction.
 
@@ -115,7 +115,7 @@ This tutorial describes how to transfer tokens between Ethereum `Sepolia` and th
 
 ![Bridge ETH](../../images/axelar-bridge-xrp.png)
 
-### Bridge XRP from XRPL to Ethereum
+### XRP from XRPL to Ethereum
 
 1. Deposit XRP into the XRPL multisig account, using a `Payment` transaction.
 
@@ -152,7 +152,7 @@ This tutorial describes how to transfer tokens between Ethereum `Sepolia` and th
 2. Within a few minutes, the `destination_address` should receive the bridged XRP on Ethereum Sepolia, as Axelar-wrapped XRP (axlXRP). You can check for the transaction on the [Ethereum Sepolia explorer](https://sepolia.etherscan.io/).
 
 
-### Bridge Wrapped XRP (axlXRP) from Ethereum Back to XRPL
+### Wrapped XRP (axlXRP) from Ethereum to XRPL
 
 1. Approve the `AxelarGateway` contract to spend your axlXRP on Ethereum `Sepolia`:
 
