@@ -44,10 +44,10 @@ The Axelar network is enabled by four smart contracts:
 
 ### Off-chain:
 
-– **Relayer:** A permissionless off-chain process that informs the Axelar network of new transactions from a source chain. The relayer also submits transactions prepared by the Amplifier network to a destination chain. The relayer consists of these sub-components:
+- **Relayer:** A permissionless off-chain process that informs the Axelar network of new transactions from a source chain. The relayer also submits transactions prepared by the Amplifier network to a destination chain. The relayer consists of these sub-components:
     - **Event Monitor:** Monitors events on the XRPL.
     - **TX Broadcaster:** Submits serialized and signed transactions to XRPL.
-    – **Axelar Validator:** Votes if transactions have been included on chain and signs new transactions.
+    - **Axelar Validator:** Votes if transactions have been included on chain and signs new transactions.
     - **Message Verifier:** Verifies the inclusion of a transaction on the XRPL multisig account, and the status of that transaction.
 
 
