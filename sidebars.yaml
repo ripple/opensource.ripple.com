@@ -4,64 +4,70 @@ opensource:
   - label: Prerelease Docs
     expanded: true  
     pages:
-      - group: Axelar Bridge
-        page: docs/axelar/intro-to-axelar.md
+      - group: Cross-Chain DApps
+        page: docs/cross-chain-dapps/cross-chain-dapps.md
         expanded: false
-        pages:
-          - page: docs/axelar/bridge-tokens-axelar.md
-          - page: docs/axelar/call-a-smart-contract-function.md    
-      - group: EVM Sidechain
-        page: docs/evm-sidechain/intro-to-evm-sidechain.md
-        expanded: false
-        pages:
-          - page: docs/evm-sidechain/get-started-evm-sidechain.md
-          - page: docs/evm-sidechain/connect-metamask-to-xrpl-evm-sidechain.md
-          - group: Run a Validator
+        pages:          
+          - group: Axelar Bridge
+            page: docs/axelar/intro-to-axelar.md
             expanded: false
             pages:
-              - page: docs/evm-sidechain/join-evm-sidechain-devnet.md 
-              - page: docs/evm-sidechain/manage-the-validator-node.md
-              - page: docs/evm-sidechain/evm-sidechain-validator-security.md
-          - group: Bridges
-            page: docs/evm-sidechain/bridges-intro.md
+              - page: docs/axelar/bridge-tokens-axelar.md
+              - page: docs/axelar/call-a-smart-contract-function.md    
+          - group: EVM Sidechain
+            page: docs/evm-sidechain/intro-to-evm-sidechain.md
             expanded: false
             pages:
-              - page: docs/evm-sidechain/deploy-a-bridge.md
-              - group: Bridge Doors
-                page: docs/evm-sidechain/bridge-doors.md
+              - page: docs/evm-sidechain/get-started-evm-sidechain.md
+              - page: docs/evm-sidechain/connect-metamask-to-xrpl-evm-sidechain.md
+              - group: Run a Validator
                 expanded: false
                 pages:
-                  - page: docs/evm-sidechain/bridge-door-interface.md
-                  - page: docs/evm-sidechain/bridge-door-safety-mechanisms.md
-              - group: Witness Servers
-                page: docs/evm-sidechain/witness-servers.md
+                  - page: docs/evm-sidechain/join-evm-sidechain-devnet.md 
+                  - page: docs/evm-sidechain/manage-the-validator-node.md
+                  - page: docs/evm-sidechain/evm-sidechain-validator-security.md
+              - group: Bridges
+                page: docs/evm-sidechain/bridges-intro.md
                 expanded: false
                 pages:
-                  - page: docs/evm-sidechain/witness-server-configuration.md
-                  - page: docs/evm-sidechain/build-and-run-witness-servers.md
-              - group: Bridge Client
-                page: docs/evm-sidechain/bridge-client.md
+                  - page: docs/evm-sidechain/deploy-a-bridge.md
+                  - group: Bridge Doors
+                    page: docs/evm-sidechain/bridge-doors.md
+                    expanded: false
+                    pages:
+                      - page: docs/evm-sidechain/bridge-door-interface.md
+                      - page: docs/evm-sidechain/bridge-door-safety-mechanisms.md
+                  - group: Witness Servers
+                    page: docs/evm-sidechain/witness-servers.md
+                    expanded: false
+                    pages:
+                      - page: docs/evm-sidechain/witness-server-configuration.md
+                      - page: docs/evm-sidechain/build-and-run-witness-servers.md
+                  - group: Bridge Client
+                    page: docs/evm-sidechain/bridge-client.md
+                    expanded: false
+                    pages:
+                      - page: docs/evm-sidechain/configure-the-bridge-client.md
+                      - page: docs/evm-sidechain/start-the-bridge-client.md            
+              - group: EVM CLI
+                page: docs/evm-sidechain/evm-cli.md
                 expanded: false
-                pages:
-                  - page: docs/evm-sidechain/configure-the-bridge-client.md
-                  - page: docs/evm-sidechain/start-the-bridge-client.md            
-          - group: EVM CLI
-            page: docs/evm-sidechain/evm-cli.md
-            expanded: false
-            pages:              
-              - group: Blockchain Commands
-                expanded: false
-                pages:
-                  - page: docs/evm-sidechain/set-up-an-evm-sidechain.md
-                  - page: docs/evm-sidechain/stress-test-the-evm-sidechain.md
-              - group: Bridge Commands
-                expanded: false
-                pages:
-                  - page: docs/evm-sidechain/create-a-bridge.md
-                  - page: docs/evm-sidechain/execute-bridge-operations.md
-                  - page: docs/evm-sidechain/stress-test-the-bridge.md
-              - page: docs/evm-sidechain/bootstrap-a-local-environment.md
-          - page: docs/evm-sidechain/xrpl-evm-sidechain-faq.md
+                pages:              
+                  - group: Blockchain Commands
+                    expanded: false
+                    pages:
+                      - page: docs/evm-sidechain/set-up-an-evm-sidechain.md
+                      - page: docs/evm-sidechain/stress-test-the-evm-sidechain.md
+                  - group: Bridge Commands
+                    expanded: false
+                    pages:
+                      - page: docs/evm-sidechain/create-a-bridge.md
+                      - page: docs/evm-sidechain/execute-bridge-operations.md
+                      - page: docs/evm-sidechain/stress-test-the-bridge.md
+                  - page: docs/evm-sidechain/bootstrap-a-local-environment.md
+              - page: docs/evm-sidechain/xrpl-evm-sidechain-faq.md
+          - label: Cross-Chain Bridges
+            href: https://xrpl.org/docs/concepts/xrpl-sidechains/cross-chain-bridges/
       - group: Price Oracles
         page: docs/xls-47d-price-oracles/price-oracles.md
         expanded: false
