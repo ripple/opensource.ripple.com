@@ -1,5 +1,7 @@
 # Cross-Chain DApps on XRPL
 
+XRPL cross-chain dApps blend XRPL features with EVM smart contracts. Connected via the Axelar network, they open up new use cases that a single chain can't provide.
+
 The Web3 landscape and dApp development is increasingly becoming cross-chain. With the rise of various blockchain technologies, developers need access to multiple chains to leverage their strengths. This is where interoperability infrastructure plays a key role, connecting blockchains and enabling developers to work across them.
 
 On its own, the XRP Ledger boasts great features, such as:
