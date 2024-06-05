@@ -119,10 +119,3 @@ The list of signers and their weights must match the Axelar validators and their
 6. When it is included in the ledger, the relayer asks for the `SignerListSet` transaction to be confirmed on Axelar.
 7. Axelar validators vote on whether the `SignerListSet` transaction has been included in the XRPL.
 8. If verified by validators, the new signer list is used to sign future transactions. Until this step is reached, the previous signer list signs pending transactions.
-
-
-## EVM Sidechain Integration
-
-The Axelar network is also integrated with the [EVM compatible XRPL sidechain](https://opensource.ripple.com/docs/evm-sidechain/intro-to-evm-sidechain/), providing an alternative to the current XLS-38d bridge implementation.
-
-![Axelar Bridging Comparison](../../images/axelar-bridging-comparison.png)

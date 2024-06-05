@@ -4,12 +4,19 @@ opensource:
   - label: Prerelease Docs
     expanded: true  
     pages:
-      - group: Axelar Bridge
-        page: docs/axelar/intro-to-axelar.md
+      - group: Cross-Chain DApps
+        page: docs/cross-chain-dapps/cross-chain-dapps.md
         expanded: false
         pages:
-          - page: docs/axelar/bridge-tokens-axelar.md
-          - page: docs/axelar/call-a-smart-contract-function.md    
+          - page: docs/cross-chain-dapps/cross-chain-faqs.md          
+          - group: Axelar Bridge
+            page: docs/axelar/intro-to-axelar.md
+            expanded: false
+            pages:
+              - page: docs/axelar/bridge-tokens-axelar.md
+              - page: docs/axelar/call-a-smart-contract-function.md    
+          - label: Cross-Chain Bridges
+            href: https://xrpl.org/docs/concepts/xrpl-sidechains/cross-chain-bridges/
       - group: EVM Sidechain
         page: docs/evm-sidechain/intro-to-evm-sidechain.md
         expanded: false
