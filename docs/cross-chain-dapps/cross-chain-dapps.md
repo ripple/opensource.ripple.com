@@ -1,6 +1,6 @@
 # Cross-Chain DApps on XRPL
 
-XRPL cross-chain dApps blend XRPL features with EVM smart contracts. Connected via the Axelar network, they open up new use cases that a single chain can't provide.
+XRPL cross-chain dApps combine XRPL features with EVM smart contracts by running on both the XRP Ledger and EVM sidechain. The DApps communicate by using the Axelar network as a bridge. Cross-chain dApps allow for new use cases that a single chain can't offer.
 
 The Web3 landscape and dApp development is increasingly becoming cross-chain. With the rise of various blockchain technologies, developers need access to multiple chains to leverage their strengths. This is where interoperability infrastructure plays a key role, connecting blockchains and enabling developers to work across them.
 
@@ -19,8 +19,6 @@ The XRP Ledger doesn't support general purpose smart contracts, but the [EVM com
 
 1. Directly execute smart contracts on the EVM sidechain, and bridge assets through the XRPL bridge when necessary. See: [Get Started with the EVM Sidechain](../evm-sidechain/get-started-evm-sidechain.md)
 2. Use the Axelar network's GMP functionality to execute a smart contract directly from  the XRPL. See: [Call a Smart Contract Function](../axelar/call-a-smart-contract-function.md)
-
-![Axelar Bridging Comparison](../../images/axelar-bridge-diagram.png)
 
 
 ## Liquidity Access
