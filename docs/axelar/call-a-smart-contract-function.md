@@ -69,7 +69,7 @@ This example calls the `ExecutableSample` contract from XRPL to update its `mess
         const paymentTx: xrpl.Transaction = {
             TransactionType: "Payment",
             Account: user.address,
-            Amount: xrpl.xrpToDrops(1),
+            Amount: "1",
             Destination: "rfEf91bLxrTVC76vw1W3Ur8Jk4Lwujskmb",
             SigningPubKey: "",
             Flags: 0,
