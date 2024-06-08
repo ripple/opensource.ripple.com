@@ -8,11 +8,11 @@ This tutorial describes how to transfer tokens between Ethereum `Sepolia` and th
 ## Prerequisites
 
 - [Foundry](https://book.getfoundry.sh/getting-started/installation)
+- [XRPL.js Library](https://js.xrpl.org/)
 - An RPC provider, such as Alchemy or Infura, with the `SEPOLIA_RPC_URL` environment variable set to a working `Sepolia` RPC URL.
 - Funded wallets on both chains.
   - **ETH Sepolia Faucet:** [alchemy.com/faucets/ethereum-sepolia](https://www.alchemy.com/faucets/ethereum-sepolia)
   - **XRPL Testnet Faucet:** [faucet.tequ.dev](https://faucet.tequ.dev/)
-- [XRPL JS Library](https://js.xrpl.org/)
 
 
 ## Bridge ETH
