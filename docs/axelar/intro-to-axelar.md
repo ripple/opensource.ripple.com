@@ -1,6 +1,6 @@
 # Axelar Network
 
-The [Axelar network](https://www.axelar.network/) is a Web3 interoperability platform, acting as a bridge between blockchains. The XRPL-Axelar integration enables the transfer of XRP and XRPL-issued tokens to other chains, and the transfer of tokens from other chains (such as ERC-20 tokens) to the XRPL.
+The [Axelar network](https://www.axelar.network/) is a Web3 interoperability platform, acting as a bridge between blockchains. The XRPL-Axelar integration enables the transfer of XRP and XRPL-issued tokens to other chains, and the transfer of tokens from other chains (such as ERC-20 tokens) to the XRPL. The integration additionally enables performing [general message passing (GMP) calls](https://www.axelar.network/blog/general-message-passing-and-how-can-it-change-web3) *from* the XRPL, i.e., calling smart contracts that live on Axelar-supported chains from XRPL.
 
 At a high level, the bridging process is fairly simple.
 
