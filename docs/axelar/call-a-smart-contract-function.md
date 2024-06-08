@@ -41,14 +41,14 @@ This tutorial describes how to call a function from a smart contract on Ethereum
     AXELAR_EXECUTABLE= # your `AxelarExecutable` contract
     COMMAND_ID= # the `commandId` that was emitted in the `ContractCallApproved` event
     SOURCE_ADDRESS= # the XRPL address that performed the `Payment` deposit transaction
-    PAYLOAD= # abi.encode(['string', 'uint256', 'bytes'], [symbol, amount, gmpPayload])
+    PAYLOAD= # abi.encode(['string', 'uint256', 'bytes'], [denom, amount, gmpPayload]) # `denom` is `uxrp` for XRP and `uweth` for WETH
     cast send $AXELAR_EXECUTABLE 'function execute(bytes32 commandId, string calldata sourceChain, string calldata sourceAddress, bytes calldata payload)' $COMMAND_ID xrpl $SOURCE_ADDRESS $PAYLOAD --private-key $PRIVATE_KEY --rpc-url $SEPOLIA_RPC_URL
     ```
 
 
 ## Example GMP Call
 
-We have created and [deployed to Ethereum Sepolia](https://sepolia.etherscan.io/address/0x189C2572063f25FEf5Cdd3516DDDd9fA6e9CB187) an example `AxelarExecutable` contract called [`ExecutableSample`](https://github.com/commonprefix/axelar-xrpl-solidity/blob/main/src/executable/examples/ExecutableSample.sol).
+We have created and [deployed to Ethereum Sepolia](https://sepolia.etherscan.io/address/0x143669292488bd98a0F14F1c73829572f2c25773) an example `AxelarExecutable` contract called [`ExecutableSample`](https://github.com/commonprefix/axelar-xrpl-solidity/blob/main/src/executable/examples/ExecutableSample.sol).
 
 This example calls the `ExecutableSample` contract from XRPL to update its `message` state variable to `Just transferred XRP to Ethereum!`.
 
@@ -77,7 +77,7 @@ This example calls the `ExecutableSample` contract from XRPL to update its `mess
             Memos: [
                 {
                     Memo: {
-                        MemoData: "189C2572063f25FEf5Cdd3516DDDd9fA6e9CB187", // the `ExecutableSample` contract
+                        MemoData: "143669292488bd98a0F14F1c73829572f2c25773", // the `ExecutableSample` contract
                         MemoType: Buffer.from("destination_address").toString('hex').toUpperCase(),
                     },
                 },
@@ -89,7 +89,7 @@ This example calls the `ExecutableSample` contract from XRPL to update its `mess
                 },
                 {
                     Memo: {
-                        MemoData: "df031b281246235d0e8c8254cd731ed95d2caf4db4da67f41a71567664a1fae8", // keccak256(abi.encode(gmpPayload))
+                        MemoData: "df031b281246235d0e8c8254cd731ed95d2caf4db4da67f41a71567664a1fae8", // keccak256(abi.encode(gmpPayload)), in this example, keccak256(abi.encode(['string'], ['Just transferred XRP to Ethereum!']))
                         MemoType: Buffer.from("payload_hash").toString('hex').toUpperCase(),
                     },
                 },
@@ -110,17 +110,17 @@ This example calls the `ExecutableSample` contract from XRPL to update its `mess
 3. Call the `ExecutableSample.execute()`.
 
     ```sh
-    AXELAR_EXECUTABLE=0x189C2572063f25FEf5Cdd3516DDDd9fA6e9CB187
+    AXELAR_EXECUTABLE=0x143669292488bd98a0F14F1c73829572f2c25773
     COMMAND_ID= # the `commandId` that was emitted in the `ContractCallApproved` event
     SOURCE_ADDRESS= # the XRPL address of the `user` who performed the `Payment` deposit transaction
-    PAYLOAD=000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000f424000000000000000000000000000000000000000000000000000000000000000a0000000000000000000000000000000000000000000000000000000000000000661786c58525000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000214a757374207472616e736665727265642058525020746f20457468657265756d2100000000000000000000000000000000000000000000000000000000000000 # encode(['string', 'uint256', 'bytes'], [symbol, amount, encode(['string'], ['Just transferred XRP to Ethereum!'])])
+    PAYLOAD=000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000f424000000000000000000000000000000000000000000000000000000000000000a0000000000000000000000000000000000000000000000000000000000000000661786c58525000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000214a757374207472616e736665727265642058525020746f20457468657265756d2100000000000000000000000000000000000000000000000000000000000000 # encode(['string', 'uint256', 'bytes'], [denom, amount, encode(['string'], ['Just transferred XRP to Ethereum!'])]) # `denom` is `uxrp` for XRP and `uweth` for WETH
     cast send $AXELAR_EXECUTABLE 'function execute(bytes32 commandId, string calldata sourceChain, string calldata sourceAddress, bytes calldata payload)' $COMMAND_ID xrpl $SOURCE_ADDRESS $PAYLOAD --private-key $PRIVATE_KEY --rpc-url $SEPOLIA_RPC_URL
     ```
 
 4. `AxelarExecutable.message` should now be set to `'Just transferred XRP to Ethereum!'`.
 
     ```sh
-    AXELAR_EXECUTABLE=0x189C2572063f25FEf5Cdd3516DDDd9fA6e9CB187
+    AXELAR_EXECUTABLE=0x143669292488bd98a0F14F1c73829572f2c25773
     cast call $AXELAR_EXECUTABLE 'message()(string)' --rpc-url $SEPOLIA_RPC_URL
     # Just transferred XRP to Ethereum!
     ```
