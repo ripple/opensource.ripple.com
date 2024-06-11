@@ -68,9 +68,9 @@ The Axelar network is enabled by four smart contracts:
 ### Payments from another source chain to XRPL
 
 1. User transfers tokens to source chain’s Axelar Gateway smart contract, including the XRPL as the destination chain and the XRPL destination account in the contract call.
-2. relayer submits the transaction to the Axelar network.
+2. The relayer submits the transaction to the Axelar network.
 3. Axelar validators vote that the transaction is finalized on the source chain.
-4. The transaction is assigned an XRPL multisig ticket number, enabling multiple in-flight transactions. See: Ticket Assignment Logic.
+4. The transaction is assigned an XRPL multisig ticket number, enabling multiple in-flight transactions. See: [Ticket Assignment Logic](#ticketing-logic).
 5. The transaction is serialized in the native XRPL binary format.
 6. Axelar validators sign the serialized transaction.
 7. The relayer submits the signed and serialized transaction to XRPL.
@@ -109,9 +109,9 @@ Only one of the transactions with the same ticket number will ultimately be incl
 
 ## SignerListSet Flow
 
-The list of signers and their weights must match the Axelar validators and their stake. Periodically, or when weights change significantly, the XRPL multisig’s signer list must be updated to match the Axelar validator's latest stake. Updating the XRPL multisig siger list goes as follows:
+The list of signers and their weights must match the Axelar validators and their stake. Periodically, or when weights change significantly, the XRPL multisig’s signer list must be updated to match the Axelar validator's latest stake. Updating the XRPL multisig signer list goes as follows:
 
-1. Axelar validators or their stake changes.
+1. The set of Axelar validators or their stake changes.
 2. A relayer requests a `SignerListSet` transaction from the Axelar network.
 3. An XRPL `SignerListSet` transaction is constructed and serialized.
 4. Axelar validators sign the `SignerListSet` transaction.
