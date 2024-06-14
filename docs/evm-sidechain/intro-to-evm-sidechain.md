@@ -6,7 +6,7 @@ labels:
   - Interoperability
 status: not_enabled
 ---
-# Introduction to EVM Compatible XRP Ledger Sidechain
+# Introduction to XRPL EVM Sidechain
 
 <embed src="/snippets/_evm-sidechain-disclaimer.md" />
 

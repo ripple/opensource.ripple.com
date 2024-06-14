@@ -6,7 +6,7 @@ labels:
   - Development, Interoperability
 status: not_enabled
 ---
-# EVM Sidechain Validator Security
+# XRPL EVM Sidechain Validator Security
 
 <embed src="/snippets/_evm-sidechain-disclaimer.md" />
 

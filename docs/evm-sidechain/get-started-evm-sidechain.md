@@ -6,7 +6,7 @@ labels:
   - Development, Interoperability
 status: not_enabled
 ---
-# Get Started with the EVM Sidechain
+# Get Started with the XRPL EVM Sidechain
 
 <embed src="/snippets/_evm-sidechain-disclaimer.md" />
 

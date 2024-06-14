@@ -6,7 +6,7 @@ labels:
   - Development, Interoperability
 status: not_enabled
 ---
-# Join the XRP Ledger EVM Sidechain Devnet
+# Join the XRPL EVM Sidechain Devnet
 
 <embed src="/snippets/_evm-sidechain-disclaimer.md" />
 

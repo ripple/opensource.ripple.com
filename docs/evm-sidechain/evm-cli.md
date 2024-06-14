@@ -6,7 +6,7 @@ labels:
   - Development, Interoperability
 status: not_enabled
 ---
-# EVM CLI
+# XRPL EVM CLI
 
 <embed src="/snippets/_evm-sidechain-disclaimer.md" />
 
