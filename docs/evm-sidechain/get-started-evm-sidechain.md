@@ -15,7 +15,7 @@ This getting started tutorial walks you through the steps to set up your account
 ## 1. Create an Account Using an EVM Compatible Wallet
 <!-- STYLE_OVERRIDE: wallet -->
 
-In order to interact with the network, you need to create an account in the EVM sidechain. To create and manage this account you can use any EVM compatible wallet such as MetaMask.
+In order to interact with the network, you need to create an account in the XRPL EVM sidechain. To create and manage this account you can use any EVM compatible wallet such as MetaMask.
 
 For instructions on how to install and create an account using MetaMask, see [Connect MetaMask to XRP Ledger EVM Sidechain](connect-metamask-to-xrpl-evm-sidechain.md).
 
@@ -29,7 +29,7 @@ The EVM Sidechain bridge is a tool that enables transactions between chains in a
 
 ### 1. Select the networks
 
-To start the transaction, you need to select the networks you want to interact with. The EVM Sidechain bridge currently supports transactions between the XRP Ledger Devnet and the EVM Sidechain.
+To start the transaction, you need to select the networks you want to interact with. The EVM Sidechain bridge currently supports transactions between the XRP Ledger Devnet and the XRPL EVM Sidechain.
 
 ![Select Network](../img/evm-sidechain-select-network.png '#width=720px;')
 

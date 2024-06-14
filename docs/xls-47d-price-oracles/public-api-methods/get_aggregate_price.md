@@ -99,7 +99,7 @@ An example of the response format:
 | `entire_set.standard_deviation` | String | The standard deviation. |
 | `trimmed_set` | Object | The trimmed statistics from the collected oracle prices. Only appears if the `trim` field was specified in the request. |
 | `trimmed_set.mean` | String | The simple mean of the trimmed data. |
-| `trimmed_set.size` | Number | The size of the data to calculat the trimmed mean. |
+| `trimmed_set.size` | Number | The size of the data to calculate the trimmed mean. |
 | `trimmed_set.standard_deviation` | String | The standard deviation of the trimmed data. |
 | `time` | Number | The most recent timestamp out of all `LastUpdateTime` values. |
 
