@@ -17,7 +17,7 @@ opensource:
               - page: docs/axelar/call-a-smart-contract-function.md    
           - label: Cross-Chain Bridges
             href: https://xrpl.org/docs/concepts/xrpl-sidechains/cross-chain-bridges/
-      - group: EVM Sidechain
+      - group: XRPL EVM Sidechain
         page: docs/evm-sidechain/intro-to-evm-sidechain.md
         expanded: false
         pages:
@@ -52,7 +52,7 @@ opensource:
                 pages:
                   - page: docs/evm-sidechain/configure-the-bridge-client.md
                   - page: docs/evm-sidechain/start-the-bridge-client.md            
-          - group: EVM CLI
+          - group: XRPL EVM CLI
             page: docs/evm-sidechain/evm-cli.md
             expanded: false
             pages:              

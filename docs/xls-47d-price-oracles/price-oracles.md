@@ -13,7 +13,7 @@ Blockchains can't inherintly interact with and "know" what's happening off the n
 
 Price oracles solve this problem. An oracle is a service or technology that gathers real-world information, such as market prices, exchange rates, or interest rates, and relays it to the blockchain. Like blockchains, most oracles are also decentralized and validate data through multiple nodes.
 
-**Note:** Oracles aren't limited to only providing financial information. It can provide anything, such as what sports team won a game, or even the weather. Price oracles on the XRP Ledger currencly focus on pricing assets.
+**Note:** Oracles aren't limited to only providing financial information. It can provide anything, such as what sports team won a game, or even the weather. Price oracles on the XRP Ledger currently focus on pricing assets.
 
 
 ## How It Works

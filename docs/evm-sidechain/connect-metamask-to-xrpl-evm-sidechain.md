@@ -6,7 +6,7 @@ labels:
   - Development, Interoperability
 status: not_enabled
 ---
-# Connect MetaMask to XRP Ledger Sidechain
+# Connect MetaMask to the XRPL EVM Sidechain
 
 <embed src="/snippets/_evm-sidechain-disclaimer.md" />
 

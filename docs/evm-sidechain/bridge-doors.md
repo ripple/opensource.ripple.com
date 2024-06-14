@@ -9,7 +9,7 @@ status: not_enabled
 
 <embed src="/snippets/_evm-sidechain-disclaimer.md" />
 
-Bridge doors on the EVM sidechain are _Solidity_ smart contracts that have the logic to execute all transactions introduced by XLS-38d.
+Bridge doors on the XRPL EVM sidechain are _Solidity_ smart contracts that have the logic to execute all transactions introduced by XLS-38d.
 
 The bridge doors don't hold any assets, instead sending them to a Gnosis Safe multisig account.
 

@@ -17,7 +17,7 @@ To learn more about the consensus process and the workflow for features to go fr
 - [Documentation](https://pypi.org/project/claudia/)
 
 
-### EVM Sidechain
+### XRPL EVM Sidechain
 
 - [Documentation](evm-sidechain/intro-to-evm-sidechain.md)
 
