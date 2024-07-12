@@ -39,7 +39,7 @@ The request contains the following parameters:
 |-----------------------------|--------|-----------|-------------|
 | `oracle`                    | Object | Yes       | The oracle identifier. |
 | `oracle.account`            | String | Yes       | The XRPL account that controls the `Oracle` object. |
-| `oracle.oracle_document_id` | Number | Yes       | A unique identifier of the price oracle for the `Account` |
+| `oracle.oracle_document_id` | Number | Yes       | A unique identifier of the price oracle for the `Account`. The Oracle Document ID is maintained by the Oracle Provider. |
 
 
 ## Response Format
@@ -84,7 +84,7 @@ The response follows the [standard format](https://xrpl.org/response-formatting.
 
 | Field               | Type   | Description |
 |---------------------|--------|-------------|
-| `LastUpdateTime`    | Number | The time the data was last updated, represented in the [ripple epoch time](https://xrpl.org/basic-data-types.html#specifying-time). |
+| `LastUpdateTime`    | Number | The time the data was last updated, represented in Unix time. |
 | `Owner`             | String | The XRPL account with update and delete privileges for the oracle. |
 | `AssetClass`        | String | Describes the type of asset, such as "currency", "commodity", or "index". |
 | `Provider`          | String | The oracle provider, such as Chainlink, Band, or DIA. |
@@ -101,5 +101,7 @@ The response follows the [standard format](https://xrpl.org/response-formatting.
 | `BaseAsset.currency`  | String | The base asset currency code, conformant to the XRPL [currency codes](https://xrpl.org/currency-formats.html#standard-currency-codes) format. |
 | `QuoteAsset`          | Object | The quote asset in a trading pair. The quote asset denotes the price of one unit of the base asset. |
 | `QuoteAsset.currency` | String | The quote asset currency code, conformant to the XRPL [currency codes](https://xrpl.org/currency-formats.html#standard-currency-codes) format. |
-| `AssetPrice`          | String | The asset price after applying the `Scale` precision level. |
-| `Scale`               | Number | The scaling factor to apply to an asset price. For example, if `Scale` is 6 and original price is 0.155, then the scaled price is 155000. |
+| `AssetPrice`          | String | The asset price after applying the `Scale` precision level. This field isn't included if the last update transaction didn't include the `BaseAsset`/`QuoteAsset` pair. |
+| `Scale`               | Number | The scaling factor to apply to an asset price. For example, if `Scale` is 6 and original price is 0.155, then the scaled price is 155000. This field isn't included if the last update transaction didn't include the `BaseAsset`/`QuoteAsset` pair. |
+
+**Note:** Token pairs that appear without `AssetPrice` and `Scale` signify the price is outdated.
