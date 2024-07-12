@@ -61,7 +61,7 @@ The request contains the following parameters:
 | `base_asset`                 | String | Yes       | The currency code of the asset to be priced. |
 | `quote_asset`                | String | Yes       | The currency code of the asset to quote the price of the base asset. |
 | `trim`                       | Number | No        | The percentage of outliers to trim. Valid trim range is 1-25. If included, the API returns statistics for the `trimmed mean`. |
-| `trim_threshold`             | Number | No        | Defines a time range in seconds for filtering out older price data. Default value is 0, which doesn't filter any data. |
+| `time_threshold`             | Number | No        | Defines a time range in seconds for filtering out older price data. Default value is 0, which doesn't filter any data. |
 | `oracles`                    | Array  | Yes       | The oracle identifier. |
 | `oracles.account`            | String | Yes       | The XRPL account that controls the `Oracle` object. |
 | `oracles.oracle_document_id` | Number | Yes       | A unique identifier of the price oracle for the `Account` |
