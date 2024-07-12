@@ -68,8 +68,8 @@ The oracle provider must complete these steps before submitting this transaction
 
 `PriceData` objects in the `PriceDataSeries` array are created, updated, or deleted following these rules:
 
-- **Create**: Add a `PriceData` token pair that doesn't exist in the data series.
-- **Update**: Include all the fields in a `PriceData` object to update any existing token pairs.
+- **Create**: Add a `PriceData` token pair that doesn't exist in the `PriceDataSeries` array.
+- **Update**: Include all the fields in a `PriceData` object to update an existing token pair.
 - **Delete**: Remove the `AssetPrice` field from a `PriceData` object to completely remove it from the data series.
 
 **Note:** The order of token pairs in the transaction aren't important because each token pair uniquely identifies the location of the `PriceData` object in the `PriceDataSeries`.
