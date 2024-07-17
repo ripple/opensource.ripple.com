@@ -26,7 +26,7 @@ Example MPTokenIssuanceCreate transaction
   "Account": "rajgkBmMxmz161r8bWYH7CQAFZP5bA9oSG",
   "AssetScale": "2",
   "TransferFee": 314,
-  "MaxAmount": "50000000",
+  "MaximumAmount": "50000000",
   "Flags": 83659,
   "MPTokenMetadata": "FOO",
   "Fee": 10
