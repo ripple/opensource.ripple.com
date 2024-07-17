@@ -81,9 +81,7 @@ opensource:
               - group: Requests
                 expanded: false
                 pages:
-                  - page: docs/xls-33d-multi-purpose-tokens/reference/account_mpts.md
                   - page: docs/xls-33d-multi-purpose-tokens/reference/mpt_holders.md
-                  - page: docs/xls-33d-multi-purpose-tokens/reference/mpts_by_issuer.md
                   - page: docs/xls-33d-multi-purpose-tokens/reference/ledger-entry.md
       - group: Price Oracles
         page: docs/xls-47d-price-oracles/price-oracles.md
@@ -101,7 +99,7 @@ opensource:
           - group: Transaction Types
             expanded: false
             pages:
-              - page: docs/xls-47d-price-oracles/transaction-types/deleteoracle.md
-              - page: docs/xls-47d-price-oracles/transaction-types/setoracle.md
+              - page: docs/xls-47d-price-oracles/transaction-types/oracledelete.md
+              - page: docs/xls-47d-price-oracles/transaction-types/oracleset.md
 
 
