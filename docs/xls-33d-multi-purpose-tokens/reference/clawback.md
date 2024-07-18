@@ -43,11 +43,11 @@ To claw back funds from an MPT holder, the issuer must have specified that the M
 
 ## Error Cases
 
-Besides errors that can occur for all transactions, {{currentpage.name}} transactions can result in the following [transaction result codes](transaction-results.html):
+Besides errors that can occur for all transactions, {{currentpage.name}} transactions can result in the following transaction result codes: <!--[transaction result codes](transaction-results.html):-->
 
 | Error Code | Description |
 |:-----------|:------------|
-| `temDISABLED` | Occurs if the [Clawback amendment](known-amendments.html#clawback) is not enabled. |
+| `temDISABLED` | Occurs if the <!--[Clawback amendment](known-amendments.html#clawback)--> Clawback amendment is not enabled. |
 | `temBAD_AMOUNT` | Occurs if the holder's balance is 0. It is not an error if the amount exceeds the holder's balance; in that case, the maximum available balance is clawed back. Also occurs if the counterparty listed in `Amount` is the same as the `Account` issuing this transaction. |
 | `tecNO_LINE` | Occurs there is no trust line with the counterparty or that trust line's balance is 0. |
 | `tecNO_PERMISSION` | Occurs if you attempt to set `lsfAllowTrustlineClawback` while `lsfNoFreeze` is set. Also occurs, conversely, if you try to set `lsfNoFreeze` while `lsfAllowTrustLineClawback` is set. |
