@@ -9,11 +9,11 @@ labels:
 # MPTokenIssuanceCreate
 [[Source]](https://github.com/XRPLF/rippled/blob/master/src/ripple/app/tx/impl/MPTokenIssuanceCreate.cpp "Source")
 
-The `MPTokenIssuanceCreate` transaction creates an [MPTokenIssuance](mptokenissuance.html) object and adds it to the relevant directory node of the creator account. This transaction is the only opportunity an issuer has to specify any token fields that are defined as immutable (for example, MPT Flags).
+The `MPTokenIssuanceCreate` transaction creates an MPTokenIssuance <!--[MPTokenIssuance](mptokenissuance.html)--> object and adds it to the relevant directory node of the creator account. This transaction is the only opportunity an issuer has to specify any token fields that are defined as immutable (for example, MPT Flags).
 
 If the transaction is successful, the newly created token is owned by the account (the creator account) that executed the transaction.
 
-Whenever your query returns an `MTPTokenIssuance` transaction response, there will always be an `mpt_issuance_id` field on the Transaction Metadata page.
+Whenever your query returns an `MPTokenIssuance` transaction response, there will always be an `mpt_issuance_id` field on the Transaction Metadata page.
 
 ## Example {{currentpage.name}} JSON
 
@@ -48,7 +48,7 @@ Example MPTokenIssuanceCreate transaction
 
 ## MPTokenIssuanceCreate Flags
 
-Transactions of the MPTokenIssuanceCreate type support additional values in the [`Flags` field](transaction-common-fields.html#flags-field), as follows:
+Transactions of the MPTokenIssuanceCreate type support additional values in the `Flags` field<!-- [`Flags` field](transaction-common-fields.html#flags-field)-->, as follows:
 
 | Flag Name          | Hex Value    | Decimal Value | Description                   |
 |:-------------------|:-------------|:--------------|:------------------------------|
