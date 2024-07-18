@@ -23,13 +23,13 @@ These specialized door accounts don't exist natively on EVM compatible blockchai
 Before creating a bridge, you must create a Gnosis Safe account with a list of owners and a quorum threshold. You can then use the Gnosis account as a door account to manage assets, signers, and quorum.
 
 **Notes:**
-    - The EVM sidechain offers a custom implementation of the Gnosis Safe management service. See: [https://safe-evm-poa-sidechain.peersyst.tech/](https://safe-evm-poa-sidechain.peersyst.tech/)
+    - The XRPL EVM sidechain offers a custom implementation of the Gnosis Safe management service. See: [https://safe-evm-poa-sidechain.peersyst.tech/](https://safe-evm-poa-sidechain.peersyst.tech/)
     - You can learn more about Gnosis Safe from their public documents. See: [https://docs.safe.global/](https://docs.safe.global/)
 
 
-## EVM Sidechain Bridge Implementation
+## XRPL EVM Sidechain Bridge Implementation
 
-The EVM sidechain utilizes these components in its implementation of the bridge:
+The XRPL EVM sidechain utilizes these components in its implementation of the bridge:
 
 - [_Solidity_ smart contracts](bridge-doors.md) to implement the new transactions introduced by XLS-38d.
 - [Witness servers](witness-servers.md) to sign attestations.

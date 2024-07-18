@@ -4,7 +4,20 @@ opensource:
   - label: Prerelease Docs
     expanded: true  
     pages:
-      - group: EVM Sidechain
+      - group: Cross-Chain DApps
+        page: docs/cross-chain-dapps/cross-chain-dapps.md
+        expanded: false
+        pages:
+          - page: docs/cross-chain-dapps/cross-chain-faqs.md          
+          - group: Axelar Bridge
+            page: docs/axelar/intro-to-axelar.md
+            expanded: false
+            pages:
+              - page: docs/axelar/bridge-tokens-axelar.md
+              - page: docs/axelar/call-a-smart-contract-function.md    
+          - label: Cross-Chain Bridges
+            href: https://xrpl.org/docs/concepts/xrpl-sidechains/cross-chain-bridges/
+      - group: XRPL EVM Sidechain
         page: docs/evm-sidechain/intro-to-evm-sidechain.md
         expanded: false
         pages:
@@ -39,7 +52,7 @@ opensource:
                 pages:
                   - page: docs/evm-sidechain/configure-the-bridge-client.md
                   - page: docs/evm-sidechain/start-the-bridge-client.md            
-          - group: EVM CLI
+          - group: XRPL EVM CLI
             page: docs/evm-sidechain/evm-cli.md
             expanded: false
             pages:              
@@ -101,5 +114,3 @@ opensource:
             pages:
               - page: docs/xls-47d-price-oracles/transaction-types/oracledelete.md
               - page: docs/xls-47d-price-oracles/transaction-types/oracleset.md
-
-
