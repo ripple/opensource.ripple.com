@@ -12,7 +12,5 @@
 - [Clawback.md](clawback.md)
 
 ## Requests
-- [account_mpts](account_mpts.md)
 - [mpt_holders](mpt_holders.md)
-- [mpts_by_issuer](mpts_by_issuer.md)
 - [ledger_entry.md](ledger-entry.md)
