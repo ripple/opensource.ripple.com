@@ -93,14 +93,14 @@ rippled json ledger_entry '{ "index": "7DB0788C020F02780A673DC74757F23823FA3014C
 
 > **Tip:** You can use this type of request to get any singleton ledger entry, if it exists in the ledger data, because its ID is always the same. For example:
 >
-> - [`Amendments`](amendments-object.html) - `7DB0788C020F02780A673DC74757F23823FA3014C1866E72CC4CD8B226CD6EF4`
-> - [`FeeSettings`](feesettings.html) - `4BC50C9B0D8515D3EAAE1E74B29A95804346C491EE1A95BF25E4AAB854A6A651`
-> - [Recent History `LedgerHashes`](ledgerhashes.html) - `B4979A36CDC7F3D3D5C31A4EAE2AC7D7209DDA877588B9AFC66799692AB0D66B`
-> - [`NegativeUNL`](negativeunl.html) - `2E8A59AA9D3B5B186B0B9E0F62E6C02587CA74A4D778938E957B6357D364B244`
+> - [`Amendments`](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/amendments/) - `7DB0788C020F02780A673DC74757F23823FA3014C1866E72CC4CD8B226CD6EF4`
+> - [`FeeSettings`](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/feesettings/) - `4BC50C9B0D8515D3EAAE1E74B29A95804346C491EE1A95BF25E4AAB854A6A651`
+> - [Recent History `LedgerHashes`](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/ledgerhashes/) - `B4979A36CDC7F3D3D5C31A4EAE2AC7D7209DDA877588B9AFC66799692AB0D66B`
+> - [`NegativeUNL`](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/negativeunl/) - `2E8A59AA9D3B5B186B0B9E0F62E6C02587CA74A4D778938E957B6357D364B244`
 
 ### Get AccountRoot Object
 
-Retrieve an [AccountRoot entry](https://xrpl.org/resources/dev-tools/websocket-api-tool#ledger_entry-accountroot) by its address. This is roughly equivalent to the [account_info method][].
+Retrieve an [AccountRoot entry](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/accountroot/) by its address. This is roughly equivalent to the [account_info method](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_info/).
 
 | Field                   | Type                       | Description           |
 |:------------------------|:---------------------------|:----------------------|
@@ -141,7 +141,7 @@ rippled json ledger_entry '{ "account_root": "r9cZA1mLK5R5Am25ArfXFmqgNwjZgnfk59
 
 <!-- MULTICODE_BLOCK_END -->
 
-[Try it! >](websocket-api-tool.html#ledger_entry-accountroot)
+[Try it! >](https://xrpl.org/resources/dev-tools/websocket-api-tool?server=wss%3A%2F%2Fs.devnet.rippletest.net%3A51233%2F#ledger_entry-amm)
 
 
 
@@ -481,7 +481,7 @@ rippled json ledger_entry '{ "escrow": { "owner": "rL4fPHi2FWGwRGRQSH7gBcxkuo2b9
 
 ### Get PayChannel Object
 
-Retrieve a [PayChannel entry](paychannel.html), which holds XRP for asynchronous payments. [New in: rippled 1.0.0][]
+Retrieve a [PayChannel entry](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/paychannel/), which holds XRP for asynchronous payments. [New in: rippled 1.0.0][]
 
 | Field             | Type   | Description                                     |
 |:------------------|:-------|:------------------------------------------------|
@@ -748,10 +748,10 @@ The response follows the [standard format][], with a successful result containin
 
 | Field          | Type             | Description                              |
 |:---------------|:-----------------|:-----------------------------------------|
-| `index`        | String           | The unique ID of this [ledger entry](ledger-object-types.html). |
+| `index`        | String           | The unique ID of this [ledger entry](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/). |
 | `ledger_index` | Unsigned Integer | The [ledger index][] of the ledger that was used when retrieving this data. |
 | `node`         | Object           | _(Omitted if `"binary": true` specified.)_ Object containing the data of this ledger entry, according to the [ledger format][]. |
-| `node_binary`  | String           | _(Omitted unless `"binary":true` specified)_ The [binary representation](serialization.html) of the ledger object, as hexadecimal. |
+| `node_binary`  | String           | _(Omitted unless `"binary":true` specified)_ The [binary representation](https://xrpl.org/docs/references/protocol/binary-format/) of the ledger object, as hexadecimal. |
 
 An example of a successful response:
 
