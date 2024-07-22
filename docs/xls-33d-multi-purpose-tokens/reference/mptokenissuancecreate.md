@@ -48,7 +48,7 @@ Example MPTokenIssuanceCreate transaction
 
 ## MPTokenIssuanceCreate Flags
 
-Transactions of the MPTokenIssuanceCreate type support additional values in the `Flags` field<!-- [`Flags` field](transaction-common-fields.html#flags-field)-->, as follows:
+Transactions of the MPTokenIssuanceCreate type support additional values in the `Flags` field <!-- [`Flags` field](transaction-common-fields.html#flags-field)-->, as follows:
 
 | Flag Name          | Hex Value    | Decimal Value | Description                   |
 |:-------------------|:-------------|:--------------|:------------------------------|
