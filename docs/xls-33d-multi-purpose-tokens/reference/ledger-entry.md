@@ -9,11 +9,11 @@ labels:
 # ledger_entry
 [[Source]](https://github.com/XRPLF/rippled/blob/master/src/ripple/rpc/handlers/LedgerEntry.cpp "Source")
 
-The `ledger_entry` method returns a single ledger entry from the XRP Ledger in its raw format. See [ledger format][] for information on the different types of entries you can retrieve.
+The `ledger_entry` method returns a single ledger entry from the XRP Ledger in its raw format. See [ledger format][https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/] for information on the different types of entries you can retrieve.
 
 ## Request Format
 
-This method can retrieve several different types of data. You can select which type of item to retrieve by passing the appropriate parameters, comprised of the general and type-specific fields listed below, and following the standard [request formatting](request-formatting.html). (For example, a WebSocket request always has the `command` field and optionally an `id` field, and a JSON-RPC request uses the `method` and `params` fields.)
+This method can retrieve several different types of data. You can select which type of item to retrieve by passing the appropriate parameters, comprised of the general and type-specific fields listed below, and following the standard [request formatting](https://xrpl.org/docs/references/http-websocket-apis/api-conventions/request-formatting/). (For example, a WebSocket request always has the `command` field and optionally an `id` field, and a JSON-RPC request uses the `method` and `params` fields.)
 
 {% include '_snippets/no-cli-syntax.md' %}
 
@@ -21,9 +21,9 @@ This method can retrieve several different types of data. You can select which t
 
 | Field                   | Type                       | Description           |
 |:------------------------|:---------------------------|:----------------------|
-| `binary`                | Boolean                    | _(Optional)_ If `true`, return the requested ledger entry's contents as a hex string in the XRP Ledger's [binary format](serialization.html). Otherwise, return data in JSON format. The default is `false`. [Updated in: rippled 1.2.0][] |
+| `binary`                | Boolean                    | _(Optional)_ If `true`, return the requested ledger entry's contents as a hex string in the XRP Ledger's [binary format](https://xrpl.org/docs/references/protocol/binary-format/). Otherwise, return data in JSON format. The default is `false`. [Updated in: rippled 1.2.0](https://github.com/XRPLF/rippled/releases/tag/1.2.0) |
 | `ledger_hash`           | String                     | _(Optional)_ A 20-byte hex string for the ledger version to use. (See [Specifying Ledgers][]) |
-| `ledger_index`          | String or Unsigned Integer | _(Optional)_ The [ledger index][] of the ledger to use, or a shortcut string (e.g. "validated" or "closed" or "current") to choose a ledger automatically. (See [Specifying Ledgers][]) |
+| `ledger_index`          | String or Unsigned Integer | _(Optional)_ The [ledger index][] of the ledger to use, or a shortcut string (e.g. "validated" or "closed" or "current") to choose a ledger automatically. (See [Specifying Ledgers](https://xrpl.org/docs/references/protocol/data-types/basic-data-types/#specifying-ledgers)) |
 
 The `generator` and `ledger` parameters are deprecated and may be removed without further notice.
 
@@ -53,7 +53,7 @@ Retrieve any type of ledger object by its unique ID.
 
 | Field   | Type   | Description                                               |
 |:--------|:-------|:----------------------------------------------------------|
-| `index` | String | The [ledger entry ID](ledger-object-ids.html) of a single entry to retrieve from the ledger, as a 64-character (256-bit) hexadecimal string. |
+| `index` | String | The [ledger entry ID](https://xrpl.org/docs/references/protocol/ledger-data/common-fields/) of a single entry to retrieve from the ledger, as a 64-character (256-bit) hexadecimal string. |
 
 <!-- MULTICODE_BLOCK_START -->
 
@@ -89,7 +89,7 @@ rippled json ledger_entry '{ "index": "7DB0788C020F02780A673DC74757F23823FA3014C
 
 <!-- MULTICODE_BLOCK_END -->
 
-[Try it! >](websocket-api-tool.html#ledger_entry-by-object-id)
+[Try it! >](https://xrpl.org/resources/dev-tools/websocket-api-tool#ledger_entry-by-object-id)
 
 > **Tip:** You can use this type of request to get any singleton ledger entry, if it exists in the ledger data, because its ID is always the same. For example:
 >
@@ -98,15 +98,13 @@ rippled json ledger_entry '{ "index": "7DB0788C020F02780A673DC74757F23823FA3014C
 > - [Recent History `LedgerHashes`](ledgerhashes.html) - `B4979A36CDC7F3D3D5C31A4EAE2AC7D7209DDA877588B9AFC66799692AB0D66B`
 > - [`NegativeUNL`](negativeunl.html) - `2E8A59AA9D3B5B186B0B9E0F62E6C02587CA74A4D778938E957B6357D364B244`
 
-
-
 ### Get AccountRoot Object
 
-Retrieve an [AccountRoot entry](accountroot.html) by its address. This is roughly equivalent to the [account_info method][].
+Retrieve an [AccountRoot entry](https://xrpl.org/resources/dev-tools/websocket-api-tool#ledger_entry-accountroot) by its address. This is roughly equivalent to the [account_info method][].
 
 | Field                   | Type                       | Description           |
 |:------------------------|:---------------------------|:----------------------|
-| `account_root`          | String - [Address][]       | The classic address of the [AccountRoot entry](accountroot.html) to retrieve. |
+| `account_root`          | String - [Address](https://xrpl.org/docs/references/protocol/data-types/basic-data-types/#addresses)       | The classic address of the [AccountRoot entry](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/accountroot/) to retrieve. |
 
 <!-- MULTICODE_BLOCK_START -->
 
@@ -149,15 +147,14 @@ rippled json ledger_entry '{ "account_root": "r9cZA1mLK5R5Am25ArfXFmqgNwjZgnfk59
 
 ### Get AMM Object
 
-_(Requires the [AMM amendment][] :not_enabled:)_
 
-Retrieve an Automated Market-Maker (AMM) object from the ledger. This is similar to [amm_info method][], but the `ledger_entry` version returns only the ledger entry as stored.
+Retrieve an Automated Market-Maker (AMM) object from the ledger. This is similar to [amm_info method](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/path-and-order-book-methods/amm_info/), but the `ledger_entry` version returns only the ledger entry as stored.
 
 | Field        | Type             | Description           |
 |:-------------|:-----------------|:----------------------|
-| `amm`        | Object or String | The [AMM](amm.html) to retrieve. If you specify a string, it must be the [object ID](ledger-object-ids.html) of the AMM, as hexadecimal. If you specify an object, it must contain `asset` and `asset2` sub-fields. |
-| `amm.asset`  | Object           | One of the two assets in this AMM's pool, as a [currency object without an amount](currency-formats.html#specifying-without-amounts). |
-| `amm.asset2` | Object           | The other of the two assets in this AMM's pool, as a [currency object without an amount](currency-formats.html#specifying-without-amounts). |
+| `amm`        | Object or String | The [AMM](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/amm/) to retrieve. If you specify a string, it must be the [object ID](https://xrpl.org/docs/references/protocol/ledger-data/common-fields/) of the AMM, as hexadecimal. If you specify an object, it must contain `asset` and `asset2` sub-fields. |
+| `amm.asset`  | Object           | One of the two assets in this AMM's pool, as a [currency object without an amount](https://xrpl.org/docs/references/protocol/data-types/currency-formats/#specifying-without-amounts). |
+| `amm.asset2` | Object           | The other of the two assets in this AMM's pool, as a [currency object without an amount](https://xrpl.org/docs/references/protocol/data-types/currency-formats/#specifying-without-amounts). |
 
 <!-- MULTICODE_BLOCK_START -->
 
@@ -210,18 +207,18 @@ rippled json ledger_entry '{ "amm": { "asset": { "currency": "XRP" }, "asset2": 
 
 <!-- MULTICODE_BLOCK_END -->
 
-[Try it! >](websocket-api-tool.html?server=wss%3A%2F%2Famm.devnet.rippletest.net%3A51233%2F#ledger_entry-amm)
+[Try it! >](https://xrpl.org/resources/dev-tools/websocket-api-tool?server=wss%3A%2F%2Fs.devnet.rippletest.net%3A51233%2F#ledger_entry-amm)
 
 
 
 ### Get DirectoryNode Object
 
-Retrieve a [DirectoryNode](directorynode.html), which contains a list of other ledger objects. Can be provided as string (object ID of the Directory) or as an object.
+Retrieve a [DirectoryNode](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/directorynode/), which contains a list of other ledger objects. Can be provided as string (object ID of the Directory) or as an object.
 
 | Field                   | Type                       | Description           |
 |:------------------------|:---------------------------|:----------------------|
-| `directory`             | Object or String           | The [DirectoryNode](directorynode.html) to retrieve. If a string, must be the [object ID](ledger-object-ids.html) of the directory, as hexadecimal. If an object, requires either `dir_root` or `owner` as a sub-field, plus optionally a `sub_index` sub-field. |
-| `directory.sub_index`   | Unsigned Integer           | _(Optional)_ If provided, jumps to a later "page" of the [DirectoryNode](directorynode.html). |
+| `directory`             | Object or String           | The [DirectoryNode](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/directorynode/) to retrieve. If a string, must be the [object ID](https://xrpl.org/docs/references/protocol/ledger-data/common-fields/) of the directory, as hexadecimal. If an object, requires either `dir_root` or `owner` as a sub-field, plus optionally a `sub_index` sub-field. |
+| `directory.sub_index`   | Unsigned Integer           | _(Optional)_ If provided, jumps to a later "page" of the [DirectoryNode](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/directorynode/). |
 | `directory.dir_root`    | String                     | _(Optional)_ Unique index identifying the directory to retrieve, as a hex string. |
 | `directory.owner`       | String                     | _(Optional)_ Unique address of the account associated with this directory. |
 
@@ -266,19 +263,19 @@ rippled json ledger_entry '{ "directory": { "owner": "rf1BiGeXwwQoi8Z2ueFYTEXSwu
 
 <!-- MULTICODE_BLOCK_END -->
 
-[Try it! >](websocket-api-tool.html#ledger_entry-directorynode)
+[Try it! >](https://xrpl.org/resources/dev-tools/websocket-api-tool#ledger_entry-directorynode)
 
 
 
 ### Get Offer Object
 
-Retrieve an [Offer entry](offer.html), which defines an offer to exchange currency. Can be provided as string (unique index of the Offer) or as an object.
+Retrieve an [Offer entry](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/offer/), which defines an offer to exchange currency. Can be provided as string (unique index of the Offer) or as an object.
 
 | Field                   | Type                       | Description           |
 |:------------------------|:---------------------------|:----------------------|
-| `offer`                 | Object or String           | If a string, interpret as [ledger entry ID](ledger-object-ids.html) of the Offer to retrieve. If an object, requires the sub-fields `account` and `seq` to uniquely identify the offer. |
-| `offer.account`         | String - [Address][]       | _(Required if `offer` is specified as an object)_ The account that placed the offer. |
-| `offer.seq`             | Unsigned Integer           | _(Required if `offer` is specified as an object)_ The [Sequence Number][] of the transaction that created the Offer entry. |
+| `offer`                 | Object or String           | If a string, interpret as [ledger entry ID](https://xrpl.org/docs/references/protocol/ledger-data/common-fields/) of the Offer to retrieve. If an object, requires the sub-fields `account` and `seq` to uniquely identify the offer. |
+| `offer.account`         | String - [Address](https://xrpl.org/docs/references/protocol/data-types/basic-data-types/#addresses)       | _(Required if `offer` is specified as an object)_ The account that placed the offer. |
+| `offer.seq`             | Unsigned Integer           | _(Required if `offer` is specified as an object)_ The [Sequence Number](https://xrpl.org/docs/references/protocol/data-types/basic-data-types/#account-sequence) of the transaction that created the Offer entry. |
 
 <!-- MULTICODE_BLOCK_START -->
 
@@ -321,7 +318,7 @@ rippled json ledger_entry '{ "offer": { "account": "rf1BiGeXwwQoi8Z2ueFYTEXSwuJY
 
 <!-- MULTICODE_BLOCK_END -->
 
-[Try it! >](websocket-api-tool.html#ledger_entry-offer)
+[Try it! >](https://xrpl.org/resources/dev-tools/websocket-api-tool#ledger_entry-offer)
 
 
 
@@ -332,8 +329,8 @@ Retrieve a [RippleState entry][], which tracks a (non-XRP) currency balance betw
 | Field                   | Type                       | Description           |
 |:------------------------|:---------------------------|:----------------------|
 | `ripple_state`          | Object                     | Object specifying the RippleState (trust line) object to retrieve. The `accounts` and `currency` sub-fields are required to uniquely specify the RippleState entry to retrieve. |
-| `ripple_state.accounts` | Array                      | _(Required if `ripple_state` is specified)_ 2-length array of account [Address][]es, defining the two accounts linked by this RippleState entry. |
-| `ripple_state.currency` | String                     | _(Required if `ripple_state` is specified)_ [Currency Code][] of the RippleState entry to retrieve. |
+| `ripple_state.accounts` | Array                      | _(Required if `ripple_state` is specified)_ 2-length array of account [Address](https://xrpl.org/docs/references/protocol/data-types/basic-data-types/#addresses))es, defining the two accounts linked by this RippleState entry. |
+| `ripple_state.currency` | String                     | _(Required if `ripple_state` is specified)_ [Currency Code](https://xrpl.org/docs/references/protocol/data-types/currency-formats/#currency-codes) of the RippleState entry to retrieve. |
 
 <!-- MULTICODE_BLOCK_START -->
 
@@ -380,17 +377,17 @@ rippled json ledger_entry '{ "ripple_state": { "accounts": ["rf1BiGeXwwQoi8Z2ueF
 
 <!-- MULTICODE_BLOCK_END -->
 
-[Try it! >](websocket-api-tool.html#ledger_entry-ripplestate)
+[Try it! >](https://xrpl.org/resources/dev-tools/websocket-api-tool#ledger_entry-ripplestate)
 
 
 
 ### Get Check Object
 
-Retrieve a [Check entry](check.html), which is a potential payment that can be cashed by its recipient. [New in: rippled 1.0.0][]
+Retrieve a [Check entry](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/check/), which is a potential payment that can be cashed by its recipient. [New in: rippled 1.0.0][]
 
 | Field   | Type   | Description                                               |
 |:--------|:-------|:----------------------------------------------------------|
-| `check` | String | The [object ID](ledger-object-ids.html) of a [Check entry](check.html) to retrieve. |
+| `check` | String | The [object ID](https://xrpl.org/docs/references/protocol/ledger-data/common-fields/) of a [Check entry](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/check/) to retrieve. |
 
 <!-- MULTICODE_BLOCK_START -->
 
@@ -425,19 +422,19 @@ rippled json ledger_entry '{ "check": "C4A46CCD8F096E994C4B0DEAB6CE98E722FC17D79
 
 <!-- MULTICODE_BLOCK_END -->
 
-[Try it! >](websocket-api-tool.html#ledger_entry-check)
+[Try it! >](https://xrpl.org/resources/dev-tools/websocket-api-tool#ledger_entry-check)
 
 
 
 ### Get Escrow Object
 
-Retrieve an [Escrow entry](escrow-object.html), which holds XRP until a specific time or condition is met. Can be provided as string (object ID of the Escrow) or as an object. [New in: rippled 1.0.0][]
+Retrieve an [Escrow entry](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/escrow/), which holds XRP until a specific time or condition is met. Can be provided as string (object ID of the Escrow) or as an object. [New in: rippled 1.0.0][]
 
 | Field                   | Type                       | Description           |
 |:------------------------|:---------------------------|:----------------------|
-| `escrow`                | Object or String           | The Escrow to retrieve. If a string, must be the [object ID](ledger-object-ids.html) of the Escrow, as hexadecimal. If an object, requires `owner` and `seq` sub-fields. |
-| `escrow.owner`          | String - [Address][]       | _(Required if `escrow` is specified as an object)_ The owner (sender) of the Escrow object. |
-| `escrow.seq`            | Unsigned Integer           | _(Required if `escrow` is specified as an object)_ The [Sequence Number][] of the transaction that created the Escrow object. |
+| `escrow`                | Object or String           | The Escrow to retrieve. If a string, must be the [object ID](https://xrpl.org/docs/references/protocol/ledger-data/common-fields/) of the Escrow, as hexadecimal. If an object, requires `owner` and `seq` sub-fields. |
+| `escrow.owner`          | String - [Address](https://xrpl.org/docs/references/protocol/data-types/basic-data-types/#addresses)       | _(Required if `escrow` is specified as an object)_ The owner (sender) of the Escrow object. |
+| `escrow.seq`            | Unsigned Integer           | _(Required if `escrow` is specified as an object)_ The [Sequence Number](https://xrpl.org/docs/references/protocol/data-types/basic-data-types/#account-sequence) of the transaction that created the Escrow object. |
 
 <!-- MULTICODE_BLOCK_START -->
 
@@ -478,7 +475,7 @@ rippled json ledger_entry '{ "escrow": { "owner": "rL4fPHi2FWGwRGRQSH7gBcxkuo2b9
 
 <!-- MULTICODE_BLOCK_END -->
 
-[Try it! >](websocket-api-tool.html#ledger_entry-escrow)
+[Try it! >](https://xrpl.org/resources/dev-tools/websocket-api-tool#ledger_entry-escrow)
 
 
 
@@ -488,7 +485,7 @@ Retrieve a [PayChannel entry](paychannel.html), which holds XRP for asynchronous
 
 | Field             | Type   | Description                                     |
 |:------------------|:-------|:------------------------------------------------|
-| `payment_channel` | String | The [object ID](ledger-object-ids.html) of the PayChannel to retrieve. |
+| `payment_channel` | String | The [object ID](https://xrpl.org/docs/references/protocol/ledger-data/common-fields/) of the PayChannel to retrieve. |
 
 <!-- MULTICODE_BLOCK_START -->
 
@@ -523,18 +520,18 @@ rippled json ledger_entry '{ "payment_channel": "C7F634794B79DB40E87179A9D1BF05D
 
 <!-- MULTICODE_BLOCK_END -->
 
-[Try it! >](websocket-api-tool.html#ledger_entry-paychannel)
+[Try it! >](https://xrpl.org/resources/dev-tools/websocket-api-tool#ledger_entry-paychannel)
 
 
 ### Get DepositPreauth Object
 
-Retrieve a [DepositPreauth entry](depositpreauth-object.html), which tracks preauthorization for payments to accounts requiring [Deposit Authorization](depositauth.html). [New in: rippled 1.1.0][]
+Retrieve a [DepositPreauth entry](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/depositpreauth/), which tracks preauthorization for payments to accounts requiring [Deposit Authorization](https://xrpl.org/docs/concepts/accounts/depositauth/). [New in: rippled 1.1.0][]
 
 | Field                        | Type                 | Description            |
 |:-----------------------------|:---------------------|:-----------------------|
-| `deposit_preauth`            | Object or String     | Specify the DepositPreauth to retrieve. If a string, must be the [ledger entry ID](ledger-object-ids.html) of the DepositPreauth entry, as hexadecimal. If an object, requires `owner` and `authorized` sub-fields. |
-| `deposit_preauth.owner`      | String - [Address][] | _(Required if `deposit_preauth` is specified as an object)_ The account that provided the preauthorization. |
-| `deposit_preauth.authorized` | String - [Address][] | _(Required if `deposit_preauth` is specified as an object)_ The account that received the preauthorization. |
+| `deposit_preauth`            | Object or String     | Specify the DepositPreauth to retrieve. If a string, must be the [ledger entry ID](https://xrpl.org/docs/references/protocol/ledger-data/common-fields/) of the DepositPreauth entry, as hexadecimal. If an object, requires `owner` and `authorized` sub-fields. |
+| `deposit_preauth.owner`      | String - [Address](https://xrpl.org/docs/references/protocol/data-types/basic-data-types/#addresses) | _(Required if `deposit_preauth` is specified as an object)_ The account that provided the preauthorization. |
+| `deposit_preauth.authorized` | String - [Address](https://xrpl.org/docs/references/protocol/data-types/basic-data-types/#addresses) | _(Required if `deposit_preauth` is specified as an object)_ The account that received the preauthorization. |
 
 <!-- MULTICODE_BLOCK_START -->
 
@@ -575,17 +572,17 @@ rippled json ledger_entry '{ "deposit_preauth": { "owner": "rf1BiGeXwwQoi8Z2ueFY
 
 <!-- MULTICODE_BLOCK_END -->
 
-[Try it! >](websocket-api-tool.html#ledger_entry-depositpreauth)
+[Try it! >](https://xrpl.org/resources/dev-tools/websocket-api-tool#ledger_entry-depositpreauth)
 
 
 ### Get Ticket Object
 
-Retrieve a [Ticket entry](ticket.html), which represents a [sequence number][] set aside for future use. _(Added by the [TicketBatch amendment][])_
+Retrieve a [Ticket entry](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/ticket/), which represents a [sequence number](https://xrpl.org/docs/references/protocol/data-types/basic-data-types/#account-sequence) set aside for future use. _(Added by the [TicketBatch amendment](https://xrpl.org/resources/known-amendments/#ticketbatch))_
 
 | Field               | Type                 | Description           |
 |:--------------------|:---------------------|:----------------------|
-| `ticket`            | Object or String     | The Ticket to retrieve. If a string, must be the [ledger entry ID](ledger-object-ids.html) of the Ticket, as hexadecimal. If an object, the `account` and `ticket_seq` sub-fields are required to uniquely specify the Ticket entry. |
-| `ticket.account`    | String - [Address][] | _(Required if `ticket` is specified as an object)_ The owner of the Ticket. |
+| `ticket`            | Object or String     | The Ticket to retrieve. If a string, must be the [ledger entry ID](https://xrpl.org/docs/references/protocol/ledger-data/common-fields/) of the Ticket, as hexadecimal. If an object, the `account` and `ticket_seq` sub-fields are required to uniquely specify the Ticket entry. |
+| `ticket.account`    | String - [Address](https://xrpl.org/docs/references/protocol/data-types/basic-data-types/#addresses) | _(Required if `ticket` is specified as an object)_ The owner of the Ticket. |
 | `ticket.ticket_seq` | Number               | _(Required if `ticket` is specified as an object)_ The Ticket Sequence number of the Ticket to retrieve. |
 
 <!-- MULTICODE_BLOCK_START -->
@@ -627,7 +624,7 @@ rippled json ledger_entry '{ "ticket": { "account": "rf1BiGeXwwQoi8Z2ueFYTEXSwuJ
 
 <!-- MULTICODE_BLOCK_END -->
 
-[Try it! >](websocket-api-tool.html#ledger_entry-ticket)
+[Try it! >](https://xrpl.org/resources/dev-tools/websocket-api-tool#ledger_entry-ticket)
 
 
 ### Get NFT Page
@@ -636,7 +633,7 @@ Return an NFT Page in its raw ledger format.
 
 | Field                   | Type                       | Description           |
 |:------------------------|:---------------------------|:----------------------|
-| `nft_page`              | String | The [ledger entry ID](ledger-object-ids.html) of an [NFT Page](nftokenpage.html) to retrieve. |
+| `nft_page`              | String | The [ledger entry ID](https://xrpl.org/docs/references/protocol/ledger-data/common-fields/) of an [NFT Page](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/nftokenpage/) to retrieve. |
 
 <!-- MULTICODE_BLOCK_START -->
 
@@ -662,6 +659,9 @@ Return an NFT Page in its raw ledger format.
   }]
 }
 ```
+
+[Try it! >](https://xrpl.org/resources/dev-tools/websocket-api-tool#ledger_entry-nft-page)
+
 ### Get MPT Issuance Object 
 
 Return an `MPTokenIssuance` object.
@@ -740,7 +740,7 @@ rippled json ledger_entry '{ "mpt_issuance": "000004C463C52827307480341125DA0577
 ```
 <!-- MULTICODE_BLOCK_END -->
 
-[Try it! >](websocket-api-tool.html#ledger_entry-mpt_issuance)
+[Try it! >](https://xrpl.org/resources/dev-tools/websocket-api-tool.html#ledger_entry-mpt_issuance)
 
 ## Response Format
 
@@ -859,13 +859,13 @@ An example of a successful response:
 
 ## Possible Errors
 
-* Any of the [universal error types][].
+* Any of the [universal error types](https://xrpl.org/docs/references/http-websocket-apis/api-conventions/error-formatting/#universal-errors).
 * `deprecatedFeature` - The request specified a removed field, such as `generator`.
 * `entryNotFound` - The requested ledger entry does not exist in the ledger.
 * `invalidParams` - One or more fields are specified incorrectly, or one or more required fields are missing.
 * `lgrNotFound` - The ledger specified by the `ledger_hash` or `ledger_index` does not exist, or it does exist but the server does not have it.
-* `malformedAddress` - The request improperly specified an [Address][] field.
-* `malformedCurrency` - The request improperly specified a [Currency Code][] field.
+* `malformedAddress` - The request improperly specified an [Address](https://xrpl.org/docs/references/protocol/data-types/basic-data-types/#addresses) field.
+* `malformedCurrency` - The request improperly specified a [Currency Code](https://xrpl.org/docs/references/protocol/data-types/currency-formats/#currency-codes) field.
 * `malformedOwner` - The request improperly specified the `escrow.owner` sub-field.
 * `malformedRequest` - The request provided an invalid combination of fields, or provided the wrong type for one or more fields.
 * `unknownOption` - The fields provided in the request did not match any of the expected request formats.
