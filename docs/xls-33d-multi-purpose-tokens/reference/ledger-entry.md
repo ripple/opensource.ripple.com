@@ -22,8 +22,8 @@ This method can retrieve several different types of data. You can select which t
 | Field                   | Type                       | Description           |
 |:------------------------|:---------------------------|:----------------------|
 | `binary`                | Boolean                    | _(Optional)_ If `true`, return the requested ledger entry's contents as a hex string in the XRP Ledger's [binary format](https://xrpl.org/docs/references/protocol/binary-format/). Otherwise, return data in JSON format. The default is `false`. [Updated in: rippled 1.2.0](https://github.com/XRPLF/rippled/releases/tag/1.2.0) |
-| `ledger_hash`           | String                     | _(Optional)_ A 20-byte hex string for the ledger version to use. (See [Specifying Ledgers][]) |
-| `ledger_index`          | String or Unsigned Integer | _(Optional)_ The [ledger index][] of the ledger to use, or a shortcut string (e.g. "validated" or "closed" or "current") to choose a ledger automatically. (See [Specifying Ledgers](https://xrpl.org/docs/references/protocol/data-types/basic-data-types/#specifying-ledgers)) |
+| `ledger_hash`           | String                     | _(Optional)_ A 20-byte hex string for the ledger version to use. (See [Specifying Ledgers](https://xrpl.org/docs/references/protocol/data-types/basic-data-types/#specifying-ledgers)) |
+| `ledger_index`          | String or Unsigned Integer | _(Optional)_ The [ledger index](https://xrpl.org/docs/references/protocol/data-types/basic-data-types/#ledger-index) of the ledger to use, or a shortcut string (e.g. "validated" or "closed" or "current") to choose a ledger automatically. (See [Specifying Ledgers](https://xrpl.org/docs/references/protocol/data-types/basic-data-types/#specifying-ledgers)) |
 
 The `generator` and `ledger` parameters are deprecated and may be removed without further notice.
 
@@ -324,7 +324,7 @@ rippled json ledger_entry '{ "offer": { "account": "rf1BiGeXwwQoi8Z2ueFYTEXSwuJY
 
 ### Get RippleState Object
 
-Retrieve a [RippleState entry][], which tracks a (non-XRP) currency balance between two accounts.
+Retrieve a [RippleState entry](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/ripplestate/), which tracks a (non-XRP) currency balance between two accounts.
 
 | Field                   | Type                       | Description           |
 |:------------------------|:---------------------------|:----------------------|
@@ -383,7 +383,7 @@ rippled json ledger_entry '{ "ripple_state": { "accounts": ["rf1BiGeXwwQoi8Z2ueF
 
 ### Get Check Object
 
-Retrieve a [Check entry](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/check/), which is a potential payment that can be cashed by its recipient. [New in: rippled 1.0.0][]
+Retrieve a [Check entry](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/check/), which is a potential payment that can be cashed by its recipient. [New in: rippled 1.0.0](https://github.com/XRPLF/rippled/releases/tag/1.0.0)
 
 | Field   | Type   | Description                                               |
 |:--------|:-------|:----------------------------------------------------------|
@@ -428,7 +428,7 @@ rippled json ledger_entry '{ "check": "C4A46CCD8F096E994C4B0DEAB6CE98E722FC17D79
 
 ### Get Escrow Object
 
-Retrieve an [Escrow entry](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/escrow/), which holds XRP until a specific time or condition is met. Can be provided as string (object ID of the Escrow) or as an object. [New in: rippled 1.0.0][]
+Retrieve an [Escrow entry](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/escrow/), which holds XRP until a specific time or condition is met. Can be provided as string (object ID of the Escrow) or as an object. [New in: rippled 1.0.0](https://github.com/XRPLF/rippled/releases/tag/1.0.0)
 
 | Field                   | Type                       | Description           |
 |:------------------------|:---------------------------|:----------------------|
@@ -481,7 +481,7 @@ rippled json ledger_entry '{ "escrow": { "owner": "rL4fPHi2FWGwRGRQSH7gBcxkuo2b9
 
 ### Get PayChannel Object
 
-Retrieve a [PayChannel entry](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/paychannel/), which holds XRP for asynchronous payments. [New in: rippled 1.0.0][]
+Retrieve a [PayChannel entry](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/paychannel/), which holds XRP for asynchronous payments. [New in: rippled 1.0.0](https://github.com/XRPLF/rippled/releases/tag/1.0.0)
 
 | Field             | Type   | Description                                     |
 |:------------------|:-------|:------------------------------------------------|
@@ -525,7 +525,7 @@ rippled json ledger_entry '{ "payment_channel": "C7F634794B79DB40E87179A9D1BF05D
 
 ### Get DepositPreauth Object
 
-Retrieve a [DepositPreauth entry](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/depositpreauth/), which tracks preauthorization for payments to accounts requiring [Deposit Authorization](https://xrpl.org/docs/concepts/accounts/depositauth/). [New in: rippled 1.1.0][]
+Retrieve a [DepositPreauth entry](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/depositpreauth/), which tracks preauthorization for payments to accounts requiring [Deposit Authorization](https://xrpl.org/docs/concepts/accounts/depositauth/). [New in: rippled 1.0.0](https://github.com/XRPLF/rippled/releases/tag/1.0.0)
 
 | Field                        | Type                 | Description            |
 |:-----------------------------|:---------------------|:-----------------------|
@@ -744,13 +744,13 @@ rippled json ledger_entry '{ "mpt_issuance": "000004C463C52827307480341125DA0577
 
 ## Response Format
 
-The response follows the [standard format][], with a successful result containing the following fields:
+The response follows the [standard format](https://xrpl.org/docs/references/http-websocket-apis/api-conventions/response-formatting/), with a successful result containing the following fields:
 
 | Field          | Type             | Description                              |
 |:---------------|:-----------------|:-----------------------------------------|
 | `index`        | String           | The unique ID of this [ledger entry](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/). |
-| `ledger_index` | Unsigned Integer | The [ledger index][] of the ledger that was used when retrieving this data. |
-| `node`         | Object           | _(Omitted if `"binary": true` specified.)_ Object containing the data of this ledger entry, according to the [ledger format][]. |
+| `ledger_index` | Unsigned Integer | The [ledger index](https://xrpl.org/docs/references/protocol/data-types/basic-data-types/#ledger-index) of the ledger that was used when retrieving this data. |
+| `node`         | Object           | _(Omitted if `"binary": true` specified.)_ Object containing the data of this ledger entry, according to the [ledger format](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/). |
 | `node_binary`  | String           | _(Omitted unless `"binary":true` specified)_ The [binary representation](https://xrpl.org/docs/references/protocol/binary-format/) of the ledger object, as hexadecimal. |
 
 An example of a successful response:
