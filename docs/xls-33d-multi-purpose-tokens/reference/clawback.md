@@ -53,6 +53,7 @@ Besides errors that can occur for all transactions, {{currentpage.name}} transac
 | `tecNO_PERMISSION` | Occurs if you attempt to set `lsfAllowTrustlineClawback` while `lsfNoFreeze` is set. Also occurs, conversely, if you try to set `lsfNoFreeze` while `lsfAllowTrustLineClawback` is set. |
 
 <!-- {# common link defs #} -->
+<!-- Uncomment for xrpl.org
 {% include '_snippets/rippled-api-links.md' %}
 {% include '_snippets/tx-type-links.md' %}
-{% include '_snippets/rippled_versions.md' %}
+{% include '_snippets/rippled_versions.md' %} -->
