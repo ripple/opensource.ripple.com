@@ -60,6 +60,7 @@ Flags are properties or other options associated with the `MPToken` object.
 | `lsfMPTAuthorized` | `0x0002`   | (Only applicable for allow-listing) If set, indicates that the issuer has authorized the holder for the MPT. This flag can be set using a `MPTokenAuthorize` transaction; it can also be "un-set" using a `MPTokenAuthorize` transaction specifying the `tfMPTUnauthorize` flag. |
 
 <!--{# common link defs #}-->
+<!-- Uncomment for xrpl.org
 {% include '_snippets/rippled-api-links.md' %}
 {% include '_snippets/tx-type-links.md' %}
-{% include '_snippets/rippled_versions.md' %}
+{% include '_snippets/rippled_versions.md' %} -->
