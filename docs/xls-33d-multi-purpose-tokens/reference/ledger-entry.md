@@ -9,13 +9,13 @@ labels:
 # ledger_entry
 [[Source]](https://github.com/XRPLF/rippled/blob/master/src/ripple/rpc/handlers/LedgerEntry.cpp "Source")
 
-The `ledger_entry` method returns a single ledger entry from the XRP Ledger in its raw format. See [ledger format][https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/] for information on the different types of entries you can retrieve.
+The `ledger_entry` method returns a single ledger entry from the XRP Ledger in its raw format. See [ledger format](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/) for information on the different types of entries you can retrieve.
 
 ## Request Format
 
 This method can retrieve several different types of data. You can select which type of item to retrieve by passing the appropriate parameters, comprised of the general and type-specific fields listed below, and following the standard [request formatting](https://xrpl.org/docs/references/http-websocket-apis/api-conventions/request-formatting/). (For example, a WebSocket request always has the `command` field and optionally an `id` field, and a JSON-RPC request uses the `method` and `params` fields.)
-
-{% include '_snippets/no-cli-syntax.md' %}
+<!-- 
+{% include '_snippets/no-cli-syntax.md' %} -->
 
 ### General Fields
 
@@ -873,6 +873,7 @@ An example of a successful response:
 
 
 <!--{# common link defs #}-->
+<!-- Uncomment for xrpl.org
 {% include '_snippets/rippled-api-links.md' %}
 {% include '_snippets/tx-type-links.md' %}
-{% include '_snippets/rippled_versions.md' %}
+{% include '_snippets/rippled_versions.md' %} -->
