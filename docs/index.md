@@ -22,7 +22,7 @@ To learn more about the consensus process and the workflow for features to go fr
 - [Documentation](evm-sidechain/intro-to-evm-sidechain.md)
 
 ### Multi-purpose Tokens
-  - [Proposal](https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0033d-multi-purpose-tokens)
+  - [XLS-33d Proposal](https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0033d-multi-purpose-tokens)
   - [Documentation](xls-33d-multi-purpose-tokens/multi-purpose-tokens.md)
   - [Reference](xls-33d-multi-purpose-tokens/reference/mpt-reference.md)
 
