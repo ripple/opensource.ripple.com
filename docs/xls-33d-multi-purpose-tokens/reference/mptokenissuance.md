@@ -1,6 +1,4 @@
 ---
-html: mptokenissuance.html
-parent: basic-data-types.html
 blurb: Introduction to XRPL MPTs.
 labels:
   - Multi-purpose Tokens, MPTs, Tokens
@@ -11,7 +9,7 @@ The `MPTokenIssuance` object represents a single MPT issuance and holds data ass
 
 _(Added by the [MPTokenV1_1 amendment][].)_
 
-## Example {{currentpage.name}} JSON
+## Example MPTokenIssuance JSON
 
 ```json
 {
@@ -79,6 +77,7 @@ Flags are properties or other options associated with the `MPToken` object. Exce
 
 
 <!--{# common link defs #}-->
+<!-- uncomment for xrpl.org
 {% include '_snippets/rippled-api-links.md' %}
 {% include '_snippets/tx-type-links.md' %}
-{% include '_snippets/rippled_versions.md' %}
+{% include '_snippets/rippled_versions.md' %} -->
