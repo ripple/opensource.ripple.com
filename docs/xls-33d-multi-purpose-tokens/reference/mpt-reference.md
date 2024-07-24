@@ -2,7 +2,7 @@
 
 ## Objects
 - [MPToken](mptoken.md)
-- [MPTokenIssuance.md](mptokenissuance.md)
+- [MPTokenIssuance](mptokenissuance.md)
 
 ## Transactions
 - [MPTokenIssuanceCreate.md](mptokenissuance.md)
