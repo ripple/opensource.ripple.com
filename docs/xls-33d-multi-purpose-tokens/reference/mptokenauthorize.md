@@ -14,7 +14,7 @@ If the issuer has set `lsfMPTRequireAuth` (allow-listing) on the `MPTokenIssuanc
 
 ## MPTokenAuthorize Fields
 
-{% include '_snippets/tx-fields-intro.md' %}
+<!-- {% include '_snippets/tx-fields-intro.md' %} -->
 
 | Field               | JSON Type           | [Internal Type][] | Description        |
 |:--------------------|:--------------------|:------------------|:-------------------|
