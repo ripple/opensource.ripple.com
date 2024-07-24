@@ -15,7 +15,7 @@ If the transaction is successful, the newly created token is owned by the accoun
 
 Whenever your query returns an `MPTokenIssuance` transaction response, there will always be an `mpt_issuance_id` field on the Transaction Metadata page.
 
-## Example {{currentpage.name}} JSON
+## Example MPTokenIssuanceCreate JSON
 
 This example assumes that the issuer of the token is the signer of the transaction.
 
