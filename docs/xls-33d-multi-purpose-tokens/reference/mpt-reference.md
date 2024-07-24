@@ -5,12 +5,12 @@
 - [MPTokenIssuance](mptokenissuance.md)
 
 ## Transactions
-- [MPTokenIssuanceCreate.md](mptokenissuance.md)
-- [MPTokenIssuanceDestroy.md](mptokenissuancedestroy.md)
-- [MPTokenIssuanceSet.md](mptokenissuanceset.md)
-- [MPTokenAuthorize.md](mptokenauthorize.md)
-- [Clawback.md](clawback.md)
+- [MPTokenIssuanceCreate](mptokenissuance.md)
+- [MPTokenIssuanceDestroy](mptokenissuancedestroy.md)
+- [MPTokenIssuanceSet](mptokenissuanceset.md)
+- [MPTokenAuthorize](mptokenauthorize.md)
+- [Clawback](clawback.md)
 
 ## Requests
 - [mpt_holders](mpt_holders.md)
-- [ledger_entry.md](ledger-entry.md)
+- [ledger_entry](ledger-entry.md)
