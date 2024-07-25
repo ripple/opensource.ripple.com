@@ -9,6 +9,8 @@ labels:
 # MPTokenIssuanceCreate
 [[Source]](https://github.com/XRPLF/rippled/blob/master/src/ripple/app/tx/impl/MPTokenIssuanceCreate.cpp "Source")
 
+<embed src="/snippets/_mpts-disclaimer.md" />
+
 The `MPTokenIssuanceCreate` transaction creates an MPTokenIssuance <!--[MPTokenIssuance](mptokenissuance.html)--> object and adds it to the relevant directory node of the creator account. This transaction is the only opportunity an issuer has to specify any token fields that are defined as immutable (for example, MPT Flags).
 
 If the transaction is successful, the newly created token is owned by the account (the creator account) that executed the transaction.
