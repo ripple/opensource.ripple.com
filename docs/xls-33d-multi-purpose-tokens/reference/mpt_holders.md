@@ -101,7 +101,7 @@ An `mptoken` object has the following parameters:
 An `mpt_issuance_id` field is provided in JSON transaction metadata (not available for binary) for all successful `MPTokenIssuanceCreate` transactions. The following APIs are impacted: `tx`, `account_tx`, `subscribe` and `ledger`.
 
 ##### Example
-Example of a tx response:
+Example of a `tx` response:
 
 ```json
 {
