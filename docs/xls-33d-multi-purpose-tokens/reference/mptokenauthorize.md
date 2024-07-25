@@ -8,6 +8,8 @@ labels:
 
 # MPTokenAuthorize
 
+<embed src="/snippets/_mpts-disclaimer.md" />
+
 This transaction enables an account to hold an amount of a particular MPT issuance. When applied successfully, it creates a new `MPToken` object with an initial zero balance, owned by the holder account.
 
 If the issuer has set `lsfMPTRequireAuth` (allow-listing) on the `MPTokenIssuance`, the issuer must submit an `MPTokenAuthorize` transaction as well in order to give permission to the holder. If `lsfMPTRequireAuth` is not set and the issuer attempts to submit this transaction, it will fail.
