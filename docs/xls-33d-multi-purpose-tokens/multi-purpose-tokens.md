@@ -10,6 +10,8 @@ status: not_enabled
 ---
 # Multi-purpose Tokens
 
+<embed src="/snippets/_mpts-disclaimer.md" />
+
 Multi-purpose tokens (MPTs) are a more compact and flexible type of fungible token.
 
 MPTs let you take advantage of ready-to-use tokenization features with a few lines of code. You can create many token experiences from one token program itself. Notable features include:
