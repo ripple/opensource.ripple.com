@@ -7,6 +7,8 @@ labels:
 ---
 # Clawback
 
+<embed src="/snippets/_mpts-disclaimer.md" />
+
 [[Source]](https://github.com/XRPLF/rippled/blob/master/src/ripple/app/tx/impl/Clawback.cpp "Source")
 <!-- uncomment for xrpl.org
 {% include '_snippets/clawback-disclaimer.md' %}
