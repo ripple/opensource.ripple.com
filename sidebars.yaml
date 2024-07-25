@@ -69,6 +69,33 @@ opensource:
                   - page: docs/evm-sidechain/stress-test-the-bridge.md
               - page: docs/evm-sidechain/bootstrap-a-local-environment.md
           - page: docs/evm-sidechain/xrpl-evm-sidechain-faq.md
+      - group: XLS-33d MPTs
+        page: docs/xls-33d-multi-purpose-tokens/index.md
+        expanded: false
+        pages:
+          - page: docs/xls-33d-multi-purpose-tokens/multi-purpose-tokens.md
+          - group: Reference
+            page: docs/xls-33d-multi-purpose-tokens/reference/mpt-reference.md
+            expanded: false
+            pages:
+              - group: Objects
+                expanded: false
+                pages:
+                  - page: docs/xls-33d-multi-purpose-tokens/reference/mptoken.md
+                  - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenissuance.md
+              - group: Transactions
+                expanded: false
+                pages:
+                  - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenauthorize.md
+                  - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenissuancecreate.md
+                  - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenissuancedestroy.md
+                  - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenissuanceset.md
+                  - page: docs/xls-33d-multi-purpose-tokens/reference/clawback.md
+              - group: Requests
+                expanded: false
+                pages:
+                  - page: docs/xls-33d-multi-purpose-tokens/reference/mpt_holders.md
+                  - page: docs/xls-33d-multi-purpose-tokens/reference/ledger-entry.md
       - group: Price Oracles
         page: docs/xls-47d-price-oracles/price-oracles.md
         expanded: false
