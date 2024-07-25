@@ -1,5 +1,7 @@
 # Multi-purpose Tokens Reference Documentation
 
+<embed src="/snippets/_mpts-disclaimer.md" />
+
 ## Objects
 - [MPToken](mptoken.md)
 - [MPTokenIssuance](mptokenissuance.md)
