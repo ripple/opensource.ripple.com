@@ -33,6 +33,6 @@ To learn more about the consensus process and the workflow for features to go fr
 
 ### Batch Transactions
 
-- [XLS-56d Batch Transactions](xls-56d-batch-transactions/batch-transactions.md)
+- [XLS-56d Batch Transactions](xls-56d-batch-transactions/index.md)
 - [Reference](xls-56d-batch-transactions/reference/reference.md)
 
