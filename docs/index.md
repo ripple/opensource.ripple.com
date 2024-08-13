@@ -29,7 +29,7 @@ To learn more about the consensus process and the workflow for features to go fr
 ### Price Oracles
 
 - [XLS-47d Proposal](https://github.com/XRPLF/XRPL-Standards/blob/master/XLS-47d-PriceOracles/README.md)
-- [Documentation](xls-47d-price-oracles/)
+- [Documentation](xls-47d-price-oracles/price-oracle.md)
 
 ### Batch Transactions
 
