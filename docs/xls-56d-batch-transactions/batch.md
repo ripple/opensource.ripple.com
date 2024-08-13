@@ -136,14 +136,14 @@ Note that the inner transactions are committed as normal transactions, and the R
 | Account         | string              | STAccount         |                    |
 | Fee             | string              | STAmount          |  The fee is twice the base fee (a total of 20 drops when there is no fee escalation), plus the sum of the transaction fees of all the inner transactions (which incorporates factors like higher fees for multisign or AMMCreate). The fees for the individual inner transactions are paid here instead of in the inner transaction itself, to ensure that fee escalation is calculated on the total cost of the transaction instead of just the overhead. |
 | Flags           | number              | UInt32            | The `Flags` field represents the batch mode of the transaction. Exactly one must be specified in a `Batch` transaction. See [Batch Flags](#batch-flags)|
-| RawTransactions | array               | STArray           | RawTransactions contains the list of transactions that will be applied. See [Raw Transactions](#raw-transactions). |
+| RawTransactions | array               | STArray           | RawTransactions contains the list of transactions that will be applied. See [Raw Transactions](#rawtransactions). |
 | TxnIDs          | array               | Vector256         | `TxnIDs` contains a list of the transaction hashes/IDs for all the transactions contained in `RawTransactions`. This is the only part of the inner transactions that is saved as a part of the ledger within the `Batch` transaction, since the inner transactions themselves are their own transactions on-ledger. The hashes in TxnIDs must be in the same order as the raw transactions in `RawTransactions`. |
 | BatchSigners    | array               | STArray           | _Optional_. Only required if the `Batch` contains transactions for multiple accounts. See [BatchSigners](#batchsigners). |
 
 
 ### Batch Flags
 
-Transactions of the Batch type support additional values in the [`Flags` field](transaction-common-fields.html#flags-field), as follows:
+Transactions of the Batch type support additional values in the `Flags` field as follows:
 
 | Flag Name          | Hex Value    | Decimal Value | Description                   |
 |:-------------------|:-------------| ------------: |:------------------------------|
