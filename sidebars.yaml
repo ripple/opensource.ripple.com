@@ -114,17 +114,17 @@ opensource:
             pages:
               - page: docs/xls-47d-price-oracles/transaction-types/oracledelete.md
               - page: docs/xls-47d-price-oracles/transaction-types/oracleset.md
-     - group: Batch Transactions
-        page: docs/xls-56d-batch-transactions/batch-transactions.md
+      - group: Batch Transactions
+        page: docs/xls-56d-batch-transactions/batch-transactions-overview.md
         expanded: false
         pages:
           - group: Concepts
             expanded: false
             pages:
-              - page: docs/xls-56d-batch-transactions/batch-transactions.md
+              - page: docs/xls-56d-batch-transactions/concepts/batch-transactions.md
           - group: References
-             expanded: false
-             pages:
+            expanded: false
+            pages:
               - page: docs/xls-56d-batch-transactions/reference/batch.md
               - page: docs/xls-56d-batch-transactions/reference/common-fields.md
  
