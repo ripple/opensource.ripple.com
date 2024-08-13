@@ -125,6 +125,6 @@ opensource:
           - group: References
              expanded: false
              pages:
-              - page: batch.md
-              - page: common-fields.md
+              - page: docs/xls-56d-batch-transactions/reference/batch.md
+              - page: docs/xls-56d-batch-transactions/reference/common-fields.md
  
