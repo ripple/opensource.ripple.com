@@ -96,6 +96,24 @@ opensource:
                 pages:
                   - page: docs/xls-33d-multi-purpose-tokens/reference/mpt_holders.md
                   - page: docs/xls-33d-multi-purpose-tokens/reference/ledger-entry.md
+      - group: Price Oracles
+        page: docs/xls-47d-price-oracles/price-oracles.md
+        expanded: false
+        pages:
+          - group: Ledger Entry Types
+            expanded: false
+            pages:
+              - page: docs/xls-47d-price-oracles/ledger-object-types/oracle.md
+          - group: Public API Methods
+            expanded: false
+            pages:
+              - page: docs/xls-47d-price-oracles/public-api-methods/ledger_entry.md
+              - page: docs/xls-47d-price-oracles/public-api-methods/get_aggregate_price.md
+          - group: Transaction Types
+            expanded: false
+            pages:
+              - page: docs/xls-47d-price-oracles/transaction-types/oracledelete.md
+              - page: docs/xls-47d-price-oracles/transaction-types/oracleset.md
      - group: Batch Transactions
         page: docs/xls-56d-batch-transactions/batch-transactions.md
         expanded: false
