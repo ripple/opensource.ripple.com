@@ -23,5 +23,5 @@ Some potential uses for `Batch` include the following.
 ## Reference
 
 [Batch](reference/batch.md)
-[Common Fields] (reference/common-fields.md)
+[Common Fields](reference/common-fields.md)
 
