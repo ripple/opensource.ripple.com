@@ -19,10 +19,6 @@
   to: 'https://docs.xrplevm.org/docs/axelar/call-a-smart-contract-function/'
   type: 301
 
-'/docs/axelar/call-a-smart-contract-function/':
-  to: 'https://docs.xrplevm.org/docs/axelar/call-a-smart-contract-function/'
-  type: 301
-
 # evm docs
 '/docs/evm-sidechain/intro-to-evm-sidechain/':
   to: 'https://docs.xrplevm.org/docs/evm-sidechain/intro-to-evm-sidechain/'
