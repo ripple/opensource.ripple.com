@@ -7,7 +7,7 @@
   to: 'https://docs.xrplevm.org/docs/cross-chain-dapps/cross-chain-faqs/'
   type: 301
 
-'/docs/cross-chain-dapps/cross-chain-faqs/':
+'/docs/axelar/intro-to-axelar/':
   to: 'https://docs.xrplevm.org/docs/axelar/intro-to-axelar/'
   type: 301
 
