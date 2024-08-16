@@ -180,6 +180,23 @@ Every account that has at least one inner transaction, excluding the outer accou
 | Signature       | string              | STBlob            | Included if the account is signing with a single signature. |
 | Signers         | array               | STArray           | This field is included if the account is signing with multi-sign (as opposed to a single signature). It operates equivalently to the Signers field used in standard transaction multi-sign. This field holds the signatures for the Flags and TxnIDs fields. |
 
+## BatchTxn
+
+The `BatchTxn` inner object must be included in any inner transaction of a `Batch` transaction. Its inclusion:
+
+- Prevents hash collisions between identical transactions (since sequence numbers aren't included).
+- Ensures that every transaction has a sequence number associated with it, so that created ledger objects that use it in their ID generation can still operate.
+- Allows users to more easily organize their transactions in the correct order.
+
+The fields contained in this object are as follows.
+
+| Field                | JSON Type        | [Internal Type][] | Description      |
+|:---------------------|:-----------------|:------------------|:-----------------|
+| `Account`            | string           | AccountID         | Account that is submitting the outer `Batch` transaction. |
+| `OuterSequence`      | number           | UInt32            | This is the sequence number of the outer `Batch` transaction. Its inclusion ensures that there are no hash collisions with other `Batch` transactions. |
+| `Sequence`           | number           | UInt32            | _(Optional)_ This is the next available sequence number for the inner transaction's account. This only needs to be included in a multi-account Batch transaction.  |
+| `BatchIndex`         | number           | UInt8             | This is the (0-indexed) index of the inner transaction within the existing `Batch` transaction. The first inner transaction will have BatchIndex value 0, the second will be 1, and so on. Its inclusion ensures there are no hash collisions with other inner transactions within the same `Batch` transaction, and that the transactions are all placed in the right order. |
+
 ## Example Multiple Account Batch JSON
 
 In this example, two users are atomically swapping their tokens, XRP for GKO.
