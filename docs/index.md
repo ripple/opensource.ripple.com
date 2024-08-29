@@ -21,13 +21,7 @@ To learn more about the consensus process and the workflow for features to go fr
 - [Documentation](xls-33d-multi-purpose-tokens/multi-purpose-tokens.md)
 - [Reference](xls-33d-multi-purpose-tokens/reference/mpt-reference.md)
 
-### Price Oracles
-
-- [XLS-47d Proposal](https://github.com/XRPLF/XRPL-Standards/blob/master/XLS-47d-PriceOracles/README.md)
-- [Documentation](xls-47d-price-oracles/price-oracles.md)
-
 ### Batch Transactions
 
 - [XLS-56d Batch Transactions](xls-56d-batch-transactions/index.md)
 - [Reference](xls-56d-batch-transactions/reference/reference.md)
-
