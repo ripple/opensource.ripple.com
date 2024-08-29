@@ -1,20 +1,20 @@
 # priceoracle docs
-'/docs/xls-47d-price-oracles/price-oracles.md/':
+'/docs/xls-47d-price-oracles/price-oracles/':
   to: 'https://xrpl.org/docs/concepts/xrpl-sidechains/price-oracles'
   type: 301
-'/docs/xls-47d-price-oracles/ledger-object-types/oracle.md/':
+'/docs/xls-47d-price-oracles/ledger-object-types/oracle/':
   to: 'https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/oracle'
   type: 301
-'/docs/xls-47d-price-oracles/public-api-methods/ledger_entry.md/':
+'/docs/xls-47d-price-oracles/public-api-methods/ledger_entry/':
   to: 'https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/ledger-methods/ledger_entry#get-oracle-object'
   type: 301
-'/docs/xls-47d-price-oracles/public-api-methods/get_aggregate_price.md/':
+'/docs/xls-47d-price-oracles/public-api-methods/get_aggregate_price/':
   to: 'https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/path-and-order-book-methods/get_aggregate_price'
   type: 301
-'/docs/xls-47d-price-oracles/transaction-types/oracledelete.md/':
+'/docs/xls-47d-price-oracles/transaction-types/oracledelete/':
   to: 'https://xrpl.org/docs/references/protocol/transactions/types/oracledelete'
   type: 301
-'/docs/xls-47d-price-oracles/transaction-types/oracleset.md/':
+'/docs/xls-47d-price-oracles/transaction-types/oracleset/':
   to: 'https://xrpl.org/docs/references/protocol/transactions/types/oracleset'
   type: 301
 
