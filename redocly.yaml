@@ -43,6 +43,7 @@ codeSnippet:
 markdown:
   partialsFolders:
     - snippets
+    - docs/_snippets
     - docs/xls-38d-cross-chain-bridge/snippets
   lastUpdatedBlock:
     hide: true
