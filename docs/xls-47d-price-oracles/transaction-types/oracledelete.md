@@ -1,31 +1,31 @@
 ---
-html: deleteoracle.html 
+html: oracledelete.html 
 parent: transaction-types.html
 blurb: Delete an existing price oracle.
 labels:
   - Oracle
 status: not_enabled
 ---
-# DeleteOracle
-[[Source]](https://github.com/XRPLF/rippled/blob/bf6f5294a9b83653888600e78da8650896e9d393/src/ripple/app/tx/impl/DeleteOracle.cpp "Source")
+# OracleDelete
+[[Source]](https://github.com/XRPLF/rippled/blob/develop/src/ripple/app/tx/impl/DeleteOracle.cpp "Source")
 
 <embed src="/snippets/_price-oracles-disclaimer.md" />
 
 Delete an `Oracle` ledger entry.
 
 
-## Example DeleteOracle JSON
+## Example OracleDelete JSON
 
 ```json
 {
-  "TransactionType": "DeleteOracle",
+  "TransactionType": "OracleDelete",
   "Account": "rsA2LpzuawewSBQXkiju3YQTMzW13pAAdW",
   "OracleDocumentID": 34
 }
 ```
 
 
-## DeleteOracle Fields
+## OracleDelete Fields
 
 | Field              | JSON Type | Internal Type | Required? | Description |
 |--------------------|-----------|---------------|-----------|-------------|
@@ -35,7 +35,7 @@ Delete an `Oracle` ledger entry.
 
 ## Error Cases
 
-Besides errors that can occur for all transactions, `DeleteOracle` transactions can result in the following transaction result codes.
+Besides errors that can occur for all transactions, `OracleDelete` transactions can result in the following transaction result codes.
 
 | Error Code    | Description |
 |---------------|-------------|

@@ -1,3 +1,144 @@
+# priceoracle docs
+'/docs/xls-47d-price-oracles/price-oracles/':
+  to: 'https://xrpl.org/docs/concepts/xrpl-sidechains/price-oracles'
+  type: 301
+'/docs/xls-47d-price-oracles/ledger-object-types/oracle/':
+  to: 'https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/oracle'
+  type: 301
+'/docs/xls-47d-price-oracles/public-api-methods/ledger_entry/':
+  to: 'https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/ledger-methods/ledger_entry#get-oracle-object'
+  type: 301
+'/docs/xls-47d-price-oracles/public-api-methods/get_aggregate_price/':
+  to: 'https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/path-and-order-book-methods/get_aggregate_price'
+  type: 301
+'/docs/xls-47d-price-oracles/transaction-types/oracledelete/':
+  to: 'https://xrpl.org/docs/references/protocol/transactions/types/oracledelete'
+  type: 301
+'/docs/xls-47d-price-oracles/transaction-types/oracleset/':
+  to: 'https://xrpl.org/docs/references/protocol/transactions/types/oracleset'
+
+# crosschain dapps
+'/docs/cross-chain-dapps/cross-chain-dapps/':
+  to: 'https://docs.xrplevm.org/'
+  type: 301
+
+'/docs/cross-chain-dapps/cross-chain-faqs/':
+  to: 'https://docs.xrplevm.org/docs/cross-chain-dapps/cross-chain-faqs/'
+  type: 301
+
+'/docs/axelar/intro-to-axelar/':
+  to: 'https://docs.xrplevm.org/docs/axelar/intro-to-axelar/'
+  type: 301
+
+'/docs/axelar/bridge-tokens-axelar/':
+  to: 'https://docs.xrplevm.org/docs/axelar/bridge-tokens-axelar/'
+  type: 301
+
+'/docs/axelar/call-a-smart-contract-function/':
+  to: 'https://docs.xrplevm.org/docs/axelar/call-a-smart-contract-function/'
+  type: 301
+
+# evm docs
+'/docs/evm-sidechain/intro-to-evm-sidechain/':
+  to: 'https://docs.xrplevm.org/docs/evm-sidechain/intro-to-evm-sidechain/'
+  type: 301
+
+'/docs/evm-sidechain/get-started-evm-sidechain/':
+  to: 'https://docs.xrplevm.org/docs/evm-sidechain/get-started-evm-sidechain/'
+  type: 301
+
+'/docs/evm-sidechain/connect-metamask-to-xrpl-evm-sidechain/':
+  to: 'https://docs.xrplevm.org/docs/evm-sidechain/connect-metamask-to-xrpl-evm-sidechain/'
+  type: 301
+
+'/docs/evm-sidechain/join-evm-sidechain-devnet/':
+  to: 'https://docs.xrplevm.org/docs/evm-sidechain/join-evm-sidechain-devnet/'
+  type: 301
+
+'/docs/evm-sidechain/manage-the-validator-node/':
+  to: 'https://docs.xrplevm.org/docs/evm-sidechain/manage-the-validator-node/'
+  type: 301
+
+'/docs/evm-sidechain/evm-sidechain-validator-security/':
+  to: 'https://docs.xrplevm.org/docs/evm-sidechain/evm-sidechain-validator-security/'
+  type: 301
+
+'/docs/evm-sidechain/bridges-intro/':
+  to: 'https://docs.xrplevm.org/docs/evm-sidechain/bridges-intro/'
+  type: 301
+
+'/docs/evm-sidechain/deploy-a-bridge/':
+  to: 'https://docs.xrplevm.org/docs/evm-sidechain/deploy-a-bridge/'
+  type: 301
+
+'/docs/evm-sidechain/bridge-doors/':
+  to: 'https://docs.xrplevm.org/docs/evm-sidechain/bridge-doors/'
+  type: 301
+
+'/docs/evm-sidechain/bridge-door-interface/':
+  to: 'https://docs.xrplevm.org/docs/evm-sidechain/bridge-door-interface/'
+  type: 301
+
+'/docs/evm-sidechain/bridge-door-safety-mechanisms/':
+  to: 'https://docs.xrplevm.org/docs/evm-sidechain/bridge-door-safety-mechanisms/'
+  type: 301
+
+'/docs/evm-sidechain/witness-servers/':
+  to: 'https://docs.xrplevm.org/docs/evm-sidechain/witness-servers/'
+  type: 301
+
+'/docs/evm-sidechain/witness-server-configuration/':
+  to: 'https://docs.xrplevm.org/docs/evm-sidechain/witness-server-configuration/'
+  type: 301
+
+'/docs/evm-sidechain/build-and-run-witness-servers/':
+  to: 'https://docs.xrplevm.org/docs/evm-sidechain/build-and-run-witness-servers/'
+  type: 301
+
+'/docs/evm-sidechain/bridge-client/':
+  to: 'https://docs.xrplevm.org/docs/evm-sidechain/bridge-client/'
+  type: 301
+
+'/docs/evm-sidechain/configure-the-bridge-client/':
+  to: 'https://docs.xrplevm.org/docs/evm-sidechain/configure-the-bridge-client/'
+  type: 301
+
+'/docs/evm-sidechain/start-the-bridge-client/':
+  to: 'https://docs.xrplevm.org/docs/evm-sidechain/start-the-bridge-client/'
+  type: 301
+
+'/docs/evm-sidechain/evm-cli/':
+  to: 'https://docs.xrplevm.org/docs/evm-sidechain/evm-cli/'
+  type: 301
+
+'/docs/evm-sidechain/set-up-an-evm-sidechain/':
+  to: 'https://docs.xrplevm.org/docs/evm-sidechain/set-up-an-evm-sidechain/'
+  type: 301
+
+'/docs/evm-sidechain/stress-test-the-evm-sidechain/':
+  to: 'https://docs.xrplevm.org/docs/evm-sidechain/stress-test-the-evm-sidechain/'
+  type: 301
+
+'/docs/evm-sidechain/create-a-bridge/':
+  to: 'https://docs.xrplevm.org/docs/evm-sidechain/create-a-bridge/'
+  type: 301
+
+'/docs/evm-sidechain/execute-bridge-operations/':
+  to: 'https://docs.xrplevm.org/docs/evm-sidechain/execute-bridge-operations/'
+  type: 301
+
+'/docs/evm-sidechain/stress-test-the-bridge/':
+  to: 'https://docs.xrplevm.org/docs/evm-sidechain/stress-test-the-bridge/'
+  type: 301
+
+'/docs/evm-sidechain/bootstrap-a-local-environment/':
+  to: 'https://docs.xrplevm.org/docs/evm-sidechain/bootstrap-a-local-environment/'
+  type: 301
+
+'/docs/evm-sidechain/xrpl-evm-sidechain-faq/':
+  to: 'https://docs.xrplevm.org/docs/evm-sidechain/xrpl-evm-sidechain-faq/'
+  type: 301
+
 # clawback docs
 '/docs/clawback/clawback-of-issued-currency/':
   to: 'https://xrpl.org/clawing-back-tokens.html'

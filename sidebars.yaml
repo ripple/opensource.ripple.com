@@ -4,74 +4,47 @@ opensource:
   - label: Prerelease Docs
     expanded: true  
     pages:
-      - group: EVM Sidechain
-        page: docs/evm-sidechain/intro-to-evm-sidechain.md
+      - group: XLS-33d MPTs
+        page: docs/xls-33d-multi-purpose-tokens/index.md
         expanded: false
         pages:
-          - page: docs/evm-sidechain/get-started-evm-sidechain.md
-          - page: docs/evm-sidechain/connect-metamask-to-xrpl-evm-sidechain.md
-          - group: Run a Validator
+          - page: docs/xls-33d-multi-purpose-tokens/multi-purpose-tokens.md
+          - group: Reference
+            page: docs/xls-33d-multi-purpose-tokens/reference/mpt-reference.md
             expanded: false
             pages:
-              - page: docs/evm-sidechain/join-evm-sidechain-devnet.md 
-              - page: docs/evm-sidechain/manage-the-validator-node.md
-              - page: docs/evm-sidechain/evm-sidechain-validator-security.md
-          - group: Bridges
-            page: docs/evm-sidechain/bridges-intro.md
-            expanded: false
-            pages:
-              - page: docs/evm-sidechain/deploy-a-bridge.md
-              - group: Bridge Doors
-                page: docs/evm-sidechain/bridge-doors.md
+              - group: Objects
                 expanded: false
                 pages:
-                  - page: docs/evm-sidechain/bridge-door-interface.md
-                  - page: docs/evm-sidechain/bridge-door-safety-mechanisms.md
-              - group: Witness Servers
-                page: docs/evm-sidechain/witness-servers.md
+                  - page: docs/xls-33d-multi-purpose-tokens/reference/mptoken.md
+                  - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenissuance.md
+              - group: Transactions
                 expanded: false
                 pages:
-                  - page: docs/evm-sidechain/witness-server-configuration.md
-                  - page: docs/evm-sidechain/build-and-run-witness-servers.md
-              - group: Bridge Client
-                page: docs/evm-sidechain/bridge-client.md
+                  - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenauthorize.md
+                  - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenissuancecreate.md
+                  - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenissuancedestroy.md
+                  - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenissuanceset.md
+                  - page: docs/xls-33d-multi-purpose-tokens/reference/clawback.md
+              - group: Requests
                 expanded: false
                 pages:
-                  - page: docs/evm-sidechain/configure-the-bridge-client.md
-                  - page: docs/evm-sidechain/start-the-bridge-client.md            
-          - group: EVM CLI
-            page: docs/evm-sidechain/evm-cli.md
-            expanded: false
-            pages:              
-              - group: Blockchain Commands
-                expanded: false
-                pages:
-                  - page: docs/evm-sidechain/set-up-an-evm-sidechain.md
-                  - page: docs/evm-sidechain/stress-test-the-evm-sidechain.md
-              - group: Bridge Commands
-                expanded: false
-                pages:
-                  - page: docs/evm-sidechain/create-a-bridge.md
-                  - page: docs/evm-sidechain/execute-bridge-operations.md
-                  - page: docs/evm-sidechain/stress-test-the-bridge.md
-              - page: docs/evm-sidechain/bootstrap-a-local-environment.md
-          - page: docs/evm-sidechain/xrpl-evm-sidechain-faq.md
-      - group: Price Oracles
-        page: docs/xls-47d-price-oracles/price-oracles.md
+                  - page: docs/xls-33d-multi-purpose-tokens/reference/mpt_holders.md
+                  - page: docs/xls-33d-multi-purpose-tokens/reference/ledger-entry.md
+      - group: Batch Transactions
+        page: docs/xls-56d-batch-transactions/index.md
         expanded: false
         pages:
-          - group: Ledger Entry Types
+          - group: Concepts
             expanded: false
             pages:
-              - page: docs/xls-47d-price-oracles/ledger-object-types/oracle.md
-          - group: Public API Methods
+              - page: docs/xls-56d-batch-transactions/concepts/batch-transactions.md
+          - group: References
             expanded: false
-            pages:
-              - page: docs/xls-47d-price-oracles/public-api-methods/ledger_entry.md
-              - page: docs/xls-47d-price-oracles/public-api-methods/get_aggregate_price.md
-          - group: Transaction Types
-            expanded: false
-            pages:
+            pages
+              - page: docs/xls-56d-batch-transactions/reference/batch.md
+              - page: docs/xls-56d-batch-transactions/reference/common-fields.md
+
               - page: docs/xls-47d-price-oracles/transaction-types/deleteoracle.md
               - page: docs/xls-47d-price-oracles/transaction-types/setoracle.md
       - group: LedgerStateFix
