@@ -44,7 +44,6 @@ opensource:
             pages:
               - page: docs/xls-56d-batch-transactions/reference/batch.md
               - page: docs/xls-56d-batch-transactions/reference/common-fields.md
-
               - page: docs/xls-47d-price-oracles/transaction-types/deleteoracle.md
               - page: docs/xls-47d-price-oracles/transaction-types/setoracle.md
       - group: LedgerStateFix
