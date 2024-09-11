@@ -39,7 +39,7 @@ _(Added by the [fixNFTokenPageLinks amendment][].)_
 
 ## LedgerStateFix Flags
 
-Transactions of the LedgerStateFix type can support additional values in the [`Flags` field](https://xrpl.org/docs/references/protocol/transactions/common-fields#flags-field). Currently, there are no flags defined. A future `LedgerFixType` might require flag settings.
+Transactions of the LedgerStateFix type can support additional values in the `Flags` field. Currently, there are no flags defined. A future `LedgerFixType` might require flag settings.
 
 ## Error Cases
 
