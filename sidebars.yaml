@@ -46,4 +46,4 @@ opensource:
               - page: docs/xls-56d-batch-transactions/reference/common-fields.md
       - group: LedgerStateFix
         page: docs/LedgerStateFix/index.md
-        
+          
