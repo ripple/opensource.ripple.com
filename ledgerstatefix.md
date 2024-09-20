@@ -11,7 +11,7 @@ labels:
 
 _(Added by the [fixNFTokenPageLinks amendment][].)_
 
-## Example {% $frontmatter.seo.title %} JSON
+## Example LedgerStateFix JSON
 
 ```json
 {
