@@ -26,7 +26,6 @@ _(Added by the [fixNFTokenPageLinks amendment][].)_
 }
 ```
 
-{% raw-partial file="/docs/_snippets/tx-fields-intro.md" /%}
 
 | Field | Data Type  | Required? | Description |
 |:------|:-----------|:----------|:------------|
