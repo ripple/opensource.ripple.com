@@ -1,6 +1,6 @@
 # Call a Smart Contract Function
 
-<embed src="/snippets/_axelar-disclaimer.md" />
+{% partial file="/snippets/_axelar-disclaimer.md" /%}
 
 This tutorial describes how to call a function from a smart contract on Ethereum `Sepolia` from the XRPL `Testnet`, using General Message Passing (GMP). The following diagram illustrates the process from a high level:
 

@@ -7,7 +7,7 @@ labels:
 ---
 # MPTokenIssuanceDestroy
 
-<embed src="/snippets/_mpts-disclaimer.md" />
+{% partial file="/snippets/_mpts-disclaimer.md" /%}
 
 The `MPTokenIssuanceDestroy` transaction is used to remove an `MPTokenIssuance` object from the directory node in which it is being held, effectively removing the token from the ledger ("destroying" it).
 

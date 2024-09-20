@@ -7,7 +7,7 @@ labels:
 ---
 # Set Up an IOU-IOU Bridge
 
-<embed src="/snippets/_xchain-bridges-disclaimer.md" />
+{% partial file="/snippets/_xchain-bridges-disclaimer.md" /%}
 
 ## Prerequisites
 

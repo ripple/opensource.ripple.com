@@ -8,7 +8,7 @@ status: not_enabled
 ---
 # Manage the Validator Node
 
-<embed src="/snippets/_evm-sidechain-disclaimer.md" />
+{% partial file="/snippets/_evm-sidechain-disclaimer.md" /%}
 
 
 ## Edit Validator Description

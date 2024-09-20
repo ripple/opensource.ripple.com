@@ -7,7 +7,7 @@ labels:
 ---
 # MPTokenIssuanceSet
 
-<embed src="/snippets/_mpts-disclaimer.md" />
+{% partial file="/snippets/_mpts-disclaimer.md" /%}
 
 Use this transaction to update a mutable property for a Multi-purpose Token.
 

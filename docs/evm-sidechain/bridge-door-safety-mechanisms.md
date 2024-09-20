@@ -7,7 +7,7 @@ status: not_enabled
 ---
 # Bridge Door Safety Mechanisms
 
-<embed src="/snippets/_evm-sidechain-disclaimer.md" />
+{% partial file="/snippets/_evm-sidechain-disclaimer.md" /%}
 
 This page describes the options you have to mitigate any risks that may occur during the life of a bridge. None of these mechanisms can be activated by a single witness; only transactions executed from the Gnosis Safe can activate them.
 

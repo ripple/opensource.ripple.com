@@ -7,7 +7,7 @@ status: not_enabled
 ---
 # Deploy a Bridge
 
-<embed src="/snippets/_evm-sidechain-disclaimer.md" />
+{% partial file="/snippets/_evm-sidechain-disclaimer.md" /%}
 
 Before deploying a bridge, familiarize yourself with the parameters and terms used:
 

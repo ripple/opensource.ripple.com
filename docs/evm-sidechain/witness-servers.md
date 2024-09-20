@@ -7,7 +7,7 @@ status: not_enabled
 ---
 # Witness Servers
 
-<embed src="/snippets/_evm-sidechain-disclaimer.md" />
+{% partial file="/snippets/_evm-sidechain-disclaimer.md" /%}
 
 A witness server enables bridge operators to listen for transactions on the connected chains and sign attestations. _Attestations_ are used as proof that events on a chain occurred.
 

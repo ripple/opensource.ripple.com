@@ -9,7 +9,7 @@ status: not_enabled
 # OracleSet
 [[Source]](https://github.com/XRPLF/rippled/blob/develop/src/ripple/app/tx/impl/SetOracle.cpp "Source")
 
-<embed src="/snippets/_price-oracles-disclaimer.md" />
+{% partial file="/snippets/_price-oracles-disclaimer.md" /%}
 
 Creates a new `Oracle` ledger entry or updates the fields of an existing one, using the Oracle ID.
 

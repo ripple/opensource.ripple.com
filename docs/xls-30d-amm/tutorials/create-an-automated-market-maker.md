@@ -37,7 +37,7 @@ Complete sample code for all of the steps of these tutorials is available under 
 
 You must be connected to the network to query it and submit transactions. The following code shows how to connect to a public server using a supported [client library](https://xrpl.org/client-libraries.html):
 
-```js JavaScript
+```js {% title="JavaScript" %}
 // In browsers, use a <script> tag. In Node.js, uncomment the following line:
 // const xrpl = require('xrpl')
 
@@ -64,7 +64,7 @@ To transact on the XRP Ledger, you need an address and secret key, and some XRP.
 
 When you're [building production-ready software](https://xrpl.org/production-readiness.html), you should use an existing account, and manage your keys using a [secure signing configuration](https://xrpl.org/set-up-secure-signing.html). The following code shows how to get a `Wallet` instance using either the faucet or a seed provided by environment variable:
 
-```js JavaScript
+```js {% title="JavaScript" %}
 // Get credentials from the Faucet -------------------------------------------
   console.log("Requesting address from the faucet...")
   const wallet = (await client.fundWallet()).wallet
@@ -82,7 +82,7 @@ You can choose any pair of fungible assets in the XRP Ledger, including XRP or t
 
 For each of the two assets, you need to know its currency code and issuer; as an exception, XRP has no issuer. For each of the assets, you must hold a balance of the asset (or _be_ the issuer). The following sample code acquires two assets, "TST" (which it buys using XRP) and "FOO" (which it receives from the issuer).
 
-```js JavaScript
+```js {% title="JavaScript" %}
 // Acquire tokens ------------------------------------------------------------
   const offer_result = await client.submitAndWait({
     "TransactionType": "OfferCreate",
@@ -123,7 +123,7 @@ This tutorial includes some example code to issue FOO tokens from a second test 
 
 The helper function for issuing follows an abbreviated version of the steps in the [Issue a Fungible Token](https://xrpl.org/issue-a-fungible-token.html) tutorial:
 
-```js JavaScript
+```js {% title="JavaScript" %}
 /* Issue tokens ---------------------------------------------------------------
  * Fund a new issuer using the faucet, and issue some fungible tokens 
  * to the specified address. In production, you would not do this; instead,
@@ -208,7 +208,7 @@ async function get_new_token(client, wallet, currency_code, issue_quantity) {
 
 Since there can only be one AMM for a specific pair of assets, it's best to check first before trying to create one. Use the [amm_info method](../public-api-methods/amm_info.md) to see if the AMM already exists. For the request, you specify the two assets. The response should be an `actNotFound` error if the AMM does not exist.
 
-```js JavaScript
+```js {% title="JavaScript" %}
 // Check if AMM already exists ----------------------------------------------
   const amm_info_request = {
     "command": "amm_info", 
@@ -272,7 +272,7 @@ For the two starting assets, it does not matter which is `Asset` and which is `A
 
 **Tip:** Use `fail_hard` when submitting this transaction, so you don't have to pay the high transaction cost if the transaction initially fails. (It's still _possible_ that the transaction could tentatively succeed, and then fail and still burn the transaction cost, but this protects you from burning XRP on many of types of failures.)
 
-```js JavaScript
+```js {% title="JavaScript" %}
 // Create AMM ---------------------------------------------------------------
   // This example assumes that 15 TST ≈ 100 FOO in value.
   const ammcreate_result = await client.submitAndWait({
@@ -303,7 +303,7 @@ For the two starting assets, it does not matter which is `Asset` and which is `A
 
 If the AMMCreate transaction succeeded, it creates the AMM and related objects in the ledger. You _could_ check the metadata of the AMMCreate transaction, but it is often easier to call the [amm_info method](../public-api-methods/amm_info.md) again to get the status of the newly-created AMM. 
 
-```js JavaScript
+```js {% title="JavaScript" %}
 // Confirm that AMM exists --------------------------------------------------
   // Make the same amm_info request as earlier, but this time it should succeed
   const amm_info_result2 = await client.request(amm_info_request)
@@ -326,7 +326,7 @@ Initially, the AMM's total outstanding LP Tokens, reported in the `lp_token` fie
 
 You can also use the [account_lines method][] to get an updated view of your token balances. Your balances should be decreased by the amounts you deposited, but you now have a balance of LP Tokens that you received from the AMM.
 
-```js JavaScript
+```js {% title="JavaScript" %}
 // Check token balances
   const account_lines_result = await client.request({
     "command": "account_lines",

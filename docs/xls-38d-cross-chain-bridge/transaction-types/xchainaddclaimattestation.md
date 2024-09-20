@@ -8,7 +8,7 @@ status: not_enabled
 ---
 # XChainAddClaimAttestation
 
-<embed src="/snippets/_xchain-bridges-disclaimer.md" />
+{% partial file="/snippets/_xchain-bridges-disclaimer.md" /%}
 
 [[Source]](https://github.com/seelabs/rippled/blob/xbridge/src/ripple/protocol/impl/TxFormats.cpp#L377-L392 "Source")
 
@@ -88,7 +88,7 @@ Any account can submit signatures.
 | `XChainClaimID`            | `string`          | `UINT64`          | Yes       | The `XChainClaimID` associated with the transfer, which was included in the `XChainCommit` transaction. |
 
 
-<embed src="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" />
+{% partial file="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" /%}
 
 
 <!-- ## Error Cases

@@ -8,7 +8,7 @@ status: not_enabled
 ---
 # Join the XRPL EVM Sidechain Devnet
 
-<embed src="/snippets/_evm-sidechain-disclaimer.md" />
+{% partial file="/snippets/_evm-sidechain-disclaimer.md" /%}
 
 This tutorial walks you through the steps to join the existing **XRP Ledger EVM Sidechain Devnet**. 
 
@@ -76,11 +76,12 @@ All these commands create your `~/.exrpd` (i.e `$HOME`) directory with subfol
     wget https://raw.githubusercontent.com/Peersyst/xrp-evm-archive/main/poa-devnet/genesis.json -O ~/.exrpd/config/genesis.json
     ```
 
-   :::attention Attention
+   {% admonition type="info" name="Attention" %}
 
    Before jumping to the next item, make sure that the contents of the file `~/.exrpd/config/genesis.json` match the contents of the file [genesis.json](https://raw.githubusercontent.com/Peersyst/xrp-evm-archive/main/poa-devnet/genesis.json).
 
-   :::
+   
+{% /admonition %}
 
     Verify the genesis configuration file:
 
