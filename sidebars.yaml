@@ -1,6 +1,6 @@
 - label: Open Source Projects
   page: docs/index.md
-- label: Prerelease Docs
+- group: Prerelease Docs
   expanded: true
   items:
     - group: XLS-33d MPTs
