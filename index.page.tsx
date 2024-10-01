@@ -1,36 +1,28 @@
 import * as React from 'react';
-
 import {
   LandingLayout,
-  Button,
   Box,
   FlexSection,
   Jumbotron,
   WideTile,
-  NavBar,
 } from '@redocly/portal-legacy-ui';
 import { Header1, Header2, TileText } from "./components";
-
-import heroImage from './images/heroimg.png';
-
-
+import  { Button } from "@redocly/theme";
 export const frontmatter = {
   "title": "Open Source Projects"
 };
-
 export default function Page() {
   return (
     <LandingLayout>
       <Jumbotron 
         pb="8.5em"
-        bgImage={heroImage}
+        bgImage={require('images/heroimg.png')}
         height="350px"
         width="3440px"
         bgColor="white"
         textColor="black"
       >
       
-        <NavBar location={props.location} standalone={false} />
         <Header1>Open Source Projects</Header1>
         <Header2>Explore open source projects currently in development.</Header2>
       </Jumbotron>
@@ -38,8 +30,8 @@ export default function Page() {
       <Box p={{ _: "8px", sm: "12px", md: "16px", lg: "24px" }}>
         <FlexSection justifyContent="space-around" flexWrap="wrap">  
           <WideTile 
-            style={{ height: "284px"}}
-            to="docs/xls-33d-multi-purpose-tokens/index.md"
+            style={{ height: "284px" }}
+            to="docs/xls-33d-multi-purpose-tokens/"
             header="Multi-purpose Tokens"
             color="#141A1F"
             textAlign="left"
@@ -62,8 +54,8 @@ export default function Page() {
             </div>
           </WideTile>
           <WideTile 
-            style={{ height: "284px"}}
-            to="docs/xls-56d-batch-transactions/index.md"
+            style={{ height: "284px" }}
+            to="docs/xls-56d-batch-transactions/"
             header="Batch Transactions"
             color="#141A1F"
             textAlign="left"

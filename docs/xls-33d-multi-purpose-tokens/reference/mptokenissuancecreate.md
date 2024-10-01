@@ -37,7 +37,7 @@ Example MPTokenIssuanceCreate transaction
 
 ## MPTokenIssuanceCreate Fields
 
-{% include '_snippets/tx-fields-intro.md' %}
+<!-- {% include '_snippets/tx-fields-intro.md' %} -->
 
 | Field           | JSON Type           | [Internal Type][] | Description        |
 |:----------------|:--------------------|:------------------|:-------------------|

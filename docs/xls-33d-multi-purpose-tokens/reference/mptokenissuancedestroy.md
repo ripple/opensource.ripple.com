@@ -25,7 +25,7 @@ If this operation succeeds, the corresponding `MPTokenIssuance` is removed and t
 
 ## MPTokenIssuanceDestroy Fields
 
-{% include '_snippets/tx-fields-intro.md' %}
+<!-- {% include '_snippets/tx-fields-intro.md' %} -->
 
 | Field               | JSON Type           | [Internal Type][] | Description        |
 |:--------------------|:--------------------|:------------------|:-------------------|

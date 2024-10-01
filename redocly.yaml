@@ -12,7 +12,7 @@ links:
 navbar:
   items:
     - label: Home
-      page: index.mdx
+      page: index.page.tsx
     - label: Open Source Projects
       page: docs/index.md
 footer:

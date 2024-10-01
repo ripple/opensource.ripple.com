@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Typography } from "@redocly/developer-portal/ui";
+import { Typography } from "@redocly/theme";
 import { theme } from "../theme";
 
 const TileText = styled(Typography)`

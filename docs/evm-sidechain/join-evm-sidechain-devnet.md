@@ -79,9 +79,8 @@ All these commands create your `~/.exrpd` (i.e `$HOME`) directory with subfol
    {% admonition type="info" name="Attention" %}
 
    Before jumping to the next item, make sure that the contents of the file `~/.exrpd/config/genesis.json` match the contents of the file [genesis.json](https://raw.githubusercontent.com/Peersyst/xrp-evm-archive/main/poa-devnet/genesis.json).
-
    
-{% /admonition %}
+   {% /admonition %}
 
     Verify the genesis configuration file:
 
