@@ -28,9 +28,15 @@ export default function Page() {
       </Jumbotron>
       
       <Box p={{ _: "8px", sm: "12px", md: "16px", lg: "24px" }}>
-        <FlexSection justifyContent="space-around" flexWrap="wrap">  
+        <Box 
+            display="flex"
+            justifyContent="center"
+            flexWrap="wrap"
+            maxWidth="1200px"
+            margin="0 auto"
+            >  
           <WideTile 
-            style={{ height: "284px" }}
+            style={{ height: "284px", width: "500px", margin: "16px" }}
             to="docs/xls-33d-multi-purpose-tokens/"
             header="Multi-purpose Tokens"
             color="#141A1F"
@@ -54,7 +60,7 @@ export default function Page() {
             </div>
           </WideTile>
           <WideTile 
-            style={{ height: "284px" }}
+            style={{ height: "284px", width: "500px", margin: "16px" }}
             to="docs/xls-56d-batch-transactions/"
             header="Batch Transactions"
             color="#141A1F"
@@ -77,7 +83,7 @@ export default function Page() {
               </Button>
             </div>
           </WideTile> 
-        </FlexSection>
+        </Box>
       </Box>
     </LandingLayout>
   );
