@@ -36,7 +36,7 @@ export default function Page() {
             margin="0 auto"
             >  
           <WideTile 
-            style={{ height: "284px", width: "500px", margin: "16px" }}
+            style={{ height: "284px", margin: "16px" }}
             to="docs/xls-33d-multi-purpose-tokens/"
             header="Multi-purpose Tokens"
             color="#141A1F"
@@ -60,7 +60,7 @@ export default function Page() {
             </div>
           </WideTile>
           <WideTile 
-            style={{ height: "284px", width: "500px", margin: "16px" }}
+            style={{ height: "284px", margin: "16px" }}
             to="docs/xls-56d-batch-transactions/"
             header="Batch Transactions"
             color="#141A1F"
