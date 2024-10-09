@@ -1,7 +1,6 @@
 ---
 html: xrpl-interoperability.html
 blurb: Learn about capabilities that bring programmability and ability to interact with other chains to the XRP Ledger.
-template: pagetype-category.html.jinja
 labels:
   - Interoperability
 status: not_enabled

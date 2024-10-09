@@ -9,7 +9,7 @@ labels:
 # MPTokenIssuanceCreate
 [[Source]](https://github.com/XRPLF/rippled/blob/master/src/ripple/app/tx/impl/MPTokenIssuanceCreate.cpp "Source")
 
-<embed src="/snippets/_mpts-disclaimer.md" />
+{% partial file="/snippets/_mpts-disclaimer.md" /%}
 
 The `MPTokenIssuanceCreate` transaction creates an MPTokenIssuance <!--[MPTokenIssuance](mptokenissuance.html)--> object and adds it to the relevant directory node of the creator account. This transaction is the only opportunity an issuer has to specify any token fields that are defined as immutable (for example, MPT Flags).
 
@@ -37,7 +37,7 @@ Example MPTokenIssuanceCreate transaction
 
 ## MPTokenIssuanceCreate Fields
 
-{% include '_snippets/tx-fields-intro.md' %}
+<!-- {% include '_snippets/tx-fields-intro.md' %} -->
 
 | Field           | JSON Type           | [Internal Type][] | Description        |
 |:----------------|:--------------------|:------------------|:-------------------|

@@ -8,7 +8,7 @@ status: not_enabled
 ---
 # Execute Bridge Operations
 
-<embed src="/snippets/_evm-sidechain-disclaimer.md" />
+{% partial file="/snippets/_evm-sidechain-disclaimer.md" /%}
 
 This tutorial walks you through the process of creating a bridge account and transfering funds from the issuing chain to the locking chain.
 

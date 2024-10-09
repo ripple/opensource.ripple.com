@@ -8,7 +8,7 @@ status: not_enabled
 ---
 # Introduction to XRPL EVM Sidechain
 
-<embed src="/snippets/_evm-sidechain-disclaimer.md" />
+{% partial file="/snippets/_evm-sidechain-disclaimer.md" /%}
 
 The XRP Ledger Ethereum Virtual Machine (EVM) sidechain is a fast and secure blockchain that brings web3 applications to the XRP Ledger community.
 

@@ -8,7 +8,7 @@ status: not_enabled
 ---
 # XChainAccountCreateCommit
 
-<embed src="/snippets/_xchain-bridges-disclaimer.md" />
+{% partial file="/snippets/_xchain-bridges-disclaimer.md" /%}
 
 [[Source]](https://github.com/seelabs/rippled/blob/xbridge/src/ripple/protocol/impl/TxFormats.cpp#L414-L421 "Source")
 
@@ -52,7 +52,7 @@ The `XChainAccountCreateCommit` transaction creates a new account for a witness 
 | `XChainBridge`    | `XChainBridge`    | `XCHAIN_BRIDGE`   | Yes       | The bridge to create accounts for. |
 
 
-<embed src="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" />
+{% partial file="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" /%}
 
 <!-- ## Error Cases
 

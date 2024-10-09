@@ -8,7 +8,7 @@ status: not_enabled
 ---
 # XChainClaim
 
-<embed src="/snippets/_xchain-bridges-disclaimer.md" />
+{% partial file="/snippets/_xchain-bridges-disclaimer.md" /%}
 
 [[Source]](https://github.com/seelabs/rippled/blob/xbridge/src/ripple/protocol/impl/TxFormats.cpp#L366-L374 "Source")
 
@@ -51,7 +51,7 @@ If the transaction succeeds in moving funds, the referenced `XChainOwnedClaimID`
 | `XChainClaimID`         | `string`          | `UINT64`          | Yes       | The unique integer ID for the cross-chain transfer that was referenced in the corresponding `XChainCommit` transaction. |
 
 
-<embed src="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" />
+{% partial file="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" /%}
 
 
 <!-- ## Error Cases

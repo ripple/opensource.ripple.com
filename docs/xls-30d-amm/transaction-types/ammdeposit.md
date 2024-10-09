@@ -9,7 +9,7 @@ status: not_enabled
 # AMMDeposit
 [[Source]](https://github.com/XRPLF/rippled/blob/develop/src/ripple/app/tx/impl/AMMDeposit.cpp "Source")
 
-<embed src="/snippets/_amm-disclaimer.md" />
+{% partial file="/snippets/_amm-disclaimer.md" /%}
 
 Deposit funds into an [Automated Market Maker](../automated-market-makers.md) (AMM) instance and receive the AMM's liquidity provider tokens (_LP Tokens_) in exchange. You can deposit one or both of the assets in the AMM's pool.
 

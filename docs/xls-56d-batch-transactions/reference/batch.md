@@ -128,7 +128,7 @@ Note that the inner transactions are committed as normal transactions, and the R
 
 ### Batch Fields
 
-{% include '_snippets/tx-fields-intro.md' %}
+<!-- {% include '_snippets/tx-fields-intro.md' %} -->
 
 | Field           | JSON Type           | [Internal Type][] | Description        |
 |:----------------|:--------------------|:------------------|:-------------------|

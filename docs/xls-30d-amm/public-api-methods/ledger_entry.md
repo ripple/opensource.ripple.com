@@ -13,7 +13,7 @@ Retrieve an Automated Market-Maker (AMM) object from the ledger. This is similar
 | `amm.asset2` | Object           | The other of the two assets in this AMM's pool, as a [currency object without an amount](https://xrpl.org/currency-formats.htcurrency-formats.html#specifying-without-amounts). |
 
 
-```json WebSocket
+```json {% title="WebSocket" %}
 {
   "id": 30,
   "command": "ledger_entry",
@@ -30,7 +30,7 @@ Retrieve an Automated Market-Maker (AMM) object from the ledger. This is similar
 }
 ```
 
-```json JSON-RPC
+```json {% title="JSON-RPC" %}
 {
     "method": "ledger_entry",
     "params": [
@@ -50,7 +50,7 @@ Retrieve an Automated Market-Maker (AMM) object from the ledger. This is similar
 }
 ```
 
-```sh Commandline
+```sh {% title="Commandline" %}
 rippled json ledger_entry '{ "amm": { "asset": { "currency": "XRP" }, "asset2": { "currency" : "TST", "issuer" : "rP9jPyP5kyvFRb6ZiRghAGw5u8SGAmU4bd" } }, "ledger_index": "validated" }'
 ```
 

@@ -5,15 +5,13 @@
   "description": "Redocly portal template repository",
   "license": "MIT",
   "scripts": {
-    "start": "redocly-portal develop -p 3000",
-    "build": "redocly-portal build",
-    "clean": "redocly-portal clean",
+    "start": "realm develop",
     "prettify": "prettier --write ."
   },
   "dependencies": {
-    "@redocly/realm": "^0.78.6",
-    "@redocly/cli": "^1.0.0-beta.115",
-    "@redocly/developer-portal": "^1.1.0-beta.123"
+    "@redocly/cli": "1.25.4",
+    "@redocly/portal-legacy-ui": "^0.1.0",
+    "@redocly/realm": "^0.101.0"
   },
   "devDependencies": {
     "prettier": "^2.6.2"

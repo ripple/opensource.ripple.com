@@ -9,7 +9,7 @@ status: not_enabled
 # OracleDelete
 [[Source]](https://github.com/XRPLF/rippled/blob/develop/src/ripple/app/tx/impl/DeleteOracle.cpp "Source")
 
-<embed src="/snippets/_price-oracles-disclaimer.md" />
+{% partial file="/snippets/_price-oracles-disclaimer.md" /%}
 
 Delete an `Oracle` ledger entry.
 

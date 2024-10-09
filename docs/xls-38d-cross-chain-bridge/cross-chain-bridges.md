@@ -7,7 +7,7 @@ labels:
 ---
 # Cross-Chain Bridges
 
-<embed src="/snippets/_xchain-bridges-disclaimer.md" />
+{% partial file="/snippets/_xchain-bridges-disclaimer.md" /%}
 
 Cross-chain bridges for the XRP Ledger enable value in the form of XRP and other tokens (IOUs) to move efficiently between blockchains such as the XRP Ledger and its [sidechains](xrpl-sidechains.md).
 

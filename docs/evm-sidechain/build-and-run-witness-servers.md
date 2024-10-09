@@ -7,7 +7,7 @@ status: not_enabled
 ---
 # Build and Run Witness Servers
 
-<embed src="/snippets/_evm-sidechain-disclaimer.md" />
+{% partial file="/snippets/_evm-sidechain-disclaimer.md" /%}
 
 After creating a config file, you can build and run a witness server through _Docker_ or a local build.
 

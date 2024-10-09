@@ -8,7 +8,7 @@ status: not_enabled
 ---
 # XChainOwnedClaimID
 
-<embed src="/snippets/_xchain-bridges-disclaimer.md" />
+{% partial file="/snippets/_xchain-bridges-disclaimer.md" /%}
 
 [[Source]](https://github.com/seelabs/rippled/blob/xbridge/src/ripple/protocol/impl/LedgerFormats.cpp#L281-L293 "Source")
 
@@ -95,4 +95,4 @@ An `XChainCreateClaimID` transaction is used to create a new `XChainOwnedClaimID
 | `WasLockingChainSend`         | `number`          | `UINT8`       | Yes      | A boolean representing the chain where the event occurred. |
 
 
-<embed src="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" />
+{% partial file="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" /%}

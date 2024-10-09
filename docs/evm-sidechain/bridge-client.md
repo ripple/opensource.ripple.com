@@ -7,7 +7,7 @@ status: not_enabled
 ---
 # Bridge Client
 
-<embed src="/snippets/_evm-sidechain-disclaimer.md" />
+{% partial file="/snippets/_evm-sidechain-disclaimer.md" /%}
 
 The bridge client provides a user interface to interact with your bridge. You can use the client to connect wallets and transfer XRP or tokens across XRPL chains.
 

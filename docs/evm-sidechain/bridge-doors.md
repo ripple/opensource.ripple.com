@@ -7,7 +7,7 @@ status: not_enabled
 ---
 # Bridge Doors
 
-<embed src="/snippets/_evm-sidechain-disclaimer.md" />
+{% partial file="/snippets/_evm-sidechain-disclaimer.md" /%}
 
 Bridge doors on the XRPL EVM sidechain are _Solidity_ smart contracts that have the logic to execute all transactions introduced by XLS-38d.
 

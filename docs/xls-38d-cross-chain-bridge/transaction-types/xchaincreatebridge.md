@@ -8,7 +8,7 @@ status: not_enabled
 ---
 # XChainCreateBridge
 
-<embed src="/snippets/_xchain-bridges-disclaimer.md" />
+{% partial file="/snippets/_xchain-bridges-disclaimer.md" /%}
 
 [[Source]](https://github.com/seelabs/rippled/blob/xbridge/src/ripple/protocol/impl/TxFormats.cpp#L329-L335 "Source")
 
@@ -52,7 +52,7 @@ The complete production-grade setup would also include a `SignerListSet` transac
 | `XChainBridge`           | `XChainBridge`    | `XCHAIN_BRIDGE`   | Yes       | The bridge (door accounts and assets) to create. |
 
 
-<embed src="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" />
+{% partial file="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" /%}
 
 
 <!-- ## Error Cases

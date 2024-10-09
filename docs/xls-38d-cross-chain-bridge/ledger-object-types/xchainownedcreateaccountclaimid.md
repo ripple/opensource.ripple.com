@@ -8,7 +8,7 @@ status: not_enabled
 ---
 # XChainOwnedCreateAccountClaimID
 
-<embed src="/snippets/_xchain-bridges-disclaimer.md" />
+{% partial file="/snippets/_xchain-bridges-disclaimer.md" /%}
 
 [[Source]](https://github.com/seelabs/rippled/blob/xbridge/src/ripple/protocol/impl/LedgerFormats.cpp#L296-L306 "Source")
 
@@ -80,4 +80,4 @@ The ledger object is destroyed when all the attestations have been received and 
 | `WasLockingChainSend`         | `number`          | `UINT8`       | Yes      | A boolean representing the chain where the event occurred. |
 
 
-<embed src="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" />
+{% partial file="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" /%}

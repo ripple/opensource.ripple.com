@@ -9,7 +9,7 @@ labels:
 # ledger_entry
 [[Source]](https://github.com/XRPLF/rippled/blob/master/src/ripple/rpc/handlers/LedgerEntry.cpp "Source")
 
-<embed src="/snippets/_mpts-disclaimer.md" />
+{% partial file="/snippets/_mpts-disclaimer.md" /%}
 
 The `ledger_entry` method returns a single ledger entry from the XRP Ledger in its raw format. See [ledger format](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/) for information on the different types of entries you can retrieve.
 

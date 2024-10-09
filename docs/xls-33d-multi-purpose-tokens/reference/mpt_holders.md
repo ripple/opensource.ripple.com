@@ -9,7 +9,7 @@ labels:
 
 # mpt_holders
 
-<embed src="/snippets/_mpts-disclaimer.md" />
+{% partial file="/snippets/_mpts-disclaimer.md" /%}
 
 For a given `MPTokenIssuanceID` and ledger sequence, `mpt_holders` returns all holders of that MPT and their balance. This method likely returns very large data sets, so you should expect to implement paging via the `marker` field.
 

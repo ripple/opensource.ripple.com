@@ -8,7 +8,7 @@ labels:
 
 # MPTokenAuthorize
 
-<embed src="/snippets/_mpts-disclaimer.md" />
+{% partial file="/snippets/_mpts-disclaimer.md" /%}
 
 This transaction enables an account to hold an amount of a particular MPT issuance. When applied successfully, it creates a new `MPToken` object with an initial zero balance, owned by the holder account.
 

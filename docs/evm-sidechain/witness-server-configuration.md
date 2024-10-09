@@ -7,7 +7,7 @@ status: not_enabled
 ---
 # Witness Server Configuration
 
-<embed src="/snippets/_evm-sidechain-disclaimer.md" />
+{% partial file="/snippets/_evm-sidechain-disclaimer.md" /%}
 
 Before running a witness server, you must create a YAML configuration file. Some fields can be configured through environment variables; in the case of conficts, the environment variable is used instead of the YAML key.
 

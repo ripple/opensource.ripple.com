@@ -8,7 +8,7 @@ status: not_enabled
 ---
 # XChainCreateClaimID
 
-<embed src="/snippets/_xchain-bridges-disclaimer.md" />
+{% partial file="/snippets/_xchain-bridges-disclaimer.md" /%}
 
 [[Source]](https://github.com/seelabs/rippled/blob/xbridge/src/ripple/protocol/impl/TxFormats.cpp#L347-L353 "Source")
 
@@ -50,7 +50,7 @@ It also includes the account on the source chain that locks or burns the funds o
 | `XChainBridge`     | `XChainBridge`    | `XCHAIN_BRIDGE`   | Yes       | The bridge to create the claim ID for. |
 
 
-<embed src="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" />
+{% partial file="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" /%}
 
 
 <!-- ## Error Cases

@@ -8,7 +8,7 @@ status: not_enabled
 ---
 # XChainAddAccountCreateAttestation
 
-<embed src="/snippets/_xchain-bridges-disclaimer.md" />
+{% partial file="/snippets/_xchain-bridges-disclaimer.md" /%}
 
 [[Source]](https://github.com/seelabs/rippled/blob/xbridge/src/ripple/protocol/impl/TxFormats.cpp#L395-L411 "Source")
 
@@ -70,7 +70,7 @@ Any account can submit signatures.
 
 
 
-<embed src="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" />
+{% partial file="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" /%}
 
 <!-- ## Error Cases
 

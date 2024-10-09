@@ -7,7 +7,7 @@ status: not_enabled
 ---
 # Bridges
 
-<embed src="/snippets/_evm-sidechain-disclaimer.md" />
+{% partial file="/snippets/_evm-sidechain-disclaimer.md" /%}
 
 Bridges are mechanisms that connect two blockchains together, enabling interoperability between the two. This connection enables users to transfer data or digital assets across separate blockchains that may have different protocols, consensus mechanisms, and other underlying technologies.
 
