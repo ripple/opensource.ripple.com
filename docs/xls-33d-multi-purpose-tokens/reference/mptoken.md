@@ -22,7 +22,6 @@ The `MPToken` object represents a number of tokens held by an account that is no
     "MPTokenIssuanceID": "000004C463C52827307480341125DA0577DEFC38405B0E3E",
     "Flags": 0,
     "MPTAmount": "100000000",
-    "LockedAmount": "0",
     "OwnerNode": 1
 }
 ```
@@ -45,7 +44,6 @@ The `MPTokenID` is the result of SHA512-Half of the following values, concatenat
 | `Account`           | string    | AccountID     | The owner of the MPT. |
 | `MPTokenIssuanceID` | string    | UInt256       | The `MPTokenIssuance` identifier. |
 | `MPTAmount`         | string    | UInt64        | This value specifies a positive amount of tokens currently held by the owner. Valid values for this field are between 0x0 and 0xFFFFFFFFFFFFFFFF. |
-| `LockedAmount`      | string    | UInt64        | (Default) Specifies a positive amount of tokens that are currently held in a token holder's account but that are unavailable to be used by the token holder. Locked tokens might, for example, represent value currently being held in escrow, or value that is otherwise inaccessible to the token holder. The initial value is 0 in order to save space on the ledger for an empty MPT holding. |
 | `Flags`             | number    | UInt32        | (Default) See [MPToken Flags](#mptoken-flags) |
 | `PreviousTxnID`     | string    | Hash256       | Transaction ID of the transaction that most recently modified this object. |
 | `PreviousTxnLgrSeq` | number    | UInt32        | The sequence of the ledger that contains the transaction that most recently modified this object. |
