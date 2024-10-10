@@ -51,7 +51,7 @@ markdown:
     baseUrl: https://github.com/ripple/opensource.ripple.com/tree/main/
 logo:
   link: /
-  image: ./images/ripple-open-source-logo.svg
+  srcSet: ./images/ripple-open-source-logo.svg light, ./images/ripple-open-source-logo-darkmode.svg dark
   altText: Open Source at Ripple Documentation
 navigation:
   nextButton:
