@@ -48,3 +48,15 @@
           items:
             - page: docs/xls-56d-batch-transactions/reference/batch.md
             - page: docs/xls-56d-batch-transactions/reference/common-fields.md
+
+    - page: docs/xls-70d-credentials/index.md
+      pages:
+        - page: docs/xls-70d-credentials/reference/index.md
+          label: References
+          pages:
+            - page: docs/xls-70d-credentials/reference/credentialcreate.md
+            - page: docs/xls-70d-credentials/reference/credentialaccept.md
+            - page: docs/xls-70d-credentials/reference/credentialdelete.md
+            - page: docs/xls-70d-credentials/reference/depositpreauth-transaction.md
+            - page: docs/xls-70d-credentials/reference/credential.md
+            - page: docs/xls-70d-credentials/reference/depositpreauth-entry.md

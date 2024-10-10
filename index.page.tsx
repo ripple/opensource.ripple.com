@@ -39,7 +39,7 @@ export default function Page() {
             style={{ height: "284px", margin: "16px" }}
             to="docs/xls-33d-multi-purpose-tokens/"
             header="Multi-purpose Tokens"
-            color="#141A1F"
+            
             textAlign="left"
             disableArrow
           >
@@ -63,12 +63,34 @@ export default function Page() {
             style={{ height: "284px", margin: "16px" }}
             to="docs/xls-56d-batch-transactions/"
             header="Batch Transactions"
-            color="#141A1F"
             textAlign="left"
             disableArrow
           >
             <TileText>
               Prepare and submit up to 8 transactions in a single batch.
+            </TileText>
+            <div style={{ bottom: "36px", position: "absolute"}}>
+              <Button  style={{
+                  padding: "8px 16px",
+                  borderRadius: "20px",
+                  fontSize: "14px",
+                  lineHeight: "20px",
+                  color: "#FFFFFF",
+                  background: "#005BCC",
+                }}>
+                Go to Docs
+              </Button>
+            </div>
+          </WideTile>
+          <WideTile 
+            style={{ height: "284px", margin: "16px" }}
+            to="docs/xls-70d-credentials/"
+            header="Credentials"
+            textAlign="left"
+            disableArrow
+          >
+            <TileText>
+              Create and store credentials on the blockchain for compliance checks.
             </TileText>
             <div style={{ bottom: "36px", position: "absolute"}}>
               <Button  style={{
