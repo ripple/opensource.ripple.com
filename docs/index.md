@@ -25,3 +25,8 @@ To learn more about the consensus process and the workflow for features to go fr
 
 - [XLS-56d Batch Transactions](xls-56d-batch-transactions/index.md)
 - [Reference](xls-56d-batch-transactions/reference/reference.md)
+
+### Credentials
+- [XLS-70d Proposal](https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0070d-credentials)
+- [Documentation](xls-70d-credentials/index.md)
+- [Reference](xls-70d-credentials/reference/index.md)
