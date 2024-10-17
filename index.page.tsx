@@ -85,6 +85,41 @@ export default function Page() {
           </WideTile> 
         </Box>
       </Box>
+      <Box p={{ _: "8px", sm: "12px", md: "16px", lg: "24px" }}>
+        <Box 
+            display="flex"
+            justifyContent="center"
+            flexWrap="wrap"
+            maxWidth="1200px"
+            margin="0 auto"
+            > 
+                <WideTile 
+            style={{ height: "284px", margin: "16px" }}
+            to="docs/ledger-state-fix/"
+            header="LedgerStateFix"
+            color="#141A1F"
+            textAlign="left"
+            disableArrow
+          >
+            <TileText>
+            A general purpose transaction used to fix specific 
+        issues affecting the XRP ledger.
+            </TileText>
+            <div style={{ bottom: "36px", position: "absolute"}}>
+              <Button  style={{
+                  padding: "8px 16px",
+                  borderRadius: "20px",
+                  fontSize: "14px",
+                  lineHeight: "20px",
+                  color: "#FFFFFF",
+                  background: "#005BCC",
+                }}>
+                Go to Docs
+              </Button>
+            </div>
+          </WideTile>
+        </Box>
+      </Box>          
     </LandingLayout>
   );
 }
