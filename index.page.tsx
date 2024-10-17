@@ -83,6 +83,31 @@ export default function Page() {
               </Button>
             </div>
           </WideTile> 
+          <WideTile 
+            style={{ height: "284px", margin: "16px" }}
+            to="docs/ledger-state-fix/"
+            header="LedgerStateFix"
+            color="#141A1F"
+            textAlign="left"
+            disableArrow
+          >
+            <TileText>
+            A general purpose transaction used to fix specific 
+        issues affecting the XRP ledger.
+            </TileText>
+            <div style={{ bottom: "36px", position: "absolute"}}>
+              <Button  style={{
+                  padding: "8px 16px",
+                  borderRadius: "20px",
+                  fontSize: "14px",
+                  lineHeight: "20px",
+                  color: "#FFFFFF",
+                  background: "#005BCC",
+                }}>
+                Go to Docs
+              </Button>
+            </div>
+          </WideTile>
         </Box>
       </Box>
     </LandingLayout>
