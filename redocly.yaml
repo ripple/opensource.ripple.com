@@ -33,7 +33,7 @@ footer:
         - label: Contribute to the XRP Ledger
           href: https://xrpl.org/contribute-code.html
           external: true
-    - label: © 2013 - 2023 Ripple, All Rights Reserved.
+    - label: © 2013 - 2024 Ripple, All Rights Reserved.
 analytics:
   ga:
     trackingId: G-S1KBMRJYKS
