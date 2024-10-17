@@ -11,7 +11,7 @@ labels:
 
 `LedgerStateFix` is a general purpose transaction used to fix specific issues affecting the XRP ledger. You submit the transaction with the `LedgerFixType` value set to indicate the particular  error state to correct.
 
-_(Added by the [fixNFTokenPageLinks amendment][].)_
+_(Added by the [NonFungibleTokensV1_1](https://xrpl.org/resources/known-amendments#nonfungibletokensv1_1) amendment.
 
 ## Example LedgerStateFix JSON
 
