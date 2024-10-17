@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { H1, H2 } from "@redocly/developer-portal/ui";
+import { H1, H2 } from "@redocly/theme";
 
 const Header1 = styled(H1)`
   color: white !important;

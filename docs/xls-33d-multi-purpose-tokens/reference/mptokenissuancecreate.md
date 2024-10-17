@@ -9,7 +9,7 @@ labels:
 # MPTokenIssuanceCreate
 [[Source]](https://github.com/XRPLF/rippled/blob/master/src/ripple/app/tx/impl/MPTokenIssuanceCreate.cpp "Source")
 
-<embed src="/snippets/_mpts-disclaimer.md" />
+{% partial file="/snippets/_mpts-disclaimer.md" /%}
 
 The `MPTokenIssuanceCreate` transaction creates an MPTokenIssuance <!--[MPTokenIssuance](mptokenissuance.html)--> object and adds it to the relevant directory node of the creator account. This transaction is the only opportunity an issuer has to specify any token fields that are defined as immutable (for example, MPT Flags).
 
@@ -37,7 +37,7 @@ Example MPTokenIssuanceCreate transaction
 
 ## MPTokenIssuanceCreate Fields
 
-{% include '_snippets/tx-fields-intro.md' %}
+<!-- {% include '_snippets/tx-fields-intro.md' %} -->
 
 | Field           | JSON Type           | [Internal Type][] | Description        |
 |:----------------|:--------------------|:------------------|:-------------------|
@@ -45,7 +45,7 @@ Example MPTokenIssuanceCreate transaction
 | `AssetScale`      | number              | UInt8             | (Optional) An asset scale is the difference, in orders of magnitude, between a standard unit and a corresponding fractional unit. More formally, the asset scale is a non-negative integer (0, 1, 2, …) such that one standard unit equals 10^(-scale) of a corresponding fractional unit. If the fractional unit equals the standard unit, then the asset scale is 0. Note that this value is optional, and will default to 0 if not supplied. |
 | `Flags`           | number              | UInt16            | Specifies the flags for this transaction. See [MPTokenIssuanceCreate Flags](#mptokenissuancecreate-flags). |
 | `TransferFee`      | number             | UInt16            | (Optional) The value specifies the fee to charged by the issuer for secondary sales of the Token, if such sales are allowed. Valid values for this field are between 0 and 50,000 inclusive, allowing transfer rates of between 0.000% and 50.000% in increments of 0.001. The field _must not_ be present if the tfMPTCanTransfer flag is not set. If it is, the transaction should fail and a fee should be claimed. |
-| `MaximumAmount`   | string              | UInt64            | (Optional) The maximum asset amount of this token that should ever be issued, as a hex-encoded string. |
+| `MaximumAmount`   | string              | UInt64            | (Optional) The maximum asset amount of this token that should ever be issued, as a base 10 encoded string. For issuances that do not have a maximum limit, set this value to 9,223,372,036,854,775,807. |
 | `MPTokenMetadata` | string              | Blob              | Arbitrary metadata about this issuance, in hex format. The limit for this field is 1024 bytes. |
 
 ## MPTokenIssuanceCreate Flags

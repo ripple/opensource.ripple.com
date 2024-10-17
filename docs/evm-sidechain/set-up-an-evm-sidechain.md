@@ -8,7 +8,7 @@ status: not_enabled
 ---
 # Set Up an EVM Sidechain
 
-<embed src="/snippets/_evm-sidechain-disclaimer.md" />
+{% partial file="/snippets/_evm-sidechain-disclaimer.md" /%}
 
 You can set up an EVM sidechain using the `blockchain create` command.
 

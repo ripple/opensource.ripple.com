@@ -7,7 +7,7 @@ labels:
 ---
 # MPToken
 
-<embed src="/snippets/_mpts-disclaimer.md" />
+{% partial file="/snippets/_mpts-disclaimer.md" /%}
 
 The `MPToken` object represents a number of tokens held by an account that is not the token issuer. MPTs are acquired via ordinary payment or DEX transactions, and can optionally be redeemed or exchanged using these same types of transactions. The object key of the MPToken is derived from hashing the space key, the holder's address, and the `MPTokenIssuanceID`.
 

@@ -7,7 +7,7 @@ labels:
 ---
 # Price Oracles
 
-<embed src="/snippets/_price-oracles-disclaimer.md" />
+{% partial file="/snippets/_price-oracles-disclaimer.md" /%}
 
 Blockchains can't inherintly interact with and "know" what's happening off the network, but many of its use cases in decentralized finance require this information.
 

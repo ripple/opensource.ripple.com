@@ -8,7 +8,7 @@ status: not_enabled
 ---
 # XRPL EVM CLI
 
-<embed src="/snippets/_evm-sidechain-disclaimer.md" />
+{% partial file="/snippets/_evm-sidechain-disclaimer.md" /%}
 
 The command line tool for the XRPL EVM sidechain enables developers and operators to set up networks, create bridges, execute transactions, and more.
 

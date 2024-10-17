@@ -5,7 +5,7 @@ labels:
 ---
 # MPTokenIssuance
 
-<embed src="/snippets/_mpts-disclaimer.md" />
+{% partial file="/snippets/_mpts-disclaimer.md" /%}
 
 The `MPTokenIssuance` object represents a single MPT issuance and holds data associated with the issuance itself. Token issuances are created using the `MPTokenIssuanceCreate` transaction and can be destroyed by the `MPTokenIssuanceDestroy` transaction.
 

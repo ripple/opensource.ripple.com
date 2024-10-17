@@ -8,7 +8,7 @@ status: not_enabled
 ---
 # Create a Bridge
 
-<embed src="/snippets/_evm-sidechain-disclaimer.md" />
+{% partial file="/snippets/_evm-sidechain-disclaimer.md" /%}
 
 The `bridge create` command enables you to set up a bridge.
 

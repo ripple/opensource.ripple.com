@@ -12,16 +12,16 @@ labels:
 
 The `amm_info` method gets information about an Automated Market Maker (AMM) instance.
 
-<embed src="/snippets/_amm-disclaimer.md" />
+{% partial file="/snippets/_amm-disclaimer.md" /%}
 
 
 ### Request Format
 
 An example of the request format:
 
-:::info Note
+{% admonition type="info" name="Note" %}
 There is no commandline syntax for this method. You can use the [json method](https://xrpl.org/json.html) to access this method from the commandline instead.
-:::
+{% /admonition %}
 
 <!-- MULTICODE_BLOCK_START -->
 

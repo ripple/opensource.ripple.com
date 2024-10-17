@@ -8,7 +8,7 @@ status: not_enabled
 ---
 # Stress Test the Bridge
 
-<embed src="/snippets/_evm-sidechain-disclaimer.md" />
+{% partial file="/snippets/_evm-sidechain-disclaimer.md" /%}
 
 You can stress test account creations and claims.
 

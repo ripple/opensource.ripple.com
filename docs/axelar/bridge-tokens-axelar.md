@@ -1,6 +1,6 @@
 # Bridge Tokens Between Ethereum and XRPL
 
-<embed src="/snippets/_axelar-disclaimer.md" />
+{% partial file="/snippets/_axelar-disclaimer.md" /%}
 
 This tutorial describes how to transfer tokens between Ethereum `Sepolia` and the XRPL `Testnet`.
 

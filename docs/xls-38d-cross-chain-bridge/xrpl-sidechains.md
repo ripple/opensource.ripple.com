@@ -8,7 +8,7 @@ labels:
 ---
 # XRPL Sidechains
 
-<embed src="/snippets/_xchain-bridges-disclaimer.md" />
+{% partial file="/snippets/_xchain-bridges-disclaimer.md" /%}
 
 A sidechain is an independent ledger with its own consensus algorithm, transaction types, rules, and nodes (including validators). It acts as its own blockchain, running parallel to a mainchain, enabling value to move between the two without compromising the speed, efficiency, and throughput of the mainchain. In the context of XLS-38d, a sidechain is the issuing chain, and the mainchain is the locking chain.
 

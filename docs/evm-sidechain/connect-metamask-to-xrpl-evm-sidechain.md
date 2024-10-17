@@ -8,7 +8,7 @@ status: not_enabled
 ---
 # Connect MetaMask to the XRPL EVM Sidechain
 
-<embed src="/snippets/_evm-sidechain-disclaimer.md" />
+{% partial file="/snippets/_evm-sidechain-disclaimer.md" /%}
 
 MetaMask is an extension for accessing Harmony-enabled distributed applications (_dapps_) from your browser. The extension injects the XRP Ledger EVM sidechain Web3 API into every website's Javascript context, so that Web3 applications can read from the blockchain. <!-- SPELLING_IGNORE: dapps -->
 

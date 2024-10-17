@@ -7,7 +7,7 @@ status: not_enabled
 ---
 # Start the Bridge Client
 
-<embed src="/snippets/_evm-sidechain-disclaimer.md" />
+{% partial file="/snippets/_evm-sidechain-disclaimer.md" /%}
 
 ## Prerequisites
 

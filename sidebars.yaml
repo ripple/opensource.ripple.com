@@ -1,46 +1,50 @@
-opensource:
-  - label: Open Source Projects 
-    page: docs/index.md 
-  - label: Prerelease Docs
-    expanded: true  
-    pages:
-      - group: XLS-33d MPTs
-        page: docs/xls-33d-multi-purpose-tokens/index.md
-        expanded: false
-        pages:
-          - page: docs/xls-33d-multi-purpose-tokens/multi-purpose-tokens.md
-          - group: Reference
-            page: docs/xls-33d-multi-purpose-tokens/reference/mpt-reference.md
-            expanded: false
-            pages:
-              - group: Objects
-                expanded: false
-                pages:
-                  - page: docs/xls-33d-multi-purpose-tokens/reference/mptoken.md
-                  - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenissuance.md
-              - group: Transactions
-                expanded: false
-                pages:
-                  - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenauthorize.md
-                  - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenissuancecreate.md
-                  - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenissuancedestroy.md
-                  - page: docs/xls-33d-multi-purpose-tokens/reference/mptokenissuanceset.md
-                  - page: docs/xls-33d-multi-purpose-tokens/reference/clawback.md
-              - group: Requests
-                expanded: false
-                pages:
-                  - page: docs/xls-33d-multi-purpose-tokens/reference/mpt_holders.md
-                  - page: docs/xls-33d-multi-purpose-tokens/reference/ledger-entry.md
-      - group: Batch Transactions
-        page: docs/xls-56d-batch-transactions/index.md
-        expanded: false
-        pages:
-          - group: Concepts
-            expanded: false
-            pages:
-              - page: docs/xls-56d-batch-transactions/concepts/batch-transactions.md
-          - group: References
-            expanded: false
-            pages:
-              - page: docs/xls-56d-batch-transactions/reference/batch.md
-              - page: docs/xls-56d-batch-transactions/reference/common-fields.md
+- label: Open Source Projects
+  page: docs/index.md
+- group: Prerelease Docs
+  expanded: true
+  items:
+    - group: XLS-33d MPTs
+      page: docs/xls-33d-multi-purpose-tokens/index.md
+      expanded: false
+      items:
+        - page: docs/xls-33d-multi-purpose-tokens/multi-purpose-tokens.md
+        - group: Reference
+          page: docs/xls-33d-multi-purpose-tokens/reference/mpt-reference.md
+          expanded: false
+          items:
+            - group: Objects
+              expanded: false
+              items:
+                - page: docs/xls-33d-multi-purpose-tokens/reference/mptoken.md
+                - page: >-
+                    docs/xls-33d-multi-purpose-tokens/reference/mptokenissuance.md
+            - group: Transactions
+              expanded: false
+              items:
+                - page: >-
+                    docs/xls-33d-multi-purpose-tokens/reference/mptokenauthorize.md
+                - page: >-
+                    docs/xls-33d-multi-purpose-tokens/reference/mptokenissuancecreate.md
+                - page: >-
+                    docs/xls-33d-multi-purpose-tokens/reference/mptokenissuancedestroy.md
+                - page: >-
+                    docs/xls-33d-multi-purpose-tokens/reference/mptokenissuanceset.md
+                - page: docs/xls-33d-multi-purpose-tokens/reference/clawback.md
+            - group: Requests
+              expanded: false
+              items:
+                - page: docs/xls-33d-multi-purpose-tokens/reference/mpt_holders.md
+                - page: docs/xls-33d-multi-purpose-tokens/reference/ledger-entry.md
+    - group: Batch Transactions
+      page: docs/xls-56d-batch-transactions/index.md
+      expanded: false
+      items:
+        - group: Concepts
+          expanded: false
+          items:
+            - page: docs/xls-56d-batch-transactions/concepts/batch-transactions.md
+        - group: References
+          expanded: false
+          items:
+            - page: docs/xls-56d-batch-transactions/reference/batch.md
+            - page: docs/xls-56d-batch-transactions/reference/common-fields.md

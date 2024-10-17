@@ -9,7 +9,7 @@ labels:
 # get_aggregate_price
 [[Source]](https://github.com/XRPLF/rippled/blob/bf6f5294a9b83653888600e78da8650896e9d393/src/ripple/rpc/handlers/GetAggregatePrice.cpp "Source")
 
-<embed src="/snippets/_price-oracles-disclaimer.md" />
+{% partial file="/snippets/_price-oracles-disclaimer.md" /%}
 
 The `get_aggregate_price` method retrieves the aggregate price of specified `Oracle` objects, returning three price statistics: mean, median, and trimmed mean.
 

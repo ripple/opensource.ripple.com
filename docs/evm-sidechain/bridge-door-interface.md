@@ -7,7 +7,7 @@ status: not_enabled
 ---
 # Bridge Door Interface
 
-<embed src="/snippets/_evm-sidechain-disclaimer.md" />
+{% partial file="/snippets/_evm-sidechain-disclaimer.md" /%}
 
 ## Events
 

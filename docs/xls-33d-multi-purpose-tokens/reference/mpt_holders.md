@@ -9,7 +9,7 @@ labels:
 
 # mpt_holders
 
-<embed src="/snippets/_mpts-disclaimer.md" />
+{% partial file="/snippets/_mpts-disclaimer.md" /%}
 
 For a given `MPTokenIssuanceID` and ledger sequence, `mpt_holders` returns all holders of that MPT and their balance. This method likely returns very large data sets, so you should expect to implement paging via the `marker` field.
 
@@ -92,8 +92,8 @@ An `mptoken` object has the following parameters:
 |:-----------------------|:--------|:------------------------------------------|
 | `account`              | string  | The account address of the holder who owns the `MPToken`. |
 | `flags`                | number  | The flags assigned to the`MPToken` object. |
-| `mpt_amount`           | string  | Hex-encoded amount of the holder's balance. |
-| `locked_amount`        | string  | Hex-encoded amount of the locked balance. (Can be omitted if the value is 0.) |
+| `mpt_amount`           | string  | Base 10-encoded amount of the holder's balance. |
+| `locked_amount`        | string  | Base 10-encoded amount of the locked balance. (Can be omitted if the value is 0.) |
 | `mptoken_index`        | string  | Key of the `MPToken` object. |
 
 #### Synthetic mpt_issuance_id field

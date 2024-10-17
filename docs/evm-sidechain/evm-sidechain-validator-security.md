@@ -8,7 +8,7 @@ status: not_enabled
 ---
 # XRPL EVM Sidechain Validator Security
 
-<embed src="/snippets/_evm-sidechain-disclaimer.md" />
+{% partial file="/snippets/_evm-sidechain-disclaimer.md" /%}
 
 Each validator candidate is encouraged to run its operations independently, as diverse setups increase the resilience of the network. Validator candidates should begin their setup phase now, to be on time for launch.
 

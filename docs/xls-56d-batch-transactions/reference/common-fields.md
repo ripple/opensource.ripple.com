@@ -30,8 +30,6 @@ Every transaction has the same set of common fields, plus additional fields base
 
 [auto-fillable]: #auto-fillable-fields
 
-{% badge href="https://github.com/XRPLF/rippled/releases/tag/0.28.0" %}Removed in: rippled 0.28.0{% /badge %}: The `PreviousTxnID` field of transactions was replaced by the [`AccountTxnID`](#accounttxnid) field. This String / Hash256 field is present in some historical transactions. This is unrelated to the field also named `PreviousTxnID` in some [ledger objects](https://xrpl.org/docs/references/protocol/ledger-data/).
-
 
 ## AccountTxnID
 
@@ -145,7 +143,7 @@ Example of a transaction with a Memos field:
 ```
 
 ## NetworkID Field
-{% badge href="https://github.com/XRPLF/rippled/releases/tag/1.11.0" %}New in: rippled 1.11.0{% /badge %}
+<!-- {% badge href="https://github.com/XRPLF/rippled/releases/tag/1.11.0" %}New in: rippled 1.11.0{% /badge %} -->
 
 The `NetworkID` field is a protection against "cross-chain" transaction replay attacks, preventing the same transaction from being copied over and executing on a [parallel network](https://xrpl.org/docs/concepts/networks-and-servers/parallel-networks/) that it wasn't intended for. For compatibility with existing chains, the `NetworkID` field must be omitted on any network with a Network ID of 1024 or less, but must be included on any network with a Network ID of 1025 or greater. The following table shows the status and values for various known networks:
 
@@ -181,5 +179,3 @@ The `Signers` field contains a [multi-signature](https://xrpl.org/docs/concepts/
 The `SigningPubKey` must be a key that is associated with the `Account` address. If the referenced `Account` is a funded account in the ledger, then the `SigningPubKey` can be that account's current Regular Key if one is set. It could also be that account's Master Key, unless the [`lsfDisableMaster`](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/accountroot/#accountroot-flags) flag is enabled. If the referenced `Account` address is not a funded account in the ledger, then the `SigningPubKey` must be the master key associated with that address.
 
 Because signature verification is a compute-intensive task, multi-signed transactions cost additional XRP to relay to the network. Each signature included in the multi-signature increases the [transaction cost](https://xrpl.org/docs/concepts/transactions/transaction-cost/) required for the transaction. For example, if the current minimum transaction cost to relay a transaction to the network is `10000` drops, then a multi-signed transaction with 3 entries in the `Signers` array would need a `Fee` value of at least `40000` drops to relay.
-
-{% raw-partial file="/docs/_snippets/common-links.md" /%}

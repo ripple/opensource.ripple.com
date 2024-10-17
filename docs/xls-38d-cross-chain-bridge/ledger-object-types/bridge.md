@@ -8,7 +8,7 @@ status: not_enabled
 ---
 # Bridge
 
-<embed src="/snippets/_xchain-bridges-disclaimer.md" />
+{% partial file="/snippets/_xchain-bridges-disclaimer.md" /%}
 
 [[Source]](https://github.com/seelabs/rippled/blob/xbridge/src/ripple/protocol/impl/LedgerFormats.cpp#L265-L278 "Source")
 
@@ -58,4 +58,4 @@ The `Bridge` object represents a single cross-chain bridge that connects the XRP
 | `XChainBridge`             | `XChainBridge`    | `XCHAIN_BRIDGE`   | Yes       | The door accounts and assets of the bridge this object correlates to. |
 | `XChainClaimID`            | `number`          | `UINT64`          | Yes       | The value of the next `XChainClaimID` to be created. |
 
-<embed src="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" />
+{% partial file="/docs/xls-38d-cross-chain-bridge/snippets/_xchainbridge-serialization.md" /%}

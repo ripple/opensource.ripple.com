@@ -8,7 +8,7 @@ status: not_enabled
 ---
 # Bootstrap a Local Environment
 
-<embed src="/snippets/_evm-sidechain-disclaimer.md" />
+{% partial file="/snippets/_evm-sidechain-disclaimer.md" /%}
 
 The `boostrap` command enables you to create a local development environment. This environment consists of:
 
