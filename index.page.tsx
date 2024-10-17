@@ -83,7 +83,17 @@ export default function Page() {
               </Button>
             </div>
           </WideTile> 
-          <WideTile 
+        </Box>
+      </Box>
+      <Box p={{ _: "8px", sm: "12px", md: "16px", lg: "24px" }}>
+        <Box 
+            display="flex"
+            justifyContent="center"
+            flexWrap="wrap"
+            maxWidth="1200px"
+            margin="0 auto"
+            > 
+                <WideTile 
             style={{ height: "284px", margin: "16px" }}
             to="docs/ledger-state-fix/"
             header="LedgerStateFix"
@@ -109,7 +119,7 @@ export default function Page() {
             </div>
           </WideTile>
         </Box>
-      </Box>
+      </Box>          
     </LandingLayout>
   );
 }
