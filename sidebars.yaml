@@ -51,3 +51,5 @@
     - group: LedgerStateFix
       page: docs/ledger-state-fix/index.md
       expanded: false
+    - page: docs/xls-69d/index.md
+      expanded: false

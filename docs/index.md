@@ -26,5 +26,8 @@ To learn more about the consensus process and the workflow for features to go fr
 - [XLS-56d Batch Transactions](xls-56d-batch-transactions/index.md)
 - [Reference](xls-56d-batch-transactions/reference/reference.md)
 
+### Simulate Method
+- [simulate](xls-69d/index.md)
+
 ### LedgerStateFix
 - [LedgerStateFix](ledger-state-fix/index.md)
