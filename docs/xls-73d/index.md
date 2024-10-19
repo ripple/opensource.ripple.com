@@ -25,3 +25,8 @@ XLS-73d prohibits a wallet from depositing any tokens (single-sided and double-s
 Currently, if an account isn't authorized to hold a token in the AMM pool, it can still make a single-sided deposit of the other token as long as it's authorized for that token.
 
 XLS-73d prevents a wallet from depositing authorized tokens into an AMM pool if it's not authorized to hold the other asset.
+
+
+## LP Token Changes
+
+This amendment also stops wallets from transferring LP tokens to another address if at least one of the pooled assets has been frozen (either individually or globally) by the token issuer.
