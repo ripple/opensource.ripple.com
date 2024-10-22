@@ -89,7 +89,7 @@ There are no flags defined for `DepositPreauth` entries.
 
 ## DepositPreauth ID Format
 
-There are two formats for the ID of a `DepositPreauth` entry, depending on if it authorizes an individual account or a set of credentials.
+There are two formats for the ID of a `DepositPreauth` entry, depending on whether it authorizes an individual account or a set of credentials.
 
 ### Individual Account Preauthorization
 

@@ -22,7 +22,7 @@ Three new transaction types for managing credentials:
 
 Modifications to an existing transaction type:
 
-- [DepositPreauth transaction](./depositpreauth-transaction.md) - Authorizes deposits to your account; modified to allow credential-based authorization.
+- [DepositPreauth transaction](./depositpreauth-transaction.md) - Authorizes deposits to your account. Modified to allow credential-based authorization.
 
 A new field for several existing transaction types:
 

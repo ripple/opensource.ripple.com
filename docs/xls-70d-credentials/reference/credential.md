@@ -47,7 +47,7 @@ Credential entries can have the following flags combined in the `Flags` field:
 
 ## Credential Reserve
 
-Credential entries count as one item towards the owner reserve of the subject account, if it has accepted the credential, or the issuer account otherwise.
+A credential entry counts as one item towards the owner reserve of the subject account, if the subject has accepted the credential. Otherwise, a credential entry counts as one item toward the reserve of the issuer account.
 
 ## Credential ID Format
 

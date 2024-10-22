@@ -150,7 +150,7 @@ The response follows the [standard format][], with a successful result containin
 | Field                  | Type                      | Required? | Description   |
 |:-----------------------|:--------------------------|:----------|:--------------|
 | `credentials`          | Array of [Hash][]         | No        | The credentials specified in the request, if any. |
-| `deposit_authorized`   | Boolean                   | Yes       | Whether the specified source account is authorized to send payments directly to the destination account. If `true`, either the destination account does not require [Deposit Authorization](https://xrpl.org/docs/concepts/accounts/depositauth) or the source account is preauthorized. |
+| `deposit_authorized`   | Boolean                   | Yes       | Whether the specified source account is authorized to send payments directly to the destination account. If `true`, either the destination account does not require [deposit authorization](https://xrpl.org/docs/concepts/accounts/depositauth) or the source account is preauthorized. |
 | `destination_account`  | String - [Address][]      | Yes       | The destination account specified in the request. |
 | `ledger_hash`          | String                    | No        | The identifying hash of the ledger that was used to generate this response. |
 | `ledger_index`         | Number - [Ledger Index][] | No        | The ledger index of the ledger version that was used to generate this response. |
@@ -167,7 +167,7 @@ A `deposit_authorized` status of `true` does not guarantee that a payment can be
 * Any of the [universal error types][].
 * `invalidParams` - One or more fields are specified incorrectly, or one or more required fields are missing.
 * `actMalformed` - An [Address][] specified in the `source_account` or `destination_account` field of the request was not properly formatted. (It may contain a typo or be the wrong length, causing a failed checksum.)
-* `badCredentials` - At least one of the supplied credentials doesn't exist, is expired, or has not been accepted.
+* `badCredentials` - At least one of the supplied credentials does not exist, is expired, or has not been accepted.
 * `dstActNotFound` - The `destination_account` field of the request does not correspond to an account in the ledger.
 * `lgrNotFound` - The ledger specified by the `ledger_hash` or `ledger_index` does not exist, or it does exist but the server does not have it.
 * `srcActNotFound` - The `source_account` field of the request does not correspond to an account in the ledger.

@@ -1,8 +1,8 @@
 # Credentials
 
-The Credentials feature is a set of tools for managing authorization and compliance requirements using the XRP Ledger blockchain, while respecting privacy and decentralization. This feature extends and interconnects with other features of the XRP Ledger including [Deposit Authorization](https://xrpl.org/docs/concepts/accounts/depositauth). The goal of this feature is to streamline the process of compliance checks such as [KYC (Know Your Customer)](https://en.wikipedia.org/wiki/Know_your_customer) requirements and to enable further trust-based applications within the XRP Ledger ecosystem.
+The Credentials feature is a set of tools for managing authorization and compliance requirements using the XRP Ledger blockchain, while respecting privacy and decentralization. This feature extends and interconnects with other features of the XRP Ledger including [Deposit Authorization](https://xrpl.org/docs/concepts/accounts/depositauth). The goal of this feature is to streamline the process of compliance checks such as [KYC (Know Your Customer)](https://en.wikipedia.org/wiki/Know_your_customer) and to enable further trust-based applications within the XRP Ledger ecosystem.
 
-The design of Credentials draws from the [W3C Verifiable Credentials standard](https://www.w3.org/TR/vc-data-model-2.0/) and is intended to be compatible to an extent that makes sense in the context of the XRP Ledger. There are some differences in data structures and formatting: for example, the subject of a credential is identified by an XRP Ledger address rather than a URL.
+The design of the Credentials standard draws from the [W3C Verifiable Credentials standard](https://www.w3.org/TR/vc-data-model-2.0/). It is intended to be compatible to an extent that makes sense in the context of the XRP Ledger. There are some differences in data structures and formatting: for example, the subject of a credential is identified by an XRP Ledger address rather than a URL.
 
 ## Overview
 
@@ -28,10 +28,10 @@ Credentials stored in the XRP Ledger can also be used to authorize off-ledger ac
 
 ## Usage Flow
 
-The typical usage for Credentials features three parties with different roles. Consider the following example:
+A typical flow to use Credentials involves three parties with different roles, as described in the following example:
 
 * Verity is a regulated business that wants to interact only with properly KYC'd accounts, to ensure legal compliance. This makes Verity an _authorizer_ because they configure which accounts are allowed (authorized) to interact with them.
-* Isabel is a credential issuer that vets accounts and issues credentials attesting that the accounts are who they say they are.
+* Isabel is a credential issuer who vets accounts and issues credentials attesting that the accounts are who they say they are.
 * Alice is a user who wants to interact with Verity.
 
 All three parties need XRP Ledger accounts. The flow works as follows:
