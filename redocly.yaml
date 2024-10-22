@@ -4,6 +4,8 @@ reunite:
 apis: {}
 ignore:
   - _*
+seo:
+  siteUrl: https://opensource.ripple.com/
 links:
   - rel: stylesheet
     href: ./static/style.css
