@@ -13,7 +13,7 @@ This field's definition is as follows:
 |:----------------|:-----------------|:------------------|:----------|:------------|
 | `CredentialIDs` | Array of Strings | Vector256 | No | Set of Credentials to authorize a deposit made by this transaction. Each member of the array must be the ledger entry ID of a Credential entry in the ledger. |
 
-You can send money to an account that uses [Deposit Authorization](https://xrpl.org/docs/concepts/accounts/depositauth) by providing this field with an exact set of credentials that are preauthorized by the recipient; the set of credentials must match a [DepositPreauth entry](./depositpreauth-entry.md) in the ledger.
+You can send money to an account that uses [Deposit Authorization](https://xrpl.org/docs/concepts/accounts/depositauth) by providing this field with an exact set of credentials that are preauthorized by the recipient. The set of credentials must match a [DepositPreauth entry](./depositpreauth-entry.md) in the ledger.
 
 The credentials provided in the `CredentialIDs` field must all be valid, meaning:
 
