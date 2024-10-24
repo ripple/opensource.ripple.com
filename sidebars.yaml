@@ -48,6 +48,11 @@
           items:
             - page: docs/xls-56d-batch-transactions/reference/batch.md
             - page: docs/xls-56d-batch-transactions/reference/common-fields.md
+    - group: XLS-73d AMMClawback
+      expanded: false
+      items:
+        - page: docs/xls-73d/index.md
+        - page: docs//xls-73d/AMMClawback.md
     - group: LedgerStateFix
       page: docs/ledger-state-fix/index.md
       expanded: false

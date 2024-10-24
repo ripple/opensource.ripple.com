@@ -129,6 +129,30 @@ export default function Page() {
               </Button>
             </div>
           </WideTile>
+          <WideTile 
+            style={{ height: "284px", width: "500px", margin: "16px" }}
+            to="docs/xls-73d/"
+            header="AMMClawback"
+            color="#141A1F"
+            textAlign="left"
+            disableArrow
+          >
+            <TileText>
+              The AMMClawback transaction enables token issuers to claw back tokens from wallets that have deposited into AMM pools, ensuring regulatory compliance.
+            </TileText>
+            <div style={{ bottom: "36px", position: "absolute"}}>
+              <Button  style={{
+                  padding: "8px 16px",
+                  borderRadius: "20px",
+                  fontSize: "14px",
+                  lineHeight: "20px",
+                  color: "#FFFFFF",
+                  background: "#005BCC",
+                }}>
+                Go to Docs
+              </Button>
+            </div>
+          </WideTile>
         </Box>
       </Box>       
     </LandingLayout>
