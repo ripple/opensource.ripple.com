@@ -7,9 +7,9 @@ The `AMMClawback` amendment enables token issuers to claw back tokens from walle
 
 ## AMMCreate Changes
 
-Currently, the `AMMCreate` transaction is blocked if you try to create an AMM, and the issuer of one of the paired assets has enabled clawback support.
+Currently, the `AMMCreate` transaction is prohibited if either of the AMM pool's token issuers have enabled the `lsfAllowTrustLineClawback` flag.
 
-XLS-73d permits you to create new AMMs with clawback-enabled tokens. However, the token issuer will need to use `AMMClawback` instead of `Clawback` to clawback assets.
+XLS-73d permits you to create new AMMs with clawback-enabled tokens.
 
 
 ## AMMDeposit Changes
@@ -24,9 +24,4 @@ XLS-73d prohibits a wallet from depositing any tokens (single-sided and double-s
 
 Currently, if an account isn't authorized to hold a token in the AMM pool, it can still make a single-sided deposit of the other token as long as it's authorized for that token.
 
-XLS-73d prevents a wallet from depositing authorized tokens into an AMM pool if it's not authorized to hold the other asset.
-
-
-## LP Token Changes
-
-This amendment also stops wallets from transferring LP tokens to another address if at least one of the pooled assets has been frozen (either individually or globally) by the token issuer.
+XLS-73d prevents a wallet from depositing any tokens (single-sided or double-sided) into an AMM pool if the wallet isn't authorized to hold at least one of the assets in the AMM.
