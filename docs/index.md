@@ -31,3 +31,8 @@ To learn more about the consensus process and the workflow for features to go fr
 
 ### LedgerStateFix
 - [LedgerStateFix](ledger-state-fix/index.md)
+
+### Credentials
+- [XLS-70d Proposal](https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0070d-credentials)
+- [Documentation](xls-70d-credentials/index.md)
+- [Reference](xls-70d-credentials/reference/index.md)
