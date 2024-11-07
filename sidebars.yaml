@@ -56,5 +56,16 @@
     - group: LedgerStateFix
       page: docs/ledger-state-fix/index.md
       expanded: false
+    - page: docs/ledger-state-fix/index.md
     - page: docs/xls-69d/index.md
-      expanded: false
+
+    - page: docs/xls-70d-credentials/index.md
+      items:
+        - page: docs/xls-70d-credentials/reference/index.md
+          items:
+            - page: docs/xls-70d-credentials/reference/credentialcreate.md
+            - page: docs/xls-70d-credentials/reference/credentialaccept.md
+            - page: docs/xls-70d-credentials/reference/credentialdelete.md
+            - page: docs/xls-70d-credentials/reference/depositpreauth-transaction.md
+            - page: docs/xls-70d-credentials/reference/credential.md
+            - page: docs/xls-70d-credentials/reference/depositpreauth-entry.md

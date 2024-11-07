@@ -41,7 +41,7 @@ An example of the request format:
 ```json
 {
     "method": "simulate",
-    "params": [{
+    "params": {
         "tx_json" : {
             "TransactionType" : "Payment",
             "Account" : "rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn",
@@ -52,7 +52,7 @@ An example of the request format:
                 "issuer" : "rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn"
             }
         }
-    }]
+    }
 }
 ```
 {% /tab %}

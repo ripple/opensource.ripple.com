@@ -4,6 +4,8 @@ reunite:
 apis: {}
 ignore:
   - _*
+seo:
+  siteUrl: https://opensource.ripple.com/
 links:
   - rel: stylesheet
     href: ./static/style.css
@@ -43,6 +45,7 @@ codeSnippet:
 markdown:
   partialsFolders:
     - snippets
+    - docs/_snippets
     - docs/xls-38d-cross-chain-bridge/snippets
   lastUpdatedBlock:
     hide: true
@@ -50,7 +53,7 @@ markdown:
     baseUrl: https://github.com/ripple/opensource.ripple.com/tree/main/
 logo:
   link: /
-  image: ./images/ripple-open-source-logo.svg
+  srcSet: ./images/ripple-open-source-logo.svg light, ./images/ripple-open-source-logo-darkmode.svg dark
   altText: Open Source at Ripple Documentation
 navigation:
   nextButton:

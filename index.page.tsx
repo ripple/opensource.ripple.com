@@ -1,160 +1,71 @@
 import * as React from 'react';
-import {
-  LandingLayout,
-  Box,
-  FlexSection,
-  Jumbotron,
-  WideTile,
-} from '@redocly/portal-legacy-ui';
-import { Header1, Header2, TileText } from "./components";
-import  { Button } from "@redocly/theme";
+import { Header1, Header2, LandingContainer, LandingLayout, Jumbotron } from "./components";
+import { Button } from "@redocly/theme";
+import { Card } from '@redocly/theme/markdoc/components/Cards/Card';
+import { Cards } from '@redocly/theme/markdoc/components/Cards/Cards';
 export const frontmatter = {
-  "title": "Open Source Projects"
+  seo: {
+    title: 'Ripple Open Source Projects',
+    description: "Ripple Open Source is a preview of open-source projects Ripple is building for the Internet of Value.",
+  }
 };
 export default function Page() {
   return (
     <LandingLayout>
-      <Jumbotron 
-        pb="8.5em"
-        bgImage={require('images/heroimg.png')}
-        height="350px"
-        width="3440px"
-        bgColor="white"
-        textColor="black"
-      >
+      <Jumbotron bgImage={require('images/heroimg.png')}>
       
         <Header1>Open Source Projects</Header1>
         <Header2>Explore open source projects currently in development.</Header2>
       </Jumbotron>
-      
-      <Box p={{ _: "8px", sm: "12px", md: "16px", lg: "24px" }}>
-        <Box 
-            justifyContent="center"
-            maxWidth="1200px"
-            margin="0 auto"
-            >  
-          <WideTile 
-            style={{ height: "284px", width: "500px", margin: "16px" }}
-            to="docs/xls-33d-multi-purpose-tokens/"
-            header="Multi-purpose Tokens"
-            color="#141A1F"
-            textAlign="left"
-            disableArrow
-          >
-            <TileText>
-              Multi-purpose tokens (MPTs) are a more compact and flexible type of fungible token.
-            </TileText>
-            <div style={{ bottom: "36px", position: "absolute"}}>
-              <Button  style={{
-                  padding: "8px 16px",
-                  borderRadius: "20px",
-                  fontSize: "14px",
-                  lineHeight: "20px",
-                  color: "#FFFFFF",
-                  background: "#005BCC",
-                }}>
-                Go to Docs
-              </Button>
-            </div>
-          </WideTile>
-          <WideTile 
-            style={{ height: "284px", width: "500px", margin: "16px" }}
-            to="docs/xls-56d-batch-transactions/"
-            header="Batch Transactions"
-            color="#141A1F"
-            textAlign="left"
-            disableArrow
-          >
-            <TileText>
-              Prepare and submit up to 8 transactions in a single batch.
-            </TileText>
-            <div style={{ bottom: "36px", position: "absolute"}}>
-              <Button  style={{
-                  padding: "8px 16px",
-                  borderRadius: "20px",
-                  fontSize: "14px",
-                  lineHeight: "20px",
-                  color: "#FFFFFF",
-                  background: "#005BCC",
-                }}>
-                Go to Docs
-              </Button>
-            </div>
-          </WideTile>
-          <WideTile 
-            style={{ height: "284px", width: "500px", margin: "16px" }}
-            to="docs/ledger-state-fix/"
-            header="LedgerStateFix"
-            color="#141A1F"
-            textAlign="left"
-            disableArrow
-          >
-            <TileText>
-              A general purpose transaction used to fix specific issues affecting the XRP ledger.
-            </TileText>
-            <div style={{ bottom: "36px", position: "absolute"}}>
-              <Button  style={{
-                  padding: "8px 16px",
-                  borderRadius: "20px",
-                  fontSize: "14px",
-                  lineHeight: "20px",
-                  color: "#FFFFFF",
-                  background: "#005BCC",
-                }}>
-                Go to Docs
-              </Button>
-            </div>
-          </WideTile>
-          <WideTile 
-            style={{ height: "284px", width: "500px", margin: "16px" }}
-            to="docs/xls-69d/"
-            header="simulate"
-            color="#141A1F"
-            textAlign="left"
-            disableArrow
-          >
-            <TileText>
-              An API method to test transaction results without submitting a transaction to the XRP Ledger.
-            </TileText>
-            <div style={{ bottom: "36px", position: "absolute"}}>
-              <Button  style={{
-                  padding: "8px 16px",
-                  borderRadius: "20px",
-                  fontSize: "14px",
-                  lineHeight: "20px",
-                  color: "#FFFFFF",
-                  background: "#005BCC",
-                }}>
-                Go to Docs
-              </Button>
-            </div>
-          </WideTile>
-          <WideTile 
-            style={{ height: "284px", width: "500px", margin: "16px" }}
-            to="docs/xls-73d/"
-            header="AMMClawback"
-            color="#141A1F"
-            textAlign="left"
-            disableArrow
-          >
-            <TileText>
-              The AMMClawback transaction enables token issuers to claw back tokens from wallets that have deposited into AMM pools, ensuring regulatory compliance.
-            </TileText>
-            <div style={{ bottom: "36px", position: "absolute"}}>
-              <Button  style={{
-                  padding: "8px 16px",
-                  borderRadius: "20px",
-                  fontSize: "14px",
-                  lineHeight: "20px",
-                  color: "#FFFFFF",
-                  background: "#005BCC",
-                }}>
-                Go to Docs
-              </Button>
-            </div>
-          </WideTile>
-        </Box>
-      </Box>       
+     
+      <LandingContainer>
+        <Cards columns={2}>
+
+          <Card title="Multi-purpose Tokens" to="docs/xls-33d-multi-purpose-tokens/">
+            <p>Multi-purpose tokens (MPTs) are a more compact and flexible type of fungible token.</p>
+            <Button size="large" variant="primary">
+              Go to docs
+            </Button>
+          </Card>
+
+          <Card title="Batch transactions" to="docs/xls-56d-batch-transactions/">
+            <p>Prepare and submit up to 8 transactions in a single batch.</p>
+            <Button size="large" variant="primary">
+              Go to docs
+            </Button>
+          </Card>
+
+          <Card title="LedgerStateFix" to="docs/ledger-state-fix/">
+            <p>A general purpose transaction used to fix specific issues affecting the XRP ledger.</p>
+            <Button size="large" variant="primary">
+              Go to docs
+            </Button>
+          </Card>
+
+          <Card title="simulate" to="docs/xls-69d/">
+            <p>An API method to test transaction results without submitting a transaction to the XRP Ledger.</p>
+            <Button size="large" variant="primary">
+              Go to docs
+            </Button>
+          </Card>
+
+          <Card title="Credentials" to="docs/xls-70d-credentials/">
+            <p>Create and store credentials on the blockchain for compliance checks.</p>
+            <Button size="large" variant="primary">
+              Go to docs
+            </Button>
+          </Card>
+          
+          <Card title="AMMClawback" to="docs/xls-73d/">
+            <p>The AMMClawback transaction enables token issuers to claw back tokens from wallets that have deposited into AMM pools, ensuring regulatory compliance.</p>
+            <Button size="large" variant="primary">
+              Go to docs
+            </Button>
+          </Card>
+
+        </Cards>
+      </LandingContainer>
+
     </LandingLayout>
   );
 }
