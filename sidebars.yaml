@@ -69,3 +69,6 @@
             - page: docs/xls-70d-credentials/reference/depositpreauth-transaction.md
             - page: docs/xls-70d-credentials/reference/credential.md
             - page: docs/xls-70d-credentials/reference/depositpreauth-entry.md
+            - page: docs/xls-70d-credentials/reference/credentialids-field.md
+            - page: docs/xls-70d-credentials/reference/ledger_entry.md
+            - page: docs/xls-70d-credentials/reference/deposit_authorized.md
