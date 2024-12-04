@@ -17,7 +17,7 @@ export default function Page() {
         <Header1>Open Source Projects</Header1>
         <Header2>Explore open source projects currently in development.</Header2>
       </Jumbotron>
-      
+     
       <LandingContainer>
         <Cards columns={2}>
 
@@ -51,6 +51,13 @@ export default function Page() {
 
           <Card title="Credentials" to="docs/xls-70d-credentials/">
             <p>Create and store credentials on the blockchain for compliance checks.</p>
+            <Button size="large" variant="primary">
+              Go to docs
+            </Button>
+          </Card>
+          
+          <Card title="AMMClawback" to="docs/xls-73d/">
+            <p>The AMMClawback transaction enables token issuers to claw back tokens from wallets that have deposited into AMM pools, ensuring regulatory compliance.</p>
             <Button size="large" variant="primary">
               Go to docs
             </Button>
