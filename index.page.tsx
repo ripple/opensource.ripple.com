@@ -63,6 +63,13 @@ export default function Page() {
             </Button>
           </Card>
 
+          <Card title="Deep Freeze" to="docs/xls-77d-deep-freeze/">
+            <p>Deep Freeze ensures that frozen token holders can neither send or receive frozen funds until their trust line is unfrozen.</p>
+            <Button size="large" variant="primary">
+              Go to docs
+            </Button>
+          </Card>
+
         </Cards>
       </LandingContainer>
 
