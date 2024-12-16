@@ -9,7 +9,7 @@ labels:
 
 ### Why are Ripple and Peersyst building an EVM sidechain?
 
-The XRPL natively lacks the full programmability option to add custom business logic. The only programmabilIty option XRPL has today is a “smart transactor” but it's very difficult to write one and any significant change that affects existing protocol needs to go through the amendment process to be approved by the XRPL community. The Hooks feature developed by XRPL Labs promises to bring native programmability to the XRPL. EVM compatible blockchains have “smart contract” functionality that enables developers to build and deploy new applications without a network vote.
+The XRPL natively lacks the full programmability option to add custom business logic. The only programmabilIty option XRPL has today is a “smart transactor” but it's very difficult to write one and any significant change that affects existing protocol needs to go through the amendment process to be approved by the XRPL community. EVM compatible blockchains have “smart contract” functionality that enables developers to build and deploy new applications without a network vote.
 
 EVM compatibility on different blockchains:
 
