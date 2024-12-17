@@ -249,3 +249,38 @@
 '/docs/xls-30d-amm/tutorials/create-an-automated-market-maker/':
   to: 'https://xrpl.org/create-an-automated-market-maker.html'
   type: 301
+
+# mpt docs
+'/docs/xls-33d-multi-purpose-tokens/multi-purpose-tokens/':
+  to: 'https://xrpl.org/concepts/tokens/fungible-tokens/multi-purpose-tokens.html'
+  type: 301
+'/docs/xls-33d-multi-purpose-tokens/reference/clawback.md':
+  to: 'https://xrpl.org/references/protocol/transactions/types/clawback.html'
+  type: 301
+'/docs/xls-33d-multi-purpose-tokens/reference/ledger-entry.md':
+  to: 'https://xrpl.org/references/http-websocket-apis/public-api-methods/ledger-methods/ledger_entry.html'
+  type: 301
+'/docs/xls-33d-multi-purpose-tokens/reference/mpt_holders':
+  to: 'https://xrpl.org/references/http-websocket-apis/public-api-methods/path-and-order-book-methods/mpt_holders.html'
+  type: 301
+'/docs/xls-33d-multi-purpose-tokens/reference/mptoken.md':
+  to: 'https://xrpl.org/references/protocol/data-types/mptoken.html'
+  type: 301
+'/docs/xls-33d-multi-purpose-tokens/reference/mptokenissuance.md':
+  to: 'https://xrpl.org/references/protocol/data-types/mptokenissuance.html'
+  type: 301
+'/docs/xls-33d-multi-purpose-tokens/reference/mptokenauthorize.md':
+  to: 'https://xrpl.org/references/protocol/transactions/types/mptokenauthorize.html'
+  type: 301
+'/docs/xls-33d-multi-purpose-tokens/reference/mptokenissuancecreate.md':
+  to: 'https://xrpl.org/references/protocol/transactions/types/mptokenissuancecreate.html'
+  type: 301
+'/docs/xls-33d-multi-purpose-tokens/reference/mptokenissuancedestroy.md':
+  to: 'https://xrpl.org/references/protocol/transactions/types/mptokenissuancedestroy.html'
+  type: 301
+'/docs/xls-33d-multi-purpose-tokens/reference/mptokenissuanceset.md':
+  to: 'https://xrpl.org/references/protocol/transactions/types/mptokenissuanceset.html'
+  type: 301
+'/docs/xls-33d-multi-purpose-tokens/reference/payment.md':
+  to: 'https://xrpl.org/references/protocol/transactions/types/payment.html'
+  type: 301
