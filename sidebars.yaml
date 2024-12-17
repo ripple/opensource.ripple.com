@@ -72,3 +72,14 @@
             - page: docs/xls-70d-credentials/reference/credentialids-field.md
             - page: docs/xls-70d-credentials/reference/ledger_entry.md
             - page: docs/xls-70d-credentials/reference/deposit_authorized.md
+    - group: XLS-77d Deep Freeze
+      page: docs/xls-77d-deep-freeze/index.md
+      expanded: false
+      items:
+        - page: docs/xls-77d-deep-freeze/deep-freeze.md
+        - page: docs/xls-77d-deep-freeze/reference/deep-freeze-reference.md
+          items:
+            - page: docs/xls-77d-deep-freeze/reference/ripplestate.md
+            - page: docs/xls-77d-deep-freeze/reference/offercreate.md
+            - page: docs/xls-77d-deep-freeze/reference/trustset.md
+    
