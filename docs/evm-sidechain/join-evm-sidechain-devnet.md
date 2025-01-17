@@ -18,8 +18,8 @@ For ease of use, create an alias, `exprd`, to run all commands inside your Docke
 ## XRPL EVM Sidechain Node Hardware Requirements
 
 - Linux/AMD64 operating system.
-- 4 or more physical CPU cores.
-- At least 500GB of NVME SSD disk storage.
+- 6 or more physical CPU cores.
+- At least 600GB of NVME SSD disk storage.
 - At least 32GB of RAM.
 - At least 100Mbps network bandwidth.
 
@@ -28,12 +28,13 @@ For ease of use, create an alias, `exprd`, to run all commands inside your Docke
 
 Before proceeding to initialize the node, ensure that the following pre-requisites are installed and running:
 
-* Docker 19+
-* Create an alias to run all commands in this tutorial inside a Docker container: 
+* [Docker 19+](https://docs.docker.com/engine/install/)
+* Create an alias to run all commands in this tutorial inside a Docker container. You may want to add this to your `.bashrc` or `.zshrc`: 
 
     ```bash
     alias exrpd="docker run -it --rm -v ~/.exrpd:/root/.exrpd --entrypoint=\"\" peersyst/xrp-evm-blockchain:latest exrpd"
     ```
+
 
 ## Initialize Node
 
@@ -45,12 +46,16 @@ The first task is to initialize the node, which creates the necessary validator 
     exrpd config chain-id exrp_1440002-1
     ```
 
-2. Create or add a key to your node. For this tutorial, we use the `test` keyring:
-
+2. Create or add a key to your node. Depending on your system, the default keyring may vary. For this tutorial, we use the `test` keyring:
+Create a new key:
     ```bash
     exrpd keys add <key_name> --keyring-backend test
     ```
 
+Import an existing private key:
+		```bash
+		exrpd keys unsafe-import-eth-key <key_name> <private_key>
+		```
     Note the `key_name` you enter as you need to reference it in subsequent steps.
 
     **Note** For more information on a more secure setup for your validator, refer to [cosmos-sdk keys and keyrings](https://docs.cosmos.network/v0.46/run-node/keyring.html) and [validator security](evm-sidechain-validator-security.md).
@@ -64,7 +69,7 @@ The first task is to initialize the node, which creates the necessary validator 
 
     Monikers can contain only ASCII characters. Using Unicode characters renders your node unreachable.
 
-All these commands create your `~/.exrpd` (i.e `$HOME`) directory with subfolders `config/` and `data/`. In the `config` directory, the most important files for configuration are `app.toml` and `config.toml`.
+All these commands create your `~/.exrpd` (i.e. `$HOME`) directory with subfolders `config/` and `data/`. In the `config` directory, the most important files for configuration are `app.toml` and `config.toml`.
 
 ## Genesis & Seeds
 
@@ -118,11 +123,15 @@ All these commands create your `~/.exrpd` (i.e `$HOME`) directory with subfol
  exrpd start
  ```
 
- If you would like to run it in Docker's deamon mode, you can use the following command:
+ If you would like to run it in Docker's daemon mode, you can use the following command:
 
   ```bash
  docker run -d --name=node --entrypoint="" --restart=always -v ~/.exrpd:/root/.exrpd peersyst/xrp-evm-blockchain:latest exrpd start
- ``` 
+ ```
+ If you would like to port forward relevant endpoints (Tendermint RPC, JSON-RPC, WSS) to the host, you can use some or all of the additional arguments in the following command:
+ 	```bash
+	docker run -d --name=node --entrypoint="" -p 8545:8545 -p 8546:8546 -p 26657: 26657 --restart=always -v ~/.exrpd:/root/.exrpd peersyst/xrp-evm-blockchain:latest exrpd start 
+	```
 
  With this docker command, you will be creating a container with the image `peersyst/xrp-evm-blockchain:latest` 
  that will run in background (`-d` flag) which will be named node (`--name=node`) that will be restarted in the case it stops (`--restart=always flag`) 
@@ -133,6 +142,53 @@ All these commands create your `~/.exrpd` (i.e `$HOME`) directory with subfol
   ```bash
  docker logs -f <container_id>
    ```
+
+## Additional Configuration Considerations
+
+	If you would like to monitor your node with external tools such as Prometheus or expose the node to service RPCs, the following changes should be made.
+
+### Expose the Tendermint RPC Endpoint for monitoring
+		
+		Adjust the configuration to expose the Tendermint RPC Endpoint to the Internet
+
+		```bash
+		# Open the node's configuration
+		vi ~/.exrpd/config/config.toml
+		
+		# On line 92, change the value of laddr to expose the endpoint to the internet
+		laddr = "tcp://0.0.0.0:26657"
+
+		# Save changes
+		:wq
+		```
+
+		Once the configuration change is made, stop the node, remove the old container configuration and start again.
+		```bash
+		# Restart the node
+		exrpd restart
+		```
+		Be sure to confirm that the docker container is correctly exposing port `26657` and that your host machine is exposing port `26657`.
+
+### Expose the JSON-RPC Interface and WSS Interface Ports for RPC utilization
+		
+		Some users may want to use the nodes for RPC purposes. Adjust the configuration to expose the correct ports for JSON-RPC and WSS
+		```bash
+		# Open the node's configuration
+		vi ~/.exrpd/config/app.toml
+
+		# On line 278, change the value of address to expose the JSON-RPC Endpoint
+		address = "0.0.0.0:8545"
+
+		# On line 281, change the value of ws-address to expose the EVM Websocket Endpoint
+		ws-address = "0.0.0.0:8546
+		```
+		
+		Once the configuration change is made, stop the node, remove the old container configuration and start again.
+		```bash
+		# Restart the node
+		exrpd restart
+		```
+		Be sure to confirm that the docker container is correctly exposing ports `8545`, `8546` and that your host machine is exposing port `8545`, `8546`.
 
 ## Join the Proof of Authority with your node
 
