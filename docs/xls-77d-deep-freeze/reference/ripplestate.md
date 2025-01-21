@@ -15,7 +15,7 @@ A `RippleState` ledger entry represents a [trust line](https://xrpl.org/docs/con
 
 There can only be one `RippleState` entry per currency for any given pair of accounts. Since no account is privileged in the XRP Ledger, a `RippleState` entry sorts account addresses numerically, to ensure a canonical form. Whichever address is numerically lower when [decoded](https://xrpl.org/docs/concepts/accounts/addresses.md#address-encoding) is deemed the "low account" and the other is the "high account". The net balance of the trust line is stored from the low account's perspective.
 
-The ["issuer"](https://xrpl.org/docs/concepts/tokens/fungible-tokens/index.md) for the balance in a trust line depends on whether the balance is positive or negative. If a `RippleState` entry shows a positive balance, the high account is the issuer. If the balance is negative, the low account is the issuer. Often, the issuer has its limit set to 0 and the other account has a positive limit, but this is not reliable because limits can change without affecting an existing balance.
+The ["issuer"](https://xrpl.org/docs/concepts/tokens/fungible-tokens) for the balance in a trust line depends on whether the balance is positive or negative. If a `RippleState` entry shows a positive balance, the high account is the issuer. If the balance is negative, the low account is the issuer. Often, the issuer has its limit set to 0 and the other account has a positive limit, but this is not reliable because limits can change without affecting an existing balance.
 
 
 ## Example {% $frontmatter.seo.title %} JSON
