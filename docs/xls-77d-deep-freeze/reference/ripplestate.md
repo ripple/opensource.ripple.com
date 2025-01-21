@@ -53,7 +53,7 @@ In addition to the [common fields](https://xrpl.org/docs/references/protocol/tra
 
 | Name                | JSON Type | [Internal Type][] | Required? | Description |
 |:--------------------|:----------|:--------------|:----------|:------------|
-| `Balance`           | Object    | Amount        | Yes       | The balance of the trust line, from the perspective of the low account. A negative balance indicates that the high account holds tokens issued by the low account. The issuer in this is always set to the neutral value [ACCOUNT_ONE](https://xrpl.org/docs/concepts/accounts/addresses.md#special-addresses). |
+| `Balance`           | Object    | Amount        | Yes       | The balance of the trust line, from the perspective of the low account. A negative balance indicates that the high account holds tokens issued by the low account. The issuer in this is always set to the neutral value [ACCOUNT_ONE](https://xrpl.org/docs/concepts/accounts/addresses#special-addresses). |
 | `Flags`             | Number    | UInt32        | Yes       | A bit-map of boolean options enabled for this entry. |
 | `HighLimit`         | Object    | Amount        | Yes       | The limit that the high account has set on the trust line. The `issuer` is the address of the high account that set this limit. |
 | `HighNode`          | String    | UInt64        | Yes       | (Omitted in some historical ledgers) A hint indicating which page of the high account's owner directory links to this entry, in case the directory consists of multiple pages. |
