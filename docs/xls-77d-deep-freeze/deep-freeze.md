@@ -48,7 +48,7 @@ Deep Freeze requires two new flags, `tfSetDeepFreeze` and `tfClearDeepFreeze` ar
 | tfSetDeepFreeze	| 0x00400000	| Deep freeze the trust line. |
 | tfClearDeepFreeze	| 0x00800000 | Clear a deep-freeze on the trust line. |
 
-A TrustSet transaction trying to set `tfSetDeepFreeze` succeeds if and only if one of the following is true:
+A `TrustSet` transaction trying to set `tfSetDeepFreeze` succeeds if and only if one of the following is true:
 
 - The holder is already frozen, indicated by `lsfLowFreeze`/`lsfHighFreeze` on the trust line.
 - `tfSetFreeze` is also set in the same `TrustSet` transaction.
