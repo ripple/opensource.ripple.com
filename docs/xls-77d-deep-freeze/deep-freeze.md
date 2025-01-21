@@ -81,6 +81,6 @@ Moreover, any existing offers where the owner has been deep-frozen on the `Taker
 
 ## How does MPT freeze/lock behavior differ from IOU?
 
-The MPT freeze/lock functionality differs somewhat from how IOUs work. When an MPT holder is locked, they cannot send or receive MPT payments, so a single flag is sufficient.
+The Multi-Purpose Token (MPT) freeze/lock functionality differs somewhat from how IOUs work. When an MPT holder is locked, they cannot send or receive MPT payments, so a single flag is sufficient.
 
 For IOUs, the regular freeze only disallows sending. If the issuer wants to block receiving as well, they must apply a deep freeze.
