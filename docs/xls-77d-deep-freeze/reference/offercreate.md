@@ -48,7 +48,7 @@ An `OfferCreate` transaction places an [Offer](https://xrpl.org/docs/concepts/to
 
 ## OfferCreate Flags
 
-Transactions of the OfferCreate type support additional values in the [`Flags` field](https://xrpl.org/docs/references/protocol/transactions/common-fields.md#flags-field), as follows:
+`OfferCreate` transactions support additional values in the [`Flags` field](https://xrpl.org/docs/references/protocol/transactions/common-fields#flags-field), as follows:
 
 | Flag Name             | Hex Value    | Decimal Value | Description           |
 |:----------------------|:-------------|:--------------|:----------------------|
