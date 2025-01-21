@@ -32,7 +32,7 @@ An individual address can deep freeze its trust line to an issuer or financial i
 
 ### RippleState Object
 
-Deep Freeze requires two new flags, `lsfLowDeepFreeze` and `lsfHighDeepFreeze`, in the RippleState (trustline) object.
+Deep Freeze introduces two new flags, `lsfLowDeepFreeze` and `lsfHighDeepFreeze`, in the `RippleState` (trustline) object.
 
 | Flag Name	| Flag Value	| Description |
 |-----------|-------------|-------------|
