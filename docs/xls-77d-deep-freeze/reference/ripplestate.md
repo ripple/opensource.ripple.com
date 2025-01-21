@@ -78,7 +78,7 @@ In addition to the [common fields](https://xrpl.org/docs/references/protocol/tra
 | `lsfHighReserve`  | `0x00020000` | 131072        | (None)          | This entry [contributes to the high account's owner reserve](#ripplestate-reserve). |
 | `lsfLowAuth`      | `0x00040000` | 262144        | `tfSetAuth`     | The low account has authorized the high account to hold tokens issued by the low account. |
 | `lsfHighAuth`     | `0x00080000` | 524288        | `tfSetAuth`     | The high account has authorized the low account to hold tokens issued by the high account. |
-| `lsfLowNoRipple`  | `0x00100000` | 1048576       | `tfSetNoRipple` | The low account [has disabled rippling](https://xrpl.org/docs/concepts/tokens/fungible-tokens/rippling.md) from this trust line. |
+| `lsfLowNoRipple`  | `0x00100000` | 1048576       | `tfSetNoRipple` | The low account [has disabled rippling](https://xrpl.org/docs/concepts/tokens/fungible-tokens/rippling) from this trust line. |
 | `lsfHighNoRipple` | `0x00200000` | 2097152       | `tfSetNoRipple` | The high account [has disabled rippling](https://xrpl.org/docs/concepts/fungible-tokens/rippling.md) from this trust line. |
 | `lsfLowFreeze`    | `0x00400000` | 4194304       | `tfSetFreeze`   | The low account has frozen the trust line, preventing the high account from transferring the asset. |
 | `lsfHighFreeze`   | `0x00800000` | 8388608       | `tfSetFreeze`   | The high account has frozen the trust line, preventing the low account from transferring the asset. |
