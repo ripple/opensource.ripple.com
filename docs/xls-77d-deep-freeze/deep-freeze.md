@@ -32,7 +32,7 @@ An individual address can deep freeze its trust line to an issuer or financial i
 
 ### RippleState Object
 
-Deep Freeze introduces two new flags, `lsfLowDeepFreeze` and `lsfHighDeepFreeze`, in the `RippleState` (trustline) object.
+Deep Freeze introduces two flags, `lsfLowDeepFreeze` and `lsfHighDeepFreeze`, in the `RippleState` (trust line) object.
 
 | Flag Name	| Flag Value	| Description |
 |-----------|-------------|-------------|
@@ -41,7 +41,7 @@ Deep Freeze introduces two new flags, `lsfLowDeepFreeze` and `lsfHighDeepFreeze`
 
 ### TrustSet Transaction
 
-Deep Freeze requires two new flags, `tfSetDeepFreeze` and `tfClearDeepFreeze` are introduced in the `TrustSet` transaction.
+Deep Freeze introduces two flags, `tfSetDeepFreeze` and `tfClearDeepFreeze`, in the `TrustSet` transaction.
 
 | Flag Name	| Flag Value	| Description |
 |-----------|-------------|-------------|
