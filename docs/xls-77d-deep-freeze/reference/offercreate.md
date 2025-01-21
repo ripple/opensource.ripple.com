@@ -12,7 +12,7 @@ labels:
 
 [[Source]](https://github.com/XRPLF/rippled/blob/master/src/ripple/app/tx/impl/CreateOffer.cpp "Source")
 
-An OfferCreate transaction places an [Offer](https://xrpl.org/docs/concepts/tokens/decentralized-exchange/offers.md) in the [decentralized exchange](https://xrpl.org/docs/concepts/tokens/decentralized-exchange/index.md).
+An `OfferCreate` transaction places an [Offer](https://xrpl.org/docs/concepts/tokens/decentralized-exchange/offers) in the [decentralized exchange](https://xrpl.org/docs/concepts/tokens/decentralized-exchange).
 
 ## Example {% $frontmatter.seo.title %} JSON
 
