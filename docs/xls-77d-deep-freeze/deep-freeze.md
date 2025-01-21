@@ -59,7 +59,7 @@ If the trust line is deep-frozen by the issuer (indicated by `lsfLowDeepFreeze`/
 
 ## Payment Engine
 
-Payment engine executes paths that are made of steps to connect the sender to the receiver. In general, funds can be deposited into a trustline through one of two steps:
+Payment Engine executes paths that are made of steps to connect the sender to the receiver. In general, funds can be deposited into a trust line through one of two steps:
 
 - [Rippling](#rippling)
 - [Order book or AMM](#order-book)
