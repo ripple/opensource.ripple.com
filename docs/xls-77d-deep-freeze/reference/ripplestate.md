@@ -73,7 +73,7 @@ In addition to the [common fields](https://xrpl.org/docs/references/protocol/tra
 
 | Flag Name         | Hex Value    | Decimal Value | Corresponding [TrustSet Flag](https://xrpl.org/docs/references/protocol/transactions/types/trustset/#trustset-flags) | Description |
 |-------------------|--------------|---------------|-----------------|---------|
-| `lsfAMMNode`      | `0x01000000` | 16777216      | (None)          | This entry consumed AMM liquidity to complete a [`Payment`](https://xrpl.org/docs/references/protocol/transactions/types/payment.md) transaction. |
+| `lsfAMMNode`      | `0x01000000` | 16777216      | (None)          | This entry consumed AMM liquidity to complete a [`Payment`](https://xrpl.org/docs/references/protocol/transactions/types/payment) transaction. |
 | `lsfLowReserve`   | `0x00010000` | 65536         | (None)          | This entry [contributes to the low account's owner reserve](#ripplestate-reserve). |
 | `lsfHighReserve`  | `0x00020000` | 131072        | (None)          | This entry [contributes to the high account's owner reserve](#ripplestate-reserve). |
 | `lsfLowAuth`      | `0x00040000` | 262144        | `tfSetAuth`     | The low account has authorized the high account to hold tokens issued by the low account. |
