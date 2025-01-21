@@ -16,7 +16,7 @@ Deep Freeze impacts trust lines that interact with payments, offers, DEX, and AM
 
 ## Deep Freeze Mechanism
 
-Deep Freeze is a setting on a trust line. It requires that the issuer implement a standard freeze on the trust line before enacting a deep freeze. The issuer cannot enact a deep freeze if they have enabled No Freeze on their account.
+Deep Freeze is a setting on a trust line. It requires that the issuer implement a standard freeze on the trust line before enacting a deep freeze. The issuer cannot enact a deep freeze if they have enabled `No Freeze` on their account.
 
 When an issuer enacts a deep freeze, the following rules apply to the tokens in that trust line:
 
