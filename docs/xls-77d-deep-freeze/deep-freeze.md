@@ -36,8 +36,8 @@ Deep Freeze requires two new flags, `lsfLowDeepFreeze` and `lsfHighDeepFreeze`, 
 
 | Flag Name	| Flag Value	| Description |
 |-----------|-------------|-------------|
-| lsfLowDeepFreeze	| 0x02000000	| The low account has deep-frozen the trust line, preventing the high account from sending and receiving the asset. |
-| lsfHighDeepFreeze	| 0x04000000	| The high account has deep-frozen the trust line, preventing the low account from sending and receiving the asset. |
+| `lsfLowDeepFreeze`	| `0x02000000`	| The low account has deep-frozen the trust line, preventing the high account from sending and receiving the asset. |
+| `lsfHighDeepFreeze`	| `0x04000000`	| The high account has deep-frozen the trust line, preventing the low account from sending and receiving the asset. |
 
 ### TrustSet Transaction
 
