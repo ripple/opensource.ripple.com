@@ -55,7 +55,7 @@ Transactions of the TrustSet type support additional values in the [`Flags` fiel
 
 | Flag Name         | Hex Value    | Decimal Value | Description               |
 |:------------------|:-------------|:--------------|:--------------------------|
-| `tfSetfAuth`      | `0x00010000` | 65536         | Authorize the other party to hold [currency issued by this account](https://xrpl.org/docs/concepts/tokens). (No effect unless using the [`asfRequireAuth` AccountSet flag](https://xrpl.org/docs/references/protocol/transactions/types/accountset.md#accountset-flags).) Cannot be unset. |
+| `tfSetfAuth`      | `0x00010000` | 65536         | Authorize the other party to hold [currency issued by this account](https://xrpl.org/docs/concepts/tokens). (No effect unless using the [`asfRequireAuth` AccountSet flag](https://xrpl.org/docs/references/protocol/transactions/types/accountset#accountset-flags).) Cannot be unset. |
 | `tfSetNoRipple`   | `0x00020000` | 131072        | Enable the No Ripple flag, which blocks [rippling](https://xrpl.org/docs/concepts/tokens/fungible-tokens/rippling) between two trust lines of the same currency if this flag is enabled on both. |
 | `tfClearNoRipple` | `0x00040000` | 262144        | Disable the No Ripple flag, allowing [rippling](https://xrpl.org/docs/concepts/tokens/fungible-tokens/rippling) on this trust line. |
 | `tfSetFreeze`     | `0x00100000` | 1048576       | [Freeze](https://xrpl.org/docs/concepts/tokens/fungible-tokens/freezes) the trust line. |
