@@ -12,7 +12,7 @@ labels:
 
 [[Source]](https://github.com/XRPLF/rippled/blob/develop/src/xrpld/app/tx/detail/SetTrust.cpp "Source")
 
-Create or modify a [trust line](https://xrpl.org/docs/concepts/tokens/fungible-tokens/index.md) linking two accounts.
+Create or modify a [trust line](https://xrpl.org/docs/concepts/tokens/fungible-tokens) linking two accounts.
 
 ## Example {% $frontmatter.seo.title %} JSON
 
