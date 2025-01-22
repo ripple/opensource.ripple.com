@@ -63,7 +63,7 @@ Transactions of the TrustSet type support additional values in the [`Flags` fiel
 | `tfSetDeepFreeze` | `0x00400000` | 4194304       | [Deep Freeze](../deep-freeze.md) the trust line. |
 | `tfClearDeepFreeze` | `0x00800000` | 8388608     | Clear the deep freeze on the trust line. |
 
-If a transaction tries to enable No Ripple but cannot, it fails with the result code `tecNO_PERMISSION`. Before the [fix1578 amendment][] became enabled, such a transaction would result in `tesSUCCESS` (making any other changes it could) instead.
+If a transaction tries to enable No Ripple but cannot, it fails with the result code `tecNO_PERMISSION`. Before the [fix1578 amendment](https://xrpl.org/resources/known-amendments#fix1578) became enabled, such a transaction would result in `tesSUCCESS` (making any other changes it could) instead.
 
 The Auth flag of a trust line does not determine whether the trust line counts towards its owner's XRP reserve requirement. However, an enabled Auth flag prevents the trust line from being in its default state. An authorized trust line can never be deleted. An issuer can pre-authorize a trust line with the `tfSetfAuth` flag only, even if the limit and balance of the trust line are 0.
 
