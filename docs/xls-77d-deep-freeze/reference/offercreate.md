@@ -10,7 +10,7 @@ labels:
 {% partial file="/snippets/_deep-freeze-disclaimer.md" /%}
 
 
-[[Source]](https://github.com/XRPLF/rippled/blob/master/src/ripple/app/tx/impl/CreateOffer.cpp "Source")
+[[Source]](https://github.com/XRPLF/rippled/blob/master/src/xrpld/app/tx/detail/CreateOffer.cpp "Source")
 
 An `OfferCreate` transaction places an [Offer](https://xrpl.org/docs/concepts/tokens/decentralized-exchange/offers) in the [decentralized exchange](https://xrpl.org/docs/concepts/tokens/decentralized-exchange).
 
@@ -32,9 +32,9 @@ An `OfferCreate` transaction places an [Offer](https://xrpl.org/docs/concepts/to
     }
 }
 ```
-
+<!--
 [Query example transaction. >](https://xrpl.org/docs/resources/dev-tools/websocket-api-tool?server=wss%3A%2F%2Fxrplcluster.com%2F&req=%7B%22id%22%3A%22example_OfferCreate%22%2C%22command%22%3A%22tx%22%2C%22transaction%22%3A%220CD69FD1F0A890CC57CDA430213FD294F7D65FF4A0F379A0D09D07A222D324E6%22%2C%22binary%22%3Afalse%7D)
-
+-->
 {% raw-partial file="/docs/_snippets/tx-fields-intro.md" /%}
 <!--{# fix md highlighting_ #}-->
 
