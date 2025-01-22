@@ -21,13 +21,6 @@ export default function Page() {
       <LandingContainer>
         <Cards columns={2}>
 
-          <Card title="Multi-purpose Tokens" to="docs/xls-33d-multi-purpose-tokens/">
-            <p>Multi-purpose tokens (MPTs) are a more compact and flexible type of fungible token.</p>
-            <Button size="large" variant="primary">
-              Go to docs
-            </Button>
-          </Card>
-
           <Card title="Batch transactions" to="docs/xls-56d-batch-transactions/">
             <p>Prepare and submit up to 8 transactions in a single batch.</p>
             <Button size="large" variant="primary">

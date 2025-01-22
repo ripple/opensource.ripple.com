@@ -16,11 +16,6 @@ To learn more about the consensus process and the workflow for features to go fr
 
 - [Documentation](https://pypi.org/project/claudia/)
 
-### Multi-purpose Tokens
-- [XLS-33d Proposal](https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0033d-multi-purpose-tokens)
-- [Documentation](xls-33d-multi-purpose-tokens/multi-purpose-tokens.md)
-- [Reference](xls-33d-multi-purpose-tokens/reference/mpt-reference.md)
-
 ### Batch Transactions
 
 - [XLS-56d Batch Transactions](xls-56d-batch-transactions/index.md)
