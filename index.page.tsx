@@ -62,7 +62,13 @@ export default function Page() {
               Go to docs
             </Button>
           </Card>
-
+          <Card title="Multi-purpose Tokens" to="https://xrpl.org/docs/concepts/tokens/fungible-tokens/multi-purpose-tokens">
+            <p>Multi-purpose tokens (MPTs) are a more compact and flexible type of fungible token. Documentation
+            is now live on xrpl.org.</p>
+            <Button size="large" variant="primary">
+              Go to docs
+            </Button>
+          </Card>
         </Cards>
       </LandingContainer>
 
