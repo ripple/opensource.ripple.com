@@ -21,12 +21,8 @@
       items:
         - page: docs/xls-73d/index.md
         - page: docs//xls-73d/AMMClawback.md
-    - group: LedgerStateFix
-      page: docs/ledger-state-fix/index.md
-      expanded: false
     - page: docs/ledger-state-fix/index.md
     - page: docs/xls-69d/index.md
-
     - page: docs/xls-70d-credentials/index.md
       items:
         - page: docs/xls-70d-credentials/reference/index.md
