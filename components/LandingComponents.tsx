@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import * as React from "react";
-import { H1, H2 } from "@redocly/theme";
+import { H1, H2, Button } from "@redocly/theme";
 
 const Header1 = styled(H1)`
   color: white !important;
@@ -56,6 +56,23 @@ const Jumbotron = styled.div<{ bgImage; }>`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-`
+`;
 
-export { Header1, Header2, LandingContainer, LandingLayout, Jumbotron };
+const XRPLStyledButton = styled(Button)`
+  background: #111112;
+  color: #ffffff;
+
+  :hover {
+    background: #232325;
+    color: #ffffff;
+  }
+`;
+
+function ButtonToXRPL({ children }) {
+  return <XRPLStyledButton size="large">
+     <img src={require("../images/xrpl-dev-logo-white.png")} alt="(XRPL)" width={24} height={20} />
+    {children}
+  </XRPLStyledButton>
+}
+
+export { Header1, Header2, LandingContainer, LandingLayout, Jumbotron, ButtonToXRPL };

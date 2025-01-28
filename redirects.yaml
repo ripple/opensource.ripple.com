@@ -1,4 +1,40 @@
-# priceoracle docs
+# credentials docs
+'/docs/xls-70d-credentials':
+  to: 'https://xrpl.org/docs/concepts/decentralized-storage/credentials'
+  type: 301
+'/docs/xls-70d-credentials/reference':
+  to: 'https://xrpl.org/docs/concepts/decentralized-storage/credentials'
+  type: 301
+'/docs/xls-70d-credentials/reference/credentialcreate':
+  to: 'https://xrpl.org/docs/references/protocol/transactions/types/credentialcreate'
+  type: 301
+'/docs/xls-70d-credentials/reference/credentialaccept':
+  to: 'https://xrpl.org/docs/references/protocol/transactions/types/credentialaccept'
+  type: 301
+'/docs/xls-70d-credentials/reference/credentialdelete':
+  to: 'https://xrpl.org/docs/references/protocol/transactions/types/credentialdelete'
+  type: 301
+'/docs/xls-70d-credentials/reference/depositpreauth-transaction':
+  to: 'https://xrpl.org/docs/references/protocol/transactions/types/depositpreauth'
+  type: 301
+'/docs/xls-70d-credentials/reference/credential':
+  to: 'https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/credential'
+  type: 301
+'/docs/xls-70d-credentials/reference/depositpreauth-entry':
+  to: 'https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/depositpreauth'
+  type: 301
+'/docs/xls-70d-credentials/reference/credentialids-field':
+  to: 'https://xrpl.org/docs/references/protocol/transactions/types/payment#payment-fields'
+  type: 301
+'/docs/xls-70d-credentials/reference/ledger_entry':
+  to: 'https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/ledger-methods/ledger_entry'
+  type: 301
+'/docs/xls-70d-credentials/reference/deposit_authorized':
+  to: 'https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/path-and-order-book-methods/deposit_authorized'
+  type: 301
+
+
+  # priceoracle docs
 '/docs/xls-47d-price-oracles/price-oracles/':
   to: 'https://xrpl.org/docs/concepts/xrpl-sidechains/price-oracles'
   type: 301

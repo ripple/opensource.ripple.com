@@ -3,6 +3,7 @@ import { Header1, Header2, LandingContainer, LandingLayout, Jumbotron } from "./
 import { Button } from "@redocly/theme";
 import { Card } from '@redocly/theme/markdoc/components/Cards/Card';
 import { Cards } from '@redocly/theme/markdoc/components/Cards/Cards';
+import { ButtonToXRPL } from './components/LandingComponents';
 export const frontmatter = {
   seo: {
     title: 'Ripple Open Source Projects',
@@ -20,9 +21,23 @@ export default function Page() {
      
       <LandingContainer>
         <Cards columns={2}>
+          
+          <Card title="AMMClawback" to="docs/xls-73d/">
+            <p>The AMMClawback transaction enables token issuers to claw back tokens from wallets that have deposited into AMM pools, ensuring regulatory compliance.</p>
+            <Button size="large" variant="primary">
+              Go to docs
+            </Button>
+          </Card>
 
           <Card title="Batch transactions" to="docs/xls-56d-batch-transactions/">
             <p>Prepare and submit up to 8 transactions in a single batch.</p>
+            <Button size="large" variant="primary">
+              Go to docs
+            </Button>
+          </Card>
+
+          <Card title="Deep Freeze" to="docs/xls-77d-deep-freeze/">
+            <p>Deep Freeze ensures that frozen token holders can neither send or receive frozen funds until their trust line is unfrozen.</p>
             <Button size="large" variant="primary">
               Go to docs
             </Button>
@@ -42,32 +57,19 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Credentials" to="docs/xls-70d-credentials/">
-            <p>Create and store credentials on the blockchain for compliance checks.</p>
-            <Button size="large" variant="primary">
+          <Card title="Credentials" to="https://xrpl.org/docs/concepts/decentralized-storage/credentials">
+            <p>Create and store credentials on the blockchain for compliance checks. Documentation is now live on xrpl.org.</p>
+            <ButtonToXRPL>
               Go to docs
-            </Button>
-          </Card>
-          
-          <Card title="AMMClawback" to="docs/xls-73d/">
-            <p>The AMMClawback transaction enables token issuers to claw back tokens from wallets that have deposited into AMM pools, ensuring regulatory compliance.</p>
-            <Button size="large" variant="primary">
-              Go to docs
-            </Button>
+            </ButtonToXRPL>
           </Card>
 
-          <Card title="Deep Freeze" to="docs/xls-77d-deep-freeze/">
-            <p>Deep Freeze ensures that frozen token holders can neither send or receive frozen funds until their trust line is unfrozen.</p>
-            <Button size="large" variant="primary">
-              Go to docs
-            </Button>
-          </Card>
           <Card title="Multi-purpose Tokens" to="https://xrpl.org/docs/concepts/tokens/fungible-tokens/multi-purpose-tokens">
             <p>Multi-purpose tokens (MPTs) are a more compact and flexible type of fungible token. Documentation
             is now live on xrpl.org.</p>
-            <Button size="large" variant="primary">
+            <ButtonToXRPL>
               Go to docs
-            </Button>
+            </ButtonToXRPL>
           </Card>
         </Cards>
       </LandingContainer>
