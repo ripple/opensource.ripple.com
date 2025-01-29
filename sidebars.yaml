@@ -1,6 +1,5 @@
-- label: Open Source Projects
-  page: docs/index.md
 - group: Prerelease Docs
+  page: docs/index.md
   expanded: true
   items:
     - group: Batch Transactions
@@ -16,15 +15,13 @@
           items:
             - page: docs/xls-56d-batch-transactions/reference/batch.md
             - page: docs/xls-56d-batch-transactions/reference/common-fields.md
-    - group: XLS-73d AMMClawback
+    - page: docs/xls-73d/index.md
       expanded: false
-      items:
-        - page: docs/xls-73d/index.md
-        - page: docs//xls-73d/AMMClawback.md
+      items:    
+        - page: docs/xls-73d/AMMClawback.md
     - page: docs/ledger-state-fix/index.md
     - page: docs/xls-69d/index.md
-    - group: XLS-77d Deep Freeze
-      page: docs/xls-77d-deep-freeze/index.md
+    - page: docs/xls-77d-deep-freeze/index.md
       expanded: false
       items:
         - page: docs/xls-77d-deep-freeze/deep-freeze.md

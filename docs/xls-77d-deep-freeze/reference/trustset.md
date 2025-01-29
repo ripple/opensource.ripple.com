@@ -7,7 +7,7 @@ labels:
   - Tokens
 ---
 # TrustSet
-{% partial file="/snippets/_deep-freeze-disclaimer.md" /%}
+{% partial file="/docs/_snippets/_deep-freeze-disclaimer.md" /%}
 
 
 [[Source]](https://github.com/XRPLF/rippled/blob/develop/src/xrpld/app/tx/detail/SetTrust.cpp "Source")

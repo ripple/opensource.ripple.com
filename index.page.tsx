@@ -1,15 +1,16 @@
 import * as React from 'react';
-import { Header1, Header2, LandingContainer, LandingLayout, Jumbotron } from "./components";
+import { Header1, Header2, LandingContainer, LandingLayout, Jumbotron, ButtonToXRPL } from "./components/landing";
 import { Button } from "@redocly/theme";
 import { Card } from '@redocly/theme/markdoc/components/Cards/Card';
 import { Cards } from '@redocly/theme/markdoc/components/Cards/Cards';
-import { ButtonToXRPL } from './components/LandingComponents';
+
 export const frontmatter = {
   seo: {
     title: 'Ripple Open Source Projects',
     description: "Ripple Open Source is a preview of open-source projects Ripple is building for the Internet of Value.",
   }
 };
+
 export default function Page() {
   return (
     <LandingLayout>

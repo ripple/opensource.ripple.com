@@ -2,7 +2,7 @@
 <!-->Add link to github source after feature is merged into devnet.<-->
 [[Source]](https://github.com/XRPLF/rippled/pull/5069 "Source")
 
-{% partial file="/snippets/_simulate-disclaimer.md" /%}
+{% partial file="/docs/_snippets/_simulate-disclaimer.md" /%}
 
 The `simulate` method executes a dry run of _any_ transaction type, enabling you to preview the results and metadata of a transaction without committing them to the XRP Ledger. Since this command never submits a transaction to the network, it doesn't incur any fees.
 

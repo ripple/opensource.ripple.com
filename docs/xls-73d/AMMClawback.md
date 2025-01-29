@@ -1,9 +1,9 @@
-# AMMClawback
+# AMMClawback transaction
 
 <!--> Add link to github source after feature is merged into devnet. <-->
 [[Source]](https://github.com/XRPLF/rippled/pull/5142 "Source")
 
-{% partial file="/snippets/_ammclawback-disclaimer.md" /%}
+{% partial file="/docs/_snippets/_ammclawback-disclaimer.md" /%}
 
 Claw back tokens from a holder that has deposited your issued tokens into an AMM pool.
 

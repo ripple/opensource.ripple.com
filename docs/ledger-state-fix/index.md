@@ -7,11 +7,9 @@ labels:
 # LedgerStateFix
 [[Source]](https://github.com/XRPLF/rippled/blob/develop/src/xrpld/app/tx/detail/LedgerStateFix.cpp "Source")
 
-{% partial file="/snippets/_ledgerstatefix-disclaimer.md" /%}
+{% partial file="/docs/_snippets/_ledgerstatefix-disclaimer.md" /%}
 
 `LedgerStateFix` is a general purpose transaction used to fix specific issues affecting the XRP ledger. You submit the transaction with the `LedgerFixType` value set to indicate the particular  error state to correct.
-
-_(Added by the [NonFungibleTokensV1_1](https://xrpl.org/resources/known-amendments#nonfungibletokensv1_1) amendment.
 
 ## Example LedgerStateFix JSON
 

@@ -5,7 +5,7 @@ labels:
   - Tokens
 ---
 # RippleState
-{% partial file="/snippets/_deep-freeze-disclaimer.md" /%}
+{% partial file="/docs/_snippets/_deep-freeze-disclaimer.md" /%}
 
 [[Source]](https://github.com/XRPLF/rippled/blob/5d2d88209f1732a0f8d592012094e345cbe3e675/src/ripple/protocol/impl/LedgerFormats.cpp#L70 "Source")
 
