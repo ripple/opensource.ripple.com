@@ -39,6 +39,8 @@ Deep Freeze introduces two flags, `lsfLowDeepFreeze` and `lsfHighDeepFreeze`, in
 | `lsfLowDeepFreeze`	| `0x02000000`	| The low account has deep-frozen the trust line, preventing the high account from sending and receiving the asset. |
 | `lsfHighDeepFreeze`	| `0x04000000`	| The high account has deep-frozen the trust line, preventing the low account from sending and receiving the asset. |
 
+See [High vs. Low Account](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/ripplestate#high-vs.-low-account).
+
 ### TrustSet Transaction
 
 Deep Freeze introduces two flags, `tfSetDeepFreeze` and `tfClearDeepFreeze`, in the `TrustSet` transaction.
