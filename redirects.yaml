@@ -290,36 +290,36 @@
   type: 301
 
 # mpt docs
-/docs/xls-33d-multi-purpose-tokens/multi-purpose-tokens/:
+/docs/xls-33d-multi-purpose-tokens/multi-purpose-tokens:
   to: https://xrpl.org/concepts/tokens/fungible-tokens/multi-purpose-tokens
   type: 301
-/docs/xls-33d-multi-purpose-tokens/reference/clawback.md:
+/docs/xls-33d-multi-purpose-tokens/reference/clawback:
   to: https://xrpl.org/docs/references/protocol/transactions/types/clawback
   type: 301
-/docs/xls-33d-multi-purpose-tokens/reference/ledger-entry.md:
+/docs/xls-33d-multi-purpose-tokens/reference/ledger-entry:
   to: https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/ledger-methods/ledger_entry
   type: 301
 /docs/xls-33d-multi-purpose-tokens/reference/mpt_holders:
   to: https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/path-and-order-book-methods/mpt_holders
   type: 301
-/docs/xls-33d-multi-purpose-tokens/reference/mptoken.md:
+/docs/xls-33d-multi-purpose-tokens/reference/mptoken:
   to: https://xrpl.org/docs/references/protocol/data-types/mptoken
   type: 301
-/docs/xls-33d-multi-purpose-tokens/reference/mptokenissuance.md:
+/docs/xls-33d-multi-purpose-tokens/reference/mptokenissuance:
   to: https://xrpl.org/docs/references/protocol/data-types/mptokenissuance
   type: 301
-/docs/xls-33d-multi-purpose-tokens/reference/mptokenauthorize.md:
+/docs/xls-33d-multi-purpose-tokens/reference/mptokenauthorize:
   to: https://xrpl.org/docs/references/protocol/transactions/types/mptokenauthorize
   type: 301
-/docs/xls-33d-multi-purpose-tokens/reference/mptokenissuancecreate.md:
+/docs/xls-33d-multi-purpose-tokens/reference/mptokenissuancecreate:
   to: https://xrpl.org/docs/references/protocol/transactions/types/mptokenissuancecreate
   type: 301
-/docs/xls-33d-multi-purpose-tokens/reference/mptokenissuancedestroy.md:
+/docs/xls-33d-multi-purpose-tokens/reference/mptokenissuancedestroy:
   to: https://xrpl.org/docs/references/protocol/transactions/types/mptokenissuancedestroy
   type: 301
-/docs/xls-33d-multi-purpose-tokens/reference/mptokenissuanceset.md:
+/docs/xls-33d-multi-purpose-tokens/reference/mptokenissuanceset:
   to: https://xrpl.org/docs/references/protocol/transactions/types/mptokenissuanceset
   type: 301
-/docs/xls-33d-multi-purpose-tokens/reference/payment.md:
+/docs/xls-33d-multi-purpose-tokens/reference/payment:
   to: https://xrpl.org/docs/references/protocol/transactions/types/payment
   type: 301
