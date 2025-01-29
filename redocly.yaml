@@ -11,6 +11,8 @@ links:
     href: ./static/style.css
   - rel: stylesheet
     href: ./static/fonts.css
+redirects:
+  $ref: redirects.yaml
 navbar:
   items:
     - label: Home
