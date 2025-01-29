@@ -1,286 +1,325 @@
+# credentials docs
+/docs/xls-70d-credentials:
+  to: https://xrpl.org/docs/concepts/decentralized-storage/credentials
+  type: 301
+/docs/xls-70d-credentials/reference:
+  to: https://xrpl.org/docs/concepts/decentralized-storage/credentials
+  type: 301
+/docs/xls-70d-credentials/reference/credentialcreate:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/credentialcreate
+  type: 301
+/docs/xls-70d-credentials/reference/credentialaccept:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/credentialaccept
+  type: 301
+/docs/xls-70d-credentials/reference/credentialdelete:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/credentialdelete
+  type: 301
+/docs/xls-70d-credentials/reference/depositpreauth-transaction:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/depositpreauth
+  type: 301
+/docs/xls-70d-credentials/reference/credential:
+  to: https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/credential
+  type: 301
+/docs/xls-70d-credentials/reference/depositpreauth-entry:
+  to: https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/depositpreauth
+  type: 301
+/docs/xls-70d-credentials/reference/credentialids-field:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/payment#payment-fields
+  type: 301
+/docs/xls-70d-credentials/reference/ledger_entry:
+  to: https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/ledger-methods/ledger_entry
+  type: 301
+/docs/xls-70d-credentials/reference/deposit_authorized:
+  to: https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/path-and-order-book-methods/deposit_authorized
+  type: 301
+
+
 # priceoracle docs
-'/docs/xls-47d-price-oracles/price-oracles/':
-  to: 'https://xrpl.org/docs/concepts/xrpl-sidechains/price-oracles'
+/docs/xls-47d-price-oracles/price-oracles/:
+  to: https://xrpl.org/docs/concepts/decentralized-storage/price-oracles
   type: 301
-'/docs/xls-47d-price-oracles/ledger-object-types/oracle/':
-  to: 'https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/oracle'
+/docs/xls-47d-price-oracles/ledger-object-types/oracle/:
+  to: https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/oracle
   type: 301
-'/docs/xls-47d-price-oracles/public-api-methods/ledger_entry/':
-  to: 'https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/ledger-methods/ledger_entry#get-oracle-object'
+/docs/xls-47d-price-oracles/public-api-methods/ledger_entry/:
+  to: https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/ledger-methods/ledger_entry#get-oracle-object
   type: 301
-'/docs/xls-47d-price-oracles/public-api-methods/get_aggregate_price/':
-  to: 'https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/path-and-order-book-methods/get_aggregate_price'
+/docs/xls-47d-price-oracles/public-api-methods/get_aggregate_price/:
+  to: https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/path-and-order-book-methods/get_aggregate_price
   type: 301
-'/docs/xls-47d-price-oracles/transaction-types/oracledelete/':
-  to: 'https://xrpl.org/docs/references/protocol/transactions/types/oracledelete'
+/docs/xls-47d-price-oracles/transaction-types/oracledelete/:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/oracledelete
   type: 301
-'/docs/xls-47d-price-oracles/transaction-types/oracleset/':
-  to: 'https://xrpl.org/docs/references/protocol/transactions/types/oracleset'
+/docs/xls-47d-price-oracles/transaction-types/oracleset/:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/oracleset
 
 # crosschain dapps
-'/docs/cross-chain-dapps/cross-chain-dapps/':
-  to: 'https://docs.xrplevm.org/'
+/docs/cross-chain-dapps/cross-chain-dapps/:
+  to: https://docs.xrplevm.org/
   type: 301
 
-'/docs/cross-chain-dapps/cross-chain-faqs/':
-  to: 'https://docs.xrplevm.org/docs/cross-chain-dapps/cross-chain-faqs/'
+/docs/cross-chain-dapps/cross-chain-faqs/:
+  to: https://docs.xrplevm.org/docs/cross-chain-dapps/cross-chain-faqs/
   type: 301
 
-'/docs/axelar/intro-to-axelar/':
-  to: 'https://docs.xrplevm.org/docs/axelar/intro-to-axelar/'
+/docs/axelar/intro-to-axelar/:
+  to: https://docs.xrplevm.org/pages/developers
   type: 301
 
-'/docs/axelar/bridge-tokens-axelar/':
-  to: 'https://docs.xrplevm.org/docs/axelar/bridge-tokens-axelar/'
+/docs/axelar/bridge-tokens-axelar/:
+  to: https://docs.xrplevm.org/pages/developers/making-a-cross-chain-dapp/send-tokens
   type: 301
 
-'/docs/axelar/call-a-smart-contract-function/':
-  to: 'https://docs.xrplevm.org/docs/axelar/call-a-smart-contract-function/'
+/docs/axelar/call-a-smart-contract-function/:
+  to: https://docs.xrplevm.org/pages/developers/developing-smart-contracts/interact-with-the-smart-contract
   type: 301
 
 # evm docs
-'/docs/evm-sidechain/intro-to-evm-sidechain/':
-  to: 'https://docs.xrplevm.org/docs/evm-sidechain/intro-to-evm-sidechain/'
+/docs/evm-sidechain/intro-to-evm-sidechain/:
+  to: https://docs.xrplevm.org/docs/evm-sidechain/intro-to-evm-sidechain/
   type: 301
 
-'/docs/evm-sidechain/get-started-evm-sidechain/':
-  to: 'https://docs.xrplevm.org/docs/evm-sidechain/get-started-evm-sidechain/'
+/docs/evm-sidechain/get-started-evm-sidechain/:
+  to: https://docs.xrplevm.org/pages/users/getting-started/introduction
   type: 301
 
-'/docs/evm-sidechain/connect-metamask-to-xrpl-evm-sidechain/':
-  to: 'https://docs.xrplevm.org/docs/evm-sidechain/connect-metamask-to-xrpl-evm-sidechain/'
+/docs/evm-sidechain/connect-metamask-to-xrpl-evm-sidechain/:
+  to: https://docs.xrplevm.org/pages/users/getting-started/connect-to-the-xrpl-evm
   type: 301
 
-'/docs/evm-sidechain/join-evm-sidechain-devnet/':
-  to: 'https://docs.xrplevm.org/docs/evm-sidechain/join-evm-sidechain-devnet/'
+/docs/evm-sidechain/join-evm-sidechain-devnet/:
+  to: https://docs.xrplevm.org/pages/operators/getting-started/join-the-devnet
   type: 301
 
-'/docs/evm-sidechain/manage-the-validator-node/':
-  to: 'https://docs.xrplevm.org/docs/evm-sidechain/manage-the-validator-node/'
+/docs/evm-sidechain/manage-the-validator-node/:
+  to: https://docs.xrplevm.org/pages/operators/validators/maintaining-the-validator
   type: 301
 
-'/docs/evm-sidechain/evm-sidechain-validator-security/':
-  to: 'https://docs.xrplevm.org/docs/evm-sidechain/evm-sidechain-validator-security/'
+/docs/evm-sidechain/evm-sidechain-validator-security/:
+  to: https://docs.xrplevm.org/pages/operators/validators/validator-security
   type: 301
 
-'/docs/evm-sidechain/bridges-intro/':
-  to: 'https://docs.xrplevm.org/docs/evm-sidechain/bridges-intro/'
+/docs/evm-sidechain/bridges-intro/:
+  to: https://docs.xrplevm.org/pages/bridge
   type: 301
 
-'/docs/evm-sidechain/deploy-a-bridge/':
-  to: 'https://docs.xrplevm.org/docs/evm-sidechain/deploy-a-bridge/'
+# The XRPL EVM site no longer has docs for a bunch of the door/witness/etc.
+# details of bridging, so the nearest thing is the bridges overview page.
+
+/docs/evm-sidechain/deploy-a-bridge/:
+  to: https://docs.xrplevm.org/pages/bridge
   type: 301
 
-'/docs/evm-sidechain/bridge-doors/':
-  to: 'https://docs.xrplevm.org/docs/evm-sidechain/bridge-doors/'
+/docs/evm-sidechain/bridge-doors/:
+  to: https://docs.xrplevm.org/pages/bridge
   type: 301
 
-'/docs/evm-sidechain/bridge-door-interface/':
-  to: 'https://docs.xrplevm.org/docs/evm-sidechain/bridge-door-interface/'
+/docs/evm-sidechain/bridge-door-interface/:
+  to: https://docs.xrplevm.org/pages/bridge
   type: 301
 
-'/docs/evm-sidechain/bridge-door-safety-mechanisms/':
-  to: 'https://docs.xrplevm.org/docs/evm-sidechain/bridge-door-safety-mechanisms/'
+/docs/evm-sidechain/bridge-door-safety-mechanisms/:
+  to: https://docs.xrplevm.org/pages/bridge
   type: 301
 
-'/docs/evm-sidechain/witness-servers/':
-  to: 'https://docs.xrplevm.org/docs/evm-sidechain/witness-servers/'
+/docs/evm-sidechain/witness-servers/:
+  to: https://docs.xrplevm.org/pages/bridge
   type: 301
 
-'/docs/evm-sidechain/witness-server-configuration/':
-  to: 'https://docs.xrplevm.org/docs/evm-sidechain/witness-server-configuration/'
+/docs/evm-sidechain/witness-server-configuration/:
+  to: https://docs.xrplevm.org/pages/bridge
   type: 301
 
-'/docs/evm-sidechain/build-and-run-witness-servers/':
-  to: 'https://docs.xrplevm.org/docs/evm-sidechain/build-and-run-witness-servers/'
+/docs/evm-sidechain/build-and-run-witness-servers/:
+  to: https://docs.xrplevm.org/pages/bridge
   type: 301
 
-'/docs/evm-sidechain/bridge-client/':
-  to: 'https://docs.xrplevm.org/docs/evm-sidechain/bridge-client/'
+/docs/evm-sidechain/bridge-client/:
+  to: https://docs.xrplevm.org/pages/bridge
   type: 301
 
-'/docs/evm-sidechain/configure-the-bridge-client/':
-  to: 'https://docs.xrplevm.org/docs/evm-sidechain/configure-the-bridge-client/'
+/docs/evm-sidechain/configure-the-bridge-client/:
+  to: https://docs.xrplevm.org/pages/bridge
   type: 301
 
-'/docs/evm-sidechain/start-the-bridge-client/':
-  to: 'https://docs.xrplevm.org/docs/evm-sidechain/start-the-bridge-client/'
+/docs/evm-sidechain/start-the-bridge-client/:
+  to: https://docs.xrplevm.org/pages/bridge
   type: 301
 
-'/docs/evm-sidechain/evm-cli/':
-  to: 'https://docs.xrplevm.org/docs/evm-sidechain/evm-cli/'
+/docs/evm-sidechain/evm-cli/:
+  to: https://docs.xrplevm.org/pages/operators/guides/interacting-with-the-node-cli
   type: 301
 
-'/docs/evm-sidechain/set-up-an-evm-sidechain/':
-  to: 'https://docs.xrplevm.org/docs/evm-sidechain/set-up-an-evm-sidechain/'
+/docs/evm-sidechain/set-up-an-evm-sidechain/:
+  to: https://docs.xrplevm.org/pages/operators
   type: 301
 
-'/docs/evm-sidechain/stress-test-the-evm-sidechain/':
-  to: 'https://docs.xrplevm.org/docs/evm-sidechain/stress-test-the-evm-sidechain/'
+/docs/evm-sidechain/stress-test-the-evm-sidechain/:
+  to: https://docs.xrplevm.org/pages/operators
   type: 301
 
-'/docs/evm-sidechain/create-a-bridge/':
-  to: 'https://docs.xrplevm.org/docs/evm-sidechain/create-a-bridge/'
+/docs/evm-sidechain/create-a-bridge/:
+  to: https://docs.xrplevm.org/pages/operators
   type: 301
 
-'/docs/evm-sidechain/execute-bridge-operations/':
-  to: 'https://docs.xrplevm.org/docs/evm-sidechain/execute-bridge-operations/'
+/docs/evm-sidechain/execute-bridge-operations/:
+  to: https://docs.xrplevm.org/pages/operators
   type: 301
 
-'/docs/evm-sidechain/stress-test-the-bridge/':
-  to: 'https://docs.xrplevm.org/docs/evm-sidechain/stress-test-the-bridge/'
+/docs/evm-sidechain/stress-test-the-bridge/:
+  to: https://docs.xrplevm.org/pages/operators
   type: 301
 
-'/docs/evm-sidechain/bootstrap-a-local-environment/':
-  to: 'https://docs.xrplevm.org/docs/evm-sidechain/bootstrap-a-local-environment/'
+/docs/evm-sidechain/bootstrap-a-local-environment/:
+  to: https://docs.xrplevm.org/pages/developers
   type: 301
 
-'/docs/evm-sidechain/xrpl-evm-sidechain-faq/':
-  to: 'https://docs.xrplevm.org/docs/evm-sidechain/xrpl-evm-sidechain-faq/'
+/docs/evm-sidechain/xrpl-evm-sidechain-faq/:
+  to: https://docs.xrplevm.org/pages/users
   type: 301
 
 # clawback docs
-'/docs/clawback/clawback-of-issued-currency/':
-  to: 'https://xrpl.org/clawing-back-tokens.html'
+/docs/clawback/clawback-of-issued-currency/:
+  to: https://xrpl.org/docs/concepts/tokens/fungible-tokens/clawing-back-tokens
   type: 301
-'/docs/clawback/clawback/':
-  to: 'https://xrpl.org/clawback.html'
+/docs/clawback/clawback/:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/clawback
   type: 301
 
 # xchainbridge docs
-'/docs/xls-38d-cross-chain-bridge/cross-chain-bridges/':
-  to: 'https://xrpl.org/cross-chain-bridges.html'
+/docs/xls-38d-cross-chain-bridge/cross-chain-bridges/:
+  to: https://xrpl.org/docs/concepts/xrpl-sidechains/cross-chain-bridges
   type: 301
-'/docs/xls-38d-cross-chain-bridge/xrpl-sidechains/':
-  to: 'https://xrpl.org/xrpl-sidechains.html'
+/docs/xls-38d-cross-chain-bridge/xrpl-sidechains/:
+  to: https://xrpl.org/docs/concepts/xrpl-sidechains
   type: 301
-'/docs/xls-38d-cross-chain-bridge/witness-server/':
-  to: 'https://xrpl.org/witness-servers.html'
+/docs/xls-38d-cross-chain-bridge/witness-server/:
+  to: https://xrpl.org/docs/concepts/xrpl-sidechains/witness-servers
   type: 301
-'/docs/xls-38d-cross-chain-bridge/parallel-networks-list/':
-  to: 'https://xrpl.org/parallel-networks.html'
+/docs/xls-38d-cross-chain-bridge/parallel-networks-list/:
+  to: https://xrpl.org/docs/concepts/networks-and-servers/parallel-networks
   type: 301
-'/docs/xls-38d-cross-chain-bridge/tutorials/set-up-xrp-xrp-bridge/':
-  to: 'https://xrpl.org/set-up-xrp-xrp-bridge.html'
+/docs/xls-38d-cross-chain-bridge/tutorials/set-up-xrp-xrp-bridge/:
+  to: https://xrpl.org/docs/tutorials/how-tos/use-xrpl-sidechains/set-up-xrp-xrp-bridge
   type: 301
-'/docs/xls-38d-cross-chain-bridge/tutorials/set-up-iou-iou-bridge/':
-  to: 'https://xrpl.org/set-up-iou-iou-bridge.html'
+/docs/xls-38d-cross-chain-bridge/tutorials/set-up-iou-iou-bridge/:
+  to: https://xrpl.org/docs/tutorials/how-tos/use-xrpl-sidechains/set-up-iou-iou-bridge
   type: 301
-'/docs/xls-38d-cross-chain-bridge/tutorials/submit-cross-chain-transaction/':
-  to: 'https://xrpl.org/submit-cross-chain-transactions.html'
+/docs/xls-38d-cross-chain-bridge/tutorials/submit-cross-chain-transaction/:
+  to: https://xrpl.org/docs/tutorials/how-tos/use-xrpl-sidechains/submit-cross-chain-transaction
   type: 301
-'/docs/xls-38d-cross-chain-bridge/ledger-object-types/bridge/':
-  to: 'https://xrpl.org/bridge.html'
+/docs/xls-38d-cross-chain-bridge/ledger-object-types/bridge/:
+  to: https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/bridge
   type: 301
-'/docs/xls-38d-cross-chain-bridge/ledger-object-types/xchainownedcreateaccountclaimid/':
-  to: 'https://xrpl.org/xchainownedcreateaccountclaimid.html'
+/docs/xls-38d-cross-chain-bridge/ledger-object-types/xchainownedcreateaccountclaimid/:
+  to: https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/xchainownedcreateaccountclaimid
   type: 301
-'/docs/xls-38d-cross-chain-bridge/ledger-object-types/xchainownedclaimid/':
-  to: 'https://xrpl.org/xchainownedclaimid.html'
+/docs/xls-38d-cross-chain-bridge/ledger-object-types/xchainownedclaimid/:
+  to: https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/xchainownedclaimid
   type: 301
-'/docs/xls-38d-cross-chain-bridge/transaction-types/xchainaccountcreatecommit/':
-  to: 'https://xrpl.org/xchainaccountcreatecommit.html'
+/docs/xls-38d-cross-chain-bridge/transaction-types/xchainaccountcreatecommit/:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/xchainaccountcreatecommit
   type: 301
-'/docs/xls-38d-cross-chain-bridge/transaction-types/xchainaddaccountcreateattestation/':
-  to: 'https://xrpl.org/xchainaddaccountcreateattestation.html'
+/docs/xls-38d-cross-chain-bridge/transaction-types/xchainaddaccountcreateattestation/:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/xchainaddaccountcreateattestation
   type: 301
-'/docs/xls-38d-cross-chain-bridge/transaction-types/xchainaddclaimattestation/':
-  to: 'https://xrpl.org/xchainaddclaimattestation.html'
+/docs/xls-38d-cross-chain-bridge/transaction-types/xchainaddclaimattestation/:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/xchainaddclaimattestation
   type: 301
-'/docs/xls-38d-cross-chain-bridge/transaction-types/xchainclaim/':
-  to: 'https://xrpl.org/xchainclaim.html'
+/docs/xls-38d-cross-chain-bridge/transaction-types/xchainclaim/:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/xchainclaim
   type: 301
-'/docs/xls-38d-cross-chain-bridge/transaction-types/xchaincommit/':
-  to: 'https://xrpl.org/xchaincommit.html'
+/docs/xls-38d-cross-chain-bridge/transaction-types/xchaincommit/:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/xchaincommit
   type: 301
-'/docs/xls-38d-cross-chain-bridge/transaction-types/xchaincreatebridge/':
-  to: 'https://xrpl.org/xchaincreatebridge.html'
+/docs/xls-38d-cross-chain-bridge/transaction-types/xchaincreatebridge/:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/xchaincreatebridge
   type: 301
-'/docs/xls-38d-cross-chain-bridge/transaction-types/xchaincreateclaimid/':
-  to: 'https://xrpl.org/xchaincreateclaimid.html'
+/docs/xls-38d-cross-chain-bridge/transaction-types/xchaincreateclaimid/:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/xchaincreateclaimid
   type: 301
-'/docs/xls-38d-cross-chain-bridge/transaction-types/xchainmodifybridge/':
-  to: 'https://xrpl.org/xchainmodifybridge.html'
+/docs/xls-38d-cross-chain-bridge/transaction-types/xchainmodifybridge/:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/xchainmodifybridge
   type: 301
-'/docs/xls-38d-cross-chain-bridge/cross-chain-bridging-legal-faqs/':
-  to: 'https://xrpl.org/xrpl-sidechains.html#legal-faqs'
+/docs/xls-38d-cross-chain-bridge/cross-chain-bridging-legal-faqs/:
+  to: https://xrpl.org/docs/concepts/xrpl-sidechains#legal-faqs
   type: 301
 
 # amm docs
-'/docs/xls-30d-amm/amm-uc/':
-  to: 'https://xrpl.org/automated-market-makers.html'
+/docs/xls-30d-amm/amm-uc/:
+  to: https://xrpl.org/docs/concepts/tokens/decentralized-exchange/automated-market-makers
   type: 301
-'/docs/xls-30d-amm/automated-market-makers/':
-  to: 'https://xrpl.org/automated-market-makers.html'
+/docs/xls-30d-amm/automated-market-makers/:
+  to: https://xrpl.org/docs/concepts/tokens/decentralized-exchange/automated-market-makers
   type: 301
-'/docs/xls-30d-amm/ledger-object-types/amm/':
-  to: 'https://xrpl.org/amm.html'
+/docs/xls-30d-amm/ledger-object-types/amm/:
+  to: https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/amm
   type: 301
-'/docs/xls-30d-amm/ledger-object-types/accountroot/':
-  to: 'https://xrpl.org/accountroot.html'
+/docs/xls-30d-amm/ledger-object-types/accountroot/:
+  to: https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/accountroot
   type: 301
-'/docs/xls-30d-amm/transaction-types/ammbid/':
-  to: 'https://xrpl.org/ammbid.html'
+/docs/xls-30d-amm/transaction-types/ammbid/:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/ammbid
   type: 301
-'/docs/xls-30d-amm/transaction-types/ammcreate/':
-  to: 'https://xrpl.org/ammcreate.html'
+/docs/xls-30d-amm/transaction-types/ammcreate/:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/ammcreate
   type: 301
-'/docs/xls-30d-amm/transaction-types/ammdelete/':
-  to: 'https://xrpl.org/ammdelete.html'
+/docs/xls-30d-amm/transaction-types/ammdelete/:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/ammdelete
   type: 301
-'/docs/xls-30d-amm/transaction-types/ammdeposit/':
-  to: 'https://xrpl.org/ammdeposit.html'
+/docs/xls-30d-amm/transaction-types/ammdeposit/:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/ammdeposit
   type: 301
-'/docs/xls-30d-amm/transaction-types/ammvote/':
-  to: 'https://xrpl.org/ammvote.html'
+/docs/xls-30d-amm/transaction-types/ammvote/:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/ammvote
   type: 301
-'/docs/xls-30d-amm/transaction-types/ammwithdraw/':
-  to: 'https://xrpl.org/ammwithdraw.html'
+/docs/xls-30d-amm/transaction-types/ammwithdraw/:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/ammwithdraw
   type: 301
-'/docs/xls-30d-amm/transaction-result-codes/':
-  to: 'https://xrpl.org/transaction-results.html'
+/docs/xls-30d-amm/transaction-result-codes/:
+  to: https://xrpl.org/docs/references/protocol/transactions/transaction-results
   type: 301
-'/docs/xls-30d-amm/public-api-methods/amm_info/':
-  to: 'https://xrpl.org/amm_info.html'
+/docs/xls-30d-amm/public-api-methods/amm_info/:
+  to: https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/path-and-order-book-methods/amm_info
   type: 301
-'/docs/xls-30d-amm/public-api-methods/ledger_entry/':
-  to: 'https://xrpl.org/ledger_entry.html#get-amm-object'
+/docs/xls-30d-amm/public-api-methods/ledger_entry/:
+  to: https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/ledger-methods/ledger_entry#get-amm-object
   type: 301
-'/docs/xls-30d-amm/tutorials/create-an-automated-market-maker/':
-  to: 'https://xrpl.org/create-an-automated-market-maker.html'
+/docs/xls-30d-amm/tutorials/create-an-automated-market-maker/:
+  to: https://xrpl.org/docs/tutorials/how-tos/use-tokens/create-an-automated-market-maker
   type: 301
 
 # mpt docs
-'/docs/xls-33d-multi-purpose-tokens/multi-purpose-tokens/':
-  to: 'https://xrpl.org/concepts/tokens/fungible-tokens/multi-purpose-tokens.html'
+/docs/xls-33d-multi-purpose-tokens/multi-purpose-tokens:
+  to: https://xrpl.org/concepts/tokens/fungible-tokens/multi-purpose-tokens
   type: 301
-'/docs/xls-33d-multi-purpose-tokens/reference/clawback.md':
-  to: 'https://xrpl.org/references/protocol/transactions/types/clawback.html'
+/docs/xls-33d-multi-purpose-tokens/reference/clawback:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/clawback
   type: 301
-'/docs/xls-33d-multi-purpose-tokens/reference/ledger-entry.md':
-  to: 'https://xrpl.org/references/http-websocket-apis/public-api-methods/ledger-methods/ledger_entry.html'
+/docs/xls-33d-multi-purpose-tokens/reference/ledger-entry:
+  to: https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/ledger-methods/ledger_entry
   type: 301
-'/docs/xls-33d-multi-purpose-tokens/reference/mpt_holders':
-  to: 'https://xrpl.org/references/http-websocket-apis/public-api-methods/path-and-order-book-methods/mpt_holders.html'
+/docs/xls-33d-multi-purpose-tokens/reference/mpt_holders:
+  to: https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/path-and-order-book-methods/mpt_holders
   type: 301
-'/docs/xls-33d-multi-purpose-tokens/reference/mptoken.md':
-  to: 'https://xrpl.org/references/protocol/data-types/mptoken.html'
+/docs/xls-33d-multi-purpose-tokens/reference/mptoken:
+  to: https://xrpl.org/docs/references/protocol/data-types/mptoken
   type: 301
-'/docs/xls-33d-multi-purpose-tokens/reference/mptokenissuance.md':
-  to: 'https://xrpl.org/references/protocol/data-types/mptokenissuance.html'
+/docs/xls-33d-multi-purpose-tokens/reference/mptokenissuance:
+  to: https://xrpl.org/docs/references/protocol/data-types/mptokenissuance
   type: 301
-'/docs/xls-33d-multi-purpose-tokens/reference/mptokenauthorize.md':
-  to: 'https://xrpl.org/references/protocol/transactions/types/mptokenauthorize.html'
+/docs/xls-33d-multi-purpose-tokens/reference/mptokenauthorize:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/mptokenauthorize
   type: 301
-'/docs/xls-33d-multi-purpose-tokens/reference/mptokenissuancecreate.md':
-  to: 'https://xrpl.org/references/protocol/transactions/types/mptokenissuancecreate.html'
+/docs/xls-33d-multi-purpose-tokens/reference/mptokenissuancecreate:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/mptokenissuancecreate
   type: 301
-'/docs/xls-33d-multi-purpose-tokens/reference/mptokenissuancedestroy.md':
-  to: 'https://xrpl.org/references/protocol/transactions/types/mptokenissuancedestroy.html'
+/docs/xls-33d-multi-purpose-tokens/reference/mptokenissuancedestroy:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/mptokenissuancedestroy
   type: 301
-'/docs/xls-33d-multi-purpose-tokens/reference/mptokenissuanceset.md':
-  to: 'https://xrpl.org/references/protocol/transactions/types/mptokenissuanceset.html'
+/docs/xls-33d-multi-purpose-tokens/reference/mptokenissuanceset:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/mptokenissuanceset
   type: 301
-'/docs/xls-33d-multi-purpose-tokens/reference/payment.md':
-  to: 'https://xrpl.org/references/protocol/transactions/types/payment.html'
+/docs/xls-33d-multi-purpose-tokens/reference/payment:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/payment
   type: 301

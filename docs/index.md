@@ -9,25 +9,3 @@ While Ripple may be the primary developer on these open source projects, it is n
 Proposals for new features and amendments go through the consensus process for review and approval by the XRP Ledger community before they can be merge into the XRP Ledger code base. Once a feature is merged on the `master` branch of the `rippled` codebase, documentation for that feature will be available on [xrpl.org](https://xrpl.org).
 
 To learn more about the consensus process and the workflow for features to go from an idea to activation on the XRP Ledger, see <https://xrpl.org/amendments.html>.
-
-## Features Currently in Development
-
-### Claudia
-
-- [Documentation](https://pypi.org/project/claudia/)
-
-### Batch Transactions
-
-- [XLS-56d Batch Transactions](xls-56d-batch-transactions/index.md)
-- [Reference](xls-56d-batch-transactions/reference/reference.md)
-
-### Simulate Method
-- [simulate](xls-69d/index.md)
-
-### LedgerStateFix
-- [LedgerStateFix](ledger-state-fix/index.md)
-
-### Credentials
-- [XLS-70d Proposal](https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0070d-credentials)
-- [Documentation](xls-70d-credentials/index.md)
-- [Reference](xls-70d-credentials/reference/index.md)

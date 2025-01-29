@@ -23,19 +23,6 @@
         - page: docs//xls-73d/AMMClawback.md
     - page: docs/ledger-state-fix/index.md
     - page: docs/xls-69d/index.md
-    - page: docs/xls-70d-credentials/index.md
-      items:
-        - page: docs/xls-70d-credentials/reference/index.md
-          items:
-            - page: docs/xls-70d-credentials/reference/credentialcreate.md
-            - page: docs/xls-70d-credentials/reference/credentialaccept.md
-            - page: docs/xls-70d-credentials/reference/credentialdelete.md
-            - page: docs/xls-70d-credentials/reference/depositpreauth-transaction.md
-            - page: docs/xls-70d-credentials/reference/credential.md
-            - page: docs/xls-70d-credentials/reference/depositpreauth-entry.md
-            - page: docs/xls-70d-credentials/reference/credentialids-field.md
-            - page: docs/xls-70d-credentials/reference/ledger_entry.md
-            - page: docs/xls-70d-credentials/reference/deposit_authorized.md
     - group: XLS-77d Deep Freeze
       page: docs/xls-77d-deep-freeze/index.md
       expanded: false
