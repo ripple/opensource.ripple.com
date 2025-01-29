@@ -7,7 +7,7 @@ labels:
   - Decentralized Exchange
 ---
 # OfferCreate
-{% partial file="/snippets/_deep-freeze-disclaimer.md" /%}
+{% partial file="/docs/_snippets/_deep-freeze-disclaimer.md" /%}
 
 
 [[Source]](https://github.com/XRPLF/rippled/blob/master/src/xrpld/app/tx/detail/CreateOffer.cpp "Source")

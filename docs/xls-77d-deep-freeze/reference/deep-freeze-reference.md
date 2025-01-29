@@ -8,7 +8,7 @@ status: not_enabled
 ---
 # Deep Freeze Reference Documentation
 
-{% partial file="/snippets/_deep-freeze-disclaimer.md" /%}
+{% partial file="/docs/_snippets/_deep-freeze-disclaimer.md" /%}
 
 ## Objects
 - [RippleState](ripplestate.md)

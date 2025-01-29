@@ -1,6 +1,6 @@
-# AMM Behavior Changes
+# AMMClawback
 
-{% partial file="/snippets/_ammclawback-disclaimer.md" /%}
+{% partial file="/docs/_snippets/_ammclawback-disclaimer.md" /%}
 
 The `AMMClawback` amendment enables token issuers to claw back tokens from wallets that have deposited into AMM pools, ensuring regulatory compliance. This amendment also changes the behavior of the `AMMCreate` and `AMMDeposit` transactions.
 

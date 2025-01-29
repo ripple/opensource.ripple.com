@@ -1,19 +1,13 @@
 {
-  "name": "portal-template",
-  "private": true,
-  "version": "0.0.1",
-  "description": "Redocly portal template repository",
+  "name": "opensource.ripple.com",
+  "version": "1.0.0",
+  "description": "Homepage for Ripple's open-source software, especially pre-release documentation for XRP Ledger features developed at Ripple.",
   "license": "MIT",
   "scripts": {
-    "start": "realm develop",
-    "prettify": "prettier --write ."
+    "start": "realm develop"
   },
   "dependencies": {
-    "@redocly/cli": "1.25.4",
-    "@redocly/portal-legacy-ui": "^0.1.0",
-    "@redocly/realm": "^0.101.0"
-  },
-  "devDependencies": {
-    "prettier": "^2.6.2"
+    "@redocly/realm": "^0.115.0",
+    "@redocly/theme": "^0.50.0"
   }
 }
