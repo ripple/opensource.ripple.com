@@ -22,13 +22,6 @@ export default function Page() {
      
       <LandingContainer>
         <Cards columns={2}>
-          
-          <Card title="AMMClawback" to="docs/xls-73d/">
-            <p>The AMMClawback transaction enables token issuers to claw back tokens from wallets that have deposited into AMM pools, ensuring regulatory compliance.</p>
-            <Button size="large" variant="primary">
-              Go to docs
-            </Button>
-          </Card>
 
           <Card title="Batch transactions" to="docs/xls-56d-batch-transactions/">
             <p>Prepare and submit up to 8 transactions in a single batch.</p>
@@ -39,13 +32,6 @@ export default function Page() {
 
           <Card title="Deep Freeze" to="docs/xls-77d-deep-freeze/">
             <p>Deep Freeze ensures that frozen token holders can neither send or receive frozen funds until their trust line is unfrozen.</p>
-            <Button size="large" variant="primary">
-              Go to docs
-            </Button>
-          </Card>
-
-          <Card title="LedgerStateFix" to="docs/ledger-state-fix/">
-            <p>A general purpose transaction used to fix specific issues affecting the XRP ledger.</p>
             <Button size="large" variant="primary">
               Go to docs
             </Button>
