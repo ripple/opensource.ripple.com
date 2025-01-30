@@ -15,11 +15,6 @@
           items:
             - page: docs/xls-56d-batch-transactions/reference/batch.md
             - page: docs/xls-56d-batch-transactions/reference/common-fields.md
-    - page: docs/xls-73d/index.md
-      expanded: false
-      items:    
-        - page: docs/xls-73d/AMMClawback.md
-    - page: docs/ledger-state-fix/index.md
     - page: docs/xls-69d/index.md
     - page: docs/xls-77d-deep-freeze/index.md
       expanded: false

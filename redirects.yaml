@@ -1,3 +1,16 @@
+# ledgerstatefix docs
+/docs/ledger-state-fix:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/ledgerstatefix
+  type: 301
+
+# ammclawback docs
+docs/xls-73d/ammclawback:
+  to: 'https://xrpl.org/docs/references/protocol/transactions/types/ammclawback'
+  type: 301
+/docs/xls-73d:
+  to: 'https://xrpl.org/docs/references/protocol/transactions/types/ammclawback'
+  type: 301
+
 # credentials docs
 /docs/xls-70d-credentials:
   to: https://xrpl.org/docs/concepts/decentralized-storage/credentials
