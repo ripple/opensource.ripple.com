@@ -1,6 +1,6 @@
 # ledgerstatefix docs
 /docs/ledger-state-fix:
-  to: 'https://xrpl.org/docs/references/protocol/transactions/types/ledger-state-fix'
+  to: https://xrpl.org/docs/references/protocol/transactions/types/ledgerstatefix
   type: 301
 
 # ammclawback docs
