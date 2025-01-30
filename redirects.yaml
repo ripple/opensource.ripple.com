@@ -1,13 +1,13 @@
 # ledgerstatefix docs
-'/docs/ledger-state-fix':
+/docs/ledger-state-fix:
   to: 'https://xrpl.org/docs/references/protocol/transactions/types/ledger-state-fix'
   type: 301
 
 # ammclawback docs
-'/docs/xls-73d/ammclawback':
+docs/xls-73d/ammclawback:
   to: 'https://xrpl.org/docs/references/protocol/transactions/types/ammclawback'
   type: 301
-'/docs/xls-73d':
+/docs/xls-73d:
   to: 'https://xrpl.org/docs/references/protocol/transactions/types/ammclawback'
   type: 301
 
