@@ -22,3 +22,7 @@
 [standard format]: https://xrpl.org/docs/references/http-websocket-apis/api-conventions/response-formatting/
 [transaction result codes]: https://xrpl.org/docs/references/protocol/transactions/transaction-results
 [universal error types]: https://xrpl.org/docs/references/http-websocket-apis/api-conventions/error-formatting#universal-errors
+
+[PermissionedDomain entry]: /docs/xls-80d-permissioned-domains/permissioneddomain.md
+[PermissionedDomainSet transaction]: /docs/xls-80d-permissioned-domains/permissioneddomainset.md
+[PermissionedDomainDelete transaction]: /docs/xls-80d-permissioned-domains/permissioneddomaindelete.md
