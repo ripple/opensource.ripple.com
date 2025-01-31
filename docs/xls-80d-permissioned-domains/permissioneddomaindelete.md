@@ -6,17 +6,21 @@ labels:
   - Permissioned Domains
 ---
 # PermissionedDomainDelete
-[[Source]](TODO "Source")
+[[Source]](https://github.com/XRPLF/rippled/blob/develop/src/xrpld/app/tx/detail/PermissionedDomainDelete.cpp "Source")
 
 A PermissionedDomainDelete transaction deletes a [Permissioned Domain](./index.md).
 
 _(Requires the PermissionedDomains amendment.)_
 
-## Example {% frontmatter.seo.title %} JSON
+## Example {% $frontmatter.seo.title %} JSON
 
 ```json
 {
-    // TODO
+  "TransactionType": "PermissionedDomainDelete",
+  "Account": "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh",
+  "Fee": "10",
+  "Sequence": 392,
+  "DomainID": "77D6234D074E505024D39C04C3F262997B773719AB29ACFA83119E4210328776"
 }
 ```
 
@@ -24,13 +28,13 @@ _(Requires the PermissionedDomains amendment.)_
 
 {% raw-partial file="/docs/_snippets/tx-fields-intro.md" /%}
 
-| Field                 | JSON Type         | [Internal Type][] | Required? | Description |
-|:----------------------|:------------------|:------------------|:----------|:------------|
-TODO
+| Field      | JSON Type         | [Internal Type][] | Required? | Description |
+|:-----------|:------------------|:------------------|:----------|:------------|
+| `DomainID` | String - [Hash][] | Hash256           | Yes       | The ledger entry ID of the Permissioned Domain entry to delete. |
 
-## {% frontmatter.seo.title %} Flags
+## {% $frontmatter.seo.title %} Flags
 
-There are no flags defined for {% frontmatter.seo.title %} transactions.
+There are no flags defined for {% $frontmatter.seo.title %} transactions.
 
 ## Error Cases
 
@@ -38,4 +42,4 @@ Besides errors that can occur for all transactions, {% $frontmatter.seo.title %}
 
 | Error Code          | Description                                  |
 |:--------------------|:---------------------------------------------|
-TODO
+| `tecNO_ENTRY` | The Permissioned Domain specified in the `DomainID` field doesn't exist in the ledger. |

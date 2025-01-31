@@ -22,7 +22,7 @@ _(Requires the PermissionedDomains amendment.)_
 
 ## {% $frontmatter.seo.title %} Fields
 
-In addition to the [common fields](../common-fields.md), {% code-page-name /%} entries have the following fields:
+In addition to the [common ledger entry fields](https://xrpl.org/docs/references/protocol/ledger-data/common-fields), {% code-page-name /%} entries have the following fields:
 
 | Field                 | JSON Type            | [Internal Type][] | Required? | Description  |
 |:----------------------|:----------|:------------------|:----------|--------------|
@@ -44,6 +44,8 @@ There are no flags defined for {% code-page-name /%} entries.
 ## {% $frontmatter.seo.title %} Reserve
 
 Each {% code-page-name /%} entry counts as 1 item toward its owner's reserve requirement.
+
+A {% code-page-name /%} entry is a deletion blocker, meaning an account cannot be deleted if it owns any {% code-page-name /%} entries.
 
 
 ## {% $frontmatter.seo.title %} ID Format
