@@ -10,13 +10,24 @@ labels:
 
 A PermissionedDomainSet transaction creates or modifies a [Permissioned Domain](./index.md).
 
-_(Requires the PermissionedDomains amendment.)_
+_(Requires the PermissionedDomains amendment {% not-enabled /%})_
 
 ## Example {% $frontmatter.seo.title %} JSON
 
 ```json
 {
-    // TODO
+  "TransactionType": "PermissionedDomainSet",
+  "Account": "rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn",
+  "Fee": "10",
+  "Sequence": 390,
+  "AcceptedCredentials": [
+    {
+        "Credential": {
+            "Issuer": "ra5nK24KXen9AHvsdFTKHSANinZseWnPcX",
+            "CredentialType": "6D795F63726564656E7469616C"
+        }
+    }
+  ]
 }
 ```
 
@@ -29,7 +40,7 @@ _(Requires the PermissionedDomains amendment.)_
 | `DomainID`            | String - [Hash][] | Hash256           | No        | The ledger entry ID of an existing Permissioned Domain to modify. If omitted, create a new Permissioned Domain. |
 | `AcceptedCredentials` | Array             | Array             | Yes       | A list of 1 to 10 [**Accepted Credentials objects**](#accepted-credentials-objects) that grant access to this Domain. The list does not need to be sorted, but it cannot contain duplicates. When modifying an existing domain, this list replaces the existing list. |
 
-{% partial file="/docs/_snippets/accepted-credentials-objects /%}
+{% raw-partial file="/docs/_snippets/accepted-credentials-objects.md" /%}
 
 ## {% $frontmatter.seo.title %} Flags
 

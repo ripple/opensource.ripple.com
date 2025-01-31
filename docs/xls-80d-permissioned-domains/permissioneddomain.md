@@ -10,15 +10,33 @@ labels:
 
 A `PermissionedDomain` ledger entry describes a single [Permissioned Domain](./index.md) instance. You can create a Permissioned Domain by sending a [PermissionedDomainSet transaction][].
 
-_(Requires the PermissionedDomains amendment.)_
+_(Requires the PermissionedDomains amendment {% not-enabled /%})_
 
 ## Example {% $frontmatter.seo.title %} JSON
 
 ```json
 {
-    // TODO
+  "LedgerEntryType": "PermissionedDomain",
+  "Fee": "10",
+  "Flags": 0,
+  "Owner": "rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn",
+  "OwnerNode": "0000000000000000",
+  "Sequence": 390,
+  "AcceptedCredentials": [
+    {
+        "Credential": {
+            "Issuer": "ra5nK24KXen9AHvsdFTKHSANinZseWnPcX",
+            "CredentialType": "6D795F63726564656E7469616C"
+        }
+    }
+  ],
+  "PreviousTxnID": "E7E3F2BBAAF48CF893896E48DC4A02BDA0C747B198D5AE18BC3D7567EE64B904",
+  "PreviousTxnLgrSeq": 8734523,
+  "index": "3DFA1DDEA27AF7E466DE395CCB16158E07ECA6BC4EB5580F75EBD39DE833645F"
 }
 ```
+
+<!-- TODO: use a real example above -->
 
 ## {% $frontmatter.seo.title %} Fields
 
@@ -33,7 +51,7 @@ In addition to the [common ledger entry fields](https://xrpl.org/docs/references
 | `PreviousTxnLgrSeq`   | Number               | UInt32            | Yes       | The [index of the ledger][Ledger Index] that contains the transaction that most recently modified this object. |
 | `Sequence`            | Number               | UInt32            | Yes       | The `Sequence` value of the transaction that created this entry. |
 
-{% partial file="/docs/_snippets/accepted-credentials-objects /%}
+{% raw-partial file="/docs/_snippets/accepted-credentials-objects.md" /%}
 
 
 ## {% $frontmatter.seo.title %} Flags

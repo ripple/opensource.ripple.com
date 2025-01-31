@@ -10,7 +10,7 @@ labels:
 
 A PermissionedDomainDelete transaction deletes a [Permissioned Domain](./index.md).
 
-_(Requires the PermissionedDomains amendment.)_
+_(Requires the PermissionedDomains amendment {% not-enabled /%})_
 
 ## Example {% $frontmatter.seo.title %} JSON
 
@@ -43,3 +43,6 @@ Besides errors that can occur for all transactions, {% $frontmatter.seo.title %}
 | Error Code          | Description                                  |
 |:--------------------|:---------------------------------------------|
 | `tecNO_ENTRY` | The Permissioned Domain specified in the `DomainID` field doesn't exist in the ledger. |
+
+
+{% raw-partial file="/docs/_snippets/common-links.md" /%}
