@@ -4,8 +4,8 @@ Each member of `AcceptedCredentials` array is an inner object named `Credential`
 
 | Field            | JSON Type            | [Internal Type][] | Required? | Description  |
 |:-----------------|:---------------------|:------------------|:----------|--------------|
-| `Issuer`         | String - [Address][] | AccountID         | Yes       | The issuer of the Credential. |
-| `CredentialType` | String               | Blob              | Yes       | The type of Credential, as hexadecimal. This is an arbitrary value from 1 to 64 bytes that the issuer sets when they issue a Credential. |
+| `Issuer`         | String - [Address][] | AccountID         | Yes       | The issuer of the credential. |
+| `CredentialType` | String               | Blob              | Yes       | The type of credential, as hexadecimal. This is an arbitrary value from 1 to 64 bytes that the issuer sets when they issue a credential. |
 
 {% admonition type="info" name="Note" %}
 In the usual JSON format, inner objects are wrapped in an object with one field, whose name defines the inner object type. In this case, wrapping field is named `Credential`. For example:

@@ -8,7 +8,7 @@ labels:
 # PermissionedDomainDelete
 [[Source]](https://github.com/XRPLF/rippled/blob/develop/src/xrpld/app/tx/detail/PermissionedDomainDelete.cpp "Source")
 
-A PermissionedDomainDelete transaction deletes a [Permissioned Domain](./index.md).
+Delete a [permissioned domain](./index.md) that you own.
 
 _(Requires the PermissionedDomains amendment {% not-enabled /%})_
 
@@ -40,9 +40,9 @@ There are no flags defined for {% $frontmatter.seo.title %} transactions.
 
 Besides errors that can occur for all transactions, {% $frontmatter.seo.title %} transactions can result in the following [transaction result codes](https://xrpl.org/docs/references/protocol/transactions/transaction-results):
 
-| Error Code          | Description                                  |
-|:--------------------|:---------------------------------------------|
-| `tecNO_ENTRY` | The Permissioned Domain specified in the `DomainID` field doesn't exist in the ledger. |
-
+| Error Code    | Description                                  |
+|:--------------|:---------------------------------------------|
+| `tecNO_ENTRY` | The permissioned domain specified in the `DomainID` field doesn't exist in the ledger. |
+| `temDISABLED` | The `PermissionedDomains` amendment is not enabled. |
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}
