@@ -37,6 +37,13 @@ export default function Page() {
             </Button>
           </Card>
 
+          <Card title="Permissioned Domains" to="docs/xls-80d-permissioned-domains/">
+            <p>Permissioned Domains are controlled environments where stricter compliance controls can be enforced within the blockchain.</p>
+            <Button size="large" variant="primary">
+              Go to docs
+            </Button>
+          </Card>
+
           <Card title="simulate" to="docs/xls-69d/">
             <p>An API method to test transaction results without submitting a transaction to the XRP Ledger.</p>
             <Button size="large" variant="primary">
