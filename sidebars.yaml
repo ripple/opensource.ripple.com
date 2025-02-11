@@ -25,4 +25,19 @@
             - page: docs/xls-77d-deep-freeze/reference/ripplestate.md
             - page: docs/xls-77d-deep-freeze/reference/offercreate.md
             - page: docs/xls-77d-deep-freeze/reference/trustset.md
+    - group:
+      page: docs/xls-65d-single-asset-vault/index.md
+      expanded: false
+      items:
+        - group: Concepts
+          expanded: false
+          items:
+            - page: docs/xls-65d-single-asset-vault/concepts/single-asset-vault.md
+        - group: Reference
+          expanded: false
+          items:
+            - page: docs/xls-65d-single-asset-vault/reference/vault.md
+            - page: docs/xls-65d-single-asset-vault/reference/mptoken-issuance.md
+            - page: docs/xls-65d-single-asset-vault/reference/mptoken.md
+            - page: docs/xls-65d-single-asset-vault/reference/transactions.md
     
