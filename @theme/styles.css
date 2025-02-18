@@ -27,6 +27,22 @@
     background-color: #ffffff;
 }
 
+/* "Not Enabled" flask icon */
+.not_enabled::after {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  /* Flask glyph: Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc. */
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23faff19' viewBox='0 0 448 512'%3E%3Cpath d='M288 0L160 0 128 0C110.3 0 96 14.3 96 32s14.3 32 32 32l0 132.8c0 11.8-3.3 23.5-9.5 33.5L10.3 406.2C3.6 417.2 0 429.7 0 442.6C0 480.9 31.1 512 69.4 512l309.2 0c38.3 0 69.4-31.1 69.4-69.4c0-12.8-3.6-25.4-10.3-36.4L329.5 230.4c-6.2-10.1-9.5-21.7-9.5-33.5L320 64c17.7 0 32-14.3 32-32s-14.3-32-32-32L288 0zM192 196.8L192 64l64 0 0 132.8c0 23.7 6.6 46.9 19 67.1L309.5 320l-171 0L173 263.9c12.4-20.2 19-43.4 19-67.1z'/%3E%3C/svg%3E") no-repeat;
+  background-size: contain;
+  vertical-align: text-top;
+  cursor: help;
+}
+html.light .not_enabled::after {
+  filter:brightness(70%);
+}
+
 /* ----- This configures the footer ----- */
 #gatsby-focus-wrapper > div > footer {
     line-height: 16px;
@@ -90,4 +106,277 @@
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/spacemono/v12/i7dPIFZifjKcF5UAWdDRYEF8RQ.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Theme-aware diagrams. Exported from xrpl-dev-portal repo's SCSS. */
+html:not(.light) article svg[fill=black] {
+  fill: #FFFFFF;
+  stroke: #FFFFFF;
+}
+html:not(.light) article svg[fill=black] *[fill=white] {
+  fill: #000000;
+}
+html:not(.light) article svg[fill=black] *[stroke=white] {
+  stroke: #000000;
+}
+html:not(.light) article svg[fill=black] *[fill=black] {
+  fill: #FFFFFF;
+}
+html:not(.light) article svg[fill=black] *[stroke=black] {
+  stroke: #FFFFFF;
+}
+html:not(.light) article svg[fill=black] g[fill=blue] {
+  fill: #19A3FF;
+}
+html:not(.light) article svg[fill=black] g[stroke=blue] {
+  stroke: #19A3FF;
+}
+html:not(.light) article svg[fill=black] g[fill="rgb(120,120,120)"] {
+  fill: #E0E0E1;
+}
+html:not(.light) article svg[fill=black] g[stroke="rgb(120,120,120)"] {
+  stroke: #E0E0E1;
+}
+html:not(.light) article svg[fill=black] g[fill="rgb(200,200,200)"] {
+  fill: #343437;
+}
+html:not(.light) article svg[fill=black] g[fill="rgb(70,70,70)"] {
+  fill: #838386;
+}
+html:not(.light) article svg[fill=black] g[stroke="rgb(70,70,70)"] {
+  stroke: #838386;
+}
+html:not(.light) article svg[fill=black] g[fill="rgb(29,180,255)"] {
+  fill: #9A52FF;
+}
+html:not(.light) article svg[fill=black] g[stroke="rgb(29,180,255)"] {
+  stroke: #9A52FF;
+}
+html:not(.light) article svg[fill=black] rect[stroke="rgb(245,247,249)"] {
+  stroke: #000000;
+}
+html:not(.light) article svg[fill=black] g[fill=lime],
+html:not(.light) article svg[fill=black] g[fill="rgb(0,255,0)"] {
+  fill: #9A52FF;
+}
+html:not(.light) article svg[fill=black] g[stroke=lime],
+html:not(.light) article svg[fill=black] g[stroke="rgb(0,255,0)"] {
+  stroke: #9A52FF;
+}
+html:not(.light) article svg[fill=black] g[fill=yellow],
+html:not(.light) article svg[fill=black] g[fill="rgb(255,255,0)"] {
+  fill: #FAFF19;
+}
+html:not(.light) article svg[fill=black] g[fill=yellow] path[stroke=black],
+html:not(.light) article svg[fill=black] g[fill="rgb(255,255,0)"] path[stroke=black] {
+  stroke: #000000;
+}
+html:not(.light) article svg[fill=black] g[fill=red],
+html:not(.light) article svg[fill=black] g[fill="rgb(255,255,0)"] {
+  fill: #FF198B;
+}
+html:not(.light) article svg[fill=black] g[stroke=red],
+html:not(.light) article svg[fill=black] g[stroke="rgb(255,255,0)"] {
+  stroke: #FF198B;
+}
+html:not(.light) article svg[fill=black] g[fill=yellow] + g text,
+html:not(.light) article svg[fill=black] g[fill="rgb(255,255,0)"] + g text {
+  fill: #000000;
+}
+html:not(.light) article svg[fill=black] g[fill=lime] + g text {
+  fill: #000000;
+}
+html:not(.light) article svg[fill=none] path[fill="#000000"] {
+  fill: #FFFFFF;
+}
+html:not(.light) article svg[fill=none] path[stroke="#000000"] {
+  stroke: #FFFFFF;
+}
+html:not(.light) article svg[fill=none] path[fill="#ffffff"] {
+  fill: #000000;
+}
+html:not(.light) article svg[fill=none] path[stroke="#ffffff"] {
+  stroke: #000000;
+}
+html:not(.light) article svg[fill=none] path[fill="#23292f"],
+html:not(.light) article svg[fill=none] path[fill="#23282f"] {
+  fill: #FFFFFF;
+}
+html:not(.light) article svg[fill=none] path[stroke="#23292f"],
+html:not(.light) article svg[fill=none] path[stroke="#23282f"] {
+  stroke: #FFFFFF;
+}
+html:not(.light) article svg[fill=none] path[fill="#2c3e50"],
+html:not(.light) article svg[fill=none] path[fill="#2b3e51"] {
+  fill: #E0E0E1;
+}
+html:not(.light) article svg[fill=none] path[stroke="#2c3e50"],
+html:not(.light) article svg[fill=none] path[stroke="#2b3e51"] {
+  stroke: #E0E0E1;
+}
+html:not(.light) article svg[fill=none] path[fill="#1c2835"] {
+  fill: #F5F5F7;
+}
+html:not(.light) article svg[fill=none] path[stroke="#1c2835"] {
+  stroke: #F5F5F7;
+}
+html:not(.light) article svg[fill=none] path[fill="#21aa47"] {
+  fill: #32E685;
+}
+html:not(.light) article svg[fill=none] path[stroke="#21aa47"] {
+  stroke: #32E685;
+}
+html:not(.light) article svg[fill=none] path[fill="#e64b3b"] {
+  fill: #E50071;
+}
+html:not(.light) article svg[fill=none] path[stroke="#e64b3b"] {
+  stroke: #E50071;
+}
+html:not(.light) article svg[fill=none] path[stroke="#27a2db"],
+html:not(.light) article svg[fill=none] path[stroke="#00aae4"] {
+  stroke: #9A52FF;
+}
+html:not(.light) article svg[fill=none] path[fill="#27a2db"],
+html:not(.light) article svg[fill=none] path[fill="#00aae4"] {
+  fill: #9A52FF;
+}
+html:not(.light) article svg[fill=none] path[fill="#e6e7e8"] {
+  fill: #232325;
+}
+html:not(.light) article svg[fill=none] path[stroke="#e6e7e8"] {
+  stroke: #232325;
+}
+html:not(.light) article svg[fill=none] path[stroke="#ffbf27"] {
+  stroke: #D919FF;
+}
+html:not(.light) article svg[fill=none] path[fill="#00ff00"] {
+  fill: #32E685;
+}
+html:not(.light) article svg[fill=none] path[stroke="#00ff00"] {
+  stroke: #32E685;
+}
+html:not(.light) article svg[fill=none] path[fill="#ff00ff"] {
+  fill: #FF198B;
+}
+html:not(.light) article svg[fill=none] path[stroke="#ff00ff"] {
+  stroke: #FF198B;
+}
+html:not(.light) article svg[fill=none] linearGradient stop[stop-color="#ffffff"] {
+  stop-color: #343437;
+}
+html:not(.light) article svg[fill=none] linearGradient stop[stop-color="#e6e7e8"] {
+  stop-color: #232325;
+}
+html:not(.light) article svg[fill=none] linearGradient stop[stop-color="#dbdcdd"] {
+  stop-color: #000000;
+}
+html:not(.light) article svg[fill=none] linearGradient stop[stop-color="#b1b3b5"] {
+  stop-color: #111112;
+}
+html:not(.light) article svg[fill=none] linearGradient stop[stop-color="#29a1da"] {
+  stop-color: #2DCF78;
+}
+html:not(.light) article svg[fill=none] linearGradient stop[stop-color="#2789b9"] {
+  stop-color: #5BEB9D;
+}
+html:not(.light) article svg[fill=none] linearGradient stop[stop-color="#6bc1ec"] {
+  stop-color: #ADF5CE;
+}
+html:not(.light) article svg[fill=none] linearGradient stop[stop-color="#8ad6f4"] {
+  stop-color: #84F0B6;
+}
+html:not(.light) article svg[fill=none] linearGradient stop[stop-color="#fab913"] {
+  stop-color: #F2B2FF;
+}
+html:not(.light) article svg[fill=none] linearGradient stop[stop-color="#fad26b"] {
+  stop-color: #EA80FF;
+}
+html:not(.light) article svg[fill=none] linearGradient stop[stop-color="#f8a136"] {
+  stop-color: #E24CFF;
+}
+html:not(.light) article svg[fill=none] linearGradient stop[stop-color="#f7931a"] {
+  stop-color: #C000E5;
+}
+
+html.light svg[fill=black] g[fill=blue] {
+  fill: #006BB2;
+}
+html.light svg[fill=black] g[stroke=blue] {
+  stroke: #19A3FF;
+}
+html.light svg[fill=black] g[fill="rgb(120,120,120)"] {
+  fill: #343437;
+}
+html.light svg[fill=black] g[stroke="rgb(120,120,120)"] {
+  stroke: #343437;
+}
+html.light svg[fill=black] g[fill="rgb(200,200,200)"] {
+  fill: #A2A2A4;
+}
+html.light svg[fill=black] g[fill="rgb(70,70,70)"] {
+  fill: #343437;
+}
+html.light svg[fill=black] g[stroke="rgb(70,70,70)"] {
+  stroke: #343437;
+}
+html.light svg[fill=black] g[fill="rgb(29,180,255)"] {
+  fill: #19A3FF;
+}
+html.light svg[fill=black] g[stroke="rgb(29,180,255)"] {
+  stroke: #006BB2;
+}
+html.light svg[fill=black] rect[stroke="rgb(245,247,249)"] {
+  stroke: #FCFCFD;
+}
+html.light svg[fill=black] g[fill=lime],
+html.light svg[fill=black] g[fill="rgb(0,255,0)"] {
+  fill: #5BEB9D;
+}
+html.light svg[fill=black] g[stroke=lime],
+html.light svg[fill=black] g[stroke="rgb(0,255,0)"] {
+  stroke: #28B86A;
+}
+html.light svg[fill=black] g[fill=yellow],
+html.light svg[fill=black] g[fill="rgb(255,255,0)"] {
+  fill: #FCFF80;
+}
+html.light svg[fill=black] g[fill=red],
+html.light svg[fill=black] g[fill="rgb(255,255,0)"] {
+  fill: #FF4BA4;
+}
+html.light svg[fill=black] g[stroke=red],
+html.light svg[fill=black] g[stroke="rgb(255,255,0)"] {
+  stroke: #FF198B;
+}
+html.light svg[fill=none] rect[fill="#111112"] {
+  fill: #F5F5F7;
+}
+html.light svg[fill=none] path[fill=white] {
+  fill: #000000;
+}
+html.light svg[fill=none] path[fill="#343437"] {
+  fill: #C1C1C2;
+}
+html.light svg[fill=none] path[fill="#A2A2A4"],
+html.light svg[fill=none] rect[fill="#A2A2A4"],
+html.light svg[fill=none] ellipse[fill="#A2A2A4"] {
+  fill: #454549;
+}
+html.light svg[fill=none] path[fill="#232325"] {
+  fill: #E0E0E1;
+}
+html.light svg[fill=none] path[fill="#F5F5F7"] {
+  fill: #111112;
+}
+html.light svg[fill=none] path[stroke="#F5F5F7"] {
+  stroke: #111112;
+}
+html.light svg[fill=none] path[stroke="#FF198B"] {
+  stroke: #B20058;
+}
+html.light svg[fill=none] linearGradient stop[stop-color="#F5F5F7"] {
+  stop-color: #111112;
+}
+html.light svg[fill=none] linearGradient stop[stop-color="#C1C1C2"] {
+  stop-color: #343437;
 }

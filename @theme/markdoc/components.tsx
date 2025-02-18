@@ -119,6 +119,6 @@ export function NotEnabled() {
   const { useTranslate } = useThemeHooks();
   const { translate } = useTranslate();
   return (
-    <span className="status not_enabled" title={translate("This feature is not currently enabled on the production XRP Ledger.")}><i className="fa fa-flask"></i></span>
+    <span className="status not_enabled" title={translate("This feature is not currently enabled on the production XRP Ledger.")}></span>
   )
 }
