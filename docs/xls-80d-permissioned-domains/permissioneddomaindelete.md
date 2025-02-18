@@ -10,7 +10,7 @@ labels:
 
 Delete a [permissioned domain](./index.md) that you own.
 
-_(Requires the PermissionedDomains amendment {% not-enabled /%})_
+_(Requires the [PermissionedDomains amendment][] {% not-enabled /%})_
 
 ## Example {% $frontmatter.seo.title %} JSON
 

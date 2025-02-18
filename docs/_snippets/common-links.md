@@ -25,3 +25,5 @@
 [PermissionedDomain entry]: /docs/xls-80d-permissioned-domains/permissioneddomain.md
 [PermissionedDomainSet transaction]: /docs/xls-80d-permissioned-domains/permissioneddomainset.md
 [PermissionedDomainDelete transaction]: /docs/xls-80d-permissioned-domains/permissioneddomaindelete.md
+<!-- TODO: replace with link to roadmap page when that's ready -->
+[PermissionedDomains amendment]: /docs/xls-80d-permissioned-domains/index.md#permissioneddomains-amendment

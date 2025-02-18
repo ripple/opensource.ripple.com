@@ -10,7 +10,7 @@ labels:
 
 A `PermissionedDomain` ledger entry describes a single [permissioned domain](./index.md) instance. You can create a permissioned domain by sending a [PermissionedDomainSet transaction][].
 
-_(Requires the PermissionedDomains amendment {% not-enabled /%})_
+_(Requires the [PermissionedDomains amendment][] {% not-enabled /%})_
 
 ## Example {% $frontmatter.seo.title %} JSON
 

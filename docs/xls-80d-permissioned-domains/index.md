@@ -12,7 +12,7 @@ A permissioned domain has a set of _accepted credentials_, a list of 1 to 10 cre
 
 A domain serves as an abstraction layer between credentials and a resource being resricted, because the owner of the domain can update the list of required credentials without changing the restricted resource itself.
 
-![Diagram: a permissioned DEX points to a permissioned domain by ID. The domain's Accepted Credentials describes 3 possible credentials to get access](./permissioned-domain.svg)
+[{% inline-svg file="./permissioned-domain.svg" /%}](./permissioned-domain.svg "Diagram: a permissioned DEX points to a permissioned domain by ID. The domain's Accepted Credentials describes 3 possible credentials to get access")
 
 Users do not need to apply to join or leave a domain. When a transaction requires access to a resource that is restricted by a domain, the transaction automatically checks if the account holds a credential matching that domain's accepted credentials, and fails if they have none. The user's credential must be accepted and not expired.
 
