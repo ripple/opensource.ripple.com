@@ -10,7 +10,7 @@ labels:
 
 Create a [permissioned domain](./index.md), or modify one that you own.
 
-_(Requires the PermissionedDomains amendment {% not-enabled /%})_
+_(Requires the [PermissionedDomains amendment][] {% not-enabled /%})_
 
 ## Example {% $frontmatter.seo.title %} JSON
 
