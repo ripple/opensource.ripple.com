@@ -15,7 +15,7 @@
           items:
             - page: docs/xls-56d-batch-transactions/reference/batch.md
             - page: docs/xls-56d-batch-transactions/reference/common-fields.md
-    - page: docs/xls-69d/index.md
+    - page: docs/xls-69d/index.md # simulate
     - page: docs/xls-77d-deep-freeze/index.md
       expanded: false
       items:
@@ -26,3 +26,9 @@
             - page: docs/xls-77d-deep-freeze/reference/offercreate.md
             - page: docs/xls-77d-deep-freeze/reference/trustset.md
     
+    - page: docs/xls-80d-permissioned-domains/index.md
+      expanded: false
+      items:
+        - page: docs/xls-80d-permissioned-domains/permissioneddomain.md
+        - page: docs/xls-80d-permissioned-domains/permissioneddomainset.md
+        - page: docs/xls-80d-permissioned-domains/permissioneddomaindelete.md

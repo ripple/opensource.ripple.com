@@ -1,11 +1,10 @@
 [ACCOUNT_ZERO]: https://xrpl.org/docs/concepts/accounts/addresses#special-addresses
 [AccountDelete]: https://xrpl.org/docs/references/protocol/transactions/types/accountdelete
 [Address]: https://xrpl.org/docs/references/protocol/data-types/basic-data-types#addresses
+[amendment]: https://xrpl.org/docs/concepts/networks-and-servers/amendments
 [common fields]: https://xrpl.org/docs/references/protocol/transactions/common-fields/
 [common ledger entry fields]: https://xrpl.org/docs/references/protocol/ledger-data/common-fields/
-[Credential entry]: /docs/xls-70d-credentials/reference/credential.md
-[CredentialAccept transaction]: ./credentialcreate.md
-[DepositPreauth entry]: https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/depositpreauth/
+[credentials]: https://xrpl.org/docs/concepts/decentralized-storage/credentials
 [EscrowFinish]: https://xrpl.org/docs/references/protocol/transactions/types/escrowfinish
 [Hash]: https://xrpl.org/docs/references/protocol/data-types/basic-data-types#hashes
 [Internal Type]: https://xrpl.org/docs/references/protocol/binary-format/
@@ -22,3 +21,9 @@
 [standard format]: https://xrpl.org/docs/references/http-websocket-apis/api-conventions/response-formatting/
 [transaction result codes]: https://xrpl.org/docs/references/protocol/transactions/transaction-results
 [universal error types]: https://xrpl.org/docs/references/http-websocket-apis/api-conventions/error-formatting#universal-errors
+
+[PermissionedDomain entry]: /docs/xls-80d-permissioned-domains/permissioneddomain.md
+[PermissionedDomainSet transaction]: /docs/xls-80d-permissioned-domains/permissioneddomainset.md
+[PermissionedDomainDelete transaction]: /docs/xls-80d-permissioned-domains/permissioneddomaindelete.md
+<!-- TODO: replace with link to roadmap page when that's ready -->
+[PermissionedDomains amendment]: /docs/xls-80d-permissioned-domains/index.md#permissioneddomains-amendment
