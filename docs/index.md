@@ -9,3 +9,7 @@ While Ripple may be the primary developer on these open source projects, it is n
 Proposals for new features and amendments go through the consensus process for review and approval by the XRP Ledger community before they can be merge into the XRP Ledger code base. Once a feature is merged on the `master` branch of the `rippled` codebase, documentation for that feature will be available on [xrpl.org](https://xrpl.org).
 
 To learn more about the consensus process and the workflow for features to go from an idea to activation on the XRP Ledger, see <https://xrpl.org/amendments.html>.
+
+## RippleX - XRPL Feature Proposals for 2025
+
+[![RippleX XRPL Feature Proposals for 2025](/images/ripplex-xrpl-feature-proposals-2025.png "RippleX XRPL Feature Proposals for 2025")](/images/ripplex-xrpl-feature-proposals-2025.png)
