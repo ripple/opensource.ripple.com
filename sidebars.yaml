@@ -1,5 +1,5 @@
+- page: docs/index.md
 - group: Prerelease Docs
-  page: docs/index.md
   expanded: true
   items:
     - group: Batch Transactions
