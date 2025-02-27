@@ -29,7 +29,7 @@ Choosing between a public or private vault depends on your use case. For example
 
 Depositors can deposit assets to receive shares, which represent their proportional ownership of the vault, or withdraw assets from the vault.
 
-[{% inline-svg file="./single-asset-vault-deposit.svg" /%}](./single-asset-vault-deposit.svg "Diagram: an example of an asset being deposited into the vault.")
+[{% inline-svg file="./single-asset-vault.svg" /%}](./single-asset-vault.svg "Diagram: an example of an asset being deposited into the vault.")
 
 Since the XRP Ledger is an account-based blockchain, all assets must be held by an account. A `Vault` ledger entry cannot hold assets directly, so a [pseudo-account](https://github.com/XRPLF/XRPL-Standards/discussions/191) is created to hold assets on its behalf. This stand-alone account cannot receive funds or send transactions, and exists solely to store assets and issue shares.
 
