@@ -45,7 +45,7 @@ export default function Page() {
           </Card>
 
           <Card title="Single Asset Vault" to="docs/xls-65d-single-asset-vault/">
-            <p>A Single Asset Vault is an XRP Ledger primitive that aggregates assets from multiple depositors and makes them available to other on-chain protocols.</p>
+            <p>A single asset vault is an XRP Ledger primitive that aggregates assets from multiple depositors and makes them available to other on-chain protocols.</p>
             <Button size="large" variant="primary">
               Go to docs
             </Button>

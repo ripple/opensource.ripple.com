@@ -14,6 +14,8 @@ Permanently deletes an existing `Vault` object from the ledger, removes all asso
 
 Only the Vault Owner can initiate this transaction, and the vault must be completely empty before deletion.
 
+_(Requires the [Single Asset Vault amendment][] {% not-enabled /%})_
+
 ## Example {% $frontmatter.seo.title %} JSON
 
 ```json
@@ -50,3 +52,5 @@ Besides errors that can occur for all transactions, VaultCreate transactions can
 | `tecNO_PERMISSION`        | Occurs if the account submitting the transaction is not the `Owner` of the vault. |
 | `tecHAS_OBLIGATIONS`      | Occurs if the `AssetTotal`, `AssetAvailable`, or the share's `OutstandingAmount` are greater than 0. |
 | `tecHAS_OBLIGATIONS`      | Occurs if the `OwnerDirectory` of the vault's `pseudo-account` contains references to any objects other than the vault, shares, or assets. |
+
+{% raw-partial file="/docs/_snippets/common-links.md" /%}

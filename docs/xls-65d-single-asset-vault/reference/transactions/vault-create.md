@@ -10,13 +10,15 @@ labels:
 
 [[Source]](https://github.com/XRPLF/rippled/blob/9d619b9dc579c592f0560c1b40fd3c98d7587d23/src/xrpld/app/tx/detail/VaultCreate.cpp "Source")
 
-Creates a new `Vault` object, an `MPTokenIssuance` ledger entry for the vault’s shares, and an `AccountRoot` for the vault’s [pseudo-account](https://github.com/XRPLF/XRPL-Standards/discussions/191).
+Creates a new `Vault` ledger entry, an `MPTokenIssuance` ledger entry for the vault’s shares, and an `AccountRoot` for the vault’s [pseudo-account](https://github.com/XRPLF/XRPL-Standards/discussions/191).
 
 Only the Vault Owner can initiate this transaction.
 
 {% admonition type="info" name="Note" %}
-Currently, the same account that creates the vault must also create other protocols, though this may change in future.
+Currently, the same account that creates the vault must also create other protocols, though this may change in the future.
 {% /admonition %}
+
+_(Requires the [Single Asset Vault amendment][] {% not-enabled /%})_
 
 ## Example {% $frontmatter.seo.title %} JSON
 
@@ -65,7 +67,7 @@ In addition to the [common fields](https://xrpl.org/docs/references/protocol/tra
 
 ## WithdrawalPolicy
 
-A `WithdrawalPolicy` defines the strategy for processing withdrawal requests from a vault. This policy governs how liquidity is removed, and different strategies can be applied to different vaults, allowing each vault to have its own withdrawal policy. Currently, only one strategy is supported:
+A `WithdrawalPolicy` defines the strategy for processing withdrawal requests from a vault. This policy governs how liquidity is removed. Currently, only one strategy is supported:
 
 | Policy Name              | Value    | Description              |
 | :----------------------- | :------- | -------------------------|
@@ -88,3 +90,5 @@ Besides errors that can occur for all transactions, {% code-page-name /%} transa
 | `tecNO_ENTRY`             | Occurs if the `PermissionedDomain` object with the provided `DomainID` does not exist. |
 | `temMALFORMED`            | Occurs if the `Data` field is larger than 256 bytes.  |
 | `tecINSUFFICIENT_RESERVE` | Occurs when there is insufficient `AccountRoot.Balance` for the Owner Reserve. |
+
+{% raw-partial file="/docs/_snippets/common-links.md" /%}

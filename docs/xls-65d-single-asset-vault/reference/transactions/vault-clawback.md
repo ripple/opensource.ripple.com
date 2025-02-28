@@ -20,6 +20,8 @@ Under the hood, the transaction performs a [VaultWithdraw](./vault-withdraw.md) 
 Clawbacks cannot be performed on native XRP.
 {% /admonition %}
 
+_(Requires the [Single Asset Vault amendment][] {% not-enabled /%})_
+
 ## Example {% $frontmatter.seo.title %} JSON
 
 ```json
@@ -61,3 +63,5 @@ Besides errors that can occur for all transactions, {% code-page-name /%} transa
 | `tecNO_PERMISSION`      | Occurs if the asset is a Fungible Token and the transaction is not submitted by the issuing account. |
 | `tecWRONG_ASSET`        | Occurs if the asset in the transaction does not match the vault's asset type. |
 | `tecINSUFFICIENT_FUNDS` | Occurs if the `MPToken` object for the vault share of the `Holder` account does not exist, or if `MPToken.MPTAmount` is 0. |
+
+{% raw-partial file="/docs/_snippets/common-links.md" /%}

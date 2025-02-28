@@ -15,6 +15,8 @@ A {% code-page-name /%} object defines the state of a tokenized vault. It contai
 The {% code-page-name /%} object is tracked in an [Owner Directory](https://xrpl.org/directorynode.html) owned by the Vault Owner account.
 Additionally, to facilitate `Vault` object lookup, the object is tracked in the `OwnerDirectory` of the vault's `pseudo-account`.
 
+_(Requires the [Single Asset Vault amendment][] {% not-enabled /%})_
+
 ## Example Vault JSON
 
 ```json
@@ -48,7 +50,7 @@ Additionally, to facilitate `Vault` object lookup, the object is tracked in the 
 
 ## {% $frontmatter.seo.title %} Fields
 
-The {% code-page-name /%} object contains the followings fields:
+In addition to the [common ledger entry fields](https://xrpl.org/docs/references/protocol/ledger-data/common-fields), {% code-page-name /%} entries have the following fields:
 
 | Name                | JSON Type     | Internal Type | Required? | Description      |
 | :------------------ | :------------ | :------------ | :-------- | -----------------|
@@ -72,7 +74,7 @@ The {% code-page-name /%} object contains the followings fields:
 
 ## {% $frontmatter.seo.title %} Flags
 
-The {% code-page-name /%} object supports the following flags:
+{% code-page-name /%}  entries can have the followings flags:
 
 | Flag Name         | Flag Value   | Description                 |
 | :---------------- | :----------- | :---------------------------|
@@ -80,8 +82,10 @@ The {% code-page-name /%} object supports the following flags:
 
 ## Vault ID Format
 
-The key of the {% code-page-name /%} object is the [`SHA512-Half`](https://xrpl.org/docs/references/protocol/data-types/basic-data-types#hashes) of the following values, concatenated in order:
+The ID of a {% code-page-name /%} entry is the [`SHA512-Half`](https://xrpl.org/docs/references/protocol/data-types/basic-data-types#hashes) of the following values, concatenated in order:
 
 - The {% code-page-name /%} space key `0x0056` (capital V).
 - The [AccountID](https://xrpl.org/docs/references/protocol/binary-format/#accountid-fields) of the account submitting the `VaultSet` transaction (i.e., `VaultOwner`).
 - The transaction `Sequence` number. If the transaction used a [Ticket](https://xrpl.org/docs/concepts/accounts/tickets), use the `TicketSequence` value.
+
+{% raw-partial file="/docs/_snippets/common-links.md" /%}

@@ -1,6 +1,6 @@
 ---
 seo:
-    description: Updates an existing vault object in the ledger.
+    description: Modifies a single asset vault that you own.
 labels:
   - Transactions
   - Single Asset Vault
@@ -10,12 +10,14 @@ labels:
 
 [[Source]](https://github.com/XRPLF/rippled/blob/9d619b9dc579c592f0560c1b40fd3c98d7587d23/src/xrpld/app/tx/detail/VaultSet.cpp "Source")
 
-Updates any mutable field in an existing `Vault` ledger object.
+Modifies a single asset vault that you own.
 This transaction allows the Vault Owner to update certain mutable fields, including vault metadata and the maximum asset amount.
 
 {% admonition type="warning" name="Warning" %}
 Once a vault is created, its public or private status is permanent and cannot be changed. The [tfVaultPrivate](../vault.md#vault-flags) flag determines this status, and once set, it cannot be updated.
 {% /admonition %}
+
+_(Requires the [Single Asset Vault amendment][] {% not-enabled /%})_
 
 ## Example {% $frontmatter.seo.title %} JSON
 
@@ -61,3 +63,5 @@ Besides errors that can occur for all transactions, {% code-page-name /%} transa
 | `tecLIMIT_EXCEEDED`   | Occurs if the _new_ `AssetMaximum` value is **lower** than the vault's _current_ `AssetTotal`. |
 | `temDISABLED`         | Occurs if the Permissioned Domains amendment is disabled and a `DomainID` is provided. |
 | `tecINVALID_DOMAIN`   | Occurs if a transaction attempts to set `DomainID` on a public vault. |
+
+{% raw-partial file="/docs/_snippets/common-links.md" /%}

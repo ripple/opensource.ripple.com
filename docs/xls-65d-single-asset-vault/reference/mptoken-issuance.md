@@ -12,6 +12,8 @@ labels:
 
 The {% code-page-name /%} object represents a vault share on the ledger. An {% code-page-name /%} object is created and deleted together with the `Vault` object.
 
+_(Requires the [Single Asset Vault amendment][] {% not-enabled /%})_
+
 ## {% $frontmatter.seo.title %} Fields
 
 There are no changes to the fields in the {% code-page-name /%} object. See [MPTokenIssuance Fields](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/mptokenissuance#mptokenissuance-fields).
@@ -26,3 +28,5 @@ The following flags are set based on whether the shares are transferable, and if
 | **Private Vault** | `lsfMPTCanEscrow`<br> `lsfMPTCanTrade`<br> `lsfMPTCanTransfer`<br> `lsfMPTRequireAuth` | `lsfMPTRequireAuth` |
 
 See [MPTokenIssuance Flags](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/mptokenissuance#mptokenissuance-flags) for all available flags.
+
+{% raw-partial file="/docs/_snippets/common-links.md" /%}

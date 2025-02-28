@@ -1,5 +1,5 @@
 ---
-blurb: Single Asset Vault is an on-chain primitive for aggregating assets from one or more depositors.
+blurb: A single asset vault is an on-chain primitive for aggregating assets from one or more depositors.
 labels:
   - Single Asset Vault 
 status: not_enabled
@@ -7,7 +7,7 @@ status: not_enabled
 
 # Single Asset Vault
 
-A Single Asset Vault is an XRP Ledger primitive that aggregates assets from multiple depositors and makes them available to other on-chain protocols, such as the Lending Protocol (currently in development). A vault asset can be [XRP](https://xrpl.org/docs/introduction/what-is-xrp), a [Fungible Token](https://xrpl.org/docs/concepts/tokens/fungible-tokens), or an [MPT (Multi-Purpose Token)](https://xrpl.org/docs/concepts/tokens/fungible-tokens/multi-purpose-tokens).
+A single asset vault is an XRP Ledger primitive that aggregates assets from multiple depositors and makes them available to other on-chain protocols, such as the Lending Protocol (currently in development). A vault asset can be [XRP](https://xrpl.org/docs/introduction/what-is-xrp), a [Fungible Token](https://xrpl.org/docs/concepts/tokens/fungible-tokens), or an [MPT (Multi-Purpose Token)](https://xrpl.org/docs/concepts/tokens/fungible-tokens/multi-purpose-tokens).
 
 ## Concepts
 

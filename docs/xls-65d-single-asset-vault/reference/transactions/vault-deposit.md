@@ -27,6 +27,8 @@ Additionally, if the vault shares are frozen for the depositor, they cannot rece
 
 If successful, the transaction moves the assets from the depositor's account to the vault's `pseudo-account`, issues the corresponding vault shares, and updates the vault’s balance.
 
+_(Requires the [Single Asset Vault amendment][] {% not-enabled /%})_
+
 ## Example {% $frontmatter.seo.title %} JSON
 
 ```json
@@ -67,7 +69,7 @@ There are no flags defined for {% code-page-name /%} transactions.
 
 ## Transfer Fees
 
-A Single Asset Vault does not apply the [Transfer Fee](https://xrpl.org/docs/concepts/tokens/transfer-fees) to {% code-page-name /%} transactions. Additionally, whenever a protocol moves assets from or to a vault, the Transfer Fee must not be charged.
+A single asset vault does not apply the [transfer fee](https://xrpl.org/docs/concepts/tokens/transfer-fees) to {% code-page-name /%} transactions. Additionally, whenever a protocol moves assets from or to a vault, the transfer fee isn't charged.
 
 ## Error Cases
 
@@ -82,3 +84,5 @@ Besides errors that can occur for all transactions, {% code-page-name /%} transa
 | `tecNO_AUTH`            | Occurs if the `lsfVaultPrivate` flag is set and the account depositing does not have credentials in the Permissioned Domain of the share. |
 | `tecFROZEN`             | Occurs if the asset is a Fungible Token and the `lsfGlobalFreeze` flag is set on the issuing account, meaning the asset is frozen. |
 | `tecFROZEN`             | Occurs if the asset is a Fungible Token and the `lsfHighFreeze` or `lsfLowFreeze` flag is set on the trust line between the asset issuer and the depositor. |
+
+{% raw-partial file="/docs/_snippets/common-links.md" /%}
