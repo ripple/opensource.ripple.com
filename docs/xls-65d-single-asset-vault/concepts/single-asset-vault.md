@@ -31,7 +31,7 @@ Depositors can deposit assets to receive shares, which represent their proportio
 
 [{% inline-svg file="./single-asset-vault.svg" /%}](./single-asset-vault.svg "Diagram: an example of an asset being deposited into the vault and shares being redeemed.")
 
-Since the XRP Ledger is an account-based blockchain, all assets must be held by an account. A `Vault` ledger entry cannot hold assets directly, so a [pseudo-account](https://github.com/XRPLF/XRPL-Standards/discussions/191) is created to hold assets on its behalf. This stand-alone account cannot receive funds or send transactions, and exists solely to store assets and issue shares.
+Since the XRP Ledger is an account-based blockchain, all assets must be held by an account. A `Vault` ledger entry cannot hold assets directly, so a [pseudo-account](pseudo-account.md) is created to hold assets on its behalf. This stand-alone account cannot receive funds or send transactions, and exists solely to store assets and issue shares.
 
 Each share is represented on-chain as an MPT, issued by the vault's `pseudo-account`.
 

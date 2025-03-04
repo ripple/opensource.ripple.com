@@ -40,6 +40,7 @@
           expanded: false
           items:
             - page: docs/xls-65d-single-asset-vault/concepts/single-asset-vault.md
+            - page: docs/xls-65d-single-asset-vault/concepts/pseudo-account.md
         - group: Reference
           expanded: false
           items:

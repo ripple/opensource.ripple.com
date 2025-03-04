@@ -11,7 +11,8 @@ A single asset vault is an XRP Ledger primitive that aggregates assets from mult
 
 ## Concepts
 
-[Single Asset Vault](./concepts/single-asset-vault.md)
+- [Single Asset Vault](./concepts/single-asset-vault.md)
+- [Pseudo Account](./concepts/pseudo-account.md)
 
 ## Reference
 
