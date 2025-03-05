@@ -3,6 +3,13 @@
   to: https://xrpl.org/docs/references/protocol/transactions/types/ledgerstatefix
   type: 301
 
+# deep-freeze docs
+/docs/xls-77d-deep-freeze:
+  to: https://xrpl.org/docs/concepts/tokens/fungible-tokens/deep-freeze
+  type: 301
+/docs/xls-77d-deep-freeze/reference:
+  to: https://xrpl.org/docs/concepts/tokens/fungible-tokens/deep-freeze
+
 # ammclawback docs
 docs/xls-73d/ammclawback:
   to: 'https://xrpl.org/docs/references/protocol/transactions/types/ammclawback'

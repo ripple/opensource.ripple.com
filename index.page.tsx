@@ -30,13 +30,6 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Deep Freeze" to="docs/xls-77d-deep-freeze/">
-            <p>Deep Freeze ensures that frozen token holders can neither send or receive frozen funds until their trust line is unfrozen.</p>
-            <Button size="large" variant="primary">
-              Go to docs
-            </Button>
-          </Card>
-
           <Card title="Permissioned Domains" to="docs/xls-80d-permissioned-domains/">
             <p>Permissioned Domains are controlled environments where stricter compliance controls can be enforced within the blockchain.</p>
             <Button size="large" variant="primary">
@@ -65,7 +58,16 @@ export default function Page() {
               Go to docs
             </ButtonToXRPL>
           </Card>
+
+          <Card title="Deep Freeze" to="https://xrpl.org/docs/concepts/tokens/fungible-tokens/deep-freeze">
+            <p>Deep Freeze ensures that frozen token holders can neither send nor receive frozen funds until their trust line is unfrozen. Documentation is now live on xrpl.org.</p>
+            <ButtonToXRPL>
+              Go to docs
+            </ButtonToXRPL>
+          </Card>
+
         </Cards>
+
       </LandingContainer>
 
     </LandingLayout>
