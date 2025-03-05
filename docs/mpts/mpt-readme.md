@@ -24,4 +24,3 @@ Multi-purpose Tokens (MPTs) offer a new level of flexibility and functionality t
 |                        |                             |                               |                             |
 |:----------------------:|:---------------------------:|:-----------------------------:|:---------------------------:|
 |[![Use Cases](../../images/use-case2.png)  Create an asset-based MPT](https://xrpl-dev-portal--add-mpt-uc-1.preview.redocly.app/docs/use-cases/tokenization/creating-an-asset-backed-multi-purpose-token) | ![Use Cases](../../images/use-case2.png)  Transfer an MPT | ![Use Cases](../../images/use-case2.png)  Atomic swap of MPTs for other tokens | ![Use Cases](../../images/use-case2.png)  Swap MPTs on AMM/DEX |
-
