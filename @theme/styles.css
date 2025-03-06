@@ -69,14 +69,14 @@ html.light .not_enabled::after {
 
 /* Key Dates component */
 .key-dates {
-  background-color: #0045c6;
-  color: white;
+  background-color: #006aff;
+  color: #001c5c;
   width: 100%;
   border-radius: var(--card-border-radius);
 }
 
 .key-dates h4 {
-  background-color: #006aff;
+  background-color: #abe2ff;
   font-size: 3rem;
   line-height: 3rem;
   padding: 2rem;
