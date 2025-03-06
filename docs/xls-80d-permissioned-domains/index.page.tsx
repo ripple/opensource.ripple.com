@@ -36,7 +36,7 @@ export default function Page() {
           </KeyDatesCard>
         </Cards>
         
-        <Cards columns={2}>
+        <Cards columns={3}>
 
           <Card title="XLS Spec" to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0080-permissioned-domains">
             <p>Technical spec for the feature outlining requirements, design, and implementation details. </p>
@@ -51,6 +51,13 @@ export default function Page() {
               Read the Docs
             </Button>
           </Card>
+
+          <Card title="Blog" to="https://dev.to/ripplexdev/permissioned-domains-enabling-compliance-driven-onchain-finance-on-the-xrpl-29k2">
+            <p>An overview of the feature and why it matters to institutional issuers, explained in our latest blog post.</p>
+            <Button>
+              Read the Blog
+            </Button>
+          </Card>          
           
         </Cards>
       </LandingContainer>
