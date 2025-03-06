@@ -67,6 +67,39 @@ html.light .not_enabled::after {
     vertical-align: text-top;
 }
 
+/* Key Dates component */
+.key-dates {
+  background-color: #0045c6;
+  color: white;
+  width: 100%;
+  border-radius: var(--card-border-radius);
+}
+
+.key-dates h4 {
+  background-color: #006aff;
+  font-size: 3rem;
+  line-height: 3rem;
+  padding: 2rem;
+  text-align: center;
+  font-weight: normal;
+  margin: 0;
+  border-top-left-radius: var(--card-border-radius);
+  border-top-right-radius: var(--card-border-radius);
+}
+
+.key-dates ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.key-dates li {
+  padding: 1rem;
+  border-radius: 2rem;
+  background-color: #006aff;
+  margin: 1.5rem;
+}
+
+
 /* Fonts */
 @font-face {
   font-family: "TT Ripple";
