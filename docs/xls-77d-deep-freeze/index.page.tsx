@@ -13,7 +13,7 @@ export const frontmatter = {
 export default function Page() {
   return (
     <LandingLayout>
-      <Jumbotron bgImage={require('../../images/feature-page-banner-solid-ripple30.png')}>        
+      <Jumbotron bgImage={require('../../images/feature-page-banner-solid-ripple90.png')}>        
             <Header1>XLS-0077 Deep Freeze</Header1>
             <Header2>Prevent token misuse by frozen account holders.</Header2>
       </Jumbotron> 
