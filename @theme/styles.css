@@ -95,6 +95,7 @@ html.light .not_enabled::after {
 .key-dates li {
   padding: 1rem;
   border-radius: 2rem;
+  text-align: center;
   background-color: #006aff;
   margin: 1.5rem;
 }
