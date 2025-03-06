@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Header1, Header2, LandingContainer, LandingLayout, Jumbotron, ButtonToXRPL } from "../../components/landing";
+import { Header1, Header2, LandingContainer, LandingLayout, Jumbotron, ButtonToXRPL, KeyDatesCard, KeyDate } from "../../components/landing";
 import { Button } from "@redocly/theme";
 import { Card } from '@redocly/theme/markdoc/components/Cards/Card';
 import { Cards } from '@redocly/theme/markdoc/components/Cards/Cards';
@@ -20,12 +20,21 @@ export default function Page() {
 
       <LandingContainer>
 
-          <div style={{ maxWidth: '50%', height: 'auto' }}>
+        <Cards columns={2}>
+          <Card variant="ghost">
             <p>
               Text goes here
             </p>
-            <img src={require('./ripplex-xrpl-features-key-dates-xls80-permissioned-domains.png')} alt="Key Dates for Permissioned Domains Feature" } />
-          </div>
+          </Card>
+
+          <KeyDatesCard title="Key Dates">
+            <KeyDate date="Oct 21, 2024">XLS Spec Review Complete</KeyDate>
+            <KeyDate date="Mar 05, 2025">Feature in rippled 2.4.0</KeyDate>
+            <KeyDate date=" Mar 05, 2025">Open for voting</KeyDate>
+            <KeyDate date="TBA">Obtained ≥ 80% validators support</KeyDate>
+            <KeyDate date="TBA">Enabled on Mainnet</KeyDate>
+          </KeyDatesCard>
+        </Cards>
         
         <Cards columns={2}>
 
