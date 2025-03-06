@@ -47,9 +47,9 @@ export default function Page() {
 
           <Card title="Documentation" to="https://xrpl.org/docs/concepts/tokens/decentralized-exchange/permissioned-domains">
             <p>Explore key concepts, find detailed references, and follow step-by-step tutorials.</p>
-            <ButtonToXRPL>
+            <Button>
               Read the Docs
-            </ButtonToXRPL>
+            </Button>
           </Card>
           
         </Cards>
