@@ -6,7 +6,7 @@ import { Cards } from '@redocly/theme/markdoc/components/Cards/Cards';
 
 export const frontmatter = {
   seo: {
-    title: 'XLS-80 Permissioned Domains',
+    title: 'XLS-77 Deep Freeze',
     description: "Learn how permissioned domains enable controlled environment within the broader XRPL blockchain ecosystem" }
 };
 
@@ -14,8 +14,8 @@ export default function Page() {
   return (
     <LandingLayout>
       <Jumbotron bgImage={require('../../images/feature-page-banner-solid-ripple30.png')}>        
-            <Header1>XLS-0080 Permissioned Domains</Header1>
-            <Header2>Enabling controlled environments within the broader XRPL blockchain ecosystem.</Header2>
+            <Header1>XLS-0077 Deep Freeze</Header1>
+            <Header2>Prevent token misuse by frozen account holders.</Header2>
       </Jumbotron> 
 
       <LandingContainer>
@@ -28,7 +28,7 @@ export default function Page() {
           </Card>
 
           <KeyDatesCard title="Key Dates">
-            <KeyDate date="Oct 21, 2024">XLS Spec Review Complete</KeyDate>
+            <KeyDate date="Dec 17, 2024">XLS Spec Review Complete</KeyDate>
             <KeyDate date="Mar 06, 2025">Feature in rippled 2.4.0</KeyDate>
             <KeyDate date=" Mar 06, 2025">Open for voting</KeyDate>
             <KeyDate date="TBA">Obtained ≥ 80% validators support</KeyDate>
@@ -36,9 +36,9 @@ export default function Page() {
           </KeyDatesCard>
         </Cards>
         
-        <Cards columns={2}>
+        <Cards columns={3}>
 
-          <Card title="XLS Spec" to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0080-permissioned-domains">
+          <Card title="XLS Spec" to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0077-deep-freeze">
             <p>Technical spec for the feature outlining requirements, design, and implementation details. </p>
             <Button size="large" variant="primary">
               Read the XLS Spec
@@ -52,6 +52,13 @@ export default function Page() {
             </ButtonToXRPL>
           </Card>
           
+          <Card title="Blog" to="https://dev.to/ripplexdev/deep-freeze-strengthening-institutional-asset-control-on-xrpl-2j2a">
+            <p>An overview of the feature and why it matters to institutional issuers, explained in our latest blog post.</p>
+            <ButtonToXRPL>
+              Read the Blog
+            </ButtonToXRPL>
+          </Card>
+
         </Cards>
       </LandingContainer>
 
