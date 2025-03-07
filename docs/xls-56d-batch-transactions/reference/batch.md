@@ -11,21 +11,18 @@ The `Batch` transaction submits up to eight transactions in a single batch. Each
 
 ## Example Batch JSON
 
-In this example, the user is creating an offer while trading on a DEX UI, and the second transaction is a platform fee.
+In this example, the user is creating an offer while trading on a DEX UI, and the second transaction is a platform fee. The inner transactions are not signed, and the `BatchSigners` field is not needed on the outer transaction, since there is only one account involved.
 
 ```json
 {
   TransactionType: "Batch",
   Account: "rUserBSM7T3b6nHX3Jjua62wgX9unH8s9b",
-  Flags: "1",
-  TxnIDs: [
-    "7EB435C800D7DC10EAB2ADFDE02EE5667C0A63AA467F26F90FD4CBCD6903E15E",
-    "EAE6B33078075A7BA958434691B896CCA4F532D618438DE6DDC7E3FB7A4A0AAB"
-  ],
+  Flags: 0x00010000,
   RawTransactions: [
     {
       RawTransaction: {
         TransactionType: "OfferCreate",
+        Flags: 1073741824,
         Account: "rUserBSM7T3b6nHX3Jjua62wgX9unH8s9b",
         TakerGets: "6000000",
         TakerPays: {
@@ -33,32 +30,21 @@ In this example, the user is creating an offer while trading on a DEX UI, and th
           issuer: "ruazs5h1qEsqpke88pcqnaseXdm6od2xc",
           value: "2"
         },
-        BatchTxn: {
-          Account: "rUserBSM7T3b6nHX3Jjua62wgX9unH8s9b",
-          OuterSequence: 3,
-          BatchIndex: 0
-        },
-        Sequence: 0,
+        Sequence: 4,
         Fee: "0",
-        SigningPubKey: "",
-        TxnSignature: ""
+        SigningPubKey: ""
       }
     },
     {
       RawTransaction: {
         TransactionType: "Payment",
+        Flags: 1073741824,
         Account: "rUserBSM7T3b6nHX3Jjua62wgX9unH8s9b",
         Destination: "rDEXfrontEnd23E44wKL3S6dj9FaXv",
         Amount: "1000",
-        BatchTxn: {
-          Account: "rUserBSM7T3b6nHX3Jjua62wgX9unH8s9b",
-          OuterSequence: 3,
-          BatchIndex: 1
-        },
-        Sequence: 0,
+        Sequence: 5,
         Fee: "0",
-        SigningPubKey: "",
-        TxnSignature: ""
+        SigningPubKey: ""
       }
     }
   ],
@@ -69,10 +55,82 @@ In this example, the user is creating an offer while trading on a DEX UI, and th
 }
 ```
 
+### Sample Ledger Confirmation
+
+This example shows what the ledger looks like after the transaction is confirmed.
+Note that the inner transactions are committed as normal transactions.
+
+```json
+[
+  {
+    TransactionType: "Batch",
+    Account: "rUserBSM7T3b6nHX3Jjua62wgX9unH8s9b",
+    Flags: 0x00010000,
+    RawTransactions: [
+      {
+        RawTransaction: {
+          TransactionType: "OfferCreate",
+          Flags: 1073741824,
+          Account: "rUserBSM7T3b6nHX3Jjua62wgX9unH8s9b",
+          TakerGets: "6000000",
+          TakerPays: {
+            currency: "GKO",
+            issuer: "ruazs5h1qEsqpke88pcqnaseXdm6od2xc",
+            value: "2"
+          },
+          Sequence: 4,
+          Fee: "0",
+          SigningPubKey: ""
+        }
+      },
+      {
+        RawTransaction: {
+          TransactionType: "Payment",
+          Flags: 1073741824,
+          Account: "rUserBSM7T3b6nHX3Jjua62wgX9unH8s9b",
+          Destination: "rDEXfrontEnd23E44wKL3S6dj9FaXv",
+          Amount: "1000",
+          Sequence: 5,
+          Fee: "0",
+          SigningPubKey: ""
+        }
+      }
+    ],
+    Sequence: 3,
+    Fee: "40",
+    SigningPubKey: "022D40673B44C82DEE1DDB8B9BB53DCCE4F97B27404DB850F068DD91D685E337EA",
+    TxnSignature: "3045022100EC5D367FAE2B461679AD446FBBE7BA260506579AF4ED5EFC3EC25F4DD1885B38022018C2327DB281743B12553C7A6DC0E45B07D3FC6983F261D7BCB474D89A0EC5B8"
+  },
+  {
+    TransactionType: "OfferCreate",
+    Flags: 1073741824,
+    Account: "rUserBSM7T3b6nHX3Jjua62wgX9unH8s9b",
+    TakerGets: "6000000",
+    TakerPays: {
+      currency: "GKO",
+      issuer: "ruazs5h1qEsqpke88pcqnaseXdm6od2xc",
+      value: "2"
+    },
+    Sequence: 4,
+    Fee: "0",
+    SigningPubKey: ""
+  },
+  {
+    TransactionType: "Payment",
+    Flags: 1073741824,
+    Account: "rUserBSM7T3b6nHX3Jjua62wgX9unH8s9b",
+    Destination: "rDEXfrontEnd23E44wKL3S6dj9FaXv",
+    Amount: "1000",
+    Sequence: 5,
+    Fee: "0",
+    SigningPubKey: ""
+  }
+]
+```
+
 ### Sample Ledger
 
-This example shows what the ledger will look like after the transaction is confirmed.
-Note that the inner transactions are committed as normal transactions, and the RawTransactions field is not included in the validated version of the outer transaction.
+This example shows what the ledger will look like after the transaction is confirmed. Note that the inner transactions are committed as normal transactions, and the RawTransactions field is not included in the validated version of the outer transaction.
 
 ```json
 [
@@ -199,44 +257,30 @@ The fields contained in this object are as follows.
 
 ## Example Multiple Account Batch JSON
 
-In this example, two users are atomically swapping their tokens, XRP for GKO.
+In this example, two users are atomically swapping their tokens, XRP for GKO. The inner transactions still are not signed, but the `BatchSigners` field is needed on the outer transaction, since there are two accounts' inner transactions in this `Batch` transaction.
 
 ```json
-In this example, two users are atomically swapping their tokens, XRP for GKO.
-
-6.2.1. Sample Transaction
-The inner transactions are still not signed, but the BatchSigners field is needed on the outer transaction, since there are two accounts' inner transactions in this Batch transaction.
-
 {
   TransactionType: "Batch",
   Account: "rUser1fcu9RJa5W1ncAuEgLJF2oJC6",
-  Flags: "1",
-  TxnIDs: [
-    "A2986564A970E2B206DC8CA22F54BB8D73585527864A4484A5B0C577B6F13C95",
-    "0C4316F7E7D909E11BB7DBE0EB897788835519E9950AE8E32F5182468361FE7E"
-  ],
+  Flags: 0x00010000,
   RawTransactions: [
     {
       RawTransaction: {
         TransactionType: "Payment",
+        Flags: 1073741824,
         Account: "rUser1fcu9RJa5W1ncAuEgLJF2oJC6",
         Destination: "rUser2fDds782Bd6eK15RDnGMtxf7m",
         Amount: "6000000",
-        BatchTxn: {
-          Account: "rUser1fcu9RJa5W1ncAuEgLJF2oJC6",
-          OuterSequence: 4,
-          Sequence: 4,
-          BatchIndex: 0
-        },
-        Sequence: 0,
+        Sequence: 5,
         Fee: "0",
-        SigningPubKey: "",
-        TxnSignature: ""
+        SigningPubKey: ""
       }
     },
     {
       RawTransaction: {
         TransactionType: "Payment",
+        Flags: 1073741824,
         Account: "rUser2fDds782Bd6eK15RDnGMtxf7m",
         Destination: "rUser1fcu9RJa5W1ncAuEgLJF2oJC6",
         Amount: {
@@ -244,32 +288,18 @@ The inner transactions are still not signed, but the BatchSigners field is neede
           issuer: "ruazs5h1qEsqpke88pcqnaseXdm6od2xc",
           value: "2"
         },
-        BatchTxn: {
-          Account: "rUser1fcu9RJa5W1ncAuEgLJF2oJC6",
-          OuterSequence: 4,
-          Sequence: 20,
-          BatchIndex: 1
-        },
-        Sequence: 0,
+        Sequence: 20,
         Fee: "0",
-        SigningPubKey: "",
-        TxnSignature: ""
+        SigningPubKey: ""
       }
     }
   ],
   BatchSigners: [
     {
       BatchSigner: {
-        Account: "rUser1fcu9RJa5W1ncAuEgLJF2oJC6",
-        SigningPubKey: "03072BBE5F93D4906FC31A690A2C269F2B9A56D60DA9C2C6C0D88FB51B644C6F94",
-        Signature: "304502210083DF12FA60E2E743643889195DC42C10F62F0DE0A362330C32BBEC4D3881EECD022010579A01E052C4E587E70E5601D2F3846984DB9B16B9EBA05BAD7B51F912B899"
-      }
-    },
-    {
-      BatchSigner: {
         Account: "rUser2fDds782Bd6eK15RDnGMtxf7m",
         SigningPubKey: "03C6AE25CD44323D52D28D7DE95598E6ABF953EECC9ABF767F13C21D421C034FAB",
-        Signature: "304502210083DF12FA60E2E743643889195DC42C10F62F0DE0A362330C32BBEC4D3881EECD022010579A01E052C4E587E70E5601D2F3846984DB9B16B9EBA05BAD7B51F912B899"
+        TxnSignature: "304502210083DF12FA60E2E743643889195DC42C10F62F0DE0A362330C32BBEC4D3881EECD022010579A01E052C4E587E70E5601D2F3846984DB9B16B9EBA05BAD7B51F912B899"
       }
     },
   ],
@@ -280,34 +310,50 @@ The inner transactions are still not signed, but the BatchSigners field is neede
 }
 ```
 
-### Sample Ledger
-
-This example shows what the ledger will look like after the transaction is confirmed.
-Note that the inner transactions are committed as normal transactions, and the RawTransactions field is not included in the validated version of the outer transaction.
+#### Sample Ledger Response
 
 ```json
 [
   {
     TransactionType: "Batch",
     Account: "rUser1fcu9RJa5W1ncAuEgLJF2oJC6",
-    Flags: "1",
-    TxnIDs: [
-      "A2986564A970E2B206DC8CA22F54BB8D73585527864A4484A5B0C577B6F13C95",
-      "0C4316F7E7D909E11BB7DBE0EB897788835519E9950AE8E32F5182468361FE7E"
+    Flags: 0x00010000,
+    RawTransactions: [
+      {
+        RawTransaction: {
+          TransactionType: "Payment",
+          Flags: 1073741824,
+          Account: "rUser1fcu9RJa5W1ncAuEgLJF2oJC6",
+          Destination: "rUser2fDds782Bd6eK15RDnGMtxf7m",
+          Amount: "6000000",
+          Sequence: 5,
+          Fee: "0",
+          SigningPubKey: ""
+        }
+      },
+      {
+        RawTransaction: {
+          TransactionType: "Payment",
+          Flags: 1073741824,
+          Account: "rUser2fDds782Bd6eK15RDnGMtxf7m",
+          Destination: "rUser1fcu9RJa5W1ncAuEgLJF2oJC6",
+          Amount: {
+            currency: "GKO",
+            issuer: "ruazs5h1qEsqpke88pcqnaseXdm6od2xc",
+            value: "2"
+          },
+          Sequence: 20,
+          Fee: "0",
+          SigningPubKey: ""
+        }
+      }
     ],
     BatchSigners: [
       {
         BatchSigner: {
-          Account: "rUser1fcu9RJa5W1ncAuEgLJF2oJC6",
-          SigningPubKey: "03072BBE5F93D4906FC31A690A2C269F2B9A56D60DA9C2C6C0D88FB51B644C6F94",
-          Signature: "304502210083DF12FA60E2E743643889195DC42C10F62F0DE0A362330C32BBEC4D3881EECD022010579A01E052C4E587E70E5601D2F3846984DB9B16B9EBA05BAD7B51F912B899"
-        }
-      },
-      {
-        BatchSigner: {
           Account: "rUser2fDds782Bd6eK15RDnGMtxf7m",
           SigningPubKey: "03C6AE25CD44323D52D28D7DE95598E6ABF953EECC9ABF767F13C21D421C034FAB",
-          Signature: "304502210083DF12FA60E2E743643889195DC42C10F62F0DE0A362330C32BBEC4D3881EECD022010579A01E052C4E587E70E5601D2F3846984DB9B16B9EBA05BAD7B51F912B899"
+          TxnSignature: "304502210083DF12FA60E2E743643889195DC42C10F62F0DE0A362330C32BBEC4D3881EECD022010579A01E052C4E587E70E5601D2F3846984DB9B16B9EBA05BAD7B51F912B899"
         }
       },
     ],
@@ -318,22 +364,17 @@ Note that the inner transactions are committed as normal transactions, and the R
   },
   {
     TransactionType: "Payment",
+    Flags: 1073741824,
     Account: "rUser1fcu9RJa5W1ncAuEgLJF2oJC6",
     Destination: "rUser2fDds782Bd6eK15RDnGMtxf7m",
     Amount: "6000000",
-    BatchTxn: {
-      Account: "rUser1fcu9RJa5W1ncAuEgLJF2oJC6",
-      OuterSequence: 4,
-      Sequence: 4,
-      BatchIndex: 0
-    },
-    Sequence: 0,
+    Sequence: 5,
     Fee: "0",
-    SigningPubKey: "",
-    TxnSignature: ""
+    SigningPubKey: ""
   },
   {
     TransactionType: "Payment",
+    Flags: 1073741824,
     Account: "rUser2fDds782Bd6eK15RDnGMtxf7m",
     Destination: "rUser1fcu9RJa5W1ncAuEgLJF2oJC6",
     Amount: {
@@ -341,16 +382,9 @@ Note that the inner transactions are committed as normal transactions, and the R
       issuer: "ruazs5h1qEsqpke88pcqnaseXdm6od2xc",
       value: "2"
     },
-    BatchTxn: {
-      Account: "rUser1fcu9RJa5W1ncAuEgLJF2oJC6",
-      OuterSequence: 4,
-      Sequence: 20,
-      BatchIndex: 1
-    },
-    Sequence: 0,
+    Sequence: 20,
     Fee: "0",
-    SigningPubKey: "",
-    TxnSignature: ""
+    SigningPubKey: ""
   }
 ]
 ```
