@@ -50,17 +50,15 @@ Each inner transaction:
 
 A transaction is considered a failure if it receives any result that is not `tesSUCCESS`.
 
-<!-- 
-The `RawTransactions` field is not included in the validated transaction, nor is it used to compute the outer transaction signature(s), since all transactions are included separately as a part of the ledger.
--->
+### Transaction Common Flag
 
-<!-- 
-### BatchTxn
+`Batch` adds a global transaction flag.
 
-The `BatchTxn` inner object must be included in any inner transaction of a `Batch` transaction. It prevents hash collisions between identical transactions (since sequence numbers aren't included). It ensures that every transaction has a sequence number associated with it, so that created ledger objects that use it in their ID generation can still operate. It allows users to more easily organize their transactions in the correct order.
+| Flag Name         |	Value      |
+|-------------------|------------|
+| `tfInnerBatchTxn`	| 0x40000000 |
 
-It captures the account submitting the outer transaction, the sequence number of the outer transaction, the sequence number of the outer transaction. If it is a multi-account transaction, it captures the next available sequence number in the inner transaction's account.
--->
+This flag is only used if a transaction is an inner transaction in a Batch transaction. This signifies that the transaction isn't signed. Any normal transaction that includes this flag is rejected.
 
 ### BatchSigners
 
@@ -88,11 +86,6 @@ These fields are included if the account is signing with a single signature (as 
 #### Signers
 This field is included if the account is signing with multi-sign (as opposed to a single signature). It operates equivalently to the `Signers` field used in standard transaction multi-sign. This field holds the signatures for the `Flags` field and the hashes of the transactions in `RawTransactions`.
 
-
-<!-- ## Transaction IDs
-
-`TxnIDs` conatains a list of the transaction hashes/IDs for all transactions contained in `RawTranscations`. This is the only information about the inner transactions that is stored on the ledger within the `Batch` transaction, since the inner transactions themselves have their own transactions on the ledger. The hashes in `TxnIDs` must be in the same order as the inner transactions in `RawTransactions`. -->
-
 ## Transaction Fee
 
 The fee for the outer transaction is twice the base fee (a total of 20 drops when there is no fee escalation), plus the sum of the transaction fees of all the inner transactions (which incorporates factors like higher fees for `multisign` or `AMMCreate`), plus an additional base fee amount for each additional signature in the transaction (for example, from `BatchSigners`).
@@ -115,13 +108,6 @@ For example, a ledger that only has one `Batch` transaction containing 2 inner t
 
 Each outer transaction contains the metadata for its sequence and fee processing, not for the inner transaction processing. Any error code is only based on the outer transaction processing (for example, sequence and fee), and it returns a tesSUCCESS error even if inner transaction processing fails.
 
-<!--
-There is also a list of which transactions are actually processed, which is useful for the ONLYONE and UNTILFAILURE modes, since those might only process a subset of transactions. It can also hellp with debugging all modes. This section is called `BatchExecutions`. It contains a list of objects with the `TransactionHash` and `TransactionResult` for every transaction processed (whether or not it succeeds).
-
-It's possible that not every transaction is included in the list. For example, when using`ONLYONE` mode, once a transaction succeeds, all other transactions are skipped.
-
-Transactions are only included in the ledger if their result code is `tesSuccess` and the outer transaction has a result code of `tesSuccess`. For example, an inner transaction might have a result code of `tesSuccess` without being included in the ledger if you use the `ALLORNOTHING` mode and another transaction in the batch fails.
--->
 ### Inner Transaction
 
 Each inner transaction contains the metadata for its own processing. Only the inner transactions that are actually committed to the ledger are included. This makes it easier for legacy systems to process `Batch` transactions as if they were normal.
@@ -136,22 +122,6 @@ This standard doesn't add any new fields to the transaction common fields, but i
 | tfInnerBatchTxn	| 0x40000000 |
 
 This flag should be used only if a transaction is an inner transaction in a `Batch` transaction. This signifies that the transaction shouldn't be signed. Any normal transaction that includes this flag should be rejected.
-
-<!-- ## Edge Cases
-
-Inner transactions don't have `Sequences` or `TicketSequences`, unlike a normal transaction. This causes some problems when it comes to transaction processing, due to a few edge cases.
-
-### Ledger Object ID Generation
-
-Some objects, such as offers and escrows, use the sequence number of the creation transaction as a part of their ledger entry ID generation, to ensure uniqueness of the IDs.
-
-To get around this, in single-account Batch transactions, a _phantom sequence number_ is used instead. The phantom sequence number is equal to `BatchTxn.OuterSequence` + `BatchTxn.BatchIndex`.
-
-Multi-account transactions use the same phantom sequence number strategy, using `BatchTxn.Sequence` + `BatchTxn.BatchIndex`, since the outer sequence doesn't map to the inner transaction's account.
-
-### Sequence Number Handling
-
-Sequence numbers are always consumed (i.e. the AccountRoot's Sequence is incremented) if any inner transactions are processed. A transaction counts as being "processed" if it is applied to the ledger (that is, if a `tec` or `tes` error is received). The sequence number for each account is incremented by the total number of inner transactions included in the `Batch` transaction, to avoid any hash collisions. -->
 
 ## Security
 
@@ -177,5 +147,3 @@ If Alice just signs her part of the Batch transaction, Bob can modify his transa
 An inner batch transaction is a special case. It doesn't include a signature or a fee (since those are both included in the outer transaction). Therefore, they must be handled carefully to ensure that someone can't somehow directly submit an inner `Batch` transaction without it being included in an outer transaction.
 
 Inner transactions cannot be broadcast (and won't be accepted if they happen to be broadcast, for example, from a malicious node). They must be generated from the `Batch` outer transaction instead. Inner transactions cannot be directly submitted via the submit RPC.
-
-

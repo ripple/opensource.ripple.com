@@ -17,7 +17,6 @@ Every transaction has the same set of common fields, plus additional fields base
 | `Fee`                | String           | Amount            | _(Required; [auto-fillable](https://xrpl.org/docs/references/protocol/transactions/common-fields#auto-fillable-fields))_ Integer amount of XRP, in drops, to be destroyed as a cost for distributing this transaction to the network. Some transaction types have different minimum requirements. See [Transaction Cost](https://xrpl.org/docs/concepts/transactions/transaction-cost/) for details. |
 | `Sequence`           | Number           | UInt32            | _(Required; [auto-fillable](https://xrpl.org/docs/references/protocol/transactions/common-fields#auto-fillable-fields))_ The [sequence number](https://xrpl.org/docs/references/protocol/data-types/basic-data-types/#account-sequence) of the account sending the transaction. A transaction is only valid if the `Sequence` number is exactly 1 greater than the previous transaction from the same account. The special case `0` means the transaction is using a [Ticket](https://xrpl.org/docs/concepts/accounts/tickets/) instead _(Added by the [TicketBatch amendment](https://xrpl.org/resources/known-amendments/#ticketbatch).)_. |
 | [`AccountTxnID`](#accounttxnid) | String | Hash256          | _(Optional)_ Hash value identifying another transaction. If provided, this transaction is only valid if the sending account's previously sent transaction matches the provided hash. |
-| [`BatchTxn`](#batchtxn)         | object | STObject         | _(Optional)_ The `BatchTxn` inner object must be included in any inner transaction of a `Batch` transaction. |
 | [`Flags`](#flags-field) | Number        | UInt32            | _(Optional)_ Set of bit-flags for this transaction. |
 | `LastLedgerSequence` | Number           | UInt32            | _(Optional; strongly recommended)_ Highest ledger index this transaction can appear in. Specifying this field places a strict upper limit on how long the transaction can wait to be validated or rejected. See [Reliable Transaction Submission](https://xrpl.org/docs/concepts/transactions/reliable-transaction-submission/) for more details. |
 | [`Memos`](#memos-field) | Array of Objects | Array          | _(Optional)_ Additional arbitrary information used to identify this transaction. |
@@ -86,11 +85,12 @@ Bits that are not defined as flags MUST be 0. (The [fix1543 amendment](https://x
 
 ### Global Flags
 
-The only flag that applies globally to all transactions is as follows:
+The following flags apply globally to all transactions:
 
 | Flag Name             | Hex Value  | Decimal Value | Description               |
 |:----------------------|:-----------|:--------------|:--------------------------|
 | `tfFullyCanonicalSig` | `0x80000000` | 2147483648  | **DEPRECATED** No effect. (If the [RequireFullyCanonicalSig amendment](https://xrpl.org/resources/known-amendments/#requirefullycanonicalsig) is not enabled, this flag enforces a [fully canonical signature](https://xrpl.org/docs/concepts/transactions/finality-of-results/transaction-malleability/#alternate-secp256k1-signatures).) |
+| `tfInnerBatchTxn`     | `0x40000000` | Indicates that the transaction is an inner transaction in a `Batch` transaction. It signifies that the transaction isn't signed. Any normal transaction the includes this flag is rejected. |
 
 When using the [sign method](https://xrpl.org/docs/references/http-websocket-apis/admin-api-methods/signing-methods/sign/) (or [submit method](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/transaction-methods/submit/) in "sign-and-submit" mode), `rippled` adds a `Flags` field with `tfFullyCanonicalSig` enabled unless the `Flags` field is already present. The `tfFullyCanonicalSig` flag is not automatically enabled if `Flags` is explicitly specified. The flag is not automatically enabled when using the [sign_for method](https://xrpl.org/docs/references/http-websocket-apis/admin-api-methods/signing-methods/sign_for/) to add a signature to a multi-signed transaction.
 
