@@ -8,7 +8,7 @@ labels:
 
 # MPTokenIssuance
 
-[[Source]](https://github.com/XRPLF/rippled/blob/9d619b9dc579c592f0560c1b40fd3c98d7587d23/include/xrpl/protocol/detail/ledger_entries.macro#L465-L486 "Source")
+[[Source]](https://github.com/Bronek/rippled/blob/vault/include/xrpl/protocol/detail/ledger_entries.macro#L394-L409 "Source")
 
 The {% code-page-name /%} object represents a vault share on the ledger. An {% code-page-name /%} object is created and deleted together with the `Vault` object.
 

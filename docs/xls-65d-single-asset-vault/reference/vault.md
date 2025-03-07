@@ -8,7 +8,7 @@ labels:
 
 # Vault
 
-[[Source]](https://github.com/XRPLF/rippled/blob/9d619b9dc579c592f0560c1b40fd3c98d7587d23/include/xrpl/protocol/detail/ledger_entries.macro#L469-L486 "Source")
+[[Source]](https://github.com/Bronek/rippled/blob/vault/include/xrpl/protocol/detail/ledger_entries.macro#L465-L486 "Source")
 
 A {% code-page-name /%} object defines the state of a tokenized vault. It contains key details such as available assets, shares, total value, and other relevant information. You can create a {% code-page-name /%} object with the [VaultCreate](./transactions/vault-create.md)  transaction.
 
@@ -34,7 +34,6 @@ _(Requires the [Single Asset Vault amendment][] {% not-enabled /%})_
   "Asset": {
     "currency": "USD",
     "issuer": "rIssuer1234567890abcdef1234567890abcdef",
-    "value": "1000"
   },
   "AssetTotal": 1000000,
   "AssetAvailable": 800000,

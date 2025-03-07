@@ -8,7 +8,7 @@ labels:
 
 # VaultWithdraw
 
-[[Source]](https://github.com/XRPLF/rippled/blob/9d619b9dc579c592f0560c1b40fd3c98d7587d23/src/xrpld/app/tx/detail/VaultWithdraw.cpp "Source")
+[[Source]](https://github.com/Bronek/rippled/blob/vault/src/xrpld/app/tx/detail/VaultWithdraw.cpp "Source")
 
 Redeem vault shares for assets. The number of shares burned or assets received depends on the [exchange rate](../../concepts/single-asset-vault.md#exchange-algorithm), which adjusts based on the vault’s total assets and any [unrealized losses](../../concepts/single-asset-vault.md#paper-loss-unrealized-loss).
 

@@ -8,7 +8,7 @@ labels:
 
 # VaultDelete
 
-[[Source]](https://github.com/XRPLF/rippled/blob/9d619b9dc579c592f0560c1b40fd3c98d7587d23/src/xrpld/app/tx/detail/VaultDelete.cpp "Source")
+[[Source]](https://github.com/Bronek/rippled/blob/vault/src/xrpld/app/tx/detail/VaultDelete.cpp "Source")
 
 Permanently deletes an existing `Vault` object from the ledger, removes all associated ledger entries, and returns the owner reserve to the Vault Owner.
 

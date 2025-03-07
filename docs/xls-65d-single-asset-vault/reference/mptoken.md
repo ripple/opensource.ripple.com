@@ -8,7 +8,7 @@ labels:
 
 # MPToken
 
-[[Source]](https://github.com/XRPLF/rippled/blob/9d619b9dc579c592f0560c1b40fd3c98d7587d23/include/xrpl/protocol/detail/ledger_entries.macro#L411-L421 "Source")
+[[Source]](https://github.com/Bronek/rippled/blob/vault/include/xrpl/protocol/detail/ledger_entries.macro#L411-L421 "Source")
 
 The {% code-page-name /%} object represents the amount of shares held by a depositor. It is created when the account deposits liquidity into the vault and is deleted when a depositor redeems, or transfers, all shares.
 

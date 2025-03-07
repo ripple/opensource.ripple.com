@@ -8,7 +8,7 @@ labels:
 
 # VaultDeposit
 
-[[Source]](https://github.com/XRPLF/rippled/blob/9d619b9dc579c592f0560c1b40fd3c98d7587d23/src/xrpld/app/tx/detail/VaultDeposit.cpp "Source")
+[[Source]](https://github.com/Bronek/rippled/blob/vault/src/xrpld/app/tx/detail/VaultDeposit.cpp "Source")
 
 Deposits a specified number of assets into a vault in exchange for shares.
 

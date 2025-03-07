@@ -8,7 +8,7 @@ labels:
 
 # VaultCreate
 
-[[Source]](https://github.com/XRPLF/rippled/blob/9d619b9dc579c592f0560c1b40fd3c98d7587d23/src/xrpld/app/tx/detail/VaultCreate.cpp "Source")
+[[Source]](https://github.com/Bronek/rippled/blob/vault/src/xrpld/app/tx/detail/VaultCreate.cpp "Source")
 
 Creates a new `Vault` ledger entry, an `MPTokenIssuance` ledger entry for the vault’s shares, and an `AccountRoot` for the vault’s [pseudo-account](../../concepts/pseudo-account.md).
 
@@ -34,7 +34,6 @@ _(Requires the [Single Asset Vault amendment][] {% not-enabled /%})_
   "Asset": {
     "currency": "USD",
     "issuer": "rIssuer1234567890abcdef1234567890abcdef",
-    "value": "1000"
   },
   "AssetMaximum": 0,
   "MPTokenMetadata": "5468697320697320617262697472617279206d657461646174612061626f757420746865204d50542073686172652e",
@@ -83,7 +82,7 @@ Besides errors that can occur for all transactions, {% code-page-name /%} transa
 
 | Error Code                | Description                        |
 | :------------------------ | :----------------------------------|
-| `tecLOCKED`               | Occurs if the asset is an MPT and the `lsfMPTCanTransfer` flag is not set in the `MPTokenIssuance` object, meaning the vault cannot be created with a non-transferable MPT. |
+| `tecNO_AUTH`              | Occurs if the asset is an MPT and the `lsfMPTCanTransfer` flag is not set in the `MPTokenIssuance` object, meaning the vault cannot be created with a non-transferable MPT. |
 | `tecLOCKED`               | Occurs if the asset is an MPT and the `lsfMPTLocked` flag is not set in the `MPTokenIssuance` object, meaning the asset is locked. |
 | `tecFROZEN`               | Occurs if the asset is a Fungible Token and the `lsfGlobalFreeze` flag is set on the `VaultOwner`. This means a vault cannot be created for a frozen asset. |
 | `temMALFORMED`            | Occurs when the `tfVaultPrivate` flag is not set, and a `DomainID` is provided, meaning the `VaultOwner` is attempting to create a public vault with a `PermissionedDomain`. |
