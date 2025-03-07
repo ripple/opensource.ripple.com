@@ -17,7 +17,7 @@ A pseudo-account is a special type of account that holds assets on behalf of an 
 
 - **Lending Protocol**: While still in development, this protocol is expected to use pseudo-accounts to hold loan funds.
 
-A pseudo-account has strict limitations. It cannot receive payments from other accounts, cannot send transactions, as it has no signing authority, and exists solely to store or issue assets, such as vault shares.
+A pseudo-account has strict limitations. It cannot receive payments from other accounts, cannot send transactions since it has no signing authority, and exists solely to store or issue assets.
 
 ## Transaction Cost
 
