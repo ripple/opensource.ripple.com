@@ -14,7 +14,7 @@ export const frontmatter = {
 export default function Page() {
   return (
     <LandingLayout>
-      <Jumbotron bgImage={require('images/heroimg.png')}>
+      <Jumbotron bgImage={require('images/heroimg-solid-ripple50.png')}>
       
         <Header1>Open Source Projects</Header1>
         <Header2>Explore open source projects currently in development.</Header2>
