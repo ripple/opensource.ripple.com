@@ -75,4 +75,29 @@ function ButtonToXRPL({ children }) {
   </XRPLStyledButton>
 }
 
-export { Header1, Header2, LandingContainer, LandingLayout, Jumbotron, ButtonToXRPL };
+function KeyDatesCard(props: {
+    title:string, 
+    children: React.ReactNode
+  }) {
+  return (
+  <div className="key-dates card-variant-filled">
+    <h4>{props.title}</h4>
+    <ul>
+      {props.children}
+    </ul>
+  </div>
+  )
+}
+
+function KeyDate(props: {
+    date:string,
+    children: React.ReactNode
+  }) {
+  return (
+    <li>
+      <strong>{props.date}</strong>: {props.children}
+    </li>
+  )
+}
+
+export { Header1, Header2, LandingContainer, LandingLayout, Jumbotron, ButtonToXRPL, KeyDatesCard, KeyDate };
