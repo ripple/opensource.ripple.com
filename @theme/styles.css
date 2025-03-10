@@ -67,6 +67,17 @@ html.light .not_enabled::after {
     vertical-align: text-top;
 }
 
+.cols_2_to_1 {
+  display: grid;
+  gap: var(--cards-gap);
+  grid-template-columns: minmax(max(calc(2 * (100% - 2 * var(--cards-gap)) / 3) + var(--cards-gap),240px),1fr) 1fr;
+}
+
+.vcentered {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 /* Key Dates component */
 .key-dates {
   background-color: #abe2ff;
@@ -77,9 +88,9 @@ html.light .not_enabled::after {
 
 .key-dates h4 {
   background-color: #006aff;
-  font-size: 3rem;
-  line-height: 3rem;
-  padding: 2rem;
+  font-size: 2rem;
+  line-height: 2rem;
+  padding: .75rem;
   text-align: center;
   font-weight: normal;
   margin: 0;
@@ -93,11 +104,11 @@ html.light .not_enabled::after {
 }
 
 .key-dates li {
-  padding: 1rem;
+  padding: .5rem;
   border-radius: 2rem;
   text-align: center;
   background-color: #006aff;
-  margin: 1.5rem;
+  margin: 1rem;
 }
 
 

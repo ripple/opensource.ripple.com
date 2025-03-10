@@ -16,7 +16,7 @@
             - page: docs/xls-56d-batch-transactions/reference/batch.md
             - page: docs/xls-56d-batch-transactions/reference/common-fields.md
     - page: docs/xls-69d/index.md # simulate
-    - page: docs/xls-77d-deep-freeze/index.md
+    - page: docs/xls-77d-deep-freeze/index.page.tsx
       expanded: false
       items:
         - page: docs/xls-77d-deep-freeze/deep-freeze.md

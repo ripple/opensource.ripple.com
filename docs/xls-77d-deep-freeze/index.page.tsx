@@ -20,12 +20,10 @@ export default function Page() {
 
       <LandingContainer>
 
-        <Cards columns={2}>
-          <Card variant="ghost">
-            <p>
-              Text goes here
-            </p>
-          </Card>
+        <div className="cols_2_to_1">
+          <p className="vcentered">
+            Deep Freeze lets token issuers on the XRP Ledger prevent token misuse by frozen account holders. It enhances interactions between frozen assets and payments, ensuring that frozen token holders cannot receive funds until or unless their trust line is unfrozen. These changes enable token issuers to more easily comply with regulations on the XRPL.
+          </p>
 
           <KeyDatesCard title="Key Dates">
             <KeyDate date="Dec 17, 2024">XLS Spec Review Complete</KeyDate>
@@ -34,7 +32,7 @@ export default function Page() {
             <KeyDate date="TBA">Obtained ≥ 80% validators support</KeyDate>
             <KeyDate date="TBA">Enabled on Mainnet</KeyDate>
           </KeyDatesCard>
-        </Cards>
+        </div>
         
         <Cards columns={3}>
 
