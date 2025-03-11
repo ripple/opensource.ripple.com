@@ -49,7 +49,7 @@ In addition to the [common fields](https://xrpl.org/docs/references/protocol/tra
 | Field Name         | JSON Type     | [Internal Type][] | Required? |Description        |
 |:-------------------|:--------------|:------------------|:----------|:------------------|
 | `Data`             | String        | Blob              | No        | Arbitrary vault metadata, in hex format, limited to 256 bytes. |
-| `Asset`            | String/Object | Issue             | Yes       | The asset to be held in the vault. This can be XRP, a Fungible Token, or an MPT. If the asset is a Fungible Token, the transaction creates a [trust line](https://xrpl.org/docs/concepts/tokens/fungible-tokens#trust-lines) between the vault's `pseudo-account` and the issuer of the asset. If the asset is an MPT, the transaction creates an `MPToken` object for the vault's `pseudo-account`.  |
+| `Asset`            | Object        | Issue             | Yes       | The asset to be held in the vault. This can be XRP, a Fungible Token, or an MPT. If the asset is a Fungible Token, the transaction creates a [trust line](https://xrpl.org/docs/concepts/tokens/fungible-tokens#trust-lines) between the vault's `pseudo-account` and the issuer of the asset. If the asset is an MPT, the transaction creates an `MPToken` object for the vault's `pseudo-account`.  |
 | `AssetMaximum`     | Number        | UInt64            | No        | The maximum asset amount that can be held in a vault. |
 | `MPTokenMetadata`  | String        | Blob              | No        | Arbitrary metadata about the share `MPToken`, in hex format, limited to 1024 bytes. Use this field if the vault's asset is an MPT. |
 | `WithdrawalPolicy` | Number        | UInt8             | No        | Indicates the withdrawal strategy used by the vault. The default value is `0x0001`, mapped to the string `strFirstComeFirstServe`. See [WithdrawalPolicy](#withdrawalpolicy). |
@@ -68,9 +68,9 @@ In addition to the [common fields](https://xrpl.org/docs/references/protocol/tra
 
 A `WithdrawalPolicy` defines the strategy for processing withdrawal requests from a vault. This policy governs how liquidity is removed. Currently, only one strategy is supported:
 
-| Policy Name              | Value    | Description              |
-| :----------------------- | :------- | -------------------------|
-| `strFirstComeFirstServe` | `0x0001` | Requests are processed on a first-come, first-served basis. With this strategy, a depositor can redeem any amount of assets, provided they hold a sufficient number of shares. |
+| Policy Name                        | Value    | Description              |
+| :--------------------------------- | :------- | -------------------------|
+| `vaultStrategyFirstComeFirstServe` | `0x0001` | Requests are processed on a first-come, first-served basis. With this strategy, a depositor can redeem any amount of assets, provided they hold a sufficient number of shares. |
 
 ## Transaction Cost
 
