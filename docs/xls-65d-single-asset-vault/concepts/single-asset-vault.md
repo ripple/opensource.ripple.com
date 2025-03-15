@@ -54,13 +54,37 @@ A vault's total value can fluctuate due to factors like _unrealized losses_, whi
 
 To prevent depositors from exploiting potential losses by redeeming shares early and shifting the full loss onto the remaining depositors, the vault tracks unrealized losses (or paper loss) using the `LossUnrealized` attribute in the `Vault` ledger entry.
 
-Because the unrealized loss temporarily decreases the vault's value, a malicious depositor may take advantage of this by depositing assets at a lowered price and redeeming shares once the price increases. To mitigate this, the vault uses separate exchange rates for deposits and redemptions.
+Because the unrealized loss temporarily decreases the vault's value, a malicious depositor may take advantage of this by depositing assets at a lowered price and redeeming shares once the price increases.
+
+For example, consider a vault with a total value of $1.0m and total shares of $1.0m. Let's assume the unrealized loss for the vault is $900k:
+
+1. The new exchange rate is calculated as:
+
+    ```js
+    // ExchangeRate = (AssetTotal - LossUnrealized) / ShareTotal
+    exchangeRate = (1,000,000 - 900,000) / 1,000,000
+    ```
+
+    The exchange rate value is now **0.1**.
+
+2. After the unrealized loss is cleared, the new effective exchange rate would be:
+
+    ```js
+    // ExchangeRate = AssetTotal / ShareTotal
+    exchangeRate = 1,000,000 / 1,000,000
+    ```
+
+    The exchange rate is now **1.0**.
+
+A depositor could deposit $100k assets at a 0.1 exchange rate and get 1.0m shares. Once the unrealized loss is cleared, their shares would be worth $1.0m.
+
+To mitigate this, the vault uses separate exchange rates for deposits and redemptions.
 
 #### Exchange Rates
 
-A single asset vault uses **two distinct exchange rates**:  
+A single asset vault uses **two distinct exchange rates**:
 
-- **Deposit Exchange Rate**: When a depositor adds assets to the vault, they receive shares based on the current exchange rate, which is calculated as the ratio of _total shares_ to _total assets_. This ensures that new deposits do not unfairly impact the value of existing shares.
+- **Deposit Exchange Rate**: When a depositor adds assets to the vault, they receive shares based on the current exchange rate. This ensures that new deposits do not unfairly impact the value of existing shares.
 
 - **Withdrawal Exchange Rate**: When shares are redeemed, the vault ensures that unrealized losses are accounted for, so depositors cannot withdraw more than the vault’s true asset value.
   - **Redemptions**: If a depositor redeems a specific number of shares, the vault calculates the asset amount based on the ratio of _total assets_ to _total shares_, adjusted for unrealized losses.
@@ -68,11 +92,79 @@ A single asset vault uses **two distinct exchange rates**:
 
 These exchange rates ensure fairness and prevent manipulation, maintaining the integrity of deposits and redemptions.
 
+To understand how the exchange rates are applied, here are the key variables used in the calculations:
+
+- `T_share`: The total number of shares issued by the vault.
+- `T_asset`: The total assets in the vault, including any future yield.
+- `Δ_asset`: The change in the total amount of assets after a deposit, withdrawal, or redemption.
+- `Δ_share`: The change in the total amount of shares after a deposit, withdrawal, or redemption.
+- `l`: The unrealized loss of the vault.
+
+{% tabs %}
+  {% tab label="Deposit" %}
+    The vault computes the number of shares a depositor will receive as follows:
+
+    ```js
+    Δ_share = Δ_asset * (T_share / T_asset)
+    ```
+
+    After a successful deposit, the _total asset_ and _total share_ values are updated like so:
+
+    ```js
+    T_asset = T_asset + Δ_asset // New balance of assets in the vault.
+    T_share = T_share + Δ_share // New share balance in the vault.
+    ```
+  {% /tab %}
+
+  {% tab label="Redeem" %}
+  The vault computes the number of assets returned by burning shares as follows:
+
+  ```js
+  Δ_asset = Δ_share * ((T_asset - l) / T_share)
+  ```
+
+  After a successful redemption, the _total asset_ and _total share_ values are updated like so:
+
+  ```js
+  T_asset = T_asset - Δ_asset // New balance of assets in the vault.
+  T_share = T_share - Δ_share // New share balance in the vault.
+  ```
+
+  {% /tab %}
+
+  {% tab label="Withdraw" %}
+  The vault computes the number of shares to burn for a withdrawal as follows:
+
+  ```js
+  Δ_share = Δ_asset * (T_share / (T_asset - l))
+  ```
+
+  After a successful withdrawal, the _total asset_ and _total share_ values are updated like so:
+
+  ```js
+  T_asset = T_asset - Δ_asset // New balance of assets in the vault.
+  T_share = T_share - Δ_share // New share balance in the vault.
+  ```
+  {% /tab %}
+{% /tabs %}
+
 ### Can a Depositor Transfer Shares to Another Account?
 
 Vault shares are a first-class asset, meaning that they can be transferred and used in other on-ledger protocols that support MPTs. However, the payee (or the receiver) must have permission to hold both the shares and the underlying asset.
 
-For example, if a private vault holds USDC, the destination account must belong to the vault’s Permissioned Domain and have permission to hold USDC. Any compliance mechanisms applied to USDC also apply to the shares. If the USDC issuer freezes the payee’s trustline, the payee cannot receive shares representing USDC.
+For example, if a private vault holds USDC, the destination account must belong to the vault’s Permissioned Domain and have permission to hold USDC. Any compliance mechanisms applied to USDC also apply to the shares. If the USDC issuer freezes the payee’s trust line, the payee cannot receive shares representing USDC.
+
+It is important to remember that a vault must be configured to allow share transfers, or this will not be possible.
+
+A depositor can transfers vault shares to another account by making a [payment](https://xrpl.org/docs/references/protocol/transactions/types/payment) transaction. Nothing changes in the way the payment transaction is submitted for transferring vault shares. However, there are new failure scenarios to watch out for if the transaction fails:
+
+- The trust line or MPT is frozen between the payer and the issuer.
+- There is a global freeze or lock.
+- The vault `pseudo-account` is frozen.
+- The underlying asset is an MPT and is locked for the payer, destination, or vault `pseudo-account`.
+- The underlying asset is a Fungible Token and the trust line is frozen between the issuer and the payer, destination, or vault `pseudo-account`.
+
+If the transfer succeeds and the payee already holds vault shares, their balance increases. Otherwise, a new MPT entry is created for their account.
 
 ## Frozen Assets
 

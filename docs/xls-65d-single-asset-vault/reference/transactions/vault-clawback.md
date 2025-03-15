@@ -61,6 +61,7 @@ Besides errors that can occur for all transactions, {% code-page-name /%} transa
 | `tecOBJECT_NOT_FOUND`   | Occurs if the `Vault` object with the specified `VaultID` does not exist on the ledger. |
 | `tecNO_PERMISSION`      | Occurs if the transaction attempts to claw back `XRP`. |
 | `tecNO_PERMISSION`      | Occurs if the asset is a Fungible Token and the transaction is not submitted by the issuing account. |
+| `tecNO_PERMISSION`      | Occurs if the deposited asset does not support clawback. |
 | `tecWRONG_ASSET`        | Occurs if the asset in the transaction does not match the vault's asset type. |
 | `tecINSUFFICIENT_FUNDS` | Occurs if the `MPToken` object for the vault share of the `Holder` account does not exist, or if `MPToken.MPTAmount` is 0. |
 

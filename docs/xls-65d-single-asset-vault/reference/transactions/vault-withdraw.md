@@ -10,11 +10,13 @@ labels:
 
 [[Source]](https://github.com/Bronek/rippled/blob/vault/src/xrpld/app/tx/detail/VaultWithdraw.cpp "Source")
 
-Redeem vault shares for assets. The number of shares burned or assets received depends on the [exchange rate](../../concepts/single-asset-vault.md#exchange-algorithm), which adjusts based on the vault’s total assets and any [unrealized losses](../../concepts/single-asset-vault.md#paper-loss-unrealized-loss).
+Redeem vault shares for assets. The amount of assets received depends on the [exchange rate](../../concepts/single-asset-vault.md#exchange-algorithm), which adjusts based on the vault’s total assets and any [unrealized losses](../../concepts/single-asset-vault.md#paper-loss-unrealized-loss).
 
 {% admonition type="info" name="Note" %}
 The `VaultWithdraw` transaction does not respect the Permissioned Domain rules. In other words, any account that holds the shares of the vault can redeem them. This is to avoid a situation where a depositor deposits assets to a private vault to then have their access revoked by invalidating their credentials, and thus losing access to their funds.
 {% /admonition %}
+
+A depositor cannot redeem liquidity if the trust line or the `MPToken` between the `pseudo-account` and the issuer of the vault asset is frozen or locked.
 
 _(Requires the [Single Asset Vault amendment][] {% not-enabled /%})_
 
