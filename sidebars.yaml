@@ -80,6 +80,10 @@
               expanded: false
               items:
                 - page: docs/xls-65d-single-asset-vault/reference/api/vault-info.md
+        - group: Tutorials
+          expanded: false
+          items:
+            - page: docs/xls-65d-single-asset-vault/tutorials/create-a-single-asset-vault.md
     - group:
       page: docs/xls-75d-permission-delegation/index.md
       expanded: false
