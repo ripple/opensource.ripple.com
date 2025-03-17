@@ -45,3 +45,7 @@
                 - page: docs/xls-65d-single-asset-vault/reference/transactions/vault-deposit.md
                 - page: docs/xls-65d-single-asset-vault/reference/transactions/vault-withdraw.md
                 - page: docs/xls-65d-single-asset-vault/reference/transactions/vault-clawback.md
+        - group: Tutorials
+          expanded: false
+          items:
+            - page: docs/xls-65d-single-asset-vault/tutorials/create-a-single-asset-vault.md
