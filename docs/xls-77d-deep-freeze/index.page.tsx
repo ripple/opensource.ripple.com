@@ -13,7 +13,11 @@ export const frontmatter = {
 export default function Page() {
   return (
     <LandingLayout>
+<<<<<<< HEAD
       <Jumbotron bgImage={require('../../images/feature-deep-freeze-banner.png')}>        
+=======
+      <Jumbotron bgImage={require('../../images/heroimg-solid-ripple50.png')}>        
+>>>>>>> 1c39fef (update colors on key dates card)
             <Header1>XLS-0077 Deep Freeze</Header1>
             <Header2>Prevent token misuse by frozen account holders.</Header2>
       </Jumbotron> 
