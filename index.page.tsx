@@ -30,22 +30,8 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Deep Freeze" to="docs/xls-77d-deep-freeze/">
-            <p>Deep Freeze ensures that frozen token holders can neither send or receive frozen funds until their trust line is unfrozen.</p>
-            <Button size="large" variant="primary">
-              Go to docs
-            </Button>
-          </Card>
-
-          <Card title="Permissioned Domains" to="docs/xls-80d-permissioned-domains/">
-            <p>Permissioned Domains are controlled environments where stricter compliance controls can be enforced within the blockchain.</p>
-            <Button size="large" variant="primary">
-              Go to docs
-            </Button>
-          </Card>
-
-          <Card title="simulate" to="docs/xls-69d/">
-            <p>An API method to test transaction results without submitting a transaction to the XRP Ledger.</p>
+          <Card title="Single Asset Vault" to="docs/xls-65d-single-asset-vault/">
+            <p>A single asset vault is an XRP Ledger primitive that aggregates assets from multiple depositors and makes them available to other on-chain protocols.</p>
             <Button size="large" variant="primary">
               Go to docs
             </Button>
@@ -58,6 +44,13 @@ export default function Page() {
             </ButtonToXRPL>
           </Card>
 
+          <Card title="Deep Freeze" to="https://xrpl.org/docs/concepts/tokens/fungible-tokens/deep-freeze">
+            <p>Deep Freeze ensures that frozen token holders can neither send or receive frozen funds until their trust line is unfrozen. Documentation is now live on xrpl.org.</p>
+            <ButtonToXRPL>
+              Go to docs
+            </ButtonToXRPL>
+          </Card>
+
           <Card title="Multi-purpose Tokens" to="https://xrpl.org/docs/concepts/tokens/fungible-tokens/multi-purpose-tokens">
             <p>Multi-purpose tokens (MPTs) are a more compact and flexible type of fungible token. Documentation
             is now live on xrpl.org.</p>
@@ -65,6 +58,14 @@ export default function Page() {
               Go to docs
             </ButtonToXRPL>
           </Card>
+
+          <Card title="Permissioned Domains" to="https://xrpl.org/docs/concepts/tokens/decentralized-exchange/permissioned-domains">
+            <p>Permissioned Domains are controlled environments where stricter compliance controls can be enforced within the blockchain. Documentation is now live on xrpl.org.</p>
+            <ButtonToXRPL>
+              Go to docs
+            </ButtonToXRPL>
+          </Card>
+
         </Cards>
       </LandingContainer>
 

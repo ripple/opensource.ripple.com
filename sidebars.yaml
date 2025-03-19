@@ -14,21 +14,30 @@
           expanded: false
           items:
             - page: docs/xls-56d-batch-transactions/reference/batch.md
-            - page: docs/xls-56d-batch-transactions/reference/common-fields.md
+            - page: docs/xls-56d-batch-transactions/reference/common-fields.md    
     - page: docs/xls-69d/index.md # simulate
-    - page: docs/xls-77d-deep-freeze/index.page.tsx
+    - page: docs/xls-77d-deep-freeze/index.page.tsx    
+    - group:
+      page: docs/xls-65d-single-asset-vault/index.md
       expanded: false
       items:
-        - page: docs/xls-77d-deep-freeze/deep-freeze.md
-        - page: docs/xls-77d-deep-freeze/reference/deep-freeze-reference.md
+        - group: Concepts
+          expanded: false
           items:
-            - page: docs/xls-77d-deep-freeze/reference/ripplestate.md
-            - page: docs/xls-77d-deep-freeze/reference/offercreate.md
-            - page: docs/xls-77d-deep-freeze/reference/trustset.md
-    
-    - page: docs/xls-80d-permissioned-domains/index.md
-      expanded: false
-      items:
-        - page: docs/xls-80d-permissioned-domains/permissioneddomain.md
-        - page: docs/xls-80d-permissioned-domains/permissioneddomainset.md
-        - page: docs/xls-80d-permissioned-domains/permissioneddomaindelete.md
+            - page: docs/xls-65d-single-asset-vault/concepts/single-asset-vault.md
+            - page: docs/xls-65d-single-asset-vault/concepts/pseudo-account.md
+        - group: Reference
+          expanded: false
+          items:
+            - page: docs/xls-65d-single-asset-vault/reference/vault.md
+            - page: docs/xls-65d-single-asset-vault/reference/mptoken-issuance.md
+            - page: docs/xls-65d-single-asset-vault/reference/mptoken.md
+            - group: Transactions
+              expanded: false
+              items:
+                - page: docs/xls-65d-single-asset-vault/reference/transactions/vault-create.md
+                - page: docs/xls-65d-single-asset-vault/reference/transactions/vault-set.md
+                - page: docs/xls-65d-single-asset-vault/reference/transactions/vault-delete.md
+                - page: docs/xls-65d-single-asset-vault/reference/transactions/vault-deposit.md
+                - page: docs/xls-65d-single-asset-vault/reference/transactions/vault-withdraw.md
+                - page: docs/xls-65d-single-asset-vault/reference/transactions/vault-clawback.md

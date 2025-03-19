@@ -27,3 +27,4 @@
 [PermissionedDomainDelete transaction]: /docs/xls-80d-permissioned-domains/permissioneddomaindelete.md
 <!-- TODO: replace with link to roadmap page when that's ready -->
 [PermissionedDomains amendment]: /docs/xls-80d-permissioned-domains/index.md#permissioneddomains-amendment
+[Single Asset Vault amendment]: https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0065d-single-asset-vault
