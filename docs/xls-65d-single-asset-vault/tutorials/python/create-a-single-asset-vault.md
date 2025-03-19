@@ -1,8 +1,16 @@
-# Create a Single Asset Vault
+# Create a Single Asset Vault Using Python
 
-<!-- This example shows you how to: -->
+This example shows you how to:
 
-<!-- TODO: Add this once the tutorial is fleshed out -->
+1. Create a Vault Owner account on Testnet, funded with 1000 test XRP with no actual value.
+2. Retrieve accounts from seed value.
+3. Create a public single asset vault.
+
+## Prerequisites
+
+<!-- TODO: Add prerequisites -->
+
+To get started, create a new folder on your local disk and install
 
 You can download the Quickstart Samples archive to try each of the samples in your own browser.
 
@@ -35,3 +43,5 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ./create_single_asset_vault.py
 ```
+
+
