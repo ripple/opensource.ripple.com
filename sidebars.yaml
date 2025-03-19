@@ -48,4 +48,4 @@
         - group: Tutorials
           expanded: false
           items:
-            - page: docs/xls-65d-single-asset-vault/tutorials/create-a-single-asset-vault.md
+            - page: docs/xls-65d-single-asset-vault/tutorials/python/create-a-single-asset-vault.md
