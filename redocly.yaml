@@ -12,6 +12,9 @@ navbar:
       page: index.page.tsx
     - label: Open Source Projects
       page: docs/index.md
+    - label: Ask GPT
+      href: https://chatgpt.com/g/g-67ddac059f6c8191ab4cde443f0bd989-xrpl-assistant
+      external: true
 footer:
   items:
     - group: About
