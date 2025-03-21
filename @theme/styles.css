@@ -113,17 +113,8 @@ html.light .not_enabled::after {
   border-style: solid;
   border-color: #006aff;
   text-align: center;
-<<<<<<< HEAD
-  background-color: #abe2ff;
-=======
-<<<<<<< HEAD
   background-color: #006aff;
->>>>>>> 1c39fef (update colors on key dates card)
   margin: 1rem;
-=======
-  background-color: #6dc3ff;
-  margin: 1.5rem;
->>>>>>> 5ffcaa7 (update colors on key dates card)
 }
 
 
