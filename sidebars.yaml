@@ -16,7 +16,12 @@
             - page: docs/xls-56d-batch-transactions/reference/batch.md
             - page: docs/xls-56d-batch-transactions/reference/common-fields.md    
     - page: docs/xls-69d/index.md # simulate
+<<<<<<< HEAD
     - page: docs/xls-77d-deep-freeze/index.page.tsx    
+=======
+    - page: docs/xls-77d-deep-freeze/index.page.tsx
+    - page: docs/xls-80d-permissioned-domains/index.page.tsx
+>>>>>>> dff0bbe (Update feature landing pages with banner images and rebased with recent updates)
     - group:
       page: docs/xls-65d-single-asset-vault/index.md
       expanded: false

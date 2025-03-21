@@ -84,6 +84,9 @@ html.light .not_enabled::after {
   color: #001c5c;
   width: 100%;
   border-radius: var(--card-border-radius);
+  border-width: 2px;
+  border-color: #006aff;
+  border-style: solid;
 }
 
 .key-dates h4 {
@@ -106,8 +109,11 @@ html.light .not_enabled::after {
 .key-dates li {
   padding: .5rem;
   border-radius: 2rem;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #006aff;
   text-align: center;
-  background-color: #006aff;
+  background-color: #abe2ff;
   margin: 1rem;
 }
 

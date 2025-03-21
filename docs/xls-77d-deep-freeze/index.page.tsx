@@ -7,13 +7,13 @@ import { Cards } from '@redocly/theme/markdoc/components/Cards/Cards';
 export const frontmatter = {
   seo: {
     title: 'XLS-77 Deep Freeze',
-    description: "Learn how permissioned domains enable controlled environment within the broader XRPL blockchain ecosystem" }
+    description: "Learn how deep freeze helps prevent token misuse by frozen account holders." }
 };
 
 export default function Page() {
   return (
     <LandingLayout>
-      <Jumbotron bgImage={require('../../images/feature-page-banner-solid-ripple90.png')}>        
+      <Jumbotron bgImage={require('../../images/feature-deep-freeze-banner.png')}>        
             <Header1>XLS-0077 Deep Freeze</Header1>
             <Header2>Prevent token misuse by frozen account holders.</Header2>
       </Jumbotron> 
@@ -52,7 +52,7 @@ export default function Page() {
           
           <Card title="Blog" to="https://dev.to/ripplexdev/deep-freeze-strengthening-institutional-asset-control-on-xrpl-2j2a">
             <p>An overview of the feature and why it matters to institutional issuers, explained in our latest blog post.</p>
-            <Button>
+            <Button size="large" variant="primary">
               Read the Blog
             </Button>
           </Card>
