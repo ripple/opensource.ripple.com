@@ -45,7 +45,7 @@ export default function Page() {
           </Card>
 
           <Card title="Deep Freeze" to="docs/xls-77d-deep-freeze/">
-            <p>Deep Freeze ensures that frozen token holders can neither send or receive frozen funds until their trust line is unfrozen. Documentation is now live on xrpl.org.</p>
+            <p>Deep Freeze ensures that frozen token holders can neither send nor receive frozen funds until their trust line is unfrozen. Documentation is now live on xrpl.org.</p>
             <Button  size="large" variant="primary">
               Go to docs
             </Button>
