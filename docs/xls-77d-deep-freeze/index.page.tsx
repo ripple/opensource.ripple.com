@@ -51,7 +51,7 @@ export default function Page() {
           </Card>
           
           <Card title="Blog" to="https://dev.to/ripplexdev/deep-freeze-strengthening-institutional-asset-control-on-xrpl-2j2a">
-            <p>An overview of the feature and why it matters to institutional issuers, explained in our latest blog post.</p>
+            <p>An overview of the feature and why it matters to institutional issuers, explained in our blog post.</p>
             <Button size="large" variant="primary">
               Read the Blog
             </Button>

@@ -7,7 +7,7 @@ import { Cards } from '@redocly/theme/markdoc/components/Cards/Cards';
 export const frontmatter = {
   seo: {
     title: 'XLS-80 Permissioned Domains',
-    description: "Learn how permissioned domains enable controlled environment within the broader XRPL blockchain ecosystem." }
+    description: "Learn how permissioned domains enable controlled environments within the broader XRPL blockchain ecosystem." }
 };
 
 export default function Page() {
@@ -52,7 +52,7 @@ export default function Page() {
           </Card>
 
           <Card title="Blog" to="https://dev.to/ripplexdev/permissioned-domains-enabling-compliance-driven-onchain-finance-on-the-xrpl-29k2">
-            <p>An overview of the feature and why it matters to institutional issuers, explained in our latest blog post.</p>
+            <p>An overview of the feature and why it matters to institutional issuers, explained in our blog post.</p>
             <Button size="large" variant="primary">
               Read the Blog
             </Button>
