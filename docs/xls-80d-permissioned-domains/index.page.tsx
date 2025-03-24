@@ -13,7 +13,7 @@ export const frontmatter = {
 export default function Page() {
   return (
     <LandingLayout>
-      <Jumbotron bgImage={require('../../images/feature-permissioned-domains-banner.png')}>        
+      <Jumbotron bgImage={require('../../images/feature-permissioned-domains-banner.svg')}>        
             <Header1>XLS-0080 Permissioned Domains</Header1>
             <Header2>Enabling controlled environments within the broader XRPL blockchain ecosystem.</Header2>
       </Jumbotron> 
