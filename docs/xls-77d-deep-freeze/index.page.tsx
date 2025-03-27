@@ -1,13 +1,8 @@
 import * as React from "react";
 import {
-  Header1,
-  Header2,
   LandingContainer,
   LandingLayout,
-  Jumbotron,
   ButtonToXRPL,
-  KeyDatesCard,
-  KeyDate,
 } from "../../components/landing";
 import { Button, Link } from "@redocly/theme";
 import { Card } from "@redocly/theme/markdoc/components/Cards/Card";
@@ -24,6 +19,7 @@ export const frontmatter = {
 export default function Page() {
   return (
     <LandingLayout>
+      <LandingContainer>
       <div className="xls-77d-container">
         <div className="xls-77d-content">
           {/* Header Section */}
@@ -123,6 +119,7 @@ export default function Page() {
           </Cards>
         </div>
       </div>
+      </LandingContainer>
     </LandingLayout>
   );
 }
