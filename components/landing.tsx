@@ -33,7 +33,7 @@ const Container = styled.div`
   width: 100%;
   max-width: 80rem;
   margin: 0 auto;
-  padding: 3rem 1rem;
+  padding: 3rem 2rem;
 `;
 
 function LandingContainer({ children }) {
