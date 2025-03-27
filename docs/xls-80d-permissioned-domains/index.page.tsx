@@ -1,5 +1,11 @@
 import * as React from 'react';
-import { Header1, Header2, LandingContainer, LandingLayout, Jumbotron, ButtonToXRPL, KeyDatesCard, KeyDate } from "../../components/landing";
+import { 
+  LandingContainer, 
+  LandingLayout, 
+  ButtonToXRPL,
+  FeatureHeader,
+  FeatureContent
+} from "../../components/landing";
 import { Button } from "@redocly/theme";
 import { Card } from '@redocly/theme/markdoc/components/Cards/Card';
 import { Cards } from '@redocly/theme/markdoc/components/Cards/Cards';
@@ -11,34 +17,30 @@ export const frontmatter = {
 };
 
 export default function Page() {
+  const keyDates = [
+    { date: "Oct 21, 2024", event: "XLS Spec Review Complete" },
+    { date: "Mar 06, 2025", event: "Feature in rippled 2.4.0" },
+    { date: "Mar 06, 2025", event: "Open for voting" },
+    { date: "TBA", event: "Obtained ≥ 80% validators support" },
+    { date: "TBA", event: "Enabled on Mainnet" },
+  ];
+
   return (
     <LandingLayout>
-      <Jumbotron bgImage={require('../../images/feature-permissioned-domains-banner.svg')}>        
-            <Header1>XLS-0080 Permissioned Domains</Header1>
-            <Header2>Enabling controlled environments within the broader XRPL blockchain ecosystem.</Header2>
-      </Jumbotron> 
-
       <LandingContainer>
+        <FeatureHeader 
+          title="XLS-0080 Permissioned Domains"
+          subtitle="Enabling controlled environments within the broader XRPL blockchain ecosystem."
+        />
 
-      <div className="cols_2_to_1">
-          <p className="vcentered">
-          Permissioned domains are controlled environments within the broader ecosystem of the XRP Ledger blockchain.
-          Domains do nothing on their own. However, they enable other features such as Permissioned DEXes and Lending Protocols to restrict access, thereby enabling compliance on chain. 
-          </p>
+        <FeatureContent 
+          description="Permissioned domains are controlled environments within the broader ecosystem of the XRP Ledger blockchain. Domains do nothing on their own. However, they enable other features such as Permissioned DEXes and Lending Protocols to restrict access, thereby enabling compliance on chain."
+          keyDates={keyDates}
+        />
 
-          <KeyDatesCard title="Key Dates">
-            <KeyDate date="Oct 21, 2024">XLS Spec Review Complete</KeyDate>
-            <KeyDate date="Mar 06, 2025">Feature in rippled 2.4.0</KeyDate>
-            <KeyDate date=" Mar 06, 2025">Open for voting</KeyDate>
-            <KeyDate date="TBA">Obtained ≥ 80% validators support</KeyDate>
-            <KeyDate date="TBA">Enabled on Mainnet</KeyDate>
-          </KeyDatesCard>
-        </div>
-        
         <Cards columns={3}>
-
           <Card title="XLS Spec" to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0080-permissioned-domains">
-            <p>Technical spec for the feature outlining requirements, design, and implementation details. </p>
+            <p>Technical spec for the feature outlining requirements, design, and implementation details.</p>
             <Button size="large" variant="primary">
               Read the XLS Spec
             </Button>
@@ -56,11 +58,9 @@ export default function Page() {
             <Button size="large" variant="primary">
               Read the Blog
             </Button>
-          </Card>          
-          
+          </Card>
         </Cards>
       </LandingContainer>
-
     </LandingLayout>
   );
 }
