@@ -22,7 +22,7 @@ export default function Page() {
   const keyDates = [
     { date: "Jun 22, 2023", event: "XLS Spec Review Complete" },
     { date: "Nov 25, 2024", event: "Feature in rippled 2.3.0" },
-    { date: "Nov 25, 2025", event: "Open for voting" },
+    { date: "Nov 26, 2024", event: "Open for voting" },
     { date: "TBA", event: "Obtained ≥ 80% validators support" },
     { date: "TBA", event: "Enabled on Mainnet" },
   ];
