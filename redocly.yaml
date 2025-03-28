@@ -12,6 +12,8 @@ navbar:
       page: index.page.tsx
     - label: Open Source Projects
       page: docs/index.md
+    - label: Roadmap
+      page: ripplex-roadmap.md 
 footer:
   items:
     - group: About
