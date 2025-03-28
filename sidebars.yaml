@@ -18,6 +18,7 @@
     - page: docs/xls-69d/index.md # simulate
     - page: docs/xls-77d-deep-freeze/index.page.tsx
     - page: docs/xls-80d-permissioned-domains/index.page.tsx
+    - page: docs/xls-33d-multi-purpose-tokens/index.page.tsx
     - group:
       page: docs/xls-65d-single-asset-vault/index.md
       expanded: false
