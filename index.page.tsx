@@ -47,22 +47,21 @@ export default function Page() {
           <Card title="Deep Freeze" to="docs/xls-77d-deep-freeze/">
             <p>Deep Freeze ensures that frozen token holders can neither send nor receive frozen funds until their trust line is unfrozen. Documentation is now live on xrpl.org.</p>
             <Button  size="large" variant="primary">
-              Go to docs
+              Learn more
             </Button>
           </Card>
 
-          <Card title="Multi-purpose Tokens" to="https://xrpl.org/docs/concepts/tokens/fungible-tokens/multi-purpose-tokens">
-            <p>Multi-purpose tokens (MPTs) are a more compact and flexible type of fungible token. Documentation
-            is now live on xrpl.org.</p>
-            <ButtonToXRPL>
-              Go to docs
-            </ButtonToXRPL>
+          <Card title="Multi-purpose Tokens" to="docs/xls-33d-multi-purpose-tokens/">
+            <p>Multi-purpose tokens (MPTs) are a more compact and flexible type of fungible token.</p>
+            <Button size="large" variant="primary">
+              Learn more
+            </Button>
           </Card>
 
           <Card title="Permissioned Domains" to="docs/xls-80d-permissioned-domains/">
             <p>Permissioned Domains are controlled environments where stricter compliance controls can be enforced within the blockchain. Documentation is now live on xrpl.org.</p>
             <Button  size="large" variant="primary">
-              Go to docs
+              Learn more
             </Button>
           </Card>
 
