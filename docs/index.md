@@ -10,9 +10,4 @@ Proposals for new features and amendments go through the consensus process for r
 
 To learn more about the consensus process and the workflow for features to go from an idea to activation on the XRP Ledger, see <https://xrpl.org/amendments.html>.
 
-## RippleX - XRPL Feature Proposals for 2025
-
-As we look ahead to 2025, we’re excited to share the XRPL feature proposals we're working on. This year, our focus is on developing the underlying technology that empowers builders to create innovative solutions for real-world applications in the DeFi space. In collaboration with the wider community, we’re dedicated to enhancing the tools and capabilities that make it easier for developers to bring their ideas to life, driving forward the growth of decentralized finance. Here's a look at what's coming next!
-
-
-[![RippleX XRPL Feature Proposals for 2025](/images/ripplex-xrpl-feature-proposals-q1-2025.png "RippleX XRPL Feature Proposals for 2025")](/images/ripplex-xrpl-feature-proposals-q1-2025.png)
+Curious about what we're working on this year? Check out the [RippleX Roadmap](../ripplex-roadmap.md) page for more information.
