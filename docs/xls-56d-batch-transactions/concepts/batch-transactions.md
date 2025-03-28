@@ -78,17 +78,22 @@ Each object in this array contains the following fields:
 Either the `SigningPubKey` and `TxnSignature` fields must be included, or the `Signers` field.
 
 #### Account
+
 This is an account that has at least one inner transaction.
 
 #### SigningPubKey and TxnSignature
+
 These fields are included if the account is signing with a single signature (as opposed to multi-sign). They sign the `Flags` field and the hashes of the transactions in `RawTransactions`.
 
 #### Signers
+
 This field is included if the account is signing with multi-sign (as opposed to a single signature). It operates equivalently to the `Signers` field used in standard transaction multi-sign. This field holds the signatures for the `Flags` field and the hashes of the transactions in `RawTransactions`.
 
 ## Transaction Fee
 
-The fee for the outer transaction is twice the base fee (a total of 20 drops when there is no fee escalation), plus the sum of the transaction fees of all the inner transactions (which incorporates factors like higher fees for `multisign` or `AMMCreate`), plus an additional base fee amount for each additional signature in the transaction (for example, from `BatchSigners`).
+The fee for the outer transaction is twice the base fee (a total of 20 drops when there is no fee escalation), plus the sum of the transaction fees of all the inner transactions (which incorporates factors like higher fees for `multisign` or `AMMCreate`), plus an additional base fee amount for each additional signature in the transaction (for example, from `BatchSigners`). Expressed as an equation:
+
+2 * (Base Fee) + SUM(Inner Transaction Fees) + An additional Base Fee for each additional signature
 
 The fees for the individual inner transactions are paid in the outer transaction rather than the inner transactions themselves, to ensure that fee escalation is calculated on the total cost of the batch transaction and not just the overhead.
 
@@ -115,6 +120,7 @@ Each inner transaction contains the metadata for its own processing. Only the in
 There is also a pointer back to the parent outer transaction (`ParentBatchID`).
 
 ## Transaction Common Fields
+
 This standard doesn't add any new fields to the transaction common fields, but it does add another global transaction flag:
 
 | Flag Name	      | Value      |
@@ -124,6 +130,8 @@ This standard doesn't add any new fields to the transaction common fields, but i
 This flag should be used only if a transaction is an inner transaction in a `Batch` transaction. This signifies that the transaction shouldn't be signed. Any normal transaction that includes this flag should be rejected.
 
 ## Security
+
+Batch transactions come with additional security considerations.
 
 ### Trust Assumptions
 
