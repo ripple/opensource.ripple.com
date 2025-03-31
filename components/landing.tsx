@@ -13,7 +13,6 @@ const Header1 = styled(H1)`
     font-size: 30px !important;
     line-height: 30px !important;
     max-width: 272px;
-    
   }
 `;
 
@@ -32,7 +31,9 @@ const Header2 = styled(H2)`
 
 const Container = styled.div`
   width: 100%;
-  padding: 24px;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 3rem 2rem;
 `;
 
 function LandingContainer({ children }) {
@@ -75,4 +76,73 @@ function ButtonToXRPL({ children }) {
   </XRPLStyledButton>
 }
 
-export { Header1, Header2, LandingContainer, LandingLayout, Jumbotron, ButtonToXRPL };
+// Key Dates component for feature pages
+function KeyDatesCard(props: {
+    title:string, 
+    children: React.ReactNode,
+    className?: string
+  }) {
+  return (
+  <div className={`key-dates card-variant-filled feature-key-dates ${props.className || ''}`}>
+    <h4>{props.title}</h4>
+    <ul>
+      {props.children}
+    </ul>
+  </div>
+  )
+}
+
+function KeyDate(props: {
+    date:string,
+    children: React.ReactNode
+  }) {
+  return (
+    <li>
+      <strong>{props.date}</strong>: {props.children}
+    </li>
+  )
+}
+
+// Feature page components
+function FeatureHeader({ title, subtitle }) {
+  return (
+    <div className="feature-header">
+      <h1 className="feature-title">{title}</h1>
+      <p className="feature-subtitle">{subtitle}</p>
+    </div>
+  );
+}
+
+function FeatureContent({ description, keyDates }) {
+  return (
+    <div className="feature-content">
+      <div className="feature-description">
+        <p>{description}</p>
+      </div>
+      <div className="feature-key-dates">
+        <h3 className="feature-key-dates-title">Key Dates</h3>
+        <div className="feature-dates-list">
+          {keyDates.map((item, index) => (
+            <div key={index} className="feature-date-item">
+              <span className="feature-date">{item.date}</span>
+              <span className="feature-event">{item.event}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export { 
+  Header1, 
+  Header2, 
+  LandingContainer, 
+  LandingLayout, 
+  Jumbotron, 
+  ButtonToXRPL, 
+  KeyDatesCard, 
+  KeyDate,
+  FeatureHeader,
+  FeatureContent
+};

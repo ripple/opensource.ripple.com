@@ -67,6 +67,57 @@ html.light .not_enabled::after {
     vertical-align: text-top;
 }
 
+.cols_2_to_1 {
+  display: grid;
+  gap: var(--cards-gap);
+  grid-template-columns: minmax(max(calc(2 * (100% - 2 * var(--cards-gap)) / 3) + var(--cards-gap),240px),1fr) 1fr;
+}
+
+.vcentered {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* Key Dates component */
+.key-dates {
+  background-color: #abe2ff;
+  color: #001c5c;
+  width: 100%;
+  border-radius: var(--card-border-radius);
+  border-width: 2px;
+  border-color: #006aff;
+  border-style: solid;
+}
+
+.key-dates h4 {
+  background-color: #006aff;
+  font-size: 2rem;
+  line-height: 2rem;
+  padding: .75rem;
+  text-align: center;
+  font-weight: normal;
+  margin: 0;
+  border-top-left-radius: var(--card-border-radius);
+  border-top-right-radius: var(--card-border-radius);
+}
+
+.key-dates ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.key-dates li {
+  padding: .5rem;
+  border-radius: 2rem;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #006aff;
+  text-align: center;
+  background-color: #006aff;
+  margin: 1rem;
+}
+
+
 /* Fonts */
 @font-face {
   font-family: "TT Ripple";
@@ -384,4 +435,137 @@ html.light svg[fill=none] linearGradient stop[stop-color="#F5F5F7"] {
 }
 html.light svg[fill=none] linearGradient stop[stop-color="#C1C1C2"] {
   stop-color: #343437;
+}
+
+
+/* Feature Pages Shared Styles */
+.feature-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3rem;
+}
+
+.feature-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  background: var(--gradient, linear-gradient(92deg, #0052B6 -2.09%, #33A3FF 66.48%, #0067E5 97.37%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (min-width: 768px) {
+  .feature-title {
+    font-size: 3.75rem;
+  }
+}
+
+html:not(.light) .feature-title {
+  background: var(--gradient, linear-gradient(92deg, #0052B6 -2.09%, #33A3FF 66.48%, #0067E5 97.37%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.feature-subtitle {
+  font-size: 1.25rem;
+  color: #000000;
+}
+
+html:not(.light) .feature-subtitle {
+  color: #FAFAFA;
+}
+
+.feature-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .feature-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.feature-description {
+  color: #454d54;
+  font-size: 1.125rem;
+  line-height: 1.75;
+  flex-wrap: wrap;
+  display: flex;
+  align-content: center;
+}
+
+html:not(.light) .feature-description {
+  color: #FAFAFA;
+}
+
+.feature-key-dates {
+  background-color: rgba(171, 226, 255, 0.2);
+  border-radius: 0.5rem;
+  padding: 24px;
+}
+
+html:not(.light) .feature-key-dates {
+  background: #001C5C;
+}
+
+.feature-key-dates-title {
+  margin-block-start: 0;
+  color: #141A1F;
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 56px;
+  letter-spacing: -1px;
+}
+
+html:not(.light) .feature-key-dates-title {
+  color: #FAFAFA;
+}
+
+.feature-dates-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.feature-date-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.feature-date {
+  color: #006aff;
+  font-weight: 500;
+}
+
+html:not(.light) .feature-date {
+  color: #ABE2FF;
+}
+
+.feature-event {
+  color: #141a1f;
+}
+
+html:not(.light) .feature-event {
+  color: #FFF;
+}
+
+/* Fix Card Buttons Alignment */
+.redocly-card-filled {
+  min-height: 155px;
+  display: flex;
+  flex-direction: column;
+}
+
+.redocly-card-filled > p {
+  flex-grow: 1;
+}
+
+.redocly-card-filled button {
+  margin-top: auto;
+  display: inline-flex;
 }

@@ -1,7 +1,4 @@
 # deepfreeze docs
-/docs/xls-77d-deep-freeze:
-  to: https://xrpl.org/docs/concepts/tokens/fungible-tokens/deep-freeze
-  type: 301
 /docs/xls-77d-deep-freeze/deep-freeze:
   to: https://xrpl.org/docs/concepts/tokens/fungible-tokens/deep-freeze
   type: 301
@@ -19,9 +16,6 @@
   type: 301
 
 # permissioneddomains docs
-/docs/xls-80d-permissioned-domains:
-  to: https://xrpl.org/docs/concepts/tokens/decentralized-exchange/permissioned-domains
-  type: 301
 /docs/xls-80d-permissioned-domains/permissioneddomain:
   to: https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/permissioneddomain
   type: 301
@@ -30,11 +24,6 @@
   type: 301
 /docs/xls-80d-permissioned-domains/permissioneddomaindelete:
   to: https://xrpl.org/docs/references/protocol/transactions/types/permissioneddomaindelete
-  type: 301
-
-# simulate doc
-/docs/xls-69d/:
-  to: https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/transaction-methods/simulate
   type: 301
 
 # ledgerstatefix docs

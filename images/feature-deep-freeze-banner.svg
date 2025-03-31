@@ -1,0 +1,17 @@
+<svg width="1440" height="720" viewBox="0 0 1440 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1440" height="720" fill="#001C5C"/>
+<circle opacity="0.5" cx="307" cy="360" r="250" fill="#006AFF"/>
+<circle opacity="0.5" cx="582" cy="360" r="250" fill="#6DC3FF"/>
+<circle opacity="0.5" cx="857" cy="360" r="250" fill="#006AFF"/>
+<circle opacity="0.5" cx="1132" cy="360" r="250" fill="#6DC3FF"/>
+<rect opacity="0.5" x="175" y="313" width="1122" height="55" rx="27.5" fill="#7B099E"/>
+<g clip-path="url(#clip0_15_43)">
+<rect width="35" height="35" transform="translate(185 323)" fill="#7B099E"/>
+<path d="M217.083 339.042H211.002L215.727 334.317L213.671 332.246L206.875 339.042H203.958V336.125L210.754 329.329L208.683 327.273L203.958 331.998V325.917H201.042V331.998L196.317 327.273L194.246 329.329L201.042 336.125V339.042H198.125L191.329 332.246L189.273 334.317L193.998 339.042H187.917V341.958H193.998L189.273 346.683L191.329 348.754L198.125 341.958H201.042V344.875L194.246 351.671L196.317 353.727L201.042 349.002V355.083H203.958V349.002L208.683 353.727L210.754 351.671L203.958 344.875V341.958H206.875L213.671 348.754L215.727 346.683L211.002 341.958H217.083V339.042Z" fill="#ABE2FF"/>
+</g>
+<defs>
+<clipPath id="clip0_15_43">
+<rect width="35" height="35" fill="white" transform="translate(185 323)"/>
+</clipPath>
+</defs>
+</svg>
