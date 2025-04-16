@@ -37,6 +37,13 @@ export default function Page() {
             </Button>
           </Card>
 
+          <Card title="Delegating Account Permissions" to="docs/xls-75d-delegating-account-permissions/">
+            <p>XRPL accounts can delegate specific transaction permissions to other accounts, enhancing flexibility and enabling use cases such as implementing role-based access control.</p>
+            <Button size="large" variant="primary">
+              Go to docs
+            </Button>
+          </Card>
+
           <Card title="Credentials" to="https://xrpl.org/docs/concepts/decentralized-storage/credentials">
             <p>Create and store credentials on the blockchain for compliance checks. Documentation is now live on xrpl.org.</p>
             <ButtonToXRPL>
