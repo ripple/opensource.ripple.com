@@ -80,6 +80,6 @@ transaction_json = {
 
 {% admonition type="warning" name="Important" %}
 * Delegating permissions grants significant control. Ensure you trust the delegated account.
-* The account specified in the `OnBehalfOf` field is responsible for paying the transaction cost.
+* The account specified in the `OnBehalfOf` field is responsible for paying the transaction fee.
 * A delegated account can only perform actions that have been explicitly permitted.
 {% /admonition %}
