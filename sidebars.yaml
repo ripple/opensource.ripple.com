@@ -44,3 +44,16 @@
                 - page: docs/xls-65d-single-asset-vault/reference/transactions/vault-deposit.md
                 - page: docs/xls-65d-single-asset-vault/reference/transactions/vault-withdraw.md
                 - page: docs/xls-65d-single-asset-vault/reference/transactions/vault-clawback.md
+    - group:
+      - page: docs/xls-75d-delegating-account-permissions/index.md
+        expanded: false
+        items:
+        - group: Concepts
+          expanded: false
+          items:
+          - page: docs/xls-75d-delegating-account-permissions/concepts/delegating-account-permissions.md
+        - group: Reference
+          expanded: false
+          items:
+          - page: docs/xls-75d-deletating-account-permissions/reference/account-permission.md
+          - page: docs/xls-75d-deletating-account-permissions/reference/account-permission-set.md
