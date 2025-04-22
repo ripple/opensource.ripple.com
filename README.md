@@ -1,3 +1,5 @@
+[![License](https://img.shields.io/github/license/ripple/opensource.ripple.com)](https://github.com/ripple/opensource.ripple.com/blob/main/LICENSE)
+
 # Ripple Open Source
 
 The [Open Source Projects site](https://opensource.ripple.com) provides information on open source projects that Ripple engineers are working on, including in-progress documentation for features that are in development.
