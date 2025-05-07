@@ -18,6 +18,11 @@ To use a permissioned DEX, parties with the following roles and responsibilities
 
 It is possible for a single account to play more than one of these roles. For example, you could be the permissioned domain owner, credential issuer, _and_ a trader all at once. The only restriction is that the traders must be different accounts.
 
+{% inline-svg file="./permissioned-dex-roles.svg" /%}
+
+_Figure: A permissioned order book, linked to a permissioned domain. Owen is both the domain owner and the issuer of one of the domain's accepted credentials. Tracy is able to trade in the permissioned order book because she holds a credential issued by Owen._
+
+
 ## Structure
 
 With the permissioned DEXes feature, a trade offer can be either _permissioned_ or _open_. An open offer uses the open DEX and can be matched by anyone else's open offer or by an Automated Market Maker. This is unchanged from how the XRPL's DEX works without permissioned DEXes.
@@ -28,9 +33,9 @@ There is no single ledger entry to represent a given permissioned DEX: it implic
 
 The amount of liquidity and the best exchange rate available in any given DEX may vary depending on the offers placed in that DEX. Some traders may choose to trade in multiple permissioned DEXes and the open DEX to arbitrage price differences, while other traders may trade strictly in one domain, depending on their compliance requirements.
 
-{% inline-svg file="./permissioned-dex.svg" /%}
+{% inline-svg file="./permissioned-dex-structure.svg" /%}
 
-_Figure: A permissioned DEX ecosystem with traders, domain owners, and credential issuers._
+_Figure: The open DEX, and two different permissioned DEXes, each containing order books for a subset of possible currency pairs._
 
 ### Invalid Permissioned Offers
 
