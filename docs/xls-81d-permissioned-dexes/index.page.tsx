@@ -30,7 +30,7 @@ export default function Page() {
       <LandingContainer>
         <FeatureHeader 
           title="XLS-0081d Permissioned DEXes"
-          subtitle="Trade tokens in controlled environments within the XRPL's decentralized exchange."
+          subtitle="Trade in controlled environments within the XRPL's decentralized exchange."
         />
 
         <FeatureContent 
