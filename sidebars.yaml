@@ -21,7 +21,7 @@
     - page: docs/xls-80d-permissioned-domains/index.page.tsx
     - page: docs/xls-33d-multi-purpose-tokens/index.page.tsx
     - group:
-      page: docs/xls-65d-single-asset-vault/index.md
+      page: docs/xls-65d-single-asset-vault/index.page.tsx
       expanded: false
       items:
         - group: Concepts
