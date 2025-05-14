@@ -38,7 +38,7 @@ export default function Page() {
           keyDates={keyDates}
         />
 
-        <Cards columns={2}>
+        <Cards columns={3}>
           <Card
             title="XLS Spec"
             to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0065d-single-asset-vault"
@@ -52,10 +52,13 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Concepts" to="/docs/xls-65d-single-asset-vault/concepts/single-asset-vault">
-            <p>Documentation on the feature, including how it works and why.</p>
+          <Card title="Documentation" to="/docs/xls-65d-single-asset-vault/concepts/single-asset-vault">
+            <p>
+              Explore key concepts, find detailed references, and follow
+              step-by-step tutorials.
+            </p>
             <Button size="large" variant="primary">
-              Read the Concept Docs
+              Read the Docs
             </Button>
           </Card>
 
@@ -68,13 +71,6 @@ export default function Page() {
             </p>
             <Button size="large" variant="primary">
               Read the Blog
-            </Button>
-          </Card>
-
-          <Card title="API Reference" to="/docs/xls-65d-single-asset-vault/reference/vault">
-            <p>API Reference documentation for the feature.</p>
-            <Button size="large" variant="primary">
-              Read the API Reference 
             </Button>
           </Card>
         </Cards>
