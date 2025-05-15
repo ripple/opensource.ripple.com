@@ -1,4 +1,5 @@
 [ACCOUNT_ZERO]: https://xrpl.org/docs/concepts/accounts/addresses#special-addresses
+[AccountID]: https://xrpl.org/docs/references/protocol/binary-format/#accountid-fields
 [AccountDelete]: https://xrpl.org/docs/references/protocol/transactions/types/accountdelete
 [Address]: https://xrpl.org/docs/references/protocol/data-types/basic-data-types#addresses
 [amendment]: https://xrpl.org/docs/concepts/networks-and-servers/amendments
