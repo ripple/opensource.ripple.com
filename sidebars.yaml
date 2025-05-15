@@ -33,15 +33,33 @@
             - group: Transactions
               expanded: false
               items:
-                - page: docs/xls-65d-single-asset-vault/reference/transactions/vaultcreate.md
-                - page: docs/xls-65d-single-asset-vault/reference/transactions/vaultset.md
-                - page: docs/xls-65d-single-asset-vault/reference/transactions/vaultdelete.md
-                - page: docs/xls-65d-single-asset-vault/reference/transactions/vaultdeposit.md
-                - page: docs/xls-65d-single-asset-vault/reference/transactions/vaultwithdraw.md
-                - page: docs/xls-65d-single-asset-vault/reference/transactions/vaultclawback.md
-            - group: API
-              expanded: false
-              items:
-                - page: docs/xls-65d-single-asset-vault/reference/api/vault-info.md
-    - page: docs/xls-56-batch-transactions/index.page.tsx
-    - page: docs/xls-33-multi-purpose-tokens/index.page.tsx
+                - page: docs/xls-65d-single-asset-vault/reference/transactions/vault-create.md
+                - page: docs/xls-65d-single-asset-vault/reference/transactions/vault-set.md
+                - page: docs/xls-65d-single-asset-vault/reference/transactions/vault-delete.md
+                - page: docs/xls-65d-single-asset-vault/reference/transactions/vault-deposit.md
+                - page: docs/xls-65d-single-asset-vault/reference/transactions/vault-withdraw.md
+                - page: docs/xls-65d-single-asset-vault/reference/transactions/vault-clawback.md
+    - group: XLS-66d Lending Protocol
+      page: docs/xls-66d-lending-protocol/index.md
+      expanded: false
+      items:
+      - group: Reference
+        expanded: false
+        items:
+          - group: Ledger Entries
+            expaneded: false
+            items:
+              - page: docs/xls-66d-lending-protocol/reference/ledger-data/loan.md
+              - page: docs/xls-66d-lending-protocol/reference/ledger-data/loanbroker.md
+          - group: Transactions
+            expanded: false
+            items:
+              - page: docs/xls-66d-lending-protocol/reference/transactions/loanbrokerset.md
+              - page: docs/xls-66d-lending-protocol/reference/transactions/loanbrokerdelete.md
+              - page: docs/xls-66d-lending-protocol/reference/transactions/loanbrokercollateraldeposit.md
+              - page: docs/xls-66d-lending-protocol/reference/transactions/loanbrokercollateralwithdraw.md
+              - page: docs/xls-66d-lending-protocol/reference/transactions/loanset.md
+              - page: docs/xls-66d-lending-protocol/reference/transactions/loandelete.md
+              - page: docs/xls-66d-lending-protocol/reference/transactions/loanmanage.md
+              - page: docs/xls-66d-lending-protocol/reference/transactions/loandraw.md
+              - page: docs/xls-66d-lending-protocol/reference/transactions/loanpay.md
