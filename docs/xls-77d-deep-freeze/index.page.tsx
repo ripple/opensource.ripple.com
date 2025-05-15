@@ -23,8 +23,8 @@ export default function Page() {
     { date: "Dec 17, 2024", event: "XLS Spec Review Complete" },
     { date: "Mar 06, 2025", event: "Feature in rippled 2.4.0" },
     { date: "Mar 06, 2025", event: "Open for voting" },
-    { date: "TBA", event: "Obtained ≥ 80% validators support" },
-    { date: "TBA", event: "Enabled on Mainnet" },
+    { date: "Apr 20, 2025", event: "Obtained ≥ 80% validators support" },
+    { date: "May 04, 2025", event: "Enabled on Mainnet" },
   ];
 
   return (
