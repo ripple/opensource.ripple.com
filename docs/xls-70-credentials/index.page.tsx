@@ -34,7 +34,7 @@ export default function Page() {
         />
 
         <FeatureContent 
-          description="Credentials provide a set of tool for managing authorization and compliance requirements on the XRP Ledger, while respecting privacy and decentralization."
+          description="Credentials provide a set of tools for managing authorization and compliance requirements on the XRP Ledger, while respecting privacy and decentralization."
           keyDates={keyDates}
         />
 
