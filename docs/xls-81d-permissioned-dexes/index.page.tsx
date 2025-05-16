@@ -34,7 +34,7 @@ export default function Page() {
         />
 
         <FeatureContent 
-          description="Permissioned DEXes uses Permissioned Domains (XLS-80) to enable on-chain trading within controlled environments where every participant holds specific credentials, allowing institutions to ensure that they're complying with financial regulations while trading in the XRPL's decentralized exchange."
+          description="Permissioned DEXes use Permissioned Domains (XLS-80) to enable on-chain trading within controlled environments where every participant holds specific credentials, allowing institutions to ensure that they're complying with financial regulations while trading in the XRPL's decentralized exchange."
           keyDates={keyDates}
         />
 
