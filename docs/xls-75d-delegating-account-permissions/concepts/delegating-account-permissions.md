@@ -9,15 +9,15 @@ labels:
 
 {% partial file="../../_snippets/_delegating-account-permissions-disclaimer.md" /%}
 
-XRPL accounts can delegate specific transaction permissions to other accounts, enhancing flexibility and enabling use cases such as implementing role-based access control. This delegation is managed using the [AccountPermissionSet][] transaction.
+XRPL accounts can delegate specific transaction permissions to other accounts, enhancing flexibility and enabling use cases such as implementing role-based access control. This delegation is managed using the [DelegateSet][] transaction.
 
 ## Assigning Permissions
 
-You can assign permissions to another account by submitting an `AccountPermissionSet` transaction.
+You can assign permissions to another account by submitting an `DelegateSet` transaction.
 
 ```json
 tx_json = {
-  "TransactionType": "AccountPermissionSet",
+  "TransactionType": "DelegateSet",
   "Account": "rDelegatingAccount",
   "Authorize": "rDelegatedAccount",
   "Permissions": [
@@ -39,22 +39,26 @@ tx_json = {
 
 ## Revoking Permissions
 
-Permissions can be revoked using the `AccountPermissionSet` transaction. There are two ways to revoke permissions:
+Permissions can be revoked using the `DelegateSet` transaction. There are two ways to revoke permissions:
 
-* **Revoke All Permissions:** To revoke all permissions previously granted to a delegated account, send an `AccountPermissionSet` transaction with an empty `Permissions` array:
+### Revoke All Permissions
+
+To revoke all permissions previously granted to a delegated account, send a `DelegateSet` transaction with an empty `Permissions` array:
 
 ```json
 tx_json = {
-  "TransactionType": "AccountPermissionSet",
+  "TransactionType": "DelegateSet",
   "Account": "rDelegatingAccount",
   "Authorize": "rDelegatedAccount",
   "Permissions": []
 }
 ```
 
-* **Revoke Specific Permissions:** To revoke specific permissions, send an `AccountPermissionSet` transaction that includes _only_ the permissions that should remain active. Any permissions previously granted to the `Authorize` account that aren't included in the `Permissions` array are revoked.
+### Revoke Specific Permissions
 
-### **Sending Transactions with Delegated Permissions**
+To revoke specific permissions, send a `DelegateSet` transaction that includes _only_ the permissions that should remain active. Any permissions previously granted to the `Authorize` account that aren't included in the `Permissions` array are revoked.
+
+## Sending Transactions with Delegated Permissions
 
 When an account has been granted permissions, it can send transactions on behalf of the delegating account using the `OnBehalfOf` field.
 

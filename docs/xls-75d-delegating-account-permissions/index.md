@@ -10,8 +10,7 @@ status: not_enabled
 
 {% partial file="../_snippets/_delegating-account-permissions-disclaimer.md" /%}
 
-XRPL accounts can delegate specific transaction permissions to other accounts, enhancing flexibility and enabling use cases such as implementing role-based access control. This delegation is managed using the [AccountPermissionSet](./reference/account-permission-set.md) transaction.
-
+XRPL accounts can delegate specific transaction permissions to other accounts, enhancing flexibility and enabling use cases such as implementing role-based access control. This delegation is managed using the [DelegateSet](./reference/delegate-set.md) transaction.
 
 ## Concepts
 
@@ -19,6 +18,6 @@ XRPL accounts can delegate specific transaction permissions to other accounts, e
 
 ## Reference
 
-- [AccountPermission](./reference/account-permission.md)
-- [AccountPermissionSet](./reference/account-permission-set.md)
+- [Delegate](./reference/delegate.md)
+- [DelegateSet](./reference/delegate-set.md)
 

@@ -55,5 +55,5 @@
         - group: Reference
           expanded: false
           items:
-          - page: docs/xls-75d-deletating-account-permissions/reference/account-permission.md
-          - page: docs/xls-75d-deletating-account-permissions/reference/account-permission-set.md
+          - page: docs/xls-75d-delegating-account-permissions/reference/delegate.md
+          - page: docs/xls-75d-delegating-account-permissions/reference/delegate-set.md
