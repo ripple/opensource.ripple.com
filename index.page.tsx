@@ -39,7 +39,7 @@ export default function Page() {
 
           <Card title="Credentials" to="docs/xls-70-credentials">
             <p>Create, store, and manage credentials on the blockchain for compliance checks.</p>
-            <Button>
+            <Button size="large" variant="primary">
               Go to docs
             </Button>
           </Card>
