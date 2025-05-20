@@ -43,7 +43,7 @@ export default function Page() {
         <Cards columns={2}>
           <Card
             title="XLS Spec"
-            to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0033d-multi-purpose-tokens"
+            to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0033-multi-purpose-tokens"
           >
             <p>
               Technical spec for the feature outlining requirements, design,
