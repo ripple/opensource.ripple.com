@@ -37,11 +37,11 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Credentials" to="https://xrpl.org/docs/concepts/decentralized-storage/credentials">
-            <p>Create and store credentials on the blockchain for compliance checks. Documentation is now live on xrpl.org.</p>
-            <ButtonToXRPL>
+          <Card title="Credentials" to="docs/xls-70-credentials">
+            <p>Create, store, and manage credentials on the blockchain for compliance checks.</p>
+            <Button size="large" variant="primary">
               Go to docs
-            </ButtonToXRPL>
+            </Button>
           </Card>
 
           <Card title="Deep Freeze" to="docs/xls-77d-deep-freeze/">
