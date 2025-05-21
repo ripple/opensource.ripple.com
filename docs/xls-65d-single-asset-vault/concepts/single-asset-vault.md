@@ -1,5 +1,6 @@
 ---
-blurb: A single asset vault aggregates assets from multiple depositors and makes them available to other on-chain protocols.
+seo:
+  description: A single asset vault aggregates assets from multiple depositors and makes them available to other on-chain protocols.
 labels:
   - Single Asset Vault 
 status: not_enabled
