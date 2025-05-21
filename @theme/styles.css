@@ -43,6 +43,11 @@ html.light .not_enabled::after {
   filter:brightness(70%);
 }
 
+/* Don't aggressively line-break field names in tables */
+.md-table-wrapper table code {
+  word-break: normal;
+}
+
 /* ----- This configures the footer ----- */
 #gatsby-focus-wrapper > div > footer {
     line-height: 16px;
