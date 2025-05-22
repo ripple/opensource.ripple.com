@@ -56,7 +56,7 @@ export default function Page() {
 
           <Card
             title="Documentation"
-            to="https://xrpl.org/docs/concepts/tokens/decentralized-exchange/permissioned-domains"
+            to="https://xrpl.org/docs/concepts/tokens/fungible-tokens/deep-freeze"
           >
             <p>
               Explore key concepts, find detailed references, and follow
