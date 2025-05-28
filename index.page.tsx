@@ -65,6 +65,12 @@ export default function Page() {
             </Button>
           </Card>
 
+          <Card title="Token-Enabled Escrows and Payment Channels" to="docs/xls-34d-token-enabled-escrows-and-payment-channels/">
+            <p>The proposed amendment would introduce changes to the ledger objects, transactions, and rpc methods to enable Escrows and Payment Channels to use Trustline balances.</p>
+            <Button  size="large" variant="primary">
+              Learn more
+            </Button>
+          </Card>
         </Cards>
       </LandingContainer>
 
