@@ -20,6 +20,9 @@
     - page: docs/xls-70-credentials/index.page.tsx
     - page: docs/xls-77d-deep-freeze/index.page.tsx
     - page: docs/xls-80d-permissioned-domains/index.page.tsx
+    - page: docs/xls-81d-permissioned-dexes/index.page.tsx
+      items:
+        - page: docs/xls-81d-permissioned-dexes/permissioned-dexes.md
     - page: docs/xls-33d-multi-purpose-tokens/index.page.tsx
     - group:
       page: docs/xls-65d-single-asset-vault/index.page.tsx

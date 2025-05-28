@@ -65,6 +65,13 @@ export default function Page() {
             </Button>
           </Card>
 
+          <Card title="Permissioned DEXes" to="docs/xls-81d-permissioned-dexes/">
+            <p>Permissioned DEXes are controlled environments for trading, using permissioned domains to restrict them to approved participants only.</p>
+            <Button  size="large" variant="primary">
+              Learn more
+            </Button>
+          </Card>
+
         </Cards>
       </LandingContainer>
 
