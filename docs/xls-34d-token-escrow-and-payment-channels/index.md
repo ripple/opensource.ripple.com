@@ -16,7 +16,7 @@ The XRPL supports several types of on-ledger negotiable instruments, namely: Esc
 - Unwillingness to hold a counter-party-free asset (i.e. XRP).
 - Volatility and exchange-rate risk.
 
-These issues are addressed by allowing both XRP and fungible tokens to be used for creating escrows and payment channels.
+These issues are addressed by allowing both XRP and fungible tokens to be used for creating escrows and payment channels. 
 
 ## Concepts
 
