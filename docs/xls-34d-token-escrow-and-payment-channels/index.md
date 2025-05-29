@@ -20,9 +20,9 @@ These issues are addressed by allowing both XRP and fungible tokens to be used f
 
 ## Concepts
 
-[Escrows](concepts/escrows.md)
+[Escrows](concepts/escrow.md)
 [Payment Channels](concepts/payment-channels.md)
-[Ripple State](concepts/ripple-state.md)
+[Ripple State](concepts/ripplestate.md)
 
 ## Reference
 
