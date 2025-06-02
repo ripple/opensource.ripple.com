@@ -27,6 +27,11 @@
           items:
             - docs/xls-81d-permissioned-dexes/reference/offercreate.md
             - docs/xls-81d-permissioned-dexes/reference/payment.md
+            - docs/xls-81d-permissioned-dexes/reference/offer.md
+            - docs/xls-81d-permissioned-dexes/reference/directorynode.md
+            - docs/xls-81d-permissioned-dexes/reference/book_offers.md
+            - docs/xls-81d-permissioned-dexes/reference/path_find.md
+            - docs/xls-81d-permissioned-dexes/reference/ripple_path_find.md
             - docs/xls-81d-permissioned-dexes/reference/subscribe.md
     - page: docs/xls-33d-multi-purpose-tokens/index.page.tsx
     - group:
