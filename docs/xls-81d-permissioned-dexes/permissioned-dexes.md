@@ -62,7 +62,7 @@ Like with unfunded offers, it is possible for an offer to become temporarily inv
 
 The permissioned DEXes feature is enabled by the **PermissionedDEX** amendment, and relies on the [Credentials](https://xrpl.org/docs/concepts/decentralized-storage/credentials) and [Permissioned Domains](https://xrpl.org/docs/concepts/tokens/decentralized-exchange/permissioned-domains) amendments, so it cannot be used until _all_ of those amendments have been enabled.
 
-Permissioned DEXes are incompatible with Automated Market Makers (AMMs). Permissioned offers and permissioned payments cannot be filled by AMMs, and access to AMMs cannot be restricted by a permissioned domain.
+Permissioned DEXes are incompatible with Automated Market Makers (AMMs). Permissioned offers and permissioned payments cannot be filled by AMMs, and access to AMMs cannot be restricted by a permissioned domain. Trades that use the open DEX can sometimes consume a hybrid offer and use an AMM in the same transaction, but transactions that specify a domain cannot use any AMMs.
 
 Each permissioned DEX is separate, with its own order books and offers. A single transaction cannot trade in multiple permissioned DEXes or aggregate liquidity from multiple permissioned DEXes. Hybrid offers can use a mix of one permissioned DEX and the open DEX, but they cannot use multiple different permissioned DEXes.
 

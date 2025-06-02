@@ -23,6 +23,11 @@
     - page: docs/xls-81d-permissioned-dexes/index.page.tsx
       items:
         - page: docs/xls-81d-permissioned-dexes/permissioned-dexes.md
+        - page: docs/xls-81d-permissioned-dexes/reference/index.md
+          items:
+            - docs/xls-81d-permissioned-dexes/reference/offercreate.md
+            - docs/xls-81d-permissioned-dexes/reference/payment.md
+            - docs/xls-81d-permissioned-dexes/reference/subscribe.md
     - page: docs/xls-33d-multi-purpose-tokens/index.page.tsx
     - group:
       page: docs/xls-65d-single-asset-vault/index.page.tsx

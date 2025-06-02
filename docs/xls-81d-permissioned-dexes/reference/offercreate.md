@@ -8,7 +8,7 @@ labels:
 ---
 # OfferCreate
 
-[[Source]](https://github.com/XRPLF/rippled/blob/master/src/xrpld/app/tx/detail/CreateOffer.cpp "Source")
+[[Source]](https://github.com/XRPLF/rippled/blob/develop/src/xrpld/app/tx/detail/CreateOffer.cpp "Source")
 
 An OfferCreate transaction places an [Offer](https://xrpl.org/docs/concepts/tokens/decentralized-exchange/offers.md) in the [decentralized exchange](https://xrpl.org/docs/concepts/tokens/decentralized-exchange/index.md).
 
@@ -38,7 +38,7 @@ An OfferCreate transaction places an [Offer](https://xrpl.org/docs/concepts/toke
 
 | Field            | JSON Type           | [Internal Type][] | Required? | Description |
 |:-----------------|:--------------------|:------------------|:----------|-------------|
-| `DomainID`       | String - [Hash][]   | Hash256           | No        | The ledger entry ID of a permissioned domain. If provided, restrict this offer to the [permissioned DEX](../permissioned-dexes.md) of that domain. |
+| `DomainID`       | String - [Hash][]   | Hash256           | No        | The ledger entry ID of a permissioned domain. If provided, restrict this offer to the [permissioned DEX](../permissioned-dexes.md) of that domain. _(Requires the [PermissionedDEX amendment][] {% not-enabled /%})_ |
 | [`Expiration`](https://xrpl.org/docs/concepts/tokens/decentralized-exchange/offers.md#offer-expiration) | Number | UInt32 | No | Time after which the Offer is no longer active, in [seconds since the Ripple Epoch][]. |
 | `OfferSequence`  | Number              | UInt32            | No        | An Offer to delete first, specified in the same way as [OfferCancel][]. |
 | `TakerGets`      | [Currency Amount][] | Amount            | Yes       | The amount and type of currency being sold. |
@@ -51,7 +51,7 @@ Transactions of the OfferCreate type support additional values in the [`Flags` f
 | Flag Name             | Hex Value    | Decimal Value | Description           |
 |:----------------------|:-------------|:--------------|:----------------------|
 | `tfPassive`           | `0x00010000` | 65536         | If enabled, the Offer does not consume Offers that exactly match it, and instead becomes an Offer entry in the ledger. It still consumes Offers that cross it. |
-| `tfImmediateOrCancel` | `0x00020000` | 131072        | Treat the Offer as an [Immediate or Cancel order](http://en.wikipedia.org/wiki/Immediate_or_cancel). The Offer never creates an [Offer entry][] in the ledger: it only trades as much as it can by consuming existing Offers at the time the transaction is processed. If no Offers match, it executes "successfully" without trading anything. In this case, the transaction still uses the [result code](../transaction-results/index.md) `tesSUCCESS`. |
+| `tfImmediateOrCancel` | `0x00020000` | 131072        | Treat the Offer as an [Immediate or Cancel order](http://en.wikipedia.org/wiki/Immediate_or_cancel). The Offer never creates an [Offer entry][] in the ledger: it only trades as much as it can by consuming existing Offers at the time the transaction is processed. If no Offers match, it executes "successfully" without trading anything. In this case, the transaction still uses the [result code](https://xrpl.org/docs/references/protocol/transactions/transaction-results) `tesSUCCESS`. |
 | `tfFillOrKill`        | `0x00040000` | 262144        | Treat the offer as a [Fill or Kill order](http://en.wikipedia.org/wiki/Fill_or_kill). The Offer never creates an [Offer entry][] in the ledger, and is canceled if it cannot be fully filled at the time of execution. By default, this means that the owner must receive the full `TakerPays` amount; if the `tfSell` flag is enabled, the owner must be able to spend the entire `TakerGets` amount instead. |
 | `tfSell`              | `0x00080000` | 524288        | Exchange the entire `TakerGets` amount, even if it means obtaining more than the `TakerPays` amount in exchange. |
 | `tfHybrid`            | `0x00100000` | 1048576       | Make this a hybrid offer that can use both a permissioned DEX and the open DEX. The `DomainID` field must be provided when using this flag. |
