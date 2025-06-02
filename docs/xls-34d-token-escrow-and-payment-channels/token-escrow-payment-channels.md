@@ -20,23 +20,23 @@ These issues are addressed by allowing both XRP and fungible tokens to be used f
 
 ## Concepts
 
-[Escrows](concepts/escrow.md)
-[Payment Channels](concepts/payment-channels.md)
-[Ripple State](concepts/ripplestate.md)
+- [Escrows](concepts/escrow.md)
+- [Payment Channels](concepts/payment-channels.md)
+- [Ripple State](concepts/ripplestate.md)
 
 ## Reference
 
 ### Transactions
 
-[EscrowCreate](./references/escrowcreate.md)
-[PaymentChannelFund](./references/paymentchannelfund.md)
-[PaymentChannelClaim](./references/paymentchannelclaim.md)
-[PaymentChannelCreate](./references/paymentchannelcreate.md)
+- [EscrowCreate](./reference/escrowcreate.md)
+- [PaymentChannelFund](./reference/paymentchannelfund.md)
+- [PaymentChannelClaim](./reference/paymentchannelclaim.md)
+- [PaymentChannelCreate](./reference/paymentchannelcreate.md)
 
 ### Requests
 
-[account_lines](./references/account_lines.md)
-[account_channels](./references/account_channels.md)
-[account_objects](./references/account_objects.md)
-[channel_authorize](./references/channel_authorize.md)
-[channel_verify](./references/channel_verify.md)
+- [account_lines](./reference/account_lines.md)
+- [account_channels](./reference/account_channels.md)
+- [account_objects](./reference/account_objects.md)
+- [channel_authorize](./reference/channel_authorize.md)
+- [channel_verify](./reference/channel_verify.md)
