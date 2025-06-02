@@ -45,6 +45,10 @@ In addition to the common fields, `DelegateSet` transactions have the following 
 | `Authorize`| Yes | string | AccountID | The address of the account that is being granted the permission(s).
 | `Permissions` | Yes | string | STArray | An array of permission objects. Each object contains a `Permission` object with a `PermissionValue` field specifying the permission being granted. To modify permissions, include all desired permissions in the `Permissions` array. Omitted permissions are revoked. |
 
+## Updating Permissions
+
+Sending a new `DelegateSet` with the same `Account` and `Authorize` fields updates and replaces the permission list.
+
 
 ## Revoking Permissions
 
@@ -71,7 +75,9 @@ To revoke specific permissions, include only the permissions that should remain 
 
 Giving permissions to other parties requires a high degree of trust, especially when the delegated account can potentially access funds (the `Payment` permission) or charge reserves (any transaction that can create objects). In addition, any account that has permissions for the entire `AccountSet`, `SetRegularKey`, or `SignerListSet` transactions can give themselves any permissions even if this was not originally part of the intention.
 
-With granular permissions, however, users can give permissions to other accounts for only parts of transactions without giving them full control. This is especially helpful for managing complex transaction types like `AccountSet`.### Granular Permissions
+With granular permissions, however, users can give permissions to other accounts for only parts of transactions without giving them full control. This is especially helpful for managing complex transaction types like `AccountSet`.
+
+### Granular Permissions
 
 These permissions support control over some smaller portion of a transaction, rather than being able to do all of the functionality that the transaction allows.
 
@@ -92,6 +98,11 @@ These permissions fall into the gap between the size of the `UInt16` and the `UI
 |`65547`|`MPTokenIssuanceLock`|Use the `MPTIssuanceSet` transaction to lock (freeze) a holder.|
 |`65548`|`MPTokenIssuanceUnlock`|Use the `MPTIssuanceSet` transaction to unlock (unfreeze) a holder.|
 
+For example, if an account is authorized by `TrustlineFreeze`, it can freeze a trust line by sending a `TrustSet` transaction. However, since it is only authorized to freeze trust lines, it cannot perform other `TrustSet` operations such as unfreezing a trust line, setting No Ripple, applying Deep Freeze, etc.
+When an account is authorized by both `TrustlineFreeze` and `TrustSet`, the delegation is still valid, but the granular permission `TrustlineFreeze` has no effect, since the account is already permitted to perform all actions under `TrustSet`.
+
+For multi-signing a delegation transaction, which is sent by a delegated account, the multi signers must be the delegated account's signers instead of the delegating account's multi signers.
+
 ## Failure Conditions
 
 The `DelegateSet` transaction fails if:
@@ -101,7 +112,6 @@ The `DelegateSet` transaction fails if:
 - Any of the specified `PermissionValues` are invalid.
 - The `Authorize` account does not exist.
 
-
 ## State Changes
 
 A successful `DelegateSet` transaction results in the creation, modification, or deletion of a `Delegate` ledger object.
@@ -109,6 +119,40 @@ A successful `DelegateSet` transaction results in the creation, modification, or
 - If no `Delegate` object exists for the given `Account` and `Authorize` pair, a new one is created.
 - If a `Delegate` object already exists, its `Permissions` field is updated.
 - If the `Permissions` array is empty, the `Delegate` object is deleted.
+
+## Error Cases
+
+If the `Account` is the same as `Authorize`, return `temMALFORMED`.
+If the `Permissions` list size exceeds 10, return `temARRAY_TOO_LARGE`.
+If `Permissions` contains a duplicate value, return `temMALFORMED`.
+If `Permissions` contains transactions that are disabled for delegation, return `tecNO_PERMISSION`. The transactions disabled for delegation include: `AccountSet`, `RegularKeySet`, `SignerListSet`, `AccountDelete`, `DelegateSet`, `EnableAmendment`, `SetFee`, `UNLModify`, `LedgerStateFix`.
+If the `TradingFee` is invalid (non-XRP currency or negative value), return `temBAD_FEE`.
+If the Account does not have enough balance to meet the reserve requirement, (because `DelegateSet` will create a ledger object `ltDELEGATE`, whose owner is `Account`), return `tecINSUFFICIENT_RESERVE`.
+If the `PermissionDelegation` feature is not enabled, return `temDISABLED`.
+
+For example, consider this case where the _rDelegatedAccount_ sends a transaction on behalf of _DelegatingAccount_:
+
+{
+  "TransactionType": "TrustSet",
+  "Account": "rDelegatingAccount",
+  "LimitAmount": {
+    "currency": "USD",
+    "issuer": "rIssuerAccount",
+    "value": "1000"
+  },
+  "Delegate": "rDelegatedAccount"
+} 
+The account that sends this transaction is _rDelegatedAccount_, although the Account field is the _rDelegatingAccount_. The secret for this transaction is the _rDelegatingAccount_, secret, which means _rDelegatedAccount_ signs the transaction.
+
+If the _rDelegatedAccount_ is not authorized by the _rDelegatingAccount_, for the transaction type or satisfying the granular permissions given by _rDelegatingAccount_, the transaction returns `tecNO_PERMISSION`.
+
+If the _rDelegatedAccount_ does not have enough balance to pay the transaction fee, the transaction returns `terINSUF_FEE_B` . (_rDelegatedAccount_ pays the fee, which is the sender in `Delegate` field, not the `Account` field).
+
+If the transaction creates a ledger object, but _rDelegatingAccount_ does not have enough balance to cover the reserve, the transaction returns `tecINSUFFICIENT_RESERVE`.
+
+If the key used to sign this account does not match with _rDelegatedAccount_, the transaction returns `rpcBAD_SECRET`.
+
+Any other errors are the same as when the _rDelegatingAccount_ sends transaction for itself.
 
 ## Limitations
 
