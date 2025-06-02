@@ -1,5 +1,6 @@
 ---
-blurb: Batch allows up to 8 transactions to be submitted as a single unit.
+seo:
+  description: Batch allows up to 8 transactions to be submitted as a single unit.
 labels:
   - Batch
   - Transactions

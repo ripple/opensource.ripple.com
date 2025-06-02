@@ -40,10 +40,10 @@ export default function Page() {
           keyDates={keyDates}
         />
 
-        <Cards columns={3}>
+        <Cards columns={2}>
           <Card
             title="XLS Spec"
-            to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0033d-multi-purpose-tokens"
+            to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0033-multi-purpose-tokens"
           >
             <p>
               Technical spec for the feature outlining requirements, design,
@@ -64,7 +64,8 @@ export default function Page() {
             </p>
             <ButtonToXRPL>Read the Docs</ButtonToXRPL>
           </Card>
-
+        </Cards>
+        <Cards columns={2}>
           <Card
             title="Blog"
             to="https://dev.to/ripplexdev/multi-purpose-tokens-mpt-chronology-and-how-to-test-on-devnet-19nj"
@@ -76,7 +77,16 @@ export default function Page() {
               Read the Blog
             </Button>
           </Card>
-        </Cards>
+          <Card
+            title="Use Cases"
+            to="https://xrpl.org/docs/use-cases/tokenization/creating-an-asset-backed-multi-purpose-token"
+          >
+            <p>
+              Explore how the feature can be used in real-world scenarios.
+            </p>
+            <ButtonToXRPL>Learn more</ButtonToXRPL>
+          </Card>
+        </Cards>   
       </LandingContainer>
     </LandingLayout>
   );

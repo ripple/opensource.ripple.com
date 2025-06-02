@@ -1,5 +1,6 @@
 ---
-blurb: A pseudo-account is a special type of XRPL account that holds assets on behalf of an on-chain protocol.
+seo:
+  description: A pseudo-account is a special type of XRPL account that holds assets on behalf of an on-chain protocol.
 labels:
   - Single Asset Vault 
 status: not_enabled

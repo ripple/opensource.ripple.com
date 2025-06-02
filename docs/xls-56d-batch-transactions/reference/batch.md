@@ -1,5 +1,6 @@
 ---
-blurb: Create and submit a batch of up to 8 transactions.
+seo:
+  description: Create and submit a batch of up to 8 transactions.
 labels:
  - Batch, Atomic Batch
 ---

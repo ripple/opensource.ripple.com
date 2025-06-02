@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>20</y>
+      <w>430</w>
+      <h>460</h>
+    </coordinates>
+    <panel_attributes>Open DEX
+
+
+lt=.
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>480</x>
+      <y>20</y>
+      <w>430</w>
+      <h>460</h>
+    </coordinates>
+    <panel_attributes>Permissioned DEX
+
+
+
+lt=.
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>930</x>
+      <y>20</y>
+      <w>430</w>
+      <h>460</h>
+    </coordinates>
+    <panel_attributes>Domain B DEX
+
+
+lt=.
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>220</y>
+      <w>200</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>Order Book
+USD.Acme:FOO.WayGate
+--
+*DomainID: Domain A*
+--
+10 FOO : 10 USD – Marko
+-
+9 FOO : 15 USD – Tracy
+--
+...
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>700</x>
+      <y>220</y>
+      <w>200</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>Order Book
+FOO.WayGate:USD.Acme
+--
+*DomainID: Domain A*
+--
+...
+--
+...
+--
+...
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>50</y>
+      <w>170</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>Order Book
+XRP:FOO.WayGate
+--
+*DomainID: Domain A*
+--
+...
+-
+...
+-
+...
+-</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>40</x>
+      <y>50</y>
+      <w>160</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Order Book
+FOO.WayGate:XRP
+--
+...
+-
+...
+-
+...
+-</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>40</x>
+      <y>220</y>
+      <w>190</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Order Book
+FOO.WayGate:USD.Acme
+--
+...
+-
+...
+-
+...
+-</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>220</x>
+      <y>50</y>
+      <w>170</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Order Book
+XRP:FOO.WayGate
+--
+...
+-
+...
+-
+...
+-</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>940</x>
+      <y>220</y>
+      <w>200</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>Order Book
+FOO.WayGate:USD.Acme
+--
+*DomainID: Domain B*
+--
+...
+--
+...
+--
+...
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>510</y>
+      <w>190</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Domain A
+--
+Owner: Owen
+Accepted Credentials:
+- "Accredited" issued 
+   by Isabel
+- "Accredited" issued
+   by Owen</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>940</x>
+      <y>510</y>
+      <w>190</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Domain B
+--
+Owner: Dominick
+Accepted Credentials:
+- "SafeUser" issed 
+  by Isabel</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>300</x>
+      <y>690</y>
+      <w>120</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>Tracy
+(Trader in
+permissioned
+DEXes only)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>730</x>
+      <y>690</y>
+      <w>140</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Isabel
+(credential issuer)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>960</x>
+      <y>690</y>
+      <w>160</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>Dominick
+(domain owner
+and trader in
+permissioned DEX)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>30</x>
+      <y>690</y>
+      <w>180</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Marko
+(trader in open DEX and
+permissioned DEXes)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>500</x>
+      <y>690</y>
+      <w>160</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Owen
+(credential issuer 
+and domain owner)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>40</x>
+      <y>850</y>
+      <w>140</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Credential
+--
+Type: "Accredited"
+Issuer: Isabel
+Subject: Marko
+halign=left</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>510</x>
+      <y>640</y>
+      <w>60</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;40.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>510</x>
+      <y>850</y>
+      <w>140</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Credential
+--
+Type: "Accredited"
+Issuer: Owen
+Subject: Owen
+halign=left</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>530</x>
+      <y>810</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>300</x>
+      <y>850</y>
+      <w>140</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Credential
+--
+Type: "Accredited"
+Issuer: Owen
+Subject: Tracy
+halign=left</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>980</x>
+      <y>860</y>
+      <w>140</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Credential
+--
+Type: "SafeUser"
+Issuer: Isabel
+Subject: Dominick
+halign=left</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>800</x>
+      <y>810</y>
+      <w>200</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>180.0;90.0;10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>90</x>
+      <y>810</y>
+      <w>730</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;120.0;10.0;170.0;710.0;170.0;710.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>810</y>
+      <w>120</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;60.0;100.0;10.0</additional_attributes>
+  </element>
+</diagram>

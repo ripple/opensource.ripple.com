@@ -1,5 +1,6 @@
 ---
-blurb: A single asset vault aggregates assets from multiple depositors and makes them available to other on-chain protocols.
+seo:
+  description: A single asset vault aggregates assets from multiple depositors and makes them available to other on-chain protocols.
 labels:
   - Single Asset Vault 
 status: not_enabled
@@ -29,7 +30,7 @@ Choosing between a public or private vault depends on your use case. For example
 
 Depositors can deposit assets to receive shares, which represent their proportional ownership of the vault, or redeem shares for assets.
 
-[{% inline-svg file="./single-asset-vault.svg" /%}](./single-asset-vault.svg "Diagram: an example of an asset being deposited into the vault and shares being redeemed.")
+[{% inline-svg file="./single-asset-vault-img.svg" /%}](./single-asset-vault-img.svg "Diagram: an example of an asset being deposited into the vault and shares being redeemed.")
 
 Since the XRP Ledger is an account-based blockchain, all assets must be held by an account. A `Vault` ledger entry cannot hold assets directly, so a [pseudo-account](pseudo-account.md) is created to hold assets on its behalf. This stand-alone account cannot receive funds or send transactions, and exists solely to store assets and issue shares.
 

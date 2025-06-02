@@ -14,7 +14,7 @@ export const frontmatter = {
 export default function Page() {
   return (
     <LandingLayout>
-      <Jumbotron bgImage={require('images/heroimg-solid-ripple50.png')}>
+      <Jumbotron bgImage={require('images/heroimg.png')}>
       
         <Header1>Open Source Projects</Header1>
         <Header2>Explore open source projects currently in development.</Header2>
@@ -33,7 +33,7 @@ export default function Page() {
           <Card title="Single Asset Vault" to="docs/xls-65d-single-asset-vault/">
             <p>A single asset vault is an XRP Ledger primitive that aggregates assets from multiple depositors and makes them available to other on-chain protocols.</p>
             <Button size="large" variant="primary">
-              Go to docs
+              Learn more
             </Button>
           </Card>
 
@@ -48,7 +48,7 @@ export default function Page() {
             <p>Create and store credentials on the blockchain for compliance checks. Documentation is now live on xrpl.org.</p>
             <ButtonToXRPL>
               Go to docs
-            </ButtonToXRPL>
+            </Button>
           </Card>
 
           <Card title="Deep Freeze" to="docs/xls-77d-deep-freeze/">
@@ -67,6 +67,13 @@ export default function Page() {
 
           <Card title="Permissioned Domains" to="docs/xls-80d-permissioned-domains/">
             <p>Permissioned Domains are controlled environments where stricter compliance controls can be enforced within the blockchain. Documentation is now live on xrpl.org.</p>
+            <Button  size="large" variant="primary">
+              Learn more
+            </Button>
+          </Card>
+
+          <Card title="Permissioned DEXes" to="docs/xls-81d-permissioned-dexes/">
+            <p>Permissioned DEXes are controlled environments for trading, using permissioned domains to restrict them to approved participants only.</p>
             <Button  size="large" variant="primary">
               Learn more
             </Button>
