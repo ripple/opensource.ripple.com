@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -88,22 +88,61 @@ export const ChatWindow: React.FC = () => {
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [showDisclaimer, setShowDisclaimer] = useState(true);
+  const socketRef = useRef<WebSocket | null>(null);
+
+  useEffect(() => {
+    const socket = new WebSocket(
+      'wss://td16880s2e.execute-api.us-west-2.amazonaws.com/develop'
+    );
+    socketRef.current = socket;
+
+    socket.onmessage = (event) => {
+      const data = event.data.toString();
+
+      // Check for the stream end to unlock UI
+      if (data.startsWith('__STREAM_END__')) {
+        setLoading(false);
+        return;
+      }
+
+      // Otherwise it's a normal text chunk or error text—append to messages
+      setMessages((msgs) => {
+        const newMsgs = [...msgs];
+        const lastMsg = newMsgs[newMsgs.length - 1];
+        if (lastMsg && !lastMsg.isUser) {
+          lastMsg.text += data;
+        } else {
+          newMsgs.push({ text: data, isUser: false });
+        }
+        return newMsgs;
+      });
+    };
+
+    socket.onopen = () => console.log('WebSocket connected');
+    socket.onclose = () => console.log('WebSocket closed');
+    socket.onerror = (err) => console.error('WebSocket error:', err);
+
+    return () => {
+      socket.close();
+    };
+  }, []);
 
   const sendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
-    setMessages((msgs) => [...msgs, { text: input, isUser: true }]);
+    if (!socketRef.current || socketRef.current.readyState !== WebSocket.OPEN || !input.trim())
+      return;
+
+    // Add the user's message and a placeholder for the bot response
+    setMessages((msgs) => [
+      ...msgs,
+      { text: input, isUser: true },
+      { text: '', isUser: false },
+    ]);
     setInput('');
     setLoading(true);
     if (showDisclaimer) setShowDisclaimer(false);
-    const response = await fetch('https://0f2ejwtb03.execute-api.us-west-2.amazonaws.com/chat', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: input }),
-    });
-    const data = await response.json();
-    console.log(data.completion)
-    setMessages((msgs) => [...msgs, { text: data.completion || 'No response', isUser: false }]);
-    setLoading(false);
+
+    socketRef.current.send(JSON.stringify({ action: 'message', message: input }));
   };
 
   return (
@@ -154,25 +193,34 @@ export const ChatWindow: React.FC = () => {
             </ReactMarkdown>
           </Message>
         ))}
-        {loading && <Message isUser={false}>Agent is thinking...</Message>}
+
+        {loading && messages.length && !messages[messages.length - 1].text && (
+          <Message isUser={false}>Agent is thinking...</Message>
+        )}
       </MessagesArea>
-      {/* Show disclaimer only if showDisclaimer is true */}
+
       {showDisclaimer && (
-        <Disclaimer style={{
-          background: '#fff3cd',
-          color: '#856404',
-          border: '1.5px solid #ffe082',
-          fontWeight: 600,
-          fontSize: '1.08rem',
-          margin: '32px auto 16px auto',
-          maxWidth: '80%',
-          textAlign: 'center',
-          boxShadow: '0 2px 8px 0 rgba(0,0,0,0.04)',
-        }}>
-          The Agent might provide incomplete or incorrect results.<br />
-          <span style={{ fontWeight: 400 }}>Verify important information for production environments.</span>
+        <Disclaimer
+          style={{
+            background: '#fff3cd',
+            color: '#856404',
+            border: '1.5px solid #ffe082',
+            fontWeight: 600,
+            fontSize: '1.08rem',
+            margin: '32px auto 16px auto',
+            maxWidth: '80%',
+            textAlign: 'center',
+            boxShadow: '0 2px 8px 0 rgba(0,0,0,0.04)',
+          }}
+        >
+          The Agent might provide incomplete or incorrect results.
+          <br />
+          <span style={{ fontWeight: 400 }}>
+            Verify important information for production environments.
+          </span>
         </Disclaimer>
       )}
+
       <InputArea onSubmit={sendMessage}>
         <Input
           type="text"
@@ -181,7 +229,7 @@ export const ChatWindow: React.FC = () => {
           placeholder="Type your message..."
           disabled={loading}
         />
-        <SendButton type="submit" disabled={loading}>
+        <SendButton type="submit" disabled={loading || !input.trim()}>
           Send
         </SendButton>
       </InputArea>
