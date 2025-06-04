@@ -6,13 +6,13 @@ The Permissioned DEXes amendment does not create any totally-new data types, but
     - [OfferCreate](#offercreate-transaction-changes) - Add `DomainID` field that specifies a domain.
     - [Payment](#payment-transaction-changes) - Add `DomainID` field that specifies a domain.
 - **Ledger Entries:**
-    - [Offer](./offer.md) - Add `DomainID` field that specifies a domain.
-    - [DirectoryNode](./directorynode.md) - Add `DomainID` field and modify ledger entry ID calculation for directories with a domain.
+    - [Offer](#offer-entry-changes) - Add `DomainID` field that specifies a domain.
+    - [DirectoryNode](#directorynode-entry-changes) - Add `DomainID` field and modify ledger entry ID calculation for directories with a domain.
 - **API Methods:**
-    - [book_offers](./book_offers.md) - Can look up order books by domain.
-    - [path_find](./path_find.md) - Can get paths limited to a domain.
-    - [ripple_path_find](./ripple_path_find.md) - Can get paths limited to a domain.
-    - [subscribe (books streams)](./subscribe.md) - Can subscribe to books in a domain.
+    - [book_offers](#book_offers-api-method-changes) - Can look up order books by domain.
+    - [path_find](#path_find-api-method-changes) - Can get paths limited to a domain.
+    - [ripple_path_find](#ripple_path_find-api-method-changes) - Can get paths limited to a domain.
+    - [subscribe (books streams)](#subscribe-api-method-changes) - Can subscribe to books in a domain.
 
 
 ## OfferCreate transaction changes
@@ -21,7 +21,7 @@ OfferCreate transactions can include the following new field:
 
 | Field            | JSON Type           | [Internal Type][] | Required? | Description |
 |:-----------------|:--------------------|:------------------|:----------|-------------|
-| `DomainID`       | String - [Hash][]   | Hash256           | No        | The ledger entry ID of a permissioned domain. If provided, restrict this offer to the [permissioned DEX](../permissioned-dexes.md) of that domain. _(Requires the [PermissionedDEX amendment][] {% not-enabled /%})_ |
+| `DomainID`       | String - [Hash][]   | Hash256           | No        | The ledger entry ID of a permissioned domain. If provided, restrict this offer to the [permissioned DEX](./permissioned-dexes.md) of that domain. _(Requires the [PermissionedDEX amendment][] {% not-enabled /%})_ |
 
 They can also use the following new flag:
 
@@ -38,7 +38,7 @@ Payment transactions can include the following new field:
 
 | Field            | JSON Type            | [Internal Type][] | Required? | Description |
 |:-----------------|:---------------------|:------------------|:----------|:------------|
-| `DomainID`       | String - [Hash][]    | Hash256           | No        | The ledger entry ID of a permissioned domain. If this is a cross-currency payment, only use the corresponding [permissioned DEX](../permissioned-dexes.md) to convert currency. Both the sender and the recipient must have valid credentials that grant access to the specified domain. This field has no effect if the payment is not cross-currency. _(Requires the [PermissionedDEX amendment][] {% not-enabled /%})_ |
+| `DomainID`       | String - [Hash][]    | Hash256           | No        | The ledger entry ID of a permissioned domain. If this is a cross-currency payment, only use the corresponding [permissioned DEX](./permissioned-dexes.md) to convert currency. Both the sender and the recipient must have valid credentials that grant access to the specified domain. This field has no effect if the payment is not cross-currency. _(Requires the [PermissionedDEX amendment][] {% not-enabled /%})_ |
 
 Full reference documentation with these changes in context (draft): [Payment](https://xrpl-dev-portal--xls-81.preview.redocly.app/docs/references/protocol/transactions/types/payment)
 
@@ -49,8 +49,8 @@ Offer ledger entries can include the following new fields:
 
 | Name                | JSON Type            | [Internal Type][] | Required? | Description |
 |:--------------------|:---------------------|:------------------|:----------|:------------|
-| `AdditionalBooks`   | Array                | Array             | No        | A list of additional offer directories that link to this offer. This field is present if this is a hybrid offer in a [permissioned DEX](../permissioned-dexes.md). The array always contains exactly 1 entry. _(Requires the [PermissionedDEX amendment][] {% not-enabled /%})_ |
-| `DomainID`          | String - [Hash][]    | Hash256          | No        | The ledger entry ID of a permissioned domain. If present, this offer belongs to the corresponding [Permissioned DEX](../permissioned-dexes.md). _(Requires the [PermissionedDEX amendment][] {% not-enabled /%})_ |
+| `AdditionalBooks`   | Array                | Array             | No        | A list of additional offer directories that link to this offer. This field is present if this is a hybrid offer in a [permissioned DEX](./permissioned-dexes.md). The array always contains exactly 1 entry. _(Requires the [PermissionedDEX amendment][] {% not-enabled /%})_ |
+| `DomainID`          | String - [Hash][]    | Hash256          | No        | The ledger entry ID of a permissioned domain. If present, this offer belongs to the corresponding [Permissioned DEX](./permissioned-dexes.md). _(Requires the [PermissionedDEX amendment][] {% not-enabled /%})_ |
 
 Full reference documentation with these changes in context (draft): [Offer](https://xrpl-dev-portal--xls-81.preview.redocly.app/docs/references/protocol/ledger-data/ledger-entry-types/offer)
 
@@ -61,7 +61,7 @@ DirectoryNode ledger entries, specifically offer directories, can contain the fo
 
 | Field            | JSON Type            | [Internal Type][] | Required? | Description |
 |:-----------------|:---------------------|:------------------|:----------|:------------|
-| `DomainID`       | String - [Hash][]    | Hash256           | No        | (Offer directories only) The ledger entry ID of a permissioned domain. If present, this order book belongs to the corresponding [Permissioned DEX](../permissioned-dexes.md). _(Requires the [PermissionedDEX amendment][] {% not-enabled /%})_ |
+| `DomainID`       | String - [Hash][]    | Hash256           | No        | (Offer directories only) The ledger entry ID of a permissioned domain. If present, this order book belongs to the corresponding [Permissioned DEX](./permissioned-dexes.md). _(Requires the [PermissionedDEX amendment][] {% not-enabled /%})_ |
 
 Additionally, the formula for the ledger entry ID of an offer directory's first page incorporates the `DomainID` field at the end of the hashed contents, if the directory is part of a permissioned DEX. The formula for open DEX offer directories' IDs is unchanged.
 
@@ -74,7 +74,7 @@ You can specify the following new field in `book_offers` API method requests:
 
 | `Field`        | Type             | Required? | Description |
 |:---------------|:-----------------|:----------|-------------|
-| `domain`       | [Hash][]         | No        | The ledger entry ID of a permissioned domain. If provided, return offers from the corresponding [permissioned DEX](../permissioned-dexes.md) instead of using the open DEX. _(Requires the [PermissionedDEX amendment][] {% not-enabled /%})_ |
+| `domain`       | [Hash][]         | No        | The ledger entry ID of a permissioned domain. If provided, return offers from the corresponding [permissioned DEX](./permissioned-dexes.md) instead of using the open DEX. _(Requires the [PermissionedDEX amendment][] {% not-enabled /%})_ |
 
 Full reference documentation with these changes in context (draft): [book_offers method](https://xrpl-dev-portal--xls-81.preview.redocly.app/docs/references/http-websocket-apis/public-api-methods/path-and-order-book-methods/book_offers)
 
@@ -85,7 +85,7 @@ You can specify the following new field in `path_find` API method requests when 
 
 | Field                 | Type                 | Required? | Description |
 |:----------------------|:---------------------|:----------|:------------|
-| `domain`              | String - [Hash][]    | No        | The ledger entry ID of a permissioned domain. If provided, only return paths that use the corresponding [permissioned DEX](../permissioned-dexes.md). _(Requires the [PermissionedDEX amendment][] {% not-enabled /%})_ |
+| `domain`              | String - [Hash][]    | No        | The ledger entry ID of a permissioned domain. If provided, only return paths that use the corresponding [permissioned DEX](./permissioned-dexes.md). _(Requires the [PermissionedDEX amendment][] {% not-enabled /%})_ |
 
 Full reference documentation with these changes in context (draft): [path_find method](https://xrpl-dev-portal--xls-81.preview.redocly.app/docs/references/http-websocket-apis/public-api-methods/path-and-order-book-methods/path_find)
 
@@ -96,7 +96,7 @@ You can specify the following new field in `ripple_path_find` API method request
 
 | Field                 | Type                 | Required? | Description |
 |:----------------------|:---------------------|:----------|:------------|
-| `domain`              | String - [Hash][]    | No        | The ledger entry ID of a permissioned domain. If provided, only return paths that use the corresponding [permissioned DEX](../../../../concepts/tokens/decentralized-exchange/permissioned-dexes.md). _(Requires the [PermissionedDEX amendment][] {% not-enabled /%})_ |
+| `domain`              | String - [Hash][]    | No        | The ledger entry ID of a permissioned domain. If provided, only return paths that use the corresponding [permissioned DEX](./permissioned-dexes.md). _(Requires the [PermissionedDEX amendment][] {% not-enabled /%})_ |
 
 Full reference documentation with these changes in context (draft): [ripple_path_find method](https://xrpl-dev-portal--xls-81.preview.redocly.app/docs/references/http-websocket-apis/public-api-methods/path-and-order-book-methods/ripple_path_find)
 
@@ -107,7 +107,7 @@ In the `subscribe` API method, when you subscribe to order books using the `book
 
 | Field        | Type                 | Required? | Description |
 |:-------------|:---------------------|:----------|:------------|
-| `domain`     | String - [Hash][]    | No        | The ledger entry ID of a permissioned domain. If provided, subscribe to the order book for the corresponding [Permissioned DEX](../permissioned-dexes.md) instead of the open DEX. _(Requires the [PermissionedDEX amendment][] {% not-enabled /%})_ |
+| `domain`     | String - [Hash][]    | No        | The ledger entry ID of a permissioned domain. If provided, subscribe to the order book for the corresponding [Permissioned DEX](./permissioned-dexes.md) instead of the open DEX. _(Requires the [PermissionedDEX amendment][] {% not-enabled /%})_ |
 
 Full reference documentation with these changes in context (draft): [subscribe method](https://xrpl-dev-portal--xls-81.preview.redocly.app/docs/references/http-websocket-apis/public-api-methods/path-and-order-book-methods/subscribe)
 
@@ -120,3 +120,5 @@ Full reference documentation with these changes in context (draft): [subscribe m
 | Status       | In Development |
 | Default Vote (Latest stable release) | No |
 | Pre-amendment functionality retired? | No |
+
+{% raw-partial file="/docs/_snippets/common-links.md" /%}
