@@ -8,10 +8,6 @@
   },
   "dependencies": {
     "@redocly/realm": "^0.118.2",
-    "@redocly/theme": "^0.50.0",
-    "react-markdown": "^10.1.0",
-    "react-syntax-highlighter": "^15.6.1",
-    "remark-gfm": "^4.0.1",
-    "ws": "^8.18.2"
+    "@redocly/theme": "^0.50.0"
   }
 }
