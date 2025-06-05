@@ -1,6 +1,4 @@
 ---
-html: vault-clawback.html
-parent: transaction-types.html
 seo:
     description: Allows the issuer of a Fungible Token or MPT to claw back funds from the vault. 
 labels:
@@ -46,7 +44,7 @@ _(Requires the [Single Asset Vault amendment][] {% not-enabled /%})_
 | `Holder`   | String    | AccountID     | Yes       | The unique identifier of the account from which to claw back the assets. |
 | `Amount`   | Number    | Number        | No        | The asset amount to claw back. When this field is set to 0, the transaction claws back all funds, up to the total shares the `Holder` owns. |
 
-If the requested amount exceeds the vault’s available assets, the transaction claws back only up to the vault's `AssetAvailable` balance. Otherwise, it retrieves the exact asset amount specified in the transaction.
+If the requested amount exceeds the vault’s available assets, the transaction claws back only up to the vault's `AssetsAvailable` balance. Otherwise, it retrieves the exact asset amount specified in the transaction.
 
 ## {% $frontmatter.seo.title %} Flags
 
@@ -58,11 +56,11 @@ Besides errors that can occur for all transactions, {% code-page-name /%} transa
 
 | Error Code              | Description |
 | :---------------------- | :---------- |
-| `tecOBJECT_NOT_FOUND`   | Occurs if the `Vault` object with the specified `VaultID` does not exist on the ledger. |
-| `tecNO_PERMISSION`      | Occurs if the transaction attempts to claw back `XRP`. |
-| `tecNO_PERMISSION`      | Occurs if the asset is a Fungible Token and the transaction is not submitted by the issuing account. |
-| `tecNO_PERMISSION`      | Occurs if the deposited asset does not support clawback. |
+| `tecNO_ENTRY`           | Occurs if the `Vault` object with the specified `VaultID` does not exist on the ledger. |
+| `tecNO_PERMISSION`      | Occurs if the transaction attempts to claw back XRP, or the asset is a Fungible Token or MPT and the transaction isn't submitted by the issuing account. |
 | `tecWRONG_ASSET`        | Occurs if the asset in the transaction does not match the vault's asset type. |
-| `tecINSUFFICIENT_FUNDS` | Occurs if the `MPToken` object for the vault share of the `Holder` account does not exist, or if `MPToken.MPTAmount` is 0. |
+| `tecINSUFFICIENT_FUNDS` | Occurs if the `MPToken` object for the vault share of the `Holder` account does not exist, or the `MPToken.MPTAmount` is 0. |
+| `temDISABLED`           | Occurs if the Single Asset Vault amendment is not enabled.  |
+| `temMALFORMED`          | Occurs if the transaction was not validly formatted. For example, if the `VaultID` is not provided.  |
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}
