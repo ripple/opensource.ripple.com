@@ -62,7 +62,7 @@ For example, consider a vault with a total value of $1.0m and total shares of $1
 1. The new exchange rate is calculated as:
 
     ```js
-    // ExchangeRate = (AssetTotal - LossUnrealized) / ShareTotal
+    // ExchangeRate = (AssetsTotal - LossUnrealized) / SharesTotal
     exchangeRate = (1,000,000 - 900,000) / 1,000,000
     ```
 
@@ -71,7 +71,7 @@ For example, consider a vault with a total value of $1.0m and total shares of $1
 2. After the unrealized loss is cleared, the new effective exchange rate would be:
 
     ```js
-    // ExchangeRate = AssetTotal / ShareTotal
+    // ExchangeRate = AssetsTotal / SharesTotal
     exchangeRate = 1,000,000 / 1,000,000
     ```
 
@@ -157,7 +157,7 @@ For example, if a private vault holds USDC, the destination account must belong 
 
 It is important to remember that a vault must be configured to allow share transfers, or this will not be possible.
 
-A depositor can transfers vault shares to another account by making a [payment](https://xrpl.org/docs/references/protocol/transactions/types/payment) transaction. Nothing changes in the way the payment transaction is submitted for transferring vault shares. However, there are new failure scenarios to watch out for if the transaction fails:
+A depositor can transfer vault shares to another account by making a [payment](https://xrpl.org/docs/references/protocol/transactions/types/payment) transaction. Nothing changes in the way the payment transaction is submitted for transferring vault shares. However, there are new failure scenarios to watch out for if the transaction fails:
 
 - The trust line or MPT is frozen between the payer and the issuer.
 - There is a global freeze or lock.

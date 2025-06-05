@@ -35,15 +35,11 @@ _(Requires the [Single Asset Vault amendment][] {% not-enabled /%})_
     "currency": "USD",
     "issuer": "rIssuer1234567890abcdef1234567890abcdef",
   },
-  "AssetTotal": 1000000,
-  "AssetAvailable": 800000,
+  "AssetsTotal": 1000000,
+  "AssetsAvailable": 800000,
   "LossUnrealized": 200000,
-  "AssetMaximum": 0,
-  "Share": {
-    "TokenID": "ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890",
-    "Issuer": "rShareIssuer1234567890abcdef1234567890abcdef"
-  },
-  "WithdrawalPolicy": "0x0001"
+  "AssetsMaximum": 0,
+  "WithdrawalPolicy": "1"
 }
 ```
 
@@ -63,13 +59,14 @@ In addition to the [common ledger entry fields](https://xrpl.org/docs/references
 | `Owner`             | String        | AccountID     | Yes       | The account address of the Vault Owner. |
 | `Account`           | String        | AccountID     | Yes       | The address of the vault's `pseudo-account`. |
 | `Data`              | String        | Blob          | No        | Arbitrary metadata about the vault. Limited to 256 bytes. |
-| `Asset`             | String/Object | Issue         | Yes       | The asset of the vault. The vault supports XRP, Fungible Tokens, and MPTs. |
-| `AssetTotal`        | Number        | Number        | Yes       | The total value of the vault. |
-| `AssetAvailable`    | Number        | Number        | Yes       | The asset amount that is available in the vault. |
+| `Asset`             | Object        | Issue         | Yes       | The asset of the vault. The vault supports XRP, Fungible Tokens, and MPTs. |
+| `AssetsTotal`       | Number        | Number        | Yes       | The total value of the vault. |
+| `AssetsAvailable`   | Number        | Number        | Yes       | The asset amount that is available in the vault. |
+| `AssetsMaximum`     | Number        | Number        | No        | The maximum asset amount that can be held in the vault. If set to 0, this indicates there is no cap. |
 | `LossUnrealized`    | Number        | Number        | Yes       | The potential loss amount that is not yet realized, expressed as the vault's asset. Only a protocol connected to the vault can modify this attribute. |
-| `AssetMaximum`      | Number        | Number        | No        | The maximum asset amount that can be held in the vault. If set to 0, this indicates there is no cap. |
-| `Share`             | Object        | MPT           | Yes       | The identifier of the share [MPTokenIssuance](./mptoken-issuance.md) object. |
+| `MPTokenIssuanceID` | String        | UInt192       | Yes       | The identifier of the share `MPTokenIssuance` object. |
 | `WithdrawalPolicy`  | String        | UInt8         | Yes       | Indicates the withdrawal strategy used by the vault. |
+
 
 ## {% $frontmatter.seo.title %} Flags
 
