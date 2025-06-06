@@ -65,7 +65,8 @@ export default function Page() {
             <Button size="large" variant="primary">Read the Docs</Button>
           </Card>
         </Cards>
-        <Cards columns={2}>
+        
+        {/* <Cards columns={2}>
           <Card
             title="Blog"
             to="https://xrpl.org/blog/feature-overview-token-escrow-and-payment-channels.html"
@@ -86,7 +87,7 @@ export default function Page() {
             </p>
             <ButtonToXRPL>Learn more</ButtonToXRPL>
           </Card>
-        </Cards>   
+        </Cards>    */}
       </LandingContainer>
     </LandingLayout>
   );
