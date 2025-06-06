@@ -43,7 +43,7 @@ export default function Page() {
         <Cards columns={2}>
           <Card
             title="XLS Spec"
-            to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0034d-token-escrow-and-payment-channels"
+            to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0034d-paychan-escrow-for-tokens/"
           >
             <p>
               Technical spec for the feature outlining requirements, design,
