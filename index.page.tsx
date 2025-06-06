@@ -48,7 +48,7 @@ export default function Page() {
             <p>Create and store credentials on the blockchain for compliance checks. Documentation is now live on xrpl.org.</p>
             <ButtonToXRPL>
               Go to docs
-            </Button>
+            </ButtonToXRPL>
           </Card>
 
           <Card title="Deep Freeze" to="docs/xls-77d-deep-freeze/">
