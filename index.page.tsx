@@ -65,13 +65,12 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Permissioned DEXes" to="docs/xls-81d-permissioned-dexes/">
-            <p>Permissioned DEXes are controlled environments for trading, using permissioned domains to restrict them to approved participants only.</p>
+          <Card title="Token-Enabled Escrows and Payment Channels" to="docs/xls-34d-token-escrow-and-payment-channels/">
+            <p>The proposed amendment would introduce changes to the ledger objects, transactions, and rpc methods to enable Escrows and Payment Channels to use Trustline balances.</p>
             <Button  size="large" variant="primary">
               Learn more
             </Button>
           </Card>
-
         </Cards>
       </LandingContainer>
 

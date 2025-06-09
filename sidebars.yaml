@@ -3,6 +3,31 @@
 - group: Prerelease Docs
   expanded: true
   items:
+    - group: Token-Enabled Escrows and Payment Channels
+      page: docs/xls-34d-token-escrow-and-payment-channels/index.page.tsx
+      expanded: false
+      items:
+        - page: docs/xls-34d-token-escrow-and-payment-channels/token-escrow-payment-channels.md
+        - group: Concepts
+          expanded: false
+          items:
+            - page: docs/xls-34d-token-escrow-and-payment-channels/concepts/escrow.md
+            - page: docs/xls-34d-token-escrow-and-payment-channels/concepts/payment-channels.md
+            - page: docs/xls-34d-token-escrow-and-payment-channels/concepts/ripplestate.md
+        - group: References
+          expanded: false
+          items:
+            - page: docs/xls-34d-token-escrow-and-payment-channels/reference/account_channels.md
+            - page: docs/xls-34d-token-escrow-and-payment-channels/reference/account_lines.md
+            - page: docs/xls-34d-token-escrow-and-payment-channels/reference/account_objects.md
+            - page: docs/xls-34d-token-escrow-and-payment-channels/reference/channel_authorize.md
+            - page: docs/xls-34d-token-escrow-and-payment-channels/reference/channel_verify.md
+            - page: docs/xls-34d-token-escrow-and-payment-channels/reference/escrow.md
+            - page: docs/xls-34d-token-escrow-and-payment-channels/reference/escrowcreate.md
+            - page: docs/xls-34d-token-escrow-and-payment-channels/reference/paychannel.md
+            - page: docs/xls-34d-token-escrow-and-payment-channels/reference/paymentchannelclaim.md
+            - page: docs/xls-34d-token-escrow-and-payment-channels/reference/paymentchannelcreate.md
+            - page: docs/xls-34d-token-escrow-and-payment-channels/reference/paymentchannelfund.md
     - group: Batch Transactions
       page: docs/xls-56d-batch-transactions/index.md
       expanded: false
