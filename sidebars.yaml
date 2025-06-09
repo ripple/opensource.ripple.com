@@ -48,6 +48,9 @@
     - page: docs/xls-81d-permissioned-dexes/index.page.tsx
       items:
         - page: docs/xls-81d-permissioned-dexes/permissioned-dexes.md
+          label: About Permissioned DEXes
+        - page: docs/xls-81d-permissioned-dexes/reference.md
+          label: Reference Documentation
     - page: docs/xls-33d-multi-purpose-tokens/index.page.tsx
     - group:
       page: docs/xls-65d-single-asset-vault/index.page.tsx

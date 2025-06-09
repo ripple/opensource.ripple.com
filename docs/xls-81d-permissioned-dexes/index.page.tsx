@@ -18,8 +18,8 @@ export const frontmatter = {
 
 export default function Page() {
   const keyDates = [
-    { date: "In Progress", event: "XLS Spec Review" },
-    { date: "TBA", event: "Feature in rippled" },
+    { date: "In progress", event: "XLS Spec Review" },
+    { date: "2025-05-30", event: "Implementation complete" },
     { date: "TBA", event: "Open for voting" },
     { date: "TBA", event: "Obtained ≥ 80% validators support" },
     { date: "TBA", event: "Enabled on Mainnet" },
