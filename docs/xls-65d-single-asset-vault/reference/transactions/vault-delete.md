@@ -48,9 +48,8 @@ Besides errors that can occur for all transactions, VaultCreate transactions can
 
 | Error Code                | Description                        |
 | :------------------------ | :----------------------------------|
-| `tecOBJECT_NOT_FOUND`     | Occurs if the `Vault` object with the provided `VaultID` does not exist on the ledger. |
+| `tecNO_ENTRY`             | Occurs if the `Vault` object with the provided `VaultID` does not exist on the ledger. |
 | `tecNO_PERMISSION`        | Occurs if the account submitting the transaction is not the `Owner` of the vault. |
-| `tecHAS_OBLIGATIONS`      | Occurs if the `AssetTotal`, `AssetAvailable`, or the share's `OutstandingAmount` are greater than 0. |
-| `tecHAS_OBLIGATIONS`      | Occurs if the `OwnerDirectory` of the vault's `pseudo-account` contains references to any objects other than the vault, shares, or assets. |
+| `tecHAS_OBLIGATIONS`      | Occurs if the vault to be deleted is connected to objects that cannot be deleted in the ledger. For example, the `OwnerDirectory` of the vault's `pseudo-account` contains references to any objects other than the vault, shares, or assets. |
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}

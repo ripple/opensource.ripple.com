@@ -54,7 +54,7 @@ In addition to the [common fields](https://xrpl.org/docs/references/protocol/tra
 | Field Name              | JSON Type     | Internal Type | Required? | Description         |
 | :-----------------------| :------------ | :------------ | :-------- | :-------------------|
 | `VaultID`               | String        | Hash256       | Yes       | The unique identifier of the vault to which the asset is deposited. |
-| `Amount`                | String/Object | Amount        | Yes       | The asset and quantity to be deposited into the vault.|
+| `Amount`                | Object        | Amount        | Yes       | The asset and quantity to be deposited into the vault.|
 
 The deposited asset must match the vault’s designated asset for the transaction to succeed. Depending on the asset type, the following changes occur:
 
@@ -76,12 +76,17 @@ Besides errors that can occur for all transactions, {% code-page-name /%} transa
 
 | Error Code              | Description                        |
 | :---------------------- | :----------------------------------|
-| `tecOBJECT_NOT_FOUND`   | Occurs if the `Vault` object with the provided `VaultID` does not exist on the ledger. |
+| `tecNO_ENTRY`           | Occurs if the `Vault` object with the provided `VaultID` does not exist on the ledger. |
+| `tecOBJECT_NOT_FOUND`   | Occurs if a ledger entry specified in the transaction does not exist. |
 | `tecWRONG_ASSET`        | Occurs if the asset of the vault does not match the asset being deposited. |
 | `tecINSUFFICIENT_FUNDS` | Occurs if the depositor does not have sufficient funds to make a deposit. |
-| `tecLIMIT_EXCEEDED`     | Occurs if the adding the `Amount` to the `AssetTotal` exceeds the `AssetMaximum` value. |
-| `tecNO_AUTH`            | Occurs if the `lsfVaultPrivate` flag is set and the account depositing does not have credentials in the Permissioned Domain of the share. |
-| `tecFROZEN`             | Occurs if the asset is a Fungible Token and the `lsfGlobalFreeze` flag is set on the issuing account, meaning the asset is frozen. |
-| `tecFROZEN`             | Occurs if the asset is a Fungible Token and the `lsfHighFreeze` or `lsfLowFreeze` flag is set on the trust line between the asset issuer and the depositor. |
+| `tecLIMIT_EXCEEDED`     | Occurs if adding the provided `Amount` to the `AssetsTotal` exceeds the `AssetsMaximum` value. |
+| `tecNO_AUTH`            | Occurs if either the vault is private and the depositing account does not have credentials in the share's Permissioned Domain, or the asset is a non-transferable MPT. |
+| `tecFROZEN`             | Occurs if either the trust line between the issuer and the depositor is frozen, or the asset is globally frozen.  |
+| `tecLOCKED`             | Occurs if either the MPT asset is locked for the depositor, or if the asset is globally locked. |
+| `temMALFORMED`          | Occurs if the transaction was not validly formatted. For example, if the `VaultID` is not provided.  |
+| `temDISABLED`           | Occurs if the Single Asset Vault amendment is not enabled.  |
+| `temBAD_AMOUNT`         | Occurs if the `Amount` field of the transaction is invalid. |
+
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}
