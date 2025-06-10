@@ -32,7 +32,7 @@ A `Delegate` object has the following fields:
 
 | Field Name | Required? | JSON Type | Internal Type | Description |
 |------------|-----------|-----------|---------------|-------------|
-|  `LedgerIndex` |  ✔️ | string | Hash256 | The unique ID of the ledger object. |
+| `LedgerIndex` |  ✔️ | string | Hash256 | The unique ID of the ledger object. |
 | `LedgerEntryType` | ✔️ | string | UInt16 | The ledger object's type (`Delegate`) |
 | `Account` | ✔️ | string | AccountID | The account that delegates permissions to another account. |
 | `Authorize` | ✔️ | string | AccountID | The account to which permissions are delegated. |
@@ -43,9 +43,9 @@ A `Delegate` object has the following fields:
 
 ## Retrieving Delegate Objects
 
-You can retrieve `Delegate` ledger objects using the `ledger_entry` RPC method. The unique ID of an `Delegate` object is a hash of the `Account` and `Authorize` fields, combined with the unique space key for Delegate objects.
+You can retrieve `Delegate` ledger objects using the `ledger_entry` RPC method. The unique ID of a `Delegate` object is a hash of the `Account` and `Authorize` fields, combined with the unique space key for Delegate objects.
 
 
 ## Account Deletion
 
-An `Delegate` object is not a deletion blocker. This means that deleting an account removes any `Delegate` objects associated with it.
+A `Delegate` object is not a deletion blocker. This means that deleting an account removes any `Delegate` objects associated with it.

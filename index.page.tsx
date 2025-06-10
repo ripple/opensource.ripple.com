@@ -37,7 +37,7 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Delegating Account Permissions" to="docs/xls-75d-delegating-account-permissions/">
+          <Card title="Permission Delegation" to="docs/xls-75d-permission-delegation/">
             <p>XRPL accounts can delegate specific transaction permissions to other accounts, enhancing flexibility and enabling use cases such as implementing role-based access control.</p>
             <Button size="large" variant="primary">
               Go to docs

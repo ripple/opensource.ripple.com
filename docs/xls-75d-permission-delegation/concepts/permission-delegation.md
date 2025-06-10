@@ -5,11 +5,11 @@ labels:
   - Accounts
   - Permissions
 ---
-# Delegating Account Permissions
+# Permission Delegation
 
 {% partial file="../../_snippets/_delegating-account-permissions-disclaimer.md" /%}
 
-XRPL accounts can delegate specific transaction permissions to other accounts, enhancing flexibility and enabling use cases such as implementing role-based access control. This delegation is managed using the [DelegateSet][] transaction.
+XRPL accounts can delegate both transaction permissions and granular permissions to other accounts, enhancing flexibility and enabling use cases such as implementing role-based access control. This delegation is managed using the [DelegateSet][] transaction.
 
 ## Assigning Permissions
 
@@ -60,30 +60,32 @@ To revoke specific permissions, send a `DelegateSet` transaction that includes _
 
 ## Sending Transactions with Delegated Permissions
 
-When an account has been granted permissions, it can send transactions on behalf of the delegating account using the `OnBehalfOf` field.
+When an account has been granted permissions, it can send transactions on behalf of the delegating account using the `Delegate` field.
 
 For example, if `rDelegatingAccount` has delegated the `TrustSet` permission to `rDelegatedAccount`, then `rDelegatedAccount` can submit a `TrustSet` transaction on behalf of `rDelegatingAccount` as follows:
 
 ```json
 transaction_json = {
   "TransactionType": "TrustSet",
-  "Account": "rDelegatedAccount",
+  "Account": "rDelegatingAccount",
+  "Delegate": "rDelegatedAccount",
   "LimitAmount": {
     "currency": "USD",
     "issuer": "rIssuerAccount",
     "value": "1000"
-  },
-  "OnBehalfOf": "rDelegatingAccount"
-} \
+  }
+} 
 ```
+
+The `rDelegatedAccount` signs the transaction.
 
 | Field | Description |
 |-------|-------------|
-| `Account` | The address of the account submitting the transaction. This must be the account that was granted the permission (the _delegated_ account). |
-* `OnBehalfOf` | The address of the account on whose behalf the transaction is being submitted (the _delegating_ account). The account identified here must have previously delegated the required permission to the Account.
+| `Account` | The address of the account that granted permission for the transaction (the _delegating_ account). |
+| `Delegate` | The address of the account submitting and signing the transaction. This must be the account that was granted permission (the _delegated_ account). |
 
 {% admonition type="warning" name="Important" %}
 * Delegating permissions grants significant control. Ensure you trust the delegated account.
-* The account specified in the `OnBehalfOf` field is responsible for paying the transaction fee.
+* The account specified in the `Delegate` field is responsible for paying the transaction fee.
 * A delegated account can only perform actions that have been explicitly permitted.
 {% /admonition %}

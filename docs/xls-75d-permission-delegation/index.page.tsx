@@ -11,7 +11,7 @@ import { Cards } from "@redocly/theme/markdoc/components/Cards/Cards";
 
 export const frontmatter = {
   seo: {
-    title: "XLS-75 Delegating Account Permissions",
+    title: "XLS-75 Permission Delegation",
     description: "XRPL accounts can delegate specific transaction permissions to other accounts, enhancing flexibility and enabling use cases such as implementing role-based access control."
   },
 };
@@ -29,7 +29,7 @@ export default function Page() {
     <LandingLayout>
       <LandingContainer>
         <FeatureHeader 
-          title="XLS-75 Delegating Account Permissions"
+          title="XLS-75 Permission Delegation"
           subtitle="An on-chain primitive for delegating transaction permissions between accounts."
         />
 
@@ -52,7 +52,7 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Documentation" to="./docs/xls-75d-delegating-account-permissions/concepts/delegating-account-permissions/">
+          <Card title="Documentation" to="./docs/xls-75d-permission-delegation/concepts/permission-delegation/">
             <p>
               Explore key concepts, find detailed references, and follow
               step-by-step tutorials.

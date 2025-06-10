@@ -6,7 +6,7 @@ labels:
   - Permissions
 status: not_enabled
 ---
-# Delegating Account Permissions
+# Permission Delegation
 
 {% partial file="../_snippets/_delegating-account-permissions-disclaimer.md" /%}
 
@@ -14,7 +14,7 @@ XRPL accounts can delegate specific transaction permissions to other accounts, e
 
 ## Concepts
 
-- [Delegating Account Permissions](./concepts/delegating-account-permissions.md)
+- [Delegating Account Permissions](./concepts/permission-delegation.md)
 
 ## Reference
 

@@ -123,12 +123,14 @@ A successful `DelegateSet` transaction results in the creation, modification, or
 ## Error Cases
 
 If the `Account` is the same as `Authorize`, return `temMALFORMED`.
+If the `Authorize` account does not exist, return `tecNO_TARGET`.
 If the `Permissions` list size exceeds 10, return `temARRAY_TOO_LARGE`.
 If `Permissions` contains a duplicate value, return `temMALFORMED`.
 If `Permissions` contains transactions that are disabled for delegation, return `tecNO_PERMISSION`. The transactions disabled for delegation include: `AccountSet`, `RegularKeySet`, `SignerListSet`, `AccountDelete`, `DelegateSet`, `EnableAmendment`, `SetFee`, `UNLModify`, `LedgerStateFix`.
 If the `TradingFee` is invalid (non-XRP currency or negative value), return `temBAD_FEE`.
 If the Account does not have enough balance to meet the reserve requirement, (because `DelegateSet` will create a ledger object `ltDELEGATE`, whose owner is `Account`), return `tecINSUFFICIENT_RESERVE`.
 If the `PermissionDelegation` feature is not enabled, return `temDISABLED`.
+If no delegated permission exists, return `tecNO_DELEGATE_PERMISSION`.
 
 For example, consider this case where the _rDelegatedAccount_ sends a transaction on behalf of _DelegatingAccount_:
 
@@ -142,7 +144,7 @@ For example, consider this case where the _rDelegatedAccount_ sends a transactio
   },
   "Delegate": "rDelegatedAccount"
 } 
-The account that sends this transaction is _rDelegatedAccount_, although the Account field is the _rDelegatingAccount_. The secret for this transaction is the _rDelegatingAccount_, secret, which means _rDelegatedAccount_ signs the transaction.
+The account that sends this transaction is _rDelegatedAccount_, although the Account field is the _rDelegatingAccount_. The secret for this transaction is the _rDelegatedAccount_, secret, which means _rDelegatedAccount_ signs the transaction.
 
 If the _rDelegatedAccount_ is not authorized by the _rDelegatingAccount_, for the transaction type or satisfying the granular permissions given by _rDelegatingAccount_, the transaction returns `tecNO_PERMISSION`.
 
