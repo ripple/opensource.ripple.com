@@ -133,7 +133,7 @@ If the `PermissionDelegation` feature is not enabled, return `temDISABLED`.
 If no delegated permission exists, return `tecNO_DELEGATE_PERMISSION`.
 
 For example, consider this case where the _rDelegatedAccount_ sends a transaction on behalf of _DelegatingAccount_:
-
+```json
 {
   "TransactionType": "TrustSet",
   "Account": "rDelegatingAccount",
@@ -143,8 +143,10 @@ For example, consider this case where the _rDelegatedAccount_ sends a transactio
     "value": "1000"
   },
   "Delegate": "rDelegatedAccount"
-} 
-The account that sends this transaction is _rDelegatedAccount_, although the Account field is the _rDelegatingAccount_. The secret for this transaction is the _rDelegatedAccount_, secret, which means _rDelegatedAccount_ signs the transaction.
+}
+```
+
+The account that sends this transaction is _rDelegatedAccount_, although the Account field is the _rDelegatingAccount_. The secret for this transaction is the _rDelegatedAccount_ secret, which means _rDelegatedAccount_ signs the transaction.
 
 If the _rDelegatedAccount_ is not authorized by the _rDelegatingAccount_, for the transaction type or satisfying the granular permissions given by _rDelegatingAccount_, the transaction returns `tecNO_PERMISSION`.
 
