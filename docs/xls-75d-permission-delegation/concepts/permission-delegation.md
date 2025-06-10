@@ -1,6 +1,6 @@
 ---
 seo:
-    description: Common configurations for an XRP Ledger account.
+    description: XRPL accounts can delegate both transaction permissions and granular permissions to other accounts.
 labels:
   - Accounts
   - Permissions
