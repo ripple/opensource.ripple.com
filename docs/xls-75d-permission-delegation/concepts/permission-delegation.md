@@ -95,6 +95,8 @@ The account that sends this transaction is _rDelegatedAccount_, although the Acc
 
 - If the key used to sign this account does not match with _rDelegatedAccount_, the transaction returns `rpcBAD_SECRET`.
 
+- If the `TradingFee` is invalid (non-XRP currency or negative value), return `temBAD_FEE`.
+
 Any other errors are the same as when the _rDelegatingAccount_ sends transaction for itself.
 
 {% admonition type="warning" name="Important" %}
