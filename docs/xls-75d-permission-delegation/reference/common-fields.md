@@ -7,7 +7,7 @@ labels:
   - Delegate
 ---
 
-# Common Fields
+# Transaction Common Fields
 
 The change to the common fields topic introduced for this feature is the new `Delegate` object. For the full draft topic in context, see [Transaction Common Fields](https://xrpl-dev-portal--perm-dele-common-fields-2.preview.redocly.app/docs/references/protocol/transactions/common-fields).
 
