@@ -83,6 +83,20 @@ transaction_json = {
 
 The account that sends this transaction is _rDelegatedAccount_, although the Account field is the _rDelegatingAccount_. The secret for this transaction is the _rDelegatedAccount_ secret, which means _rDelegatedAccount_ signs the transaction.
 
+## Error Cases
+
+- If the `PermissionDelegation` feature is not enabled, return `temDISABLED`.
+
+- If the _rDelegatedAccount_ is not authorized by the _rDelegatingAccount_ for the transaction type or satisfying the granular permissions given by _rDelegatingAccount_, the transaction returns `tecNO_DELEGATE_PERMISSION`.
+
+- If the _rDelegatedAccount_ does not have enough balance to pay the transaction fee, the transaction returns `terINSUF_FEE_B` . (_rDelegatedAccount_ pays the fee, which is the sender in `Delegate` field, not the `Account` field).
+
+- If the transaction creates a ledger object, but _rDelegatingAccount_ does not have enough balance to cover the reserve, the transaction returns `tecINSUFFICIENT_RESERVE`.
+
+- If the key used to sign this account does not match with _rDelegatedAccount_, the transaction returns `rpcBAD_SECRET`.
+
+Any other errors are the same as when the _rDelegatingAccount_ sends transaction for itself.
+
 {% admonition type="warning" name="Important" %}
 * Delegating permissions grants significant control. Ensure you trust the delegated account.
 * The account specified in the `Delegate` field is responsible for paying the transaction fee.
