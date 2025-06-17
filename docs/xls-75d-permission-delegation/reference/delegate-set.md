@@ -1,6 +1,6 @@
 ---
 seo:
-    description: An object that stores a set of permissions that an XRPL account delegates to another account.
+    description: An transaction that delegates a set of permissions to another account.
 labels:
   - Accounts
   - Permissions
@@ -103,6 +103,13 @@ When an account is authorized by both `TrustlineFreeze` and `TrustSet`, the dele
 
 For multi-signing a delegation transaction, which is sent by a delegated account, the multi signers must be the delegated account's signers instead of the delegating account's multi signers.
 
+### Limitations to Granular Permissions
+
+The set of permissions must be hard-coded. No custom configurations are allowed. For example, you cannot add permissions based on specific currencies. 
+
+In addition, each permission needs to be implemented on its own in the source code. Adding a new permission requires an amendment.
+
+
 ## Failure Conditions
 
 The `DelegateSet` transaction fails if:
@@ -122,45 +129,29 @@ A successful `DelegateSet` transaction results in the creation, modification, or
 
 ## Error Cases
 
-If the `Account` is the same as `Authorize`, return `temMALFORMED`.
-If the `Authorize` account does not exist, return `tecNO_TARGET`.
-If the `Permissions` list size exceeds 10, return `temARRAY_TOO_LARGE`.
-If `Permissions` contains a duplicate value, return `temMALFORMED`.
-If `Permissions` contains transactions that are disabled for delegation, return `tecNO_PERMISSION`. The transactions disabled for delegation include: `AccountSet`, `RegularKeySet`, `SignerListSet`, `AccountDelete`, `DelegateSet`, `EnableAmendment`, `SetFee`, `UNLModify`, `LedgerStateFix`.
-If the `TradingFee` is invalid (non-XRP currency or negative value), return `temBAD_FEE`.
-If the Account does not have enough balance to meet the reserve requirement, (because `DelegateSet` will create a ledger object `ltDELEGATE`, whose owner is `Account`), return `tecINSUFFICIENT_RESERVE`.
-If the `PermissionDelegation` feature is not enabled, return `temDISABLED`.
-If no delegated permission exists, return `tecNO_DELEGATE_PERMISSION`.
+- If the `Account` is the same as `Authorize`, return `temMALFORMED`.
 
-For example, consider this case where the _rDelegatedAccount_ sends a transaction on behalf of _DelegatingAccount_:
-```json
-{
-  "TransactionType": "TrustSet",
-  "Account": "rDelegatingAccount",
-  "LimitAmount": {
-    "currency": "USD",
-    "issuer": "rIssuerAccount",
-    "value": "1000"
-  },
-  "Delegate": "rDelegatedAccount"
-}
-```
+- If the `Authorize` account does not exist, return `tecNO_TARGET`.
 
-The account that sends this transaction is _rDelegatedAccount_, although the Account field is the _rDelegatingAccount_. The secret for this transaction is the _rDelegatedAccount_ secret, which means _rDelegatedAccount_ signs the transaction.
+- If the `Permissions` list size exceeds 10, return `temARRAY_TOO_LARGE`.
 
-If the _rDelegatedAccount_ is not authorized by the _rDelegatingAccount_, for the transaction type or satisfying the granular permissions given by _rDelegatingAccount_, the transaction returns `tecNO_PERMISSION`.
+- If `Permissions` contains a duplicate value, return `temMALFORMED`.
 
-If the _rDelegatedAccount_ does not have enough balance to pay the transaction fee, the transaction returns `terINSUF_FEE_B` . (_rDelegatedAccount_ pays the fee, which is the sender in `Delegate` field, not the `Account` field).
+- If `Permissions` contains transactions that are disabled for delegation, return `tecNO_PERMISSION`.
+The transactions disabled for delegation include: `AccountSet`, `RegularKeySet`, `SignerListSet`, `AccountDelete`, `DelegateSet`, `EnableAmendment`, `SetFee`, `UNLModify`, `LedgerStateFix`.
 
-If the transaction creates a ledger object, but _rDelegatingAccount_ does not have enough balance to cover the reserve, the transaction returns `tecINSUFFICIENT_RESERVE`.
+- If the `TradingFee` is invalid (non-XRP currency or negative value), return `temBAD_FEE`.
 
-If the key used to sign this account does not match with _rDelegatedAccount_, the transaction returns `rpcBAD_SECRET`.
+- If the Account does not have enough balance to meet the reserve requirement, (because `DelegateSet` will create a ledger object `ltDELEGATE`, whose owner is `Account`), return `tecINSUFFICIENT_RESERVE`.
+
+- If the `PermissionDelegation` feature is not enabled, return `temDISABLED`.
+
+- If the _rDelegatedAccount_ is not authorized by the _rDelegatingAccount_ for the transaction type or satisfying the granular permissions given by _rDelegatingAccount_, the transaction returns `tecNO_DELEGATE_PERMISSION`.
+
+- If the _rDelegatedAccount_ does not have enough balance to pay the transaction fee, the transaction returns `terINSUF_FEE_B` . (_rDelegatedAccount_ pays the fee, which is the sender in `Delegate` field, not the `Account` field).
+
+- If the transaction creates a ledger object, but _rDelegatingAccount_ does not have enough balance to cover the reserve, the transaction returns `tecINSUFFICIENT_RESERVE`.
+
+- If the key used to sign this account does not match with _rDelegatedAccount_, the transaction returns `rpcBAD_SECRET`.
 
 Any other errors are the same as when the _rDelegatingAccount_ sends transaction for itself.
-
-## Limitations
-
-The set of permissions must be hard-coded. No custom configurations are allowed. For example, you cannot add permissions based on specific currencies. 
-
-In addition, each permission needs to be implemented on its own in the source code. Adding a new permission requires an amendment.
-

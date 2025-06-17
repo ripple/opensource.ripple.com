@@ -9,11 +9,11 @@ labels:
 
 {% partial file="../../_snippets/_delegating-account-permissions-disclaimer.md" /%}
 
-XRPL accounts can delegate both transaction permissions and granular permissions to other accounts, enhancing flexibility and enabling use cases such as implementing role-based access control. This delegation is managed using the [DelegateSet][] transaction.
+XRPL accounts can delegate both transaction permissions and granular permissions to other accounts, enhancing flexibility and enabling use cases such as implementing role-based access control. This delegation is managed using the [`DelegateSet`](../reference/delegate-set/) transaction.
 
 ## Assigning Permissions
 
-You can assign permissions to another account by submitting an `DelegateSet` transaction.
+You can assign permissions to another account by submitting a `DelegateSet` transaction.
 
 ```json
 tx_json = {
@@ -35,7 +35,6 @@ tx_json = {
 | `Account` | The address of the account that is delegating the permission(s). |
 | `Authorize` | The address of the account that is being granted the permission(s). |
 | `Permissions` | An array of permission objects, specifying the permissions to delegate. Each permission is defined within a `Permission` object, using the `PermissionValue` field. See [XLS-74d, Account Permissions] for a complete list of valid `PermissionValues`. |  
-
 
 ## Revoking Permissions
 
@@ -77,12 +76,12 @@ transaction_json = {
 } 
 ```
 
-The `rDelegatedAccount` signs the transaction.
-
 | Field | Description |
 |-------|-------------|
 | `Account` | The address of the account that granted permission for the transaction (the _delegating_ account). |
 | `Delegate` | The address of the account submitting and signing the transaction. This must be the account that was granted permission (the _delegated_ account). |
+
+The account that sends this transaction is _rDelegatedAccount_, although the Account field is the _rDelegatingAccount_. The secret for this transaction is the _rDelegatedAccount_ secret, which means _rDelegatedAccount_ signs the transaction.
 
 {% admonition type="warning" name="Important" %}
 * Delegating permissions grants significant control. Ensure you trust the delegated account.
