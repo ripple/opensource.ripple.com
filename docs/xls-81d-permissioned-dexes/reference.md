@@ -1,6 +1,6 @@
 # Permissioned DEXes Reference
 
-The Permissioned DEXes amendment does not create any totally-new data types, but it modifies several transactions, ledger entries, and API methods.
+The Permissioned DEXes amendment does not create any new data types, but it modifies several transactions, ledger entries, and API methods.
 
 - **Transactions:**
     - [OfferCreate](#offercreate-transaction-changes) - Add `DomainID` field that specifies a domain.
