@@ -1,6 +1,6 @@
 ---
 seo:
-    description: An transaction that delegates a set of permissions to another account.
+    description: A transaction that delegates a set of permissions to another account.
 labels:
   - Accounts
   - Permissions

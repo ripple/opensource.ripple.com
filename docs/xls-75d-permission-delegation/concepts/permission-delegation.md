@@ -36,6 +36,10 @@ tx_json = {
 | `Authorize` | The address of the account that is being granted the permission(s). |
 | `Permissions` | An array of permission objects, specifying the permissions to delegate. Each permission is defined within a `Permission` object, using the `PermissionValue` field. See [XLS-74d, Account Permissions] for a complete list of valid `PermissionValues`. |  
 
+## Updating Permissions
+
+Sending a new `DelegateSet` with the same `Account` and `Authorize` fields updates and replaces the permission list.
+
 ## Revoking Permissions
 
 Permissions can be revoked using the `DelegateSet` transaction. There are two ways to revoke permissions:
