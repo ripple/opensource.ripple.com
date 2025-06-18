@@ -1,6 +1,6 @@
 ---
 seo:
-    description: An transaction that delegates a set of permissions to another account.
+    description: A transaction that delegates a set of permissions to another account.
 labels:
   - Accounts
   - Permissions
@@ -141,4 +141,3 @@ A successful `DelegateSet` transaction results in the creation, modification, or
 The transactions disabled for delegation include: `AccountSet`, `RegularKeySet`, `SignerListSet`, `AccountDelete`, `DelegateSet`, `EnableAmendment`, `SetFee`, `UNLModify`, `LedgerStateFix`.
 
 - If the Account does not have enough balance to meet the reserve requirement, (because `DelegateSet` will create a ledger object `ltDELEGATE`, whose owner is `Account`), return `tecINSUFFICIENT_RESERVE`.
-
