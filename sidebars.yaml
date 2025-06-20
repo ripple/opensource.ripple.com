@@ -70,12 +70,12 @@
             - group: Transactions
               expanded: false
               items:
-                - page: docs/xls-65d-single-asset-vault/reference/transactions/vault-create.md
-                - page: docs/xls-65d-single-asset-vault/reference/transactions/vault-set.md
-                - page: docs/xls-65d-single-asset-vault/reference/transactions/vault-delete.md
-                - page: docs/xls-65d-single-asset-vault/reference/transactions/vault-deposit.md
-                - page: docs/xls-65d-single-asset-vault/reference/transactions/vault-withdraw.md
-                - page: docs/xls-65d-single-asset-vault/reference/transactions/vault-clawback.md
+                - page: docs/xls-65d-single-asset-vault/reference/transactions/vaultcreate.md
+                - page: docs/xls-65d-single-asset-vault/reference/transactions/vaultset.md
+                - page: docs/xls-65d-single-asset-vault/reference/transactions/vaultdelete.md
+                - page: docs/xls-65d-single-asset-vault/reference/transactions/vaultdeposit.md
+                - page: docs/xls-65d-single-asset-vault/reference/transactions/vaultwithdraw.md
+                - page: docs/xls-65d-single-asset-vault/reference/transactions/vaultclawback.md
             - group: API
               expanded: false
               items:

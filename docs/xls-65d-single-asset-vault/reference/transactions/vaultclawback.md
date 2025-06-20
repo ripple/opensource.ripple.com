@@ -12,7 +12,7 @@ labels:
 
 Performs a [Clawback](https://xrpl.org/docs/use-cases/tokenization/stablecoin-issuer#clawback) from the vault, exchanging the shares of an account for assets.
 
-Under the hood, the transaction performs a [VaultWithdraw](./vault-withdraw.md) on behalf of the account from which assets are clawed back, converting its shares into assets and transferring the funds to the asset’s issuing account. Because of this, {% code-page-name /%} must respect any applicable fees or penalties (e.g., unrealized loss).
+Under the hood, the transaction performs a [VaultWithdraw](./vaultwithdraw.md) on behalf of the account from which assets are clawed back, converting its shares into assets and transferring the funds to the asset’s issuing account. Because of this, {% code-page-name /%} must respect any applicable fees or penalties (e.g., unrealized loss).
 
 {% admonition type="warning" name="Warning" %}
 Clawbacks cannot be performed on native XRP.

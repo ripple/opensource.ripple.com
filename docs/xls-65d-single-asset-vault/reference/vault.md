@@ -10,7 +10,7 @@ labels:
 
 [[Source]](https://github.com/Bronek/rippled/blob/vault/include/xrpl/protocol/detail/ledger_entries.macro#L465-L486 "Source")
 
-A {% code-page-name /%} object defines the state of a tokenized vault. It contains key details such as available assets, shares, total value, and other relevant information. You can create a {% code-page-name /%} object with the [VaultCreate](./transactions/vault-create.md)  transaction.
+A {% code-page-name /%} object defines the state of a tokenized vault. It contains key details such as available assets, shares, total value, and other relevant information. You can create a {% code-page-name /%} object with the [VaultCreate](./transactions/vaultcreate.md)  transaction.
 
 The {% code-page-name /%} object is tracked in an [Owner Directory](https://xrpl.org/directorynode.html) owned by the Vault Owner account.
 Additionally, to facilitate `Vault` object lookup, the object is tracked in the `OwnerDirectory` of the vault's `pseudo-account`.
