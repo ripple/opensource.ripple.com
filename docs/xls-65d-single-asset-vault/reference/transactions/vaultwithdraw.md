@@ -16,7 +16,7 @@ Redeem vault shares for assets. The amount of assets received depends on the [ex
 The `VaultWithdraw` transaction does not respect the Permissioned Domain rules. In other words, any account that holds the shares of the vault can redeem them. This is to avoid a situation where a depositor deposits assets to a private vault to then have their access revoked by invalidating their credentials, and thus losing access to their funds.
 {% /admonition %}
 
-A depositor cannot redeem liquidity if the trust line or the `MPToken` between the `pseudo-account` and the issuer of the vault asset is frozen or locked.
+A depositor cannot redeem liquidity if the trust line or the `MPToken` between the pseudo-account and the issuer of the vault asset is frozen or locked.
 
 _(Requires the [Single Asset Vault amendment][] {% not-enabled /%})_
 
@@ -43,7 +43,7 @@ In addition to the [common fields](https://xrpl.org/docs/references/protocol/tra
 | Field Name              | JSON Type     | Internal Type | Required? | Description         |
 | :-----------------------| :------------ | :------------ | :-------- | :-------------------|
 | `VaultID`               | String        | Hash256       | Yes       | The unique identifier of the vault to which the assets are deposited. |
-| `Amount`                | Number        | STAmount      | Yes       | The exact amount of vault asset to withdraw or vault share to redeem. |
+| `Amount`                | Number        | Amount        | Yes       | The exact amount of vault asset to withdraw or vault share to redeem. |
 | `Destination`           | String        | AccountID     | No        | An account to receive the assets. This account must be able to receive the vault asset or the transaction fails.                   |
 
 There are two ways to specify the transaction `Amount` field:
@@ -66,11 +66,16 @@ Besides errors that can occur for all transactions, {% code-page-name /%} transa
 
 | Error Code              | Description                        |
 | :---------------------- | :----------------------------------|
-| `tecOBJECT_NOT_FOUND`   | Occurs if the `Vault` object with the provided `VaultID` does not exist on the ledger. |
-| `tecFROZEN`             | Occurs if the asset is a Fungible Token and the `lsfGlobalFreeze` flag is set on the issuing account, meaning the asset is frozen. |
-| `tecFROZEN`             | Occurs if the asset is a Fungible Token and the `lsfHighFreeze` or `lsfLowFreeze` flag is set on the trust line between the asset issuer and `AccountRoot` of the `AccountID` or `Destination`. |
-| `tecWRONG_ASSET`        | Occurs if the unit of `Amount` is not a share of the vault. |
-| `tecWRONG_ASSET`        | Occurs if the unit of `Amount` is not the asset of the vault. |
-| `tecINSUFFICIENT_FUNDS` | Occurs if there is insufficient liquidity in the vault to fill the request. |
+| `tecNO_ENTRY`           | The `Vault` object with the provided `VaultID` does not exist on the ledger. |
+| `tecOBJECT_NOT_FOUND`   | A ledger entry specified in the transaction does not exist. |
+| `tecNO_PERMISSION`      | The destination account specified does not have permission to receive the asset. |
+| `tecWRONG_ASSET`        | The unit of `Amount` is neither a share or asset of the vault. |
+| `tecINSUFFICIENT_FUNDS` | There is insufficient liquidity in the vault to fill the request. |
+| `tecFROZEN`             | Either the trust line between the issuer and the destination account is frozen, or the asset is globally frozen.  |
+| `tecLOCKED`             | The MPT asset is locked for the depositor, destination account, or if the asset is globally locked. |
+| `temMALFORMED`          | The transaction is not validly formatted. For example, the `VaultID` is not provided.  |
+| `temDISABLED`           | The Single Asset Vault amendment is not enabled.  |
+| `temBAD_AMOUNT`         | The `Amount` field of the transaction is invalid. For example, the provided amount is set to 0. |
+| `tecNO_AUTH`            | The asset is a non-transferable MPT. |
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}

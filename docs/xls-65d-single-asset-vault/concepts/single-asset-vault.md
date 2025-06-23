@@ -34,7 +34,7 @@ Depositors can deposit assets to receive shares, which represent their proportio
 
 Since the XRP Ledger is an account-based blockchain, all assets must be held by an account. A `Vault` ledger entry cannot hold assets directly, so a [pseudo-account](pseudo-account.md) is created to hold assets on its behalf. This stand-alone account cannot receive funds or send transactions, and exists solely to store assets and issue shares.
 
-Each share is represented on-chain as an MPT, issued by the vault's `pseudo-account`.
+Each share is represented on-chain as an MPT, issued by the vault's pseudo-account.
 
 Depending on the connected protocol, vault shares may be yield-bearing, meaning shareholders could redeem shares for more or less liquidity than they originally deposited. This is because the total asset balance in the vault can grow or shrink over time, affecting the value of each share. However, the vault asset (e.g., USDC or XRP) does not generate yield on its own.
 
@@ -62,7 +62,7 @@ For example, consider a vault with a total value of $1.0m and total shares of $1
 1. The new exchange rate is calculated as:
 
     ```js
-    // ExchangeRate = (AssetTotal - LossUnrealized) / ShareTotal
+    // ExchangeRate = (AssetsTotal - LossUnrealized) / SharesTotal
     exchangeRate = (1,000,000 - 900,000) / 1,000,000
     ```
 
@@ -71,7 +71,7 @@ For example, consider a vault with a total value of $1.0m and total shares of $1
 2. After the unrealized loss is cleared, the new effective exchange rate would be:
 
     ```js
-    // ExchangeRate = AssetTotal / ShareTotal
+    // ExchangeRate = AssetsTotal / SharesTotal
     exchangeRate = 1,000,000 / 1,000,000
     ```
 
@@ -157,13 +157,13 @@ For example, if a private vault holds USDC, the destination account must belong 
 
 It is important to remember that a vault must be configured to allow share transfers, or this will not be possible.
 
-A depositor can transfers vault shares to another account by making a [payment](https://xrpl.org/docs/references/protocol/transactions/types/payment) transaction. Nothing changes in the way the payment transaction is submitted for transferring vault shares. However, there are new failure scenarios to watch out for if the transaction fails:
+A depositor can transfer vault shares to another account by making a [payment](https://xrpl.org/docs/references/protocol/transactions/types/payment) transaction. Nothing changes in the way the payment transaction is submitted for transferring vault shares. However, there are new failure scenarios to watch out for if the transaction fails:
 
 - The trust line or MPT is frozen between the payer and the issuer.
 - There is a global freeze or lock.
-- The vault `pseudo-account` is frozen.
-- The underlying asset is an MPT and is locked for the payer, destination, or vault `pseudo-account`.
-- The underlying asset is a Fungible Token and the trust line is frozen between the issuer and the payer, destination, or vault `pseudo-account`.
+- The vault pseudo-account is frozen.
+- The underlying asset is an MPT and is locked for the payer, destination, or vault pseudo-account.
+- The underlying asset is a Fungible Token and the trust line is frozen between the issuer and the payer, destination, or vault pseudo-account.
 
 If the transfer succeeds and the payee already holds vault shares, their balance increases. Otherwise, a new MPT entry is created for their account.
 

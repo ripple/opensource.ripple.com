@@ -20,11 +20,11 @@ Public vaults require no authorization, and anyone can deposit as long as they m
 A depositor cannot deposit assets into the vault if:
 
 - The asset is frozen for the depositor.
-- The trust line or the `MPToken` between the `pseudo-account` and the issuer of the vault asset is frozen or locked.
+- The trust line or the `MPToken` between the pseudo-account and the issuer of the vault asset is frozen or locked.
 - The vault is private and the depositor's credentials have expired.
 {% /admonition %}
 
-If successful, the transaction moves the assets from the depositor's account to the vault's `pseudo-account`, issues the corresponding vault shares, and updates the vault’s balance.
+If successful, the transaction moves the assets from the depositor's account to the vault's pseudo-account, issues the corresponding vault shares, and updates the vault’s balance.
 
 _(Requires the [Single Asset Vault amendment][] {% not-enabled /%})_
 
@@ -54,13 +54,13 @@ In addition to the [common fields](https://xrpl.org/docs/references/protocol/tra
 | Field Name              | JSON Type     | Internal Type | Required? | Description         |
 | :-----------------------| :------------ | :------------ | :-------- | :-------------------|
 | `VaultID`               | String        | Hash256       | Yes       | The unique identifier of the vault to which the asset is deposited. |
-| `Amount`                | String/Object | Amount        | Yes       | The asset and quantity to be deposited into the vault.|
+| `Amount`                | Object        | Amount        | Yes       | The asset and quantity to be deposited into the vault.|
 
 The deposited asset must match the vault’s designated asset for the transaction to succeed. Depending on the asset type, the following changes occur:
 
-- **XRP**: The vault’s `pseudo-account` balance increases, and the depositor’s balance decreases.
-- **Fungible Token**: The [trust line](https://xrpl.org/docs/concepts/tokens/fungible-tokens#trust-lines) balance between the vault's `pseudo-account` and the asset issuer is adjusted.
-- **MPT**: The `MPToken.MPTAmount` of both the depositor and the vault's `pseudo-account` is updated.
+- **XRP**: The vault’s pseudo-account balance increases, and the depositor’s balance decreases.
+- **Fungible Token**: The [trust line](https://xrpl.org/docs/concepts/tokens/fungible-tokens#trust-lines) balance between the vault's pseudo-account and the asset issuer is adjusted.
+- **MPT**: The `MPToken.MPTAmount` of both the depositor and the vault's pseudo-account is updated.
 
 ## {% $frontmatter.seo.title %} Flags
 
@@ -76,12 +76,17 @@ Besides errors that can occur for all transactions, {% code-page-name /%} transa
 
 | Error Code              | Description                        |
 | :---------------------- | :----------------------------------|
-| `tecOBJECT_NOT_FOUND`   | Occurs if the `Vault` object with the provided `VaultID` does not exist on the ledger. |
-| `tecWRONG_ASSET`        | Occurs if the asset of the vault does not match the asset being deposited. |
-| `tecINSUFFICIENT_FUNDS` | Occurs if the depositor does not have sufficient funds to make a deposit. |
-| `tecLIMIT_EXCEEDED`     | Occurs if the adding the `Amount` to the `AssetTotal` exceeds the `AssetMaximum` value. |
-| `tecNO_AUTH`            | Occurs if the `lsfVaultPrivate` flag is set and the account depositing does not have credentials in the Permissioned Domain of the share. |
-| `tecFROZEN`             | Occurs if the asset is a Fungible Token and the `lsfGlobalFreeze` flag is set on the issuing account, meaning the asset is frozen. |
-| `tecFROZEN`             | Occurs if the asset is a Fungible Token and the `lsfHighFreeze` or `lsfLowFreeze` flag is set on the trust line between the asset issuer and the depositor. |
+| `tecNO_ENTRY`           | The `Vault` object with the provided `VaultID` does not exist on the ledger. |
+| `tecOBJECT_NOT_FOUND`   | A ledger entry specified in the transaction does not exist. |
+| `tecWRONG_ASSET`        | The asset of the vault does not match the asset being deposited. |
+| `tecINSUFFICIENT_FUNDS` | The depositor does not have sufficient funds to make a deposit. |
+| `tecLIMIT_EXCEEDED`     | Adding the provided `Amount` to the `AssetsTotal` exceeds the `AssetsMaximum` value. |
+| `tecNO_AUTH`            | Either the vault is private and the depositing account does not have credentials in the share's Permissioned Domain, or the asset is a non-transferable MPT. |
+| `tecFROZEN`             | Either the trust line between the issuer and the depositor is frozen, or the asset is globally frozen.  |
+| `tecLOCKED`             | Either the MPT asset is locked for the depositor, or if the asset is globally locked. |
+| `temMALFORMED`          | The transaction was not validly formatted. For example, if the `VaultID` is not provided.  |
+| `temDISABLED`           | The Single Asset Vault amendment is not enabled.  |
+| `temBAD_AMOUNT`         | The `Amount` field of the transaction is invalid. |
+
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}
