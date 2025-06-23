@@ -73,7 +73,7 @@ In addition to the [common ledger entry fields](https://xrpl.org/docs/references
 
 ## {% $frontmatter.seo.title %} Flags
 
-{% code-page-name /%}  entries can have the followings flags:
+{% code-page-name /%}  entries can have the following flags:
 
 | Flag Name         | Flag Value   | Description                 |
 | :---------------- | :----------- | :---------------------------|
