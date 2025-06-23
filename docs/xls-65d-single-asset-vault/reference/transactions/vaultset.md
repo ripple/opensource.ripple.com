@@ -59,9 +59,9 @@ Besides errors that can occur for all transactions, {% code-page-name /%} transa
 | :-------------------- | :-------------------------------------|
 | `tecNO_ENTRY`         | The transaction attempted to modify a vault that does not exist. Check the `VaultID` field of the transaction. |
 | `tecOBJECT_NOT_FOUND` | The `PermissionedDomain` object with the provided `DomainID` does not exist. |
-| `tecNO_PERMISSION`    | Occurs if the account submitting the transaction is not the `Owner` of the vault, or is trying to set a `DomainID` for a public vault. |
-| `temMALFORMED`        | Occurs if the transaction was not validly formatted. For example, the `Data` field is larger than 256 bytes. |
-| `tecLIMIT_EXCEEDED`   | Occurs if the _new_ `AssetsMaximum` value is **lower** than the vault's _current_ `AssetsTotal`. |
-| `temDISABLED`         | Occurs if either the Permissioned Domains amendment is disabled and a `DomainID` is provided, or the Single Asset Vault amendment is not enabled.  |
+| `tecNO_PERMISSION`    | The account submitting the transaction is not the `Owner` of the vault, or is trying to set a `DomainID` for a public vault. |
+| `temMALFORMED`        | The transaction was not validly formatted. For example, the `Data` field is larger than 256 bytes. |
+| `tecLIMIT_EXCEEDED`   | The _new_ `AssetsMaximum` value is **lower** than the vault's _current_ `AssetsTotal`. |
+| `temDISABLED`         | Either the Single Asset Vault amendment is not enabled, or a `DomainID` is provided and the Permissioned Domains amendment is not enabled. |
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}

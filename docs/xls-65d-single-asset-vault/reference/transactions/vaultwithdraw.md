@@ -16,7 +16,7 @@ Redeem vault shares for assets. The amount of assets received depends on the [ex
 The `VaultWithdraw` transaction does not respect the Permissioned Domain rules. In other words, any account that holds the shares of the vault can redeem them. This is to avoid a situation where a depositor deposits assets to a private vault to then have their access revoked by invalidating their credentials, and thus losing access to their funds.
 {% /admonition %}
 
-A depositor cannot redeem liquidity if the trust line or the `MPToken` between the `pseudo-account` and the issuer of the vault asset is frozen or locked.
+A depositor cannot redeem liquidity if the trust line or the `MPToken` between the pseudo-account and the issuer of the vault asset is frozen or locked.
 
 _(Requires the [Single Asset Vault amendment][] {% not-enabled /%})_
 
@@ -66,16 +66,16 @@ Besides errors that can occur for all transactions, {% code-page-name /%} transa
 
 | Error Code              | Description                        |
 | :---------------------- | :----------------------------------|
-| `tecNO_ENTRY`           | Occurs if the `Vault` object with the provided `VaultID` does not exist on the ledger. |
-| `tecOBJECT_NOT_FOUND`   | Occurs if a ledger entry specified in the transaction does not exist. |
+| `tecNO_ENTRY`           | The `Vault` object with the provided `VaultID` does not exist on the ledger. |
+| `tecOBJECT_NOT_FOUND`   | A ledger entry specified in the transaction does not exist. |
 | `tecNO_PERMISSION`      | The destination account specified does not have permission to receive the asset. |
-| `tecWRONG_ASSET`        | Occurs if the unit of `Amount` is neither a share or asset of the vault. |
-| `tecINSUFFICIENT_FUNDS` | Occurs if there is insufficient liquidity in the vault to fill the request. |
-| `tecFROZEN`             | Occurs if either the trust line between the issuer and the destination account is frozen, or the asset is globally frozen.  |
-| `tecLOCKED`             | Occurs if the MPT asset is locked for the depositor, destination account, or if the asset is globally locked. |
-| `temMALFORMED`          | Occurs if the transaction is not validly formatted. For example, the `VaultID` is not provided.  |
-| `temDISABLED`           | Occurs if the Single Asset Vault amendment is not enabled.  |
-| `temBAD_AMOUNT`         | Occurs if the `Amount` field of the transaction is invalid. For example, if the provided amount is set to 0. |
-| `tecNO_AUTH`            | Occurs if the asset is a non-transferable MPT. |
+| `tecWRONG_ASSET`        | The unit of `Amount` is neither a share or asset of the vault. |
+| `tecINSUFFICIENT_FUNDS` | There is insufficient liquidity in the vault to fill the request. |
+| `tecFROZEN`             | Either the trust line between the issuer and the destination account is frozen, or the asset is globally frozen.  |
+| `tecLOCKED`             | The MPT asset is locked for the depositor, destination account, or if the asset is globally locked. |
+| `temMALFORMED`          | The transaction is not validly formatted. For example, the `VaultID` is not provided.  |
+| `temDISABLED`           | The Single Asset Vault amendment is not enabled.  |
+| `temBAD_AMOUNT`         | The `Amount` field of the transaction is invalid. For example, the provided amount is set to 0. |
+| `tecNO_AUTH`            | The asset is a non-transferable MPT. |
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}

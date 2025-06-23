@@ -49,7 +49,7 @@ In addition to the [common fields](https://xrpl.org/docs/references/protocol/tra
 | Field Name         | JSON Type     | [Internal Type][] | Required? |Description        |
 |:-------------------|:--------------|:------------------|:----------|:------------------|
 | `Data`             | String        | Blob              | No        | Arbitrary vault metadata, in hex format, limited to 256 bytes. |
-| `Asset`            | Object        | Issue             | Yes       | The asset to be held in the vault. This can be XRP, a Fungible Token, or an MPT. If the asset is a Fungible Token, the transaction creates a [trust line](https://xrpl.org/docs/concepts/tokens/fungible-tokens#trust-lines) between the vault's `pseudo-account` and the issuer of the asset. If the asset is an MPT, the transaction creates an `MPToken` object for the vault's `pseudo-account`.  |
+| `Asset`            | Object        | Issue             | Yes       | The asset to be held in the vault. This can be XRP, a Fungible Token, or an MPT. If the asset is a Fungible Token, the transaction creates a [trust line](https://xrpl.org/docs/concepts/tokens/fungible-tokens#trust-lines) between the vault's pseudo-account and the issuer of the asset. If the asset is an MPT, the transaction creates an `MPToken` object for the vault's pseudo-account.  |
 | `AssetsMaximum`     | Number        | UInt64            | No        | The maximum asset amount that can be held in a vault. |
 | `MPTokenMetadata`  | String        | Blob              | No        | Arbitrary metadata about the share `MPToken`, in hex format, limited to 1024 bytes. Use this field if the vault's asset is an MPT. |
 | `WithdrawalPolicy` | Number        | UInt8             | No        | Indicates the withdrawal strategy used by the vault. The default value is `0x0001`, mapped to the string `vaultStrategyFirstComeFirstServe`. See [WithdrawalPolicy](#withdrawalpolicy). |
@@ -74,7 +74,7 @@ A `WithdrawalPolicy` defines the strategy for processing withdrawal requests fro
 
 ## Transaction Cost
 
-Since the {% code-page-name /%} transaction creates a new `AccountRoot` object for a vault’s `pseudo-account`, it incurs a higher than usual [transaction cost](https://xrpl.org/docs/concepts/transactions/transaction-cost) to deter ledger spam. Instead of the standard minimum of 0.00001 XRP, {% code-page-name /%} must destroy an [incremental owner reserve](https://xrpl.org/docs/concepts/accounts/reserves#base-reserve-and-owner-reserve), currently 0.2 XRP.
+Since the {% code-page-name /%} transaction creates a new `AccountRoot` object for a vault’s pseudo-account, it incurs a higher than usual [transaction cost](https://xrpl.org/docs/concepts/transactions/transaction-cost) to deter ledger spam. Instead of the standard minimum of 0.00001 XRP, {% code-page-name /%} must destroy an [incremental owner reserve](https://xrpl.org/docs/concepts/accounts/reserves#base-reserve-and-owner-reserve), currently 0.2 XRP.
 
 ## Error Cases
 
@@ -82,14 +82,14 @@ Besides errors that can occur for all transactions, {% code-page-name /%} transa
 
 | Error Code                | Description                        |
 | :------------------------ | :----------------------------------|
-| `tecNO_AUTH`              | Occurs if the asset is an MPT and the `lsfMPTCanTransfer` flag is not set in the `MPTokenIssuance` object, meaning the vault cannot be created with a non-transferable MPT. |
-| `tecLOCKED`               | Occurs if the asset is an MPT and the `lsfMPTLocked` flag is  set in the `MPTokenIssuance` object, meaning the asset is locked. |
-| `tecFROZEN`               | Occurs if the issuer has frozen the asset to be held in the vault. |
-| `tecOBJECT_NOT_FOUND`     | Occurs if a ledger entry specified in the transaction does not exist. For example, the provided `DomainID` does not exist. |
-| `temMALFORMED`            | Occurs if the transaction was not validly formatted. For example, the `Data` field is larger than 256 bytes.  |
-| `tecINSUFFICIENT_RESERVE` | Occurs when there is insufficient `AccountRoot.Balance` for the Owner Reserve. |
-| `terNO_RIPPLE`            | Occurs if the issuer of the asset has not enabled the [Default Ripple flag](https://xrpl.org/docs/concepts/tokens/fungible-tokens/stablecoins/configuration#default-ripple). |
-| `terNO_ACCOUNT`           | Occurs if the issuer account of the vault's asset does not exist. |
-| `temDISABLED`             | Occurs if the Permissioned Domains feature is disabled and a `DomainID` is provided, if MPTokensV1 is disabled, or if the Single Asset Vault feature is disabled.  |
+| `tecNO_AUTH`              | The asset is an MPT and the `lsfMPTCanTransfer` flag is not set in the `MPTokenIssuance` object, meaning the vault cannot be created with a non-transferable MPT. |
+| `tecLOCKED`               | The asset is an MPT and the `lsfMPTLocked` flag is  set in the `MPTokenIssuance` object, meaning the asset is locked. |
+| `tecFROZEN`               | The issuer has frozen the asset to be held in the vault. |
+| `tecOBJECT_NOT_FOUND`     | A ledger entry specified in the transaction does not exist. For example, the provided `DomainID` does not exist. |
+| `temMALFORMED`            | The transaction was not validly formatted. For example, the `Data` field is larger than 256 bytes.  |
+| `tecINSUFFICIENT_RESERVE` | There is insufficient `AccountRoot.Balance` for the Owner Reserve. |
+| `terNO_RIPPLE`            | The issuer of the asset has not enabled the [Default Ripple flag](https://xrpl.org/docs/concepts/tokens/fungible-tokens/stablecoins/configuration#default-ripple). |
+| `terNO_ACCOUNT`           | The issuer account of the vault's asset does not exist. |
+| `temDISABLED`             | Either the Single Asset Vault amendment is not enabled, a `DomainID` is provided and the Permissioned Domains amendment is not enabled, or the MPTokensV1 amendment is not enabled. |
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}

@@ -231,7 +231,7 @@ The `vault` field is an object describing the current status of a Vault entry in
 
 | `Field`                | Type                 | Description |
 | :--------------------- | :------------------- | :---------- |
-| `Account`              | String - [Address][] | The address of the vault's `pseudo-account`. |
+| `Account`              | String - [Address][] | The address of the vault's pseudo-account. |
 | `Asset`                | Object               | The [Asset](#asset-object) of the vault. An asset can be XRP, a Fungible Token, or an MPT. |
 | `AssetsAvailable`      | Number               | The asset amount that is available in the vault. |
 | `AssetsMaximum`        | Number               | The maximum asset amount that can be held in the vault. If set to 0, this indicates there is no cap. |
@@ -261,7 +261,7 @@ The `shares` object contains the following nested fields:
 | :--------------------- | :--------------- | :---------- |
 | `DomainID`             | String           | _(Omitted if the vault is public)_ The permissioned domain associated with the vault's shares. |
 | `Flags`                | Number           | Set of bit-flags for this ledger object. |
-| `Issuer`               | String           | The address issuing the shares. This is always the vault's `pseudo-account`. |
+| `Issuer`               | String           | The address issuing the shares. This is always the vault's pseudo-account. |
 | `LedgerEntryType`      | String           | The ledger object type (i.e., `MPTokenIssuance`). |
 | `OutstandingAmount`    | String           | The total outstanding shares issued. |
 | `OwnerNode`            | String           | Identifies the page where this item is referenced in the owner's directory. |

@@ -13,7 +13,7 @@ labels:
 A {% code-page-name /%} object defines the state of a tokenized vault. It contains key details such as available assets, shares, total value, and other relevant information. You can create a {% code-page-name /%} object with the [VaultCreate](./transactions/vaultcreate.md)  transaction.
 
 The {% code-page-name /%} object is tracked in an [Owner Directory](https://xrpl.org/directorynode.html) owned by the Vault Owner account.
-Additionally, to facilitate `Vault` object lookup, the object is tracked in the `OwnerDirectory` of the vault's `pseudo-account`.
+Additionally, to facilitate `Vault` object lookup, the object is tracked in the owner directory of the vault's [pseudo-account](../concepts/pseudo-account.md).
 
 _(Requires the [Single Asset Vault amendment][] {% not-enabled /%})_
 
@@ -57,7 +57,7 @@ In addition to the [common ledger entry fields](https://xrpl.org/docs/references
 | `Sequence`          | Number        | UInt32        | Yes       | The transaction sequence number that created the vault. |
 | `OwnerNode`         | Number        | UInt64        | Yes       | Identifies the page where this item is referenced in the owner's directory. |
 | `Owner`             | String        | AccountID     | Yes       | The account address of the Vault Owner. |
-| `Account`           | String        | AccountID     | Yes       | The address of the vault's `pseudo-account`. |
+| `Account`           | String        | AccountID     | Yes       | The address of the vault's pseudo-account. |
 | `Data`              | String        | Blob          | No        | Arbitrary metadata about the vault. Limited to 256 bytes. |
 | `Asset`             | Object        | Issue         | Yes       | The asset of the vault. The vault supports XRP, Fungible Tokens, and MPTs. |
 | `AssetsTotal`       | Number        | Number        | Yes       | The total value of the vault. |

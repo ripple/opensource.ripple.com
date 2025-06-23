@@ -56,11 +56,11 @@ Besides errors that can occur for all transactions, {% code-page-name /%} transa
 
 | Error Code              | Description |
 | :---------------------- | :---------- |
-| `tecNO_ENTRY`           | Occurs if the `Vault` object with the specified `VaultID` does not exist on the ledger. |
-| `tecNO_PERMISSION`      | Occurs if the transaction attempts to claw back XRP, or the asset is a Fungible Token or MPT and the transaction isn't submitted by the issuing account. |
-| `tecWRONG_ASSET`        | Occurs if the asset in the transaction does not match the vault's asset type. |
-| `tecINSUFFICIENT_FUNDS` | Occurs if the `MPToken` object for the vault share of the `Holder` account does not exist, or the `MPToken.MPTAmount` is 0. |
-| `temDISABLED`           | Occurs if the Single Asset Vault amendment is not enabled.  |
-| `temMALFORMED`          | Occurs if the transaction was not validly formatted. For example, if the `VaultID` is not provided.  |
+| `tecNO_ENTRY`           | The `Vault` object with the specified `VaultID` does not exist on the ledger. |
+| `tecNO_PERMISSION`      | The transaction attempts to claw back XRP, or the asset is a Fungible Token or MPT and the transaction isn't submitted by the issuing account. |
+| `tecWRONG_ASSET`        | The asset in the transaction does not match the vault's asset type. |
+| `tecINSUFFICIENT_FUNDS` | The `MPToken` object for the vault share of the `Holder` account does not exist, or the `MPToken.MPTAmount` is 0. |
+| `temDISABLED`           | The Single Asset Vault amendment is not enabled.  |
+| `temMALFORMED`          | The transaction was not validly formatted. For example, if the `VaultID` is not provided.  |
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}
