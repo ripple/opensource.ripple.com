@@ -207,7 +207,7 @@ Transactions of the Batch type support additional values in the `Flags` field as
 | Flag Name          | Hex Value    | Decimal Value | Description                   |
 |:-------------------|:-------------| ------------: |:------------------------------|
 | `ALLORNOTHING`     | 0x00000001   | 1             | All or nothing. All transactions must succeed for any of them to succeed. |
-| `ONLYONE`          | 0x00000002   | 2             | The first transaction to succeed is the only one to succeed; all other transacitons either fail or are never tried. |
+| `ONLYONE`          | 0x00000002   | 2             | The first transaction to succeed is the only one to succeed; all other transactions either fail or are never tried. |
 | `UNTILFAILURE`     | 0x00000004   | 4             | All transactions are applied until the first failure; all transactions after the first failure are not applied. |
 | `INDEPENDENT`      | 0x00000008   | 8             | All transactions will be applied, regardless of failure. |
 
