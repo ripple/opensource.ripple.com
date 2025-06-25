@@ -18,9 +18,9 @@ export const frontmatter = {
 
 export default function Page() {
   const keyDates = [
-    { date: "TBA", event: "XLS Spec Review Complete" },
-    { date: "TBA", event: "Feature in rippled" },
-    { date: "TBA", event: "Open for voting" },
+    { date: "May 09, 2025", event: "XLS Spec Review Complete" },
+    { date: "June 24, 2025", event: "Feature in rippled" },
+    { date: "June 24, 2025", event: "Open for voting" },
     { date: "TBA", event: "Obtained ≥ 80% validators support" },
     { date: "TBA", event: "Enabled on Mainnet" },
   ];
@@ -62,9 +62,9 @@ export default function Page() {
             </Button>
           </Card>
 
-          {/* <Card
+          <Card
             title="Blog"
-            to="https://dev.to/ripplexdev/xrpl-delegating-account-permissions-75d-4f0b"
+            to="https://dev.to/ripplexdev/permission-delegation-unlocking-a-new-era-of-xrpl-account-management-34ec"
           >
             <p>
               An overview of the feature and why it matters to developers, explained in our blog post.
@@ -72,8 +72,32 @@ export default function Page() {
             <Button size="large" variant="primary">
               Read the Blog
             </Button>
-          </Card> */}
+          </Card>
         </Cards>
+
+        <Cards columns={2}>
+          <Card
+            title="Security Audit"
+            to="https://dev.to/ripplexdev/permission-delegation-security-audit-findings-2h83"
+          >
+            <p>
+              The security audit performed by third-party security experts, including a link to the full, detailed security audit report.  
+            </p>
+            <Button size="large" variant="primary">
+              Read the Security Audit Report
+            </Button>
+          </Card>
+
+          <Card title="Performance Testing" to="https://dev.to/ripplexdev/xls-0075d-permission-delegation-performance-test-report-3jmm">
+            <p>
+            The performance testing report to assess the performance implications of the feature.  
+            </p>
+            <Button size="large" variant="primary">
+              Read the Perf Testing Report
+            </Button>
+          </Card>
+        </Cards>
+
       </LandingContainer>
     </LandingLayout>
   );
