@@ -23,11 +23,11 @@ export default function Page() {
       <LandingContainer>
         <Cards columns={2}>
 
-          <Card title="Batch transactions" to="docs/xls-56d-batch-transactions/">
+          <Card title="Batch transactions" to="https://xrpl.org/docs/concepts/transactions/batch-transactions">
             <p>Prepare and submit up to 8 transactions in a single batch.</p>
-            <Button size="large" variant="primary">
+            <ButtonToXRPL>
               Go to docs
-            </Button>
+            </ButtonToXRPL>
           </Card>
 
           <Card title="Single Asset Vault" to="docs/xls-65d-single-asset-vault/">
@@ -37,11 +37,11 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Permission Delegation" to="docs/xls-75d-permission-delegation/">
+          <Card title="Permission Delegation" to="https://xrpl.org/docs/concepts/accounts/permission-delegation">
             <p>XRPL accounts can delegate specific transaction permissions to other accounts, enhancing flexibility and enabling use cases such as implementing role-based access control.</p>
-            <Button size="large" variant="primary">
+            <ButtonToXRPL>
               Go to docs
-            </Button>
+            </ButtonToXRPL>
           </Card>
 
           <Card title="Credentials" to="https://xrpl.org/docs/concepts/decentralized-storage/credentials">
@@ -72,11 +72,11 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Token-Enabled Escrows and Payment Channels" to="docs/xls-34d-token-escrow-and-payment-channels/">
+          <Card title="Token-Enabled Escrows and Payment Channels" to="https://xrpl.org/docs/concepts/tokens/fungible-tokens">
             <p>The proposed amendment would introduce changes to the ledger objects, transactions, and rpc methods to enable Escrows and Payment Channels to use Trustline balances.</p>
-            <Button  size="large" variant="primary">
-              Learn more
-            </Button>
+            <ButtonToXRPL>
+              Go to docs
+            </ButtonToXRPL>
           </Card>
         </Cards>
       </LandingContainer>
