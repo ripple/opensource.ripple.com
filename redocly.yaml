@@ -13,7 +13,9 @@ navbar:
     - label: Open Source Projects
       page: docs/index.md
     - label: Roadmap
-      page: ripplex-roadmap.md 
+      page: ripplex-roadmap.md
+    - label: Agent Prototype
+      page: chat.page.tsx
 footer:
   items:
     - group: About
