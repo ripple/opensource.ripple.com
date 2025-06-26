@@ -44,6 +44,9 @@
   type: 301
 
 # permissioneddomains docs
+/docs/xls-80d-permissioned-domains:
+  to: /docs/xls-80-permissioned-domains
+  type: 301
 /docs/xls-80d-permissioned-domains/permissioneddomain:
   to: https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/permissioneddomain
   type: 301

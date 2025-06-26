@@ -58,11 +58,11 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Permissioned Domains" to="docs/xls-80d-permissioned-domains/">
+          <Card title="Permissioned Domains" to="docs/xls-80-permissioned-domains/">
             <p>Permissioned Domains are controlled environments where stricter compliance controls can be enforced within the blockchain. Documentation is now live on xrpl.org.</p>
-            <ButtonToXRPL>
+            <Button size="large" variant="primary">
               Learn more
-            </ButtonToXRPL>
+            </Button>
           </Card>
 
           <Card title="Token-Enabled Escrows and Payment Channels" to="https://xrpl.org/docs/concepts/tokens/fungible-tokens">
