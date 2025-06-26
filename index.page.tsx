@@ -51,7 +51,7 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Multi-purpose Tokens" to="docs/xls-33d-multi-purpose-tokens/">
+          <Card title="Multi-purpose Tokens" to="docs/xls-33-multi-purpose-tokens/">
             <p>Multi-purpose tokens (MPTs) are a more compact and flexible type of fungible token.</p>
             <Button size="large" variant="primary">
               Learn more

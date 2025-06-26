@@ -417,6 +417,9 @@ docs/xls-73d/ammclawback:
   type: 301
 
 # mpt docs
+/docs/xls-33d-multi-purpose-tokens:
+  to: /docs/xls-33-multi-purpose-tokens
+  type: 301
 /docs/xls-33d-multi-purpose-tokens/multi-purpose-tokens:
   to: https://xrpl.org/concepts/tokens/fungible-tokens/multi-purpose-tokens
   type: 301

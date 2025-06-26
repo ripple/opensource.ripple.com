@@ -3,7 +3,7 @@
 - group: Prerelease Docs
   expanded: true
   items:
-    - page: docs/xls-33d-multi-purpose-tokens/index.page.tsx
+    - page: docs/xls-33-multi-purpose-tokens/index.page.tsx
     - page: docs/xls-34-token-escrow-and-payment-channels/index.page.tsx
     - page: docs/xls-56-batch-transactions/index.page.tsx
     - group:
