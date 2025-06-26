@@ -30,7 +30,7 @@
             - page: docs/xls-34d-token-escrow-and-payment-channels/reference/paymentchannelfund.md
     - page: docs/xls-33d-multi-purpose-tokens/index.page.tsx
     - page: docs/xls-56d-batch-transactions/index.page.tsx
-    - page: docs/xls-69d/index.md # simulate
+    - page: docs/xls-69d/index.page.tsx # simulate
     - page: docs/xls-70-credentials/index.page.tsx
     - page: docs/xls-77d-deep-freeze/index.page.tsx
     - page: docs/xls-80d-permissioned-domains/index.page.tsx
