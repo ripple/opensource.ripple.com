@@ -29,17 +29,7 @@
             - page: docs/xls-34d-token-escrow-and-payment-channels/reference/paymentchannelcreate.md
             - page: docs/xls-34d-token-escrow-and-payment-channels/reference/paymentchannelfund.md
     - page: docs/xls-33d-multi-purpose-tokens/index.page.tsx
-    - page: docs/xls-56d-batch-transactions/index.page.tsx
-    - page: docs/xls-69d/index.page.tsx # simulate
-    - page: docs/xls-70-credentials/index.page.tsx
-    - page: docs/xls-77d-deep-freeze/index.page.tsx
-    - page: docs/xls-80d-permissioned-domains/index.page.tsx
-    - page: docs/xls-81d-permissioned-dexes/index.page.tsx
-      items:
-        - page: docs/xls-81d-permissioned-dexes/permissioned-dexes.md
-          label: About Permissioned DEXes
-        - page: docs/xls-81d-permissioned-dexes/reference.md
-          label: Reference Documentation
+    - page: docs/xls-56-batch-transactions/index.page.tsx
     - group:
       page: docs/xls-65d-single-asset-vault/index.page.tsx
       expanded: false
@@ -68,6 +58,8 @@
               expanded: false
               items:
                 - page: docs/xls-65d-single-asset-vault/reference/api/vault-info.md
+    - page: docs/xls-69d/index.page.tsx # simulate
+    - page: docs/xls-70-credentials/index.page.tsx
     - group:
       page: docs/xls-75d-permission-delegation/index.md
       expanded: false
@@ -81,3 +73,11 @@
           items:
             - page: docs/xls-75d-permission-delegation/reference/common-fields.md
             - page: docs/xls-75d-permission-delegation/reference/delegate-set.md
+    - page: docs/xls-77-deep-freeze/index.page.tsx
+    - page: docs/xls-80d-permissioned-domains/index.page.tsx
+    - page: docs/xls-81d-permissioned-dexes/index.page.tsx
+      items:
+        - page: docs/xls-81d-permissioned-dexes/permissioned-dexes.md
+          label: About Permissioned DEXes
+        - page: docs/xls-81d-permissioned-dexes/reference.md
+          label: Reference Documentation

@@ -23,11 +23,11 @@ export default function Page() {
       <LandingContainer>
         <Cards columns={2}>
 
-          <Card title="Batch transactions" to="https://xrpl.org/docs/concepts/transactions/batch-transactions">
+          <Card title="Batch transactions" to="docs/xls-56-batch-transactions/">
             <p>Prepare and submit up to 8 transactions in a single batch.</p>
-            <ButtonToXRPL>
-              Go to docs
-            </ButtonToXRPL>
+            <Button size="large" variant="primary">
+              Learn more
+            </Button>
           </Card>
 
           <Card title="Single Asset Vault" to="docs/xls-65d-single-asset-vault/">
@@ -37,23 +37,16 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Permission Delegation" to="https://xrpl.org/docs/concepts/accounts/permission-delegation">
+          <Card title="Permission Delegation" to="docs/xls-75d-permission-delegation/">
             <p>XRPL accounts can delegate specific transaction permissions to other accounts, enhancing flexibility and enabling use cases such as implementing role-based access control.</p>
-            <ButtonToXRPL>
-              Go to docs
-            </ButtonToXRPL>
+            <Button size="large" variant="primary">
+              Learn more
+            </Button>
           </Card>
 
-          <Card title="Credentials" to="https://xrpl.org/docs/concepts/decentralized-storage/credentials">
+          <Card title="Credentials" to="docs/xls-70-credentials/">
             <p>Create and store credentials on the blockchain for compliance checks. Documentation is now live on xrpl.org.</p>
-            <ButtonToXRPL>
-              Go to docs
-            </ButtonToXRPL>
-          </Card>
-
-          <Card title="Deep Freeze" to="docs/xls-77d-deep-freeze/">
-            <p>Deep Freeze ensures that frozen token holders can neither send nor receive frozen funds until their trust line is unfrozen. Documentation is now live on xrpl.org.</p>
-            <Button  size="large" variant="primary">
+            <Button size="large" variant="primary">
               Learn more
             </Button>
           </Card>
