@@ -20,9 +20,9 @@ export const frontmatter = {
 
 export default function Page() {
   const keyDates = [
-    { date: "TBA", event: "XLS Spec Review Complete" },
-    { date: "TBA", event: "Feature in rippled 2.3.0" },
-    { date: "TBA", event: "Open for voting" },
+    { date: "Feb 26, 2025", event: "XLS Spec Review Complete" },
+    { date: "Jun 24, 2025", event: "Feature in rippled 2.5.0" },
+    { date: "Jun 24, 2025", event: "Open for voting" },
     { date: "TBA", event: "Obtained ≥ 80% validators support" },
     { date: "TBA", event: "Enabled on Mainnet" },
   ];
@@ -40,7 +40,7 @@ export default function Page() {
           keyDates={keyDates}
         />
 
-        <Cards columns={2}>
+        <Cards columns={3}>
           <Card
             title="XLS Spec"
             to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0034d-paychan-escrow-for-tokens/"
@@ -64,6 +64,17 @@ export default function Page() {
             </p>
             <Button size="large" variant="primary">Read the Docs</Button>
           </Card>
+          <Card
+            title="Security Audit"
+            to="https://dev.to/ripplexdev/token-escrow-security-audit-findings-39hn"
+          >
+            <p>
+            The security audit performed by third-party security experts, including a link to the full, detailed security audit report.
+            </p>
+            <Button size="large" variant="primary">
+            Read the Report
+            </Button>
+          </Card> 
         </Cards>
         
         {/* <Cards columns={2}>
