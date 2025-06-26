@@ -28,19 +28,8 @@
             - page: docs/xls-34d-token-escrow-and-payment-channels/reference/paymentchannelclaim.md
             - page: docs/xls-34d-token-escrow-and-payment-channels/reference/paymentchannelcreate.md
             - page: docs/xls-34d-token-escrow-and-payment-channels/reference/paymentchannelfund.md
-    - group: Batch Transactions
-      page: docs/xls-56d-batch-transactions/index.md
-      expanded: false
-      items:
-        - group: Concepts
-          expanded: false
-          items:
-            - page: docs/xls-56d-batch-transactions/concepts/batch-transactions.md
-        - group: References
-          expanded: false
-          items:
-            - page: docs/xls-56d-batch-transactions/reference/batch.md
-            - page: docs/xls-56d-batch-transactions/reference/common-fields.md    
+    - page: docs/xls-33d-multi-purpose-tokens/index.page.tsx
+    - page: docs/xls-56d-batch-transactions/index.page.tsx
     - page: docs/xls-69d/index.md # simulate
     - page: docs/xls-70-credentials/index.page.tsx
     - page: docs/xls-77d-deep-freeze/index.page.tsx
@@ -51,7 +40,6 @@
           label: About Permissioned DEXes
         - page: docs/xls-81d-permissioned-dexes/reference.md
           label: Reference Documentation
-    - page: docs/xls-33d-multi-purpose-tokens/index.page.tsx
     - group:
       page: docs/xls-65d-single-asset-vault/index.page.tsx
       expanded: false

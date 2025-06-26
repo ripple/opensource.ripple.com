@@ -1,3 +1,14 @@
+# batch docs
+/docs/xls-56d-batch-transactions/concepts/batch-transactions:
+  to: https://xrpl.org/docs/concepts/transactions/batch-transactions
+  type: 301
+/docs/xls-56d-batch-transactions/reference/batch:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/batch
+  type: 301
+/docs/xls-56d-batch-transactions/reference/common-fields:
+  to: https://xrpl.org/docs/references/protocol/transactions/common-fields
+  type: 301
+
 # deepfreeze docs
 /docs/xls-77d-deep-freeze/deep-freeze:
   to: https://xrpl.org/docs/concepts/tokens/fungible-tokens/deep-freeze
