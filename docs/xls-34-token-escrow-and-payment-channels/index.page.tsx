@@ -12,9 +12,9 @@ import { Cards } from "@redocly/theme/markdoc/components/Cards/Cards";
 
 export const frontmatter = {
   seo: {
-    title: "XLS-33 Multi-Purpose Tokens",
+    title: "XLS-34 Token Enabled Escrows and Payment Channels",
     description:
-      "Learn how Multi-purpose Tokens (MPTs) offer flexibility and functionality that spans use cases between fungible and non-fungible tokens.",
+      "Learn how trustline balances are enabled for escrows and payment channels.",
   },
 };
 
@@ -31,7 +31,7 @@ export default function Page() {
     <LandingLayout>
       <LandingContainer>
         <FeatureHeader 
-          title="XLS-0034d Token Escrow and Payment Channels"
+          title="XLS-0034 Token Escrow and Payment Channels"
           subtitle="Token escrow and payment channels support both XRP and tokenized assets."
         />
 
@@ -56,13 +56,13 @@ export default function Page() {
 
           <Card
             title="Documentation"
-            to="docs/xls-34d-token-escrow-and-payment-channels/token-escrow-payment-channels/"
+            to="https://xrpl.org/docs/concepts/tokens/fungible-tokens"
           >
             <p>
               Explore key concepts, find detailed references, and follow
               step-by-step tutorials.
             </p>
-            <Button size="large" variant="primary">Read the Docs</Button>
+            <ButtonToXRPL>Read the Docs</ButtonToXRPL>
           </Card>
           <Card
             title="Security Audit"

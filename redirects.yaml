@@ -1,3 +1,53 @@
+# token escrow and payment channel docs
+/docs/xls-34d-token-escrow-and-payment-channels:
+  to: /docs/xls-34-token-escrow-and-payment-channels
+  type: 301
+/docs/xls-34d-token-escrow-and-payment-channels/token-escrow-payment-channels:
+  to: https://xrpl.org/docs/concepts/tokens/fungible-tokens
+  type: 301
+/docs/xls-34d-token-escrow-and-payment-channels/concepts/escrow:
+  to: https://xrpl.org/docs/concepts/payment-types/escrow
+  type: 301
+/docs/xls-34d-token-escrow-and-payment-channels/concepts/payment-channels:
+  to: https://xrpl.org/docs/concepts/payment-types/payment-channels
+  type: 301
+/docs/xls-34d-token-escrow-and-payment-channels/concepts/ripplestate:
+  to: https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/ripplestate
+  type: 301
+/docs/xls-34d-token-escrow-and-payment-channels/reference/account_channels:
+  to: https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_channels
+  type: 301
+/docs/xls-34d-token-escrow-and-payment-channels/reference/account_lines:
+  to: https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_lines
+  type: 301
+/docs/xls-34d-token-escrow-and-payment-channels/reference/account_objects:
+  to: https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_objects
+  type: 301
+/docs/xls-34d-token-escrow-and-payment-channels/reference/channel_authorize:
+  to: https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/payment-channel-methods/channel_authorize
+  type: 301
+/docs/xls-34d-token-escrow-and-payment-channels/reference/channel_verify:
+  to: https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/payment-channel-methods/channel_verify
+  type: 301
+/docs/xls-34d-token-escrow-and-payment-channels/reference/escrow:
+  to: https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/escrow
+  type: 301
+/docs/xls-34d-token-escrow-and-payment-channels/reference/escrowcreate:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/escrowcreate
+  type: 301
+/docs/xls-34d-token-escrow-and-payment-channels/reference/paychannel:
+  to: https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/paychannel
+  type: 301
+/docs/xls-34d-token-escrow-and-payment-channels/reference/paymentchannelclaim:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/paymentchannelclaim
+  type: 301
+/docs/xls-34d-token-escrow-and-payment-channels/reference/paymentchannelcreate:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/paymentchannelcreate
+  type: 301
+/docs/xls-34d-token-escrow-and-payment-channels/reference/paymentchannelfund:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/paymentchannelfund
+  type: 301
+
 # permission delegation docs
 /docs/xls-75d-permission-delegation:
   to: /docs/xls-75-permission-delegation
@@ -41,6 +91,11 @@
   type: 301
 /docs/xls-77d-deep-freeze/reference/trustset:
   to: https://xrpl.org/docs/concepts/tokens/fungible-tokens/deep-freeze#trustset-transaction
+  type: 301
+
+# simulate doc
+/docs/xls-69d:
+  to: /docs/xls-69
   type: 301
 
 # permissioneddomains docs
