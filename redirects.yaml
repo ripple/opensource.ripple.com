@@ -1,4 +1,21 @@
+# permission delegation docs
+/docs/xls-75d-permission-delegation:
+  to: /docs/xls-75-permission-delegation
+  type: 301
+/docs/xls-75d-permission-delegation/concepts/permission-delegation:
+  to: https://xrpl.org/docs/concepts/accounts/permission-delegation
+  type: 301
+/docs/xls-75d-permission-delegation/reference/common-fields:
+  to: https://xrpl.org/docs/references/protocol/transactions/common-fields
+  type: 301
+/docs/xls-75d-permission-delegation/reference/delegate-set:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/delegateset
+  type: 301
+
 # batch docs
+/docs/xls-56d-batch-transactions:
+  to: /docs/xls-56-batch-transactions
+  type: 301
 /docs/xls-56d-batch-transactions/concepts/batch-transactions:
   to: https://xrpl.org/docs/concepts/transactions/batch-transactions
   type: 301
