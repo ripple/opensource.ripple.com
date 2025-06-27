@@ -3,7 +3,8 @@ import {
   LandingContainer,
   LandingLayout,
   FeatureHeader,
-  FeatureContent
+  FeatureContent,
+  ButtonToXRPL
 } from "../../components/landing";
 import { Button } from "@redocly/theme";
 import { Card } from "@redocly/theme/markdoc/components/Cards/Card";
@@ -34,7 +35,7 @@ export default function Page() {
         />
 
         <FeatureContent 
-          description=""
+          description="XRPL accounts can delegate both transaction permissions and granular permissions to other accounts, enhancing flexibility and enabling use cases such as implementing role-based access control."
           keyDates={keyDates}
         />
 
@@ -57,9 +58,9 @@ export default function Page() {
               Explore key concepts, find detailed references, and follow
               step-by-step tutorials.
             </p>
-            <Button size="large" variant="primary">
+            <ButtonToXRPL>
               Read the Docs
-            </Button>
+            </ButtonToXRPL>
           </Card>
 
           <Card

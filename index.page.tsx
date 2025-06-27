@@ -23,10 +23,10 @@ export default function Page() {
       <LandingContainer>
         <Cards columns={2}>
 
-          <Card title="Batch transactions" to="docs/xls-56d-batch-transactions/">
+          <Card title="Batch transactions" to="docs/xls-56-batch-transactions/">
             <p>Prepare and submit up to 8 transactions in a single batch.</p>
             <Button size="large" variant="primary">
-              Go to docs
+              Learn more
             </Button>
           </Card>
 
@@ -37,44 +37,37 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Permission Delegation" to="docs/xls-75d-permission-delegation/">
+          <Card title="Permission Delegation" to="docs/xls-75-permission-delegation/">
             <p>XRPL accounts can delegate specific transaction permissions to other accounts, enhancing flexibility and enabling use cases such as implementing role-based access control.</p>
             <Button size="large" variant="primary">
-              Go to docs
-            </Button>
-          </Card>
-
-          <Card title="Credentials" to="https://xrpl.org/docs/concepts/decentralized-storage/credentials">
-            <p>Create and store credentials on the blockchain for compliance checks. Documentation is now live on xrpl.org.</p>
-            <ButtonToXRPL>
-              Go to docs
-            </ButtonToXRPL>
-          </Card>
-
-          <Card title="Deep Freeze" to="docs/xls-77d-deep-freeze/">
-            <p>Deep Freeze ensures that frozen token holders can neither send nor receive frozen funds until their trust line is unfrozen. Documentation is now live on xrpl.org.</p>
-            <Button  size="large" variant="primary">
               Learn more
             </Button>
           </Card>
 
-          <Card title="Multi-purpose Tokens" to="docs/xls-33d-multi-purpose-tokens/">
+          <Card title="Credentials" to="docs/xls-70-credentials/">
+            <p>Create and store credentials on the blockchain for compliance checks. Documentation is now live on xrpl.org.</p>
+            <Button size="large" variant="primary">
+              Learn more
+            </Button>
+          </Card>
+
+          <Card title="Multi-purpose Tokens" to="docs/xls-33-multi-purpose-tokens/">
             <p>Multi-purpose tokens (MPTs) are a more compact and flexible type of fungible token.</p>
             <Button size="large" variant="primary">
               Learn more
             </Button>
           </Card>
 
-          <Card title="Permissioned Domains" to="docs/xls-80d-permissioned-domains/">
+          <Card title="Permissioned Domains" to="docs/xls-80-permissioned-domains/">
             <p>Permissioned Domains are controlled environments where stricter compliance controls can be enforced within the blockchain. Documentation is now live on xrpl.org.</p>
-            <Button  size="large" variant="primary">
+            <Button size="large" variant="primary">
               Learn more
             </Button>
           </Card>
 
-          <Card title="Token-Enabled Escrows and Payment Channels" to="docs/xls-34d-token-escrow-and-payment-channels/">
+          <Card title="Token-Enabled Escrows and Payment Channels" to="docs/xls-34-token-escrow-and-payment-channels">
             <p>The proposed amendment would introduce changes to the ledger objects, transactions, and rpc methods to enable Escrows and Payment Channels to use Trustline balances.</p>
-            <Button  size="large" variant="primary">
+            <Button size="large" variant="primary">
               Learn more
             </Button>
           </Card>

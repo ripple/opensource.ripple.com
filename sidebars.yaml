@@ -3,55 +3,9 @@
 - group: Prerelease Docs
   expanded: true
   items:
-    - group: Token-Enabled Escrows and Payment Channels
-      page: docs/xls-34d-token-escrow-and-payment-channels/index.page.tsx
-      expanded: false
-      items:
-        - page: docs/xls-34d-token-escrow-and-payment-channels/token-escrow-payment-channels.md
-        - group: Concepts
-          expanded: false
-          items:
-            - page: docs/xls-34d-token-escrow-and-payment-channels/concepts/escrow.md
-            - page: docs/xls-34d-token-escrow-and-payment-channels/concepts/payment-channels.md
-            - page: docs/xls-34d-token-escrow-and-payment-channels/concepts/ripplestate.md
-        - group: References
-          expanded: false
-          items:
-            - page: docs/xls-34d-token-escrow-and-payment-channels/reference/account_channels.md
-            - page: docs/xls-34d-token-escrow-and-payment-channels/reference/account_lines.md
-            - page: docs/xls-34d-token-escrow-and-payment-channels/reference/account_objects.md
-            - page: docs/xls-34d-token-escrow-and-payment-channels/reference/channel_authorize.md
-            - page: docs/xls-34d-token-escrow-and-payment-channels/reference/channel_verify.md
-            - page: docs/xls-34d-token-escrow-and-payment-channels/reference/escrow.md
-            - page: docs/xls-34d-token-escrow-and-payment-channels/reference/escrowcreate.md
-            - page: docs/xls-34d-token-escrow-and-payment-channels/reference/paychannel.md
-            - page: docs/xls-34d-token-escrow-and-payment-channels/reference/paymentchannelclaim.md
-            - page: docs/xls-34d-token-escrow-and-payment-channels/reference/paymentchannelcreate.md
-            - page: docs/xls-34d-token-escrow-and-payment-channels/reference/paymentchannelfund.md
-    - group: Batch Transactions
-      page: docs/xls-56d-batch-transactions/index.md
-      expanded: false
-      items:
-        - group: Concepts
-          expanded: false
-          items:
-            - page: docs/xls-56d-batch-transactions/concepts/batch-transactions.md
-        - group: References
-          expanded: false
-          items:
-            - page: docs/xls-56d-batch-transactions/reference/batch.md
-            - page: docs/xls-56d-batch-transactions/reference/common-fields.md    
-    - page: docs/xls-69d/index.md # simulate
-    - page: docs/xls-70-credentials/index.page.tsx
-    - page: docs/xls-77d-deep-freeze/index.page.tsx
-    - page: docs/xls-80d-permissioned-domains/index.page.tsx
-    - page: docs/xls-81d-permissioned-dexes/index.page.tsx
-      items:
-        - page: docs/xls-81d-permissioned-dexes/permissioned-dexes.md
-          label: About Permissioned DEXes
-        - page: docs/xls-81d-permissioned-dexes/reference.md
-          label: Reference Documentation
-    - page: docs/xls-33d-multi-purpose-tokens/index.page.tsx
+    - page: docs/xls-33-multi-purpose-tokens/index.page.tsx
+    - page: docs/xls-34-token-escrow-and-payment-channels/index.page.tsx
+    - page: docs/xls-56-batch-transactions/index.page.tsx
     - group:
       page: docs/xls-65d-single-asset-vault/index.page.tsx
       expanded: false
@@ -80,16 +34,14 @@
               expanded: false
               items:
                 - page: docs/xls-65d-single-asset-vault/reference/api/vault-info.md
-    - group:
-      page: docs/xls-75d-permission-delegation/index.md
-      expanded: false
+    - page: docs/xls-69/index.page.tsx # simulate
+    - page: docs/xls-70-credentials/index.page.tsx
+    - page: docs/xls-75-permission-delegation/index.page.tsx
+    - page: docs/xls-77-deep-freeze/index.page.tsx
+    - page: docs/xls-80-permissioned-domains/index.page.tsx
+    - page: docs/xls-81d-permissioned-dexes/index.page.tsx
       items:
-        - group: Concepts
-          expanded: false
-          items:
-            - page: docs/xls-75d-permission-delegation/concepts/permission-delegation.md
-        - group: Reference
-          expanded: false
-          items:
-            - page: docs/xls-75d-permission-delegation/reference/common-fields.md
-            - page: docs/xls-75d-permission-delegation/reference/delegate-set.md
+        - page: docs/xls-81d-permissioned-dexes/permissioned-dexes.md
+          label: About Permissioned DEXes
+        - page: docs/xls-81d-permissioned-dexes/reference.md
+          label: Reference Documentation
