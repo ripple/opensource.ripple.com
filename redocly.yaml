@@ -3,7 +3,16 @@ ignore:
   - _*
 seo:
   siteUrl: https://opensource.ripple.com/
-
+  meta:
+    - name: "google-site-verification"
+      content: "bLwyBi1imklcIuQxZ7JeI_kRF5Mg7yfr6arpEQV2nsE"
+scripts:
+  head:
+    # GTM script for the head
+    - src: ./static/js/gtm-head.js
+  body:
+    # GTM noscript for immediately after the opening body tag
+    - src: ./static/js/gtm-body.js
 redirects:
   $ref: redirects.yaml
 navbar:
@@ -34,8 +43,11 @@ footer:
           external: true
     - label: © 2013 - 2025 Ripple, All Rights Reserved.
 analytics:
-  ga:
-    trackingId: G-S1KBMRJYKS
+  gtm:
+    includeInDevelopment: true
+    trackingId: GTM-W3ND7TWZ
+    defaultDataLayer:
+      platform: redocly
 codeSnippet:
   copy:
     hide: false
