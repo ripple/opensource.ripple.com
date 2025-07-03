@@ -1,6 +1,6 @@
 # token escrow and payment channel docs
 /docs/xls-34d-token-escrow-and-payment-channels:
-  to: /docs/xls-34-token-escrow-and-payment-channels
+  to: /docs/xls-85-token-escrow
   type: 301
 /docs/xls-34d-token-escrow-and-payment-channels/token-escrow-payment-channels:
   to: https://xrpl.org/docs/concepts/tokens/fungible-tokens

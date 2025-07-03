@@ -4,7 +4,7 @@
   expanded: true
   items:
     - page: docs/xls-33-multi-purpose-tokens/index.page.tsx
-    - page: docs/xls-34-token-escrow-and-payment-channels/index.page.tsx
+    - page: docs/xls-85-token-escrow/index.page.tsx
     - page: docs/xls-56-batch-transactions/index.page.tsx
     - group:
       page: docs/xls-65d-single-asset-vault/index.page.tsx

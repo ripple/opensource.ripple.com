@@ -12,9 +12,9 @@ import { Cards } from "@redocly/theme/markdoc/components/Cards/Cards";
 
 export const frontmatter = {
   seo: {
-    title: "XLS-34 Token Enabled Escrows and Payment Channels",
+    title: "XLS-85 Token Escrow",
     description:
-      "Learn how trustline balances are enabled for escrows and payment channels.",
+      "Learn how trustline balances are enabled for escrows.",
   },
 };
 
@@ -31,19 +31,19 @@ export default function Page() {
     <LandingLayout>
       <LandingContainer>
         <FeatureHeader 
-          title="XLS-0034 Token Escrow and Payment Channels"
-          subtitle="Token escrow and payment channels support both XRP and tokenized assets."
+          title="XLS-0085 Token Escrow"
+          subtitle="Token escrow supports both XRP and tokenized assets."
         />
 
         <FeatureContent 
-          description="Token Escrow and Payment Channels support both XRP and tokenized assets."
+          description="Token escrow supports both XRP and tokenized assets."
           keyDates={keyDates}
         />
 
         <Cards columns={3}>
           <Card
             title="XLS Spec"
-            to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0034d-paychan-escrow-for-tokens/"
+            to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0085d-token-escrow"
           >
             <p>
               Technical spec for the feature outlining requirements, design,
@@ -56,7 +56,7 @@ export default function Page() {
 
           <Card
             title="Documentation"
-            to="https://xrpl.org/docs/concepts/tokens/fungible-tokens"
+            to="https://xrpl.org/docs/concepts/payment-types/escrow"
           >
             <p>
               Explore key concepts, find detailed references, and follow
