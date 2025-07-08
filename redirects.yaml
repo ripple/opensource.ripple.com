@@ -433,10 +433,10 @@ docs/xls-73d/ammclawback:
   to: https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/path-and-order-book-methods/mpt_holders
   type: 301
 /docs/xls-33d-multi-purpose-tokens/reference/mptoken:
-  to: https://xrpl.org/docs/references/protocol/data-types/mptoken
+  to: https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/mptoken
   type: 301
 /docs/xls-33d-multi-purpose-tokens/reference/mptokenissuance:
-  to: https://xrpl.org/docs/references/protocol/data-types/mptokenissuance
+  to: https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/mptokenissuance
   type: 301
 /docs/xls-33d-multi-purpose-tokens/reference/mptokenauthorize:
   to: https://xrpl.org/docs/references/protocol/transactions/types/mptokenauthorize
