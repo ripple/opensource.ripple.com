@@ -6,6 +6,7 @@ import {
   FeatureContent,
   ButtonToXRPL
 } from "../../components/landing";
+import { AmendmentTracker } from "../../components/AmendmentTracker";
 import { Button } from "@redocly/theme";
 import { Card } from "@redocly/theme/markdoc/components/Cards/Card";
 import { Cards } from "@redocly/theme/markdoc/components/Cards/Cards";
@@ -37,6 +38,11 @@ export default function Page() {
         <FeatureContent 
           description="XRPL accounts can delegate both transaction permissions and granular permissions to other accounts, enhancing flexibility and enabling use cases such as implementing role-based access control."
           keyDates={keyDates}
+        />
+
+        {/* Amendment Tracker Component */}
+        <AmendmentTracker 
+          amendmentId="96FD2F293A519AE1DB6F8BED23E4AD9119342DA7CB6BAFD00953D16C54205D8B"
         />
 
         <Cards columns={3}>
