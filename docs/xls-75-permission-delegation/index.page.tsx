@@ -19,12 +19,51 @@ export const frontmatter = {
 };
 
 export default function Page() {
+  const [amendmentData, setAmendmentData] = React.useState<any>(null);
+
+  const handleAmendmentDataUpdate = (data: any) => {
+    setAmendmentData(data);
+  };
+
+  const formatDate = (dateString: string) => {
+    if (!dateString) return "TBD";
+    return new Date(dateString).toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'short', 
+      day: 'numeric' 
+    });
+  };
+
+  const getVotingStatus = () => {
+    if (!amendmentData?.vhsData) return "TBD";
+    
+    if (amendmentData.vhsData.consensus) {
+      return amendmentData.vhsData.consensus;
+    }
+    
+    if (amendmentData.vhsData.date) {
+      return `Enabled ${formatDate(amendmentData.vhsData.date)}`;
+    }
+    
+    return "TBD";
+  };
+
   const keyDates = [
     { date: "May 09, 2025", event: "XLS Spec Review Complete" },
-    { date: "June 24, 2025", event: "Feature in rippled" },
-    { date: "June 24, 2025", event: "Open for voting" },
-    { date: "TBA", event: "Obtained ≥ 80% validators support" },
-    { date: "TBA", event: "Enabled on Mainnet" },
+    { 
+      date: amendmentData?.githubData?.commit?.committer?.date ? 
+        formatDate(amendmentData.githubData.commit.committer.date) : "TBD", 
+      event: "Available to Test on Devnet" 
+    },
+    { 
+      date: amendmentData?.versionData?.commit?.committer?.date ? 
+        `${formatDate(amendmentData.versionData.commit.committer.date)}${amendmentData.vhsData?.rippled_version ? ` (${amendmentData.vhsData.rippled_version})` : ''}` : "TBD", 
+      event: "Open for Voting" 
+    },
+    { 
+      date: getVotingStatus(), 
+      event: "Voting Status" 
+    },
   ];
 
   return (
@@ -42,7 +81,8 @@ export default function Page() {
 
         {/* Amendment Tracker Component */}
         <AmendmentTracker 
-          amendmentId="96FD2F293A519AE1DB6F8BED23E4AD9119342DA7CB6BAFD00953D16C54205D8B"
+          amendmentId="AE6AB9028EEB7299EBB03C7CBCC3F2A4F5FBE00EA28B8223AA3118A0B436C1C5"
+          onDataUpdate={handleAmendmentDataUpdate}
         />
 
         <Cards columns={3}>
