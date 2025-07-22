@@ -49,7 +49,7 @@ export default function Page() {
   };
 
   const keyDates = [
-    { date: "May 09, 2025", event: "XLS Spec Review Complete" },
+    { date: "May 09, 2025", event: "XLS Spec Live" },
     { 
       date: amendmentData?.githubData?.commit?.committer?.date ? 
         formatDate(amendmentData.githubData.commit.committer.date) : "TBD", 
@@ -58,7 +58,7 @@ export default function Page() {
     { 
       date: amendmentData?.versionData?.commit?.committer?.date ? 
         `${formatDate(amendmentData.versionData.commit.committer.date)}${amendmentData.vhsData?.rippled_version ? ` (${amendmentData.vhsData.rippled_version})` : ''}` : "TBD", 
-      event: "Open for Voting" 
+      event: "Open for Voting on Mainnet" 
     },
     { 
       date: getVotingStatus(), 
@@ -149,6 +149,3 @@ export default function Page() {
     </LandingLayout>
   );
 }
-
-
-
