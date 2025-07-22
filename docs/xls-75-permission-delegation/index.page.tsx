@@ -19,52 +19,16 @@ export const frontmatter = {
 };
 
 export default function Page() {
-  const [amendmentData, setAmendmentData] = React.useState<any>(null);
+  const [keyDates, setKeyDates] = React.useState([
+    { date: "🔄 Loading...", event: "XLS Spec Live" },
+    { date: "🔄 Loading...", event: "Available to Test on Devnet" },
+    { date: "🔄 Loading...", event: "Open for Voting on Mainnet" },
+    { date: "🔄 Loading...", event: "Voting Status" },
+  ]);
 
-  const handleAmendmentDataUpdate = (data: any) => {
-    setAmendmentData(data);
+  const handleKeyDatesUpdate = (newKeyDates: any[]) => {
+    setKeyDates(newKeyDates);
   };
-
-  const formatDate = (dateString: string) => {
-    if (!dateString) return "TBD";
-    return new Date(dateString).toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'short', 
-      day: 'numeric' 
-    });
-  };
-
-  const getVotingStatus = () => {
-    if (!amendmentData?.vhsData) return "TBD";
-    
-    if (amendmentData.vhsData.consensus) {
-      return amendmentData.vhsData.consensus;
-    }
-    
-    if (amendmentData.vhsData.date) {
-      return `Enabled ${formatDate(amendmentData.vhsData.date)}`;
-    }
-    
-    return "TBD";
-  };
-
-  const keyDates = [
-    { date: "May 09, 2025", event: "XLS Spec Live" },
-    { 
-      date: amendmentData?.githubData?.commit?.committer?.date ? 
-        formatDate(amendmentData.githubData.commit.committer.date) : "TBD", 
-      event: "Available to Test on Devnet" 
-    },
-    { 
-      date: amendmentData?.versionData?.commit?.committer?.date ? 
-        `${formatDate(amendmentData.versionData.commit.committer.date)}${amendmentData.vhsData?.rippled_version ? ` (${amendmentData.vhsData.rippled_version})` : ''}` : "TBD", 
-      event: "Open for Voting on Mainnet" 
-    },
-    { 
-      date: getVotingStatus(), 
-      event: "Voting Status" 
-    },
-  ];
 
   return (
     <LandingLayout>
@@ -79,10 +43,10 @@ export default function Page() {
           keyDates={keyDates}
         />
 
-        {/* Amendment Tracker Component */}
         <AmendmentTracker 
           amendmentId="AE6AB9028EEB7299EBB03C7CBCC3F2A4F5FBE00EA28B8223AA3118A0B436C1C5"
-          onDataUpdate={handleAmendmentDataUpdate}
+          xlsSpecDate="2025-05-09"
+          onKeyDatesUpdate={handleKeyDatesUpdate}
         />
 
         <Cards columns={3}>

@@ -2,7 +2,9 @@ import * as React from 'react';
 
 interface AmendmentTrackerProps {
   amendmentId: string;
+  xlsSpecDate?: string; // Date when XLS spec is live; manually add date in UTC
   onDataUpdate?: (data: AmendmentData) => void;
+  onKeyDatesUpdate?: (keyDates: any[]) => void;
 }
 
 interface AmendmentData {
@@ -13,7 +15,12 @@ interface AmendmentData {
   error: string | null;
 }
 
-export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({ amendmentId, onDataUpdate }) => {
+export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({ 
+  amendmentId, 
+  xlsSpecDate, 
+  onDataUpdate, 
+  onKeyDatesUpdate 
+}) => {
   const [amendmentData, setAmendmentData] = React.useState<AmendmentData>({
     vhsData: null,
     githubData: null,
@@ -21,6 +28,55 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({ amendmentId,
     loading: true,
     error: null
   });
+
+  // Formatting functions
+  const formatDate = (dateString: string) => {
+    if (!dateString) return "TBD";
+    
+    // Assume all dates are UTC and convert to user's local timezone
+    return new Date(dateString).toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'short', 
+      day: 'numeric' 
+    });
+  };
+
+  const getVotingStatus = (vhsData: any) => {
+    if (!vhsData) return "TBD";
+    
+    if (vhsData.consensus) {
+      return vhsData.consensus;
+    }
+    
+    if (vhsData.date) {
+      return `Enabled ${formatDate(vhsData.date)}`;
+    }
+    
+    return "TBD";
+  };
+
+  const generateKeyDates = (data: AmendmentData) => {
+    return [
+      { 
+        date: xlsSpecDate ? formatDate(xlsSpecDate) : "TBD", 
+        event: "XLS Spec Live" 
+      },
+      { 
+        date: data.githubData?.commit?.committer?.date ? 
+          formatDate(data.githubData.commit.committer.date) : "TBD", 
+        event: "Available to Test on Devnet" 
+      },
+      { 
+        date: data.versionData?.commit?.committer?.date ? 
+          `${formatDate(data.versionData.commit.committer.date)}${data.vhsData?.rippled_version ? ` (${data.vhsData.rippled_version})` : ''}` : "TBD", 
+        event: "Open for Voting on Mainnet" 
+      },
+      { 
+        date: getVotingStatus(data.vhsData), 
+        event: "Voting Status" 
+      },
+    ];
+  };
 
   React.useEffect(() => {
     const fetchAmendmentData = async () => {
@@ -195,9 +251,13 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({ amendmentId,
 
         setAmendmentData(finalData);
         
-        // Call the callback to pass data to parent
+        // Call the callbacks to pass data to parent
         if (onDataUpdate) {
           onDataUpdate(finalData);
+        }
+        
+        if (onKeyDatesUpdate) {
+          onKeyDatesUpdate(generateKeyDates(finalData));
         }
 
       } catch (error) {
@@ -215,114 +275,8 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({ amendmentId,
     }
   }, [amendmentId]);
 
-  if (amendmentData.loading) {
-    return (
-      <div style={{ padding: '1rem', textAlign: 'center' }}>
-        <p>🔄 Loading amendment data...</p>
-      </div>
-    );
-  }
-
-  if (amendmentData.error) {
-    return (
-      <div style={{ padding: '1rem', color: 'red' }}>
-        <p>❌ Error: {amendmentData.error}</p>
-      </div>
-    );
-  }
-
-  return (
-    <div style={{ padding: '1rem', border: '1px solid #ccc', borderRadius: '8px' }}>
-      <h3>Amendment Tracker</h3>
-      <p><strong>Amendment ID:</strong> {amendmentId}</p>
-      
-      {/* Amendment Status Fields */}
-      <div style={{ marginTop: '1rem' }}>
-        <h4>Amendment Status:</h4>
-        <div style={{ background: '#f9f9f9', padding: '1rem', borderRadius: '4px' }}>
-          <div style={{ marginBottom: '0.5rem', color: 'black' }}>
-            <strong>XLS Spec Review:</strong> <span style={{ color: '#666' }}>TBD</span>
-          </div>
-          <div style={{ marginBottom: '0.5rem', color: 'black' }}>
-            <strong>Implementation Complete:</strong> <span style={{ color: '#666' }}>
-              {amendmentData.githubData?.commit?.committer?.date ? 
-                new Date(amendmentData.githubData.commit.committer.date).toLocaleDateString('en-US', { 
-                  year: 'numeric', 
-                  month: 'long', 
-                  day: 'numeric' 
-                }) : 'TBD'}
-            </span>
-          </div>
-          <div style={{ marginBottom: '0.5rem', color: 'black' }}>
-            <strong>Open for Voting:</strong> <span style={{ color: '#666' }}>
-              {amendmentData.versionData?.commit?.committer?.date ? 
-                `${new Date(amendmentData.versionData.commit.committer.date).toLocaleDateString('en-US', { 
-                  year: 'numeric', 
-                  month: 'long', 
-                  day: 'numeric' 
-                })} (${amendmentData.vhsData?.rippled_version})` :
-                (amendmentData.vhsData?.rippled_version || 'TBD')}
-            </span>
-          </div>
-          <div style={{ marginBottom: '0.5rem', color: 'black' }}>
-            <strong>Voting Status:</strong> <span style={{ color: '#666' }}>
-              {amendmentData.vhsData?.consensus || 
-               (amendmentData.vhsData?.date ? `Enabled ${new Date(amendmentData.vhsData.date).toLocaleDateString('en-US', { 
-                 year: 'numeric', 
-                 month: 'long', 
-                 day: 'numeric' 
-               })}` : 'TBD')}
-            </span>
-          </div>
-        </div>
-      </div>
-      
-      {amendmentData.vhsData && (
-        <div style={{ marginTop: '1rem' }}>
-          <h4>Validator History Server Data:</h4>
-          <div style={{ background: '#f5f5f5', padding: '1rem', borderRadius: '4px', color: 'black'}}>
-            <pre style={{ fontSize: '0.9em', overflow: 'auto' }}>
-              {JSON.stringify(amendmentData.vhsData, null, 2)}
-            </pre>
-          </div>
-        </div>
-      )}
-
-      {amendmentData.githubData && (
-        <div style={{ marginTop: '1rem' }}>
-          <h4>GitHub Implementation Data:</h4>
-          <div style={{ background: '#f5f5f5', padding: '1rem', borderRadius: '4px', color: 'black'}}>
-            <pre style={{ fontSize: '0.9em', overflow: 'auto' }}>
-              {JSON.stringify({
-                sha: amendmentData.githubData.sha,
-                date: amendmentData.githubData.commit?.committer?.date,
-                message: amendmentData.githubData.commit?.message,
-                author: amendmentData.githubData.commit?.author?.name,
-                matchedLine: amendmentData.githubData.matchedLine
-              }, null, 2)}
-            </pre>
-          </div>
-        </div>
-      )}
-
-      {amendmentData.versionData && (
-        <div style={{ marginTop: '1rem' }}>
-          <h4>GitHub Version Data (Open for Voting):</h4>
-          <div style={{ background: '#f0f8ff', padding: '1rem', borderRadius: '4px', color: 'black'}}>
-            <pre style={{ fontSize: '0.9em', overflow: 'auto' }}>
-              {JSON.stringify({
-                sha: amendmentData.versionData.sha,
-                date: amendmentData.versionData.commit?.committer?.date,
-                message: amendmentData.versionData.commit?.message,
-                author: amendmentData.versionData.commit?.author?.name,
-                matchedVersion: amendmentData.versionData.matchedVersion
-              }, null, 2)}
-            </pre>
-          </div>
-        </div>
-      )}
-    </div>
-  );
+  // This component only provides data via callbacks, never renders UI
+  return null;
 };
 
 export default AmendmentTracker;
