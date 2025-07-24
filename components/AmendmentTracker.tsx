@@ -13,7 +13,12 @@ interface AmendmentData {
   featureData: any;
   versionData: any;
   loading: boolean;
-  error: string | null;
+  apiErrors?: {
+    devnet: boolean;
+    mainnet: boolean;
+    githubFeature: boolean;
+    githubVersion: boolean;
+  };
 }
 
 export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({ 
@@ -28,14 +33,19 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
     featureData: null,
     versionData: null,
     loading: true,
-    error: null
+    apiErrors: {
+      devnet: false,
+      mainnet: false,
+      githubFeature: false,
+      githubVersion: false
+    }
   });
 
-  // Format date from UTC to local date
+  // Helper function to format dates from UTC to local date
   const formatDate = (dateString: string) => {
     if (!dateString) return "TBA";
     
-    // Use the user's browser locale for date formatting
+    // Use browser locale for date formatting
     return new Date(dateString).toLocaleDateString(undefined, { 
       year: 'numeric', 
       month: 'short', 
@@ -43,7 +53,34 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
     });
   };
 
-  const getVotingStatus = (mainnetData: any) => {
+  // Helper function to get date feature is available to test on devnet
+  const getDevnetDate = (featureData: any, apiErrors: any) => {
+    // Check for errors in data sources needed for this date
+    if (apiErrors?.devnet) return "API Error";  // Need devnet data for amendment name
+    if (apiErrors?.githubFeature) return "API Error";  // Need GitHub feature commits
+    
+    return featureData?.commit?.committer?.date ? 
+      formatDate(featureData.commit.committer.date) : "TBA";
+  };
+
+  // Helper function to get date feature is available for voting on Mainnet
+  const getMainnetDate = (versionData: any, mainnetData: any, apiErrors: any) => {
+    // Check for errors in data sources needed for this date
+    if (apiErrors?.mainnet) return "API Error";  // Need mainnet data for version info
+    if (apiErrors?.githubVersion) return "API Error";  // Need GitHub version commits
+    
+    if (!versionData?.commit?.committer?.date) return "TBA";
+    
+    const dateStr = formatDate(versionData.commit.committer.date);
+    const version = mainnetData?.rippled_version ? ` (${mainnetData.rippled_version})` : '';
+    return `${dateStr}${version}`;
+  };
+
+  // Helper function to get current voting status on Mainnet
+  const getVotingStatus = (mainnetData: any, apiErrors: any) => {
+    // Check for errors in data sources needed for this status
+    if (apiErrors?.mainnet) return "API Error";  // Need mainnet data for voting status
+    
     if (!mainnetData) return "TBA";
     
     if (mainnetData.consensus) {
@@ -64,17 +101,15 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
         event: "XLS Spec Live" 
       },
       { 
-        date: data.featureData?.commit?.committer?.date ? 
-          formatDate(data.featureData.commit.committer.date) : "TBA", 
+        date: getDevnetDate(data.featureData, data.apiErrors), 
         event: "Available to Test on Devnet" 
       },
       { 
-        date: data.versionData?.commit?.committer?.date ? 
-          `${formatDate(data.versionData.commit.committer.date)}${data.devnetData?.rippled_version ? ` (${data.devnetData.rippled_version})` : ''}` : "TBA", 
+        date: getMainnetDate(data.versionData, data.mainnetData, data.apiErrors), 
         event: "Open for Voting on Mainnet" 
       },
       { 
-        date: getVotingStatus(data.mainnetData), 
+        date: getVotingStatus(data.mainnetData, data.apiErrors), 
         event: "Voting Status" 
       },
     ];
@@ -82,15 +117,17 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
 
   React.useEffect(() => {
     const fetchAmendmentData = async () => {
-      setAmendmentData(prev => ({ ...prev, loading: true, error: null }));
+      setAmendmentData(prev => ({ ...prev, loading: true }));
 
       // Initialize data containers
-      let specificAmendment: any = null;
+      let devnetAmendment: any = null;
       let mainnetAmendment: any = null;
       let implementationCommit: any = null;
       let versionCommit: any = null;
-      let hasAnyError = false;
-      let errorMessages: string[] = [];
+      let devnetApiError = false;
+      let mainnetApiError = false;
+      let githubFeatureError = false;
+      let githubVersionError = false;
 
       // Fetch VHS devnet data
       try {
@@ -101,50 +138,57 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
         }
 
         const devnetData = await devnetResponse.json();
-        specificAmendment = devnetData.amendments?.find(
+        devnetAmendment = devnetData.amendments?.find(
           (amendment: any) => amendment.id === amendmentId
         );
+        
+        // Set error if amendment not found in devnet data
+        if (!devnetAmendment) {
+          devnetApiError = true;
+        }
       } catch (error) {
-        console.warn('Error fetching devnet VHS data:', error);
-        errorMessages.push('Failed to fetch devnet data');
-        hasAnyError = true;
+        devnetApiError = true;
       }
 
       // Fetch VHS mainnet data
       try {
         const mainnetResponse = await fetch(`https://vhs.prod.ripplex.io/v1/network/amendments/vote/main`);
-        if (mainnetResponse.ok) {
-          const mainnetData = await mainnetResponse.json();
-          mainnetAmendment = mainnetData.amendments?.find(
-            (amendment: any) => amendment.id === amendmentId
-          );
-        } else {
+        
+        if (!mainnetResponse.ok) {
           throw new Error(`VHS mainnet API error: ${mainnetResponse.status}`);
         }
+
+        const mainnetData = await mainnetResponse.json();
+        mainnetAmendment = mainnetData.amendments?.find(
+          (amendment: any) => amendment.id === amendmentId
+        );
+        
+        // Set error if amendment not found in mainnet data
+        if (!mainnetAmendment) {
+          mainnetApiError = true;
+        }
       } catch (error) {
-        console.warn('Error fetching mainnet VHS data:', error);
-        errorMessages.push('Failed to fetch mainnet data');
-        hasAnyError = true;
+        mainnetApiError = true;
       }
 
       // Fetch GitHub implementation commit data
-      if (specificAmendment?.name) {
+      if (devnetAmendment?.name) {
         try {
           const commitsResponse = await fetch(
-            `https://api.github.com/repos/XRPLF/rippled/commits?sha=develop&per_page=100`
+            `https://api.github.com/repos/XRPLF/rippled/commits?path=include/xrpl/protocol/detail/features.macro&sha=develop&per_page=100`
           );
 
           if (commitsResponse.ok) {
             const commits = await commitsResponse.json();
             
             // Create flexible pattern to match amendment name with variations
-            const amendmentNameNormalized = specificAmendment.name
+            const amendmentNameNormalized = devnetAmendment.name
               .replace(/\s+/g, '[\\s\\-]*')  // Replace spaces with optional spaces or dashes
               .replace(/[^\w\s\-]/g, '');     // Remove special characters except spaces and dashes
             
             const messagePattern = new RegExp(amendmentNameNormalized, 'i');
             
-            // Search through commit messages
+            // Step 2: Filter commits by those that mention the amendment name in commit message
             let candidateCommits: any[] = [];
             for (const commit of commits) {
               if (messagePattern.test(commit.commit.message)) {
@@ -152,11 +196,16 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
               }
             }
             
-            // Check each candidate commit for the Supported::yes line
-            for (let i = 0; i < Math.min(candidateCommits.length, 5); i++) {
+            // Step 3: Check each candidate commit for the Supported::yes line
+            let detailedCommitAttempts = 0;
+            let detailedCommitSuccesses = 0;
+            
+            for (let i = 0; i < Math.min(candidateCommits.length, 10); i++) {
               const commit = candidateCommits[i];
               
               try {
+                detailedCommitAttempts++;
+                
                 // Add delay to avoid rate limiting
                 if (i > 0) {
                   await new Promise(resolve => setTimeout(resolve, 300));
@@ -166,9 +215,10 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
                 const commitResponse = await fetch(`https://api.github.com/repos/XRPLF/rippled/commits/${commit.sha}`);
                 
                 if (commitResponse.ok) {
+                  detailedCommitSuccesses++;
                   const commitData = await commitResponse.json();
                   
-                  // Check if this commit modified the features.macro file
+                  // Get the features.macro file changes
                   const featuresFile = commitData.files?.find(
                     (file: any) => file.filename === 'include/xrpl/protocol/detail/features.macro'
                   );
@@ -209,37 +259,41 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
                       break;
                     }
                   }
+                } else {
+                  throw new Error(`GitHub commit detail API error: ${commitResponse.status}`);
                 }
               } catch (commitError) {
-                console.warn(`Error checking commit ${commit.sha}:`, commitError);
                 continue;
               }
+            }
+            
+            // If we had candidate commits but couldn't fetch any detailed commit data, set error
+            if (candidateCommits.length > 0 && detailedCommitAttempts > 0 && detailedCommitSuccesses === 0) {
+              githubFeatureError = true;
             }
           } else {
             throw new Error(`GitHub commits API error: ${commitsResponse.status}`);
           }
         } catch (error) {
-          console.warn('Error fetching GitHub implementation commits:', error);
-          errorMessages.push('Failed to fetch implementation data');
-          hasAnyError = true;
+          githubFeatureError = true;
         }
       }
 
       // Fetch GitHub version release data
-      if (specificAmendment?.rippled_version) {
+      if (mainnetAmendment?.rippled_version) {
         try {
           await new Promise(resolve => setTimeout(resolve, 400)); // Extra delay
           
           const buildInfoCommitsResponse = await fetch(
-            `https://api.github.com/repos/XRPLF/rippled/commits?path=src/libxrpl/protocol/BuildInfo.cpp&sha=master&per_page=50`
+            `https://api.github.com/repos/XRPL/rippled/commits?path=src/libxrpl/protocol/BuildInfo.cpp&sha=master&per_page=50`
           );
 
           if (buildInfoCommitsResponse.ok) {
             const buildInfoCommits = await buildInfoCommitsResponse.json();
             
             // Extract version number (exclude -rc and -b builds)
-            const versionMatch = specificAmendment.rippled_version.match(/^(\d+\.\d+\.\d+)(?:-.*)?$/);
-            const baseVersion = versionMatch ? versionMatch[1] : specificAmendment.rippled_version;
+            const versionMatch = mainnetAmendment.rippled_version.match(/^(\d+\.\d+\.\d+)(?:-.*)?$/);
+            const baseVersion = versionMatch ? versionMatch[1] : mainnetAmendment.rippled_version;
             
             // Create pattern to match "Set version to X.Y.Z" (exact version, no rc/b builds)
             const versionPattern = new RegExp(`Set version to ${baseVersion.replace(/\./g, '\\.')}$`, 'i');
@@ -270,20 +324,24 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
             throw new Error(`GitHub BuildInfo API error: ${buildInfoCommitsResponse.status}`);
           }
         } catch (error) {
-          console.warn('Error fetching GitHub version commits:', error);
-          errorMessages.push('Failed to fetch version data');
-          hasAnyError = true;
+          githubVersionError = true;
         }
       }
 
       // Update state with collected data
       const finalData = {
-        devnetData: specificAmendment,
+        devnetData: devnetAmendment,
         mainnetData: mainnetAmendment,
         featureData: implementationCommit,
         versionData: versionCommit,
         loading: false,
-        error: hasAnyError ? errorMessages.join(', ') : null
+        // Store individual error flags for independent handling
+        apiErrors: {
+          devnet: devnetApiError,
+          mainnet: mainnetApiError,
+          githubFeature: githubFeatureError,
+          githubVersion: githubVersionError
+        }
       };
 
       setAmendmentData(finalData);
