@@ -26,9 +26,9 @@ export default function Page() {
     { date: "🔄 Loading...", event: "Voting Status" },
   ]);
 
-  const handleKeyDatesUpdate = (newKeyDates: any[]) => {
+  const handleKeyDatesUpdate = React.useCallback((newKeyDates: any[]) => {
     setKeyDates(newKeyDates);
-  };
+  }, []);
 
   return (
     <LandingLayout>
