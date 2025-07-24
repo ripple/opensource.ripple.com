@@ -53,21 +53,21 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
     });
   };
 
-  // Helper function to get date feature is available to test on devnet
+  // Helper function to get date the feature is available to test on devnet
   const getDevnetDate = (featureData: any, apiErrors: any) => {
     // Check for errors in data sources needed for this date
-    if (apiErrors?.devnet) return "API Error";  // Need devnet data for amendment name
+    if (apiErrors?.devnet) return "API Error";  // Need VHS devnet data for amendment name
     if (apiErrors?.githubFeature) return "API Error";  // Need GitHub feature commits
     
     return featureData?.commit?.committer?.date ? 
       formatDate(featureData.commit.committer.date) : "TBA";
   };
 
-  // Helper function to get date feature is available for voting on Mainnet
+  // Helper function to get date the feature is available for voting on Mainnet
   const getMainnetDate = (versionData: any, mainnetData: any, apiErrors: any) => {
     // Check for errors in data sources needed for this date
-    if (apiErrors?.mainnet) return "API Error";  // Need mainnet data for version info
-    if (apiErrors?.githubVersion) return "API Error";  // Need GitHub version commits
+    if (apiErrors?.mainnet) return "API Error";  // Need mainnet data for amendment name and rippled version
+    if (apiErrors?.githubVersion) return "API Error";  // Need GitHub build info commits
     
     if (!versionData?.commit?.committer?.date) return "TBA";
     
@@ -81,13 +81,11 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
     // Check for errors in data sources needed for this status
     if (apiErrors?.mainnet) return "API Error";  // Need mainnet data for voting status
     
-    if (!mainnetData) return "TBA";
-    
-    if (mainnetData.consensus) {
+    if (mainnetData?.consensus) {
       return mainnetData.consensus;
     }
     
-    if (mainnetData.date) {
+    if (mainnetData?.date) {
       return `Enabled ${formatDate(mainnetData.date)}`;
     }
     
@@ -110,7 +108,7 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
       },
       { 
         date: getVotingStatus(data.mainnetData, data.apiErrors), 
-        event: "Voting Status" 
+        event: "Vote Consensus" 
       },
     ];
   };
@@ -134,18 +132,13 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
         const devnetResponse = await fetch(`https://vhs.prod.ripplex.io/v1/network/amendments/vote/dev`);
         
         if (!devnetResponse.ok) {
-          throw new Error(`VHS devnet API error: ${devnetResponse.status}`);
+          throw new Error();
         }
 
         const devnetData = await devnetResponse.json();
         devnetAmendment = devnetData.amendments?.find(
           (amendment: any) => amendment.id === amendmentId
         );
-        
-        // Set error if amendment not found in devnet data
-        if (!devnetAmendment) {
-          devnetApiError = true;
-        }
       } catch (error) {
         devnetApiError = true;
       }
@@ -155,23 +148,18 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
         const mainnetResponse = await fetch(`https://vhs.prod.ripplex.io/v1/network/amendments/vote/main`);
         
         if (!mainnetResponse.ok) {
-          throw new Error(`VHS mainnet API error: ${mainnetResponse.status}`);
+          throw new Error();
         }
 
         const mainnetData = await mainnetResponse.json();
         mainnetAmendment = mainnetData.amendments?.find(
           (amendment: any) => amendment.id === amendmentId
         );
-        
-        // Set error if amendment not found in mainnet data
-        if (!mainnetAmendment) {
-          mainnetApiError = true;
-        }
       } catch (error) {
         mainnetApiError = true;
       }
 
-      // Fetch GitHub implementation commit data
+      // Fetch GitHub features.macro commit data
       if (devnetAmendment?.name) {
         try {
           const commitsResponse = await fetch(
@@ -181,17 +169,59 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
           if (commitsResponse.ok) {
             const commits = await commitsResponse.json();
             
-            // Create flexible pattern to match amendment name with variations
-            const amendmentNameNormalized = devnetAmendment.name
-              .replace(/\s+/g, '[\\s\\-]*')  // Replace spaces with optional spaces or dashes
-              .replace(/[^\w\s\-]/g, '');     // Remove special characters except spaces and dashes
+            // Step 1: Create search terms to filter through commit messages.
+
+            // Exact amendment name as it appears in VHS data
+            const exactNamePattern = new RegExp(devnetAmendment.name, 'i');
             
-            const messagePattern = new RegExp(amendmentNameNormalized, 'i');
+            // Drop "fix" prefix (also used for features.macro matching)
+            const amendmentNameNormalized = devnetAmendment.name.replace(/^fix/i, '');
+            const normalizedNamePattern = new RegExp(amendmentNameNormalized, 'i');
             
-            // Step 2: Filter commits by those that mention the amendment name in commit message
+            // Create additional patterns for flexible commit message matching
+            const additionalPatterns: RegExp[] = [];
+            
+            // Extract key terms from CamelCase amendment names
+            const keyTerms = devnetAmendment.name
+              .replace(/([a-z])([A-Z])/g, '$1 $2') // Split CamelCase
+              .split(/\s+/)
+              .filter(term => term.length >= 3) // Keep only terms over 3 characters
+              .map(term => term.toLowerCase());
+            
+            // Create patterns for individual key terms (for broader matching)
+            keyTerms.forEach(term => {
+              if (term.length >= 4) { // Only for longer, more specific terms
+                additionalPatterns.push(new RegExp(term, 'i'));
+              }
+            });
+            
+            // Create patterns for pairs of key terms (any order)
+            for (let i = 0; i < keyTerms.length; i++) {
+              for (let j = i + 1; j < keyTerms.length; j++) {
+                const term1 = keyTerms[i];
+                const term2 = keyTerms[j];
+                if (term1.length >= 4 && term2.length >= 4) {
+                  // Match both terms in any order with anything in between
+                  additionalPatterns.push(new RegExp(`${term1}.*${term2}|${term2}.*${term1}`, 'i'));
+                }
+              }
+            }
+            
+            // Step 2: Filter commits by those that mention the amendment name or related terms
             let candidateCommits: any[] = [];
             for (const commit of commits) {
-              if (messagePattern.test(commit.commit.message)) {
+              const message = commit.commit.message;
+              
+              // Check exact name first (as it appears in VHS data)
+              if (exactNamePattern.test(message)) {
+                candidateCommits.push(commit);
+              }
+              // Check normalized name (with "fix" prefix removed)
+              else if (normalizedNamePattern.test(message)) {
+                candidateCommits.push(commit);
+              }
+              // Check additional patterns if neither exact nor normalized patterns match
+              else if (additionalPatterns.some(pattern => pattern.test(message))) {
                 candidateCommits.push(commit);
               }
             }
@@ -224,13 +254,12 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
                   );
                   
                   if (featuresFile && featuresFile.patch) {
-                    // Look for added lines that match: ${amendmentName}, Supported::yes
                     const addedLines = featuresFile.patch
                       .split('\n')
                       .filter((line: string) => line.startsWith('+'))
                       .map((line: string) => line.substring(1).trim()); // Remove '+' and trim
                     
-                    // Check if any added line matches the expected format
+                    // Check if any added line matches: ${amendmentName}, Supported::yes
                     const implementationPattern = new RegExp(
                       `${amendmentNameNormalized}[\\s,]*Supported::yes`, 'i'
                     );
@@ -260,7 +289,7 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
                     }
                   }
                 } else {
-                  throw new Error(`GitHub commit detail API error: ${commitResponse.status}`);
+                  throw new Error();
                 }
               } catch (commitError) {
                 continue;
@@ -272,7 +301,7 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
               githubFeatureError = true;
             }
           } else {
-            throw new Error(`GitHub commits API error: ${commitsResponse.status}`);
+            throw new Error();
           }
         } catch (error) {
           githubFeatureError = true;
@@ -282,10 +311,10 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
       // Fetch GitHub version release data
       if (mainnetAmendment?.rippled_version) {
         try {
-          await new Promise(resolve => setTimeout(resolve, 400)); // Extra delay
+          await new Promise(resolve => setTimeout(resolve, 300));
           
           const buildInfoCommitsResponse = await fetch(
-            `https://api.github.com/repos/XRPL/rippled/commits?path=src/libxrpl/protocol/BuildInfo.cpp&sha=master&per_page=50`
+            `https://api.github.com/repos/XRPLF/rippled/commits?path=src/libxrpl/protocol/BuildInfo.cpp&sha=master&per_page=100`
           );
 
           if (buildInfoCommitsResponse.ok) {
@@ -299,29 +328,21 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
             const versionPattern = new RegExp(`Set version to ${baseVersion.replace(/\./g, '\\.')}$`, 'i');
             
             // Search through BuildInfo.cpp commit messages
-            for (const commit of buildInfoCommits) {
-              if (versionPattern.test(commit.commit.message)) {
+            for (const commitData of buildInfoCommits) {
+              if (versionPattern.test(commitData.commit.message)) {
                 versionCommit = {
-                  sha: commit.sha,
+                  sha: commitData.sha,
                   commit: {
-                    message: commit.commit.message,
                     committer: {
-                      date: commit.commit.committer.date,
-                      name: commit.commit.committer.name,
-                      email: commit.commit.committer.email
-                    },
-                    author: {
-                      name: commit.commit.author.name,
-                      email: commit.commit.author.email
+                      date: commitData.commit.committer.date
                     }
-                  },
-                  matchedVersion: baseVersion
+                  }
                 };
                 break;
               }
             }
           } else {
-            throw new Error(`GitHub BuildInfo API error: ${buildInfoCommitsResponse.status}`);
+            throw new Error();
           }
         } catch (error) {
           githubVersionError = true;

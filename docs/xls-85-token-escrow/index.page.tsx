@@ -6,6 +6,7 @@ import {
   FeatureHeader,
   FeatureContent
 } from "../../components/landing";
+import { AmendmentTracker } from "../../components/AmendmentTracker";
 import { Button } from "@redocly/theme";
 import { Card } from "@redocly/theme/markdoc/components/Cards/Card";
 import { Cards } from "@redocly/theme/markdoc/components/Cards/Cards";
@@ -19,13 +20,16 @@ export const frontmatter = {
 };
 
 export default function Page() {
-  const keyDates = [
-    { date: "Feb 26, 2025", event: "XLS Spec Review Complete" },
-    { date: "Jun 24, 2025", event: "Feature in rippled 2.5.0" },
-    { date: "Jun 24, 2025", event: "Open for voting" },
-    { date: "TBA", event: "Obtained ≥ 80% validators support" },
-    { date: "TBA", event: "Enabled on Mainnet" },
-  ];
+  const [keyDates, setKeyDates] = React.useState([
+    { date: "🔄 Loading...", event: "XLS Spec Live" },
+    { date: "🔄 Loading...", event: "Available to Test on Devnet" },
+    { date: "🔄 Loading...", event: "Open for Voting on Mainnet" },
+    { date: "🔄 Loading...", event: "Vote Consensus" },
+  ]);
+
+  const handleKeyDatesUpdate = React.useCallback((newKeyDates: any[]) => {
+    setKeyDates(newKeyDates);
+  }, []);
 
   return (
     <LandingLayout>
@@ -38,6 +42,12 @@ export default function Page() {
         <FeatureContent 
           description="Token escrow supports both XRP and tokenized assets."
           keyDates={keyDates}
+        />
+
+        <AmendmentTracker 
+          amendmentId="138B968F25822EFBF54C00F97031221C47B1EAB8321D93C7C2AEAF85F04EC5DF"
+          xlsSpecDate="2025-02-26"
+          onKeyDatesUpdate={handleKeyDatesUpdate}
         />
 
         <Cards columns={3}>

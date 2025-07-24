@@ -23,7 +23,7 @@ export default function Page() {
     { date: "🔄 Loading...", event: "XLS Spec Live" },
     { date: "🔄 Loading...", event: "Available to Test on Devnet" },
     { date: "🔄 Loading...", event: "Open for Voting on Mainnet" },
-    { date: "🔄 Loading...", event: "Voting Status" },
+    { date: "🔄 Loading...", event: "Vote Consensus" },
   ]);
 
   const handleKeyDatesUpdate = React.useCallback((newKeyDates: any[]) => {

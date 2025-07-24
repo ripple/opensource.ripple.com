@@ -6,6 +6,7 @@ import {
   FeatureHeader,
   FeatureContent
 } from "../../components/landing";
+import { AmendmentTracker } from "../../components/AmendmentTracker";
 import { Button } from "@redocly/theme";
 import { Card } from '@redocly/theme/markdoc/components/Cards/Card';
 import { Cards } from '@redocly/theme/markdoc/components/Cards/Cards';
@@ -17,13 +18,16 @@ export const frontmatter = {
 };
 
 export default function Page() {
-  const keyDates = [
-    { date: "In progress", event: "XLS Spec Review" },
-    { date: "2025-05-30", event: "Implementation complete" },
-    { date: "TBA", event: "Open for voting" },
-    { date: "TBA", event: "Obtained ≥ 80% validators support" },
-    { date: "TBA", event: "Enabled on Mainnet" },
-  ];
+  const [keyDates, setKeyDates] = React.useState([
+    { date: "🔄 Loading...", event: "XLS Spec Live" },
+    { date: "🔄 Loading...", event: "Available to Test on Devnet" },
+    { date: "🔄 Loading...", event: "Open for Voting on Mainnet" },
+    { date: "🔄 Loading...", event: "Vote Consensus" },
+  ]);
+
+  const handleKeyDatesUpdate = React.useCallback((newKeyDates: any[]) => {
+    setKeyDates(newKeyDates);
+  }, []);
 
   return (
     <LandingLayout>
@@ -36,6 +40,12 @@ export default function Page() {
         <FeatureContent 
           description="Permissioned DEXes use Permissioned Domains (XLS-80) to enable on-chain trading within controlled environments where every participant holds specific credentials, allowing institutions to ensure that they're complying with financial regulations while trading in the XRPL's decentralized exchange."
           keyDates={keyDates}
+        />
+
+        <AmendmentTracker 
+          amendmentId="677E401A423E3708363A36BA8B3A7D019D21AC5ABD00387BDBEA6BDE4C91247E"
+          xlsSpecDate="2024-12-06"
+          onKeyDatesUpdate={handleKeyDatesUpdate}
         />
 
         <Cards columns={3}>

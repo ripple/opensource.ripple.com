@@ -6,6 +6,7 @@ import {
   FeatureHeader,
   FeatureContent
 } from "../../components/landing";
+import { AmendmentTracker } from "../../components/AmendmentTracker";
 import { Button } from "@redocly/theme";
 import { Card } from '@redocly/theme/markdoc/components/Cards/Card';
 import { Cards } from '@redocly/theme/markdoc/components/Cards/Cards';
@@ -17,13 +18,16 @@ export const frontmatter = {
 };
 
 export default function Page() {
-  const keyDates = [
-    { date: "Oct 21, 2024", event: "XLS Spec Review Complete" },
-    { date: "Mar 06, 2025", event: "Feature in rippled 2.4.0" },
-    { date: "Mar 06, 2025", event: "Open for voting" },
-    { date: "TBA", event: "Obtained ≥ 80% validators support" },
-    { date: "TBA", event: "Enabled on Mainnet" },
-  ];
+  const [keyDates, setKeyDates] = React.useState([
+    { date: "🔄 Loading...", event: "XLS Spec Live" },
+    { date: "🔄 Loading...", event: "Available to Test on Devnet" },
+    { date: "🔄 Loading...", event: "Open for Voting on Mainnet" },
+    { date: "🔄 Loading...", event: "Vote Consensus" },
+  ]);
+
+  const handleKeyDatesUpdate = React.useCallback((newKeyDates: any[]) => {
+    setKeyDates(newKeyDates);
+  }, []);
 
   return (
     <LandingLayout>
@@ -36,6 +40,12 @@ export default function Page() {
         <FeatureContent 
           description="Permissioned domains are controlled environments within the broader ecosystem of the XRP Ledger blockchain. Domains do nothing on their own. However, they enable other features such as Permissioned DEXes and Lending Protocols to restrict access, thereby enabling compliance on chain."
           keyDates={keyDates}
+        />
+
+        <AmendmentTracker 
+          amendmentId="A730EB18A9D4BB52502C898589558B4CCEB4BE10044500EE5581137A2E80E849"
+          xlsSpecDate="2024-10-21"
+          onKeyDatesUpdate={handleKeyDatesUpdate}
         />
 
         <Cards columns={3}>

@@ -5,6 +5,7 @@ import {
   FeatureHeader,
   FeatureContent
 } from "../../components/landing";
+import { AmendmentTracker } from "../../components/AmendmentTracker";
 import { Button } from "@redocly/theme";
 import { Card } from "@redocly/theme/markdoc/components/Cards/Card";
 import { Cards } from "@redocly/theme/markdoc/components/Cards/Cards";
@@ -17,13 +18,16 @@ export const frontmatter = {
 };
 
 export default function Page() {
-  const keyDates = [
-    { date: "Feb 28, 2025", event: "XLS Spec Review Complete" },
-    { date: "TBA", event: "Feature in rippled" },
-    { date: "TBA", event: "Open for voting" },
-    { date: "TBA", event: "Obtained ≥ 80% validators support" },
-    { date: "TBA", event: "Enabled on Mainnet" },
-  ];
+  const [keyDates, setKeyDates] = React.useState([
+    { date: "🔄 Loading...", event: "XLS Spec Live" },
+    { date: "🔄 Loading...", event: "Available to Test on Devnet" },
+    { date: "🔄 Loading...", event: "Open for Voting on Mainnet" },
+    { date: "🔄 Loading...", event: "Vote Consensus" },
+  ]);
+
+  const handleKeyDatesUpdate = React.useCallback((newKeyDates: any[]) => {
+    setKeyDates(newKeyDates);
+  }, []);
 
   return (
     <LandingLayout>
@@ -36,6 +40,12 @@ export default function Page() {
         <FeatureContent 
           description="A single asset vault is an XRP Ledger primitive that aggregates assets from multiple depositors and makes them available to other on-chain protocols, such as a Lending Protocol. A vault asset can be XRP, a Fungible Token, or an MPT (Multi-Purpose Token)."
           keyDates={keyDates}
+        />
+
+        <AmendmentTracker 
+          amendmentId="81BD2619B6B3C8625AC5D0BC01DE17F06C3F0AB95C7C87C93715B87A4FD240D8"
+          xlsSpecDate="2025-02-28"
+          onKeyDatesUpdate={handleKeyDatesUpdate}
         />
 
         <Cards columns={3}>
