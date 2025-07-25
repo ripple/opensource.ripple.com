@@ -6,6 +6,7 @@ import {
   FeatureHeader,
   FeatureContent
 } from "../../components/landing";
+import { AmendmentTracker } from "../../components/AmendmentTracker";
 import { Button } from "@redocly/theme";
 import { Card } from '@redocly/theme/markdoc/components/Cards/Card';
 import { Cards } from '@redocly/theme/markdoc/components/Cards/Cards';
@@ -17,13 +18,20 @@ export const frontmatter = {
 };
 
 export default function Page() {
-  const keyDates = [
-    { date: "Sep 11, 2024", event: "XLS Spec Review Complete" },
-    { date: "Nov 25, 2024", event: "Feature in rippled 2.3.0" },
-    { date: "Nov 26, 2024", event: "Open for voting" },
-    { date: "TBA", event: "Obtained ≥ 80% validators support" },
-    { date: "TBA", event: "Enabled on Mainnet" },
+  const KEY_DATE_EVENTS = [
+    "XLS Spec Live",
+    "Available to Test on Devnet",
+    "Open for Voting on Mainnet", 
+    "Vote Consensus"
   ];
+
+  const [keyDates, setKeyDates] = React.useState(
+    KEY_DATE_EVENTS.map(event => ({ date: "🔄 Loading...", event }))
+  );
+
+  const handleKeyDatesUpdate = React.useCallback((newKeyDates: any[]) => {
+    setKeyDates(newKeyDates);
+  }, []);
 
   return (
     <LandingLayout>
@@ -36,6 +44,12 @@ export default function Page() {
         <FeatureContent 
           description="Credentials provide a set of tools for managing authorization and compliance requirements on the XRP Ledger, while respecting privacy and decentralization."
           keyDates={keyDates}
+        />
+
+        <AmendmentTracker 
+          amendmentId="1CB67D082CF7D9102412D34258CEDB400E659352D3B207348889297A6D90F5EF"
+          xlsSpecDate="2024-09-11"
+          onKeyDatesUpdate={handleKeyDatesUpdate}
         />
 
         <Cards columns={3}>

@@ -6,6 +6,7 @@ import {
   FeatureHeader,
   FeatureContent
 } from "../../components/landing";
+import { AmendmentTracker } from "../../components/AmendmentTracker";
 import { Button } from "@redocly/theme";
 import { Card } from '@redocly/theme/markdoc/components/Cards/Card';
 import { Cards } from '@redocly/theme/markdoc/components/Cards/Cards';
@@ -17,13 +18,20 @@ export const frontmatter = {
 };
 
 export default function Page() {
-  const keyDates = [
-    { date: "Jan 23, 2025", event: "XLS Spec Review Complete" },
-    { date: "Jun 24, 2025", event: "Feature in rippled 2.5.0" },
-    { date: "Jun 24, 2025", event: "Open for voting" },
-    { date: "TBA", event: "Obtained ≥ 80% validators support" },
-    { date: "TBA", event: "Enabled on Mainnet" },
+  const KEY_DATE_EVENTS = [
+    "XLS Spec Live",
+    "Available to Test on Devnet",
+    "Open for Voting on Mainnet", 
+    "Vote Consensus"
   ];
+
+  const [keyDates, setKeyDates] = React.useState(
+    KEY_DATE_EVENTS.map(event => ({ date: "🔄 Loading...", event }))
+  );
+
+  const handleKeyDatesUpdate = React.useCallback((newKeyDates: any[]) => {
+    setKeyDates(newKeyDates);
+  }, []);
 
   return (
     <LandingLayout>
@@ -36,6 +44,12 @@ export default function Page() {
         <FeatureContent 
           description="Batch lets you package multiple transactions together and execute them as a single unit. It eliminates the risk of partial completion and unexpected outcomes, giving you a more reliable and predictable experience for complex operations."
           keyDates={keyDates}
+        />
+
+        <AmendmentTracker 
+          amendmentId="894646DD5284E97DECFE6674A6D6152686791C4A95F8C132CCA9BAF9E5812FB6"
+          xlsSpecDate="2025-01-23"
+          onKeyDatesUpdate={handleKeyDatesUpdate}
         />
 
         <Cards columns={3}>

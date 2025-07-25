@@ -20,11 +20,10 @@ export const frontmatter = {
 
 export default function Page() {
   const keyDates = [
-    { date: "Dec 17, 2024", event: "XLS Spec Review Complete" },
-    { date: "Mar 06, 2025", event: "Feature in rippled 2.4.0" },
-    { date: "Mar 06, 2025", event: "Open for voting" },
-    { date: "Apr 20, 2025", event: "Obtained ≥ 80% validators support" },
-    { date: "May 04, 2025", event: "Enabled on Mainnet" },
+    { date: "Dec 17, 2024", event: "XLS Spec Live" },
+    { date: "Jan 11, 2025", event: "Available to Test on Devnet" },
+    { date: "Mar 06, 2025 (2.4.0)", event: "Open for Voting on Mainnet" },
+    { date: "Enabled May 04, 2025", event: "Vote Consensus" }
   ];
 
   return (
