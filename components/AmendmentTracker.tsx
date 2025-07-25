@@ -21,6 +21,9 @@ interface AmendmentData {
   };
 }
 
+const VHS_BASE_URI = "https://vhs.prod.ripplex.io/v1/network/amendments/vote";  
+const GITHUB_API_BASE_URI = "https://api.github.com/repos/XRPLF/rippled";
+
 export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({ 
   amendmentId, 
   xlsSpecDate, 
@@ -129,7 +132,7 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
 
       // Fetch VHS devnet data
       try {
-        const devnetResponse = await fetch(`https://vhs.prod.ripplex.io/v1/network/amendments/vote/dev`);
+        const devnetResponse = await fetch(`${VHS_BASE_URI}/dev`);
         
         if (!devnetResponse.ok) {
           throw new Error();
@@ -145,7 +148,7 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
 
       // Fetch VHS mainnet data
       try {
-        const mainnetResponse = await fetch(`https://vhs.prod.ripplex.io/v1/network/amendments/vote/main`);
+        const mainnetResponse = await fetch(`${VHS_BASE_URI}/main`);
         
         if (!mainnetResponse.ok) {
           throw new Error();
@@ -163,7 +166,7 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
       if (devnetAmendment?.name) {
         try {
           const commitsResponse = await fetch(
-            `https://api.github.com/repos/XRPLF/rippled/commits?path=include/xrpl/protocol/detail/features.macro&sha=develop&per_page=100`
+            `${GITHUB_API_BASE_URI}/commits?path=include/xrpl/protocol/detail/features.macro&sha=develop&per_page=100`
           );
 
           if (commitsResponse.ok) {
@@ -242,7 +245,7 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
                 }
                 
                 // Get the detailed commit with file changes
-                const commitResponse = await fetch(`https://api.github.com/repos/XRPLF/rippled/commits/${commit.sha}`);
+                const commitResponse = await fetch(`${GITHUB_API_BASE_URI}/commits/${commit.sha}`);
                 
                 if (commitResponse.ok) {
                   detailedCommitSuccesses++;
@@ -269,18 +272,19 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
                     );
                     
                     if (matchingLine) {
+                      const { message, committer, author } = commit.commit;
                       implementationCommit = {
                         sha: commit.sha,
                         commit: {
-                          message: commit.commit.message,
+                          message,
                           committer: {
-                            date: commit.commit.committer.date,
-                            name: commit.commit.committer.name,
-                            email: commit.commit.committer.email
+                            date: committer.date,
+                            name: committer.name,
+                            email: committer.email
                           },
                           author: {
-                            name: commit.commit.author.name,
-                            email: commit.commit.author.email
+                            name: author.name,
+                            email: author.email
                           }
                         },
                         matchedLine: matchingLine
@@ -314,7 +318,7 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
           await new Promise(resolve => setTimeout(resolve, 300));
           
           const buildInfoCommitsResponse = await fetch(
-            `https://api.github.com/repos/XRPLF/rippled/commits?path=src/libxrpl/protocol/BuildInfo.cpp&sha=master&per_page=100`
+            `${GITHUB_API_BASE_URI}/commits?path=src/libxrpl/protocol/BuildInfo.cpp&sha=master&per_page=100`
           );
 
           if (buildInfoCommitsResponse.ok) {
@@ -329,18 +333,19 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
             
             // Search through BuildInfo.cpp commit messages
             for (const commitData of buildInfoCommits) {
-              if (versionPattern.test(commitData.commit.message)) {
-                versionCommit = {
-                  sha: commitData.sha,
-                  commit: {
-                    committer: {
-                      date: commitData.commit.committer.date
-                    }
-                  }
-                };
-                break;
-              }
-            }
+              if (versionPattern.test(commitData.commit.message)) {  
+                const { committer } = commitData.commit;  
+                versionCommit = {  
+                  sha: commitData.sha,  
+                  commit: {  
+                    committer: {  
+                      date: committer.date  
+                    }  
+                  }  
+                };  
+                break;  
+              }  
+            }  
           } else {
             throw new Error();
           }

@@ -18,12 +18,16 @@ export const frontmatter = {
 };
 
 export default function Page() {
-  const [keyDates, setKeyDates] = React.useState([
-    { date: "🔄 Loading...", event: "XLS Spec Live" },
-    { date: "🔄 Loading...", event: "Available to Test on Devnet" },
-    { date: "🔄 Loading...", event: "Open for Voting on Mainnet" },
-    { date: "🔄 Loading...", event: "Vote Consensus" },
-  ]);
+  const KEY_DATE_EVENTS = [
+    "XLS Spec Live",
+    "Available to Test on Devnet",
+    "Open for Voting on Mainnet", 
+    "Vote Consensus"
+  ];
+
+  const [keyDates, setKeyDates] = React.useState(
+    KEY_DATE_EVENTS.map(event => ({ date: "🔄 Loading...", event }))
+  );
 
   const handleKeyDatesUpdate = React.useCallback((newKeyDates: any[]) => {
     setKeyDates(newKeyDates);
