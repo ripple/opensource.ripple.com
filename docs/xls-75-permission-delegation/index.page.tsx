@@ -6,6 +6,7 @@ import {
   FeatureContent,
   ButtonToXRPL
 } from "../../components/landing";
+import { AmendmentTracker } from "../../components/AmendmentTracker";
 import { Button } from "@redocly/theme";
 import { Card } from "@redocly/theme/markdoc/components/Cards/Card";
 import { Cards } from "@redocly/theme/markdoc/components/Cards/Cards";
@@ -18,13 +19,20 @@ export const frontmatter = {
 };
 
 export default function Page() {
-  const keyDates = [
-    { date: "May 09, 2025", event: "XLS Spec Review Complete" },
-    { date: "June 24, 2025", event: "Feature in rippled" },
-    { date: "June 24, 2025", event: "Open for voting" },
-    { date: "TBA", event: "Obtained ≥ 80% validators support" },
-    { date: "TBA", event: "Enabled on Mainnet" },
+  const KEY_DATE_EVENTS = [
+    "XLS Spec Live",
+    "Available to Test on Devnet",
+    "Open for Voting on Mainnet", 
+    "Vote Consensus"
   ];
+
+  const [keyDates, setKeyDates] = React.useState(
+    KEY_DATE_EVENTS.map(event => ({ date: "🔄 Loading...", event }))
+  );
+
+  const handleKeyDatesUpdate = React.useCallback((newKeyDates: any[]) => {
+    setKeyDates(newKeyDates);
+  }, []);
 
   return (
     <LandingLayout>
@@ -37,6 +45,12 @@ export default function Page() {
         <FeatureContent 
           description="XRPL accounts can delegate both transaction permissions and granular permissions to other accounts, enhancing flexibility and enabling use cases such as implementing role-based access control."
           keyDates={keyDates}
+        />
+
+        <AmendmentTracker 
+          amendmentId="AE6AB9028EEB7299EBB03C7CBCC3F2A4F5FBE00EA28B8223AA3118A0B436C1C5"
+          xlsSpecDate="2025-05-09"
+          onKeyDatesUpdate={handleKeyDatesUpdate}
         />
 
         <Cards columns={3}>
@@ -103,6 +117,3 @@ export default function Page() {
     </LandingLayout>
   );
 }
-
-
-

@@ -6,6 +6,7 @@ import {
   FeatureHeader,
   FeatureContent
 } from "../../components/landing";
+import { AmendmentTracker } from "../../components/AmendmentTracker";
 import { Button } from "@redocly/theme";
 import { Card } from "@redocly/theme/markdoc/components/Cards/Card";
 import { Cards } from "@redocly/theme/markdoc/components/Cards/Cards";
@@ -19,13 +20,20 @@ export const frontmatter = {
 };
 
 export default function Page() {
-  const keyDates = [
-    { date: "Jun 22, 2023", event: "XLS Spec Review Complete" },
-    { date: "Nov 25, 2024", event: "Feature in rippled 2.3.0" },
-    { date: "Nov 26, 2024", event: "Open for voting" },
-    { date: "TBA", event: "Obtained ≥ 80% validators support" },
-    { date: "TBA", event: "Enabled on Mainnet" },
+  const KEY_DATE_EVENTS = [
+    "XLS Spec Live",
+    "Available to Test on Devnet",
+    "Open for Voting on Mainnet", 
+    "Vote Consensus"
   ];
+
+  const [keyDates, setKeyDates] = React.useState(
+    KEY_DATE_EVENTS.map(event => ({ date: "🔄 Loading...", event }))
+  );
+
+  const handleKeyDatesUpdate = React.useCallback((newKeyDates: any[]) => {
+    setKeyDates(newKeyDates);
+  }, []);
 
   return (
     <LandingLayout>
@@ -38,6 +46,12 @@ export default function Page() {
         <FeatureContent 
           description="Multi-purpose Tokens (MPTs) offer flexibility and functionality that spans use cases between fungible and non-fungible tokens, thereby facilitating tokenization of real world assets, compliance controls, and developer accessibility."
           keyDates={keyDates}
+        />
+
+        <AmendmentTracker 
+          amendmentId="950AE2EA4654E47F04AA8739C0B214E242097E802FD372D24047A89AB1F5EC38"
+          xlsSpecDate="2023-06-22"
+          onKeyDatesUpdate={handleKeyDatesUpdate}
         />
 
         <Cards columns={2}>
