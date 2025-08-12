@@ -76,7 +76,22 @@ export default function Page() {
             </p>
             <ButtonToXRPL>Read the Docs</ButtonToXRPL>
           </Card>
-        </Cards>
+          <Card title="Security Audit" to="https://www.halborn.com/audits/ripple/ripple---batch---smart-contract-assessment-420598">
+            <p>
+            The security audit performed by third-party security experts, including a link to the full, detailed security audit report. 
+            </p>
+            <Button size="large" variant="primary">
+              Read the Security Audit Report
+            </Button>
+          </Card>
+          <Card title="Performance Testing" to="https://dev.to/ripplexdev/batch-transaction-performance-testing-report-13j8">
+            <p>
+            The performance testing report to assess the performance implications of the feature.  
+            </p>
+            <Button size="large" variant="primary">
+              Read the Perf Testing Report
+            </Button>
+          </Card>        </Cards>
       </LandingContainer>
     </LandingLayout>
   );

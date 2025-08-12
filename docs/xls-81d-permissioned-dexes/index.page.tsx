@@ -66,21 +66,37 @@ export default function Page() {
               Read the Docs
             </Button>
           </Card>
-        </Cards>
-
-        <Cards columns={2}>
-          <Card title="Blog" to="https://ripple.com/insights/unlocking-institutional-access-to-defi-on-the-xrp-ledger/">
+          <Card title="Blog" to="https://ripple.com/insights/unlocking-institutional-access-to-defi-on-the-xrp-ledger/"> 
             <p>An overview of the feature and why it matters to institutional issuers, explained in our blog post.</p>
             <Button size="large" variant="primary">
               Read the Blog
             </Button>
-          </Card>          
+          </Card>            
+        </Cards>
+
+        <Cards columns={3}>
+          <Card title="Security Audit" to="https://github.com/fyeo-io/public-audit-reports/blob/main/Code%20Audit%20Reports/2025/Ripple/Ripple%20-%20Security%20Code%20Review%20of%20XRPL%20Permissioned%20DEX%20v1.0.pdf">
+            <p>
+            The security audit performed by third-party security experts, including a link to the full, detailed security audit report. 
+            </p>
+            <Button size="large" variant="primary">
+              Read the Security Audit Report
+            </Button>
+          </Card>
           <Card title="Performance Testing" to="https://dev.to/ripplexdev/permissioned-dex-performance-test-report-ok0">
             <p>
             The performance testing report to assess the performance implications of the feature.  
             </p>
             <Button size="large" variant="primary">
               Read the Perf Testing Report
+            </Button>
+          </Card>
+          <Card title="QA Test Report" to="https://dev.to/ripplexdev/permissioned-dex-qa-test-report-ajp">
+            <p>
+            The QA Test Report presents results of QA testing performed on the feature across rippled and Clio servers. 
+            </p>
+            <Button size="large" variant="primary">
+              Read the QA Testing Report
             </Button>
           </Card>
         </Cards>
