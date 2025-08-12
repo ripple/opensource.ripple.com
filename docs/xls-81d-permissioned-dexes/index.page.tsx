@@ -67,6 +67,23 @@ export default function Page() {
             </Button>
           </Card>
         </Cards>
+
+        <Cards columns={2}>
+          <Card title="Blog" to="https://ripple.com/insights/unlocking-institutional-access-to-defi-on-the-xrp-ledger/">
+            <p>An overview of the feature and why it matters to institutional issuers, explained in our blog post.</p>
+            <Button size="large" variant="primary">
+              Read the Blog
+            </Button>
+          </Card>          
+          <Card title="Performance Testing" to="https://dev.to/ripplexdev/permissioned-dex-performance-test-report-ok0">
+            <p>
+            The performance testing report to assess the performance implications of the feature.  
+            </p>
+            <Button size="large" variant="primary">
+              Read the Perf Testing Report
+            </Button>
+          </Card>
+        </Cards>
       </LandingContainer>
     </LandingLayout>
   );

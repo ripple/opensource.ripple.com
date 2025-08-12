@@ -65,12 +65,19 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Token Escrow" to="docs/xls-85-token-escrow">
+          <Card title="Permissioned DEXes" to="docs/xls-81d-permissioned-dexes">
             <p>Extends the existing Escrow functionality to support escrowing issued tokens or Multi-purpose tokens (MPTs).</p>
             <Button size="large" variant="primary">
               Learn more
             </Button>
           </Card>
+
+          <Card title="Token Escrow" to="docs/xls-85-token-escrow">
+            <p>Extends the existing Escrow functionality to support escrowing issued tokens or Multi-purpose tokens (MPTs).</p>
+            <Button size="large" variant="primary">
+              Learn more
+            </Button>
+          </Card>          
         </Cards>
       </LandingContainer>
 
