@@ -3,9 +3,18 @@
 - group: Prerelease Docs
   expanded: true
   items:
-    - page: docs/xls-33-multi-purpose-tokens/index.page.tsx
     - page: docs/xls-85-token-escrow/index.page.tsx
-    - page: docs/xls-56-batch-transactions/index.page.tsx
+    - page: docs/xls-81d-permissioned-dexes/index.page.tsx
+      items:
+        - page: docs/xls-81d-permissioned-dexes/permissioned-dexes.md
+          label: About Permissioned DEXes
+        - page: docs/xls-81d-permissioned-dexes/reference.md
+          label: Reference Documentation
+    - page: docs/xls-80-permissioned-domains/index.page.tsx
+    - page: docs/xls-77-deep-freeze/index.page.tsx
+    - page: docs/xls-75-permission-delegation/index.page.tsx
+    - page: docs/xls-70-credentials/index.page.tsx
+    - page: docs/xls-69/index.page.tsx # simulate
     - group:
       page: docs/xls-65d-single-asset-vault/index.page.tsx
       expanded: false
@@ -34,14 +43,5 @@
               expanded: false
               items:
                 - page: docs/xls-65d-single-asset-vault/reference/api/vault-info.md
-    - page: docs/xls-69/index.page.tsx # simulate
-    - page: docs/xls-70-credentials/index.page.tsx
-    - page: docs/xls-75-permission-delegation/index.page.tsx
-    - page: docs/xls-77-deep-freeze/index.page.tsx
-    - page: docs/xls-80-permissioned-domains/index.page.tsx
-    - page: docs/xls-81d-permissioned-dexes/index.page.tsx
-      items:
-        - page: docs/xls-81d-permissioned-dexes/permissioned-dexes.md
-          label: About Permissioned DEXes
-        - page: docs/xls-81d-permissioned-dexes/reference.md
-          label: Reference Documentation
+    - page: docs/xls-56-batch-transactions/index.page.tsx
+    - page: docs/xls-33-multi-purpose-tokens/index.page.tsx
