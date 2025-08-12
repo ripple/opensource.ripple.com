@@ -52,7 +52,7 @@ export default function Page() {
           onKeyDatesUpdate={handleKeyDatesUpdate}
         />
 
-        <Cards columns={3}>
+        <Cards columns={2}>
           <Card
             title="XLS Spec"
             to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0056d-batch"
