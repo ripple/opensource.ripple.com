@@ -68,51 +68,39 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card
-            title="Documentation"
-            to="https://xrpl.org/docs/concepts/payment-types/escrow"
-          >
+          <Card title="Documentation" to="https://xrpl.org/docs/concepts/payment-types/escrow">
             <p>
               Explore key concepts, find detailed references, and follow
               step-by-step tutorials.
             </p>
             <ButtonToXRPL>Read the Docs</ButtonToXRPL>
           </Card>
-          <Card
-            title="Security Audit"
-            to="https://dev.to/ripplexdev/token-escrow-security-audit-findings-39hn"
-          >
-            <p>
-            The security audit performed by third-party security experts, including a link to the full, detailed security audit report.
-            </p>
+          
+          <Card title="Blog" to="https://dev.to/dangell7/xrpl-token-escrow-features-benefits-and-getting-started-2ogi"> 
+            <p>An overview of the feature and why it matters to institutional issuers, explained in our blog post.</p>
             <Button size="large" variant="primary">
-            Read the Report
+              Read the Blog
             </Button>
           </Card> 
         </Cards>
         
-        {/* <Cards columns={2}>
-          <Card
-            title="Blog"
-            to="https://xrpl.org/blog/feature-overview-token-escrow-and-payment-channels.html"
-          >
-            <p>
-              An overview of the feature and why it matters to developers, explained in our blog post.
+       <Cards columns={2}>
+         <Card title="Security Audit" to="https://dev.to/ripplexdev/token-escrow-security-audit-findings-39hn">
+            <p>The security audit performed by third-party security experts, including a link to the full, detailed security audit report.
             </p>
             <Button size="large" variant="primary">
-              Read the Blog
+            Read the Security Audit Report
             </Button>
-          </Card>         
-          <Card
-            title="Use Cases"
-            to="https://xrpl.org/use-cases/token-escrow-and-payment-channels.html"
-          >
+          </Card>        
+         <Card title="QA Test Report" to="https://dev.to/ripplexdev/token-escrow-qa-test-report-306i">
             <p>
-              Explore how the feature can be used in real-world scenarios.
+            The QA Test Report presents results of QA testing performed on the feature across rippled and Clio servers. 
             </p>
-            <ButtonToXRPL>Learn more</ButtonToXRPL>
+            <Button size="large" variant="primary">
+              Read the QA Testing Report
+            </Button>
           </Card>
-        </Cards>    */}
+        </Cards> 
       </LandingContainer>
     </LandingLayout>
   );
