@@ -54,7 +54,7 @@ export default function Page() {
           onKeyDatesUpdate={handleKeyDatesUpdate}
         />
 
-        <Cards columns={2}>
+        <Cards columns={3}>
           <Card
             title="XLS Spec"
             to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0033-multi-purpose-tokens"
@@ -78,8 +78,6 @@ export default function Page() {
             </p>
             <ButtonToXRPL>Read the Docs</ButtonToXRPL>
           </Card>
-        </Cards>
-        <Cards columns={2}>
           <Card
             title="Blog"
             to="https://dev.to/ripplexdev/multi-purpose-tokens-mpt-chronology-and-how-to-test-on-devnet-19nj"
@@ -90,7 +88,9 @@ export default function Page() {
             <Button size="large" variant="primary">
               Read the Blog
             </Button>
-          </Card>
+          </Card>          
+        </Cards>
+        <Cards columns={3}>
           <Card
             title="Use Cases"
             to="https://xrpl.org/docs/use-cases/tokenization/creating-an-asset-backed-multi-purpose-token"
@@ -99,6 +99,22 @@ export default function Page() {
               Explore how the feature can be used in real-world scenarios.
             </p>
             <ButtonToXRPL>Learn more</ButtonToXRPL>
+          </Card>
+          <Card title="Performance Testing" to="https://dev.to/ripplexdev/mpt-performance-test-report-44ig">
+            <p>
+            The performance testing report to assess the performance implications of the feature.  
+            </p>
+            <Button size="large" variant="primary">
+              Read the Perf Testing Report
+            </Button>
+          </Card>
+          <Card title="Security Audit" to="https://dev.to/ripplexdev/security-audit-for-multi-purpose-tokens-mpt-on-the-xrp-ledger-completed-with-softstack-gmbh-1id8">
+            <p>
+            The security audit performed by third-party security experts, including a link to the full, detailed security audit report. 
+            </p>
+            <Button size="large" variant="primary">
+              Read the Security Audit Report
+            </Button>
           </Card>
         </Cards>   
       </LandingContainer>
