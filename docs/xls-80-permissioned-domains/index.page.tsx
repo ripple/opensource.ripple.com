@@ -52,7 +52,7 @@ export default function Page() {
           onKeyDatesUpdate={handleKeyDatesUpdate}
         />
 
-        <Cards columns={2}>
+        <Cards columns={3}>
           <Card title="XLS Spec" to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0080-permissioned-domains">
             <p>Technical spec for the feature outlining requirements, design, and implementation details.</p>
             <Button size="large" variant="primary">
@@ -73,6 +73,7 @@ export default function Page() {
               Read the Blog
             </Button>
           </Card>
+
           <Card title="QA Test Report" to="https://dev.to/ripplexdev/permissioned-domains-qa-test-report-3pjl">
             <p>
             The QA Test Report presents results of QA testing performed on the feature across rippled and Clio servers. 
@@ -80,7 +81,18 @@ export default function Page() {
             <Button size="large" variant="primary">
               Read the QA Testing Report
             </Button>
-          </Card>          
+          </Card>  
+          <Card
+            title="Security Audit"
+            to="https://www.halborn.com/audits/ripple/ripple---smart-contract-audit---permissioned-domains-0bd9c6"
+          >
+            <p>
+              The security audit performed by third-party security experts, including a link to the full, detailed security audit report.  
+            </p>
+            <Button size="large" variant="primary">
+              Read the Security Audit Report
+            </Button>
+          </Card>                
         </Cards>
       </LandingContainer>
     </LandingLayout>
