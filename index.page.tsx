@@ -66,7 +66,7 @@ export default function Page() {
           </Card>
 
           <Card title="Permissioned DEXes" to="docs/xls-81d-permissioned-dexes">
-            <p>Extends the existing Escrow functionality to support escrowing issued tokens or Multi-purpose tokens (MPTs).</p>
+            <p>Permissioned DEXes use Permissioned Domains to enable trading tokens in controlled environments within the XRPL's decentralized exchange.</p>
             <Button size="large" variant="primary">
               Learn more
             </Button>
