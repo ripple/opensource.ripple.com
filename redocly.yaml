@@ -8,11 +8,8 @@ seo:
       content: "bLwyBi1imklcIuQxZ7JeI_kRF5Mg7yfr6arpEQV2nsE"
 scripts:
   head:
-    # GTM script for the head
+    # Google Tag Manager script for the head
     - src: ./static/js/gtm-head.js
-  body:
-    # GTM noscript for immediately after the opening body tag
-    - src: ./static/js/gtm-body.js
 redirects:
   $ref: redirects.yaml
 navbar:
