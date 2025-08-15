@@ -52,7 +52,7 @@ export default function Page() {
           onKeyDatesUpdate={handleKeyDatesUpdate}
         />
 
-        <Cards columns={3}>
+        <Cards columns={2}>
           <Card
             title="XLS Spec"
             to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0070-credentials"
@@ -76,7 +76,8 @@ export default function Page() {
             </p>
             <ButtonToXRPL>Read the Docs</ButtonToXRPL>
           </Card>
-
+        </Cards>
+        <Cards columns={2}>
           <Card
             title="Blog"
             to="https://www.idos.network/blog/debate-contribution-xrpl-credentials-are-a-game-changer?ref=twitter"
@@ -88,7 +89,19 @@ export default function Page() {
               Read the Blog
             </Button>
           </Card>
-        </Cards>
+          <Card
+            title="Security Audit"
+            to="https://www.halborn.com/audits/ripple/ripple---smart-contract-audit---credentials-c092b3"
+          >
+            <p>
+              The security audit performed by third-party security experts, including a link to the full, detailed security audit report.  
+            </p>
+            <Button size="large" variant="primary">
+              Read the Security Audit Report
+            </Button>
+          </Card>
+
+        </Cards>        
       </LandingContainer>
     </LandingLayout>
   );
