@@ -52,7 +52,7 @@ export default function Page() {
           onKeyDatesUpdate={handleKeyDatesUpdate}
         />
 
-        <Cards columns={3}>
+        <Cards columns={2}>
           <Card
             title="XLS Spec"
             to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0065d-single-asset-vault"
@@ -75,8 +75,9 @@ export default function Page() {
               Read the Docs
             </Button>
           </Card>
-
-          <Card
+        </Cards>
+        <Cards columns={2}>
+        <Card
             title="Blog"
             to="https://dev.to/ripplexdev/xrp-ledger-lending-protocol-2pla"
           >
@@ -87,6 +88,17 @@ export default function Page() {
               Read the Blog
             </Button>
           </Card>
+          <Card
+            title="Security Audit"
+            to="https://www.halborn.com/audits/ripple/ripple---single-asset-vault---smart-contract-assessment-d39437"
+          >
+            <p>
+              The security audit performed by third-party security experts, including a link to the full, detailed security audit report.  
+            </p>
+            <Button size="large" variant="primary">
+              Read the Security Audit Report
+            </Button>
+          </Card>          
         </Cards>
       </LandingContainer>
     </LandingLayout>
