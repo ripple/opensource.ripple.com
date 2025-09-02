@@ -12,7 +12,7 @@ import { Cards } from "@redocly/theme/markdoc/components/Cards/Cards";
 
 export const frontmatter = {
   seo: {
-    title: "XLS-65d Single Asset Vault",
+    title: "XLS-65 Single Asset Vault",
     description: "A single asset vault aggregates assets from multiple depositors and makes them available to other on-chain protocols."
   },
 };
@@ -37,7 +37,7 @@ export default function Page() {
     <LandingLayout>
       <LandingContainer>
         <FeatureHeader 
-          title="XLS-65d Single Asset Vault"
+          title="XLS-65 Single Asset Vault"
           subtitle="An on-chain primitive for aggregating assets from one or more depositors."
         />
 
@@ -55,7 +55,7 @@ export default function Page() {
         <Cards columns={2}>
           <Card
             title="XLS Spec"
-            to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0065d-single-asset-vault"
+            to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0065-single-asset-vault"
           >
             <p>
               Technical spec for the feature outlining requirements, design,
