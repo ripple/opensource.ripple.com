@@ -8,15 +8,17 @@ labels:
 
 # Loan
 
-A `Loan` ledger entry defines the state of an on-chain loan agreement between a _Loan Broker_ and a _Borrower_. It contains all the details of the loan, such as fees and interest rates. You can create a `Loan` object with the [`LoanSet`](../transactions/loanset.md) transaction.
+A `Loan` ledger entry defines the state of an on-chain loan agreement between a _Loan Broker_ and a _Borrower_. It contains all the details of the loan, such as fees and interest rates. You can create a `Loan` ledger entry with the [`LoanSet`](../transactions/loanset.md) transaction.
 
-The `Loan` entry is tracked in an [Owner Directory](https://xrpl.org/directorynode.html) owned by the Borrower. To facilitate `Loan` look up, it is also tracked in the `OwnerDirectory` associated with the Loan Broker.
+The `Loan` ledger entry is tracked in two [Owner Directories](https://xrpl.org/directorynode.html):
+1. The owner directory of the _Borrower_ on the loan.
+2. The owner directory of the `LoanBroker` pseudo-account.
 
 _(Requires the [Lending Protocol amendment][] {% not-enabled /%})_
 
-## Example Loan JSON
 
-**TODO: Add real example.**
+## Example {% $frontmatter.seo.title %} JSON
+
 ```json
 {
   "LedgerEntryType": "Loan",
@@ -24,80 +26,90 @@ _(Requires the [Lending Protocol amendment][] {% not-enabled /%})_
   "Flags": "0",
   "PreviousTxnID": "9A8765B4321CDE987654321CDE987654321CDE987654321CDE987654321CDE98",
   "PreviousTxnLgrSeq": 12345678,
-  "Sequence": 1,
+  "LoanSequence": 1,
   "OwnerNode": 2,
+  "LoanBrokerNode": 1,
   "LoanBrokerID": "ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890",
   "Borrower": "rEXAMPLE9AbCdEfGhIjKlMnOpQrStUvWxYz",
   "LoanOriginationFee": 100,
   "LoanServiceFee": 10,
   "LatePaymentFee": 5,
-  "FullPaymentFee": 20,
+  "ClosePaymentFee": 20,
+  "OverpaymentFee": 5,
   "InterestRate": 500,
   "LateInterestRate": 1000,
-  "ClosingInterestRate": 200,
-  "PrincipalRequested": 10000,
+  "CloseInterestRate": 200,
+  "OverpaymentInterestRate": 5,
   "StartDate": 1234567890,
-  "PaymentsTotal": 12,
   "PaymentInterval": 2592000,
   "GracePeriod": 604800,
-  "NextPaymentDueDate": 1234569990,
-  "PaymentsRemaining": 12,
-  "AssetsAvailable": 10000
+  "PreviousPaymentDate": 1234587890,
+  "NextPaymentDueDate": 1234597890,
+  "PaymentRemaining": 12,
+  "AssetsAvailable": 9000,
+  "PrincipalOutstanding": 10000
 }
 ```
 
-## Loan Fields
+## {% $frontmatter.seo.title %} Fields
 
-In addition to the [common ledger entry fields][], `Loan` entries have the following fields:
+In addition to the [common ledger entry fields][], {% code-page-name /%} entries have the following fields:
 
 | Name                  | JSON Type | Internal Type | Required? | Description |
 | :-------------------- | :-------- | :------------ | :-------- | :-----------|
-| `LedgerEntryType`     | String    | UInt16        | Yes       | Ledger object type. |
-| `LedgerIndex`         | String    | UInt16        | Yes       | The unique identifier of the ledger object. |
-| `Flags`               | String    | UInt32        | No        | Set of bit-flags for this ledger object. |
 | `PreviousTxnID`       | String    | Hash256       | Yes       | Identifies the transaction ID that most recently modified this object. |
 | `PreviousTxnLgrSeq`   | Number    | UInt32        | Yes       | The sequence of the ledger that contains the transaction that most recently modified this object. |
 | `LoanSequence`        | Number    | UInt32        | Yes       | The sequence number of the loan. |
 | `OwnerNode`           | Number    | UInt64        | Yes       | Identifies the page where this item is referenced in the owner's directory. |
+| `LoanBrokerNode`      | Number    | UInt64        | Yes       | Identifies the page where this item is referenced in the `LoanBroker` owner directory. |
 | `LoanBrokerID`        | String    | Hash256       | Yes       | The ID of the _Loan Broker_ associated with this loan. |
 | `Borrower`            | String    | AccountID     | Yes       | The account address of the _Borrower_. |
-| `LoanOriginationFee`  | Number    | Number        | Yes       | The nominal fee paid to the _Loan Broker_, taken from the principal loan at creation. |
-| `LoanServiceFee`      | Number    | Number        | Yes       | The nominal fee paid to the _Loan Broker_ with each loan payment. |
-| `LatePaymentFee`      | Number    | Number        | Yes       | The nominal fee paid to the _Loan Broker_ for each late payment. |
-| `FullPaymentFee`      | Number    | Number        | Yes       | The nominal fee paid to the _Loan Broker_ when a full payment is made. **TODO: Confirm if this is supposed to be early payment.** |
-| `InterestRate`        | Number    | UInt16        | Yes       | The annualized interest rate of the loan in 1/10th basis points. |
-| `LateInterestRate`    | Number    | UInt16        | Yes       | The premium added to the interest rate for late payments in 1/10th basis points. Valid values are from `0` up to `100000` (0% - 100%). |
-| `CloseInterestRate` | Number    | UInt16        | Yes       | The interest rate charged for repaying the loan early in 1/10th basis points. Valid values are from `0` up to `100000` (0% - 100%). |
-| `OverpaymentInterestRate` | Number | UInt32       | Yes       | The interest rate charged on overpayments in 1/10th basis points. Valid values are between `0` and `100000` inclusive. (0% - 100%) |
-| `PrincipalRequested`  | Number    | Number        | Yes       | The principal amount requested by the _Borrower_. |
+| `LoanOriginationFee`  | Number    | Number        | Yes       | The amount paid to the _Loan Broker_, taken from the principal loan at creation. |
+| `LoanServiceFee`      | Number    | Number        | Yes       | The amount paid to the _Loan Broker_ with each loan payment. |
+| `LatePaymentFee`      | Number    | Number        | Yes       | The amount paid to the _Loan Broker_ for each late payment. |
+| `ClosePaymentFee`     | Number    | Number        | Yes       | The amount paid to the _Loan Broker_ when a full early payment is made. |
+| `OverpaymentFee`      | Number    | UInt32        | Yes       | The fee charged on overpayments, in units of 1/10th basis points. Valid values are 0 to 100000 (inclusive), representing 0% to 100%. |
+| `InterestRate`        | Number    | UInt32        | Yes       | The annualized interest rate of the loan, in 1/10th basis points. |
+| `LateInterestRate`    | Number    | UInt32        | Yes       | The premium added to the interest rate for late payments, in units of 1/10th basis points. Valid values are 0 to 100000 (inclusive), representing 0% to 100%. |
+| `CloseInterestRate`   | Number    | UInt32        | Yes       | The interest rate charged for repaying the loan early, in units of 1/10th basis points. Valid values are 0 to 100000 (inclusive), representing 0% to 100%. |
+| `OverpaymentInterestRate` | Number | UInt32       | Yes       | The interest rate charged on overpayments, in units of 1/10th basis points. Valid values are 0 to 100000 (inclusive), representing 0% to 100%. |
 | `StartDate`           | Number    | UInt32        | Yes       | The timestamp of when the loan started, in [seconds since the Ripple Epoch][]. |
-| `PaymentsTotal`       | Number    | UInt32        | Yes       | The total number of payments against the loan. |
 | `PaymentInterval`     | Number    | UInt32        | Yes       | The number of seconds between loan payments. |
 | `GracePeriod`         | Number    | UInt32        | Yes       | The number of seconds after a payment is due before the loan defaults. |
-| `NextPaymentDueDate`  | Number    | UInt32        | Yes       | The timestamp of when the next loan payment is due, [seconds since the Ripple Epoch][]. |
-| `PaymentsRemaining`   | Number    | UInt32        | Yes       | The number of payments remaining on the loan. |
+| `PreviousPaymentDate` | Number    | UInt32        | Yes       | The timestamp of when the previous payment was made, in [seconds since the Ripple Epoch][]. |
+| `NextPaymentDueDate`  | Number    | UInt32        | Yes       | The timestamp of when the next payment is due, in [seconds since the Ripple Epoch][]. |
+| `PaymentRemaining`    | Number    | UInt32        | Yes       | The number of payments remaining on the loan. |
 | `AssetsAvailable`     | Number    | Number        | Yes       | The amount of assets available in the loan. |
+| `PrincipalOutstanding` | Number    | Number        | Yes       | The principal amount requested by the _Borrower_. |
 
-## Loan Flags
+{% admonition type="info" name="Note" %}
+When the loan broker discovers that the borrower can't make an upcoming payment, they can impair the loan to register a "paper loss" with the vault. The impairment mechanism moves up the `NextPaymentDueDate` to the time the loan is impaired, allowing the loan to default quicker. However, if the borrower makes a payment in the subsequent `GracePeriod`, the impairment status is removed.
+{% /admonition %}
 
-`Loan` entries can have the following flags:
 
-| Flag Name      | Hex Value    | Decimal Value | Description                 |
-| :------------- | :----------- | :------------ | :---------------------------|
-| `lsfDefault`   | `0x0001`     | If set, indicates that the loan is defaulted. |
-| `lsfImpaired`  | `0x0002`     | If set, indicates that the loan is impaired. |
+## {% $frontmatter.seo.title %} Flags
 
-## Loan Reserve
+{% code-page-name /%}  entries can have the following flags:
+
+| Field Name           | Hex Value    | Decimal Value | Description |
+|:---------------------|:-------------|:--------------|:------------|
+| `lsfLoanDefault`     | `0x00010000` | `65536`       | Indicates the loan is defaulted. |
+| `lsfLoanImpaired`    | `0x00020000` | `131072`      | Indicates the loan is impaired. |
+| `lsfLoanOverpayment` | `0x00040000` | `262144`      | Indicates the loan supports overpayments. |
+
+
+## {% $frontmatter.seo.title %} Reserve
 
 `Loan` entries incur one owner reserve from the borrower.
 
-## Loan ID Format
 
-The ID of a `Loan` entry is the [`SHA512-Half`][] of the following values, concatenated in order:
+## {% $frontmatter.seo.title %} ID Format
+
+The ID of a `Loan` ledger entry is the [`SHA-512Half`][] of the following values, concatenated in order:
 
 - The `Loan` space key `0x004C`.
 - The [AccountID][] of the Borrower account.
-- The `LoanBrokerID` of the associated `LoanBroker` object.
-- The `Sequence` number of the `LoanSet` transaction. If the transaction used a [Ticket][], the `TicketSequence` value is used instead.
+- The `LoanBrokerID` of the associated `LoanBroker` ledger entry.
+- The `LoanSequence` number of the `LoanBroker` ledger entry.
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}

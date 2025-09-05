@@ -51,11 +51,11 @@ Besides errors that can occur for all transactions, {% code-page-name /%} transa
 
 | Error Code               | Description                        |
 | :----------------------- | :----------------------------------|
-| `temINVALID`             | The `LoanBrokerID` field is missing. |
+| `temINVALID`             | The `LoanBrokerID` field is invalid. |
 | `temBAD_AMOUNT`          | The `Amount` field is less than or equal to zero. |
 | `tecNO_ENTRY`            | The `LoanBroker` ledger entry doesn't exist. |
 | `tecNO_PERMISSION`       | The account sending the transaction isn't the owner of the `LoanBroker` ledger entry. |
 | `tecWRONG_ASSET`         | The asset being deposited doesn't match the asset in the `LoanBroker` vault. |
-| `tecINSUFFICIENT_FUNDS`  | The account depositing funds doesn't hold enough of the asset. You can also receive this error if the issuer of the asset has frozen the account or placed a global freeze. |
+| `tecINSUFFICIENT_FUNDS`  | The account depositing first-loss capital doesn't hold enough of the asset. You can also receive this error if the issuer of the asset has frozen the account or placed a global freeze. |
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}

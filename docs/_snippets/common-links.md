@@ -7,6 +7,7 @@
 [common ledger entry fields]: https://xrpl.org/docs/references/protocol/ledger-data/common-fields/
 [credentials]: https://xrpl.org/docs/concepts/decentralized-storage/credentials
 [EscrowFinish]: https://xrpl.org/docs/references/protocol/transactions/types/escrowfinish
+[`flags` field]: https://xrpl.org/docs/references/protocol/transactions/common-fields#flags-field
 [Hash]: https://xrpl.org/docs/references/protocol/data-types/basic-data-types#hashes
 [Internal Type]: https://xrpl.org/docs/references/protocol/binary-format/
 [ledger entry ID]: https://xrpl.org/docs/references/protocol/ledger-data/common-fields/

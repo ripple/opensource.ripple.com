@@ -6,17 +6,14 @@ labels:
   - Lending Protocol
 ---
 # LoanDelete
-[[Source]](https://github.com/ "Source")
+[[Source]](https://github.com/XRPLF/rippled/blob/ximinez/lending-XLS-66/src/xrpld/app/tx/detail/LoanDelete.cpp "Source")
 
-Deletes a `Loan` ledger entry.
-
-Only the loan broker or borrower can initiate this transaction.
+Deletes a `Loan` ledger entry. Only the loan broker or borrower can submit this transaction.
 
 _(Requires the [Lending Protocol amendment][] {% not-enabled /%})_
 
-## Example LoanDelete JSON
+## Example {% $frontmatter.seo.title %} JSON
 
-**TODO: Add real example.**
 ```json
 {
   "TransactionType": "LoanDelete",
@@ -29,22 +26,25 @@ _(Requires the [Lending Protocol amendment][] {% not-enabled /%})_
 }
 ```
 
-## LoanDelete Fields
 
-In addition to the [common fields][], `LoanDelete` transactions use the following fields:
+## {% $frontmatter.seo.title %} Fields
+
+In addition to the [common fields][], {% code-page-name /%} transactions use the following fields:
 
 | Field Name     | JSON Type | Internal Type | Required? | Description |
-|:-------------- |:----------|:-------------|:----------|:------------|
-| `LoanID`       | String    | Hash256      | Yes       | The ID of the `Loan` ledger entry to delete. |
+|:-------------- |:----------|:--------------|:----------|:------------|
+| `LoanID`       | String    | Hash256       | Yes       | The ID of the `Loan` ledger entry to delete. |
+
 
 ## Error Cases
 
-Besides errors that can occur for all transactions, `LoanDelete` transactions can result in the following [transaction result codes][]:
+Besides errors that can occur for all transactions, {% code-page-name /%} transactions can result in the following [transaction result codes][]:
 
-| Error Code                | Description                        |
-| :------------------------ | :----------------------------------|
-| `TBD`             | A `Loan` entry with the specified ID does not exist. |
-| `TBD`        | The account submitting the transaction isn't the loan broker or borrower. |
-| `TBD`          | The loan still has payments remaining.. |
+| Error Code           | Description |
+|:---------------------|:------------|
+| `temINVALID`         | The `LoanID` is missing or set to zero. |
+| `tecNO_ENTRY`        | The loan specified by `LoanID` doesn't exist. |
+| `tecHAS_OBLIGATIONS` | The loan can't be deleted because it still has outstanding payments due. |
+| `tecNO_PERMISSION`   | The account submitting the transaction is neither the borrower of the `Loan` ledger entry nor the owner of the `LoanBroker` ledger entry. |
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}

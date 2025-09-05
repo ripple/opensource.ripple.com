@@ -6,17 +6,14 @@ labels:
   - Lending Protocol
 ---
 # LoanPay
-[[Source]](https://github.com/ "Source")
+[[Source]](https://github.com/XRPLF/rippled/blob/ximinez/lending-XLS-66/src/xrpld/app/tx/detail/LoanPay.cpp "Source")
 
-Make a payment on an actie loan.
-
-Payments below the specified minimum amount are rejected, while any funds that exceed the minimum payment are applied to the loan principal.
+Makes a payment on an active loan. Only the borrower on the loan can make payments, and payments must meet the minimum amount required for that period.
 
 _(Requires the [Lending Protocol amendment][] {% not-enabled /%})_
 
-## Example LoanPay JSON
+## Example {% $frontmatter.seo.title %} JSON
 
-**TODO: Add real example.**
 ```json
 {
   "TransactionType": "LoanPay",
@@ -30,28 +27,30 @@ _(Requires the [Lending Protocol amendment][] {% not-enabled /%})_
 }
 ```
 
-## LoanPay Fields
 
-In addition to the [common fields][], `LoanPay` transactions use the following fields:
+## {% $frontmatter.seo.title %} Fields
+
+In addition to the [common fields][], {% code-page-name /%} transactions use the following fields:
 
 | Field Name      | JSON Type | Internal Type | Required? | Description |
 |:--------------- |:----------|:-------------|:----------|:------------|
 | `LoanID`        | String    | Hash256      | Yes       | The ID of the `Loan` ledger entry to repay. |
 | `Amount`        | Number    | Amount       | Yes       | The amount to pay toward the loan. |
 
+
 ## Error Cases
 
-Besides errors that can occur for all transactions, `LoanPay` transactions can result in the following [transaction result codes][]:
+Besides errors that can occur for all transactions, {% code-page-name /%} transactions can result in the following [transaction result codes][]:
 
 | Error Code | Description |
 |:-----------|:------------|
-| `TBD` | The `Loan` entry with the specified ID doesn't exist or is not active. |
-| `TBD` | The account making the payment is not the borrower. |
-| `TBD` | The loan is fully paid off already, or the payment amount exceeds the outstanding balance. |
-| `TBD` | The _pseudo_account_ of the vault is frozen. |
-| `TBD` | The borrower, trustline, or MPToken is frozen. |
-| `TBD` | The asset issuer enabled a global freeze. |
-| `TBD` | The payment is late and the amount paid isn't enough to cover incurred fees. |
-| `TBD` | The payment doesn't meet the periodic payment amount. |
+| `temINVALID` | The `LoanID` field is missing or set to zero. |
+| `temBAD_AMOUNT` | The `Amount` field must specify a positive value. |
+| `tecNO_ENTRY` | The loan specified by `LoanID` doesn't exist. |
+| `tecNO_PERMISSION` | The account submitting the transaction isn't the borrower on the loan. |
+| `tecTOO_SOON` | The loan hasn't started yet. |
+| `tecKILLED` | The loan is already fully paid. |
+| `tecWRONG_ASSET` | The asset specified by `Amount` doesn't match the asset of the loan. |
+| `tecFROZEN` | The borrower's account is frozen for the specified asset, or the loan broker's pseudo-account is deep-frozen and can't receive funds. |
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}

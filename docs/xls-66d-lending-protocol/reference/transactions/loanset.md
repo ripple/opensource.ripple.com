@@ -6,20 +6,20 @@ labels:
   - Lending Protocol
 ---
 # LoanSet
-[[Source]](https://github.com/ "Source")
+[[Source]](https://github.com/XRPLF/rippled/blob/ximinez/lending-XLS-66/src/xrpld/app/tx/detail/LoanSet.cpp "Source")
 
 Creates a new `Loan` ledger entry, representing a loan agreement between a _Loan Broker_ and _Borrower_.
 
-The `LoanSet` transaction is a mutual agreement between the _Loan Broker_ and _Borrower_, and must be signe by both parties. The multi-signature flow is as follows:
+The `LoanSet` transaction is a mutual agreement between the _Loan Broker_ and _Borrower_, and must be signed by both parties. The following multi-signature flow can be initiated by either party:
 
-1. The borrower creates a new transaction with the preagreed terms of the loan and signs the transaction.
-2. The lender signs over all signing fields, including the signature of the borrower.
+1. The borrower or loan broker creates the transaction with the preagreed terms of the loan. They sign the transaction and set the `SigningPubKey`, `TxnSignature`, `Signers`, `Account`, `Fee`, `Sequence`, and `Counterparty` fields.
+2. The counterparty verifies the loan terms and signature before filling in the `CounterpartySignature` field.
 
 _(Requires the [Lending Protocol amendment][] {% not-enabled /%})_
 
-## Example LoanSet JSON
 
-**TODO: Add real example.**
+## Example {% $frontmatter.seo.title %} JSON
+
 ```json
 {
   "TransactionType": "LoanSet",
@@ -28,81 +28,94 @@ _(Requires the [Lending Protocol amendment][] {% not-enabled /%})_
   "Flags": 0,
   "LastLedgerSequence": 7108682,
   "Sequence": 8,
-  "LoanBrokerID": "ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890",
-  "Borrower": "rBORROWER9AbCdEfGhIjKlMnOpQrStUvWxYz",
-  "Data": "5468697320697320617262697472617279206D657461646174612061626F757420746865206C6F616E2E",
+  "Data": "546869732069732061726269747261727920646174612061626F757420746865206C6F616E2E",
+  "Counterparty": "rCOUNTER9AbCdEfGhIjKlMnOpQrStUvWxYz",
+  "CounterpartySignature": "304402203D7255F91A86109961B51A616A6B921204689255A384013148A14E3672522436022040D2F90B18A583B643A422D1A13618C8B5628551E523A3B9A636B599C81F275F",
   "LoanOriginationFee": 100,
   "LoanServiceFee": 10,
   "LatePaymentFee": 5,
-  "FullPaymentFee": 20,
+  "ClosePaymentFee": 20,
+  "OverpaymentFee": 5,
   "InterestRate": 500,
   "LateInterestRate": 1000,
-  "ClosingInterestRate": 200,
+  "CloseInterestRate": 200,
+  "OverpaymentInterestRate": 5,
   "PrincipalRequested": 10000,
   "StartDate": 1234567890,
-  "PaymentsTotal": 12,
+  "PaymentTotal": 12,
   "PaymentInterval": 2592000,
-  "GracePeriod": 604800,
-  "Lender": {
-    "SigningPubKey": "...",
-    "Signature": "..."
-  }
+  "GracePeriod": 604800
 }
 ```
 
-## LoanSet Fields
 
-In addition to the [common fields][], `LoanSet` transactions use the following fields:
+## {% $frontmatter.seo.title %} Fields
 
-| Field Name           | JSON Type | Internal Type | Required? | Description |
-|:-------------------- |:----------|:-------------|:----------|:------------|
-| `LoanBrokerID`         | String    | Hash256      | Yes       | The ID of the `LoanBroker` ledger entry. |
-| `Flags`                | String    | UInt32       | No        | Flags for the loan. |
-| `Data`                 | String    | Blob         | No        | Arbitrary metadata in hex format (max 256 bytes). |
-| `Borrower`             | String    | AccountID    | Yes       | The account address of the borrower. |
-| `LoanOriginationFee`   | Number    | Number       | No        | The fee paid to the `LoanBroker` owner when the loan is created. |
-| `LoanServiceFee`       | Number    | Number       | No        | The fee paid to the `LoanBroker` owner with each loan payment. |
-| `LatePaymentFee`       | Number    | Number       | No        | The fee paid to the `LoanBroker` owner for late payments. |
-| `FullPaymentFee`       | Number    | Number       | No        | The fee paid to the `LoanBroker` owner for early full repayment. |
-| `InterestRate`         | Number    | UInt16       | No        | The annualized interest rate of the loan in basis points. |
-| `LateInterestRate`     | Number    | UInt16       | No        | The premium (in basis points) added to the interest rate for late payments. Valid values range from `0` to `10000` (0% - 100%). |
-| `ClosingInterestRate`  | Number    | UInt16       | No        | The fee charged for making early loan repayments (in bps). Valid values range from `0` to `100000` (0% - 100%). |
-| `PrincipalRequested`   | Number    | Number       | Yes       | The principal loan amount requested by the borrower. |
-| `StartDate`            | Number    | UInt32       | Yes       | The timestamp of when the loan started, in [seconds since the Ripple Epoch][]. |
-| `PaymentsTotal`        | Number    | UInt32       | No        | The total number of payments to be made against the loan. |
-| `PaymentInterval`      | Number    | UInt32       | No        | The number of seconds between loan payments. |
-| `GracePeriod`          | Number    | UInt32       | No        | The number of seconds after the loan's payment due date when it can be defaulted. |
-| `Lender`               | Object    | STObject     | Yes       | An inneer object that contains the signature of the lender. |
+In addition to the [common fields][], {% code-page-name /%} transactions use the following fields:
 
-### Lender Fields
+| Field Name                | JSON Type | Internal Type | Required? | Description |
+|:--------------------------|:----------|:--------------|:----------|:------------|
+| `LoanBrokerID`            | String    | Hash256       | Yes       | The ID of the `LoanBroker` ledger entry. |
+| `Flags`                   | String    | UInt32        | No        | Flags for the loan. |
+| `Data`                    | String    | Blob          | No        | Arbitrary metadata in hex format (max 256 bytes). |
+| `Counterparty`            | String    | AccountID     | No        | The address of the counterparty of the loan. |
+| `CounterpartySignature`   | String    | STObject      | Yes       | The signature of the counterparty. |
+| `LoanOriginationFee`      | Number    | Number        | No        | The amount paid to the `LoanBroker` owner when the loan is created. |
+| `LoanServiceFee`          | Number    | Number        | No        | The amount paid to the `LoanBroker` owner with each loan payment. |
+| `LatePaymentFee`          | Number    | Number        | No        | The amount paid to the `LoanBroker` owner for late payments. |
+| `ClosePaymentFee`         | Number    | Number        | No        | The amount paid to the `LoanBroker` owner for early full repayment. |
+| `OverpaymentFee`          | Number    | UInt32        | No        | A fee charged on overpayments, in units of 1/10th basis points. Valid values are 0 to 100000 (inclusive), representing 0% to 100%. |
+| `InterestRate`            | Number    | UInt32        | No        | The annualized interest rate of the loan, in units of 1/10th basis points. Valid values are 0 to 100000 (inclusive), representing 0% to 100%. |
+| `LateInterestRate`        | Number    | UInt32        | No        | A premium added to the interest rate for late payments, in units of 1/10th basis points. Valid values are 0 to 100000 (inclusive), representing 0% to 100%. |
+| `CloseInterestRate`       | Number    | UInt32        | No        | A fee charged for repaying the loan early, in units of 1/10th basis points. Valid values are 0 to 100000 (inclusive), representing 0% to 100%. |
+| `OverpaymentInterestRate` | Number    | UInt32        | No        | The interest rate charged on overpayments, in units of 1/10th basis points. Valid values are 0 to 100000 (inclusive), representing 0% to 100%. |
+| `PrincipalRequested`      | Number    | Number        | Yes       | The principal loan amount requested by the borrower. |
+| `StartDate`               | Number    | UInt32        | Yes       | The timestamp of when the loan starts, in [seconds since the Ripple Epoch][]. |
+| `PaymentTotal`            | Number    | UInt32        | No        | The total number of payments to be made against the loan. |
+| `PaymentInterval`         | Number    | UInt32        | No        | The number of seconds between loan payments. |
+| `GracePeriod`             | Number    | UInt32        | No        | The number of seconds after the loan's payment due date when it can be defaulted. |
 
-An inner object that contains the signatures of the lender of the transaction. The object contains the following fields:
+### CounterpartySignature Fields
 
-| Field Name           | JSON Type | Internal Type | Required? | Description |
-|:-------------------- |:----------|:-------------|:----------|:------------|
-| `SigningPubKey` | String | STBlob | Yes | The public key used to verify the validity of the signature. |
-| `Signature` | String | STBlob | Yes | The signature over all signing fields, including the `Signature` of the borrower. |
-| `Signers` | List | STArray | An array of transaction signatures from the owners of the `LoanBroker` ledger entry. |
+An inner object that contains the signatures of the counterparty of the transaction. The object contains the following fields:
 
-The final transaction must include either `Signature` or `Signers`.
+| Field Name      | JSON Type | Internal Type | Required? | Description |
+|:----------------|:----------|:--------------|:----------|:------------|
+| `SigningPubKey` | String    | STBlob        | No        | The public key used to verify the validity of the signature. |
+| `Signature`     | String    | STBlob        | No        | The signature over all signing fields. |
+| `Signers`       | List      | STArray       | No        | An array of transaction signatures from the counterparty. |
+
+The final transaction must include either:
+- Both the `SigningPubKey` and `TxnSignature` fields.
+- The `Signers` field.
+
+{% admonition type="info" name="Note" %}
+This field isn't stored as a transaction signature, but either `TxnSignature` or `Sigerns` will be included in the stored transaction meatadata.
+{% /admonition %}
+
+
+## {% $frontmatter.seo.title %} Flags
+
+Transactions of the {% code-page-name /%} type support additional values in the [`flags` field], as follows:
+
+| Flag Name | Hex Value | Decimal Value | Description |
+|:----------|:----------|:--------------|:------------|
+| `tfLoanOverpayment` | `0x00010000` | 65536 | Indicates that the loan supports overpayments. |
+
 
 ## Error Cases
 
-Besides errors that can occur for all transactions, `LoanSet` transactions can result in the following [transaction result codes][]:
+Besides errors that can occur for all transactions, {% code-page-name /%} transactions can result in the following [transaction result codes][]:
 
 | Error Code                | Description                        |
-| :------------------------ | :----------------------------------|
-| `TBD`             | The `LoanBroker` entry with the specified ID doesn't exist. |
-| `TBD`        | The account submitting the transaction is not the `LoanBroker` owner. |
-| `TBD`               | The `Issuer` of the asset enabled a global freeze on the asset. |
-| `TBD`        | Lender signatures are invalid. |
-| `TBD`            | Either `tfDefault`, `tfImpair`, or `tfUnimpair` flags are set. |
-| `TBD`          | The borrower account doesn't exist. |
-| `TBD`               | The trustline or MPToken between the borrower and the asset issuer is frozen. |
-| `TBD`              | The borrower isn't authorized to hold the loan asset. |
-| `TBD`            | `PaymentInterval` is less than 60 seconds, or `GracePeriod` is greater than `PaymentInterval`, or `StartDate` before the current time. |
-| `TBD`  | There are insufficient assets in the vault. |
-| `TBD`           | The loan broker has exceeded the debt maximum. |
-| `TBD`   | There is insufficient first-loss capital. |
+|:--------------------------|:-----------------------------------|
+| `temBAD_SIGNER`           | - The transaction is missing a `CounterpartySignature` field.<br>- This transaction is part of a `Batch` transaction, but didn't specify a `Counterparty`. |
+| `temINVALID`              | One or more of the numeric fields are outside their valid ranges. For example, the `GracePeriod` can't be longer than the `PaymentInterval`. |
+| `tecEXPIRED`              | Loans can't be created with a `StartDate` in the past. |
+| `tecNO_ENTRY`             | The `LoanBroker` doesn't exist. |
+| `tecNO_PERMISSION`        | Neither the transaction sender's `Account` or the `Counterparty` field owns the associated `LoanBroker` ledger entry. |
+| `tecINSUFFICIENT_FUNDS`   | - The `Vault` associated with the `LoanBroker` doesn't have enough assets to fund the loan.<br>- The `LoanBroker` ledger entry doesn't have enough first-loss capital to meet the minimum coverage requirement for the new total debt. |
+| `tecLIMIT_EXCEEDED`       | The requested loan would cause the `LoanBroker` ledger entry to exceed it's maximum allowed debt. |
+| `tecINSUFFICIENT_RESERVE` | The borrower's account doesn't have enough XRP to meet the reserve requirements. |
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}

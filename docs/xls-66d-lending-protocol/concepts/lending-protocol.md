@@ -130,7 +130,7 @@ If the loan broker discovers a borrower can't make an upcoming payment, impairme
 
 #### Clawback
 
-Issuers (IOU or MPT, not XRP) can claw back funds from First-Loss Capital.
+Issuers (IOU or MPT, not XRP) can claw back funds from First-Loss Capital. To ensure there is always a minimum amount of capital available to protect depositors, issuers can't clawback the entire available amount. Instead, they can clawback up to a minimum amount of First-Loss Capital that the loan broker must maintain for the lending protocol; the minimum amount is calculated as `LoanBroker.DebtTotal * LoanBroker.CoverRateMinimum`.
 
 #### Freeze
 
@@ -142,7 +142,7 @@ In all freeze scenarios, assets can be sent back to the issuer.
 
 If a borrower has their account frozen, they can't make loan payments. This doesn't absolve a borrower of their repayment obligations, and they will eventually default on their loan. If a borrower has their account deep frozen, they can't make loan payments _or_ withdraw funds from their loan.
 
-Freezing a borrower's account won't a loan broker's functions, but it will prevent them from receiving any lending protocol fees. However, issuers can freeze a loan broker's _pseudo-account_ and prevent the loan broker from creating new loans as well as preventing borrowers from drawing down their loans. A deep freeze on a loan broker's _pseudo-account_ also prevents loans from being repaid.
+Freezing a borrower's account won't affect a loan broker's functions, but it will prevent them from receiving any lending protocol fees. However, issuers can freeze a loan broker's _pseudo-account_ and prevent the loan broker from creating new loans as well as preventing borrowers from drawing down their loans. A deep freeze on a loan broker's _pseudo-account_ also prevents loans from being repaid.
 
 
 ### Interest Rates

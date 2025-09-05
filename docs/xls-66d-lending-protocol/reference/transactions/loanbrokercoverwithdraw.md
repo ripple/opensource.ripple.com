@@ -52,7 +52,7 @@ Besides errors that can occur for all transactions, {% code-page-name /%} transa
 
 | Error Code                | Description                        |
 | :------------------------ | :----------------------------------|
-| `temINVALID`              | The `LoanBrokerID` field is empty. |
+| `temINVALID`              | The `LoanBrokerID` field is invalid. |
 | `temBAD_AMOUNT`           | The amount to withdraw is lass than or equal to `0`. |
 | `temMALFORMED`            | The `Destination` account is empty or `0`. You can also receive this error if the destination tag is set, but `Destination` isn't. |
 | `tecNO_ENTRY`             | The specified `LoanBroker` ledger entry doesn't exist. |

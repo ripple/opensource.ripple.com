@@ -17,9 +17,8 @@ The lending protocol uses the pseudo-account of the associated `Vault` entry to 
 
 _(Requires the [Lending Protocol amendment][] {% not-enabled /%})_
 
-## Example LoanBroker JSON
+## Example {% $frontmatter.seo.title %} JSON
 
-**TODO: Add real example.**
 ```json
 {
   "LedgerEntryType": "LoanBroker",
@@ -28,8 +27,11 @@ _(Requires the [Lending Protocol amendment][] {% not-enabled /%})_
   "PreviousTxnID": "9A8765B4321CDE987654321CDE987654321CDE987654321CDE987654321CDE98",
   "PreviousTxnLgrSeq": 12345678,
   "Sequence": 1,
+  "LoanSequence": 2,
   "OwnerNode": 2,
+  "VaultNode": 1,
   "VaultID": "ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890",
+  "Account": "rBROKER9AbCdEfGhIjKlMnOpQrStUvWxYz",
   "Owner": "rEXAMPLE9AbCdEfGhIjKlMnOpQrStUvWxYz",
   "Data": "5468697320697320617262697472617279206D657461646174612061626F757420746865206C6F616E62726F6B65722E",
   "ManagementFeeRate": 100,
@@ -42,39 +44,43 @@ _(Requires the [Lending Protocol amendment][] {% not-enabled /%})_
 }
 ```
 
-## LoanBroker Fields
 
-In addition to the [common ledger entry fields][], `LoanBroker` entries have the following fields:
+## {% $frontmatter.seo.title %} Fields
+
+In addition to the [common ledger entry fields][], {% code-page-name /%} entries have the following fields:
 
 | Name                  | JSON Type | Internal Type | Required? | Description |
 | :-------------------- | :-------- | :------------ | :-------- | :-----------|
-| `LedgerEntryType`     | String    | UInt16        | Yes       | Ledger object type. |
-| `LedgerIndex`         | String    | UInt16        | Yes       | The unique identifier of the ledger object. |
-| `Flags`               | String    | UInt32        | Yes        | Set of bit-flags for this ledger object. |
 | `PreviousTxnID`       | String    | Hash256       | Yes       | Identifies the transaction ID that most recently modified this object. |
 | `PreviousTxnLgrSeq`   | Number    | UInt32        | Yes       | The sequence of the ledger that contains the transaction that most recently modified this object. |
 | `Sequence`            | Number    | UInt32        | Yes       | The transaction sequence number that created the LoanBroker. |
+| `LoanSequence`        | Number    | UInt32        | Yes       | A sequential identifier for `Loan` ledger entires, incremented each time a new loan is created by this `LoanBroker`. |
 | `OwnerNode`           | Number    | UInt64        | Yes       | Identifies the page where this item is referenced in the owner's directory. |
+| `VaultNode`           | Number    | UInt64        | Yes       | Identifies the page where this item is referenced in the `Vault` pseudo-account owner's directory. |
 | `VaultID`             | String    | Hash256       | Yes       | The ID of the vault that provides the loaned assets. |
+| `Account`             | String    | AccountID     | Yes       | The address of the `LoanBroker` pseudo-account. |
 | `Owner`               | String    | AccountID     | Yes       | The account address of the vault owner. |
 | `Data`                | String    | Blob          | No        | Arbitrary metadata about the vault. Limited to 256 bytes. |
-| `ManagementFeeRate`   | Number    | UInt16        | No        | The 1/10th basis point fee charged by the lending protocol. Valid values range from `0` to `10000`. A value of `1` is equivalent to 1/10th bps, or 0.001%. |
+| `ManagementFeeRate`   | Number    | UInt16        | No        | The fee charged by the lending protocol, in units of 1/10th basis points. Valid values are 0 to 100000 (inclusive), representing 0% to 100%. |
 | `OwnerCount`          | Number    | UInt32        | Yes       | The number of active loans issued by the LoanBroker. |
 | `DebtTotal`           | Number    | Number        | Yes       | The total asset amount the protocol owes the vault, including interest. |
 | `DebtMaximum`         | Number    | Number        | Yes       | The maximum amount the protocol can owe the vault. The default value of `0` means there is no limit to the debt. |
 | `CoverAvailable`      | Number    | Number        | Yes       | The total amount of first-loss capital deposited into the lending protocol. |
-| `CoverRateMinimum`    | Number    | UInt16        | Yes       | The 1/10th basis point of the `DebtTotal` that the first-loss capital must cover. Valid values range from `0` to `100000`. A value of `1` is equivalent to 1/10 bps, or 0.001%. |
-| `CoverRateLiquidation`| Number    | UInt16        | Yes       | The 1/10th basis point of minimum required first-loss capital that is liquidated to cover a loan default. Valid values range from `0` to `100000`. A value of 1 is equivalent to 1/10 bps, or 0.001%. |
+| `CoverRateMinimum`    | Number    | UInt32        | Yes       | The 1/10th basis point of the `DebtTotal` that the first-loss capital must cover. Valid values are 0 to 100000 (inclusive), representing 0% to 100%. |
+| `CoverRateLiquidation`| Number    | UInt12        | Yes       | The 1/10th basis point of minimum required first-loss capital that is liquidated to cover a loan default. Valid values are 0 to 100000 (inclusive), representing 0% to 100%. |
 
-## LoanBroker Flags
 
-There are no flags defined for `LoanBroker` entries.
+## {% $frontmatter.seo.title %} Flags
 
-## LoanBroker Reserve
+There are no flags defined for {% code-page-name /%} ledger entries.
 
-`LoanBroker` entries incur one owner reserve from the account that creates it.
 
-## LoanBroker ID Format
+## {% $frontmatter.seo.title %} Reserve
+
+`Loan` entries incur one owner reserve from the account that creates it.
+
+
+## {% $frontmatter.seo.title %} ID Format
 
 The ID of a `LoanBroker` entry is the [`SHA512-Half`][] of the following values, concatenated in order:
 

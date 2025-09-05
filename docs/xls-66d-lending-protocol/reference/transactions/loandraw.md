@@ -6,17 +6,14 @@ labels:
   - Lending Protocol
 ---
 # LoanDraw
-[[Source]](https://github.com/ "Source")
+[[Source]](https://github.com/XRPLF/rippled/blob/ximinez/lending-XLS-66/src/xrpld/app/tx/detail/LoanDraw.cpp "Source")
 
-Draws funds from an active loan.
-
-Only the loan borrower can submit this transaction.
+Draws funds from an active loan. Only the loan borrower can submit this transaction.
 
 _(Requires the [Lending Protocol amendment][] {% not-enabled /%})_
 
-## Example LoanDraw JSON
+## Example {% $frontmatter.seo.title %} JSON
 
-**TODO: Add real example.**
 ```json
 {
   "TransactionType": "LoanDraw",
@@ -30,27 +27,30 @@ _(Requires the [Lending Protocol amendment][] {% not-enabled /%})_
 }
 ```
 
-## LoanDraw Fields
 
-In addition to the [common fields][], `LoanDraw` transactions use the following fields:
+## {% $frontmatter.seo.title %} Fields
+
+In addition to the [common fields][], {% code-page-name /%} transactions use the following fields:
 
 | Field Name      | JSON Type | Internal Type | Required? | Description |
 |:--------------- |:----------|:-------------|:----------|:------------|
 | `LoanID`        | String    | Hash256      | Yes       | The ID of the `Loan` ledger entry to draw from. |
 | `Amount`        | Number    | Amount       | Yes       | The amount to draw from the loan. |
 
+
 ## Error Cases
 
-Besides errors that can occur for all transactions, `LoanDraw` transactions can result in the following [transaction result codes][]:
+Besides errors that can occur for all transactions, {% code-page-name /%} transactions can result in the following [transaction result codes][]:
 
-| Error Code | Description |
-|:-----------|:------------|
-| `TBD` | The loan hasn't started yet. |
-| `TBD` | The `Loan` entry with the specified ID doesn't exist or is not active. |
-| `TBD` | The account submitting the transaction is not the borrower. |
-| `TBD` | The loan is impaired or defaulted. |
-| `TBD` | There are insufficient assets available in the loan. |
-| `TBD` | The account or asset is frozen. |
-| `TBD` | The borrower missed a payment. |
+| Error Code                | Description |
+|:--------------------------|:------------|
+| `temINVALID`              | The `LoanID` field is missing or set to zero. |
+| `temBAD_AMOUNT`           | The `Amount` field must specify a positive value. |
+| `tecNO_ENTRY`             | The loan specified by `LoanID` doesn't exist. |
+| `tecNO_PERMISSION`        | The account attempting to draw funds isn't the borrower for the specified loan<br>- The loan can't be drawn from because it's impaired or defaulted<br>- Repayments are overdue and additional funds can't be drawn until payments are made. |
+| `tecTOO_SOON`             | The loan hasn't started yet. |
+| `tecWRONG_ASSET`          | The specified asset in `Amount` doesn't match the asset from the loan's vault. |
+| `tecINSUFFICIENT_FUNDS`   | The requested draw amount is greater than the assets available in the loan. |
+| `tecFROZEN`               | The borrower's account is deep-frozen or the loan broker's pseudo-account is frozen. |
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}
