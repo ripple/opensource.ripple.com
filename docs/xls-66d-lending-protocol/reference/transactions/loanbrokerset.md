@@ -48,6 +48,8 @@ In addition to the [common fields][], {% code-page-name /%} transactions use the
 | `CoverRateMinimum`     | Number    | UInt32        | No        | The 1/10th basis point `DebtTotal` that the first-loss capital must cover. Valid values range from `0` to `100000`. |
 | `CoverRateLiquidation` | Number    | UInt32        | No        | The 1/10th basis point of minimum required first-loss capital liquidated to cover a loan default. Valid values range from `0` to `100000`. |
 
+When this transaction modifies an existing `LoanBroker` ledger entry, you can only modify `Flags`, `Data`, and `DebtMaximum`.
+
 
 ## Error Cases
 
