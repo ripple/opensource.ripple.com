@@ -79,7 +79,6 @@ In addition to the [common ledger entry fields][], {% code-page-name /%} entries
 | `PreviousPaymentDate` | Number    | UInt32        | Yes       | The timestamp of when the previous payment was made, in [seconds since the Ripple Epoch][]. |
 | `NextPaymentDueDate`  | Number    | UInt32        | Yes       | The timestamp of when the next payment is due, in [seconds since the Ripple Epoch][]. |
 | `PaymentRemaining`    | Number    | UInt32        | Yes       | The number of payments remaining on the loan. |
-| `AssetsAvailable`     | Number    | Number        | Yes       | The amount of assets available in the loan. |
 | `PrincipalOutstanding` | Number    | Number        | Yes       | The principal amount requested by the _Borrower_. |
 
 {% admonition type="info" name="Note" %}

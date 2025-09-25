@@ -19,7 +19,7 @@ There are three parties involved in the process of creating a loan.
 
 - **Loan Brokers**: Create asset vaults and manage associated loans.
 - **Depositors**: Add assets to vaults.
-- **Borrowers**: Receive loans, making withdrawals and repayments as defined by their loan terms.
+- **Borrowers**: Receive loans, making repayments as defined by their loan terms.
 
 [{% inline-svg file="./lending-protocol.svg" /%}](./lending-protocol.svg "Diagram: The lifecycle of a loan.")
 
@@ -28,12 +28,11 @@ The lifecycle of a loan is as follows:
 1. A loan broker creates a vault.
 2. Depositors add assets to the vault.
 3. (Optional) The loan broker deposits first-loss capital.
-4. A loan broker and borrower create a loan, defining the terms of the loan.
-5. The borrower draws funds from the loan and makes payments against the principal.
-6. If payments are missed, the loan enters a grace period. Once the grace period expires, the loan broker has the option to default the loan.
-7. The loan is deleted when matured or defaulted.
-8. (Optional) The loan broker can withdraw first-loss capital.
-9. After all loans are paid, the loan broker can delete the `LoanBroker` ledger entry, and then the corresponding `Vault` ledger entry.
+4. A loan broker and borrower create a loan, defining the terms of the loan, and the requested principal (excluding fees) is transferred to the borrower.
+5. If payments are missed, the loan enters a grace period. Once the grace period expires, the loan broker has the option to default the loan.
+6. The loan is deleted when matured or defaulted.
+7. (Optional) The loan broker can withdraw first-loss capital.
+8. After all loans are paid, the loan broker can delete the `LoanBroker` ledger entry, and then the corresponding `Vault` ledger entry.
 
 
 ## Accounting
@@ -140,9 +139,9 @@ Freezing is a mechanism by which an asset issuer (IOU or MPT, not XRP) prevents 
 In all freeze scenarios, assets can be sent back to the issuer.
 {% /admonition %}
 
-If a borrower has their account frozen, they can't make loan payments. This doesn't absolve a borrower of their repayment obligations, and they will eventually default on their loan. If a borrower has their account deep frozen, they can't make loan payments _or_ withdraw funds from their loan.
+If a borrower has their account frozen or deep frozen, they can't make loan payments. This doesn't absolve a borrower of their repayment obligations, and they will eventually default on their loan.
 
-Freezing a borrower's account won't affect a loan broker's functions, but it will prevent them from receiving any lending protocol fees. However, issuers can freeze a loan broker's _pseudo-account_ and prevent the loan broker from creating new loans as well as preventing borrowers from drawing down their loans. A deep freeze on a loan broker's _pseudo-account_ also prevents loans from being repaid.
+Freezing a borrower's account won't affect a loan broker's functions, but it will prevent them from receiving any lending protocol fees. However, issuers can freeze a loan broker's _pseudo-account_ and prevent the loan broker from creating new loans; existing loans won't be affected. A deep freeze on a loan broker's _pseudo-account_ also prevents loans from being repaid.
 
 
 ### Interest Rates

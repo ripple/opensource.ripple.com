@@ -70,7 +70,6 @@ In addition to the [common fields][], {% code-page-name /%} transactions use the
 | `CloseInterestRate`       | Number    | UInt32        | No        | A fee charged for repaying the loan early, in units of 1/10th basis points. Valid values are 0 to 100000 (inclusive), representing 0% to 100%. |
 | `OverpaymentInterestRate` | Number    | UInt32        | No        | The interest rate charged on overpayments, in units of 1/10th basis points. Valid values are 0 to 100000 (inclusive), representing 0% to 100%. |
 | `PrincipalRequested`      | Number    | Number        | Yes       | The principal loan amount requested by the borrower. |
-| `StartDate`               | Number    | UInt32        | Yes       | The timestamp of when the loan starts, in [seconds since the Ripple Epoch][]. |
 | `PaymentTotal`            | Number    | UInt32        | No        | The total number of payments to be made against the loan. |
 | `PaymentInterval`         | Number    | UInt32        | No        | The number of seconds between loan payments. |
 | `GracePeriod`             | Number    | UInt32        | No        | The number of seconds after the loan's payment due date when it can be defaulted. |
