@@ -130,7 +130,7 @@ If the loan broker discovers a borrower can't make an upcoming payment, impairme
 
 #### Clawback
 
-Issuers (IOU or MPT, not XRP) can claw back funds from First-Loss Capital. To ensure there is always a minimum amount of capital available to protect depositors, issuers can't clawback the entire available amount. Instead, they can clawback up to a minimum amount of First-Loss Capital that the loan broker must maintain for the lending protocol; the minimum amount is calculated as `LoanBroker.DebtTotal * LoanBroker.CoverRateMinimum`.
+Issuers (IOU or MPT, not XRP) can claw back funds from First-Loss Capital. To ensure there is always a minimum amount of capital available to protect depositors, issuers can't claw back the entire available amount. Instead, they can claw back up to a minimum amount of First-Loss Capital that the loan broker must maintain for the lending protocol; the minimum amount is calculated as `LoanBroker.DebtTotal * LoanBroker.CoverRateMinimum`.
 
 #### Freeze
 
