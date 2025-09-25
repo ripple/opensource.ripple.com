@@ -46,7 +46,6 @@ _(Requires the [Lending Protocol amendment][] {% not-enabled /%})_
   "PreviousPaymentDate": 1234587890,
   "NextPaymentDueDate": 1234597890,
   "PaymentRemaining": 12,
-  "AssetsAvailable": 9000,
   "PrincipalOutstanding": 10000
 }
 ```

@@ -41,7 +41,6 @@ _(Requires the [Lending Protocol amendment][] {% not-enabled /%})_
   "CloseInterestRate": 200,
   "OverpaymentInterestRate": 5,
   "PrincipalRequested": 10000,
-  "StartDate": 1234567890,
   "PaymentTotal": 12,
   "PaymentInterval": 2592000,
   "GracePeriod": 604800
@@ -110,7 +109,6 @@ Besides errors that can occur for all transactions, {% code-page-name /%} transa
 |:--------------------------|:-----------------------------------|
 | `temBAD_SIGNER`           | - The transaction is missing a `CounterpartySignature` field.<br>- This transaction is part of a `Batch` transaction, but didn't specify a `Counterparty`. |
 | `temINVALID`              | One or more of the numeric fields are outside their valid ranges. For example, the `GracePeriod` can't be longer than the `PaymentInterval`. |
-| `tecEXPIRED`              | Loans can't be created with a `StartDate` in the past. |
 | `tecNO_ENTRY`             | The `LoanBroker` doesn't exist. |
 | `tecNO_PERMISSION`        | Neither the transaction sender's `Account` or the `Counterparty` field owns the associated `LoanBroker` ledger entry. |
 | `tecINSUFFICIENT_FUNDS`   | - The `Vault` associated with the `LoanBroker` doesn't have enough assets to fund the loan.<br>- The `LoanBroker` ledger entry doesn't have enough first-loss capital to meet the minimum coverage requirement for the new total debt. |
