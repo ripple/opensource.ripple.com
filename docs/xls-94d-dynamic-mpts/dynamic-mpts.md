@@ -11,7 +11,7 @@ Standard Multi-Purpose Tokens (MPT) become immutable after issuance, but some us
 
 ## Creating a Dynamic MPT
 
-When you issue a dynamic MPT, you can declare which properties are mutable by setting the `MutableFlags` field in the `MPTokenIssuanceCreate` transaction. This gives you flexibility to adapt your token's properties as your business needs evolve. You must carefully consider which properties should be mutable, as this cannot be changed later. By default, all MPT properties are immutable unless explicitly marked as mutable.
+When you issue an MPT, you can make it dynamic by declaring some properties as mutable in the `MutableFlags` field in the `MPTokenIssuanceCreate` transaction. This gives you flexibility to adapt your token's properties as your business needs evolve. You must carefully consider which properties should be mutable, as this cannot be changed later. By default, all MPT properties are immutable unless explicitly marked as mutable.
 
 ## Modifying a Dynamic MPT
 
