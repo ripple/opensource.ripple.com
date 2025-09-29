@@ -43,8 +43,8 @@ export default function Page() {
           subtitle="Issue Multi-Purpose Tokens with modifiable properties."
         />
 
-        <FeatureContent 
-          description="Dynamic Multi-Purpose Tokens (MPTs) let you create digital assets that can evolve over time. Unlike standard MPTs that can't be changed after creation, Dynamic MPTs allow you to choose which specific properties can be updated later to adapt to changing business needs."
+        <FeatureContent
+          description="The Dynamic MPT amendment extends Multi-Purpose Tokens to allow issuers to designate specific properties as mutable during token creation, enabling selected attributes to be updated later as business needs change."
           keyDates={keyDates}
         />
 
