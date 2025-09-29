@@ -19,7 +19,7 @@ MPTokenIssuanceCreate transactions can include the following new field:
 | `MutableFlags`   | Number              | UInt32            | No        | Indicates specific fields or flags that are mutable after issuance. This is a bitwise combination of flags that determine mutability. See [MPTokenIssuanceCreate Mutable Flags](#mptokenissuancecreate-mutable-flags) |
 
 {% admonition type="warning" name="Warning" %}
-Only a limited set of fields and flags may be declared mutable; all other fields will remain immutable.
+Only the specified fields and flags may be declared mutable; all other fields remain immutable.
 {% /admonition %}
 
 ### MPTokenIssuanceCreate Mutable Flags
