@@ -9,7 +9,7 @@
     "prettify": "prettier --write ."
   },
   "dependencies": {
-    "@redocly/cli": "1.25.4",
+    "@redocly/cli": "1.34.5",
     "@redocly/portal-legacy-ui": "^0.1.0",
     "@redocly/realm": "^0.101.0"
   },
