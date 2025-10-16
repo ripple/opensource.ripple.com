@@ -11,7 +11,7 @@
   "dependencies": {
     "@redocly/cli": "1.34.5",
     "@redocly/portal-legacy-ui": "^0.1.0",
-    "@redocly/realm": "^0.101.0"
+    "@redocly/realm": "^0.126.2"
   },
   "devDependencies": {
     "prettier": "^2.6.2"
