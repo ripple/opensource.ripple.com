@@ -74,11 +74,13 @@ In addition to the [common ledger entry fields][], {% code-page-name /%} entries
 | `OverpaymentInterestRate` | Number | UInt32       | Yes       | The interest rate charged on overpayments, in units of 1/10th basis points. Valid values are 0 to 100000 (inclusive), representing 0% to 100%. |
 | `StartDate`           | Number    | UInt32        | Yes       | The timestamp of when the loan started, in [seconds since the Ripple Epoch][]. |
 | `PaymentInterval`     | Number    | UInt32        | Yes       | The number of seconds between loan payments. |
-| `GracePeriod`         | Number    | UInt32        | Yes       | The number of seconds after a payment is due before the loan defaults. |
+| `GracePeriod`         | Number    | UInt32        | Yes       | The number of seconds after a loan payment is due before the loan defaults. |
 | `PreviousPaymentDate` | Number    | UInt32        | Yes       | The timestamp of when the previous payment was made, in [seconds since the Ripple Epoch][]. |
 | `NextPaymentDueDate`  | Number    | UInt32        | Yes       | The timestamp of when the next payment is due, in [seconds since the Ripple Epoch][]. |
 | `PaymentRemaining`    | Number    | UInt32        | Yes       | The number of payments remaining on the loan. |
-| `PrincipalOutstanding` | Number    | Number        | Yes       | The principal amount requested by the _Borrower_. |
+| `PrincipalOutstanding` | Number   | Number        | Yes       | The principal amount still owed on the loan. |
+| `TotalValueOutstanding` | Number  | Number        | Yes       | The total amount owed on the loan, including remaining principal and fees. |
+| `PrincipalRequested`  | Number    | Number        | Yes       | The principal amount requested for the loan. |
 
 {% admonition type="info" name="Note" %}
 When the loan broker discovers that the borrower can't make an upcoming payment, they can impair the loan to register a "paper loss" with the vault. The impairment mechanism moves up the `NextPaymentDueDate` to the time the loan is impaired, allowing the loan to default quicker. However, if the borrower makes a payment in the subsequent `GracePeriod`, the impairment status is removed.
