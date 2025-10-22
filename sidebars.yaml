@@ -68,7 +68,6 @@
                 - page: docs/xls-66d-lending-protocol/reference/transactions/loanbrokerdelete.md
                 - page: docs/xls-66d-lending-protocol/reference/transactions/loanbrokerset.md
                 - page: docs/xls-66d-lending-protocol/reference/transactions/loandelete.md
-                - page: docs/xls-66d-lending-protocol/reference/transactions/loandraw.md
                 - page: docs/xls-66d-lending-protocol/reference/transactions/loanmanage.md
                 - page: docs/xls-66d-lending-protocol/reference/transactions/loanpay.md
                 - page: docs/xls-66d-lending-protocol/reference/transactions/loanset.md
