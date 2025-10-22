@@ -8,7 +8,7 @@ status: not_enabled
 
 # Pseudo-Account
 
-The XRP Ledger is an account-based blockchain where assets like XRP, Fungible Tokens, and Multi-Purpose Tokens (MPTs) are held by accounts, and are represented on-chain by an [AccountRoot](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/accountroot) ledger entry. However, certain use cases require assets to be transferable to and from an object, which is why a pseudo-account is needed.
+The XRP Ledger is an account-based blockchain where assets like XRP, trust line tokens, and Multi-Purpose Tokens (MPTs) are held by accounts, and are represented on-chain by an [AccountRoot](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/accountroot) ledger entry. However, certain use cases require assets to be transferable to and from an object, which is why a pseudo-account is needed.
 
 A pseudo-account is a special type of account that holds assets on behalf of an on-chain protocol, and is used in the following use cases:
 
