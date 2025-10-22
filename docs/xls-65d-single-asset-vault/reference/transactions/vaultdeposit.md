@@ -8,7 +8,7 @@ labels:
 
 # VaultDeposit
 
-[[Source]](https://github.com/Bronek/rippled/blob/vault/src/xrpld/app/tx/detail/VaultDeposit.cpp "Source")
+[[Source]](https://github.com/XRPLF/rippled/blob/master/src/xrpld/app/tx/detail/VaultDeposit.cpp "Source")
 {% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
 Deposits a specified number of assets into a vault in exchange for shares.
@@ -21,7 +21,7 @@ Public vaults require no authorization, and anyone can deposit as long as they m
 A depositor cannot deposit assets into the vault if:
 
 - The asset is frozen for the depositor.
-- The trust line or the `MPToken` between the pseudo-account and the issuer of the vault asset is frozen or locked.
+- The trust line between the pseudo-account and the issuer is frozen or the `MPToken` is locked.
 - The vault is private and the depositor's credentials have expired.
 {% /admonition %}
 
@@ -60,7 +60,7 @@ In addition to the [common fields](https://xrpl.org/docs/references/protocol/tra
 The deposited asset must match the vault’s designated asset for the transaction to succeed. Depending on the asset type, the following changes occur:
 
 - **XRP**: The vault’s pseudo-account balance increases, and the depositor’s balance decreases.
-- **Fungible Token**: The [trust line](https://xrpl.org/docs/concepts/tokens/fungible-tokens#trust-lines) balance between the vault's pseudo-account and the asset issuer is adjusted.
+- **Trust line token**: The [trust line](https://xrpl.org/docs/concepts/tokens/fungible-tokens#trust-lines) balance between the vault's pseudo-account and the asset issuer is adjusted.
 - **MPT**: The `MPToken.MPTAmount` of both the depositor and the vault's pseudo-account is updated.
 
 ## {% $frontmatter.seo.title %} Flags
