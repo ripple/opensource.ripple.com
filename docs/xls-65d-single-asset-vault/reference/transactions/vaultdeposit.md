@@ -59,7 +59,7 @@ In addition to the [common fields](https://xrpl.org/docs/references/protocol/tra
 The deposited asset must match the vault’s designated asset for the transaction to succeed. Depending on the asset type, the following changes occur:
 
 - **XRP**: The vault’s pseudo-account balance increases, and the depositor’s balance decreases.
-- **Fungible Token**: The [trust line](https://xrpl.org/docs/concepts/tokens/fungible-tokens#trust-lines) balance between the vault's pseudo-account and the asset issuer is adjusted.
+- **Trust line token**: The [trust line](https://xrpl.org/docs/concepts/tokens/fungible-tokens#trust-lines) balance between the vault's pseudo-account and the asset issuer is adjusted.
 - **MPT**: The `MPToken.MPTAmount` of both the depositor and the vault's pseudo-account is updated.
 
 ## {% $frontmatter.seo.title %} Flags

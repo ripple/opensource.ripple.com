@@ -44,7 +44,7 @@ In addition to the [common fields](https://xrpl.org/docs/references/protocol/tra
 | :---------------- | :-------- | :------------ | :-------- | :-------------------|
 | `VaultID`         | String    | Hash256       | Yes       | The unique identifier of the vault that needs to be updated. |
 | `Data`            | String    | Blob          | No        | Arbitrary vault metadata, limited to 256 bytes. |
-| `AssetsMaximum`   | Number    | UInt64        | No        | The maximum asset amount that can be held in a vault. The value cannot be lower than the current `AssetsTotal`, unless the value is 0. |
+| `AssetsMaximum`   | Number    | Number        | No        | The maximum asset amount that can be held in a vault. The value cannot be lower than the current `AssetsTotal`, unless the value is 0. |
 | `DomainID`        | String    | Hash256       | No        | The [PermissionedDomain](https://github.com/XRPLF/XRPL-Standards/blob/master/XLS-0080-permissioned-domains/) object ID associated with the shares of this vault. The `DomainID` is only required when updating a private vault. |
 
 ## {% $frontmatter.seo.title %} Flags

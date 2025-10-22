@@ -109,7 +109,8 @@ An example of a successful response:
         "Sequence": 1,
         "index": "5D316FC6A8C5D2344F5A85E256DCBF06A9596C79B2F450ED7BF4E7E8442F8668",
         "mpt_issuance_id": "0000000126A1CFADAB543B2A1D81D2ACC22FBEC14231F81D"
-      }
+      },
+      "Scale": 6
     }
   },
   "status": "success",
@@ -157,7 +158,8 @@ An example of a successful response:
         "Sequence": 1,
         "index": "5D316FC6A8C5D2344F5A85E256DCBF06A9596C79B2F450ED7BF4E7E8442F8668",
         "mpt_issuance_id": "0000000126A1CFADAB543B2A1D81D2ACC22FBEC14231F81D"
-      }
+      },
+      "Scale": 6,
     }
   },
   "status": "success"
@@ -205,7 +207,8 @@ Connecting to 127.0.0.1:5005
         "Sequence": 1,
         "index": "5D316FC6A8C5D2344F5A85E256DCBF06A9596C79B2F450ED7BF4E7E8442F8668",
         "mpt_issuance_id": "0000000126A1CFADAB543B2A1D81D2ACC22FBEC14231F81D"
-      }
+      },
+      "Scale": 6,
     }
   },
   "status": "success"
@@ -232,7 +235,7 @@ The `vault` field is an object describing the current status of a Vault entry in
 | `Field`                | Type                 | Description |
 | :--------------------- | :------------------- | :---------- |
 | `Account`              | String - [Address][] | The address of the vault's pseudo-account. |
-| `Asset`                | Object               | The [Asset](#asset-object) of the vault. An asset can be XRP, a Fungible Token, or an MPT. |
+| `Asset`                | Object               | The [Asset](#asset-object) of the vault. An asset can be XRP, a trust line token, or an MPT. |
 | `AssetsAvailable`      | Number               | The asset amount that is available in the vault. |
 | `AssetsMaximum`        | Number               | The maximum asset amount that can be held in the vault. If set to 0, this indicates there is no cap. |
 | `AssetsTotal`          | Number               | The total value of the vault. |
@@ -242,6 +245,7 @@ The `vault` field is an object describing the current status of a Vault entry in
 | `WithdrawalPolicy`     | String               | Indicates the withdrawal strategy used by the vault. |
 | `index`                | String               | The unique index of the vault ledger entry.  |
 | `shares`               | Object               | A [**Shares Object**](#shares-object) containing details about the vault's issued shares.  |
+| `Scale`                | Number               | Specifies decimal precision for share calculations. Assets are multiplied by 10<sup>Scale</sup > to convert fractional amounts into whole number shares. For example, with a `Scale` of `6`, depositing 20.3 units creates 20,300,000 shares (20.3 × 10<sup>Scale</sup >). For **trust line tokens** this can be configured at vault creation, and valid values are between 0-18, with the default being `6`. For **XRP** and **MPTs**, this is fixed at `0`. |
 
 ### Asset Object
 
@@ -251,7 +255,7 @@ The `asset` object contains the following nested fields:
 | :--------------------- | :------------------- | :---------- |
 | `currency`             | String               | _(Omitted if the asset is an MPT)_ The currency code of the asset stored in the vault. |
 | `issuer`               | String - [Address][] | _(Omitted if the asset is XRP or an MPT)_ The address of the asset issuer. |
-| `mpt_issuance_id`      | String               | _(Omitted if the asset is XRP or a Fungible Token)_ The identifier of the asset's `MPTokenIssuance` object. |
+| `mpt_issuance_id`      | String               | _(Omitted if the asset is XRP or a trust line token)_ The identifier of the asset's `MPTokenIssuance` object. |
 
 ### Shares Object
 
