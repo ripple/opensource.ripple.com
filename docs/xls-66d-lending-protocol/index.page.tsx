@@ -66,7 +66,7 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Documentation" to="/docs/xls-66d-lending-protocol/concepts/lending-protocol">
+          <Card title="Documentation" to="./docs/xls-66d-lending-protocol/concepts/lending-protocol">
             <p>
               Explore key concepts, find detailed references, and follow
               step-by-step tutorials.
