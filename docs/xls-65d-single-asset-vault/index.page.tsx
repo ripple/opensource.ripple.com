@@ -42,7 +42,7 @@ export default function Page() {
         />
 
         <FeatureContent 
-          description="A single asset vault is an XRP Ledger primitive that aggregates assets from multiple depositors and makes them available to other on-chain protocols, such as a Lending Protocol. A vault asset can be XRP, a Fungible Token, or an MPT (Multi-Purpose Token)."
+          description="A single asset vault is an XRP Ledger primitive that aggregates assets from multiple depositors and makes them available to other on-chain protocols, such as a Lending Protocol. A vault asset can be XRP, a trust line token, or an MPT (Multi-Purpose Token)."
           keyDates={keyDates}
         />
 
