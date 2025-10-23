@@ -38,6 +38,15 @@ In addition to the [common fields][], {% code-page-name /%} transactions use the
 | `Amount`        | Number    | Amount       | Yes       | The amount to pay toward the loan. |
 
 
+## {% $frontmatter.seo.title %} Flags
+
+Transactions of the {% code-page-name /%} type support additional values in the [`flags` field], as follows:
+
+| Flag Name | Hex Value | Decimal Value | Description |
+|:----------|:----------|:--------------|:------------|
+| `tfLoanOverpayment` | `0x00010000` | 65536 | Indicates that the remaining payment amount should be treated as an overpayment. |
+
+
 ## Error Cases
 
 Besides errors that can occur for all transactions, {% code-page-name /%} transactions can result in the following [transaction result codes][]:
