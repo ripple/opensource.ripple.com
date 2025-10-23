@@ -7,7 +7,9 @@ labels:
 ---
 # Lending Protocol
 
-The Lending Protocol is an XRP Ledger DeFi primitive that enables on-chain, fixed-term, uncollateralized loans using pooled funds from a [Single Asset Vault](https://opensource.ripple.com/docs/xls-65d-single-asset-vault). The implementation relies on off-chain underwriting and risk management to assess the creditworthiness of borrowers, but offers peer-to-peer loans without intermediaries like banks or financial institutions. First-loss capital protection is used to help offset losses from loan defaults.
+The Lending Protocol is an XRP Ledger DeFi primitive that enables on-chain, fixed-term, uncollateralized loans using pooled funds from a [Single Asset Vault](https://opensource.ripple.com/docs/xls-65d-single-asset-vault). The protocol is highly configurable, enabling loan brokers to easily tune risk appetite, depostitor protections, and economic incentives. 
+
+The implementation relies on off-chain underwriting and risk management to assess the creditworthiness of borrowers, but offers peer-to-peer loans without intermediaries like banks or financial institutions. First-loss capital protection is used to help offset losses from loan defaults.
 
 The current implementation of the lending protocol doesn't include automated on-chain collateral and liquidation management, instead focusing on on-chain credit origination.
 
@@ -47,7 +49,7 @@ Three parameters control the First-Loss Capital:
 
 - `CoverAvailable`: The total amount of cover deposited by the lending protocol owner.
 - `CoverRateMinimum`: The percentage of debt that must be covered by `CoverAvailable`.
-- `CoverRateLiquiditation`: The maximum percentage of the minimum required cover _(DebtTotal x CoverRateMinimum)_ that will be liquidated to cover a loan default.
+- `CoverRateLiquidation`: The maximum percentage of the minimum required cover _(DebtTotal x CoverRateMinimum)_ that will be liquidated to cover a loan default.
 
 Whenever the available cover falls below the minimum required:
 
