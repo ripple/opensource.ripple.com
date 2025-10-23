@@ -51,6 +51,10 @@
           expanded: false
           items:
             - page: docs/xls-66d-lending-protocol/concepts/lending-protocol.md
+        - group: Use Cases
+          expanded: false
+          items:
+            - page: docs/xls-66d-lending-protocol/use-cases/institutional-credit-facilities.md
         - group: References
           expanded: false
           items:
