@@ -45,3 +45,11 @@
                 - page: docs/xls-65d-single-asset-vault/reference/api/vault-info.md
     - page: docs/xls-56-batch-transactions/index.page.tsx
     - page: docs/xls-33-multi-purpose-tokens/index.page.tsx
+    - group: 
+      page: docs/xls-94d-dynamic-mpts/index.page.tsx
+      expanded: false
+      items:
+        - page: docs/xls-94d-dynamic-mpts/dynamic-mpts.md
+          label: About Dynamic MPTs
+        - page: docs/xls-94d-dynamic-mpts/reference.md
+          label: Reference Documentation
