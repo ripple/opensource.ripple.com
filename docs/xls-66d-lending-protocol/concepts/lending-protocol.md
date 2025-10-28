@@ -164,3 +164,18 @@ The lending protocol charges a number of fees that the loan broker can configure
 - **Loan Service Fee**: A fee charged on top of each loan payment.
 - **Late Payment Fee**: A fee paid on top of a late payment.
 - **Early Payment Fee**: A fee paid on top of an early payment.
+
+
+## Loan Payment Processing
+
+Each loan payment consists of three components:
+
+- **Principal**: The portion that reduces the outstanding loan principle.
+- **Interest**: The portion that covers the cost of borrowing for the period.
+- **Fees**: The portion that covers any applicable service fees, management fees, late payment fees, or other charges.
+
+When the loan payment transaction is submitted, the lending protocol then checks these parameters:
+
+1. **Timing**: Is the payment on time or late?
+2. **Amount**: Does the payment amount meet the minimum required amount, or exceed it?
+3. 

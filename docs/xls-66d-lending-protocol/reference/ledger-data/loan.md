@@ -80,7 +80,9 @@ In addition to the [common ledger entry fields][], {% code-page-name /%} entries
 | `PaymentRemaining`    | Number    | UInt32        | Yes       | The number of payments remaining on the loan. |
 | `PrincipalOutstanding` | Number   | Number        | Yes       | The principal amount still owed on the loan. |
 | `TotalValueOutstanding` | Number  | Number        | Yes       | The total amount owed on the loan, including remaining principal and fees. |
-| `PrincipalRequested`  | Number    | Number        | Yes       | The principal amount requested for the loan. |
+| `ManagementFeeOutstanding` | Number | Number      | Yes       | The remaining management fee owed to the loan broker. |
+| `PeriodicPayment`     | Number    | Number        | Yes       | The amount due for each payment interval. |
+| `LoanScale`           | Number    | Int32         | No        | The scale factor that ensures all computed amounts are rounded to the same number of decimal places. It is based on the total loan value at creation time. |
 
 {% admonition type="info" name="Note" %}
 When the loan broker discovers that the borrower can't make an upcoming payment, they can impair the loan to register a "paper loss" with the vault. The impairment mechanism moves up the `NextPaymentDueDate` to the time the loan is impaired, allowing the loan to default quicker. However, if the borrower makes a payment in the subsequent `GracePeriod`, the impairment status is removed.
