@@ -43,10 +43,13 @@ _(Requires the [Lending Protocol amendment][] {% not-enabled /%})_
   "StartDate": 1234567890,
   "PaymentInterval": 2592000,
   "GracePeriod": 604800,
-  "PreviousPaymentDate": 1234587890,
+  "PreviousPaymentDueDate": 1234587890,
   "NextPaymentDueDate": 1234597890,
   "PaymentRemaining": 12,
-  "PrincipalOutstanding": 10000
+  "PrincipalOutstanding": 10000,
+  "TotalValueOutstanding": 12000,
+  "ManagementFeeOutstanding": 2000,
+  "PeriodicPayment": 1000
 }
 ```
 
@@ -75,7 +78,7 @@ In addition to the [common ledger entry fields][], {% code-page-name /%} entries
 | `StartDate`           | Number    | UInt32        | Yes       | The timestamp of when the loan started, in [seconds since the Ripple Epoch][]. |
 | `PaymentInterval`     | Number    | UInt32        | Yes       | The number of seconds between loan payments. |
 | `GracePeriod`         | Number    | UInt32        | Yes       | The number of seconds after a loan payment is due before the loan defaults. |
-| `PreviousPaymentDate` | Number    | UInt32        | Yes       | The timestamp of when the previous payment was made, in [seconds since the Ripple Epoch][]. |
+| `PreviousPaymentDueDate` | Number    | UInt32        | Yes       | The timestamp of when the previous payment was made, in [seconds since the Ripple Epoch][]. |
 | `NextPaymentDueDate`  | Number    | UInt32        | Yes       | The timestamp of when the next payment is due, in [seconds since the Ripple Epoch][]. |
 | `PaymentRemaining`    | Number    | UInt32        | Yes       | The number of payments remaining on the loan. |
 | `PrincipalOutstanding` | Number   | Number        | Yes       | The principal amount still owed on the loan. |

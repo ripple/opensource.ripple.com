@@ -168,14 +168,27 @@ The lending protocol charges a number of fees that the loan broker can configure
 
 ## Loan Payment Processing
 
-Each loan payment consists of three components:
+Loan payments are evaluated and processed around three criteria: amount, timing, and specified flags. The combination of these criteria determine how funds are applied to the loan's principal, interest, and associated fees.
+
+Each payment consists of three components:
 
 - **Principal**: The portion that reduces the outstanding loan principle.
 - **Interest**: The portion that covers the cost of borrowing for the period.
 - **Fees**: The portion that covers any applicable service fees, management fees, late payment fees, or other charges.
 
-When the loan payment transaction is submitted, the lending protocol then checks these parameters:
+When the loan payment is submitted, the lending protocol then checks these parameters:
 
-1. **Timing**: Is the payment on time or late?
-2. **Amount**: Does the payment amount meet the minimum required amount, or exceed it?
-3. 
+- **Timing**: Is the payment on time or late?
+- **Amount**: Does the payment amount meet the minimum required amount, or exceed it?
+
+Based on the timing and transaction flags, the lending protocol processes the payment as one of four types:
+
+- **Late Payments**: The payment is late on a payment cycle. Late payments must be for an exact amount, calculated as: _totalDue = periodicPayment + loanServiceFee + latePaymentFee + latePaymentInterest_. Overpayments aren't permitted on late payments; any excess amount is ignored.
+- **On-Time Payments**: If the payment is on-time, it's further classified into these payment scenarios:
+  - **Full Early Repayment**: The payment has the `tfLoanFullPayment` flag set, and the amount covers the remainder of the loan (including fees).
+  - **Sequential Periodic Payments**: The payment is applied to as many complete payment cycles as possible; cycles are calculated as the amount due each payment period (including fees).
+  - **Overpayments**: After all possible cycles are fully paid, any remaining amount is treated as an overpayment and applied to the principal. This type of payment requires the `lsfLoanOverpayment` flag to be enabled on the `Loan` ledger entry, as well as the `tfLoanOverpayment` flag to be enabled on the `LoanPay` transaction. If these flags are missing, the excess amount is ignored.
+
+{% admonition type="info" name="Note" %}
+In scenarios where excess payment amounts are "ignored", the transaction succeeds, but the borrower is only charged on the expected amount.
+{% /admonition %}
