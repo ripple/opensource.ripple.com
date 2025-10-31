@@ -57,7 +57,7 @@ Besides errors that can occur for all transactions, {% code-page-name /%} transa
 
 | Error Code                | Description                        |
 |:--------------------------|:-----------------------------------|
-| `temINVALID`              | The transaction is trying to modify a fixed field (`ManagementFeeRate`, `CoverRateMinimum`, `CoverRateLiquidation`) for an existing `LoanBroker` ledger entry. |
+| `temINVALID`              | The transaction is trying to modify a fixed field. You can only update the values for `Flags`, `Data`, or `DebtMaximum`. |
 | `tecNO_PERMISSION`        | The account submitting the transaction doesn't own the associated `Vault` ledger entry. You can also receive this error if the transaction tries to modify the `VaultID` of an existing `LoanBroker` ledger entry. |
 | `tecNO_ENTRY`             | A `LoanBroker` entry with the specified ID does not exist. You can also receive this if the specified `VaultID` doesn't exist. |
 | `tecINSUFFICIENT_RESERVE` | The owner's account doesn't have enough to cover the reserve requirement for the new `LoanBroker` ledger entry. |

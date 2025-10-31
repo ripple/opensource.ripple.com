@@ -13,7 +13,7 @@ Creates a new `Loan` ledger entry, representing a loan agreement between a _Loan
 The `LoanSet` transaction is a mutual agreement between the _Loan Broker_ and _Borrower_, and must be signed by both parties. The following multi-signature flow can be initiated by either party:
 
 1. The borrower or loan broker creates the transaction with the preagreed terms of the loan. They sign the transaction and set the `SigningPubKey`, `TxnSignature`, `Signers`, `Account`, `Fee`, `Sequence`, and `Counterparty` fields.
-2. The counterparty verifies the loan terms and signature before filling in the `CounterpartySignature` field.
+2. The counterparty verifies the loan terms and signature before signing and submitting the transaction.
 
 _(Requires the [Lending Protocol amendment][] {% not-enabled /%})_
 
@@ -30,7 +30,6 @@ _(Requires the [Lending Protocol amendment][] {% not-enabled /%})_
   "Sequence": 8,
   "Data": "546869732069732061726269747261727920646174612061626F757420746865206C6F616E2E",
   "Counterparty": "rCOUNTER9AbCdEfGhIjKlMnOpQrStUvWxYz",
-  "CounterpartySignature": "304402203D7255F91A86109961B51A616A6B921204689255A384013148A14E3672522436022040D2F90B18A583B643A422D1A13618C8B5628551E523A3B9A636B599C81F275F",
   "LoanOriginationFee": 100,
   "LoanServiceFee": 10,
   "LatePaymentFee": 5,
@@ -43,7 +42,10 @@ _(Requires the [Lending Protocol amendment][] {% not-enabled /%})_
   "PrincipalRequested": 10000,
   "PaymentTotal": 12,
   "PaymentInterval": 2592000,
-  "GracePeriod": 604800
+  "GracePeriod": 604800,
+  "SigningPubKey": "03C040CAC1E164B0E385D31E41447FE6B8960E0D202811CFDA08B55BA29E08C6B0",
+  "TxnSignature": "30440220549D359F792E155D20B5E8B3423F0F844CCF7C86986EB85BE482908A55A7157D02207B464FFE57E75D9693BAC445540CF078E9E0B6452C917DE4D66F27918D32A170",
+  "hash": "831EEFF19C980FC348E984625FE41AEB27301B0B072D4239A980E78B86B2515C"
 }
 ```
 
@@ -58,7 +60,6 @@ In addition to the [common fields][], {% code-page-name /%} transactions use the
 | `Flags`                   | String    | UInt32        | No        | Flags for the loan. |
 | `Data`                    | String    | Blob          | No        | Arbitrary metadata in hex format (max 256 bytes). |
 | `Counterparty`            | String    | AccountID     | No        | The address of the counterparty of the loan. |
-| `CounterpartySignature`   | String    | STObject      | Yes       | The signature of the counterparty. |
 | `LoanOriginationFee`      | Number    | Number        | No        | The amount paid to the `LoanBroker` owner when the loan is created. |
 | `LoanServiceFee`          | Number    | Number        | No        | The amount paid to the `LoanBroker` owner with each loan payment. |
 | `LatePaymentFee`          | Number    | Number        | No        | The amount paid to the `LoanBroker` owner for late payments. |
@@ -72,6 +73,9 @@ In addition to the [common fields][], {% code-page-name /%} transactions use the
 | `PaymentTotal`            | Number    | UInt32        | No        | The total number of payments to be made against the loan. |
 | `PaymentInterval`         | Number    | UInt32        | No        | The number of seconds between loan payments. |
 | `GracePeriod`             | Number    | UInt32        | No        | The number of seconds after the loan's payment due date when it can be defaulted. |
+| `SigningPubKey`           | String    | Blob          | Yes       | The public key used to verify the validity of the first signer's signature. |
+| `TxnSignature`            | String    | Blob          | Yes       | The hex encoding of the digital signature for the first signing. |
+| `hash`                    | String    | Hash256       | Yes       | The unique identifying hash of the partially-signed transaction. |
 
 ### CounterpartySignature Fields
 
@@ -88,7 +92,7 @@ The final transaction must include either:
 - The `Signers` field.
 
 {% admonition type="info" name="Note" %}
-This field isn't stored as a transaction signature, but either `TxnSignature` or `Sigerns` will be included in the stored transaction meatadata.
+This field isn't included in the `LoanSet` JSON, instead it's added to the stored transaction metadata after the counterparty submits the fully signed `LoanSet` transaction.
 {% /admonition %}
 
 
