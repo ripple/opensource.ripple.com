@@ -23,7 +23,7 @@ There are three parties involved in the process of creating a loan.
 - **Depositors**: Add assets to vaults.
 - **Borrowers**: Receive loans, making repayments as defined by their loan terms.
 
-[{% inline-svg file="./lending-protocol.svg" /%}](./lending-protocol.svg "Diagram: The lifecycle of a loan.")
+[{% inline-svg file="./lending-protocol-diagram.svg" /%}](./lending-protocol-diagram.svg "Diagram: The lifecycle of a loan.")
 
 The lifecycle of a loan is as follows:
 
@@ -43,20 +43,20 @@ The lifecycle of a loan is as follows:
 
 #### First-Loss Capital
 
-First-Loss Capital is an optional mechanism to mitigate the risks associated with lending. To protect investors' assets, a loan broker can deposit assets as first-loss capital, which acts as a buffer and are liquidated in the event of loan defaults. The liquidated capital is placed into the vault to cover some of the losses from missed payments. 
+First-Loss Capital is an optional mechanism to mitigate the risks associated with lending. To protect investors' assets, a loan broker can deposit assets as first-loss capital, which acts as a buffer in the event of loan defaults. The first-loss capital is placed into the vault to cover a percentage of losses from missed payments.
 
 Three parameters control the First-Loss Capital:
 
 - `CoverAvailable`: The total amount of cover deposited by the lending protocol owner.
 - `CoverRateMinimum`: The percentage of debt that must be covered by `CoverAvailable`.
-- `CoverRateLiquidation`: The maximum percentage of the minimum required cover _(DebtTotal x CoverRateMinimum)_ that will be liquidated to cover a loan default.
+- `CoverRateLiquidation`: The maximum percentage of the minimum required cover _(DebtTotal x CoverRateMinimum)_ that will be placed in the asset vault to cover a loan default.
 
 Whenever the available cover falls below the minimum required:
 
-- The lender can't issue new loans.
-- The lender can't receive lender fees. All fees are added to the First-Loss Capital to cover the deficit.
+- The loan broker can't issue new loans.
+- The loan broker can't receive lender fees. All fees are added to the First-Loss Capital to cover the deficit.
 
-Below is an example of how first-loss capital is liquidated to cover a loan default:
+Below is an example of how first-loss capital is used to cover a loan default:
 
 ```
 ** Initial States **
@@ -183,11 +183,11 @@ When the loan payment is submitted, the lending protocol then checks these param
 
 Based on the timing and transaction flags, the lending protocol processes the payment as one of four types:
 
-- **Late Payments**: The payment is late on a payment cycle. Late payments must be for an exact amount, calculated as: _totalDue = periodicPayment + loanServiceFee + latePaymentFee + latePaymentInterest_. Overpayments aren't permitted on late payments; any excess amount is ignored.
 - **On-Time Payments**: If the payment is on-time, it's further classified into these payment scenarios:
-  - **Full Early Repayment**: The payment has the `tfLoanFullPayment` flag set, and the amount covers the remainder of the loan (including fees).
   - **Sequential Periodic Payments**: The payment is applied to as many complete payment cycles as possible; cycles are calculated as the amount due each payment period (including fees).
   - **Overpayments**: After all possible cycles are fully paid, any remaining amount is treated as an overpayment and applied to the principal. This type of payment requires the `lsfLoanOverpayment` flag to be enabled on the `Loan` ledger entry, as well as the `tfLoanOverpayment` flag to be enabled on the `LoanPay` transaction. If these flags are missing, the excess amount is ignored.
+  - **Full Early Repayment**: The payment has the `tfLoanFullPayment` flag set, and the amount covers the remainder of the loan (including fees).
+- **Late Payments**: The payment is late on a payment cycle. Late payments must be for an exact amount, calculated as: _totalDue = periodicPayment + loanServiceFee + latePaymentFee + latePaymentInterest_. Overpayments aren't permitted on late payments; any excess amount is ignored.
 
 {% admonition type="info" name="Note" %}
 In scenarios where excess payment amounts are "ignored", the transaction succeeds, but the borrower is only charged on the expected amount.

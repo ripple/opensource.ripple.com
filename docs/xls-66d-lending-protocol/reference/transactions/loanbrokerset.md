@@ -46,7 +46,7 @@ In addition to the [common fields][], {% code-page-name /%} transactions use the
 | `ManagementFeeRate`    | Number    | UInt16        | No        | The 1/10th basis point fee charged by the lending protocol owner. Valid values range from `0` to `10000`. |
 | `DebtMaximum`          | Number    | Number        | No        | The maximum amount the protocol can owe the vault. The default value of `0` means there is no limit to the debt. Must be a positive value. |
 | `CoverRateMinimum`     | Number    | UInt32        | No        | The 1/10th basis point `DebtTotal` that the first-loss capital must cover. Valid values range from `0` to `100000`. |
-| `CoverRateLiquidation` | Number    | UInt32        | No        | The 1/10th basis point of minimum required first-loss capital liquidated to cover a loan default. Valid values range from `0` to `100000`. |
+| `CoverRateLiquidation` | Number    | UInt32        | No        | The 1/10th basis point of minimum required first-loss capital that is moved to an asset vault to cover a loan default. Valid values range from `0` to `100000`. |
 
 When this transaction modifies an existing `LoanBroker` ledger entry, you can only modify `Flags`, `Data`, and `DebtMaximum`.
 
