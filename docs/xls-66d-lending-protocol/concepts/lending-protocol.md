@@ -54,7 +54,7 @@ Three parameters control the First-Loss Capital:
 Whenever the available cover falls below the minimum required:
 
 - The loan broker can't issue new loans.
-- The loan broker can't receive lender fees. All fees are added to the First-Loss Capital to cover the deficit.
+- The loan broker can't receive fees. All fees are added to the First-Loss Capital to cover the deficit.
 
 Below is an example of how first-loss capital is used to cover a loan default:
 
