@@ -17,7 +17,7 @@ To ensure compliance needs are met, asset issuers can [claw back](https://xrpl.o
 
 ## Protocol Flow
 
-There are three parties involved in the process of creating a loan.
+There are three parties involved in the process of creating a loan:
 
 - **Loan Brokers**: Create asset vaults and manage associated loans.
 - **Depositors**: Add assets to vaults.
@@ -131,11 +131,11 @@ If the loan broker discovers a borrower can't make an upcoming payment, impairme
 
 #### Clawback
 
-Issuers (IOU or MPT, not XRP) can claw back funds from First-Loss Capital. To ensure there is always a minimum amount of capital available to protect depositors, issuers can't claw back the entire available amount. Instead, they can claw back up to a minimum amount of First-Loss Capital that the loan broker must maintain for the lending protocol; the minimum amount is calculated as `LoanBroker.DebtTotal * LoanBroker.CoverRateMinimum`.
+Issuers (trust line token or MPT, not XRP) can claw back funds from First-Loss Capital. To ensure there is always a minimum amount of capital available to protect depositors, issuers can't claw back the entire available amount. Instead, they can claw back up to a minimum amount of First-Loss Capital that the loan broker must maintain for the lending protocol; the minimum amount is calculated as `LoanBroker.DebtTotal * LoanBroker.CoverRateMinimum`.
 
 #### Freeze
 
-Freezing is a mechanism by which an asset issuer (IOU or MPT, not XRP) prevents an account from sending their issued asset. _Deep freeze_ takes this a step further by preventing an account from sending _and_ receiving issued assets. Issuers can also enact a _global freeze_, which prevents everyone from sending or receiving their issued asset.
+Freezing is a mechanism by which an asset issuer (trust line token or MPT, not XRP) prevents an account from sending their issued asset. _Deep freeze_ takes this a step further by preventing an account from sending _and_ receiving issued assets. Issuers can also enact a _global freeze_, which prevents everyone from sending or receiving their issued asset.
 
 {% admonition type="info" name="Note" %}
 In all freeze scenarios, assets can be sent back to the issuer.
@@ -187,7 +187,11 @@ Based on the timing and transaction flags, the lending protocol processes the pa
   - **Sequential Periodic Payments**: The payment is applied to as many complete payment cycles as possible; cycles are calculated as the amount due each payment period (including fees).
   - **Overpayments**: After all possible cycles are fully paid, any remaining amount is treated as an overpayment and applied to the principal. This type of payment requires the `lsfLoanOverpayment` flag to be enabled on the `Loan` ledger entry, as well as the `tfLoanOverpayment` flag to be enabled on the `LoanPay` transaction. If these flags are missing, the excess amount is ignored.
   - **Full Early Repayment**: The payment has the `tfLoanFullPayment` flag set, and the amount covers the remainder of the loan (including fees).
-- **Late Payments**: The payment is late on a payment cycle. Late payments must be for an exact amount, calculated as: _totalDue = periodicPayment + loanServiceFee + latePaymentFee + latePaymentInterest_. Overpayments aren't permitted on late payments; any excess amount is ignored.
+- **Late Payments**: The payment is late on a payment cycle. Late payments must be for an exact amount, calculated as:
+  ```
+  totalDue = periodicPayment + loanServiceFee + latePaymentFee + latePaymentInterest
+  ```
+  Overpayments aren't permitted on late payments; any excess amount is ignored.
 
 {% admonition type="info" name="Note" %}
 In scenarios where excess payment amounts are "ignored", the transaction succeeds, but the borrower is only charged on the expected amount.

@@ -1,24 +1,24 @@
 ---
 seo:
-    description: The XRPL's lending protocol, combined with Single Asset Vaults, Credentials, and Permissioned Domains, enable institutional credit facilities.
+    description: The XRPL's Lending Protocol, combined with Single Asset Vaults, Credentials, and Permissioned Domains, enable institutional credit facilities.
 labels:
   - Decentralized Finance
   - Lending Protocol
 ---
 # Institutional Credit Facilities
 
-Financial institutions need efficient ways to provide credit facilities while maintaining regulatory compliance. Traditional uncollateralized lending faces challenges with liquidity management, credit assessment, and operational efficiency. The XRPL's lending protocol, combined with Single Asset Vaults, Credentials, and Permissioned Domains, provides a solution for institutional credit facilities.
+Financial institutions need efficient ways to provide credit facilities while maintaining regulatory compliance. Traditional uncollateralized lending faces challenges with liquidity management, credit assessment, and operational efficiency. The XRPL's Lending Protocol, combined with Single Asset Vaults, Credentials, and Permissioned Domains, provides a solution for institutional credit facilities.
 
 
 ## Background: Challenges with traditional credit facilities
 
 Institutional lending typically involves multiple challenges in the current financial system:
 
-1. Liquidity Management: Capital inefficiently distributed across multiple lending pools, which makes it difficult to source at low cost.
-2. Credit Assessment: Complex verification and management of institutional creditworthiness
-3. Settlement Delays: Multi-day settlement cycles for loan disbursement and repayment
-4. Operational Overhead: Manual processing of loan documentation and approvals
-5. Regulatory Compliance: Resource-intensive KYC and reporting requirements
+1. **Liquidity Management**: Capital inefficiently distributed across multiple lending pools, which makes it difficult to source at low cost.
+2. **Credit Assessment**: Complex verification and management of institutional creditworthiness
+3. **Settlement Delays**: Multi-day settlement cycles for loan disbursement and repayment
+4. **Operational Overhead**: Manual processing of loan documentation and approvals
+5. **Regulatory Compliance**: Resource-intensive KYC and reporting requirements
 
 
 ## Solution: Lending on the XRPL
@@ -35,7 +35,7 @@ The XRPL lending protocol addresses these challenges through:
   - Converts deposits into shares for vault depositors.
   - Manages redemptions back into assets.
   - Dynamically adjusts exchange rates to reflect true vault value when interest from loans are paid back into the vault.
-- Single Asset Vaults support multiple asset types (XRP, Trust Line Tokens, Multi-purpose Tokens, and RLUSD).
+- Single Asset Vaults support multiple asset types (XRP, Trust Line Tokens such as RLUSD, or Multi-purpose Tokens).
 
 
 ### Regulatory Compliance
