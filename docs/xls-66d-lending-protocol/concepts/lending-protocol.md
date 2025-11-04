@@ -188,9 +188,9 @@ Based on the timing and transaction flags, the lending protocol processes the pa
   - **Overpayments**: After all possible cycles are fully paid, any remaining amount is treated as an overpayment and applied to the principal. This type of payment requires the `lsfLoanOverpayment` flag to be enabled on the `Loan` ledger entry, as well as the `tfLoanOverpayment` flag to be enabled on the `LoanPay` transaction. If these flags are missing, the excess amount is ignored.
   - **Full Early Repayment**: The payment has the `tfLoanFullPayment` flag set, and the amount covers the remainder of the loan (including fees).
 - **Late Payments**: The payment is late on a payment cycle. Late payments must be for an exact amount, calculated as:
-  ```
-  totalDue = periodicPayment + loanServiceFee + latePaymentFee + latePaymentInterest
-  ```
+
+  `totalDue = periodicPayment + loanServiceFee + latePaymentFee + latePaymentInterest`
+  
   Overpayments aren't permitted on late payments; any excess amount is ignored.
 
 {% admonition type="info" name="Note" %}
