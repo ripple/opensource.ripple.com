@@ -42,7 +42,7 @@ In addition to the [common fields][], {% code-page-name /%} transactions use the
 | Field Name     | JSON Type | Internal Type | Required? | Description |
 |:-------------- |:----------|:-------------|:----------|:------------|
 | `LoanBrokerID` | String    | Hash256      | Yes       | The ID of the `LoanBroker` ledger entry to withdraw from. |
-| `Amount`       | Object    | STAmount     | Yes       | The amount of first-loss capital to withdraw. |
+| `Amount`       | Object    | Amount       | Yes       | The amount of first-loss capital to withdraw. |
 | `Destination`  | String    | AccountID    | No        | An account to receive the assets. |
 
 
