@@ -27,6 +27,7 @@ The XRPL lending protocol addresses these challenges through:
 
 
 ### Efficient Liquidity Pooling
+
 - You can create Single Asset Vaults to aggregate lender assets into unified pools and programmatically loan those assets out. The following scenario is difficult to achieve in TradFi because you would have to manage deposits across multiple banks, conduct KYC on each user, handle repayments, and absorb the costs of inefficient rails and transaction fees. Single Asset Vaults provide benefits to all participants in the lending protocol:
   - **Depositors** gain access to larger lending markets by aggregating deposits with other small-sized depositors. This lets them participate in loans they normally wouldn’t be able to in tradfi scenarios which require far more capital. This enables them to earn yield on otherwise idle assets.
   - **Lenders** can source from these vaults cheaply and and quickly, capitalizing on the spread.
