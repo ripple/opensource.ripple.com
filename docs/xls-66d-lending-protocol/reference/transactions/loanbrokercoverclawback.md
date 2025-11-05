@@ -40,7 +40,7 @@ In addition to the [common fields][], {% code-page-name /%} transactions use the
 | Field Name     | JSON Type | Internal Type | Required? | Description |
 |:-------------- |:----------|:--------------|:----------|:------------|
 | `LoanBrokerID` | String    | Hash256       | No        | The ID of the `LoanBroker` ledger entry to clawback first-loss capital. Must be provided if `Amount` is an MPT, or `Amount` is an IOU and the specified `issuer` matches the `Account` submitting the transaction. |
-| `Amount`       | Object    | Amount        | No        | The amount of first-loss capital to clawback. If the value is `0` or empty, clawback all assets down to the minimum cover (`DebtTotal * CoverRateMinimum`). |
+| `Amount`       | Object    | Amount        | No        | The amount of first-loss capital to claw back. If the value is `0` or empty, claw back all assets down to the minimum cover (`DebtTotal * CoverRateMinimum`). |
 
 
 ## Error Cases
