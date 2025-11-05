@@ -110,7 +110,7 @@ When the loan broker discovers that the borrower can't make an upcoming payment,
 
 ## {% $frontmatter.seo.title %} ID Format
 
-The ID of a `Loan` ledger entry is the [`SHA-512Half`][] of the following values, concatenated in order:
+The ID of a `Loan` ledger entry is the [SHA-512Half][] of the following values, concatenated in order:
 
 - The `Loan` space key `0x004C`.
 - The [AccountID][] of the Borrower account.
