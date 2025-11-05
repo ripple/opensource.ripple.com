@@ -1,6 +1,6 @@
 ---
 seo:
-    description: Clawback first-loss capital from a `LoanBroker` ledger entry.
+    description: Claw back first-loss capital from a `LoanBroker` ledger entry.
 labels:
   - Transactions
   - Lending Protocol
