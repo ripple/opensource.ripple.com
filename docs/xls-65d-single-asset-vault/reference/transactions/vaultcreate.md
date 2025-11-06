@@ -75,7 +75,7 @@ A `WithdrawalPolicy` defines the strategy for processing withdrawal requests fro
 
 ## Transaction Cost
 
-Since the {% code-page-name /%} transaction creates a new `AccountRoot` object for a vault’s pseudo-account, it incurs a higher than usual [transaction cost](https://xrpl.org/docs/concepts/transactions/transaction-cost) to deter ledger spam. Instead of the standard minimum of 0.00001 XRP, {% code-page-name /%} must destroy an [incremental owner reserve](https://xrpl.org/docs/concepts/accounts/reserves#base-reserve-and-owner-reserve), currently 0.2 XRP.
+Since the {% code-page-name /%} transaction creates a new `AccountRoot` object for a vault’s pseudo-account, it incurs a higher than usual [transaction cost](https://xrpl.org/docs/concepts/transactions/transaction-cost) to deter ledger spam. Instead of the standard minimum of 0.00001 XRP, {% code-page-name /%} must destroy an [incremental owner reserve](https://xrpl.org/docs/concepts/accounts/reserves#base-reserve-and-owner-reserve), currently 0.2 XRP. This reserve is returned to the owner when the vault is deleted.
 
 ## Error Cases
 

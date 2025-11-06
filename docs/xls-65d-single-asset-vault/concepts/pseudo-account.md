@@ -3,6 +3,8 @@ seo:
   description: A pseudo-account is a special type of XRPL account that holds assets on behalf of an on-chain protocol.
 labels:
   - Single Asset Vault 
+  - AMM
+  - Lending Protocol
 status: not_enabled
 ---
 
@@ -21,8 +23,12 @@ A pseudo-account is a special type of account that holds assets on behalf of an 
 
 A pseudo-account has strict limitations. It cannot receive payments from other accounts, cannot send transactions since it has no signing authority, and exists solely to store or issue assets.
 
-## Transaction Cost
+## Reserve Requirements
 
-A transaction that creates a pseudo-account incurs a higher than usual [transaction cost](https://xrpl.org/docs/concepts/transactions/transaction-cost) to deter ledger spam. Instead of the standard minimum of 0.00001 XRP, the transaction must destroy an [incremental owner reserve](https://xrpl.org/docs/concepts/accounts/reserves#base-reserve-and-owner-reserve), currently 0.2 XRP.
+The cost of creating a pseudo-account depends on whether it is owned and controlled by another account:
+
+- **Owned pseudo-accounts**: For objects like a `Vault` where a single account owns and controls the associated pseudo-account, the creation transaction increases the owner's XRP reserve by one [incremental owner reserve](https://xrpl.org/docs/concepts/accounts/reserves#base-reserve-and-owner-reserve) (currently 0.2 XRP). This is in addition to any other reserve requirements of the transaction (for example, the Vault object itself). The transaction fee is the standard network fee.
+
+- **Unowned pseudo-accounts**: For objects like an `AMM` that are not owned by any account, the creation transaction charges a special, higher-than-normal transaction fee. This fee must be at least the value of one incremental owner reserve. This amount is burned, compensating for the permanent ledger space without tying the reserve to a specific owner.
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}
