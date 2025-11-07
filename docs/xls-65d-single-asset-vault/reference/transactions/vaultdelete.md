@@ -11,7 +11,7 @@ labels:
 [[Source]](https://github.com/XRPLF/rippled/blob/master/src/xrpld/app/tx/detail/VaultDelete.cpp "Source")
 {% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
-Permanently deletes an existing `Vault` object from the ledger, removes all associated ledger entries, and returns the owner reserve to the Vault Owner.
+Permanently deletes an existing `Vault` object from the ledger, removes all associated ledger entries, and frees up the reserve requirement for the Vault Owner.
 
 Only the Vault Owner can initiate this transaction, and the vault must be completely empty before deletion.
 

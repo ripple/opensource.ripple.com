@@ -8,7 +8,7 @@ labels:
 
 # VaultClawback
 
-[[Source]](https://github.com/Bronek/rippled/blob/vault/src/xrpld/app/tx/detail/VaultClawback.cpp "Source")
+[[Source]](https://github.com/XRPLF/rippled/blob/master/src/xrpld/app/tx/detail/VaultClawback.cpp "Source")
 {% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
 Performs a [Clawback](https://xrpl.org/docs/use-cases/tokenization/stablecoin-issuer#clawback) from the vault, exchanging the shares of an account for assets.
