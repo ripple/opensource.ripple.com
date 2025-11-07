@@ -9,7 +9,7 @@ status: not_enabled
 # Single Asset Vault
 {% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
-A single asset vault is an XRP Ledger primitive that aggregates assets from multiple depositors and makes them available to other on-chain protocols, such as the Lending Protocol (currently in development). A vault asset can be [XRP](https://xrpl.org/docs/introduction/what-is-xrp), a [trust line token](https://xrpl.org/docs/concepts/tokens/fungible-tokens/trust-line-tokens), or an [MPT (Multi-Purpose Token)](https://xrpl.org/docs/concepts/tokens/fungible-tokens/multi-purpose-tokens).
+A single asset vault is an XRP Ledger primitive that aggregates assets from multiple depositors and makes them available to other on-chain protocols, such as the  [Lending Protocol](../../xls-66d-lending-protocol/concepts/lending-protocol.md). A vault asset can be [XRP](https://xrpl.org/docs/introduction/what-is-xrp), a [trust line token](https://xrpl.org/docs/concepts/tokens/fungible-tokens/trust-line-tokens), or an [MPT (Multi-Purpose Token)](https://xrpl.org/docs/concepts/tokens/fungible-tokens/multi-purpose-tokens).
 
 A Vault Owner account manages the vault and can create, update, or delete it as needed. When creating a vault, the Vault Owner can also specify whether shares are transferable or non-transferable. Non-transferable shares cannot be transferred to any other account, and can only be redeemed.
 
