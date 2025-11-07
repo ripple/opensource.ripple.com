@@ -13,13 +13,13 @@ status: not_enabled
 
 The XRP Ledger is an account-based blockchain where assets like XRP, trust line tokens, and Multi-Purpose Tokens (MPTs) are held by accounts, and are represented on-chain by an [AccountRoot](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/accountroot) ledger entry. However, certain use cases require assets to be transferable to and from an object, which is why a pseudo-account is needed.
 
-A pseudo-account is a special type of account that holds assets on behalf of an on-chain protocol. Use cases for pseudo-accounts include:
+A pseudo-account is a special type of account with its own `AccountRoot` ledger entry, but only holds assets on behalf of an on-chain protocol. Use cases for pseudo-accounts include:
 
 - **Automated Market Makers (AMM)**: The [XLS-30 amendment](https://xrpl.org/resources/known-amendments#amm) introduced pseudo-accounts for AMMs by adding the `AMMID` field to the `AccountRoot` ledger entry. This field links a pseudo-account to an AMM instance, allowing it to track XRP and token balances in the pool and issue `LPTokens` on behalf of the AMM instance.
 
 - **Single Asset Vaults**: A single asset vault pseudo-account is used to store deposited funds and issue MPT shares. A new `VaultID` field is introduced in the `AccountRoot` ledger entry, which links the pseudo-account with the vault.
 
-- **Lending Protocol**: The Lending Protocol uses pseudo-accounts for the `LoanBroker`, linked via a `LoanBrokerID` field in the `AccountRoot`. These pseudo-accounts hold first-loss capital that protects vault depositors from loan defaults.
+- **Lending Protocol**: The Lending Protocol also uses the single asset vault's pseudo-account, with each `LoanBroker` tracked in the pseudo-account's owner directory. The pseudo-account holds first-loss capital that protects vault depositors from loan defaults, as well as the loan funds themselves.
 
 A pseudo-account has strict limitations. It cannot receive payments from other accounts, cannot send transactions since it has no signing authority, and exists solely to store or issue assets.
 

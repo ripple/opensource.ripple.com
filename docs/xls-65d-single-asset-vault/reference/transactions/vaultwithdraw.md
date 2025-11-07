@@ -17,7 +17,7 @@ Redeem vault shares for assets. The amount of assets received depends on the [ex
 The `VaultWithdraw` transaction does not respect the Permissioned Domain rules. In other words, any account that holds the shares of the vault can redeem them. This is to avoid a situation where a depositor deposits assets to a private vault to then have their access revoked by invalidating their credentials, and thus losing access to their funds.
 {% /admonition %}
 
-A depositor cannot redeem liquidity if the trust line between the pseudo-account and the issuer of the vault asset is frozen or the `MPToken` is locked.
+A depositor cannot redeem liquidity if the trust line between the pseudo-account and the issuer of the vault asset is frozen, or the `MPToken` is locked.
 
 _(Requires the [Single Asset Vault amendment][] {% not-enabled /%})_
 
