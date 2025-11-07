@@ -21,7 +21,7 @@ Public vaults require no authorization, and anyone can deposit as long as they m
 A depositor cannot deposit assets into the vault if:
 
 - The asset is frozen for the depositor.
-- The trust line between the pseudo-account and the issuer is frozen or the `MPToken` is locked.
+- The trust line between the pseudo-account and the issuer is frozen, or the `MPToken` is locked.
 - The vault is private and the depositor's credentials have expired.
 {% /admonition %}
 

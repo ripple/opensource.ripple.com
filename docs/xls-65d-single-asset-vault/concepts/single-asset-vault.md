@@ -45,7 +45,7 @@ The scale behavior varies based on the type of asset held by the vault:
 - **Trust Line Token**: Allows configurable precision (default preserves 6 decimal places).
 - **MPT**: Uses a 1-to-1 relationship between MPT units and shares.
 
-Depending on the connected protocol, vault shares may be yield-bearing, meaning shareholders could redeem shares for more or less liquidity than they originally deposited. This is because the total asset balance in the vault can grow or shrink over time, affecting the value of each share. However, the vault asset (e.g., USDC, XRP) does not generate yield on its own.
+Depending on the connected protocol, vault shares may be yield-bearing, meaning shareholders could redeem shares for more or less liquidity than they originally deposited. This is because the total asset balance in the vault can grow or shrink over time, depending on connected protocols such as lending, which affects the value of each share. However, the vault asset (e.g., USDC, XRP) does not generate yield on its own.
 
 The value of each share depends on the total assets in the vault:
 
