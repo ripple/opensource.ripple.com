@@ -73,42 +73,40 @@ CoverRateLiquidation    = 0.1 (10%)
 CoverAvailable          = 1,000 Tokens
 
 -- Loan --
-AssetsAvailable       = 500 Tokens
 PrincipleOutstanding  = 1,000 Tokens
 InterestOutstanding   = 90 Tokens
 
 
 # First-Loss Capital liquidation maths
 
-DefaultAmount = PrincipleOutstanding + InterestOutstanding - AssetsAvailable
-              = 1,000 + 90 - 500
-              = 590
+DefaultAmount = PrincipleOutstanding + InterestOutstanding
+              = 1,000 + 90
+              = 1,090
 
 # The amount of the default that the first-loss capital scheme will cover
 DefaultCovered      = min((DebtTotal x CoverRateMinimum) x CoverRateLiquidation, DefaultAmount)
-                    = min((1,090 * 0.1) * 0.1, 1,090) = min(10.9, 590)
+                    = min((1,090 * 0.1) * 0.1, 1,090) = min(10.9, 1,090)
                     = 10.9 Tokens
 
 Loss                = DefaultAmount - DefaultCovered
-                    = 590 - 10.9
-                    = 579.1 Tokens
+                    = 1,090 - 10.9
+                    = 1,079.1 Tokens
 
-FundsReturned       = DefaultCovered + AssetsAvailable
-                    = 10.9 + 500
-                    = 510.9
+FundsReturned       = DefaultCovered
+                    = 10.9
 
-# Note: Loss + FundsReturned MUST be equal to PrincipleOutstanding + InterestOutstanding
+# Note, Loss + FundsReturned MUST be equal to PrincipleOutstanding + InterestOutstanding
 
 ** State Changes **
 
 -- Vault --
 AssetsTotal     = AssetsTotal - Loss
-                = 100,090 - 579.1
-                = 99,510.9 Tokens
+                = 100,090 - 1,079.1
+                = 99,010.9 Tokens
 
 AssetsAvailable = AssetsAvailable + FundsReturned
-                = 99,000 + 510.9
-                = 99,510.9 Tokens
+                = 99,000 + 10.9
+                = 99,010.9 Tokens
 
 SharesTotal = (UNCHANGED)
 
