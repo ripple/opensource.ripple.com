@@ -51,6 +51,7 @@ codeSnippet:
 markdown:
   partialsFolders:
     - docs/_snippets
+    - _code-samples
   lastUpdatedBlock:
     hide: true
   editPage:

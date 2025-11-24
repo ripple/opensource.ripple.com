@@ -24,6 +24,12 @@
           items:
             - page: docs/xls-65d-single-asset-vault/concepts/single-asset-vault.md
             - page: docs/xls-65d-single-asset-vault/concepts/pseudo-account.md
+        - group: Tutorials 
+          expanded: false
+          items:
+            - page: docs/xls-65d-single-asset-vault/tutorials/create-a-single-asset-vault.md
+            - page: docs/xls-65d-single-asset-vault/tutorials/deposit-into-a-vault.md
+            - page: docs/xls-65d-single-asset-vault/tutorials/withdraw-from-a-vault.md
         - group: Reference
           expanded: false
           items:
