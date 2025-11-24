@@ -78,6 +78,13 @@ export default function Page() {
               Learn more
             </Button>
           </Card>          
+
+          <Card title="Dynamic MPTs" to="docs/xls-94d-dynamic-mpts">
+            <p>Dynamic Multi-Purpose Tokens (MPTs) allow some properties of an MPTokenIssuance to be declared as mutable, so the issuer can change them later.</p>
+            <Button size="large" variant="primary">
+              Learn more
+            </Button>
+          </Card> 
         </Cards>
       </LandingContainer>
 
