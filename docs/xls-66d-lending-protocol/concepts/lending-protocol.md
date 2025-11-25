@@ -168,11 +168,12 @@ The lending protocol charges a number of fees that the loan broker can configure
 
 Loan payments are evaluated and processed around three criteria: amount, timing, and specified flags. The combination of these criteria determine how funds are applied to the loan's principal, interest, and associated fees.
 
-Each payment consists of three components:
+Each payment consists of four components:
 
 - **Principal**: The portion that reduces the outstanding loan principle.
 - **Interest**: The portion that covers the cost of borrowing for the period.
 - **Fees**: The portion that covers any applicable service fees, management fees, late payment fees, or other charges.
+- **ValueChange**: The amount by which the payment changes the loan balance.
 
 When the loan payment is submitted, the lending protocol then checks these parameters:
 
