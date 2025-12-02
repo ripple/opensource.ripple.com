@@ -16,6 +16,8 @@ The current implementation of the lending protocol doesn't include automated on-
 
 To ensure compliance needs are met, asset issuers can [claw back](https://xrpl.org/docs/references/protocol/transactions/types/clawback) funds from the vault associated with the lending protocol. Issuers can also [freeze](https://xrpl.org/docs/concepts/tokens/fungible-tokens/freezes) individual accounts or issue a global freeze.
 
+_(Requires the [Lending Protocol amendment][] {% not-enabled /%})_
+
 ## Protocol Flow
 
 There are three parties involved in the process of creating a loan:
@@ -196,3 +198,5 @@ Based on the timing and transaction flags, the lending protocol processes the pa
 {% admonition type="info" name="Note" %}
 In scenarios where excess payment amounts are "ignored", the transaction succeeds, but the borrower is only charged on the expected amount.
 {% /admonition %}
+
+{% raw-partial file="/docs/_snippets/common-links.md" /%}
