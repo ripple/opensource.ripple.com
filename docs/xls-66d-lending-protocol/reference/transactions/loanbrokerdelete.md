@@ -6,7 +6,8 @@ labels:
   - Lending Protocol
 ---
 # LoanBrokerDelete
-[[Source]](https://github.com/XRPLF/rippled/blob/ximinez/lending-XLS-66/src/xrpld/app/tx/detail/LoanBrokerDelete.cpp "Source")
+[[Source]](https://github.com/XRPLF/rippled/blob/develop/src/xrpld/app/tx/detail/LoanBrokerDelete.cpp "Source")
+{% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
 Deletes a `LoanBroker` ledger entry. Only the owner of the `LoanBroker` entry can delete it.
 

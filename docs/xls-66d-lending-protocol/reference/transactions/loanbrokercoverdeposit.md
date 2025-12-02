@@ -6,7 +6,8 @@ labels:
   - Lending Protocol
 ---
 # LoanBrokerCoverDeposit
-[[Source]](https://github.com/XRPLF/rippled/blob/ximinez/lending-XLS-66/src/xrpld/app/tx/detail/LoanBrokerCoverDeposit.cpp "Source")
+[[Source]](https://github.com/XRPLF/rippled/blob/develop/src/xrpld/app/tx/detail/LoanBrokerCoverDeposit.cpp "Source")
+{% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
 Deposits first-loss capital into a `LoanBroker` ledger entry to provide protection for vault depositors.
 

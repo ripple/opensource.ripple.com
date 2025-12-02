@@ -6,7 +6,8 @@ labels:
   - Lending Protocol
 ---
 # LoanDelete
-[[Source]](https://github.com/XRPLF/rippled/blob/ximinez/lending-XLS-66/src/xrpld/app/tx/detail/LoanDelete.cpp "Source")
+[[Source]](https://github.com/XRPLF/rippled/blob/develop/src/xrpld/app/tx/detail/LoanDelete.cpp "Source")
+{% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
 Deletes a `Loan` ledger entry. Only the loan broker or borrower can submit this transaction.
 

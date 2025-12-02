@@ -6,6 +6,7 @@ labels:
   - Lending Protocol
 ---
 # Lending Protocol
+{% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
 The Lending Protocol is an XRP Ledger DeFi primitive that enables on-chain, fixed-term, uncollateralized loans using pooled funds from a [Single Asset Vault](https://opensource.ripple.com/docs/xls-65d-single-asset-vault). The protocol is highly configurable, enabling loan brokers to easily tune risk appetite, depostitor protections, and economic incentives. 
 

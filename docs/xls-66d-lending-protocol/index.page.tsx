@@ -47,15 +47,15 @@ export default function Page() {
         />
 
         <AmendmentTracker 
-          amendmentId=""
-          xlsSpecDate=""
+          amendmentId="565B90CA1AB2B9D42208ED10884188C64F9E19083DECB9634AAF06EB03299509"
+          xlsSpecDate="2025-12-02"
           onKeyDatesUpdate={handleKeyDatesUpdate}
         />
 
         <Cards columns={2}>
           <Card
             title="XLS Spec"
-            to=""
+            to="https://github.com/Tapanito/XRPL-Standards/tree/xls-66-lending-protocol/XLS-0066d-lending-protocol"
           >
             <p>
               Technical spec for the feature outlining requirements, design,
@@ -75,30 +75,6 @@ export default function Page() {
               Read the Docs
             </Button>
           </Card>
-        </Cards>
-        <Cards columns={2}>
-        <Card
-            title="Blog"
-            to=""
-          >
-            <p>
-              An overview of the feature and why it matters to developers, explained in our blog post.
-            </p>
-            <Button size="large" variant="primary">
-              Read the Blog
-            </Button>
-          </Card>
-          <Card
-            title="Security Audit"
-            to=""
-          >
-            <p>
-              The security audit performed by third-party security experts, including a link to the full, detailed security audit report.  
-            </p>
-            <Button size="large" variant="primary">
-              Read the Security Audit Report
-            </Button>
-          </Card>          
         </Cards>
       </LandingContainer>
     </LandingLayout>

@@ -6,6 +6,7 @@ labels:
   - Lending Protocol
 ---
 # Institutional Credit Facilities
+{% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
 Financial institutions need efficient ways to provide credit facilities while maintaining regulatory compliance. Traditional uncollateralized lending faces challenges with liquidity management, credit assessment, and operational efficiency. The XRPL's Lending Protocol, combined with Single Asset Vaults, Credentials, and Permissioned Domains, provides a solution for institutional credit facilities.
 
@@ -59,10 +60,12 @@ The XRPL lending protocol addresses these challenges through:
   - Select or become a credential issuer.
   - Define required credentials for borrowers.
   - Set up Permissioned Domains to protect your lending protocol and stay compliant with regulations.
-2. Configure Asset Vaults
-  - Set up vaults for different lending assets
-  - Define public/private access parameters
-  - Establish vault management policies
+2. Set Up Asset Vaults
+  - Set up vaults for different lending assets.
+  - Define public/private access parameters.
+  - Establish vault management policies.
 3. Deploy Lending Protocol
-  - Configure lending parameters and terms
-  - Set up monitoring and reporting systems
+  - Create a LoanBroker and configure lending parameters.
+  - Create and manage loans, including fees, impairment and default settings.
+  - Set up monitoring and reporting systems.
+  - Withdraw and repay loans.

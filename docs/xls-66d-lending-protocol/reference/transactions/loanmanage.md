@@ -6,7 +6,8 @@ labels:
   - Lending Protocol
 ---
 # LoanManage
-[[Source]](https://github.com/XRPLF/rippled/blob/ximinez/lending-XLS-66/src/xrpld/app/tx/detail/LoanManage.cpp "Source")
+[[Source]](https://github.com/XRPLF/rippled/blob/develop/src/xrpld/app/tx/detail/LoanManage.cpp "Source")
+{% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
 Manages the state of a `Loan` ledger entry, including defaulting, impairing, or unimpairing a loan.
 

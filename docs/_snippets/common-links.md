@@ -27,7 +27,7 @@
 [transaction result codes]: https://xrpl.org/docs/references/protocol/transactions/transaction-results
 [universal error types]: https://xrpl.org/docs/references/http-websocket-apis/api-conventions/error-formatting#universal-errors
 <!-- TODO: replace with link to roadmap page when that's ready -->
-[Lending Protocol amendment]: https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0066d-lending-protocol
+[Lending Protocol amendment]: https://github.com/Tapanito/XRPL-Standards/tree/xls-66-lending-protocol/XLS-0066d-lending-protocol
 [PermissionedDEX amendment]: /docs/xls-81d-permissioned-dexes/index.page.tsx
 [PermissionedDomains amendment]: /docs/xls-80d-permissioned-domains/index.page.tsx
 [Single Asset Vault amendment]: https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0065-single-asset-vault

@@ -6,7 +6,8 @@ labels:
   - Lending Protocol
 ---
 # LoanBrokerSet
-[[Source]](https://github.com/XRPLF/rippled/blob/ximinez/lending-XLS-66/src/xrpld/app/tx/detail/LoanBrokerSet.cpp "Source")
+[[Source]](https://github.com/XRPLF/rippled/blob/develop/src/xrpld/app/tx/detail/LoanBrokerSet.cpp "Source")
+{% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
 Creates or updates a `LoanBroker` ledger entry, configuring protocol parameters and associating it with a `Vault`.
 
