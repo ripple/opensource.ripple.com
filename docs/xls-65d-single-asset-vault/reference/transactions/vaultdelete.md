@@ -9,6 +9,7 @@ labels:
 # VaultDelete
 
 [[Source]](https://github.com/Bronek/rippled/blob/vault/src/xrpld/app/tx/detail/VaultDelete.cpp "Source")
+{% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
 Permanently deletes an existing `Vault` object from the ledger, removes all associated ledger entries, and returns the owner reserve to the Vault Owner.
 

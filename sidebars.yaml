@@ -43,5 +43,36 @@
               expanded: false
               items:
                 - page: docs/xls-65d-single-asset-vault/reference/api/vault-info.md
-    - page: docs/xls-56-batch-transactions/index.page.tsx
-    - page: docs/xls-33-multi-purpose-tokens/index.page.tsx
+    - group: XLS-66d Lending Protocol
+      page: docs/xls-66d-lending-protocol/index.page.tsx
+      expanded: false
+      items:
+        - group: Concepts
+          expanded: false
+          items:
+            - page: docs/xls-66d-lending-protocol/concepts/lending-protocol.md
+        - group: Use Cases
+          expanded: false
+          items:
+            - page: docs/xls-66d-lending-protocol/use-cases/institutional-credit-facilities.md
+        - group: References
+          expanded: false
+          items:
+            - group: Ledger Entries
+              expaneded: false
+              items:
+                - page: docs/xls-66d-lending-protocol/reference/ledger-data/loan.md
+                - page: docs/xls-66d-lending-protocol/reference/ledger-data/loanbroker.md
+            - group: Transactions
+              expanded: false
+              items:
+                - page: docs/xls-66d-lending-protocol/reference/transactions/loanbrokercoverclawback.md
+                - page: docs/xls-66d-lending-protocol/reference/transactions/loanbrokercoverdeposit.md
+                - page: docs/xls-66d-lending-protocol/reference/transactions/loanbrokercoverwithdraw.md
+                - page: docs/xls-66d-lending-protocol/reference/transactions/loanbrokerdelete.md
+                - page: docs/xls-66d-lending-protocol/reference/transactions/loanbrokerset.md
+                - page: docs/xls-66d-lending-protocol/reference/transactions/loandelete.md
+                - page: docs/xls-66d-lending-protocol/reference/transactions/loanmanage.md
+                - page: docs/xls-66d-lending-protocol/reference/transactions/loanpay.md
+                - page: docs/xls-66d-lending-protocol/reference/transactions/loanset.md
+                - page: docs/xls-66d-lending-protocol/reference/transactions/updated-transactions.md

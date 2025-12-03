@@ -9,6 +9,7 @@ labels:
 # VaultWithdraw
 
 [[Source]](https://github.com/Bronek/rippled/blob/vault/src/xrpld/app/tx/detail/VaultWithdraw.cpp "Source")
+{% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
 Redeem vault shares for assets. The amount of assets received depends on the [exchange rate](../../concepts/single-asset-vault.md#exchange-algorithm), which adjusts based on the vault’s total assets and any [unrealized losses](../../concepts/single-asset-vault.md#paper-loss-unrealized-loss).
 
