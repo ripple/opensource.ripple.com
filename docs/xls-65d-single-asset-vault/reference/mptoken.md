@@ -21,7 +21,7 @@ There are no changes to the fields in the {% code-page-name /%} object. See [MPT
 
 ## {% $frontmatter.seo.title %} Flags
 
-The following flags are set based on whether the vault is public or private:
+The following flags are set based on whether the shares are transferable, and if the vault is public or private:
 
 | **Condition**     | **Transferable**   | **Non-Transferable** |
 | ----------------- | ------------------ | -------------------- |

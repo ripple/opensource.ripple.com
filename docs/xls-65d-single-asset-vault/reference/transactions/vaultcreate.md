@@ -8,7 +8,7 @@ labels:
 
 # VaultCreate
 
-[[Source]](https://github.com/Bronek/rippled/blob/vault/src/xrpld/app/tx/detail/VaultCreate.cpp "Source")
+[[Source]](https://github.com/XRPLF/rippled/blob/master/src/xrpld/app/tx/detail/VaultCreate.cpp "Source")
 {% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
 Creates a new `Vault` ledger entry, an `MPTokenIssuance` ledger entry for the vault’s shares, and an `AccountRoot` for the vault’s [pseudo-account](../../concepts/pseudo-account.md).
@@ -26,20 +26,19 @@ _(Requires the [Single Asset Vault amendment][] {% not-enabled /%})_
 ```json
 {
   "TransactionType": "VaultCreate",
-  "Account": "ra5nK24KXen9AHvsdFTKHSANinZseWnPcX",
-  "Fee": "12",
-  "Flags": 0,
-  "LastLedgerSequence": 7108682,
-  "Sequence": 8,
-  "Data": "5468697320697320617262697472617279206D657461646174612061626F757420746865207661756C742E",
+  "Account": "rNGHoQwNG753zyfDrib4qDvvswbrtmV8Es",
   "Asset": {
     "currency": "USD",
-    "issuer": "rIssuer1234567890abcdef1234567890abcdef",
+    "issuer": "rXJSJiZMxaLuH3kQBUV5DLipnYtrE6iVb"
   },
-  "AssetsMaximum": 0,
-  "MPTokenMetadata": "5468697320697320617262697472617279206d657461646174612061626f757420746865204d50542073686172652e",
-  "WithdrawalPolicy": "1",
-  "DomainID": "77D6234D074E505024D39C04C3F262997B773719AB29ACFA83119E4210328776"
+  "AssetsMaximum": "1000000",
+  "Data": "5661756C74206D65746164617461",
+  "Fee": "5000000",
+  "Flags": 0,
+  "MPTokenMetadata": "7B2274223A225473745368617265222C226E223A2254657374205661756C74205368617265222C2264223A22412074657374207661756C742073686172652E222C2269223A226578616D706C652E6F72672F73686172652D69636F6E2E706E67222C226163223A22727761222C226173223A22657175697479222C22696E223A224D53205465737420497373756572222C227573223A5B7B2275223A226578616D706C657969656C642E636F2F7473747368617265222C2263223A2277656273697465222C2274223A2250726F647563742050616765227D2C7B2275223A226578616D706C657969656C642E636F2F646F6373222C2263223A22646F6373222C2274223A225969656C6420546F6B656E20446F6373227D5D2C226169223A7B22766F6C6174696C697479223A226C6F77227D7D",
+  "Scale": 6,
+  "Sequence": 200370,
+  "WithdrawalPolicy": 1
 }
 ```
 
@@ -50,11 +49,12 @@ In addition to the [common fields](https://xrpl.org/docs/references/protocol/tra
 | Field Name         | JSON Type     | [Internal Type][] | Required? |Description        |
 |:-------------------|:--------------|:------------------|:----------|:------------------|
 | `Data`             | String        | Blob              | No        | Arbitrary vault metadata, in hex format, limited to 256 bytes. |
-| `Asset`            | Object        | Issue             | Yes       | The asset to be held in the vault. This can be XRP, a Fungible Token, or an MPT. If the asset is a Fungible Token, the transaction creates a [trust line](https://xrpl.org/docs/concepts/tokens/fungible-tokens#trust-lines) between the vault's pseudo-account and the issuer of the asset. If the asset is an MPT, the transaction creates an `MPToken` object for the vault's pseudo-account.  |
-| `AssetsMaximum`     | Number        | UInt64            | No        | The maximum asset amount that can be held in a vault. |
-| `MPTokenMetadata`  | String        | Blob              | No        | Arbitrary metadata about the share `MPToken`, in hex format, limited to 1024 bytes. Use this field if the vault's asset is an MPT. |
+| `Asset`            | Object        | Issue             | Yes       | The asset to be held in the vault. This can be XRP, a trust line token, or an MPT. If the asset is a trust line token, the transaction creates a [trust line](https://xrpl.org/docs/concepts/tokens/fungible-tokens#trust-lines) between the vault's pseudo-account and the issuer of the asset. If the asset is an MPT, the transaction creates an `MPToken` object for the vault's pseudo-account.  |
+| `AssetsMaximum`     | Number       | UInt64            | No        | The maximum asset amount that can be held in a vault. |
+| `MPTokenMetadata`  | String        | Blob              | No        | Arbitrary metadata about the share `MPToken`, in hex format, limited to 1024 bytes. |
 | `WithdrawalPolicy` | Number        | UInt8             | No        | Indicates the withdrawal strategy used by the vault. The default value is `0x0001`, mapped to the string `vaultStrategyFirstComeFirstServe`. See [WithdrawalPolicy](#withdrawalpolicy). |
 | `DomainID`         | String        | Hash256           | No        | The [PermissionedDomain](https://github.com/XRPLF/XRPL-Standards/blob/master/XLS-0080-permissioned-domains/) object ID associated with the shares of this vault. If provided, the transaction creates a private vault, which restricts access to accounts with [credentials](https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0070-credentials) in the specified Permissioned Domain. |
+| `Scale`             | Number       | UInt8            | No       | _(Trust line tokens only)_ Specifies decimal precision for share calculations. Assets are multiplied by 10<sup>Scale</sup > to convert fractional amounts into whole number shares. For example, with a `Scale` of `6`, depositing 20.3 units creates 20,300,000 shares (20.3 × 10<sup>Scale</sup >). For **trust line tokens** this can be configured at vault creation, and valid values are between 0-18, with the default being `6`. For **XRP** and **MPTs**, this is fixed at `0`.|
 
 ## {% $frontmatter.seo.title %} Flags
 
