@@ -1,19 +1,19 @@
 ---
 seo:
-    description: The Lending Protocol updates the sign, sign_for, and submit commands with an additional field.
+    description: The Lending Protocol updates the batch transaction with an additional error case.
 labels:
-  - Transactions
-  - Lending Protocol
+    - Transaction Sending
+status: not_enabled
 ---
 # Updated Transactions
 {% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
+
+The Lending Protocol updates the [`batch`](https://xrpl.org/docs/references/protocol/transactions/types/batch) transaction with a new error case.
+
 _(Requires the [Lending Protocol amendment][] {% not-enabled /%})_
 
-The Lending Protocol updates the [`sign`](https://xrpl.org/docs/references/http-websocket-apis/admin-api-methods/signing-methods/sign), [`sign_for`](https://xrpl.org/docs/references/http-websocket-apis/admin-api-methods/signing-methods/sign_for), and [`submit`](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/transaction-methods/submit) commands with a new `signature_target` field.
-
-
-| `Field`            | Type    | Required? | Description |
-|:-------------------|:--------|:----------|:------------|
-| `signature_target` | String  | No        | Specifies where in the transaction metadata the signature information should be stored. Currently, the only valid value is `CounterpartySignature`. |
+| Error Code         | Description |
+|:-------------------|:------------|
+| `temINVALID_INNER_BATCH` | You are attempting to submit a lending protocol-related transaction, which is currently disabled. Invalid transactions include: `LoanBrokerCoverClawback`, `LoanBrokerCoverDeposit`, `LoanBrokerCoverWithdraw`, `LoanBrokerDelete`, `LoanBrokerSet`, `LoanDelete`, `LoanManage`, `LoanPay`, `LoanSet` |
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}
