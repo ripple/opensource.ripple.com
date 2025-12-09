@@ -39,6 +39,7 @@
                 - page: docs/xls-65d-single-asset-vault/reference/transactions/vaultdeposit.md
                 - page: docs/xls-65d-single-asset-vault/reference/transactions/vaultwithdraw.md
                 - page: docs/xls-65d-single-asset-vault/reference/transactions/vaultclawback.md
+                - page: docs/xls-65d-single-asset-vault/reference/transactions/updated-transactions.md
             - group: API
               expanded: false
               items:
@@ -76,3 +77,4 @@
                 - page: docs/xls-66d-lending-protocol/reference/transactions/loanpay.md
                 - page: docs/xls-66d-lending-protocol/reference/transactions/loanset.md
                 - page: docs/xls-66d-lending-protocol/reference/transactions/updated-transactions.md
+            - page: docs/xls-66d-lending-protocol/reference/updated-api-methods.md
