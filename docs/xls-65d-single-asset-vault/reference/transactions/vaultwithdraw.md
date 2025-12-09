@@ -45,7 +45,7 @@ In addition to the [common fields](https://xrpl.org/docs/references/protocol/tra
 | :-----------------------| :------------ | :------------ | :-------- | :-------------------|
 | `VaultID`               | String        | Hash256       | Yes       | The unique identifier of the vault to which the assets are deposited. |
 | `Amount`                | Number        | Amount        | Yes       | The exact amount of vault asset to withdraw or vault share to redeem. |
-| `Destination`           | String        | AccountID     | No        | An account to receive the assets. This account must be able to receive the vault asset or the transaction fails.                   |
+| `Destination`           | String        | AccountID     | No        | An account to receive the assets. This transaction fails if:<br>- The account doesn't have permission to receive the asset.<br>- The account doesn't have a `RippleState` or `MPToken` ledger entry for the asset. |
 
 There are two ways to specify the transaction `Amount` field:
 
