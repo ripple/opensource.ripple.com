@@ -9,6 +9,8 @@ labels:
 
 # Withdraw from a Vault
 
+{% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
+
 This tutorial shows you how to withdraw assets from a [single asset vault](../concepts/single-asset-vault.md). You can withdraw by specifying either how many assets you want to receive or how many shares you want to redeem. The vault burns the necessary shares and transfers the corresponding assets to your account.
 
 _(Requires the [Single Asset Vault amendment][] {% not-enabled /%})_
@@ -87,17 +89,9 @@ Verify that the depositor account has vault shares to redeem. If not, the transa
 {% /tab %}
 {% /tabs %}
 
-### 5. Withdraw assets from the vault
+### 5. Prepare VaultWithdraw transaction
 
-Create a `VaultWithdraw` transaction to withdraw assets from the vault. The transaction requires:
-
-| Field               | Value  |
-|:------------------- |:------ |
-| `TransactionType`   | The transaction type. In this case `VaultWithdraw`. |
-| `Account`           | The wallet address of the depositor account. |
-| `VaultID`           | The unique identifier of the vault. |
-| `Amount`            | The amount to withdraw or redeem. You can specify the `Amount` field in two ways:<ul><li><strong>Asset amount:</strong> Specify how many assets you want to withdraw. The vault burns the necessary shares to provide that amount.</li><li><strong>Share amount:</strong> Specify how many shares you want to redeem. The vault converts those shares into the corresponding asset amount.</li></ul>In  this example the **asset** amount is provided. |
-| `Destination`       | **(Optional)** An account to receive the assets. If omitted, assets go to the account specified in the `Account` field. |
+Create a [VaultWithdraw transaction](../reference/transactions/vaultwithdraw.md) to withdraw assets from the vault.
 
 {% tabs %}
 {% tab label="JavaScript" %}
@@ -105,11 +99,20 @@ Create a `VaultWithdraw` transaction to withdraw assets from the vault. The tran
 {% /tab %}
 {% /tabs %}
 
+The transaction defines the account requesting the withdrawal, the vault's unique identifier (`VaultID`), and the amount to withdraw or redeem. You can specify the `Amount` field in two ways:
+
+- **Asset amount**: When you specify an asset amount, the vault burns the necessary shares to provide that amount.
+- **Share amount**: When you specify a share amount, the vault converts those shares into the corresponding asset amount.
+
+While not required, you can provide a `Destination` account to receive the assets; if omitted, assets go to the account specified in the `Account` field.
+
 {% admonition type="info" name="Note" %}
 You can withdraw from a vault regardless of whether it's private or public. If you hold vault shares, you can always redeem them, even if your credentials in a private vault's permissioned domain have expired or been revoked. This prevents you from being locked out of your funds.
 {% /admonition %}
 
-Submit the transaction and wait for it to be validated on the ledger:
+### 6. Submit VaultWithdraw transaction
+
+Submit the `VaultWithdraw` transaction to the XRP Ledger.
 
 {% tabs %}
 {% tab label="JavaScript" %}

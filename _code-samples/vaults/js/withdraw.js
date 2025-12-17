@@ -1,6 +1,8 @@
 import xrpl from "xrpl"
 
 // Connect to the network ----------------------
+// This is a lending protocol-specific devnet. This network may be taken
+// offline once the lending protocol is live on mainnet.
 const client = new xrpl.Client("wss://lend.devnet.rippletest.net:51233")
 await client.connect()
 
@@ -19,7 +21,7 @@ console.log(`Vault ID: ${vaultID}`)
 console.log(`Asset MPT issuance ID: ${assetMPTIssuanceId}`)
 console.log(`Vault share MPT issuance ID: ${shareMPTIssuanceId}`)
 
-const withdrawAmount = "10"
+const withdrawAmount = "1"
 
 // Get initial vault state ----------------------
 console.log("\n=== Getting initial vault state... ===")
@@ -68,6 +70,8 @@ const vaultWithdrawTx = {
   // Optional: Add Destination field to send assets to a different account
   // Destination: "rGg4tHPRGJfewwJkd8immCFx9uSo2GgcoY"
 }
+
+// Validate the transaction structure before submitting
 xrpl.validate(vaultWithdrawTx)
 console.log(JSON.stringify(vaultWithdrawTx, null, 2))
 
@@ -121,7 +125,7 @@ const depositorShareNode = affectedNodes.find((node) => {
 })
 if (depositorShareNode) {
   if (depositorShareNode.DeletedNode) {
-    console.log(`No more shares held (withdrew all shares)`)
+    console.log(`No more shares held (redeemed all shares)`)
   } else {
     const shareFields = depositorShareNode.ModifiedNode.FinalFields
     console.log(`Shares held: ${shareFields.MPTAmount}`)

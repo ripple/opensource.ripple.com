@@ -9,6 +9,8 @@ labels:
 
 # Create a Single Asset Vault
 
+{% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
+
 This tutorial shows you how to create a [single asset vault](../concepts/single-asset-vault.md) on the XRP Ledger. Vaults can only hold a single type of asset, such as XRP, a trust line token, or a Multi-Purpose Token (MPT).
 
 You can create either a:
@@ -67,10 +69,6 @@ To get started, import the client library and instantiate a client to connect to
 
 Next, fund a vault owner account, define the MPT issuance ID for the vault's asset, and provide a permissioned domain ID to control who can deposit into the vault.
 
-{% admonition type="info" name="Note" %}
-The vault owner must have enough XRP to meet reserve requirements.
-{% /admonition %}
-
 {% tabs %}
 {% tab label="JavaScript" %}
 {% code-snippet file="/_code-samples/vaults/js/createVault.js" language="js" from="// Create and fund" before="// Prepare VaultCreate" /%}
@@ -81,25 +79,17 @@ The example uses an existing MPT issuance and permissioned domain, but you can a
 
 ### 3. Prepare VaultCreate transaction
 
-Create the `VaultCreate` transaction object, and specify the following parameters:
-
-| Field               | Value  |
-|:------------------- |:------ |
-| `TransactionType`   | The transaction type, in this case `VaultCreate`. |
-| `Account`           | The wallet address of the _vault owner_. This will be the only account allowed to update or delete the vault. |
-| `Asset`             | The asset type to be held in the vault. This can be XRP, a trust line token, or an MPT. For this example, the asset is an **MPT**. |
-| `Flags`             | The flags to enable for the transaction: <ul><li>`tfVaultPrivate`: Create a private vault that requires credentials for deposits. **Omit for public vaults.**</li></ul> See [VaultCreate Flags](../reference/transactions/vaultcreate.md#vaultcreate-flags) for all available flags.|
-| `DomainID`          | The ID of the permissioned domain that specifies which credentials are accepted. **Omit for public vaults.** |
-| `Data`              | Arbitrary metadata about the vault. Set to the hex-encoded string "Vault metadata". |
-| `AssetsMaximum`     | The maximum amount of the asset that the vault can hold. Set to `0` to indicate there is no cap. Use a specific value to limit vault size (for example, for risk management or regulatory compliance). |
-| `MPTokenMetadata`   | The hex-encoded metadata for the vault shares. This defines how the shares appear in wallets and explorers (ticker, name, description, icon, etc.). |
-| `WithdrawalPolicy`  | Indicates the withdrawal strategy used by the vault. Set to `vaultStrategyFirstComeFirstServe`, the only strategy currently supported, which lets a depositor redeem any amount of assets, provided they hold a sufficient number of shares. |
+Create the [VaultCreate transaction](../reference/transactions/vaultcreate.md) object:
 
 {% tabs %}
 {% tab label="JavaScript" %}
 {% code-snippet file="/_code-samples/vaults/js/createVault.js" language="js" from="// Prepare VaultCreate" before="// Submit, sign" /%}
 {% /tab %}
 {% /tabs %}
+
+The `tfVaultPrivate` flag and `DomainID` field restrict deposits to accounts with valid credentials in the specified permissioned domain. These can be omitted if you want to create a public vault instead.
+
+The `AssetsMaximum` is set to `0` to indicate no cap on how many assets the vault can hold, but you can adjust as needed.
 
 Vault shares are **transferable** by default, meaning depositors can transfer their shares to other accounts. If you don't want the vault's shares to be transferable, enable the `tfVaultShareNonTransferable` flag.
 

@@ -7,6 +7,8 @@
 import xrpl from "xrpl"
 
 // Connect to the network ----------------------
+// This is a lending protocol-specific devnet. This network may be taken
+// offline once the lending protocol is live on mainnet.
 const client = new xrpl.Client("wss://lend.devnet.rippletest.net:51233")
 await client.connect()
 
@@ -24,7 +26,7 @@ console.log(`Vault ID: ${vaultID}`)
 console.log(`Asset MPT issuance ID: ${assetMPTIssuanceId}`)
 console.log(`Vault share MPT issuance ID: ${shareMPTIssuanceId}`)
 
-const depositAmount = 10
+const depositAmount = 1
 
 // Get initial vault state ----------------------
 console.log("\n=== Getting initial vault state... ===")
@@ -78,6 +80,8 @@ const vaultDepositTx = {
     value: depositAmount.toString()
   }
 }
+
+// Validate the transaction structure before submitting
 xrpl.validate(vaultDepositTx)
 console.log(JSON.stringify(vaultDepositTx, null, 2))
 

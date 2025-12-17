@@ -9,9 +9,15 @@ labels:
 
 # Deposit into a Vault
 
+{% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
+
 This tutorial shows you how to deposit assets into a [single asset vault](../concepts/single-asset-vault.md). The example demonstrates depositing into a private vault with credential-based access control, however you can easily use the same code to deposit into a public vault.
 
 When you deposit into a vault, you receive shares that represent your proportional ownership of the vault's assets. For example, in an institutional lending context, depositing into a vault allows you to pool your assets with other depositors to participate in larger lending markets.
+
+{% admonition type="warning" name="Warning" %}
+Anyone can create a public vault, and malicious vault owners can drain your assets. Always verify that the vault owner and vault settings meet your standards before depositing assets.
+{% /admonition %}
 
 _(Requires the [Single Asset Vault amendment][] {% not-enabled /%})_
 
@@ -69,7 +75,9 @@ Provide the depositing account and specify the vault details. The depositor must
 {% /tabs %}
 
 {% admonition type="info" name="Note" %}
-This example uses an existing private vault, so the depositor must have valid [Credentials](https://xrpl.org/docs/concepts/decentralized-storage/credentials) in the vault's [Permissioned Domain](https://xrpl.org/docs/concepts/tokens/decentralized-exchange/permissioned-domains) before depositing.
+This tutorial deposits to an existing private vault. A preconfigured depositor account is used, which has:
+- Valid [Credentials](https://xrpl.org/docs/concepts/decentralized-storage/credentials) in the vault's [Permissioned Domain](https://xrpl.org/docs/concepts/tokens/decentralized-exchange/permissioned-domains).
+-  A positive balance of the MPT in the vault.
 
 If you wish to deposit in a different vault, you can replace the relevant values with your own.
 {% /admonition %}
@@ -94,16 +102,9 @@ Before depositing, verify that the depositor has sufficient balance of the vault
 {% /tab %}
 {% /tabs %}
 
-### 5. Deposit assets into the vault
+### 5. Prepare VaultDeposit transaction
 
-Create a `VaultDeposit` transaction object to deposit assets into the vault. The transaction requires:
-
-| Field               | Value  |
-|:------------------- |:------ |
-| `TransactionType`   | The transaction type. In this case `VaultDeposit`. |
-| `Account`           | The wallet address of the depositing account. This account must hold sufficient balance of the vault's asset. |
-| `VaultID`           | The unique identifier of the vault. |
-| `Amount`            | The asset amount to deposit into the vault. The asset must match the vault's asset, otherwise the transaction will fail with a `tecWRONG_ASSET` error. |
+Create a [VaultDeposit transaction](../reference/transactions/vaultdeposit.md) object to deposit assets into the vault.
 
 {% tabs %}
 {% tab label="JavaScript" %}
@@ -111,7 +112,11 @@ Create a `VaultDeposit` transaction object to deposit assets into the vault. The
 {% /tab %}
 {% /tabs %}
 
-Then, submit the transaction and wait for it to be validated on the ledger:
+The transaction specifies the depositing account, the vault's unique identifier (`VaultID`), and the amount to deposit. The asset in the `Amount` field must match the vault's asset type, otherwise the transaction will fail with a `tecWRONG_ASSET` error.
+
+### 6. Submit VaultDeposit transaction
+
+Submit the `VaultDeposit` transaction to the XRP Ledger.
 
 {% tabs %}
 {% tab label="JavaScript" %}
@@ -130,7 +135,7 @@ If the transaction succeeds, the vault:
 Transfer fees are not charged on `VaultDeposit` transactions.
 {% /admonition %}
 
-### 6. Verify deposit and check share balance
+### 7. Verify deposit and check share balance
 
 After depositing, verify the vault's updated state. You can extract this information directly from the transaction metadata without making additional API calls:
 
