@@ -3,6 +3,11 @@
 - group: Prerelease Docs
   expanded: true
   items:
+    - group: Subscribe Updates
+      expanded: false
+      items:
+        - page: docs/subscribe/mpt-issuance-subscriptions.md
+          label: MPT Issuance Subscriptions
     - page: docs/xls-85-token-escrow/index.page.tsx
     - page: docs/xls-81d-permissioned-dexes/index.page.tsx
       items:
