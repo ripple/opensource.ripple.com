@@ -9,7 +9,7 @@ status: not_enabled
 # Single Asset Vault
 {% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
-A single asset vault is an XRP Ledger primitive that aggregates assets from multiple depositors and makes them available to other on-chain protocols, such as the Lending Protocol (currently in development). A vault asset can be [XRP](https://xrpl.org/docs/introduction/what-is-xrp), a [Fungible Token](https://xrpl.org/docs/concepts/tokens/fungible-tokens), or an [MPT (Multi-Purpose Token)](https://xrpl.org/docs/concepts/tokens/fungible-tokens/multi-purpose-tokens).
+A single asset vault is an XRP Ledger primitive that aggregates assets from multiple depositors and makes them available to other on-chain protocols, such as the  [Lending Protocol](../../xls-66d-lending-protocol/concepts/lending-protocol.md). A vault asset can be [XRP](https://xrpl.org/docs/introduction/what-is-xrp), a [trust line token](https://xrpl.org/docs/concepts/tokens/fungible-tokens/trust-line-tokens), or an [MPT (Multi-Purpose Token)](https://xrpl.org/docs/concepts/tokens/fungible-tokens/multi-purpose-tokens).
 
 A Vault Owner account manages the vault and can create, update, or delete it as needed. When creating a vault, the Vault Owner can also specify whether shares are transferable or non-transferable. Non-transferable shares cannot be transferred to any other account, and can only be redeemed.
 
@@ -37,9 +37,15 @@ Depositors can deposit assets to receive shares, which represent their proportio
 
 Since the XRP Ledger is an account-based blockchain, all assets must be held by an account. A `Vault` ledger entry cannot hold assets directly, so a [pseudo-account](pseudo-account.md) is created to hold assets on its behalf. This stand-alone account cannot receive funds or send transactions, and exists solely to store assets and issue shares.
 
-Each share is represented on-chain as an MPT, issued by the vault's pseudo-account.
+Each share is represented on-chain as an MPT, issued by the vault's pseudo-account. Since MPTs can only exist as whole number units, the vault uses a `Scale` setting to convert fractional asset amounts into whole number shares.
 
-Depending on the connected protocol, vault shares may be yield-bearing, meaning shareholders could redeem shares for more or less liquidity than they originally deposited. This is because the total asset balance in the vault can grow or shrink over time, affecting the value of each share. However, the vault asset (e.g., USDC or XRP) does not generate yield on its own.
+The scale behavior varies based on the type of asset held by the vault:
+
+- **XRP**: Uses a fixed scale that aligns with XRP's native structure, where one share represents one drop.
+- **Trust Line Token**: Allows configurable precision (default preserves 6 decimal places).
+- **MPT**: Uses a 1-to-1 relationship between MPT units and shares.
+
+Depending on the connected protocol, vault shares may be yield-bearing, meaning shareholders could redeem shares for more or less liquidity than they originally deposited. This is because the total asset balance in the vault can grow or shrink over time, depending on connected protocols such as lending, which affects the value of each share. However, the vault asset (e.g., USDC, XRP) does not generate yield on its own.
 
 The value of each share depends on the total assets in the vault:
 
@@ -60,7 +66,7 @@ To prevent depositors from exploiting potential losses by redeeming shares early
 
 Because the unrealized loss temporarily decreases the vault's value, a malicious depositor may take advantage of this by depositing assets at a lowered price and redeeming shares once the price increases.
 
-For example, consider a vault with a total value of $1.0m and total shares of $1.0m. Let's assume the unrealized loss for the vault is $900k:
+For example, consider a vault with a total value of $1.0m and total shares of 1.0m. Let's assume the unrealized loss for the vault is $900k:
 
 1. The new exchange rate is calculated as:
 
@@ -88,35 +94,48 @@ To mitigate this, the vault uses separate exchange rates for deposits and redemp
 
 A single asset vault uses **two distinct exchange rates**:
 
-- **Deposit Exchange Rate**: When a depositor adds assets to the vault, they receive shares based on the current exchange rate. This ensures that new deposits do not unfairly impact the value of existing shares.
-
-- **Withdrawal Exchange Rate**: When shares are redeemed, the vault ensures that unrealized losses are accounted for, so depositors cannot withdraw more than the vault’s true asset value.
-  - **Redemptions**: If a depositor redeems a specific number of shares, the vault calculates the asset amount based on the ratio of _total assets_ to _total shares_, adjusted for unrealized losses.
-  - **Withdrawals**: If a depositor requests a specific asset amount, the vault determines how many shares must be _burned_ to fulfill the request, ensuring that unrealized losses are accounted for in the calculation.
+- **Deposit Exchange Rate**: Protects new depositors from prior losses and ensures fair share allocation.
+- **Withdrawal Exchange Rate**: Ensures all shareholders share losses proportionally. Whether redeeming shares or withdrawing assets, the vault always calculates payouts using the actual current value (total assets minus losses), so depositors get their fair share of what's actually in the vault.
+  - **Redemptions**: The vault burns shares so the depositor can receive proportional assets.
+  - **Withdrawals**: The vault determines the shares to burn based on the requested asset amount.
 
 These exchange rates ensure fairness and prevent manipulation, maintaining the integrity of deposits and redemptions.
 
 To understand how the exchange rates are applied, here are the key variables used in the calculations:
 
-- `T_share`: The total number of shares issued by the vault.
-- `T_asset`: The total assets in the vault, including any future yield.
-- `Δ_asset`: The change in the total amount of assets after a deposit, withdrawal, or redemption.
-- `Δ_share`: The change in the total amount of shares after a deposit, withdrawal, or redemption.
-- `l`: The unrealized loss of the vault.
+- `Γ_assets`: The total balance of assets held within the vault.
+- `Γ_shares`: The total number of shares currently issued by the vault.
+- `Δ_assets`: The amount of assets being deposited, withdrawn, or redeemed.
+- `Δ_shares`: The number of shares being issued or burned.
+- `l`: The vault's total unrealized loss.
+- `σ`: The scaling factor (σ = 10<sup>Scale</sup>) used to convert fractional assets into whole number shares.
 
 {% tabs %}
   {% tab label="Deposit" %}
     The vault computes the number of shares a depositor will receive as follows:
 
+    - **Initial Deposit (Empty Vault)**: For the first deposit into an empty vault, shares are calculated using the scaling factor to properly represent fractional assets as whole numbers.
+
+      ```js
+      Δ_shares = Δ_assets * σ // σ = 10^Scale
+      ```
+
+    - **Subsequent Deposits**: For all other deposits, shares are calculated proportionally. The resulting share value is rounded **down** to the nearest whole number.
+
+      ```js
+      Δ_shares = (Δ_assets * Γ_shares) / Γ_assets
+      ```
+    Because the share amount is rounded down, the actual assets taken from the depositor are recalculated. This ensures the depositor isn't overcharged and that new shares are valued against the vault's true value, accounting for any unrealized loss:
+
     ```js
-    Δ_share = Δ_asset * (T_share / T_asset)
+    Δ_assets = (Δ_shares * (Γ_assets - l)) / Γ_shares
     ```
 
-    After a successful deposit, the _total asset_ and _total share_ values are updated like so:
+    After a successful deposit, the _total assets_ and _total shares_ values are updated like so:
 
     ```js
-    T_asset = T_asset + Δ_asset // New balance of assets in the vault.
-    T_share = T_share + Δ_share // New share balance in the vault.
+    Γ_assets = Γ_assets + Δ_assets // New balance of assets in the vault.
+    Γ_shares = Γ_shares + Δ_shares // New share balance in the vault.
     ```
   {% /tab %}
 
@@ -124,31 +143,44 @@ To understand how the exchange rates are applied, here are the key variables use
   The vault computes the number of assets returned by burning shares as follows:
 
   ```js
-  Δ_asset = Δ_share * ((T_asset - l) / T_share)
+  Δ_assets = (Δ_shares * (Γ_assets - l)) / Γ_shares
   ```
 
-  After a successful redemption, the _total asset_ and _total share_ values are updated like so:
+  After a successful redemption, the _total assets_ and _total shares_ values are updated like so:
 
   ```js
-  T_asset = T_asset - Δ_asset // New balance of assets in the vault.
-  T_share = T_share - Δ_share // New share balance in the vault.
+  Γ_assets = Γ_assets - Δ_assets // New balance of assets in the vault.
+  Γ_shares = Γ_shares - Δ_shares // New share balance in the vault.
   ```
 
   {% /tab %}
 
   {% tab label="Withdraw" %}
-  The vault computes the number of shares to burn for a withdrawal as follows:
+  When a depositor requests a specific asset amount, the vault uses a two-step process to determine the final payout:
 
-  ```js
-  Δ_share = Δ_asset * (T_share / (T_asset - l))
-  ```
+  1. The requested asset amount (`Δ_assets_requested`) is converted into shares.
+
+      ```js
+      Δ_shares = (Δ_assets_requested * Γ_shares) / (Γ_assets - l)
+      ```
+
+      The calculated share amount is rounded to the **nearest** whole number.
+
+  2. The rounded number of shares is used to calculate the final asset payout (`Δ_assets_out`), using the same logic as a redemption.
+
+      ```js
+      Δ_assets_out = (Δ_shares * (Γ_assets - l)) / Γ_shares
+      ```
+
+  Due to rounding in step 1, the final payout may differ slightly from the requested amount.
 
   After a successful withdrawal, the _total asset_ and _total share_ values are updated like so:
 
   ```js
-  T_asset = T_asset - Δ_asset // New balance of assets in the vault.
-  T_share = T_share - Δ_share // New share balance in the vault.
+  Γ_assets = Γ_assets - Δ_assets_out // New balance of assets in the vault.
+  Γ_shares = Γ_shares - Δ_shares     // New share balance in the vault.
   ```
+
   {% /tab %}
 {% /tabs %}
 
@@ -158,27 +190,33 @@ Vault shares are a first-class asset, meaning that they can be transferred and u
 
 For example, if a private vault holds USDC, the destination account must belong to the vault’s Permissioned Domain and have permission to hold USDC. Any compliance mechanisms applied to USDC also apply to the shares. If the USDC issuer freezes the payee’s trust line, the payee cannot receive shares representing USDC.
 
-It is important to remember that a vault must be configured to allow share transfers, or this will not be possible.
+{% admonition type="info" name="Note" %}
+It is important to remember that a vault must be **configured** to allow share transfers, or this will not be possible.
+{% /admonition %}
 
-A depositor can transfer vault shares to another account by making a [payment](https://xrpl.org/docs/references/protocol/transactions/types/payment) transaction. Nothing changes in the way the payment transaction is submitted for transferring vault shares. However, there are new failure scenarios to watch out for if the transaction fails:
+A depositor can transfer vault shares to another account by making a [Payment](https://xrpl.org/docs/references/protocol/transactions/types/payment) transaction. Nothing changes in the way the payment transaction is submitted for transferring vault shares. However, there are new failure scenarios to watch out for if the transaction fails:
 
-- The trust line or MPT is frozen between the payer and the issuer.
-- There is a global freeze or lock.
-- The vault pseudo-account is frozen.
-- The underlying asset is an MPT and is locked for the payer, destination, or vault pseudo-account.
-- The underlying asset is a Fungible Token and the trust line is frozen between the issuer and the payer, destination, or vault pseudo-account.
+- The vault is private and the payee lacks credentials in the vault's permissioned domain.
+- The vault shares are configured as non-transferable.
+- There is a global freeze (trust line tokens) or lock (MPTs) on the underlying asset.
+- The underlying asset is an MPT and is locked for the payer, payee, or vault pseudo-account.
+- The underlying asset is a trust line token and the trust line is frozen between the issuer and the payer, payee, or vault pseudo-account.
 
 If the transfer succeeds and the payee already holds vault shares, their balance increases. Otherwise, a new MPT entry is created for their account.
 
-## Frozen Assets
+## Compliance
 
-When the asset of a vault is frozen, its corresponding shares also cannot be transferred.
+### Frozen Assets
 
-The issuer of a vault asset can enact a freeze either through a [global freeze](https://xrpl.org/docs/tutorials/how-tos/use-tokens/enact-global-freeze#enact-global-freeze) for fungible tokens or by [locking MPTs](https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0033d-multi-purpose-tokens#21122-flags). When a vault asset is frozen:
+The issuer of a vault asset can enact a [freeze](https://xrpl.org/docs/concepts/tokens/fungible-tokens/freezes) for trust line tokens or [lock an MPT](https://xrpl.org/docs/concepts/tokens/fungible-tokens/deep-freeze#how-does-mpt-freeze/lock-behavior-differ-from-iou). When a vault asset is frozen:
 
 1. Withdrawals can only be made to the asset’s issuer.
-2. Frozen assets cannot be deposited into the vault.
+2. The asset cannot be deposited into the vault.
 3. Its corresponding shares also cannot be transferred.
+
+### Clawback
+
+An asset issuer can perform a [clawback](https://xrpl.org/docs/use-cases/tokenization/stablecoin-issuer#clawback) on vault assets by forcing redemption of shares held by an account. This exchanges the holder's shares for the underlying assets, which are sent directly to the issuer. This mechanism allows asset issuers to recover their issued assets from vault depositors when necessary for fraud prevention or regulatory compliance.
 
 ## Why Use a Single Asset Vault?
 
@@ -193,6 +231,6 @@ Depending on the connected on-chain protocol, vaults can be applied to various u
 - Yield-bearing tokens
 - Asset management
 
-The only supported use cases right now are _asset management_ and _lending markets_, with lending currently in development through the [XLS-66d: Lending Protocol](https://github.com/XRPLF/XRPL-Standards/discussions/190).
+The only supported use cases right now are _asset management_ and [_lending markets_](https://github.com/XRPLF/XRPL-Standards/discussions/190).
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}

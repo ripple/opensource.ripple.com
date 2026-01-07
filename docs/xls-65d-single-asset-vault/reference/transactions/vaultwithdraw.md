@@ -8,16 +8,16 @@ labels:
 
 # VaultWithdraw
 
-[[Source]](https://github.com/Bronek/rippled/blob/vault/src/xrpld/app/tx/detail/VaultWithdraw.cpp "Source")
+[[Source]](https://github.com/XRPLF/rippled/blob/master/src/xrpld/app/tx/detail/VaultWithdraw.cpp "Source")
 {% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
-Redeem vault shares for assets. The amount of assets received depends on the [exchange rate](../../concepts/single-asset-vault.md#exchange-algorithm), which adjusts based on the vault’s total assets and any [unrealized losses](../../concepts/single-asset-vault.md#paper-loss-unrealized-loss).
+Redeem vault shares for assets. The amount of assets received depends on the [exchange rate](../../concepts/single-asset-vault.md#exchange-algorithm), which adjusts based on the vault’s total assets and any [unrealized losses](../../concepts/single-asset-vault.md#unrealized-loss).
 
 {% admonition type="info" name="Note" %}
 The `VaultWithdraw` transaction does not respect the Permissioned Domain rules. In other words, any account that holds the shares of the vault can redeem them. This is to avoid a situation where a depositor deposits assets to a private vault to then have their access revoked by invalidating their credentials, and thus losing access to their funds.
 {% /admonition %}
 
-A depositor cannot redeem liquidity if the trust line or the `MPToken` between the pseudo-account and the issuer of the vault asset is frozen or locked.
+A depositor cannot redeem liquidity if the trust line between the pseudo-account and the issuer of the vault asset is frozen, or the `MPToken` is locked.
 
 _(Requires the [Single Asset Vault amendment][] {% not-enabled /%})_
 
@@ -26,14 +26,16 @@ _(Requires the [Single Asset Vault amendment][] {% not-enabled /%})_
 ```json
 {
   "TransactionType": "VaultWithdraw",
-  "Account": "ra5nK24KXen9AHvsdFTKHSANinZseWnPcX",
+  "Account": "rGFBE8WA2ZKfqGGB7CFkLusVt7hsVT4r8H",
+  "Amount": {
+    "mpt_issuance_id": "000000016E1417CA9DFD23400B05E43FDE5BB8D8FFA817CA",
+    "value": "5"
+  },
+  "Destination": "rGFBE8WA2ZKfqGGB7CFkLusVt7hsVT4r8H",
   "Fee": "12",
   "Flags": 0,
-  "LastLedgerSequence": 7108682,
-  "Sequence": 8,
-  "VaultID": "77D6234D074E505024D39C04C3F262997B773719AB29ACFA83119E4210328776",
-  "Amount" : "10000",
-  "Destination": "ruazs5h1qEsqpke88pcqnaseXdm6od2xc"
+  "Sequence": 200380,
+  "VaultID": "A7B7B3ED3F5BD8E58C9064278EB29519CD6475D87A4517707DE108E65AE9C08C",
 }
 ```
 
@@ -45,7 +47,8 @@ In addition to the [common fields](https://xrpl.org/docs/references/protocol/tra
 | :-----------------------| :------------ | :------------ | :-------- | :-------------------|
 | `VaultID`               | String        | Hash256       | Yes       | The unique identifier of the vault to which the assets are deposited. |
 | `Amount`                | Number        | Amount        | Yes       | The exact amount of vault asset to withdraw or vault share to redeem. |
-| `Destination`           | String        | AccountID     | No        | An account to receive the assets. This transaction fails if:<br>- The account doesn't have permission to receive the asset.<br>- The account doesn't have a `RippleState` or `MPToken` ledger entry for the asset. |
+| `Destination`           | String        | AccountID     | No        | An account to receive the assets. This account must be able to receive the vault asset or the transaction fails.                   |
+| `DestinationTag`        | Number        | UInt32        | No        | Arbitrary tag identifying the reason for the withdrawal to the destination. |
 
 There are two ways to specify the transaction `Amount` field:
 

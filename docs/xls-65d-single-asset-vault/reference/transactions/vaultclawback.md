@@ -1,6 +1,6 @@
 ---
 seo:
-    description: Allows the issuer of a Fungible Token or MPT to claw back funds from the vault. 
+    description: Allows the issuer of a trust line token or MPT to claw back funds from the vault. 
 labels:
   - Transactions
   - Single Asset Vault
@@ -8,7 +8,7 @@ labels:
 
 # VaultClawback
 
-[[Source]](https://github.com/Bronek/rippled/blob/vault/src/xrpld/app/tx/detail/VaultClawback.cpp "Source")
+[[Source]](https://github.com/XRPLF/rippled/blob/master/src/xrpld/app/tx/detail/VaultClawback.cpp "Source")
 {% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
 Performs a [Clawback](https://xrpl.org/docs/use-cases/tokenization/stablecoin-issuer#clawback) from the vault, exchanging the shares of an account for assets.
@@ -58,7 +58,7 @@ Besides errors that can occur for all transactions, {% code-page-name /%} transa
 | Error Code              | Description |
 | :---------------------- | :---------- |
 | `tecNO_ENTRY`           | The `Vault` object with the specified `VaultID` does not exist on the ledger. |
-| `tecNO_PERMISSION`      | The transaction attempts to claw back XRP, or the asset is a Fungible Token or MPT and the transaction isn't submitted by the issuing account. |
+| `tecNO_PERMISSION`      | The transaction attempts to claw back XRP, or the asset is a trust line token or MPT and the transaction isn't submitted by the issuing account. |
 | `tecWRONG_ASSET`        | The asset in the transaction does not match the vault's asset type. |
 | `tecINSUFFICIENT_FUNDS` | The `MPToken` object for the vault share of the `Holder` account does not exist, or the `MPToken.MPTAmount` is 0. |
 | `temDISABLED`           | The Single Asset Vault amendment is not enabled.  |
