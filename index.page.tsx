@@ -58,6 +58,12 @@ export default function Page() {
             </Button>
           </Card>
 
+          <Card title="Confidential Transfers" to="docs/xls-96-confidential-transfers">
+            <p>Keep MPT balances and transaction amounts private using Zero-Knowledge Proofs while maintaining public auditability.</p>
+            <Button size="large" variant="primary">
+              Learn more
+            </Button>
+          </Card>
         </Cards>
       </LandingContainer>
 
