@@ -16,8 +16,10 @@ const faucetPath = '/accounts'
 const [
   { wallet: loanBroker },
   { wallet: borrower },
+  { wallet: depositor },
   { wallet: credentialIssuer }
 ] = await Promise.all([
+  client.fundWallet(null, { faucetHost, faucetPath }),
   client.fundWallet(null, { faucetHost, faucetPath }),
   client.fundWallet(null, { faucetHost, faucetPath }),
   client.fundWallet(null, { faucetHost, faucetPath })
@@ -53,6 +55,15 @@ await client.submitAndWait({
     },
     {
       RawTransaction: {
+        TransactionType: 'CredentialCreate',
+        Account: credentialIssuer.address,
+        Subject: depositor.address,
+        CredentialType: credentialType,
+        Flags: xrpl.GlobalFlags.tfInnerBatchTxn
+      }
+    },
+    {
+      RawTransaction: {
         TransactionType: 'PermissionedDomainSet',
         Account: credentialIssuer.address,
         AcceptedCredentials: [
@@ -82,7 +93,7 @@ process.stdout.write('Setting up tutorial: 40%\r')
 
 // Accept credentials
 await Promise.all(
-  [loanBroker, borrower].map(wallet =>
+  [loanBroker, borrower, depositor].map(wallet =>
     client.submitAndWait({
       TransactionType: 'CredentialAccept',
       Account: wallet.address,
@@ -95,7 +106,7 @@ await Promise.all(
 process.stdout.write('Setting up tutorial: 60%\r')
 
 // Create private vault
-await client.submitAndWait({
+const vaultCreateResponse = await client.submitAndWait({
   TransactionType: 'VaultCreate',
   Account: loanBroker.address,
   Asset: {
@@ -105,23 +116,30 @@ await client.submitAndWait({
   DomainID: domainID
 }, { wallet: loanBroker, autofill: true })
 
-const loanBrokerObjects = await client.request({
-  command: 'account_objects',
-  account: loanBroker.address,
-  ledger_index: 'validated'
-})
-const vaultID = loanBrokerObjects.result.account_objects.find(node =>
-  node.LedgerEntryType === 'Vault'
-).index
+const vaultID = vaultCreateResponse.result.meta.AffectedNodes.find(node => 
+  node.CreatedNode?.LedgerEntryType === 'Vault'
+).CreatedNode.LedgerIndex
 
 process.stdout.write('Setting up tutorial: 80%\r')
 
-await client.submitAndWait({
-  TransactionType: 'VaultDeposit',
-  Account: loanBroker.address,
-  VaultID: vaultID,
-  Amount: '25000000'
-}, { wallet: loanBroker, autofill: true })
+// Create loan broker and deposit XRP into vault
+const [loanBrokerSetResponse] = await Promise.all([
+  client.submitAndWait({
+    TransactionType: 'LoanBrokerSet',
+    Account: loanBroker.address,
+    VaultID: vaultID
+  }, { wallet: loanBroker, autofill: true }),
+  client.submitAndWait({
+    TransactionType: 'VaultDeposit',
+    Account: depositor.address,
+    VaultID: vaultID,
+    Amount: '50000000'
+  }, { wallet: depositor, autofill: true })
+])
+
+const loanBrokerID = loanBrokerSetResponse.result.meta.AffectedNodes.find(node => 
+  node.CreatedNode?.LedgerEntryType === 'LoanBroker'
+).CreatedNode.LedgerIndex
 
 process.stdout.write('Setting up tutorial: 100%\r')
 
@@ -136,12 +154,17 @@ const setupData = {
     address: borrower.address,
     seed: borrower.seed
   },
+  depositor: {
+    address: depositor.address,
+    seed: depositor.seed
+  },
   credentialIssuer: {
     address: credentialIssuer.address,
     seed: credentialIssuer.seed
   },
   domainID,
-  vaultID
+  vaultID,
+  loanBrokerID
 }
 
 fs.writeFileSync('lendingSetup.json', JSON.stringify(setupData, null, 2))
