@@ -1,0 +1,183 @@
+---
+seo:
+  description: Confidential transfers keep MPT balances and transaction amounts private while maintaining public auditability of the total token supply.
+labels:
+  - Multi-Purpose Tokens, MPTs, Tokens
+  - Confidential Transfers
+---
+# Confidential Transfers
+
+Confidential Transfers on the XRP Ledger allow Multi-Purpose Token (MPT) holders to keep their balances and transfer amounts private using [EC-ElGamal encryption](https://en.wikipedia.org/wiki/ElGamal_encryption) and [Zero-Knowledge Proofs (ZKPs)](https://en.wikipedia.org/wiki/Zero-knowledge_proof). This addresses the need for confidentiality in institutional and privacy-sensitive contexts.
+
+Public and confidential balances can coexist for the same token, meaning the same MPT can have some balances held publicly and others held privately. Token holders can convert their public balance to confidential form and back as needed.
+
+{% admonition type="info" name="Note" %}
+Confidential transfers are only available for direct payments between accounts. They do not work with the XRPL DEX, escrows, or checks.
+{% /admonition %}
+
+_(Requires the [ConfidentialTransfers amendment][] {% not-enabled /%})_
+
+## Key Features of Confidential Transfers
+
+The Confidential Transfers feature is built on three core design principles: issuer second account model, a multi-ciphertext architecture for privacy and compliance, and the split-balance model for reliable transfers.
+
+### Issuer Second Account Model
+
+Issuers introduce confidential tokens into circulation via a dedicated **second account** instead of their primary issuer account. The issuer's primary account cannot hold confidential balances because its balance doesn't count toward tokens in circulation.
+
+To issue confidential tokens, issuers fund their second account with a public balance, then use the second account to convert the public balance to confidential form using the [ConfidentialMPTConvert transaction][]. Because the XRP Ledger treats the second account as a regular _holder_, its balance counts towards tokens in circulation, which allows validators to enforce [supply caps](https://xrpl.org/docs/concepts/tokens/fungible-tokens/multi-purpose-tokens#supply-cap) without needing to decrypt confidential balances.
+
+### Multi-Ciphertext Architecture
+
+A single confidential balance is represented by multiple parallel ciphertexts, each serving a distinct purpose:
+
+- **Holder encryption:** The holder's balance is encrypted under their own public key, granting exclusive spending authority.
+
+- **Issuer encryption:** The holder's balance is also encrypted under the issuer's public key, creating an encrypted mirror for supply verification and compliance without granting spending capability.
+
+- **Optional auditor encryption:** If configured, the holder's balance is additionally encrypted under an auditor's public key, enabling independent verification and [on-chain selective disclosure](#on-chain-selective-disclosure).
+
+Public keys must be generated off-chain using EC-ElGamal over secp256k1 encryption.
+
+{% admonition type="info" name="Note" %}
+This encryption method is not considered quantum-safe. In future, the XRP Ledger may migrate to post-quantum friendly schemes, such as those based on lattice cryptography. The specific migration path and timeline for achieving quantum resistance remain an open area of research.
+{% /admonition %}
+
+#### Key Registration
+
+To participate in confidential transfers, holders must first convert their public balance to confidential form using the [ConfidentialMPTConvert transaction][]. This initial conversion serves as the opt-in mechanism and registers the holder's ElGamal public key on the ledger, enabling them to receive and [manage confidential balances](#managing-confidential-balances).
+
+Issuers and auditors register their keys when [enabling confidential transfers](#privacy-controls) on an MPT issuance.
+
+{% admonition type="danger" name="Warning" %}
+**If a holder loses their private key, their confidential funds are permanently lost.**
+Issuer and auditor keys also cannot be changed once registered. They can only be cleared by disabling confidentiality entirely, which is only possible when no confidential balances exist.
+{% /admonition %}
+
+#### Zero-Knowledge Proofs
+
+The XRP Ledger relies on a set of ZKPs to validate confidential transactions without revealing balances or transfer amounts. The following proof types are used:
+
+- **Schnorr Proof of Knowledge**: Proves ownership of the private key is associated with the ElGamal public key.
+
+- **Plaintext–ciphertext equality proofs:** Prove that a publicly known amount is correctly encrypted.
+
+- **Plaintext equality proofs:** Prove that multiple ciphertexts encrypt the same plaintext value, ensuring consistency of a confidential amount across the sender, receiver, issuer, and optional auditor.
+
+- **ElGamal–Pedersen equality proofs:** Link encrypted values to Pedersen commitments, allowing confidential amounts and balances to be used as inputs to range proofs without revealing the underlying values.
+
+- **Range proofs:** Prove that confidential amounts and post-transfer balances are within valid ranges, enforcing non-negativity and preventing overspending.
+
+Validators can verify confidential transactions by checking these cryptographic proofs without ever learning the underlying amounts. For example, when a holder sends tokens confidentially, the transaction includes encrypted values and proofs that mathematically demonstrate: the sender has sufficient balance, the amount is non-negative, and all encrypted amounts (holder, issuer, auditor) represent the same value.
+
+Validators can only check the mathematical correctness of these proofs to ensure the transaction is valid, but cannot see the actual amounts involved.
+
+### Split-Balance Model
+
+To prevent the _stale proof_ problem, where an incoming transfer could invalidate a proof that a holder just created for an outgoing transfer, each account's confidential balance is divided into two parts:
+
+- **Spending Balance:** A stable balance used to generate proofs for outgoing transactions.
+- **Inbox Balance:** Receives all incoming confidential transfers.
+
+When a holder receives a confidential transfer, the amount goes into their inbox. Before it can be spent, the holder must merge it into their spending balance using the [ConfidentialMPTMergeInbox transaction][]. If a merge is not explicitly performed, incoming funds accumulate in the inbox, remaining safe but unable to be spent until consolidated into the spending balance.
+
+After a merge, the inbox is reset to a deterministic "encrypted zero" value. This zero value is a valid ElGamal ciphertext that represents zero but is indistinguishable from other ciphertexts to observers without the private key.
+
+#### Version Counter
+
+Each time your spending balance changes, a **version counter** increments by 1 and is bound to newly generated proofs to prevent [replay attacks](https://en.wikipedia.org/wiki/Replay_attack). This ensures that old proofs cannot be reused maliciously.
+
+## Privacy Properties
+
+Confidential transfers keep transaction amounts and balances private while certain information remains publicly visible on the ledger.
+
+**Private:**
+
+- Transaction amounts are encrypted.
+- Account balances are encrypted and only visible to the holder, issuer, and any configured auditors. Validators and network observers see only encrypted ciphertexts and cryptographic proofs, never the underlying amounts.
+- Distribution of confidential supply across holders. The ledger does not publicly reveal which specific accounts hold how much of the confidential supply.
+
+**Public:**
+
+- Sender and receiver addresses.
+- The type of transaction being submitted.
+- Total token supply. The ledger publicly tracks two plaintext values: `OutstandingAmount` (total tokens in circulation) and `ConfidentialOutstandingAmount` (how much of that total is held confidentially). Validators use these values to enforce supply caps without decrypting any balances.
+- Conversion amounts when converting between public and confidential forms.
+
+Note that in low-volume scenarios, publicly visible elements can reveal patterns. For example, if an account converts 1,000,000 tokens to confidential form and later converts 800,000 tokens back to public form, observers know that 200,000 tokens remain in confidential form. However, they cannot determine whether those tokens were transferred to other accounts or are still held by the original account, because encrypted balances for zero are indistinguishable from non-zero balances.
+
+It's important to keep in mind that privacy is stronger when more participants make confidential transactions.
+
+## Auditability and Compliance
+
+The XRP Ledger supports two approaches for auditing hidden balances, on-chain selective disclosure and issuer-mediated auditing, along with a specialized clawback compliance mechanism.
+
+### On-Chain Selective Disclosure
+
+Issuers can configure an auditor when creating an MPT issuance by registering the auditor's ElGamal public key. This encrypts each holder's confidential balance under the auditor's public key, allowing the auditor to independently decrypt and verify balances off-chain without requiring cooperation from the issuer or holder. For example, a regulator designated as an auditor can use their own private key to decrypt a holder's confidential balance from the ledger, providing independent verification.
+
+### Issuer-Mediated Auditing
+
+As an alternative, issuers can provide auditing access by sharing their own ElGamal private key with auditors. Since the issuer maintains an encrypted mirror of all holder balances, the issuer's key provides read-only access to all confidential balances and transaction amounts. For example, when a regulator requests access to a user's transaction history, the issuer can provide the regulator with their ElGamal private key. The regulator can then use this key to decrypt the relevant confidential balances and transaction amounts directly from the ledger.
+
+This approach is operationally simpler but requires the auditor to trust that the issuer is providing complete and accurate information, and it grants the auditor the same decryption capabilities as the issuer.
+
+### Confidential Clawback
+
+While issuers retain the same [compliance controls](https://xrpl.org/docs/concepts/tokens/fungible-tokens/multi-purpose-tokens#compliance-controls) they have with public transactions, clawback operations work differently for confidential balances.
+
+The [ConfidentialMPTClawback transaction][] allows issuers to claw back a holder's **entire** confidential balance. Off-chain, the issuer decrypts their mirror copy of the holder's balance and generates a cryptographic proof validating the plaintext amount. The issuer then submits the transaction with the plaintext amount and proof.
+
+Validators verify the proof provides cryptographic certainty that the plaintext amount matches the encrypted balance. If valid, both the holder's spending and inbox balances are set to encrypted zero, the version counter is reset to 0, and the clawed back tokens are removed from circulation.
+
+## Privacy Controls
+
+Issuers can enable confidential features by setting the **Can Privacy** flag on an MPT issuance. This can be done either during the initial [MPTokenIssuanceCreate transaction](../references/transactions/updated-transactions.md#mptokenissuancecreate) or later using an [MPTokenIssuanceSet transaction](../references/transactions/updated-transactions.md#mptokenissuanceset).
+
+By default, the privacy setting is mutable, so it can be toggled on and off as long as no confidential balances exist. Once confidential balances exist, the flag can no longer be disabled.
+
+When enabling confidential transfers, the issuer must also register their ElGamal public key, and if required, an auditor's public key.
+
+{% admonition type="info" name="Note" %}
+If the issuer enables the **Cannot Mutate Privacy** flag at any time, the privacy setting becomes permanent and cannot be changed, even if no confidential balances exist.
+{% /admonition %}
+
+## Managing Confidential Balances
+
+Token holders can manage confidential balances through four operations:
+
+- **Convert to confidential:** The [ConfidentialMPTConvert transaction][] converts public tokens to confidential form. The conversion amount is visible in plaintext, and the holder's public key is registered during their first conversion.
+
+- **Send confidentially:** The [ConfidentialMPTSend transaction][] transfers confidential tokens between holders. The transfer amount remains encrypted and hidden from public view, with ZKPs ensuring transaction validity. This transaction supports the same authorization requirements as standard MPT payments, including [Deposit Authorization](https://xrpl.org/docs/concepts/accounts/depositauth) and [Credential](https://xrpl.org/docs/concepts/decentralized-storage/credentials) requirements.
+
+- **Merge incoming transfers:** The [ConfidentialMPTMergeInbox transaction][] consolidates received tokens into the Spending Balance, making them available to send. This operation increments a version counter to prevent replay attacks.
+
+- **Convert back to public:** The [ConfidentialMPTConvertBack transaction][] converts confidential tokens back to public form, making the amount visible on the ledger again.
+
+{% admonition type="info" name="Note" %}
+Confidential transactions are larger and more computationally expensive than standard MPT transactions due to the inclusion of encrypted ciphertexts and ZKPs.
+{% /admonition %}
+
+## Amendment Status
+
+| Amendment                            | ConfidentialTransfers |
+|:------------------------------------ |:---------------------|
+| Amendment ID                         | 2110E4A19966E2EF517C0A8C56A5F35099D7665B0BB89D7B126B30D50B86AAD5 |
+| Status                               | In Development |
+| Default Vote (Latest stable release) | No |
+| Pre-amendment functionality retired? | No |
+
+## See Also
+
+- **Concepts:**
+  - [Multi-Purpose Tokens](https://xrpl.org/docs/concepts/tokens/fungible-tokens/multi-purpose-tokens)
+- **References:**
+  - [ConfidentialMPTConvert transaction][]
+  - [ConfidentialMPTConvertBack transaction][]
+  - [ConfidentialMPTSend transaction][]
+  - [ConfidentialMPTMergeInbox transaction][]
+  - [ConfidentialMPTClawback transaction][]
+  - [Updated Ledger Entries](../references/updated-ledger-entries.md)
+  - [Updated Transactions](../references/transactions/updated-transactions.md)
+
+{% raw-partial file="/docs/_snippets/common-links.md" /%}
