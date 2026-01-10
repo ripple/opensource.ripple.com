@@ -20,7 +20,7 @@ if (!fs.existsSync('lendingSetup.json')) {
   execSync('node lendingSetup.js', { stdio: 'inherit' })
 }
 
-// Load preconfigured accounts and vault data.
+// Load preconfigured accounts and VaultID.
 const setupData = JSON.parse(fs.readFileSync('lendingSetup.json', 'utf8'))
 
 // You can replace these values with your own
@@ -31,7 +31,7 @@ console.log(`\nLoan broker/vault owner address: ${loanBroker.address}`)
 console.log(`Vault ID: ${vaultID}`)
 
 // Prepare LoanBrokerSet transaction ----------------------
-console.log(`\n=== LoanBrokerSet transaction ===\n`)
+console.log(`\n=== Preparing LoanBrokerSet transaction ===\n`)
 const loanBrokerSetTx = {
   TransactionType: 'LoanBrokerSet',
   Account: loanBroker.address,
@@ -44,14 +44,14 @@ xrpl.validate(loanBrokerSetTx)
 console.log(JSON.stringify(loanBrokerSetTx, null, 2))
 
 // Submit, sign, and wait for validation ----------------------
-console.log(`\n=== Submitting LoanBrokerSet transaction... ===\n`)
-const submit_response = await client.submitAndWait(loanBrokerSetTx, {
+console.log(`\n=== Submitting LoanBrokerSet transaction ===\n`)
+const submitResponse = await client.submitAndWait(loanBrokerSetTx, {
   wallet: loanBroker,
   autofill: true
 })
-if (submit_response.result.meta.TransactionResult !== 'tesSUCCESS') {
-  const result_code = submit_response.result.meta.TransactionResult
-  console.error('Error: Unable to create loan broker:', result_code)
+if (submitResponse.result.meta.TransactionResult !== 'tesSUCCESS') {
+  const resultCode = submitResponse.result.meta.TransactionResult
+  console.error('Error: Unable to create loan broker:', resultCode)
   await client.disconnect()
   process.exit(1)
 }
@@ -59,7 +59,7 @@ console.log('Loan broker created successfully!')
 
 // Extract loan broker information from the transaction result
 console.log(`\n=== Loan Broker Information ===\n`)
-const loanBrokerNode = submit_response.result.meta.AffectedNodes.find(node => 
+const loanBrokerNode = submitResponse.result.meta.AffectedNodes.find(node => 
   node.CreatedNode?.LedgerEntryType === 'LoanBroker'
 )
 console.log(`LoanBroker ID: ${loanBrokerNode.CreatedNode.LedgerIndex}`)
