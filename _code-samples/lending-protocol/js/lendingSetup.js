@@ -1,9 +1,11 @@
 import xrpl from 'xrpl'
 import fs from 'fs'
+import { deriveKeypair, sign } from 'ripple-keypairs'
+import { encodeForSigning } from 'ripple-binary-codec'
 
 // Setup script for lending protocol tutorials
 
-process.stdout.write('Setting up tutorial: 0%\r')
+process.stdout.write('Setting up tutorial: 0/6\r')
 
 const client = new xrpl.Client('wss://lend.devnet.rippletest.net:51233')
 await client.connect()
@@ -25,7 +27,7 @@ const [
   client.fundWallet(null, { faucetHost, faucetPath })
 ])
 
-process.stdout.write('Setting up tutorial: 20%\r')
+process.stdout.write('Setting up tutorial: 1/6\r')
 
 // Set up credentials and domain
 const credentialType = xrpl.convertStringToHex('KYC-Verified')
@@ -89,7 +91,7 @@ const domainID = credentialIssuerObjects.result.account_objects.find(node =>
   node.LedgerEntryType === 'PermissionedDomain'
 ).index
 
-process.stdout.write('Setting up tutorial: 40%\r')
+process.stdout.write('Setting up tutorial: 2/6\r')
 
 // Accept credentials
 await Promise.all(
@@ -103,7 +105,7 @@ await Promise.all(
   )
 )
 
-process.stdout.write('Setting up tutorial: 60%\r')
+process.stdout.write('Setting up tutorial: 3/6\r')
 
 // Create private vault
 const vaultCreateResponse = await client.submitAndWait({
@@ -120,7 +122,7 @@ const vaultID = vaultCreateResponse.result.meta.AffectedNodes.find(node =>
   node.CreatedNode?.LedgerEntryType === 'Vault'
 ).CreatedNode.LedgerIndex
 
-process.stdout.write('Setting up tutorial: 80%\r')
+process.stdout.write('Setting up tutorial: 4/6\r')
 
 // Create loan broker and deposit XRP into vault
 const [loanBrokerSetResponse] = await Promise.all([
@@ -141,7 +143,48 @@ const loanBrokerID = loanBrokerSetResponse.result.meta.AffectedNodes.find(node =
   node.CreatedNode?.LedgerEntryType === 'LoanBroker'
 ).CreatedNode.LedgerIndex
 
-process.stdout.write('Setting up tutorial: 100%\r')
+process.stdout.write('Setting up tutorial: 5/6\r')
+
+// Create a loan with complete repayment due in 30 days
+
+// Suppress unnecessary console warning from autofilling LoanSet.
+console.warn = () => {}
+
+const loanSetTx = await client.autofill({
+  TransactionType: 'LoanSet',
+  Account: loanBroker.address,
+  Counterparty: borrower.address,
+  LoanBrokerID: loanBrokerID,
+  PrincipalRequested: "10000000",
+  InterestRate: 500,
+  PaymentTotal: 1,
+  PaymentInterval: 2592000,
+  LoanOriginationFee: "100000",
+  LoanServiceFee: "10000",
+})
+
+const loanBrokerSignature = loanBroker.sign(loanSetTx)
+const decodedLoanBrokerSignature = xrpl.decode(loanBrokerSignature.tx_blob)
+
+const keypair = deriveKeypair(borrower.seed)
+const encodedTx = encodeForSigning(decodedLoanBrokerSignature)
+const borrowerSignature = sign(encodedTx, keypair.privateKey)
+
+const counterpartySignature = {
+  SigningPubKey: keypair.publicKey,
+  TxnSignature: borrowerSignature
+}
+
+// Form and submit the fully signed LoanSet transaction.
+let signedLoanSetTx = decodedLoanBrokerSignature
+signedLoanSetTx.CounterpartySignature = counterpartySignature
+
+const submitResponse = await client.submitAndWait(signedLoanSetTx)
+const loanID = submitResponse.result.meta.AffectedNodes.find(node => 
+  node.CreatedNode?.LedgerEntryType === 'Loan'
+).CreatedNode.LedgerIndex
+
+process.stdout.write('Setting up tutorial: 6/6\r')
 
 // Write setup data to JSON file
 const setupData = {
@@ -164,7 +207,8 @@ const setupData = {
   },
   domainID,
   vaultID,
-  loanBrokerID
+  loanBrokerID,
+  loanID
 }
 
 fs.writeFileSync('lendingSetup.json', JSON.stringify(setupData, null, 2))

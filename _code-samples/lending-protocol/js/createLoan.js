@@ -36,6 +36,10 @@ console.log(`LoanBrokerID: ${loanBrokerID}`)
 // Account and Counterparty accounts can be swapped, but determines signing order.
 // Account signs first, Counterparty signs second.
 console.log(`\n=== Preparing LoanSet transaction ===\n`)
+
+// Suppress unnecessary console warning from autofilling LoanSet.
+console.warn = () => {}
+
 const loanSetTx = await client.autofill({
   TransactionType: 'LoanSet',
   Account: loanBroker.address,
