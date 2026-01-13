@@ -52,7 +52,7 @@ export default function Page() {
           onKeyDatesUpdate={handleKeyDatesUpdate}
         />
 
-        <Cards columns={2}>
+        <Cards columns={3}>
           <Card
             title="XLS Spec"
             to="https://github.com/Tapanito/XRPL-Standards/tree/xls-66-lending-protocol/XLS-0066d-lending-protocol"
@@ -73,6 +73,15 @@ export default function Page() {
             </p>
             <Button size="large" variant="primary">
               Read the Docs
+            </Button>
+          </Card>
+
+          <Card title="Blog" to="https://crypto.forem.com/ripplexdev/the-xrpl-lending-protocol-why-it-matters-cd">
+            <p>
+              An overview of the feature and why it matters to developers, explained in our blog post.
+            </p>
+            <Button size="large" variant="primary">
+              Read the Blog
             </Button>
           </Card>
         </Cards>
