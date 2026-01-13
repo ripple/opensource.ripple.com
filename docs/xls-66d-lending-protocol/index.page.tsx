@@ -52,7 +52,7 @@ export default function Page() {
           onKeyDatesUpdate={handleKeyDatesUpdate}
         />
 
-        <Cards columns={3}>
+        <Cards columns={2}>
           <Card
             title="XLS Spec"
             to="https://github.com/Tapanito/XRPL-Standards/tree/xls-66-lending-protocol/XLS-0066d-lending-protocol"
@@ -82,6 +82,15 @@ export default function Page() {
             </p>
             <Button size="large" variant="primary">
               Read the Blog
+            </Button>
+          </Card>
+
+          <Card title="Security Audit" to="https://www.halborn.com/audits/ripple/lending-protocol-6fe16a">
+            <p>
+              The security audit performed by third-party security experts, including a link to the full, detailed security audit report.
+            </p>
+            <Button size="large" variant="primary">
+              Read the Security Audit Report
             </Button>
           </Card>
         </Cards>
