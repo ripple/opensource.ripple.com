@@ -54,7 +54,9 @@ npm install xrpl
 
 ### 2. Set up client and accounts
 
-To get started, import the client library and instantiate a client to connect to the XRPL.
+To get started, import the necessary libraries and instantiate a client to connect to the XRPL. This example imports:
+- `xrpl`: Used for XRPL client connection and transaction handling.
+- `fs` and `child_process`: Used to run tutorial set up scripts.
 
 {% tabs %}
 {% tab label="JavaScript" %}
