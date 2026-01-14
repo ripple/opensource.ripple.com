@@ -62,6 +62,12 @@
           expanded: false
           items:
             - page: docs/xls-66d-lending-protocol/use-cases/institutional-credit-facilities.md
+        - group: Tutorials
+          expanded: false
+          items:
+            - page: docs/xls-66d-lending-protocol/tutorials/create-a-loan-broker.md
+            - page: docs/xls-66d-lending-protocol/tutorials/deposit-and-withdraw-cover.md
+            - page: docs/xls-66d-lending-protocol/tutorials/create-a-loan.md
         - group: References
           expanded: false
           items:
