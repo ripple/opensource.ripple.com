@@ -1,6 +1,6 @@
 ---
 seo:
-    description: Create a loan broker on the XRP Ledger.
+  description: Create a loan broker on the XRP Ledger.
 metadata:
   indexPage: true
 labels:
@@ -98,7 +98,7 @@ Verify that the transaction succeeded by checking for a `tesSUCCESS` result code
 
 ### 5. Get loan broker information
 
-Retrieve the loan broker's information from the transaction result by checking for the `LoanBroker` object in the transaction metadata.
+Retrieve the loan broker's information from the transaction result by checking for the `LoanBroker` entry in the transaction metadata.
 
 {% tabs %}
 {% tab label="JavaScript" %}
