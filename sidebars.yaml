@@ -68,11 +68,12 @@
             - page: docs/xls-66d-lending-protocol/tutorials/create-a-loan-broker.md
             - page: docs/xls-66d-lending-protocol/tutorials/deposit-and-withdraw-cover.md
             - page: docs/xls-66d-lending-protocol/tutorials/create-a-loan.md
+            - page: docs/xls-66d-lending-protocol/tutorials/manage-a-loan.md
         - group: References
           expanded: false
           items:
             - group: Ledger Entries
-              expaneded: false
+              expanded: false
               items:
                 - page: docs/xls-66d-lending-protocol/reference/ledger-data/loan.md
                 - page: docs/xls-66d-lending-protocol/reference/ledger-data/loanbroker.md
