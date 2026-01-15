@@ -23,7 +23,7 @@ const setupData = JSON.parse(fs.readFileSync('lendingSetup.json', 'utf8'))
 
 // You can replace these values with your own
 const loanBroker = xrpl.Wallet.fromSeed(setupData.loanBroker.seed)
-const loanID = setupData.loanID
+const loanID = setupData.loanID1
 
 console.log(`\nLoan broker address: ${loanBroker.address}`)
 console.log(`LoanID: ${loanID}`)

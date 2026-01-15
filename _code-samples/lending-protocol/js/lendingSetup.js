@@ -29,10 +29,16 @@ const [
 
 process.stdout.write('Setting up tutorial: 1/6\r')
 
+// Create tickets for later use
 // Set up credentials and domain
 const credentialType = xrpl.convertStringToHex('KYC-Verified')
-
-await client.submitAndWait({
+const [ticketCreateResponse] = await Promise.all([
+  client.submitAndWait({
+    TransactionType: 'TicketCreate',
+    Account: loanBroker.address,
+    TicketCount: 2
+  }, { wallet: loanBroker, autofill: true }),
+  client.submitAndWait({
   TransactionType: 'Batch',
   Account: credentialIssuer.address,
   Flags: xrpl.BatchFlags.tfAllOrNothing,
@@ -81,6 +87,12 @@ await client.submitAndWait({
     }
   ]
 }, { wallet: credentialIssuer, autofill: true })
+])
+
+// Extract ticket sequence numbers
+const tickets = ticketCreateResponse.result.meta.AffectedNodes
+  .filter(node => node.CreatedNode?.LedgerEntryType === 'Ticket')
+  .map(node => node.CreatedNode.NewFields.TicketSequence)
 
 const credentialIssuerObjects = await client.request({
   command: 'account_objects',
@@ -145,42 +157,63 @@ const loanBrokerID = loanBrokerSetResponse.result.meta.AffectedNodes.find(node =
 
 process.stdout.write('Setting up tutorial: 5/6\r')
 
-// Create a loan with complete repayment due in 30 days
+// Create 2 identical loans with complete repayment due in 30 days
 
 // Suppress unnecessary console warning from autofilling LoanSet.
 console.warn = () => {}
 
-const loanSetTx = await client.autofill({
-  TransactionType: 'LoanSet',
-  Account: loanBroker.address,
-  Counterparty: borrower.address,
-  LoanBrokerID: loanBrokerID,
-  PrincipalRequested: "10000000",
-  InterestRate: 500,
-  PaymentTotal: 1,
-  PaymentInterval: 2592000,
-  LoanOriginationFee: "100000",
-  LoanServiceFee: "10000",
-})
+// Helper function to create and sign a LoanSet transaction
+async function createSignedLoanSetTx(ticketSequence) {
+  const loanSetTx = await client.autofill({
+    TransactionType: 'LoanSet',
+    Account: loanBroker.address,
+    Counterparty: borrower.address,
+    LoanBrokerID: loanBrokerID,
+    PrincipalRequested: "10000000",
+    InterestRate: 500,
+    PaymentTotal: 1,
+    PaymentInterval: 2592000,
+    LoanOriginationFee: "100000",
+    LoanServiceFee: "10000",
+    Sequence: 0,
+    TicketSequence: ticketSequence
+  })
 
-const loanBrokerSignature = loanBroker.sign(loanSetTx)
-const decodedLoanBrokerSignature = xrpl.decode(loanBrokerSignature.tx_blob)
+  const loanBrokerSignature = loanBroker.sign(loanSetTx)
+  const decodedLoanBrokerSignature = xrpl.decode(loanBrokerSignature.tx_blob)
 
-const keypair = deriveKeypair(borrower.seed)
-const encodedTx = encodeForSigning(decodedLoanBrokerSignature)
-const borrowerSignature = sign(encodedTx, keypair.privateKey)
+  const keypair = deriveKeypair(borrower.seed)
+  const encodedTx = encodeForSigning(decodedLoanBrokerSignature)
+  const borrowerSignature = sign(encodedTx, keypair.privateKey)
 
-const counterpartySignature = {
-  SigningPubKey: keypair.publicKey,
-  TxnSignature: borrowerSignature
+  const counterpartySignature = {
+    SigningPubKey: keypair.publicKey,
+    TxnSignature: borrowerSignature
+  }
+
+  const signedLoanSetTx = decodedLoanBrokerSignature
+  signedLoanSetTx.CounterpartySignature = counterpartySignature
+  
+  return signedLoanSetTx
 }
 
-// Form and submit the fully signed LoanSet transaction.
-let signedLoanSetTx = decodedLoanBrokerSignature
-signedLoanSetTx.CounterpartySignature = counterpartySignature
+// Create both signed loan transactions
+const [signedLoan1, signedLoan2] = await Promise.all([
+  createSignedLoanSetTx(tickets[0]),
+  createSignedLoanSetTx(tickets[1])
+])
 
-const submitResponse = await client.submitAndWait(signedLoanSetTx)
-const loanID = submitResponse.result.meta.AffectedNodes.find(node => 
+// Submit both loans in parallel
+const [submitResponse1, submitResponse2] = await Promise.all([
+  client.submitAndWait(signedLoan1),
+  client.submitAndWait(signedLoan2)
+])
+
+const loanID1 = submitResponse1.result.meta.AffectedNodes.find(node => 
+  node.CreatedNode?.LedgerEntryType === 'Loan'
+).CreatedNode.LedgerIndex
+
+const loanID2 = submitResponse2.result.meta.AffectedNodes.find(node => 
   node.CreatedNode?.LedgerEntryType === 'Loan'
 ).CreatedNode.LedgerIndex
 
@@ -208,7 +241,8 @@ const setupData = {
   domainID,
   vaultID,
   loanBrokerID,
-  loanID
+  loanID1,
+  loanID2
 }
 
 fs.writeFileSync('lendingSetup.json', JSON.stringify(setupData, null, 2))
