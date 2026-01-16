@@ -267,3 +267,55 @@ Loan defaulted successfully!
 
 Final loan flags (parsed): {"tfLoanDefault":true,"tfLoanImpair":true}
 ```
+
+## Pay a Loan
+
+```sh
+node loanPay.js
+```
+
+The script should output the amount required to totally pay off a loan, the LoanPay transaction, the amount due after the payment, the LoanDelete transaction, and then the status of the loan ledger entry:
+
+```sh
+Borrower address: rGRTerFGNXAtkDHJBAnJsnu5aqD3ZLv3yb
+LoanID: A582738F380324487FDBE9C49E8D73AADFF5138882CA33EF7E387B53FB27579A
+
+=== Loan Status ===
+
+Amount Owed: 10.00411 XRP
+Loan Service Fee: 0.01 XRP
+Total Payment Due (including fees): 10.01411 XRP
+
+=== Preparing LoanPay transaction ===
+
+{
+  "TransactionType": "LoanPay",
+  "Account": "rGRTerFGNXAtkDHJBAnJsnu5aqD3ZLv3yb",
+  "LoanID": "A582738F380324487FDBE9C49E8D73AADFF5138882CA33EF7E387B53FB27579A",
+  "Amount": "10014110"
+}
+
+=== Submitting LoanPay transaction ===
+
+Loan paid successfully!
+
+=== Loan Status After Payment ===
+
+Outstanding Loan Balance: Loan fully paid off!
+
+=== Preparing LoanDelete transaction ===
+
+{
+  "TransactionType": "LoanDelete",
+  "Account": "rGRTerFGNXAtkDHJBAnJsnu5aqD3ZLv3yb",
+  "LoanID": "A582738F380324487FDBE9C49E8D73AADFF5138882CA33EF7E387B53FB27579A"
+}
+
+=== Submitting LoanDelete transaction ===
+
+Loan deleted successfully!
+
+=== Verifying Loan Deletion ===
+
+Loan has been successfully removed from the XRP Ledger!
+```
