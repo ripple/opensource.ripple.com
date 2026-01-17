@@ -11,7 +11,7 @@ labels:
 
 {% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
-This tutorial shows you how to create a [loan](../reference/ledger-data/loan.md) on the XRP Ledger. A loan requires signatures from both the loan broker and the borrower to be created.
+This tutorial shows you how to create a [Loan](../reference/ledger-data/loan.md) on the XRP Ledger. A loan requires signatures from both the loan broker and the borrower to be created.
 
 This tutorial demonstrates how a loan broker and a borrower can cosign the terms of a loan and create that loan on the XRPL.
 
