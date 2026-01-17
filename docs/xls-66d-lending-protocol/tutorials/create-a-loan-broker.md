@@ -11,7 +11,7 @@ labels:
 
 {% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
-This tutorial shows you how to create a [loan broker](../concepts/lending-protocol.md) on the XRP Ledger. A loan broker creates and manages loans, and also manages the first-loss capital for a connected single asset vault.
+This tutorial shows you how to create a [LoanBroker](../reference/ledger-data/loanbroker.md) on the XRP Ledger using a private vault. A loan broker creates and manages loans, and also manages the first-loss capital for a connected single asset vault.
 
 This tutorial shows how to create a loan broker using a private vault.
 
