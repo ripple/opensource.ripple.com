@@ -57,7 +57,7 @@ const loanPayTx = {
 xrpl.validate(loanPayTx)
 console.log(JSON.stringify(loanPayTx, null, 2))
 
-// Sign, submit, and wait for validation ----------------------
+// Sign, submit, and wait for payment validation ----------------------
 console.log(`\n=== Submitting LoanPay transaction ===\n`)
 const payResponse = await client.submitAndWait(loanPayTx, {
   wallet: borrower,
@@ -96,7 +96,7 @@ const loanDeleteTx = {
 xrpl.validate(loanDeleteTx)
 console.log(JSON.stringify(loanDeleteTx, null, 2))
 
-// Sign, submit, and wait for validation ----------------------
+// Sign, submit, and wait for deletion validation ----------------------
 console.log(`\n=== Submitting LoanDelete transaction ===\n`)
 const deleteResponse = await client.submitAndWait(loanDeleteTx, {
   wallet: borrower,
