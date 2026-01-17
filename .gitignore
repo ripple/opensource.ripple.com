@@ -1,3 +1,4 @@
 node_modules
 .DS_Store
 _code-samples/*/js/package-lock.json
+_code-samples/*/js/*[Ss]etup.json
