@@ -13,7 +13,7 @@ labels:
 
 This tutorial shows you how to deposit and withdraw first-loss capital from a [LoanBroker](../reference/ledger-data/loanbroker.md) on the XRP Ledger. First-loss capital helps protect vault depositor's assets, acting as a buffer in the event of loan defaults.
 
-This tutorial demonstrates how a loan broker can manage risk by depositing XRP as first-loss capital, and how they can withdraw it when needed.
+The tutorial demonstrates how a loan broker can manage risk by depositing XRP as first-loss capital, and how they can withdraw it when needed.
 
 _(Requires the [Lending Protocol amendment][] {% not-enabled /%})_
 
