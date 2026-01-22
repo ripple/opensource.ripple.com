@@ -6,7 +6,6 @@ labels:
   - Lending Protocol
 ---
 # Updated API Methods
-{% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
 The Lending Protocol updates the [`sign`](https://xrpl.org/docs/references/http-websocket-apis/admin-api-methods/signing-methods/sign), [`sign_for`](https://xrpl.org/docs/references/http-websocket-apis/admin-api-methods/signing-methods/sign_for), and [`submit`](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/transaction-methods/submit) commands with a new `signature_target` field.
 

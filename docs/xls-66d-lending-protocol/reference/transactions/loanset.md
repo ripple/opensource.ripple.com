@@ -7,7 +7,6 @@ labels:
 ---
 # LoanSet
 [[Source]](https://github.com/XRPLF/rippled/blob/develop/src/xrpld/app/tx/detail/LoanSet.cpp "Source")
-{% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
 Creates a new `Loan` ledger entry, representing a loan agreement between a _Loan Broker_ and _Borrower_.
 

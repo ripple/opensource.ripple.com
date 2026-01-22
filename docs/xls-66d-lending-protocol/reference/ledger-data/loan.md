@@ -8,7 +8,6 @@ labels:
 
 # Loan
 [[Source]](https://github.com/XRPLF/rippled/blob/develop/include/xrpl/protocol/detail/ledger_entries.macro#L524-L604 "Source")
-{% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
 A `Loan` ledger entry defines the state of an on-chain loan agreement between a _Loan Broker_ and a _Borrower_. It contains all the details of the loan, such as fees and interest rates. You can create a `Loan` ledger entry with the [`LoanSet`](../transactions/loanset.md) transaction.
 

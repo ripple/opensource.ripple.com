@@ -8,7 +8,6 @@ labels:
 # vault_info
 
 [[Source]](https://github.com/XRPLF/rippled/blob/master/src/xrpld/rpc/handlers/VaultInfo.cpp "Source")
-{% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
 The `vault_info` command retrieves information about a vault, its owner, available assets, and details on issued shares. All information retrieved is relative to a particular version of the ledger.
 

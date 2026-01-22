@@ -9,8 +9,6 @@ labels:
 
 # Create a Single Asset Vault
 
-{% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
-
 This tutorial shows you how to create a [single asset vault](../concepts/single-asset-vault.md) on the XRP Ledger. Vaults can only hold a single type of asset, such as XRP, a trust line token, or a Multi-Purpose Token (MPT).
 
 You can create either a:

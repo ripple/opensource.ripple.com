@@ -6,7 +6,6 @@ labels:
   - Lending Protocol
 ---
 # Institutional Credit Facilities
-{% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
 Financial institutions need efficient ways to provide credit facilities while maintaining regulatory compliance. Traditional uncollateralized lending faces challenges with liquidity management, credit assessment, and operational efficiency. The XRPL's Lending Protocol, combined with Single Asset Vaults, Credentials, and Permissioned Domains, provides a solution for institutional credit facilities.
 

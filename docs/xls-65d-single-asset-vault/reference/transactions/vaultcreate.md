@@ -9,7 +9,6 @@ labels:
 # VaultCreate
 
 [[Source]](https://github.com/XRPLF/rippled/blob/master/src/xrpld/app/tx/detail/VaultCreate.cpp "Source")
-{% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
 Creates a new `Vault` ledger entry, an `MPTokenIssuance` ledger entry for the vault’s shares, and an `AccountRoot` for the vault’s [pseudo-account](../../concepts/pseudo-account.md).
 

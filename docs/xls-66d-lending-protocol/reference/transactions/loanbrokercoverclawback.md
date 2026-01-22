@@ -7,7 +7,6 @@ labels:
 ---
 # LoanBrokerCoverClawback
 [[Source]](https://github.com/XRPLF/rippled/blob/develop/src/xrpld/app/tx/detail/LoanBrokerCoverClawback.cpp "Source")
-{% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
 The `LoanBrokerCoverClawback` transaction claws back first-loss capital from a `LoanBroker` ledger entry. The transaction can only be submitted by the issuer of the asset used in the lending protocol, and can't clawback an amount that would cause the available first-loss capital to drop below the minimum amount defined by the `LoanBroker.CoverRateMinimum` value.
 
