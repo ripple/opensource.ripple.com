@@ -7,7 +7,6 @@ labels:
 ---
 # LoanBrokerCoverWithdraw
 [[Source]](https://github.com/XRPLF/rippled/blob/develop/src/xrpld/app/tx/detail/LoanBrokerCoverWithdraw.cpp "Source")
-{% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
 Withdraws first-loss capital from a `LoanBroker` ledger entry.
 

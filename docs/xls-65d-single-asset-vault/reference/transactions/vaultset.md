@@ -9,7 +9,6 @@ labels:
 # VaultSet
 
 [[Source]](https://github.com/XRPLF/rippled/blob/master/src/xrpld/app/tx/detail/VaultSet.cpp "Source")
-{% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
 Modifies a single asset vault that you own.
 This transaction allows the Vault Owner to update certain mutable fields, including vault metadata and the maximum asset amount.

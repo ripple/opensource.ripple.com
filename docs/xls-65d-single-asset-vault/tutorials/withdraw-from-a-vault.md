@@ -9,8 +9,6 @@ labels:
 
 # Withdraw from a Vault
 
-{% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
-
 This tutorial shows you how to withdraw assets from a [single asset vault](../concepts/single-asset-vault.md). You can withdraw by specifying either how many assets you want to receive or how many shares you want to redeem. The vault burns the necessary shares and transfers the corresponding assets to your account.
 
 _(Requires the [Single Asset Vault amendment][] {% not-enabled /%})_

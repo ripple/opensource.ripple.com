@@ -6,7 +6,6 @@ labels:
 status: not_enabled
 ---
 # Updated Transactions
-{% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
 Single Asset Vaults update the [`batch`](https://xrpl.org/docs/references/protocol/transactions/types/batch) transaction with a new error case.
 

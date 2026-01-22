@@ -9,7 +9,6 @@ labels:
 # MPTokenIssuance
 
 [[Source]](https://github.com/Bronek/rippled/blob/vault/include/xrpl/protocol/detail/ledger_entries.macro#L394-L409 "Source")
-{% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
 The {% code-page-name /%} object represents a vault share on the ledger. An {% code-page-name /%} object is created and deleted together with the `Vault` object.
 

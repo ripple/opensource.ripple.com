@@ -9,7 +9,6 @@ labels:
 # VaultDeposit
 
 [[Source]](https://github.com/XRPLF/rippled/blob/master/src/xrpld/app/tx/detail/VaultDeposit.cpp "Source")
-{% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
 
 Deposits a specified number of assets into a vault in exchange for shares.
 
