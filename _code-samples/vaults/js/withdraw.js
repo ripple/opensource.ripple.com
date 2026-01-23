@@ -1,20 +1,29 @@
 import xrpl from "xrpl"
+import { execSync } from "child_process"
+import fs from "fs"
 
-// Connect to the network ----------------------
-// This is a lending protocol-specific devnet. This network may be taken
-// offline once the lending protocol is live on mainnet.
-const client = new xrpl.Client("wss://lend.devnet.rippletest.net:51233")
+// Auto-run setup if needed
+if (!fs.existsSync("vaultSetup.json")) {
+  console.log(`\n=== Vault setup data doesn't exist. Running setup script... ===\n`)
+  execSync("node vaultSetup.js", { stdio: "inherit" })
+}
+
+// Load setup data
+const setupData = JSON.parse(fs.readFileSync("vaultSetup.json", "utf8"))
+
+// Connect to the network
+const client = new xrpl.Client("wss://s.devnet.rippletest.net:51233")
 await client.connect()
 
 // Get depositor account
-const depositor = xrpl.Wallet.fromSeed("sEdVSq9Zsv8vQwfivTk37bWxrvpnruf")
+const depositor = xrpl.Wallet.fromSeed(setupData.depositor.seed)
 
 // The ID of the vault to withraw from
-const vaultID = "6AC4EC2D775C6275D314996D6ECDD16DCB9382A29FDB769951C42192FCED76EF"
+const vaultID = setupData.vaultID
 // The ID of the vault's asset (MPT Issuance)
-const assetMPTIssuanceId = "0003E3B486D3DACD8BB468AB33793B9626BD894A92AB3AB4"
+const assetMPTIssuanceId = setupData.mptIssuanceId
 // The ID of the vault's share (MPT Issuance)
-const shareMPTIssuanceId = "0000000152E7CD364F869E832EDB806C4A7AD8B3D0C151C5"
+const shareMPTIssuanceId = setupData.vaultShareMPTIssuanceId
 
 console.log(`Depositor address: ${depositor.address}`)
 console.log(`Vault ID: ${vaultID}`)

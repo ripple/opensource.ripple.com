@@ -51,7 +51,9 @@ npm install xrpl
 
 ### 2. Set up client and accounts
 
-To get started, import the client library and instantiate a client to connect to the XRPL.
+To get started, import the necessary libraries and instantiate a client to connect to the XRPL. This example imports:
+- `xrpl`: Used for XRPL client connection and transaction handling.
+- `fs` and `child_process`: Used to run tutorial setup scripts.
 
 {% tabs %}
 {% tab label="JavaScript" %}
@@ -59,13 +61,13 @@ To get started, import the client library and instantiate a client to connect to
 {% /tab %}
 {% /tabs %}
 
-Provide the `depositor` account and specify the vault details:
-
 {% tabs %}
 {% tab label="JavaScript" %}
 {% code-snippet file="/_code-samples/vaults/js/withdraw.js" language="js" from="// Get depositor account" before="// Get initial vault" /%}
 {% /tab %}
 {% /tabs %}
+
+This example uses preconfigured accounts and vault data from the `vaultSetup.js` script, but you can replace `depositor`, `vaultID`, `assetMPTIssuanceId`, and `shareMPTIssuanceId` with your own values.
 
 ### 3. Check initial vault state
 

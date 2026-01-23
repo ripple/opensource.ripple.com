@@ -56,11 +56,14 @@ npm install xrpl
 
 ### 2. Set up client and accounts
 
-To get started, import the client library and instantiate a client to connect to the XRPL.
+To get started, import the necessary libraries and instantiate a client to connect to the XRPL. This example imports:
+
+- `xrpl`: Used for XRPL client connection and transaction handling.
+- `fs` and `child_process`: Used to run tutorial setup scripts.
 
 {% tabs %}
 {% tab label="JavaScript" %}
-{% code-snippet file="/_code-samples/vaults/js/deposit.js" language="js" from="import xrpl" before="const depositor" /%}
+{% code-snippet file="/_code-samples/vaults/js/deposit.js" language="js" from="import xrpl" before="// You can replace" /%}
 {% /tab %}
 {% /tabs %}
 
@@ -68,14 +71,14 @@ Provide the depositing account and specify the vault details. The depositor must
 
 {% tabs %}
 {% tab label="JavaScript" %}
-{% code-snippet file="/_code-samples/vaults/js/deposit.js" language="js" from="depositor =" before="// Get initial vault" /%}
+{% code-snippet file="/_code-samples/vaults/js/deposit.js" language="js" from="// You can replace" before="// Get initial vault" /%}
 {% /tab %}
 {% /tabs %}
 
 {% admonition type="info" name="Note" %}
-This tutorial deposits to an existing private vault. A preconfigured depositor account is used, which has:
+This example uses an existing vault and depositor account from the `vaultSetup.js` script, but you can replace these values with your own. The preconfigured depositor account has:
 - Valid [Credentials](https://xrpl.org/docs/concepts/decentralized-storage/credentials) in the vault's [Permissioned Domain](https://xrpl.org/docs/concepts/tokens/decentralized-exchange/permissioned-domains).
--  A positive balance of the MPT in the vault.
+- A positive balance of the MPT in the vault.
 
 If you wish to deposit in a different vault, you can replace the relevant values with your own.
 {% /admonition %}
