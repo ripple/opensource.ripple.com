@@ -5,8 +5,6 @@ import { execSync } from 'child_process'
 import xrpl from 'xrpl'
 
 // Connect to the network ----------------------
-// This is a lending protocol-specific devnet. This network may be taken
-// offline once the lending protocol is live on mainnet.
 const client = new xrpl.Client('wss://s.devnet.rippletest.net:51233')
 await client.connect()
 
