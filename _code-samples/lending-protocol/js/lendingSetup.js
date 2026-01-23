@@ -1,18 +1,12 @@
 import xrpl from 'xrpl'
 import fs from 'fs'
-import { deriveKeypair, sign } from 'ripple-keypairs'
-import { encodeForSigning } from 'ripple-binary-codec'
 
 // Setup script for lending protocol tutorials
 
 process.stdout.write('Setting up tutorial: 0/6\r')
 
-const client = new xrpl.Client('wss://lend.devnet.rippletest.net:51233')
+const client = new xrpl.Client('wss://s.devnet.rippletest.net:51233')
 await client.connect()
-
-// Lending Devnet info
-const faucetHost = 'lend-faucet.devnet.rippletest.net'
-const faucetPath = '/accounts'
 
 // Create and fund wallets
 const [
@@ -21,10 +15,10 @@ const [
   { wallet: depositor },
   { wallet: credentialIssuer }
 ] = await Promise.all([
-  client.fundWallet(null, { faucetHost, faucetPath }),
-  client.fundWallet(null, { faucetHost, faucetPath }),
-  client.fundWallet(null, { faucetHost, faucetPath }),
-  client.fundWallet(null, { faucetHost, faucetPath })
+  client.fundWallet(),
+  client.fundWallet(),
+  client.fundWallet(),
+  client.fundWallet()
 ])
 
 process.stdout.write('Setting up tutorial: 1/6\r')
@@ -179,34 +173,56 @@ async function createSignedLoanSetTx(ticketSequence) {
     TicketSequence: ticketSequence
   })
 
-  const loanBrokerSignature = loanBroker.sign(loanSetTx)
-  const decodedLoanBrokerSignature = xrpl.decode(loanBrokerSignature.tx_blob)
+  const loanBrokerSignature = await client.request({
+    command: 'sign',
+    tx_json: loanSetTx,
+    secret: loanBroker.seed
+  })
 
-  const keypair = deriveKeypair(borrower.seed)
-  const encodedTx = encodeForSigning(decodedLoanBrokerSignature)
-  const borrowerSignature = sign(encodedTx, keypair.privateKey)
-
-  const counterpartySignature = {
-    SigningPubKey: keypair.publicKey,
-    TxnSignature: borrowerSignature
-  }
-
-  const signedLoanSetTx = decodedLoanBrokerSignature
-  signedLoanSetTx.CounterpartySignature = counterpartySignature
+  const borrowerSignature = await client.request({
+    command: 'sign',
+    tx_json: loanBrokerSignature.result.tx_json,
+    secret: borrower.seed,
+    signature_target: "CounterpartySignature"
+  })
   
-  return signedLoanSetTx
+  return borrowerSignature.result.tx_json
 }
 
-// Create both signed loan transactions
+// Create and submit both loans
 const [signedLoan1, signedLoan2] = await Promise.all([
   createSignedLoanSetTx(tickets[0]),
   createSignedLoanSetTx(tickets[1])
 ])
 
-// Submit both loans in parallel
+const [submitLoan1, submitLoan2] = await Promise.all([
+  client.submit(signedLoan1),
+  client.submit(signedLoan2)
+])
+const hash1 = submitLoan1.result.tx_json.hash
+const hash2 = submitLoan2.result.tx_json.hash
+
+// Helper function to check tx hash is validated
+async function validateTx(hash, maxRetries = 20) {
+  for (let i = 0; i < maxRetries; i++) {
+    await new Promise(resolve => setTimeout(resolve, 1000))
+    try {
+      const tx = await client.request({ command: 'tx', transaction: hash })
+      if (tx.result.validated) {
+        return tx
+      }
+    } catch (error) {
+      // Transaction not validated yet, check again
+    }
+  }
+  console.error(`Error: Transaction ${hash} not validated after ${maxRetries} attempts.`)
+  await client.disconnect()
+  process.exit(1)
+}
+
 const [submitResponse1, submitResponse2] = await Promise.all([
-  client.submitAndWait(signedLoan1),
-  client.submitAndWait(signedLoan2)
+  validateTx(hash1),
+  validateTx(hash2)
 ])
 
 const loanID1 = submitResponse1.result.meta.AffectedNodes.find(node => 

@@ -4,13 +4,11 @@
 import fs from 'fs'
 import { execSync } from 'child_process'
 import xrpl from 'xrpl'
-import { deriveKeypair, sign } from 'ripple-keypairs'
-import { encodeForSigning } from 'ripple-binary-codec'
 
 // Connect to the network ----------------------
 // This is a lending protocol-specific devnet. This network may be taken
 // offline once the lending protocol is live on mainnet.
-const client = new xrpl.Client('wss://lend.devnet.rippletest.net:51233')
+const client = new xrpl.Client('wss://s.devnet.rippletest.net:51233')
 await client.connect()
 
 // This step checks for the necessary setup data to run the lending protocol tutorials.
@@ -58,43 +56,67 @@ console.log(JSON.stringify(loanSetTx, null, 2))
 
 // Loan broker signs first
 console.log(`\n=== Adding loan broker signature ===\n`)
-const loanBrokerSignature = loanBroker.sign(loanSetTx)
-const decodedLoanBrokerSignature = xrpl.decode(loanBrokerSignature.tx_blob)
+const loanBrokerSignature = await client.request({
+  command: 'sign',
+  tx_json: loanSetTx,
+  secret: loanBroker.seed
+})
 
-console.log(`TxnSignature: ${decodedLoanBrokerSignature.TxnSignature}`)
-console.log(`SigningPubKey: ${decodedLoanBrokerSignature.SigningPubKey}\n`)
-console.log(`Signed loanSetTx for borrower to sign over:\n${JSON.stringify(decodedLoanBrokerSignature, null, 2)}`)
+const loanBrokerSignatureResult = loanBrokerSignature.result.tx_json
+
+console.log(`TxnSignature: ${loanBrokerSignatureResult.TxnSignature}`)
+console.log(`SigningPubKey: ${loanBrokerSignatureResult.SigningPubKey}\n`)
+console.log(`Signed loanSetTx for borrower to sign over:\n${JSON.stringify(loanBrokerSignatureResult, null, 2)}`)
 
 // Borrower signs second
 console.log(`\n=== Adding borrower signature ===\n`)
 
-// Wallet.sign() doesn't support signing over signed LoanSet transactions yet.
-// Manually sign using 'ripple-keypairs' and 'ripple-binary-codec'.
-const keypair = deriveKeypair(borrower.seed)
-const encodedTx = encodeForSigning(decodedLoanBrokerSignature)
-const borrowerSignature = sign(encodedTx, keypair.privateKey)
-console.log(`Borrower TxnSignature: ${borrowerSignature}`)
-console.log(`Borrower SigningPubKey: ${keypair.publicKey}`)
+const borrowerSignature = await client.request({
+  command: 'sign',
+  tx_json: loanBrokerSignatureResult,
+  secret: borrower.seed,
+  signature_target: "CounterpartySignature"
+})
 
-const counterpartySignature = {
-  SigningPubKey: keypair.publicKey,
-  TxnSignature: borrowerSignature
-}
+const borrowerSignatureResult = borrowerSignature.result.tx_json
 
-// Form a fully signed LoanSet transaction.
-let signedLoanSetTx = decodedLoanBrokerSignature
-signedLoanSetTx.CounterpartySignature = counterpartySignature
+console.log(`Borrower TxnSignature: ${borrowerSignatureResult.CounterpartySignature.TxnSignature}`)
+console.log(`Borrower SigningPubKey: ${borrowerSignatureResult.CounterpartySignature.SigningPubKey}`)
 
 // Validate the transaction structure before submitting.
-xrpl.validate(signedLoanSetTx)
-console.log(`\nFully signed LoanSet transaction:\n${JSON.stringify(signedLoanSetTx, null, 2)}`)
+xrpl.validate(borrowerSignatureResult)
+console.log(`\nFully signed LoanSet transaction:\n${JSON.stringify(borrowerSignatureResult, null, 2)}`)
 
 // Submit and wait for validation ----------------------
 console.log(`\n=== Submitting signed LoanSet transaction ===\n`)
-const submitResponse = await client.submitAndWait(signedLoanSetTx)
+
+// Submit the transaction
+const submitResult = await client.submit(borrowerSignatureResult)
+const txHash = submitResult.result.tx_json.hash
+
+// Helper function to check tx hash is validated
+async function validateTx(hash, maxRetries = 20) {
+  for (let i = 0; i < maxRetries; i++) {
+    await new Promise(resolve => setTimeout(resolve, 1000))
+    try {
+      const tx = await client.request({ command: 'tx', transaction: hash })
+      if (tx.result.validated) {
+        return tx
+      }
+    } catch (error) {
+      // Transaction not validated yet, check again
+    }
+  }
+  console.error(`Error: Transaction ${hash} not validated after ${maxRetries} attempts.`)
+  await client.disconnect()
+  process.exit(1)
+}
+
+// Validate the transaction
+const submitResponse = await validateTx(txHash)
 if (submitResponse.result.meta.TransactionResult !== 'tesSUCCESS') {
   const resultCode = submitResponse.result.meta.TransactionResult
-  console.error('Error: Unable to create loan broker:', resultCode)
+  console.error('Error: Unable to create loan:', resultCode)
   await client.disconnect()
   process.exit(1)
 }
