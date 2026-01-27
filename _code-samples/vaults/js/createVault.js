@@ -36,7 +36,10 @@ const vaultCreateTx = {
   // To make vault shares non-transferable add the tfVaultShareNonTransferable flag:
   // Flags: xrpl.VaultCreateFlags.tfVaultPrivate | xrpl.VaultCreateFlags.tfVaultShareNonTransferable
   DomainID: domainId, // Omit for public vaults
-  Data: xrpl.convertStringToHex("Private vault"),
+  // Convert Vault data to a string (without excess whitespace), then string to hex.
+  Data: xrpl.convertStringToHex(JSON.stringify(
+    { n: "LATAM Fund II", w: "examplefund.com" })
+  ),
   // Encode JSON metadata as hex string per XLS-89 MPT Metadata Schema.
   // See: https://xls.xrpl.org/xls/XLS-0089-multi-purpose-token-metadata-schema.html
   MPTokenMetadata: xrpl.encodeMPTokenMetadata({

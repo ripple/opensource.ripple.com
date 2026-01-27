@@ -169,7 +169,9 @@ const vaultCreateResult = await client.submitAndWait(
     },
     Flags: xrpl.VaultCreateFlags.tfVaultPrivate,
     DomainID: domainId,
-    Data: xrpl.convertStringToHex('Private vault for tutorials'),
+    Data: xrpl.convertStringToHex(
+      JSON.stringify({ n: "LATAM Fund II", w: "examplefund.com" })
+    ),
     MPTokenMetadata: xrpl.encodeMPTokenMetadata({
       ticker: 'SHARE1',
       name: 'Vault Shares',
