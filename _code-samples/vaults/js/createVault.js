@@ -1,24 +1,26 @@
 import xrpl from "xrpl"
+import { execSync } from "child_process"
+import fs from "fs"
 
-// Connect to the network ----------------------
-// This is a lending protocol-specific devnet. This network may be taken
-// offline once the lending protocol is live on mainnet.
-const client = new xrpl.Client("wss://lend.devnet.rippletest.net:51233")
+// Auto-run setup if needed
+if (!fs.existsSync("vaultSetup.json")) {
+  console.log(`\n=== Vault setup data doesn't exist. Running setup script... ===\n`)
+  execSync("node vaultSetup.js", { stdio: "inherit" })
+}
+
+// Load setup data
+const setupData = JSON.parse(fs.readFileSync("vaultSetup.json", "utf8"))
+
+// Connect to the network
+const client = new xrpl.Client("wss://s.devnet.rippletest.net:51233")
 await client.connect()
 
-// Use the Lending Devnet faucet
-const faucetHost = "lend-faucet.devnet.rippletest.net"
-const faucetPath = "/accounts"
-
 // Create and fund vault owner account
-const { wallet: vaultOwner } = await client.fundWallet(null, { faucetHost, faucetPath })
+const { wallet: vaultOwner } = await client.fundWallet()
 
-// A pre-existing Vault asset, created for this tutorial. You can specify your own Vault asset.
-const mptIssuanceId = "0003E3B486D3DACD8BB468AB33793B9626BD894A92AB3AB4"
-
-// A pre-existing Permissioned Domain ID, created for this tutorial. You can specify your own Domain ID.
-// NOTE: You don't need this if you want to create a public vault.
-const domainId = "3BB81D0D164456A2D74720F63FD923F16DE08FB3223D3ED103D09F525A8D69D1"
+// You can replace these values with your own
+const mptIssuanceId = setupData.mptIssuanceId
+const domainId = setupData.domainId
 
 console.log(`Vault owner address: ${vaultOwner.address}`)
 console.log(`MPT issuance ID: ${mptIssuanceId}`)
@@ -34,7 +36,10 @@ const vaultCreateTx = {
   // To make vault shares non-transferable add the tfVaultShareNonTransferable flag:
   // Flags: xrpl.VaultCreateFlags.tfVaultPrivate | xrpl.VaultCreateFlags.tfVaultShareNonTransferable
   DomainID: domainId, // Omit for public vaults
-  Data: xrpl.convertStringToHex("Private vault"),
+  // Convert Vault data to a string (without excess whitespace), then string to hex.
+  Data: xrpl.convertStringToHex(JSON.stringify(
+    { n: "LATAM Fund II", w: "examplefund.com" })
+  ),
   // Encode JSON metadata as hex string per XLS-89 MPT Metadata Schema.
   // See: https://xls.xrpl.org/xls/XLS-0089-multi-purpose-token-metadata-schema.html
   MPTokenMetadata: xrpl.encodeMPTokenMetadata({

@@ -57,7 +57,10 @@ npm install xrpl
 
 ### 2. Set up client and accounts
 
-To get started, import the client library and instantiate a client to connect to the XRPL.
+To get started, import the necessary libraries and instantiate a client to connect to the XRPL. This example imports:
+
+- `xrpl`: Used for XRPL client connection and transaction handling.
+- `fs` and `child_process`: Used to run tutorial setup scripts.
 
 {% tabs %}
 {% tab label="JavaScript" %}
@@ -73,7 +76,7 @@ Next, fund a vault owner account, define the MPT issuance ID for the vault's ass
 {% /tab %}
 {% /tabs %}
 
-The example uses an existing MPT issuance and permissioned domain, but you can also provide your own values. If you want to create a public vault, you don't need to provide the `domainId`.
+The example uses an existing MPT issuance and permissioned domain data from the `vaultSetup.js` script, but you can also provide your own values. If you want to create a public vault, you don't need to provide the `domainId`.
 
 ### 3. Prepare VaultCreate transaction
 
