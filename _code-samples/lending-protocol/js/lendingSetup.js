@@ -23,15 +23,55 @@ const [
 
 process.stdout.write('Setting up tutorial: 1/6\r')
 
-// Create tickets for later use
-// Set up credentials and domain
+// Issue MPT with depositor
+// Create tickets for later use with loanBroker
+// Set up credentials and domain with credentialIssuer
 const credentialType = xrpl.convertStringToHex('KYC-Verified')
-const [ticketCreateResponse] = await Promise.all([
+const mptData = {
+  ticker: 'TSTUSD',
+  name: 'Test USD MPT',
+  desc: 'A sample non-yield-bearing stablecoin backed by U.S. Treasuries.',
+  icon: 'https://example.org/tstusd-icon.png',
+  asset_class: 'rwa',
+  asset_subclass: 'stablecoin',
+  issuer_name: 'Example Treasury Reserve Co.',
+  uris: [
+    {
+      uri: 'https://exampletreasury.com/tstusd',
+      category: 'website',
+      title: 'Product Page'
+    },
+    {
+      uri: 'https://exampletreasury.com/tstusd/reserve',
+      category: 'docs',
+      title: 'Reserve Attestation'
+    }
+  ],
+  additional_info: {
+    reserve_type: 'U.S. Treasury Bills',
+    custody_provider: 'Example Custodian Bank',
+    audit_frequency: 'Monthly',
+    last_audit_date: '2026-01-15',
+    pegged_currency: 'USD'
+  }
+}
+
+const [ticketCreateResponse, mptIssuanceResponse] = await Promise.all([
   client.submitAndWait({
     TransactionType: 'TicketCreate',
     Account: loanBroker.address,
     TicketCount: 2
   }, { wallet: loanBroker, autofill: true }),
+  client.submitAndWait({
+    TransactionType: 'MPTokenIssuanceCreate',
+    Account: depositor.address,
+    MaximumAmount: '100000000',
+    TransferFee: 0,
+    Flags:
+      xrpl.MPTokenIssuanceCreateFlags.tfMPTCanTransfer |
+      xrpl.MPTokenIssuanceCreateFlags.tfMPTCanTrade,
+    MPTokenMetadata: xrpl.encodeMPTokenMetadata(mptData)
+  }, { wallet: depositor, autofill: true }),  
   client.submitAndWait({
   TransactionType: 'Batch',
   Account: credentialIssuer.address,
@@ -88,6 +128,10 @@ const tickets = ticketCreateResponse.result.meta.AffectedNodes
   .filter(node => node.CreatedNode?.LedgerEntryType === 'Ticket')
   .map(node => node.CreatedNode.NewFields.TicketSequence)
 
+// Extract MPT issuance ID
+const mptID = mptIssuanceResponse.result.meta.mpt_issuance_id
+
+// Get domain ID
 const credentialIssuerObjects = await client.request({
   command: 'account_objects',
   account: credentialIssuer.address,
@@ -99,30 +143,88 @@ const domainID = credentialIssuerObjects.result.account_objects.find(node =>
 
 process.stdout.write('Setting up tutorial: 2/6\r')
 
-// Accept credentials
-await Promise.all(
-  [loanBroker, borrower, depositor].map(wallet =>
+// Accept credentials and authorize MPT for each account
+await Promise.all([
+  ...([loanBroker, borrower].map(wallet =>
     client.submitAndWait({
-      TransactionType: 'CredentialAccept',
+      TransactionType: 'Batch',
       Account: wallet.address,
-      Issuer: credentialIssuer.address,
-      CredentialType: credentialType
+      Flags: xrpl.BatchFlags.tfAllOrNothing,
+      RawTransactions: [
+        {
+          RawTransaction: {
+            TransactionType: 'CredentialAccept',
+            Account: wallet.address,
+            Issuer: credentialIssuer.address,
+            CredentialType: credentialType,
+            Flags: xrpl.GlobalFlags.tfInnerBatchTxn
+          }
+        },
+        {
+          RawTransaction: {
+            TransactionType: 'MPTokenAuthorize',
+            Account: wallet.address,
+            MPTokenIssuanceID: mptID,
+            Flags: xrpl.GlobalFlags.tfInnerBatchTxn
+          }
+        }
+      ]
     }, { wallet, autofill: true })
-  )
-)
+  )),
+  // Depositor only needs to accept credentials
+  client.submitAndWait({
+    TransactionType: 'CredentialAccept',
+    Account: depositor.address,
+    Issuer: credentialIssuer.address,
+    CredentialType: credentialType
+  }, { wallet: depositor, autofill: true })
+])
 
 process.stdout.write('Setting up tutorial: 3/6\r')
 
-// Create private vault
-const vaultCreateResponse = await client.submitAndWait({
-  TransactionType: 'VaultCreate',
-  Account: loanBroker.address,
-  Asset: {
-    currency: 'XRP'
-  },
-  Flags: xrpl.VaultCreateFlags.tfVaultPrivate,
-  DomainID: domainID
-}, { wallet: loanBroker, autofill: true })
+// Create private vault and distribute MPT to accounts
+const [vaultCreateResponse] = await Promise.all([
+  client.submitAndWait({
+    TransactionType: 'VaultCreate',
+    Account: loanBroker.address,
+    Asset: {
+      mpt_issuance_id: mptID
+    },
+    Flags: xrpl.VaultCreateFlags.tfVaultPrivate,
+    DomainID: domainID
+  }, { wallet: loanBroker, autofill: true }),
+  client.submitAndWait({
+    TransactionType: 'Batch',
+    Account: depositor.address,
+    Flags: xrpl.BatchFlags.tfAllOrNothing,
+    RawTransactions: [
+      {
+        RawTransaction: {
+          TransactionType: 'Payment',
+          Account: depositor.address,
+          Destination: loanBroker.address,
+          Amount: {
+            mpt_issuance_id: mptID,
+            value: '5000'
+          },
+          Flags: xrpl.GlobalFlags.tfInnerBatchTxn
+        }
+      },
+      {
+        RawTransaction: {
+          TransactionType: 'Payment',
+          Account: depositor.address,
+          Destination: borrower.address,
+          Amount: {
+            mpt_issuance_id: mptID,
+            value: '1000'
+          },
+          Flags: xrpl.GlobalFlags.tfInnerBatchTxn
+        }
+      }
+    ]
+  }, { wallet: depositor, autofill: true })
+])
 
 const vaultID = vaultCreateResponse.result.meta.AffectedNodes.find(node => 
   node.CreatedNode?.LedgerEntryType === 'Vault'
@@ -130,7 +232,7 @@ const vaultID = vaultCreateResponse.result.meta.AffectedNodes.find(node =>
 
 process.stdout.write('Setting up tutorial: 4/6\r')
 
-// Create loan broker and deposit XRP into vault
+// Create LoanBroker and deposit MPT into vault
 const [loanBrokerSetResponse] = await Promise.all([
   client.submitAndWait({
     TransactionType: 'LoanBrokerSet',
@@ -141,7 +243,10 @@ const [loanBrokerSetResponse] = await Promise.all([
     TransactionType: 'VaultDeposit',
     Account: depositor.address,
     VaultID: vaultID,
-    Amount: '50000000'
+    Amount: {
+      mpt_issuance_id: mptID,
+      value: '50000000'
+    }
   }, { wallet: depositor, autofill: true })
 ])
 
@@ -163,12 +268,12 @@ async function createSignedLoanSetTx(ticketSequence) {
     Account: loanBroker.address,
     Counterparty: borrower.address,
     LoanBrokerID: loanBrokerID,
-    PrincipalRequested: "10000000",
+    PrincipalRequested: 1000,
     InterestRate: 500,
     PaymentTotal: 1,
     PaymentInterval: 2592000,
-    LoanOriginationFee: "100000",
-    LoanServiceFee: "10000",
+    LoanOriginationFee: 100,
+    LoanServiceFee: 10,
     Sequence: 0,
     TicketSequence: ticketSequence
   })
@@ -255,6 +360,7 @@ const setupData = {
     seed: credentialIssuer.seed
   },
   domainID,
+  mptID,
   vaultID,
   loanBrokerID,
   loanID1,
