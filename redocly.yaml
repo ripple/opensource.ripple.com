@@ -19,7 +19,9 @@ navbar:
     - label: Open Source Projects
       page: docs/index.md
     - label: Roadmap
-      page: ripplex-roadmap.md 
+      page: ripplex-roadmap.md
+    - label: Institutional DeFi Portal
+      page: institutional-defi-portal.page.tsx
 footer:
   items:
     - group: About
