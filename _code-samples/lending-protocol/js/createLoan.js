@@ -41,13 +41,13 @@ const loanSetTx = await client.autofill({
   Account: loanBroker.address,
   Counterparty: borrower.address,
   LoanBrokerID: loanBrokerID,
-  PrincipalRequested: "10000000",
+  PrincipalRequested: 1000,
   InterestRate: 500,
   PaymentTotal: 12,
   PaymentInterval: 2592000,
   GracePeriod: 604800,
-  LoanOriginationFee: "100000",
-  LoanServiceFee: "10000",
+  LoanOriginationFee: 100,
+  LoanServiceFee: 10,
 })
 
 console.log(JSON.stringify(loanSetTx, null, 2))

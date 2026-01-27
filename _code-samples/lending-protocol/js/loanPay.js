@@ -21,9 +21,11 @@ const setupData = JSON.parse(fs.readFileSync('lendingSetup.json', 'utf8'))
 // You can replace these values with your own
 const borrower = xrpl.Wallet.fromSeed(setupData.borrower.seed)
 const loanID = setupData.loanID2
+const mptID = setupData.mptID
 
 console.log(`\nBorrower address: ${borrower.address}`)
 console.log(`LoanID: ${loanID}`)
+console.log(`MPT ID: ${mptID}`)
 
 // Check initial loan status ----------------------
 console.log(`\n=== Loan Status ===\n`)
@@ -37,9 +39,9 @@ const totalValueOutstanding = loanStatus.result.node.TotalValueOutstanding
 const loanServiceFee = loanStatus.result.node.LoanServiceFee
 const totalPayment = (BigInt(totalValueOutstanding) + BigInt(loanServiceFee)).toString()
 
-console.log(`Amount Owed: ${xrpl.dropsToXrp(totalValueOutstanding)} XRP`)
-console.log(`Loan Service Fee: ${xrpl.dropsToXrp(loanServiceFee)} XRP`)
-console.log(`Total Payment Due (including fees): ${xrpl.dropsToXrp(totalPayment)} XRP`)
+console.log(`Amount Owed: ${totalValueOutstanding} TSTUSD`)
+console.log(`Loan Service Fee: ${loanServiceFee} TSTUSD`)
+console.log(`Total Payment Due (including fees): ${totalPayment} TSTUSD`)
 
 // Prepare LoanPay transaction ----------------------
 console.log(`\n=== Preparing LoanPay transaction ===\n`)
@@ -48,7 +50,10 @@ const loanPayTx = {
   TransactionType: 'LoanPay',
   Account: borrower.address,
   LoanID: loanID,
-  Amount: totalPayment
+  Amount: {
+    mpt_issuance_id: mptID,
+    value: totalPayment
+  }
 }
 
 // Validate the transaction structure before submitting
@@ -77,7 +82,7 @@ const loanNode = payResponse.result.meta.AffectedNodes.find(node =>
 )
 
 const finalBalance = loanNode.ModifiedNode.FinalFields.TotalValueOutstanding 
-  ? `${xrpl.dropsToXrp(loanNode.ModifiedNode.FinalFields.TotalValueOutstanding)} XRP`
+  ? `${loanNode.ModifiedNode.FinalFields.TotalValueOutstanding} TSTUSD`
   : 'Loan fully paid off!'
 console.log(`Outstanding Loan Balance: ${finalBalance}`)
 

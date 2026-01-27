@@ -22,9 +22,11 @@ const setupData = JSON.parse(fs.readFileSync('lendingSetup.json', 'utf8'))
 // You can replace these values with your own
 const loanBroker = xrpl.Wallet.fromSeed(setupData.loanBroker.seed)
 const loanBrokerID = setupData.loanBrokerID
+const mptID = setupData.mptID
 
 console.log(`\nLoan broker address: ${loanBroker.address}`)
 console.log(`LoanBrokerID: ${loanBrokerID}`)
+console.log(`MPT ID: ${mptID}`)
 
 // Prepare LoanBrokerCoverDeposit transaction ----------------------
 console.log(`\n=== Preparing LoanBrokerCoverDeposit transaction ===\n`)
@@ -32,7 +34,10 @@ const coverDepositTx = {
   TransactionType: 'LoanBrokerCoverDeposit',
   Account: loanBroker.address,
   LoanBrokerID: loanBrokerID,
-  Amount: '10000000'
+  Amount: {
+    mpt_issuance_id: mptID,
+    value: '2000'
+  }
 }
 
 // Validate the transaction structure before submitting
@@ -60,7 +65,7 @@ let loanBrokerNode = depositResponse.result.meta.AffectedNodes.find(node =>
 )
 // First-loss capital is stored in the LoanBroker's pseudo-account.
 console.log(`LoanBroker Pseudo-Account: ${loanBrokerNode.ModifiedNode.FinalFields.Account}`)
-console.log(`Cover balance after deposit: ${loanBrokerNode.ModifiedNode.FinalFields.CoverAvailable}`)
+console.log(`Cover balance after deposit: ${loanBrokerNode.ModifiedNode.FinalFields.CoverAvailable} TSTUSD`)
 
 // Prepare LoanBrokerCoverWithdraw transaction ----------------------
 console.log(`\n=== Preparing LoanBrokerCoverWithdraw transaction ===\n`)
@@ -68,7 +73,10 @@ const coverWithdrawTx = {
   TransactionType: 'LoanBrokerCoverWithdraw',
   Account: loanBroker.address,
   LoanBrokerID: loanBrokerID,
-  Amount: '5000000'
+  Amount: {
+    mpt_issuance_id: mptID,
+    value: '1000'
+  }
 }
 
 // Validate the transaction structure before submitting
@@ -95,6 +103,6 @@ loanBrokerNode = withdrawResponse.result.meta.AffectedNodes.find(node =>
   node.ModifiedNode?.LedgerEntryType === 'LoanBroker'
 )
 console.log(`LoanBroker Pseudo-Account: ${loanBrokerNode.ModifiedNode.FinalFields.Account}`)
-console.log(`Cover balance after withdraw: ${loanBrokerNode.ModifiedNode.FinalFields.CoverAvailable}`)
+console.log(`Cover balance after withdraw: ${loanBrokerNode.ModifiedNode.FinalFields.CoverAvailable} TSTUSD`)
 
 await client.disconnect()

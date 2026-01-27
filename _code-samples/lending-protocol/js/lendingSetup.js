@@ -217,7 +217,7 @@ const [vaultCreateResponse] = await Promise.all([
           Destination: borrower.address,
           Amount: {
             mpt_issuance_id: mptID,
-            value: '1000'
+            value: '2500'
           },
           Flags: xrpl.GlobalFlags.tfInnerBatchTxn
         }

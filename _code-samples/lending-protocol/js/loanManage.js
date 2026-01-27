@@ -34,7 +34,7 @@ const loanStatus = await client.request({
   ledger_index: 'validated'
 })
 
-console.log(`Total Amount Owed: ${xrpl.dropsToXrp(loanStatus.result.node.TotalValueOutstanding)} XRP.`)
+console.log(`Total Amount Owed: ${loanStatus.result.node.TotalValueOutstanding} TSTUSD.`)
 // Convert Ripple Epoch timestamp to local date and time
 let nextPaymentDueDate = loanStatus.result.node.NextPaymentDueDate
 let paymentDue = new Date((nextPaymentDueDate + 946684800) * 1000)
