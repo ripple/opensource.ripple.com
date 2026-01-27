@@ -9,8 +9,6 @@ labels:
 
 # Create a Loan
 
-{% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
-
 This tutorial shows you how to create a [Loan](../reference/ledger-data/loan.md) on the XRP Ledger. A loan requires signatures from both the loan broker and the borrower to be created.
 
 This tutorial demonstrates how a loan broker and a borrower can cosign the terms of a loan and create that loan on the XRPL.
@@ -58,7 +56,6 @@ npm install xrpl
 To get started, import the necessary libraries and instantiate a client to connect to the XRPL. This example imports:
 - `xrpl`: Used for XRPL client connection and transaction handling.
 - `fs` and `child_process`: Used to run tutorial set up scripts.
-- `ripple-keypairs` and `ripple-binary-codec`: Used to generate borrower's signature.
 
 {% tabs %}
 {% tab label="JavaScript" %}
@@ -89,17 +86,17 @@ Create the [LoanSet transaction](../reference/transactions/loanset.md) object wi
 The `Account` field is the loan broker, and the `Counterparty` field is the borrower. These fields can be swapped, but determine the signing order: the `Account` signs first, and the `Counterparty` signs second.
 
 The loan terms include:
-- `PrincipalRequested`: The amount of XRP (in drops) requested by the borrower.
+- `PrincipalRequested`: The amount of an asset requested by the borrower. You don't have to specify the type of asset in this field.
 - `InterestRate`: The annualized interest rate in 1/10th basis points (500 = 0.5%).
 - `PaymentTotal`: The number of payments to be made.
 - `PaymentInterval`: The number of seconds between payments (2592000 = 30 days).
 - `GracePeriod`: The number of seconds after a missed payment before the loan can be defaulted (604800 = 7 days).
-- `LoanOriginationFee`: A one-time fee charged when the loan is created.
-- `LoanServiceFee`: A fee charged with every loan payment.
+- `LoanOriginationFee`: A one-time fee charged when the loan is created, paid in the borrowed asset.
+- `LoanServiceFee`: A fee charged with every loan payment, paid in the borrowed asset.
 
 ### 4. Add loan broker signature
 
-The loan broker (the `Account`) signs the transaction first:
+The loan broker (the `Account`) signs the transaction first, using the [sign method](https://xrpl.org/docs/references/http-websocket-apis/admin-api-methods/signing-methods/sign):
 
 {% tabs %}
 {% tab label="JavaScript" %}
@@ -111,7 +108,7 @@ The loan broker adds their `TxnSignature` and `SigningPubKey` to the `LoanSet` t
 
 ### 5. Add borrower signature
 
-The borrower (the `Counterparty`) signs the transaction second:
+The borrower (the `Counterparty`) signs the transaction second, using the [sign method](https://xrpl.org/docs/references/http-websocket-apis/admin-api-methods/signing-methods/sign):
 
 {% tabs %}
 {% tab label="JavaScript" %}
@@ -119,11 +116,7 @@ The borrower (the `Counterparty`) signs the transaction second:
 {% /tab %}
 {% /tabs %}
 
-Add the borrower's signature as a `CounterpartySignature` object, which includes the borrower's `TxnSignature` and `SigningPubKey`.
-
-{% admonition type="info" name="Note" %}
-The `xrpl.js` library's `Wallet.sign()` method doesn't support signing over already-signed transactions. This example uses the `ripple-keypairs` and `ripple-binary-codec` libraries to create the borrower's signature.
-{% /admonition %}
+The borrower must specify `signature_target: 'CounterpartySignature'`. This adds the borrower's signatures to a `CounterpartySignature` object, which includes the borrower's `TxnSignature` and `SigningPubKey`.
 
 ### 6. Submit LoanSet transaction
 

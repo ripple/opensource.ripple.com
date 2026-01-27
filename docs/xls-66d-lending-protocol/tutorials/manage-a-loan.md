@@ -9,8 +9,6 @@ labels:
 
 # Manage a Loan
 
-{% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
-
 This tutorial shows you how to manage a [Loan](../reference/ledger-data/loan.md) on the XRP Ledger. Loan management includes marking loans as impaired when payments are missed, defaulting loans after the grace period expires, and deleting repaid or defaulted loans.
 
 The tutorial demonstrates how a loan broker can manually impair a loan before a payment due date passes (in cases where you suspect a borrower can't make a payment) and default the loan after the grace period expires.

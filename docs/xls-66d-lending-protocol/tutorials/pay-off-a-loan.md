@@ -9,8 +9,6 @@ labels:
 
 # Pay Off a Loan
 
-{% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
-
 This tutorial shows you how to pay off a [Loan](../reference/ledger-data/loan.md) and delete it. Loans can only be deleted after they are fully paid off, or if they've been defaulted by the loan broker.
 
 The tutorial demonstrates how to calculate the final payment due, which includes the loan balance and any additional fees, and then pay off the loan. After the loan is fully paid off, the loan is deleted, completely removing it from the XRP Ledger.
@@ -65,7 +63,7 @@ To get started, import the necessary libraries and instantiate a client to conne
 {% /tab %}
 {% /tabs %}
 
-Next, load the borrower account and loan ID.
+Next, load the borrower account, loan ID, and MPT issuance ID.
 
 {% tabs %}
 {% tab label="JavaScript" %}
@@ -73,7 +71,7 @@ Next, load the borrower account and loan ID.
 {% /tab %}
 {% /tabs %}
 
-This example uses preconfigured accounts and loan data from the `lendingSetup.js` script, but you can replace `borrower` and `loanID` with your own values.
+This example uses preconfigured accounts and loan data from the `lendingSetup.js` script, but you can replace `borrower`, `loanID`, and `mptID` with your own values.
 
 ### 3. Check loan status
 

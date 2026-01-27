@@ -9,8 +9,6 @@ labels:
 
 # Deposit and Withdraw First-Loss Capital
 
-{% raw-partial file="/docs/_snippets/_lending-sav-disclaimer.md" /%}
-
 This tutorial shows you how to deposit and withdraw first-loss capital from a [LoanBroker](../reference/ledger-data/loanbroker.md) on the XRP Ledger. First-loss capital helps protect vault depositor's assets, acting as a buffer in the event of loan defaults.
 
 The tutorial demonstrates how a loan broker can manage risk by depositing XRP as first-loss capital, and how they can withdraw it when needed.
@@ -21,7 +19,7 @@ _(Requires the [Lending Protocol amendment][] {% not-enabled /%})_
 
 By the end of this tutorial, you will be able to:
 
-- Deposit XRP as first-loss capital into a `LoanBroker` entry.
+- Deposit an MPT as first-loss capital into a `LoanBroker` entry.
 - Check the available cover balance in the loan broker's pseudo-account.
 - Withdraw first-loss capital from a `LoanBroker` entry.
 
@@ -64,7 +62,7 @@ To get started, import the necessary libraries and instantiate a client to conne
 {% /tab %}
 {% /tabs %}
 
-Next, load the loan broker account and loan broker ID.
+Next, load the loan broker account, loan broker ID, and MPT issuance ID.
 
 {% tabs %}
 {% tab label="JavaScript" %}
@@ -72,7 +70,7 @@ Next, load the loan broker account and loan broker ID.
 {% /tab %}
 {% /tabs %}
 
-This example uses preconfigured accounts and loan broker data from the `lendingSetup.js` script, but you can replace `loanBroker` and `loanBrokerID` with your own values.
+This example uses preconfigured accounts and loan broker data from the `lendingSetup.js` script, but you can replace `loanBroker`, `loanBrokerID`, and `mptID` with your own values.
 
 ### 3. Prepare LoanBrokerCoverDeposit transaction
 
@@ -84,7 +82,7 @@ Create the [LoanBrokerCoverDeposit transaction](../reference/transactions/loanbr
 {% /tab %}
 {% /tabs %}
 
-The `Amount` field specifies how much XRP (in drops) to deposit as first-loss capital. If the transaction succeeds, the amount is deposited and held in the pseudo-account associated with the `LoanBroker` entry.
+The `Amount` field specifies the MPT and amount to deposit as first-loss capital. If the transaction succeeds, the amount is deposited and held in the pseudo-account associated with the `LoanBroker` entry.
 
 ### 4. Submit LoanBrokerCoverDeposit transaction
 
