@@ -64,7 +64,12 @@ export default function Page() {
           A Ripple-led portal designed to help institutions explore and evaluate
           real-world blockchain adoption on the XRP Ledger.
         </Header2>
-        <Button size="large" variant="primary">
+        {/* TODO: Update to actual domain once available */}
+        <Button
+          size="large"
+          variant="primary"
+          to="https://institutional-defi-portal-33qto01dh-ripple-com.vercel.app"
+        >
           Enter Institutional DeFi Portal
         </Button>
         <p
@@ -165,7 +170,12 @@ export default function Page() {
             technology on the XRP Ledger.
           </SectionText>
           <div style={{ textAlign: "center" }}>
-            <Button size="large" variant="primary">
+            {/* TODO: Update to actual domain once available */}
+            <Button
+              size="large"
+              variant="primary"
+              to="https://institutional-defi-portal-33qto01dh-ripple-com.vercel.app"
+            >
               Enter Institutional DeFi Portal
             </Button>
           </div>
