@@ -71,56 +71,56 @@ const [ticketCreateResponse, mptIssuanceResponse] = await Promise.all([
       xrpl.MPTokenIssuanceCreateFlags.tfMPTCanTransfer |
       xrpl.MPTokenIssuanceCreateFlags.tfMPTCanTrade,
     MPTokenMetadata: xrpl.encodeMPTokenMetadata(mptData)
-  }, { wallet: depositor, autofill: true }),  
+  }, { wallet: depositor, autofill: true }),
   client.submitAndWait({
-  TransactionType: 'Batch',
-  Account: credentialIssuer.address,
-  Flags: xrpl.BatchFlags.tfAllOrNothing,
-  RawTransactions: [
-    {
-      RawTransaction: {
-        TransactionType: 'CredentialCreate',
-        Account: credentialIssuer.address,
-        Subject: loanBroker.address,
-        CredentialType: credentialType,
-        Flags: xrpl.GlobalFlags.tfInnerBatchTxn
-      }
-    },
-    {
-      RawTransaction: {
-        TransactionType: 'CredentialCreate',
-        Account: credentialIssuer.address,
-        Subject: borrower.address,
-        CredentialType: credentialType,
-        Flags: xrpl.GlobalFlags.tfInnerBatchTxn
-      }
-    },
-    {
-      RawTransaction: {
-        TransactionType: 'CredentialCreate',
-        Account: credentialIssuer.address,
-        Subject: depositor.address,
-        CredentialType: credentialType,
-        Flags: xrpl.GlobalFlags.tfInnerBatchTxn
-      }
-    },
-    {
-      RawTransaction: {
-        TransactionType: 'PermissionedDomainSet',
-        Account: credentialIssuer.address,
-        AcceptedCredentials: [
-          {
-            Credential: {
-              Issuer: credentialIssuer.address,
-              CredentialType: credentialType
+    TransactionType: 'Batch',
+    Account: credentialIssuer.address,
+    Flags: xrpl.BatchFlags.tfAllOrNothing,
+    RawTransactions: [
+      {
+        RawTransaction: {
+          TransactionType: 'CredentialCreate',
+          Account: credentialIssuer.address,
+          Subject: loanBroker.address,
+          CredentialType: credentialType,
+          Flags: xrpl.GlobalFlags.tfInnerBatchTxn
+        }
+      },
+      {
+        RawTransaction: {
+          TransactionType: 'CredentialCreate',
+          Account: credentialIssuer.address,
+          Subject: borrower.address,
+          CredentialType: credentialType,
+          Flags: xrpl.GlobalFlags.tfInnerBatchTxn
+        }
+      },
+      {
+        RawTransaction: {
+          TransactionType: 'CredentialCreate',
+          Account: credentialIssuer.address,
+          Subject: depositor.address,
+          CredentialType: credentialType,
+          Flags: xrpl.GlobalFlags.tfInnerBatchTxn
+        }
+      },
+      {
+        RawTransaction: {
+          TransactionType: 'PermissionedDomainSet',
+          Account: credentialIssuer.address,
+          AcceptedCredentials: [
+            {
+              Credential: {
+                Issuer: credentialIssuer.address,
+                CredentialType: credentialType
+              }
             }
-          }
-        ],
-        Flags: xrpl.GlobalFlags.tfInnerBatchTxn
+          ],
+          Flags: xrpl.GlobalFlags.tfInnerBatchTxn
+        }
       }
-    }
-  ]
-}, { wallet: credentialIssuer, autofill: true })
+    ]
+  }, { wallet: credentialIssuer, autofill: true })
 ])
 
 // Extract ticket sequence numbers
@@ -226,7 +226,7 @@ const [vaultCreateResponse] = await Promise.all([
   }, { wallet: depositor, autofill: true })
 ])
 
-const vaultID = vaultCreateResponse.result.meta.AffectedNodes.find(node => 
+const vaultID = vaultCreateResponse.result.meta.AffectedNodes.find(node =>
   node.CreatedNode?.LedgerEntryType === 'Vault'
 ).CreatedNode.LedgerIndex
 
@@ -250,7 +250,7 @@ const [loanBrokerSetResponse] = await Promise.all([
   }, { wallet: depositor, autofill: true })
 ])
 
-const loanBrokerID = loanBrokerSetResponse.result.meta.AffectedNodes.find(node => 
+const loanBrokerID = loanBrokerSetResponse.result.meta.AffectedNodes.find(node =>
   node.CreatedNode?.LedgerEntryType === 'LoanBroker'
 ).CreatedNode.LedgerIndex
 
@@ -262,7 +262,7 @@ process.stdout.write('Setting up tutorial: 5/6\r')
 console.warn = () => {}
 
 // Helper function to create and sign a LoanSet transaction
-async function createSignedLoanSetTx(ticketSequence) {
+async function createSignedLoanSetTx (ticketSequence) {
   const loanSetTx = await client.autofill({
     TransactionType: 'LoanSet',
     Account: loanBroker.address,
@@ -288,9 +288,9 @@ async function createSignedLoanSetTx(ticketSequence) {
     command: 'sign',
     tx_json: loanBrokerSignature.result.tx_json,
     secret: borrower.seed,
-    signature_target: "CounterpartySignature"
+    signature_target: 'CounterpartySignature'
   })
-  
+
   return borrowerSignature.result.tx_json
 }
 
@@ -308,7 +308,7 @@ const hash1 = submitLoan1.result.tx_json.hash
 const hash2 = submitLoan2.result.tx_json.hash
 
 // Helper function to check tx hash is validated
-async function validateTx(hash, maxRetries = 20) {
+async function validateTx (hash, maxRetries = 20) {
   for (let i = 0; i < maxRetries; i++) {
     await new Promise(resolve => setTimeout(resolve, 1000))
     try {
@@ -330,11 +330,11 @@ const [submitResponse1, submitResponse2] = await Promise.all([
   validateTx(hash2)
 ])
 
-const loanID1 = submitResponse1.result.meta.AffectedNodes.find(node => 
+const loanID1 = submitResponse1.result.meta.AffectedNodes.find(node =>
   node.CreatedNode?.LedgerEntryType === 'Loan'
 ).CreatedNode.LedgerIndex
 
-const loanID2 = submitResponse2.result.meta.AffectedNodes.find(node => 
+const loanID2 = submitResponse2.result.meta.AffectedNodes.find(node =>
   node.CreatedNode?.LedgerEntryType === 'Loan'
 ).CreatedNode.LedgerIndex
 

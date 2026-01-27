@@ -29,7 +29,7 @@ console.log(`MPT ID: ${mptID}`)
 
 // Check initial loan status ----------------------
 console.log(`\n=== Loan Status ===\n`)
-let loanStatus = await client.request({
+const loanStatus = await client.request({
   command: 'ledger_entry',
   index: loanID,
   ledger_index: 'validated'
@@ -81,7 +81,7 @@ const loanNode = payResponse.result.meta.AffectedNodes.find(node =>
   node.ModifiedNode?.LedgerEntryType === 'Loan'
 )
 
-const finalBalance = loanNode.ModifiedNode.FinalFields.TotalValueOutstanding 
+const finalBalance = loanNode.ModifiedNode.FinalFields.TotalValueOutstanding
   ? `${loanNode.ModifiedNode.FinalFields.TotalValueOutstanding} TSTUSD`
   : 'Loan fully paid off!'
 console.log(`Outstanding Loan Balance: ${finalBalance}`)

@@ -57,7 +57,7 @@ console.log('Loan broker created successfully!')
 
 // Extract loan broker information from the transaction result
 console.log(`\n=== Loan Broker Information ===\n`)
-const loanBrokerNode = submitResponse.result.meta.AffectedNodes.find(node => 
+const loanBrokerNode = submitResponse.result.meta.AffectedNodes.find(node =>
   node.CreatedNode?.LedgerEntryType === 'LoanBroker'
 )
 console.log(`LoanBroker ID: ${loanBrokerNode.CreatedNode.LedgerIndex}`)

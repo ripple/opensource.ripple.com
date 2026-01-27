@@ -47,7 +47,7 @@ const loanSetTx = await client.autofill({
   PaymentInterval: 2592000,
   GracePeriod: 604800,
   LoanOriginationFee: 100,
-  LoanServiceFee: 10,
+  LoanServiceFee: 10
 })
 
 console.log(JSON.stringify(loanSetTx, null, 2))
@@ -73,7 +73,7 @@ const borrowerSignature = await client.request({
   command: 'sign',
   tx_json: loanBrokerSignatureResult,
   secret: borrower.seed,
-  signature_target: "CounterpartySignature"
+  signature_target: 'CounterpartySignature'
 })
 
 const borrowerSignatureResult = borrowerSignature.result.tx_json
@@ -93,7 +93,7 @@ const submitResult = await client.submit(borrowerSignatureResult)
 const txHash = submitResult.result.tx_json.hash
 
 // Helper function to check tx hash is validated
-async function validateTx(hash, maxRetries = 20) {
+async function validateTx (hash, maxRetries = 20) {
   for (let i = 0; i < maxRetries; i++) {
     await new Promise(resolve => setTimeout(resolve, 1000))
     try {
@@ -122,7 +122,7 @@ console.log('Loan created successfully!')
 
 // Extract loan information from the transaction result.
 console.log(`\n=== Loan Information ===\n`)
-const loanNode = submitResponse.result.meta.AffectedNodes.find(node => 
+const loanNode = submitResponse.result.meta.AffectedNodes.find(node =>
   node.CreatedNode?.LedgerEntryType === 'Loan'
 )
 console.log(JSON.stringify(loanNode.CreatedNode.NewFields, null, 2))
