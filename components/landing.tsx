@@ -164,69 +164,6 @@ function FeatureContent({ description, keyDates }) {
   );
 }
 
-// Card with icon component
-const CardIcon = styled.img`
-  width: 48px;
-  height: 48px;
-  display: block;
-  margin-bottom: 1rem;
-`;
-
-const CustomCardWrapper = styled.div`
-  background: white;
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-
-  h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin: 0 0 1rem 0;
-    color: #141a1f;
-  }
-
-  p {
-    margin: 0;
-    line-height: 1.6;
-    color: #454d54;
-  }
-
-  /* Dark mode styles */
-  html:not(.light) & {
-    background: #1a1a1a;
-
-    h3 {
-      color: #fafafa;
-    }
-
-    p {
-      color: #fafafa;
-    }
-  }
-`;
-
-// Custom Card component with icon above the title
-function CardWithIcon({
-  icon,
-  title,
-  children,
-}: {
-  icon?: string;
-  title: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <CustomCardWrapper>
-      {icon && <CardIcon src={icon} alt="" />}
-      <h3>{title}</h3>
-      {children}
-    </CustomCardWrapper>
-  );
-}
-
 export {
   Header1,
   Header2,
@@ -240,5 +177,4 @@ export {
   KeyDate,
   FeatureHeader,
   FeatureContent,
-  CardWithIcon,
 };

@@ -8,8 +8,8 @@ import {
   BetaBadge,
   Header1,
   Header2,
-  CardWithIcon,
 } from "./components/landing";
+import { Card } from "@redocly/theme/markdoc/components/Cards/Card";
 import { Cards } from "@redocly/theme/markdoc/components/Cards/Cards";
 
 export const frontmatter = {
@@ -112,35 +112,38 @@ export default function Page() {
         <LandingContainer>
           <SectionTitle>What This Portal Is</SectionTitle>
           <Cards columns={3}>
-            <CardWithIcon
+            <Card
               title="Practical by Design"
               icon={require("images/radar.svg")}
+              iconPosition="start"
             >
               <p>
                 Focused on concrete institutional workflows, not abstract demos
                 or hype-driven narratives.
               </p>
-            </CardWithIcon>
+            </Card>
 
-            <CardWithIcon
+            <Card
               title="Built for Institutions"
               icon={require("images/building-columns-check.svg")}
+              iconPosition="start"
             >
               <p>
                 Considers compliance, custody, operational risk, and production
                 readiness from the start.
               </p>
-            </CardWithIcon>
+            </Card>
 
-            <CardWithIcon
+            <Card
               title="Ripple-Led"
               icon={require("images/shield.svg")}
+              iconPosition="start"
             >
               <p>
                 Developed by Ripple to combine institutional credibility with
                 the openness and performance of the XRP Ledger.
               </p>
-            </CardWithIcon>
+            </Card>
           </Cards>
         </LandingContainer>
       </SectionWithBackground>
