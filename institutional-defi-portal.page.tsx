@@ -65,6 +65,14 @@ const JumbotronText = styled.p`
   margin-top: 1.5rem;
 `;
 
+const CardsWithLargerIcons = styled(Cards)`
+  /* Increase icon size in cards */
+  img[src*=".svg"] {
+    width: 36px !important;
+    height: 36px !important;
+  }
+`;
+
 export default function Page() {
   return (
     <LandingLayout>
@@ -111,7 +119,7 @@ export default function Page() {
       <SectionWithBackground>
         <LandingContainer>
           <SectionTitle>What This Portal Is</SectionTitle>
-          <Cards columns={3}>
+          <CardsWithLargerIcons columns={3}>
             <Card
               title="Practical by Design"
               icon={require("images/radar.svg")}
@@ -144,7 +152,7 @@ export default function Page() {
                 the openness and performance of the XRP Ledger.
               </p>
             </Card>
-          </Cards>
+          </CardsWithLargerIcons>
         </LandingContainer>
       </SectionWithBackground>
 
