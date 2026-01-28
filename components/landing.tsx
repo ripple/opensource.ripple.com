@@ -185,12 +185,26 @@ const CustomCardWrapper = styled.div`
     font-size: 1.25rem;
     font-weight: 600;
     margin: 0 0 1rem 0;
+    color: #141a1f;
   }
 
   p {
     margin: 0;
     line-height: 1.6;
-    color: #4b5563;
+    color: #454d54;
+  }
+
+  /* Dark mode styles */
+  html:not(.light) & {
+    background: #1a1a1a;
+
+    h3 {
+      color: #fafafa;
+    }
+
+    p {
+      color: #fafafa;
+    }
   }
 `;
 

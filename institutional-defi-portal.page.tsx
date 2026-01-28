@@ -52,6 +52,17 @@ const SectionWithBackground = styled(Section)`
   margin-left: calc(-50vw + 50%);
   padding-left: calc(50vw - 50%);
   padding-right: calc(50vw - 50%);
+
+  /* Dark mode styles */
+  html:not(.light) & {
+    background: #1a1a1a;
+  }
+`;
+
+const JumbotronText = styled.p`
+  color: white;
+  font-size: 0.875rem;
+  margin-top: 1.5rem;
 `;
 
 export default function Page() {
@@ -72,15 +83,9 @@ export default function Page() {
         >
           Enter Institutional DeFi Portal
         </Button>
-        <p
-          style={{
-            color: "rgba(255, 255, 255, 0.9)",
-            fontSize: "0.875rem",
-            marginTop: "1.5rem",
-          }}
-        >
+        <JumbotronText>
           Explore practical pathways to institutional crypto adoption.
-        </p>
+        </JumbotronText>
       </GradientJumbotron>
 
       <Section>
