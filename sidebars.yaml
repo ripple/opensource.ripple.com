@@ -9,7 +9,7 @@
     - page: docs/xls-77-deep-freeze/index.page.tsx
     - page: docs/xls-75-permission-delegation/index.page.tsx
     - page: docs/xls-70-credentials/index.page.tsx
-    - page: docs/xls-69/index.page.tsx # simulate
+    - page: docs/xls-69-simulate/index.page.tsx
     - page: docs/xls-66-lending-protocol/index.page.tsx
     - page: docs/xls-65-single-asset-vault/index.page.tsx
     - page: docs/xls-56-batch-transactions/index.page.tsx

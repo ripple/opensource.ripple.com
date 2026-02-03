@@ -211,6 +211,9 @@
 /docs/xls-69d:
   to: /docs/xls-69
   type: 301
+/docs/xls-69:
+  to: /docs/xls-69-simulate
+  type: 301
 
 # permissioneddomains docs
 /docs/xls-80d-permissioned-domains:
