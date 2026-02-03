@@ -3,7 +3,8 @@ import {
   LandingContainer,
   LandingLayout,
   FeatureHeader,
-  FeatureContent
+  FeatureContent,
+  ButtonToXRPL
 } from "../../components/landing";
 import { AmendmentTracker } from "../../components/AmendmentTracker";
 import { Button } from "@redocly/theme";
@@ -12,7 +13,7 @@ import { Cards } from "@redocly/theme/markdoc/components/Cards/Cards";
 
 export const frontmatter = {
   seo: {
-    title: "XLS-66d Lending Protocol",
+    title: "XLS-66 Lending Protocol",
     description: "An XRP Ledger DeFi primitive that enables loans from a Single Asset Vault."
   },
 };
@@ -37,7 +38,7 @@ export default function Page() {
     <LandingLayout>
       <LandingContainer>
         <FeatureHeader 
-          title="XLS-66d Lending Protocol"
+          title="XLS-66 Lending Protocol"
           subtitle="An XRP Ledger DeFi primitive that enables loans from a Single Asset Vault."
         />
 
@@ -55,7 +56,7 @@ export default function Page() {
         <Cards columns={2}>
           <Card
             title="XLS Spec"
-            to="https://github.com/Tapanito/XRPL-Standards/tree/xls-66-lending-protocol/XLS-0066d-lending-protocol"
+            to="https://github.com/Tapanito/XRPL-Standards/tree/xls-66-lending-protocol/XLS-0066-lending-protocol"
           >
             <p>
               Technical spec for the feature outlining requirements, design,
@@ -66,14 +67,14 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Documentation" to="./docs/xls-66d-lending-protocol/concepts/lending-protocol">
+          <Card title="Documentation" to="https://xrpl.org/docs/concepts/tokens/lending-protocol">
             <p>
               Explore key concepts, find detailed references, and follow
               step-by-step tutorials.
             </p>
-            <Button size="large" variant="primary">
+            <ButtonToXRPL>
               Read the Docs
-            </Button>
+            </ButtonToXRPL>
           </Card>
 
           <Card title="Blog" to="https://crypto.forem.com/ripplexdev/the-xrpl-lending-protocol-why-it-matters-cd">

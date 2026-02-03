@@ -30,7 +30,7 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Lending Protocol" to="docs/xls-66d-lending-protocol/">
+          <Card title="Lending Protocol" to="docs/xls-66-lending-protocol/">
             <p>The XRPL-native lending protocol offers on-chain, fixed-term loans, utilizing pooled funds from single-asset vaults.</p>
             <Button size="large" variant="primary">
               Learn more
