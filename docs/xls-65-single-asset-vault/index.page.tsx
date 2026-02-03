@@ -3,7 +3,8 @@ import {
   LandingContainer,
   LandingLayout,
   FeatureHeader,
-  FeatureContent
+  FeatureContent,
+  ButtonToXRPL
 } from "../../components/landing";
 import { AmendmentTracker } from "../../components/AmendmentTracker";
 import { Button } from "@redocly/theme";
@@ -66,14 +67,14 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Documentation" to="/docs/xls-65d-single-asset-vault/concepts/single-asset-vault">
+          <Card title="Documentation" to="https://xrpl.org/docs/concepts/tokens/single-asset-vaults">
             <p>
               Explore key concepts, find detailed references, and follow
               step-by-step tutorials.
             </p>
-            <Button size="large" variant="primary">
+            <ButtonToXRPL>
               Read the Docs
-            </Button>
+            </ButtonToXRPL>
           </Card>
         </Cards>
         <Cards columns={2}>

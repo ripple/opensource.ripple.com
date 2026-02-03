@@ -1,3 +1,56 @@
+# single asset vault docs
+/docs/xls-65d-single-asset-vault:
+  to: /docs/xls-65-single-asset-vault
+  type: 301
+/docs/xls-65d-single-asset-vault/concepts/single-asset-vault:
+  to: https://xrpl.org/docs/concepts/tokens/single-asset-vaults
+  type: 301
+/docs/xls-65d-single-asset-vault/concepts/pseudo-account:
+  to: https://xrpl.org/docs/concepts/accounts/pseudo-accounts
+  type: 301
+/docs/xls-65d-single-asset-vault/tutorials/create-a-single-asset-vault:
+  to: https://xrpl.org/docs/tutorials/how-tos/set-up-lending/use-single-asset-vaults/create-a-single-asset-vault
+  type: 301
+/docs/xls-65d-single-asset-vault/tutorials/deposit-into-a-vault:
+  to: https://xrpl.org/docs/tutorials/how-tos/set-up-lending/use-single-asset-vaults/deposit-into-a-vault
+  type: 301
+/docs/xls-65d-single-asset-vault/tutorials/withdraw-from-a-vault:
+  to: https://xrpl.org/docs/tutorials/how-tos/set-up-lending/use-single-asset-vaults/withdraw-from-a-vault
+  type: 301
+/docs/xls-65d-single-asset-vault/reference/vault:
+  to: https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/vault
+  type: 301
+/docs/xls-65d-single-asset-vault/reference/mptoken-issuance:
+  to: https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/mptokenissuance
+  type: 301
+/docs/xls-65d-single-asset-vault/reference/mptoken:
+  to: https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/mptoken
+  type: 301
+/docs/xls-65d-single-asset-vault/reference/transactions/vaultcreate:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/vaultcreate
+  type: 301
+/docs/xls-65d-single-asset-vault/reference/transactions/vaultset:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/vaultset
+  type: 301
+/docs/xls-65d-single-asset-vault/reference/transactions/vaultdelete:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/vaultdelete
+  type: 301
+/docs/xls-65d-single-asset-vault/reference/transactions/vaultdeposit:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/vaultdeposit
+  type: 301
+/docs/xls-65d-single-asset-vault/reference/transactions/vaultwithdraw:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/vaultwithdraw
+  type: 301
+/docs/xls-65d-single-asset-vault/reference/transactions/vaultclawback:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/vaultclawback
+  type: 301
+/docs/xls-65d-single-asset-vault/reference/transactions/updated-transactions:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/batch
+  type: 301
+/docs/xls-65d-single-asset-vault/reference/api/vault-info:
+  to: https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/vault-methods/vault_info
+  type: 301
+
 # token escrow and payment channel docs
 /docs/xls-34d-token-escrow-and-payment-channels:
   to: /docs/xls-85-token-escrow
