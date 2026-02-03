@@ -13,7 +13,7 @@ import { Cards } from '@redocly/theme/markdoc/components/Cards/Cards';
 
 export const frontmatter = {
   seo: {
-    title: 'XLS-81d Permissioned DEXes',
+    title: 'XLS-81 Permissioned DEXes',
     description: "Trade tokens in controlled environments within the XRPL's decentralized exchange." }
 };
 
@@ -37,7 +37,7 @@ export default function Page() {
     <LandingLayout>
       <LandingContainer>
         <FeatureHeader 
-          title="XLS-0081d Permissioned DEXes"
+          title="XLS-0081 Permissioned DEXes"
           subtitle="Trade in controlled environments within the XRPL's decentralized exchange."
         />
 
@@ -53,14 +53,14 @@ export default function Page() {
         />
 
         <Cards columns={3}>
-          <Card title="XLS Draft" to="https://github.com/XRPLF/XRPL-Standards/pull/256">
-            <p>Technical spec for the feature outlining requirements, design, and implementation details, currently in review.</p>
+          <Card title="XLS Spec" to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0081-permissioned-dex">
+            <p>Technical spec for the feature outlining requirements, design, and implementation details.</p>
             <Button size="large" variant="primary">
-              Read the XLS Draft
+              Read the XLS Spec
             </Button>
           </Card>
 
-          <Card title="Docs" to="/docs/xls-81d-permissioned-dexes/permissioned-dexes">
+          <Card title="Docs" to="/docs/xls-81-permissioned-dexes/permissioned-dexes">
             <p>Documentation on the feature, including how it works and why.</p>
             <Button size="large" variant="primary">
               Read the Docs
