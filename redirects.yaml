@@ -1,3 +1,14 @@
+# permissioned dexes docs
+/docs/xls-81d-permissioned-dexes:
+  to: /docs/xls-81-permissioned-dexes
+  type: 301
+/docs/xls-81d-permissioned-dexes/permissioned-dexes:
+  to: https://xrpl.org/docs/concepts/tokens/decentralized-exchange/permissioned-dexes
+  type: 301
+/docs/xls-81d-permissioned-dexes/reference:
+  to: https://xrpl.org/docs/concepts/tokens/decentralized-exchange/permissioned-dexes
+  type: 301
+
 # lending protocol docs
 /docs/xls-66d-lending-protocol:
   to: /docs/xls-66-lending-protocol

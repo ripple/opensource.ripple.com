@@ -60,11 +60,11 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Docs" to="/docs/xls-81-permissioned-dexes/permissioned-dexes">
+          <Card title="Docs" to="https://xrpl.org/docs/concepts/tokens/decentralized-exchange/permissioned-dexes">
             <p>Documentation on the feature, including how it works and why.</p>
-            <Button size="large" variant="primary">
+            <ButtonToXRPL>
               Read the Docs
-            </Button>
+            </ButtonToXRPL>
           </Card>
           <Card title="Blog" to="https://ripple.com/insights/unlocking-institutional-access-to-defi-on-the-xrp-ledger/"> 
             <p>An overview of the feature and why it matters to institutional issuers, explained in our blog post.</p>

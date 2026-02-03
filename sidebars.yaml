@@ -5,11 +5,6 @@
   items:
     - page: docs/xls-85-token-escrow/index.page.tsx
     - page: docs/xls-81-permissioned-dexes/index.page.tsx
-      items:
-        - page: docs/xls-81-permissioned-dexes/permissioned-dexes.md
-          label: About Permissioned DEXes
-        - page: docs/xls-81-permissioned-dexes/reference.md
-          label: Reference Documentation
     - page: docs/xls-80-permissioned-domains/index.page.tsx
     - page: docs/xls-77-deep-freeze/index.page.tsx
     - page: docs/xls-75-permission-delegation/index.page.tsx
