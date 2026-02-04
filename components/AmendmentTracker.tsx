@@ -3,6 +3,8 @@ import * as React from 'react';
 interface AmendmentTrackerProps {
   amendmentId: string;
   xlsSpecDate?: string;
+  devnetDate?: string;
+  mainnetDate?: string;
   onDataUpdate?: (data: AmendmentData) => void;
   onKeyDatesUpdate?: (keyDates: any[]) => void;
 }
@@ -25,10 +27,12 @@ const VHS_BASE_URI = "https://vhs.prod.ripplex.io/v1/network/amendments/vote";
 const GITHUB_API_BASE_URI = "https://api.github.com/repos/XRPLF/rippled";
 
 export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({ 
-  amendmentId, 
-  xlsSpecDate, 
-  onDataUpdate, 
-  onKeyDatesUpdate 
+  amendmentId,
+  xlsSpecDate,
+  devnetDate,
+  mainnetDate,
+  onDataUpdate,
+  onKeyDatesUpdate
 }) => {
   const [amendmentData, setAmendmentData] = React.useState<AmendmentData>({
     devnetData: null,
@@ -97,21 +101,21 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
 
   const generateKeyDates = (data: AmendmentData) => {
     return [
-      { 
-        date: xlsSpecDate ? formatDate(xlsSpecDate) : "TBA", 
-        event: "XLS Spec Live" 
+      {
+        date: xlsSpecDate ? formatDate(xlsSpecDate) : "TBA",
+        event: "XLS Spec Live"
       },
-      { 
-        date: getDevnetDate(data.featureData, data.apiErrors), 
-        event: "Available to Test on Devnet" 
+      {
+        date: devnetDate ? formatDate(devnetDate) : getDevnetDate(data.featureData, data.apiErrors),
+        event: "Available to Test on Devnet"
       },
-      { 
-        date: getMainnetDate(data.versionData, data.mainnetData, data.apiErrors), 
-        event: "Open for Voting on Mainnet" 
+      {
+        date: mainnetDate ? `${formatDate(mainnetDate)}${data.mainnetData?.rippled_version ? ` (${data.mainnetData.rippled_version})` : ''}` : getMainnetDate(data.versionData, data.mainnetData, data.apiErrors),
+        event: "Open for Voting on Mainnet"
       },
-      { 
-        date: getVotingStatus(data.mainnetData, data.apiErrors), 
-        event: "Vote Consensus" 
+      {
+        date: getVotingStatus(data.mainnetData, data.apiErrors),
+        event: "Vote Consensus"
       },
     ];
   };
