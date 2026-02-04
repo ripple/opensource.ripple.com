@@ -3,7 +3,8 @@ import {
   LandingContainer,
   LandingLayout,
   FeatureHeader,
-  FeatureContent
+  FeatureContent,
+  ButtonToXRPL
 } from "../../components/landing";
 import { AmendmentTracker } from "../../components/AmendmentTracker";
 import { Button } from "@redocly/theme";
@@ -12,8 +13,8 @@ import { Cards } from "@redocly/theme/markdoc/components/Cards/Cards";
 
 export const frontmatter = {
   seo: {
-    title: "XLS-65 Single Asset Vault",
-    description: "A single asset vault aggregates assets from multiple depositors and makes them available to other on-chain protocols."
+    title: "XLS-66 Lending Protocol",
+    description: "An XRP Ledger DeFi primitive that enables loans from a Single Asset Vault."
   },
 };
 
@@ -37,25 +38,25 @@ export default function Page() {
     <LandingLayout>
       <LandingContainer>
         <FeatureHeader 
-          title="XLS-65 Single Asset Vault"
-          subtitle="An on-chain primitive for aggregating assets from one or more depositors."
+          title="XLS-66 Lending Protocol"
+          subtitle="An XRP Ledger DeFi primitive that enables loans from a Single Asset Vault."
         />
 
         <FeatureContent 
-          description="A single asset vault is an XRP Ledger primitive that aggregates assets from multiple depositors and makes them available to other on-chain protocols, such as a Lending Protocol. A vault asset can be XRP, a trust line token, or an MPT (Multi-Purpose Token)."
+          description="The Lending Protocol is an XRP Ledger DeFi primitive that enables on-chain, fixed-term, uncollateralized loans using pooled funds from a Single Asset Vault. The implementation relies on off-chain underwriting and risk management to assess the creditworthiness of borrowers, but offers configurable, peer-to-peer loans without intermediaries like banks or financial institutions."
           keyDates={keyDates}
         />
 
         <AmendmentTracker 
-          amendmentId="81BD2619B6B3C8625AC5D0BC01DE17F06C3F0AB95C7C87C93715B87A4FD240D8"
-          xlsSpecDate="2025-02-28"
+          amendmentId="565B90CA1AB2B9D42208ED10884188C64F9E19083DECB9634AAF06EB03299509"
+          xlsSpecDate="2025-12-02"
           onKeyDatesUpdate={handleKeyDatesUpdate}
         />
 
         <Cards columns={2}>
           <Card
             title="XLS Spec"
-            to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0065-single-asset-vault"
+            to="https://github.com/Tapanito/XRPL-Standards/tree/xls-66-lending-protocol/XLS-0066-lending-protocol"
           >
             <p>
               Technical spec for the feature outlining requirements, design,
@@ -66,21 +67,17 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Documentation" to="/docs/xls-65d-single-asset-vault/concepts/single-asset-vault">
+          <Card title="Documentation" to="https://xrpl.org/docs/concepts/tokens/lending-protocol">
             <p>
               Explore key concepts, find detailed references, and follow
               step-by-step tutorials.
             </p>
-            <Button size="large" variant="primary">
+            <ButtonToXRPL>
               Read the Docs
-            </Button>
+            </ButtonToXRPL>
           </Card>
-        </Cards>
-        <Cards columns={2}>
-        <Card
-            title="Blog"
-            to="https://dev.to/ripplexdev/xrp-ledger-lending-protocol-2pla"
-          >
+
+          <Card title="Blog" to="https://crypto.forem.com/ripplexdev/the-xrpl-lending-protocol-why-it-matters-cd">
             <p>
               An overview of the feature and why it matters to developers, explained in our blog post.
             </p>
@@ -88,17 +85,15 @@ export default function Page() {
               Read the Blog
             </Button>
           </Card>
-          <Card
-            title="Security Audit"
-            to="https://www.halborn.com/audits/ripple/ripple---single-asset-vault---smart-contract-assessment-d39437"
-          >
+
+          <Card title="Security Audit" to="https://www.halborn.com/audits/ripple/lending-protocol-6fe16a">
             <p>
-              The security audit performed by third-party security experts, including a link to the full, detailed security audit report.  
+              The security audit performed by third-party security experts, including a link to the full, detailed security audit report.
             </p>
             <Button size="large" variant="primary">
               Read the Security Audit Report
             </Button>
-          </Card>          
+          </Card>
         </Cards>
       </LandingContainer>
     </LandingLayout>

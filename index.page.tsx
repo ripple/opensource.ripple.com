@@ -30,14 +30,14 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Lending Protocol" to="docs/xls-66d-lending-protocol/">
+          <Card title="Lending Protocol" to="docs/xls-66-lending-protocol/">
             <p>The XRPL-native lending protocol offers on-chain, fixed-term loans, utilizing pooled funds from single-asset vaults.</p>
             <Button size="large" variant="primary">
               Learn more
             </Button>
           </Card>
 
-          <Card title="Single Asset Vault" to="docs/xls-65d-single-asset-vault/">
+          <Card title="Single Asset Vault" to="docs/xls-65-single-asset-vault/">
             <p>A single asset vault is an XRP Ledger primitive that aggregates assets from multiple depositors and makes them available to other on-chain protocols.</p>
             <Button size="large" variant="primary">
               Learn more
@@ -51,40 +51,13 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Credentials" to="docs/xls-70-credentials/">
-            <p>Create and store credentials on the blockchain for compliance checks. Documentation is now live on xrpl.org.</p>
-            <Button size="large" variant="primary">
-              Learn more
-            </Button>
-          </Card>
-
-          <Card title="Multi-purpose Tokens" to="docs/xls-33-multi-purpose-tokens/">
-            <p>Multi-purpose tokens (MPTs) are a more compact and flexible type of fungible token.</p>
-            <Button size="large" variant="primary">
-              Learn more
-            </Button>
-          </Card>
-
-          <Card title="Permissioned Domains" to="docs/xls-80-permissioned-domains/">
-            <p>Permissioned Domains are controlled environments where stricter compliance controls can be enforced within the blockchain. Documentation is now live on xrpl.org.</p>
-            <Button size="large" variant="primary">
-              Learn more
-            </Button>
-          </Card>
-
-          <Card title="Permissioned DEXes" to="docs/xls-81d-permissioned-dexes">
+          <Card title="Permissioned DEXes" to="docs/xls-81-permissioned-dexes">
             <p>Permissioned DEXes use Permissioned Domains to enable trading tokens in controlled environments within the XRPL's decentralized exchange.</p>
             <Button size="large" variant="primary">
               Learn more
             </Button>
           </Card>
 
-          <Card title="Token Escrow" to="docs/xls-85-token-escrow">
-            <p>Extends the existing Escrow functionality to support escrowing issued tokens or Multi-purpose tokens (MPTs).</p>
-            <Button size="large" variant="primary">
-              Learn more
-            </Button>
-          </Card>          
         </Cards>
       </LandingContainer>
 
