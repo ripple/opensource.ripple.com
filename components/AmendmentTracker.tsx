@@ -3,6 +3,8 @@ import * as React from 'react';
 interface AmendmentTrackerProps {
   amendmentId: string;
   xlsSpecDate?: string;
+  devnetDate?: string;
+  mainnetDate?: string;
   onDataUpdate?: (data: AmendmentData) => void;
   onKeyDatesUpdate?: (keyDates: any[]) => void;
 }
@@ -25,10 +27,12 @@ const VHS_BASE_URI = "https://vhs.prod.ripplex.io/v1/network/amendments/vote";
 const GITHUB_API_BASE_URI = "https://api.github.com/repos/XRPLF/rippled";
 
 export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({ 
-  amendmentId, 
-  xlsSpecDate, 
-  onDataUpdate, 
-  onKeyDatesUpdate 
+  amendmentId,
+  xlsSpecDate,
+  devnetDate,
+  mainnetDate,
+  onDataUpdate,
+  onKeyDatesUpdate
 }) => {
   const [amendmentData, setAmendmentData] = React.useState<AmendmentData>({
     devnetData: null,
@@ -97,21 +101,21 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
 
   const generateKeyDates = (data: AmendmentData) => {
     return [
-      { 
-        date: xlsSpecDate ? formatDate(xlsSpecDate) : "TBA", 
-        event: "XLS Spec Live" 
+      {
+        date: xlsSpecDate ? formatDate(xlsSpecDate) : "TBA",
+        event: "XLS Spec Live"
       },
-      { 
-        date: getDevnetDate(data.featureData, data.apiErrors), 
-        event: "Available to Test on Devnet" 
+      {
+        date: devnetDate ? formatDate(devnetDate) : getDevnetDate(data.featureData, data.apiErrors),
+        event: "Available to Test on Devnet"
       },
-      { 
-        date: getMainnetDate(data.versionData, data.mainnetData, data.apiErrors), 
-        event: "Open for Voting on Mainnet" 
+      {
+        date: mainnetDate ? `${formatDate(mainnetDate)}${data.mainnetData?.rippled_version ? ` (${data.mainnetData.rippled_version})` : ''}` : getMainnetDate(data.versionData, data.mainnetData, data.apiErrors),
+        event: "Open for Voting on Mainnet"
       },
-      { 
-        date: getVotingStatus(data.mainnetData, data.apiErrors), 
-        event: "Vote Consensus" 
+      {
+        date: getVotingStatus(data.mainnetData, data.apiErrors),
+        event: "Vote Consensus"
       },
     ];
   };
@@ -188,11 +192,11 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
             const keyTerms = devnetAmendment.name
               .replace(/([a-z])([A-Z])/g, '$1 $2') // Split CamelCase
               .split(/\s+/)
-              .filter(term => term.length >= 3) // Keep only terms over 3 characters
-              .map(term => term.toLowerCase());
+              .filter((term: string) => term.length >= 3) // Keep only terms over 3 characters
+              .map((term: string) => term.toLowerCase());
             
             // Create patterns for individual key terms (for broader matching)
-            keyTerms.forEach(term => {
+            keyTerms.forEach((term: string) => {
               if (term.length >= 4) { // Only for longer, more specific terms
                 additionalPatterns.push(new RegExp(term, 'i'));
               }
@@ -267,7 +271,7 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
                       `${amendmentNameNormalized}[\\s,]*Supported::yes`, 'i'
                     );
                     
-                    const matchingLine = addedLines.find(line => 
+                    const matchingLine = addedLines.find((line: string) => 
                       implementationPattern.test(line)
                     );
                     
@@ -317,19 +321,27 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
         try {
           await new Promise(resolve => setTimeout(resolve, 300));
           
+          // Extract full version (X.Y.Z) and major.minor (X.Y). Exclude -rc and -b builds.
+          const fullVersionMatch = mainnetAmendment.rippled_version.match(/^(\d+\.\d+\.\d+)(?:-.*)?$/);
+          const baseVersion = fullVersionMatch ? fullVersionMatch[1] : mainnetAmendment.rippled_version;
+          const majorMinorVersion = baseVersion.match(/^(\d+\.\d+)/)?.[1];
+          
+          if (!majorMinorVersion) {
+            throw new Error('Could not extract version number');
+          }
+          
+          // Create the release branch name
+          const releaseBranch = `release-${majorMinorVersion}`;
+          
           const buildInfoCommitsResponse = await fetch(
-            `${GITHUB_API_BASE_URI}/commits?path=src/libxrpl/protocol/BuildInfo.cpp&sha=master&per_page=100`
+            `${GITHUB_API_BASE_URI}/commits?path=src/libxrpl/protocol/BuildInfo.cpp&sha=${releaseBranch}&per_page=100`
           );
 
           if (buildInfoCommitsResponse.ok) {
             const buildInfoCommits = await buildInfoCommitsResponse.json();
             
-            // Extract version number (exclude -rc and -b builds)
-            const versionMatch = mainnetAmendment.rippled_version.match(/^(\d+\.\d+\.\d+)(?:-.*)?$/);
-            const baseVersion = versionMatch ? versionMatch[1] : mainnetAmendment.rippled_version;
-            
             // Create pattern to match "Set version to X.Y.Z" (exact version, no rc/b builds)
-            const versionPattern = new RegExp(`Set version to ${baseVersion.replace(/\./g, '\\.')}$`, 'i');
+            const versionPattern = new RegExp(`Set version to ${baseVersion.replace(/\./g, '\\.')}`, 'i');
             
             // Search through BuildInfo.cpp commit messages
             for (const commitData of buildInfoCommits) {

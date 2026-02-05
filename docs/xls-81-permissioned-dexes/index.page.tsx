@@ -49,6 +49,8 @@ export default function Page() {
         <AmendmentTracker 
           amendmentId="677E401A423E3708363A36BA8B3A7D019D21AC5ABD00387BDBEA6BDE4C91247E"
           xlsSpecDate="2024-12-06"
+          devnetDate="2025-05-31"
+          mainnetDate="2025-06-24"
           onKeyDatesUpdate={handleKeyDatesUpdate}
         />
 

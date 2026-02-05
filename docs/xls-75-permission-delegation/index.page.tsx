@@ -19,20 +19,12 @@ export const frontmatter = {
 };
 
 export default function Page() {
-  const KEY_DATE_EVENTS = [
-    "XLS Spec Live",
-    "Available to Test on Devnet",
-    "Open for Voting on Mainnet", 
-    "Vote Consensus"
+  const keyDates = [
+    { date: "May 8, 2025", event: "XLS Spec Live" },
+    { date: "TBA", event: "Available to Test on Devnet" },
+    { date: "TBA", event: "Open for Voting on Mainnet" },
+    { date: "TBA", event: "Vote Consensus" }
   ];
-
-  const [keyDates, setKeyDates] = React.useState(
-    KEY_DATE_EVENTS.map(event => ({ date: "🔄 Loading...", event }))
-  );
-
-  const handleKeyDatesUpdate = React.useCallback((newKeyDates: any[]) => {
-    setKeyDates(newKeyDates);
-  }, []);
 
   return (
     <LandingLayout>
@@ -45,12 +37,6 @@ export default function Page() {
         <FeatureContent 
           description="XRPL accounts can delegate both transaction permissions and granular permissions to other accounts, enhancing flexibility and enabling use cases such as implementing role-based access control."
           keyDates={keyDates}
-        />
-
-        <AmendmentTracker 
-          amendmentId="AE6AB9028EEB7299EBB03C7CBCC3F2A4F5FBE00EA28B8223AA3118A0B436C1C5"
-          xlsSpecDate="2025-05-09"
-          onKeyDatesUpdate={handleKeyDatesUpdate}
         />
 
         <Cards columns={3}>

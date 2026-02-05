@@ -18,20 +18,12 @@ export const frontmatter = {
 };
 
 export default function Page() {
-  const KEY_DATE_EVENTS = [
-    "XLS Spec Live",
-    "Available to Test on Devnet",
-    "Open for Voting on Mainnet", 
-    "Vote Consensus"
+  const keyDates = [
+    { date: "Oct 20, 2024", event: "XLS Spec Live" },
+    { date: "Feb 15, 2025", event: "Available to Test on Devnet" },
+    { date: "Mar 6, 2025 (2.4.0)", event: "Open for Voting on Mainnet" },
+    { date: "Enabled Feb 4, 2026", event: "Vote Consensus" }
   ];
-
-  const [keyDates, setKeyDates] = React.useState(
-    KEY_DATE_EVENTS.map(event => ({ date: "🔄 Loading...", event }))
-  );
-
-  const handleKeyDatesUpdate = React.useCallback((newKeyDates: any[]) => {
-    setKeyDates(newKeyDates);
-  }, []);
 
   return (
     <LandingLayout>
@@ -44,12 +36,6 @@ export default function Page() {
         <FeatureContent 
           description="Permissioned domains are controlled environments within the broader ecosystem of the XRP Ledger blockchain. Domains do nothing on their own. However, they enable other features such as Permissioned DEXes and Lending Protocols to restrict access, thereby enabling compliance on chain."
           keyDates={keyDates}
-        />
-
-        <AmendmentTracker 
-          amendmentId="A730EB18A9D4BB52502C898589558B4CCEB4BE10044500EE5581137A2E80E849"
-          xlsSpecDate="2024-10-21"
-          onKeyDatesUpdate={handleKeyDatesUpdate}
         />
 
         <Cards columns={3}>
