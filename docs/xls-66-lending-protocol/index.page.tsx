@@ -56,7 +56,7 @@ export default function Page() {
         <Cards columns={2}>
           <Card
             title="XLS Spec"
-            to="https://github.com/Tapanito/XRPL-Standards/tree/xls-66-lending-protocol/XLS-0066-lending-protocol"
+            to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0066-lending-protocol"
           >
             <p>
               Technical spec for the feature outlining requirements, design,
