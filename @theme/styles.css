@@ -7,6 +7,32 @@
     border-bottom: 1px solid #E5E7E8;
 }
 
+/* Beta badge for Institutional DeFi Portal nav item */
+#navbar a[href="/institutional-defi-portal"]::after,
+#navbar a[href*="institutional-defi-portal"]::after,
+nav a[href="/institutional-defi-portal"]::after,
+nav a[href*="institutional-defi-portal"]::after {
+    content: "Beta";
+    display: inline-block;
+    margin-left: 8px;
+    padding: 4px 10px;
+    font-size: inherit;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #0066FF;
+    background-color: #E6F0FF;
+    border-radius: 4px;
+    vertical-align: middle;
+}
+
+html:not(.light) #navbar a[href="/institutional-defi-portal"]::after,
+html:not(.light) #navbar a[href*="institutional-defi-portal"]::after,
+html:not(.light) nav a[href="/institutional-defi-portal"]::after,
+html:not(.light) nav a[href*="institutional-defi-portal"]::after {
+    color: #66B3FF;
+    background-color: rgba(102, 179, 255, 0.15);
+}
+
 #search {
     border: 2px solid #d6d9db;
     border-radius: 8px;

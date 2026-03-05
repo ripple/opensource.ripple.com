@@ -48,15 +48,39 @@ const LandingLayout = styled.div`
   justify-content: center;
 `;
 
-const Jumbotron = styled.div<{ bgImage; }>`
+const Jumbotron = styled.div<{ bgImage }>`
   width: 100%;
   padding: 0px 1rem 8.5em;
-  background: #003d99 url(${props => props.bgImage }) center center / cover no-repeat;
+  background: #003d99 url(${(props) => props.bgImage}) center center / cover
+    no-repeat;
   height: 350px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+`;
+
+const GradientJumbotron = styled.div`
+  width: 100%;
+  padding: 4rem 1rem 6rem;
+  background: linear-gradient(135deg, #0033a0 0%, #5b4fd8 50%, #8b5cf6 100%);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const BetaBadge = styled.span`
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
 `;
 
 const XRPLStyledButton = styled(Button)`
@@ -70,37 +94,43 @@ const XRPLStyledButton = styled(Button)`
 `;
 
 function ButtonToXRPL({ children }) {
-  return <XRPLStyledButton size="large">
-     <img src={require("../images/xrpl-dev-logo-white.png")} alt="(XRPL)" width={24} height={20} />
-    {children}
-  </XRPLStyledButton>
+  return (
+    <XRPLStyledButton size="large">
+      <img
+        src={require("../images/xrpl-dev-logo-white.png")}
+        alt="(XRPL)"
+        width={24}
+        height={20}
+      />
+      {children}
+    </XRPLStyledButton>
+  );
 }
 
 // Key Dates component for feature pages
 function KeyDatesCard(props: {
-    title:string, 
-    children: React.ReactNode,
-    className?: string
-  }) {
+  title: string;
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
-  <div className={`key-dates card-variant-filled feature-key-dates ${props.className || ''}`}>
-    <h4>{props.title}</h4>
-    <ul>
-      {props.children}
-    </ul>
-  </div>
-  )
+    <div
+      className={`key-dates card-variant-filled feature-key-dates ${
+        props.className || ""
+      }`}
+    >
+      <h4>{props.title}</h4>
+      <ul>{props.children}</ul>
+    </div>
+  );
 }
 
-function KeyDate(props: {
-    date:string,
-    children: React.ReactNode
-  }) {
+function KeyDate(props: { date: string; children: React.ReactNode }) {
   return (
     <li>
       <strong>{props.date}</strong>: {props.children}
     </li>
-  )
+  );
 }
 
 // Feature page components
@@ -134,15 +164,17 @@ function FeatureContent({ description, keyDates }) {
   );
 }
 
-export { 
-  Header1, 
-  Header2, 
-  LandingContainer, 
-  LandingLayout, 
-  Jumbotron, 
-  ButtonToXRPL, 
-  KeyDatesCard, 
+export {
+  Header1,
+  Header2,
+  LandingContainer,
+  LandingLayout,
+  Jumbotron,
+  GradientJumbotron,
+  BetaBadge,
+  ButtonToXRPL,
+  KeyDatesCard,
   KeyDate,
   FeatureHeader,
-  FeatureContent
+  FeatureContent,
 };
