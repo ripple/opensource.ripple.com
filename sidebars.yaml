@@ -13,3 +13,24 @@
     - page: docs/xls-66-lending-protocol/index.page.tsx
     - page: docs/xls-65-single-asset-vault/index.page.tsx
     - page: docs/xls-56-batch-transactions/index.page.tsx
+    - group: XLS-96 Confidential Transfers
+      page: docs/xls-96-confidential-transfers/index.page.tsx
+      expanded: false
+      items:
+        - group: Concepts
+          expanded: false
+          items:
+            - page: docs/xls-96-confidential-transfers/concepts/confidential-transfers.md
+        - group: References
+          expanded: false
+          items:
+            - group: Transactions
+              expanded: false
+              items:
+                - page: docs/xls-96-confidential-transfers/references/transactions/confidentialmptclawback.md
+                - page: docs/xls-96-confidential-transfers/references/transactions/confidentialmptconvert.md
+                - page: docs/xls-96-confidential-transfers/references/transactions/confidentialmptconvertback.md
+                - page: docs/xls-96-confidential-transfers/references/transactions/confidentialmptmergeinbox.md
+                - page: docs/xls-96-confidential-transfers/references/transactions/confidentialmptsend.md
+                - page: docs/xls-96-confidential-transfers/references/transactions/updated-transactions.md
+            - page: docs/xls-96-confidential-transfers/references/updated-ledger-entries.md
