@@ -1,0 +1,33 @@
+{
+  "issuer": {
+    "address": "rMapcYFQQaiMe95ERGYrHFJNBe8HYYfcTe",
+    "seed": "sEdTvmoijgQnr2RiRbHXiDUogeYEmFD",
+    "public_key": "020B9CF63D148851FE7AAA3DA5C17FD196BBAE671BDEADBFB2AD366C87E226FE65",
+    "private_key": "578F0F319AB940BE9FE2340EEFF6D180E4CA1AC7D8518639771C885732998493",
+    "balance_xrp": 79.99971
+  },
+  "auditor": {
+    "address": "rWapbT2syhFJbbbf7QbbbncjwpqMkUKes",
+    "seed": "sEdSSJZXT3crAagF8aonMBYghwAfk8E",
+    "public_key": "ED8B9F77AE54180D92674C0F827052EB13FB537193D594A0AB1352338E04EB0919",
+    "private_key": "ED461793127BF67E04EF28BBEBF4C4AF9FA7A9B694CEFDC89D98B47BC108462ED7",
+    "balance_xrp": 49.99999
+  },
+  "issuer_second_account": {
+    "address": "rMjqR3ZZ8N3UakjyA9LecD6f4AGGvEPuk5",
+    "seed": "sEdVciHDQmjw1S2j6kHdLY2hN1dLfCy",
+    "public_key": "02C37F9434529B5E0A8DEC0AA4AA6BE346A182668B5800B2299A6A93BA383F0C45",
+    "private_key": "E82A2F6E8DB87733D54AA601A66B164819DDE5BD095BB09536220AC5CA7B1056",
+    "balance_xrp": 20.0
+  },
+  "alice": {
+    "address": "rHySdaU2mUrz3CzSPzYos7eDRpYQKNGpno",
+    "seed": "sEdT2Q79YENxWNXQSriVtz4sjWYWUVH",
+    "balance_xrp": 15.0
+  },
+  "bob": {
+    "address": "rUkTsAwx5jdrnUuMTGdgqGo8FAzv2Muq85",
+    "seed": "sEd7q6Mt1Suw6Bw73UWfviyU29kgdvh",
+    "balance_xrp": 15.0
+  }
+}
