@@ -54,8 +54,8 @@ Only the specified fields and flags may be declared mutable; all other fields re
 
 The following flags are stored in the `MutableFlags` field, which is separate from the `Flags` field of the `MPTokenIssuanceCreate` transaction:
 
-| Flag Name                    | Hex Value    | Decimal Value | Description |
-|:-----------------------------|:-------------|:--------------|:------------|
+| Flag Name                     | Hex Value    | Decimal Value | Description |
+|:----------------------------- |:-------------|:--------------|:------------|
 | `tmfMPTCanMutateCanLock`      | `0x00000002` | 2             | If enabled, the MPT's **Can Lock** flag, which gives the issuer the power to lock/unlock holders' balances, can change. |
 | `tmfMPTCanMutateRequireAuth`  | `0x00000004` | 4             | If enabled, the MPT's **Require Auth** flag, which indicates that individual holders must be authorized, can change. |
 | `tmfMPTCanMutateCanEscrow`    | `0x00000008` | 8             | If enabled, the MPT's **Can Escrow** flag, which indicates that the token can be placed in escrow, can change. |
@@ -67,11 +67,11 @@ The following flags are stored in the `MutableFlags` field, which is separate fr
 
 ### Error Cases
 
-The following error codes have been added to the `MPTokenIssuanceCreate` transaction:
+The following failure conditions have been added to the `MPTokenIssuanceCreate` transaction:
 
 | Error Code         | Description |
 |:-------------------|:------------|
-| `temDISABLED`      | The `DynamicMPT` amendment is not enabled. |
+| `temDISABLED`      | The `MutableFlags` field is present but the DynamicMPT amendment is not enabled. |
 | `temINVALID_FLAG`  | The `MutableFlags` field contains an invalid value. |
 
 ## MPTokenIssuanceSet Transaction Changes
@@ -108,8 +108,8 @@ MPTokenIssuanceSet transactions can include the following new fields:
 
 The following flags are stored in the `MutableFlags` field, which is separate from the `Flags` field of the `MPTokenIssuanceSet` transaction:
 
-| Flag Name                 | Hex Value    | Decimal Value | Description |
-|:--------------------------|:-------------|:--------------|:------------|
+| Flag Name                  | Hex Value    | Decimal Value | Description |
+|:-------------------------- |:-------------|:--------------|:------------|
 | `tmfMPTSetCanLock`         | `0x00000001` | 1             | Enables the MPT's **Can Lock** flag, which allows the token to be locked both individually and globally. |
 | `tmfMPTClearCanLock`       | `0x00000002` | 2             | Disables the MPT's **Can Lock** flag, which prevents both individual and global locking of the token. |
 | `tmfMPTSetRequireAuth`     | `0x00000004` | 4             | Enables the MPT's **RequireAuth** flag, which requires individual holders to be authorized to hold the token. |
@@ -131,35 +131,36 @@ Enabling and disabling the same flag simultaneously will be rejected. For exampl
 
 The ability to modify the `TransferFee` depends on two flags:
 
-- `lsfMPTCanTransfer`: must already be enabled to allow any non-zero `TransferFee`.
+- `lsfMPTCanTransfer`: must already be enabled to allow any non-zero `TransferFee`. Note that this flag can be modified through `tmfMPTSetCanTransfer` or `tmfMPTClearCanTransfer` if `lsmfMPTCanMutateCanTransfer` is set.
 - `lsmfMPTCanMutateTransferFee`: must be enabled at creation of the MPT issuance to allow any modification of the `TransferFee` field.
 
 {% admonition type="info" name="Note" %}
 If the MPT's transfer fee and **Can Transfer** flag are both mutable, you can enable **Can Transfer** first, then modify the transfer fee.
 {% /admonition %}
 
-Because these flags overlap in function, the rules break down as follows:
+The following table describes how setting a zero or non-zero transfer fee through the `MPTokenIssuanceSet` transaction behaves, based on the existing state of the `MPTokenIssuance` object on-ledger. The first two columns represent the ledger state (`lsfMPTCanTransfer` and `lsmfMPTCanMutateTransferFee`), while the third column represents the `TransferFee` value being set in the transaction.
 
-| Can Transfer Flag | Transfer Fee Value | Can Mutate Transfer Fee | Result | Description |
-|:----------------- |:-------------------|:------------------------|:-------|:------------|
-| Disabled          | Zero               | Mutable                 | ✅     | Removes the `TransferFee` field. |
-| Disabled          | Zero               | Static                  | ❌     | Not allowed to modify `TransferFee`. |
-| Disabled          | Non-zero           | Mutable/Static          | ❌     | Always invalid regardless of mutability. |
-| Enabled           | Non-zero           | Mutable                 | ✅     | Modifies the `TransferFee` field. |
-| Enabled           | Non-zero           | Static                  | ❌     | Not allowed to modify `TransferFee`. |
-| Enabled           | Zero               | Mutable                 | ✅     | Removes the `TransferFee` field. |
-| Enabled           | Zero               | Static                  | ❌     | Not allowed to modify `TransferFee`. |
+| Can Transfer | Can Mutate Transfer Fee | Transfer Fee Value | Result | Description |
+|:-------------|:------------------------|:-------------------|:-------|:------------|
+| Disabled     | Enabled                 | Zero               | ✅     | Removes the `TransferFee` field. |
+| Disabled     | Disabled                | Zero               | ❌     | Not allowed to modify `TransferFee`. |
+| Disabled     | Enabled/Disabled        | Non-zero           | ❌     | Always invalid regardless of mutability. |
+| Enabled      | Enabled                 | Non-zero           | ✅     | Modifies the `TransferFee` field. |
+| Enabled      | Disabled                | Non-zero           | ❌     | Not allowed to modify `TransferFee`. |
+| Enabled      | Enabled                 | Zero               | ✅     | Removes the `TransferFee` field. |
+| Enabled      | Disabled                | Zero               | ❌     | Not allowed to modify `TransferFee`. |
 
 ### Error Cases
 
-The following error codes have been added to the `MPTokenIssuanceSet` transaction:
+The following failure conditions have been added to the `MPTokenIssuanceSet` transaction:
 
 | Error Code            | Description |
 |:----------------------|:------------|
-| `tecNO_PERMISSION`    | The sender does not have permission to modify the specified field or flag. For example, the `MutableFlags` field attempts to modify a flag that was not declared as mutable during creation. |
-| `temDISABLED`         | The `DynamicMPT` amendment is not enabled. |
+| `tecNO_PERMISSION`    | The sender does not have permission to modify the specified field or flag. For example:<ul><li>The `MutableFlags` field attempts to modify a flag that was not declared as mutable during creation.</li><li>The `MPTokenMetadata` field is provided but `lsmfMPTCanMutateMetadata` was not set during creation.</li><li>The `TransferFee` field is provided but `lsmfMPTCanMutateTransferFee` was not set during creation.</li><li>A non-zero `TransferFee` is specified but `lsfMPTCanTransfer` is not currently enabled on the issuance.</li></ul> |
+| `temDISABLED`         | The `MutableFlags`, `MPTokenMetadata`, or `TransferFee` is present but the DynamicMPT amendment is not enabled. |
+| `temBAD_TRANSFER_FEE` | The `TransferFee` exceeds the maximum allowed value of 50,000. |
 | `temINVALID_FLAG`     | The `MutableFlags` field contains an invalid value, including `0`. You may also receive this error if both set and clear flags are specified for the same property (for example, both `tmfMPTSetCanLock` and `tmfMPTClearCanLock`). |
-| `temMALFORMED`        | The transaction is malformed. For example, the `Holder` field is provided when mutating the MPT issuance, which is not allowed. |
+| `temMALFORMED`        | The transaction is malformed. For example:<ul><li>The `Holder` field is provided when mutating the MPT issuance.</li><li>The `Flags` field is set when mutation fields (`MutableFlags`, `MPTokenMetadata`, or `TransferFee`) are present.</li><li>The `MPTokenMetadata` field exceeds the maximum length of 1024 bytes.</li><li>A non-zero `TransferFee` and `tmfMPTClearCanTransfer` are included in the same transaction.</li></ul> |
 
 ## MPTokenIssuance Entry Changes
 
@@ -173,8 +174,8 @@ MPTokenIssuance ledger entries can include the following new field:
 
 The following flags are stored in the `MutableFlags` field, which is separate from the `Flags` field of the `MPTokenIssuance` ledger entry:
 
-| Flag Name                        | Hex Value    | Decimal Value | Description |
-|:---------------------------------|:-------------|:--------------|:------------|
+| Flag Name                         | Hex Value    | Decimal Value | Description |
+|:--------------------------------- |:-------------|:--------------|:------------|
 | `lsmfMPTCanMutateCanLock`         | `0x00000002` | 2             | Indicates the **Can Lock** flag can be changed. |
 | `lsmfMPTCanMutateRequireAuth`     | `0x00000004` | 4             | Indicates the **Require Auth** flag can be changed. |
 | `lsmfMPTCanMutateCanEscrow`       | `0x00000008` | 8             | Indicates the **Can Escrow** flag can be changed. |
