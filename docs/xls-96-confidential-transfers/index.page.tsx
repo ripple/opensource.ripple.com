@@ -38,13 +38,13 @@ export default function Page() {
   return (
     <LandingLayout>
       <LandingContainer>
-        <FeatureHeader 
+        <FeatureHeader
           title="XLS- 96 Confidential Transfers"
-          subtitle="Private transactions for Multi-Purpose Tokens (MPTs)."
+          subtitle="Private auditable transactions for Multi-Purpose Tokens (MPTs)."
         />
 
-        <FeatureContent 
-          description="Confidential Transfers allow Multi-Purpose Token (MPT) holders to keep their balances and transfer amounts private, using EC-ElGamal encryption and Zero-Knowledge Proofs (ZKPs), while maintaining public auditability of the total token supply."
+        <FeatureContent
+          description="The Confidential Transfers feature provides institutional-grade privacy for Multi-Purpose Tokens using advanced cryptography (EC-ElGamal and ZKPs). Individual balances and transfer amounts remain shielded from the public ledger while maintaining compliance mechanisms for issuers and regulators to verify total supply and meet regulatory obligations."
           keyDates={keyDates}
         />
 
