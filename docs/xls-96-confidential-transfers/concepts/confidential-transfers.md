@@ -7,7 +7,7 @@ labels:
 ---
 # Confidential Transfers
 
-Confidential Transfers on the XRP Ledger allow Multi-Purpose Token (MPT) holders to keep their balances and transfer amounts private using [EC-ElGamal encryption](https://en.wikipedia.org/wiki/ElGamal_encryption) and [Zero-Knowledge Proofs (ZKPs)](https://en.wikipedia.org/wiki/Zero-knowledge_proof). This addresses the need for confidentiality in institutional and privacy-sensitive contexts.
+Confidential Transfers on the XRP Ledger allow Multi-Purpose Token (MPT) holders to keep their balances and transfer amounts private using [EC-ElGamal encryption](https://en.wikipedia.org/wiki/ElGamal_encryption) and [Zero-Knowledge Proofs (ZKPs)](https://en.wikipedia.org/wiki/Zero-knowledge_proof). Individual balances and transfer amounts remain shielded from the public ledger while maintaining compliance mechanisms for issuers and regulators to verify total supply and meet regulatory obligations. This addresses the need for institutional-grade privacy in financial applications while preserving auditability.
 
 Public and confidential balances can coexist for the same token, meaning the same MPT can have some balances held publicly and others held privately. Token holders can convert their public balance to confidential form and back as needed.
 
