@@ -13,3 +13,15 @@
     - page: docs/xls-66-lending-protocol/index.page.tsx
     - page: docs/xls-65-single-asset-vault/index.page.tsx
     - page: docs/xls-56-batch-transactions/index.page.tsx
+    - group: XLS-68 Sponsored Fees and Reserves
+      page: docs/xls-68-sponsored-fees-and-reserves/index.page.tsx
+      expanded: false
+      items:
+        - group: Concepts
+          expanded: false
+          items:
+            - page: docs/xls-68-sponsored-fees-and-reserves/concepts/sponsored-fees-and-reserves.md
+        - group: References
+          expanded: false
+          items:
+            - page: docs/xls-68-sponsored-fees-and-reserves/references

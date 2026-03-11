@@ -58,6 +58,13 @@ export default function Page() {
             </Button>
           </Card>
 
+          <Card title="Sponsored Fees and Reserves" to="docs/xls-68-sponsored-fees-and-reserves/">
+            <p>Enable sponsors to pay transaction fees and reserves on behalf of other accounts, reducing barriers to entry on the XRP Ledger.</p>
+            <Button size="large" variant="primary">
+              Learn more
+            </Button>
+          </Card>
+
         </Cards>
       </LandingContainer>
 
