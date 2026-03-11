@@ -29,6 +29,12 @@
 [seconds since the Ripple Epoch]: https://xrpl.org/docs/references/protocol/data-types/basic-data-types#specifying-time
 [SHA-512Half]: https://xrpl.org/docs/references/protocol/data-types/basic-data-types#hashes
 [Specifying Ledgers]: https://xrpl.org/docs/references/protocol/data-types/basic-data-types/#specifying-ledgers
+[Sponsor amendment]: https://xls.xrpl.org/xls/XLS-0068-sponsored-fees-and-reserves.html
+[Sponsorship ledger entry]: /docs/xls-68-sponsored-fees-and-reserves/references/ledger-entries/sponsorship.md
+[SponsorshipSet]: /docs/xls-68-sponsored-fees-and-reserves/transactions/sponsorshipset.md
+[SponsorshipSet transaction]: /docs/xls-68-sponsored-fees-and-reserves/references/transactions/sponsorshipset.md
+[SponsorshipTransfer]: /docs/xls-68-sponsored-fees-and-reserves/references/transactions/sponsorshiptransfer.md
+[SponsorshipTransfer transaction]: /docs/xls-68-sponsored-fees-and-reserves/references/transactions/sponsorshiptransfer.md
 [standard format]: https://xrpl.org/docs/references/http-websocket-apis/api-conventions/response-formatting/
 [transaction result codes]: https://xrpl.org/docs/references/protocol/transactions/transaction-results
 [universal error types]: https://xrpl.org/docs/references/http-websocket-apis/api-conventions/error-formatting#universal-errors
