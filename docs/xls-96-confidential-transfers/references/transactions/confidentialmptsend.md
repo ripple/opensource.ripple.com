@@ -7,7 +7,7 @@ labels:
 ---
 # ConfidentialMPTSend
 
-[[Source]](https://github.com/XRPLF/rippled/blob/ripple/confidential-transfer/src/xrpld/app/tx/detail/ConfidentialMPTSend.cpp "Source")
+[[Source]](https://github.com/XRPLF/rippled/blob/eeb0d15ea97ed506c65406635edf301eff62a6fd/src/libxrpl/tx/transactors/token/ConfidentialMPTSend.cpp "Source")
 
 Send MPT tokens to another account while keeping the transfer amount hidden. The transferred amount is credited to the receiver's confidential inbox balance to avoid proof staleness. The receiver can later merge these funds into the spending balance via the [ConfidentialMPTMergeInbox transaction][].
 

@@ -7,7 +7,7 @@ labels:
 ---
 # ConfidentialMPTMergeInbox
 
-[[Source]](https://github.com/XRPLF/rippled/blob/ripple/confidential-transfer/src/xrpld/app/tx/detail/ConfidentialMPTMergeInbox.cpp "Source")
+[[Source]](https://github.com/XRPLF/rippled/blob/eeb0d15ea97ed506c65406635edf301eff62a6fd/src/libxrpl/tx/transactors/token/ConfidentialMPTMergeInbox.cpp "Source")
 
 Merge your confidential _inbox_ balance into your _spending_ balance. This moves all funds from the inbox balance into the spending balance and resets the inbox to encrypted zero, ensuring that proofs reference only stable spending balances.
 

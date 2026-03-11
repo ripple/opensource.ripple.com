@@ -7,7 +7,7 @@ labels:
 ---
 # ConfidentialMPTConvertBack
 
-[[Source]](https://github.com/XRPLF/rippled/blob/ripple/confidential-transfer/src/xrpld/app/tx/detail/ConfidentialMPTConvertBack.cpp "Source")
+[[Source]](https://github.com/XRPLF/rippled/blob/eeb0d15ea97ed506c65406635edf301eff62a6fd/src/libxrpl/tx/transactors/token/ConfidentialMPTConvertBack.cpp "Source")
 
 Convert your confidential MPT balance back to a public balance. This debits the confidential spending balance and credits the public balance with the plaintext amount. For the issuer's _second account_, this returns confidential supply to the issuer account reserve.
 

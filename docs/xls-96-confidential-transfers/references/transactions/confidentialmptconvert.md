@@ -7,7 +7,7 @@ labels:
 ---
 # ConfidentialMPTConvert
 
-[[Source]](https://github.com/XRPLF/rippled/blob/ripple/confidential-transfer/src/xrpld/app/tx/detail/ConfidentialMPTConvert.cpp "Source")
+[[Source]](https://github.com/XRPLF/rippled/blob/eeb0d15ea97ed506c65406635edf301eff62a6fd/src/libxrpl/tx/transactors/token/ConfidentialMPTConvert.cpp "Source")
 
 Convert your public MPT balance to an encrypted confidential balance. The converted amount is credited to your confidential inbox balance, requiring an explicit [ConfidentialMPTMergeInbox transaction][] to merge it into your spending balance before use.
 

@@ -7,7 +7,7 @@ labels:
 ---
 # ConfidentialMPTClawback
 
-[[Source]](https://github.com/XRPLF/rippled/blob/ripple/confidential-transfer/src/xrpld/app/tx/detail/ConfidentialMPTClawback.cpp "Source")
+[[Source]](https://github.com/XRPLF/rippled/blob/eeb0d15ea97ed506c65406635edf301eff62a6fd/src/libxrpl/tx/transactors/token/ConfidentialMPTClawback.cpp "Source")
 
 Claw back a holder's _entire_ confidential balance, removing it from circulation.
 
