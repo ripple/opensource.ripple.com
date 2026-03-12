@@ -13,3 +13,11 @@
     - page: docs/xls-66-lending-protocol/index.page.tsx
     - page: docs/xls-65-single-asset-vault/index.page.tsx
     - page: docs/xls-56-batch-transactions/index.page.tsx
+    - group: 
+      page: docs/xls-94-dynamic-mpts/index.page.tsx
+      expanded: false
+      items:
+        - page: docs/xls-94-dynamic-mpts/dynamic-mpts.md
+          label: About Dynamic MPTs
+        - page: docs/xls-94-dynamic-mpts/reference.md
+          label: Reference Documentation

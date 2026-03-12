@@ -1,0 +1,197 @@
+---
+seo:
+    description: Create MPTs with the option of changing specific fields or flags.
+labels:
+  - Multi-Purpose Tokens (MPTs), MPT
+---
+# Dynamic MPT Reference
+
+The Dynamic MPT amendment does not create any new data types, but it modifies several transactions and the `MPTokenIssuance` ledger entry.
+
+- **Transactions:**
+    - [MPTokenIssuanceCreate](#mptokenissuancecreate-transaction-changes) - The new `MutableFlags` field specifies which fields or flags are mutable after issuance.
+    - [MPTokenIssuanceSet](#mptokenissuanceset-transaction-changes) - Several new fields let you update mutable metadata, transfer fees, and flags.
+- **Ledger Entries:**
+    - [MPTokenIssuance](#mptokenissuance-entry-changes) - The new `MutableFlags` field stores mutability settings.
+
+## MPTokenIssuanceCreate Transaction Changes
+
+To allow future changes to specific fields or flags of a token, issuers must clearly specify which ones should be mutable when creating the `MPTokenIssuance` object.
+
+### Example JSON
+
+This example creates an MPT issuance with mutable metadata:
+
+```json
+{
+  "TransactionType": "MPTokenIssuanceCreate",
+  "Account": "rNFta7UKwcoiCpxEYbhH2v92numE3cceB6",
+  "AssetScale": 4,
+  "TransferFee": 0,
+  "MaximumAmount": "50000000",
+  "Flags": 83659,
+  "MutableFlags": 65536, // tmfMPTCanMutateMetadata
+  "MPTokenMetadata": "464F4F",
+  "Fee": "12",
+  "Flags": 122,
+  "Sequence": 99536574
+}
+```
+
+### MPTokenIssuanceCreate Fields
+
+MPTokenIssuanceCreate transactions can include the following new field:
+
+| Field            | JSON Type           | [Internal Type][] | Required? | Description |
+|:-----------------|:--------------------|:------------------|:----------|-------------|
+| `MutableFlags`   | Number              | UInt32            | No        | Indicates specific fields or flags that are mutable after issuance. This is a bitwise combination of flags that determine mutability. See [MPTokenIssuanceCreate Mutable Flags](#mptokenissuancecreate-mutable-flags) |
+
+{% admonition type="warning" name="Warning" %}
+Only the specified fields and flags may be declared mutable; all other fields remain immutable.
+{% /admonition %}
+
+### MPTokenIssuanceCreate Mutable Flags
+
+The following flags are stored in the `MutableFlags` field, which is separate from the `Flags` field of the `MPTokenIssuanceCreate` transaction:
+
+| Flag Name                     | Hex Value    | Decimal Value | Description |
+|:----------------------------- |:-------------|:--------------|:------------|
+| `tmfMPTCanMutateCanLock`      | `0x00000002` | 2             | If enabled, the MPT's **Can Lock** flag, which gives the issuer the power to lock/unlock holders' balances, can change. |
+| `tmfMPTCanMutateRequireAuth`  | `0x00000004` | 4             | If enabled, the MPT's **Require Auth** flag, which indicates that individual holders must be authorized, can change. |
+| `tmfMPTCanMutateCanEscrow`    | `0x00000008` | 8             | If enabled, the MPT's **Can Escrow** flag, which indicates that the token can be placed in escrow, can change. |
+| `tmfMPTCanMutateCanTrade`     | `0x00000010` | 16            | If enabled, the MPT's **Can Trade** flag, which indicates that individual holders can trade their balances using the XRP Ledger DEX or AMM, can change. |
+| `tmfMPTCanMutateCanTransfer`  | `0x00000020` | 32            | If enabled, the MPT's **Can Transfer** flag, which indicates that tokens held by non-issuers can be transferred to other accounts, can change. |
+| `tmfMPTCanMutateCanClawback`  | `0x00000040` | 64            | If enabled, the MPT's **Can Clawback** flag, which indicates that the issuer can claw back value from individual holders, can change. |
+| `tmfMPTCanMutateMetadata`     | `0x00010000` | 65536         | If enabled, the `MPTokenMetadata` field, which stores additional information about the token, can change. |
+| `tmfMPTCanMutateTransferFee`  | `0x00020000` | 131072        | If enabled, the `TransferFee` field, which determines the fee percentage charged on transfers between users, can change. |
+
+### Error Cases
+
+The following failure conditions have been added to the `MPTokenIssuanceCreate` transaction:
+
+| Error Code         | Description |
+|:-------------------|:------------|
+| `temDISABLED`      | The `MutableFlags` field is present but the DynamicMPT amendment is not enabled. |
+| `temINVALID_FLAG`  | The `MutableFlags` field contains an invalid value. |
+
+## MPTokenIssuanceSet Transaction Changes
+
+When updating mutable flags, issuers can enable or disable any flag that was marked as mutable during the creation of the `MPTokenIssuance` object.
+
+### Example JSON
+
+This example udpates the MPT metadata:
+
+```json
+{
+  "TransactionType": "MPTokenIssuanceSet",
+  "Account": "rNFta7UKwcoiCpxEYbhH2v92numE3cceB6",
+  "MPTokenIssuanceID": "05EECEBE97A7D635DE2393068691A015FED5A89AD203F5AA",
+  "MPTokenMetadata": "575C5C", // Updated metadata from `464F4F` to `575C5C`
+  "Fee": "10",
+  "Flags": 1,
+  "Sequence": 99536577
+}
+```
+
+### MPTokenIssuanceSet Fields
+
+MPTokenIssuanceSet transactions can include the following new fields:
+
+| Field            | JSON Type           | [Internal Type][] | Required? | Description |
+|:-----------------|:--------------------|:------------------|:----------|-------------|
+| `MPTokenMetadata`| String              | Blob              | No        | New metadata to replace the existing value. Setting an empty value removes the field. Only valid if `lsmfMPTCanMutateMetadata` was set when creating the `MPTokenIssuance` object. |
+| `TransferFee`    | Number              | UInt16            | No        | The new transfer fee value. Setting this to zero removes the field. Only valid if `lsmfMPTCanMutateTransferFee` was enabled when creating the `MPTokenIssuance` object. See [Transfer Fee Rules](#transfer-fee-rules). |
+| `MutableFlags`   | Number              | UInt32            | No        | Set or clear flags that were marked as mutable when creating the `MPTokenIssuance` object. See [MPTokenIssuanceSet Mutable Flags](#mptokenissuanceset-mutable-flags). |
+
+### MPTokenIssuanceSet Mutable Flags
+
+The following flags are stored in the `MutableFlags` field, which is separate from the `Flags` field of the `MPTokenIssuanceSet` transaction:
+
+| Flag Name                  | Hex Value    | Decimal Value | Description |
+|:-------------------------- |:-------------|:--------------|:------------|
+| `tmfMPTSetCanLock`         | `0x00000001` | 1             | Enables the MPT's **Can Lock** flag, which allows the token to be locked both individually and globally. |
+| `tmfMPTClearCanLock`       | `0x00000002` | 2             | Disables the MPT's **Can Lock** flag, which prevents both individual and global locking of the token. |
+| `tmfMPTSetRequireAuth`     | `0x00000004` | 4             | Enables the MPT's **RequireAuth** flag, which requires individual holders to be authorized to hold the token. |
+| `tmfMPTClearRequireAuth`   | `0x00000008` | 8             | Disables the MPT's **RequireAuth** flag, which means holders don't need to be authorized to hold the token. |
+| `tmfMPTSetCanEscrow`       | `0x00000010` | 16            | Enables the MPT's **Can Escrow** flag, which allows holders to place balances into escrow. |
+| `tmfMPTClearCanEscrow`     | `0x00000020` | 32            | Disables the MPT's **Can Escrow** flag, which means holders can't place balances into escrow. |
+| `tmfMPTSetCanTrade`        | `0x00000040` | 64            | Enables the MPT's **Can Trade** flag, which allows holders to trade balances on the XRPL DEX. |
+| `tmfMPTClearCanTrade`      | `0x00000080` | 128           | Disables the MPT's **CanTrade** flag, which stops holders from trading balances on the XRPL DEX. |
+| `tmfMPTSetCanTransfer`     | `0x00000100` | 256           | Enables the MPT's **CanTransfer** flag, which allows tokens to be transferred to non-issuer accounts. |
+| `tmfMPTClearCanTransfer`   | `0x00000200` | 512           | Disables the MPT's **CanTransfer** flag, which means transfers to non-issuer accounts are not allowed. Note that when `CanTransfer` is disabled, the `TransferFee` field is automatically removed. |
+| `tmfMPTSetCanClawback`     | `0x00000400` | 1024          | Enables the MPT's **Can Clawback** flag, which allows the issuer to claw back tokens. |
+| `tmfMPTClearCanClawback`   | `0x00000800` | 2048          | Disables the MPT's **Can Clawback** flag, which means the token cannot be clawed back. |
+
+{% admonition type="info" name="Note" %}
+You cannot enable and disable the same setting in one transaction. For example, using both the `tmfMPTSetCanLock` flag and the `tmfMPTClearCanLock` flag is invalid.
+{% /admonition %}
+
+### Transfer Fee Rules
+
+The ability to modify the `TransferFee` depends on two flags:
+
+- `lsfMPTCanTransfer`: must already be enabled to allow any non-zero `TransferFee`. Note that this flag can be modified through `tmfMPTSetCanTransfer` or `tmfMPTClearCanTransfer` if `lsmfMPTCanMutateCanTransfer` is set.
+- `lsmfMPTCanMutateTransferFee`: must be enabled at creation of the MPT issuance to allow any modification of the `TransferFee` field.
+
+{% admonition type="info" name="Note" %}
+If the MPT's transfer fee and **Can Transfer** flag are both mutable, you can enable **Can Transfer** first, then modify the transfer fee in a second transaction.
+{% /admonition %}
+
+The following table describes how setting a zero or non-zero transfer fee through the `MPTokenIssuanceSet` transaction behaves, based on the existing state of the `MPTokenIssuance` object on-ledger. The first two columns represent the ledger state (`lsfMPTCanTransfer` and `lsmfMPTCanMutateTransferFee`), while the third column represents the `TransferFee` value being set in the transaction.
+
+| Can Transfer | Can Mutate Transfer Fee | Transfer Fee Value | Result | Description |
+|:-------------|:------------------------|:-------------------|:-------|:------------|
+| Disabled     | Enabled                 | Zero               | ✅     | Removes the `TransferFee` field. |
+| Disabled     | Disabled                | Zero               | ❌     | Not allowed to modify `TransferFee`. |
+| Disabled     | Enabled/Disabled        | Non-zero           | ❌     | Always invalid regardless of mutability. |
+| Enabled      | Enabled                 | Non-zero           | ✅     | Modifies the `TransferFee` field. |
+| Enabled      | Disabled                | Non-zero           | ❌     | Not allowed to modify `TransferFee`. |
+| Enabled      | Enabled                 | Zero               | ✅     | Removes the `TransferFee` field. |
+| Enabled      | Disabled                | Zero               | ❌     | Not allowed to modify `TransferFee`. |
+
+### Error Cases
+
+The following failure conditions have been added to the `MPTokenIssuanceSet` transaction:
+
+| Error Code            | Description |
+|:----------------------|:------------|
+| `tecNO_PERMISSION`    | The sender does not have permission to modify the specified field or flag. For example:<ul><li>The `MutableFlags` field attempts to modify a flag that was not declared as mutable during creation.</li><li>The `MPTokenMetadata` field is provided but `lsmfMPTCanMutateMetadata` was not set during creation.</li><li>The `TransferFee` field is provided but `lsmfMPTCanMutateTransferFee` was not set during creation.</li><li>A non-zero `TransferFee` is specified but `lsfMPTCanTransfer` is not currently enabled on the issuance.</li></ul> |
+| `temDISABLED`         | The `MutableFlags`, `MPTokenMetadata`, or `TransferFee` is present but the DynamicMPT amendment is not enabled. |
+| `temBAD_TRANSFER_FEE` | The `TransferFee` exceeds the maximum allowed value of 50,000. |
+| `temINVALID_FLAG`     | The `MutableFlags` field contains an invalid value, including `0`. You may also receive this error if both set and clear flags are specified for the same property (for example, both `tmfMPTSetCanLock` and `tmfMPTClearCanLock`). |
+| `temMALFORMED`        | The transaction is malformed. For example:<ul><li>The `Holder` field is provided when mutating the MPT issuance.</li><li>The `Flags` field is set when mutation fields (`MutableFlags`, `MPTokenMetadata`, or `TransferFee`) are present.</li><li>The `MPTokenMetadata` field exceeds the maximum length of 1024 bytes.</li><li>A non-zero `TransferFee` and `tmfMPTClearCanTransfer` are included in the same transaction.</li></ul> |
+
+## MPTokenIssuance Entry Changes
+
+MPTokenIssuance ledger entries can include the following new field:
+
+| Field            | JSON Type           | [Internal Type][] | Required? | Description |
+|:-----------------|:--------------------|:------------------|:----------|-------------|
+| `MutableFlags`   | Number              | UInt32            | No        | Indicates which fields or flags of this token issuance can be modified after creation. See [MPTokenIssuance Mutable Flags](#mptokenissuance-mutable-flags). |
+
+### MPTokenIssuance Mutable Flags
+
+The following flags are stored in the `MutableFlags` field, which is separate from the `Flags` field of the `MPTokenIssuance` ledger entry:
+
+| Flag Name                         | Hex Value    | Decimal Value | Description |
+|:--------------------------------- |:-------------|:--------------|:------------|
+| `lsmfMPTCanMutateCanLock`         | `0x00000002` | 2             | Indicates the **Can Lock** flag can be changed. |
+| `lsmfMPTCanMutateRequireAuth`     | `0x00000004` | 4             | Indicates the **Require Auth** flag can be changed. |
+| `lsmfMPTCanMutateCanEscrow`       | `0x00000008` | 8             | Indicates the **Can Escrow** flag can be changed. |
+| `lsmfMPTCanMutateCanTrade`        | `0x00000010` | 16            | Indicates the **Can Trade** flag can be changed. |
+| `lsmfMPTCanMutateCanTransfer`     | `0x00000020` | 32            | Indicates the **Can Transfer** flag can be changed. |
+| `lsmfMPTCanMutateCanClawback`     | `0x00000040` | 64            | Indicates the **Can Clawback** flag can be changed. |
+| `lsmfMPTCanMutateMetadata`        | `0x00010000` | 65536         | Allows the `MPTokenMetadata` field to be modified. |
+| `lsmfMPTCanMutateTransferFee`     | `0x00020000` | 131072        | Allows the `TransferFee` field to be modified. |
+
+## Amendment Information
+
+| Amendment                             | DynamicMPT |
+|:------------------------------------- |:---------- |
+| Amendment ID                          | `58E92F338758479C06084E1B6BA366BAD8F75E5329A7F0EEAFFFDA51E5106B7F` |
+| Status                                | In Development |
+| Default Vote (Latest stable release)  | No |
+| Pre-amendment functionality retired?  | No |
+
+{% raw-partial file="/docs/_snippets/common-links.md" /%}
