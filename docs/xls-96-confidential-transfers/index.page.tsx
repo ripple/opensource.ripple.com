@@ -39,7 +39,7 @@ export default function Page() {
     <LandingLayout>
       <LandingContainer>
         <FeatureHeader
-          title="XLS- 96 Confidential Transfers"
+          title="XLS-96 Confidential Transfers"
           subtitle="Private auditable transactions for Multi-Purpose Tokens (MPTs)."
         />
 

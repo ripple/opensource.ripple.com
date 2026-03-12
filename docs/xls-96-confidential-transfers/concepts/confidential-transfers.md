@@ -12,7 +12,7 @@ Confidential Transfers on the XRP Ledger allow Multi-Purpose Token (MPT) holders
 Public and confidential balances can coexist for the same token, meaning the same MPT can have some balances held publicly and others held privately. Token holders can convert their public balance to confidential form and back as needed.
 
 {% admonition type="info" name="Note" %}
-Confidential transfers are only available for direct payments between accounts. They do not work with the XRPL DEX, escrows, or checks.
+Confidential transfers are only available for direct payments between accounts. They do not work with other transaction types, such as those involving the XRPL DEX, escrows, or checks.
 {% /admonition %}
 
 _(Requires the [ConfidentialTransfers amendment][] {% not-enabled /%})_
@@ -40,7 +40,7 @@ A single confidential balance is represented by multiple parallel ciphertexts, e
 Public keys must be generated off-chain using EC-ElGamal over secp256k1 encryption.
 
 {% admonition type="info" name="Note" %}
-This encryption method is not considered quantum-safe. In future, the XRP Ledger may migrate to post-quantum friendly schemes, such as those based on lattice cryptography. The specific migration path and timeline for achieving quantum resistance remain an open area of research.
+This encryption method is not considered quantum-safe. In the future, the XRP Ledger may migrate to post-quantum friendly schemes, such as those based on lattice cryptography. The specific migration path and timeline for achieving quantum resistance remains an open area of research.
 {% /admonition %}
 
 #### Key Registration
@@ -79,9 +79,9 @@ To prevent the _stale proof_ problem, where an incoming transfer could invalidat
 - **Spending Balance:** A stable balance used to generate proofs for outgoing transactions.
 - **Inbox Balance:** Receives all incoming confidential transfers.
 
-When a holder receives a confidential transfer, the amount goes into their inbox. Before it can be spent, the holder must merge it into their spending balance using the [ConfidentialMPTMergeInbox transaction][]. If a merge is not explicitly performed, incoming funds accumulate in the inbox, remaining safe but unable to be spent until consolidated into the spending balance.
+When a holder receives a confidential transfer, the amount goes into their inbox. Before it can be spent, the holder must merge it into their spending balance using the [ConfidentialMPTMergeInbox transaction][]. If a merge is not explicitly performed, incoming funds accumulate in the inbox, remaining safe but unspendable until consolidated into the spending balance.
 
-After a merge, the inbox is reset to a deterministic "encrypted zero" value. This zero value is a valid ElGamal ciphertext that represents zero but is indistinguishable from other ciphertexts to observers without the private key.
+After a merge, the inbox is reset to a deterministic "encrypted zero" value. This zero value is a valid ElGamal ciphertext that represents zero, but is indistinguishable from other ciphertexts to observers without the private key.
 
 #### Version Counter
 

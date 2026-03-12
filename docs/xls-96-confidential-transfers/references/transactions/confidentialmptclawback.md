@@ -39,7 +39,7 @@ In addition to the [common fields](https://xrpl.org/docs/references/protocol/tra
 |:------------------------- |:--------- |:----------------- |:--------- |:------------|
 | `Holder`                  | String    | AccountID         | Yes       | The account from which funds are being clawed back. |
 | `MPTokenIssuanceID`       | String    | UInt192           | Yes       | The unique identifier for the MPT issuance. |
-| `MPTAmount`               | Number    | UInt64            | Yes       | The plaintext total amount being removed. |
+| `MPTAmount`               | String    | UInt64            | Yes       | The plaintext total amount being removed. |
 | `ZKProof`                 | String    | Blob              | Yes       | An Equality Proof validating the amount. |
 
 ## Error Cases

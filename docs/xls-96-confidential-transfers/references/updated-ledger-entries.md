@@ -33,7 +33,7 @@ In addition to the existing [MPTokenIssuance flags](https://xrpl.org/docs/refere
 | Flag Name                    | Hex Value    | Decimal Value | Description |
 | :--------------------------- |:------------ |:------------  |:------------|
 | `lsfMPTCanPrivacy`           | `0x00000080` | 128           |If enabled, indicates that confidential transfers and conversions are enabled for this token issuance. |
-| `lsmfMPTCannotMutatePrivacy` | `0x00040000` | 262144        |If enabled, the **Can Privacy** flag cannot be changed after the token is issued, permanently locking the confidentiality setting. |
+| `lsfMPTCannotMutatePrivacy` | `0x00040000` | 262144        |If enabled, the **Can Privacy** flag cannot be changed after the token is issued, permanently locking the confidentiality setting. |
 
 ## MPToken
 

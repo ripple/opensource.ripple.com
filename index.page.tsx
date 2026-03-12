@@ -66,7 +66,7 @@ export default function Page() {
           </Card> 
 
           <Card title="Confidential Transfers" to="docs/xls-96-confidential-transfers">
-            <p>Keep MPT balances and transaction amounts private using advanced cryptography while maintaining public auditability.</p>
+            <p>Keep MPT balances and transaction amounts private on the public ledger, while enabling MPT issuers and designated auditors to decrypt these values offchain.</p>
             <Button size="large" variant="primary">
               Learn more
             </Button>
