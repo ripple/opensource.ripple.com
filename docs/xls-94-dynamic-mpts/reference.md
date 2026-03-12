@@ -9,10 +9,10 @@ labels:
 The Dynamic MPT amendment does not create any new data types, but it modifies several transactions and the `MPTokenIssuance` ledger entry.
 
 - **Transactions:**
-    - [MPTokenIssuanceCreate](#mptokenissuancecreate-transaction-changes) - A new `MutableFlags` field is added to specify which fields or flags are mutable after issuance.
-    - [MPTokenIssuanceSet](#mptokenissuanceset-transaction-changes) - New fields have been added to update mutable metadata, transfer fees, and flags.
+    - [MPTokenIssuanceCreate](#mptokenissuancecreate-transaction-changes) - The new `MutableFlags` field specifies which fields or flags are mutable after issuance.
+    - [MPTokenIssuanceSet](#mptokenissuanceset-transaction-changes) - Several new fields let you update mutable metadata, transfer fees, and flags.
 - **Ledger Entries:**
-    - [MPTokenIssuance](#mptokenissuance-entry-changes) - A new `MutableFlags` field is added to store mutability settings.
+    - [MPTokenIssuance](#mptokenissuance-entry-changes) - The new `MutableFlags` field stores mutability settings.
 
 ## MPTokenIssuanceCreate Transaction Changes
 
@@ -76,7 +76,7 @@ The following failure conditions have been added to the `MPTokenIssuanceCreate` 
 
 ## MPTokenIssuanceSet Transaction Changes
 
-When updating mutable flags, issuers can set or clear any flag that was marked as mutable during the creation of the `MPTokenIssuance` object.
+When updating mutable flags, issuers can enable or disable any flag that was marked as mutable during the creation of the `MPTokenIssuance` object.
 
 ### Example JSON
 
@@ -124,7 +124,7 @@ The following flags are stored in the `MutableFlags` field, which is separate fr
 | `tmfMPTClearCanClawback`   | `0x00000800` | 2048          | Disables the MPT's **Can Clawback** flag, which means the token cannot be clawed back. |
 
 {% admonition type="info" name="Note" %}
-Enabling and disabling the same flag simultaneously will be rejected. For example, you cannot provide both `tmfMPTSetCanLock` and `tmfMPTClearCanLock`.
+You cannot enable and disable the same setting in one transaction. For example, using both the `tmfMPTSetCanLock` flag and the `tmfMPTClearCanLock` flag is invalid.
 {% /admonition %}
 
 ### Transfer Fee Rules
@@ -135,7 +135,7 @@ The ability to modify the `TransferFee` depends on two flags:
 - `lsmfMPTCanMutateTransferFee`: must be enabled at creation of the MPT issuance to allow any modification of the `TransferFee` field.
 
 {% admonition type="info" name="Note" %}
-If the MPT's transfer fee and **Can Transfer** flag are both mutable, you can enable **Can Transfer** first, then modify the transfer fee.
+If the MPT's transfer fee and **Can Transfer** flag are both mutable, you can enable **Can Transfer** first, then modify the transfer fee in a second transaction.
 {% /admonition %}
 
 The following table describes how setting a zero or non-zero transfer fee through the `MPTokenIssuanceSet` transaction behaves, based on the existing state of the `MPTokenIssuance` object on-ledger. The first two columns represent the ledger state (`lsfMPTCanTransfer` and `lsmfMPTCanMutateTransferFee`), while the third column represents the `TransferFee` value being set in the transaction.

@@ -14,7 +14,7 @@ import { Cards } from '@redocly/theme/markdoc/components/Cards/Cards';
 
 export const frontmatter = {
   seo: {
-    title: 'XLS-94d Dynamic MPTs',
+    title: 'XLS-94 Dynamic MPTs',
     description: "Dynamic Multi-Purpose Tokens (MPTs) allow issuers to create and update MPTs with dynamic metadata."
   }
 };
@@ -39,7 +39,7 @@ export default function Page() {
     <LandingLayout>
       <LandingContainer>
         <FeatureHeader 
-          title="XLS-94d Dynamic MPTs"
+          title="XLS-94 Dynamic MPTs"
           subtitle="Issue Multi-Purpose Tokens with modifiable properties."
         />
 
@@ -58,11 +58,11 @@ export default function Page() {
           <Card title="XLS Spec" to="https://xls.xrpl.org/xls/XLS-0094-dynamic-MPT.html">
             <p>Technical spec for the feature outlining requirements, design, and implementation details, currently in review.</p>
             <Button size="large" variant="primary">
-              Read the XLS Draft
+              Read the XLS Spec 
             </Button>
           </Card>
 
-          <Card title="Docs" to="/docs/xls-94d-dynamic-mpts/dynamic-mpts">
+          <Card title="Docs" to="/docs/xls-94-dynamic-mpts/dynamic-mpts">
             <p>Documentation on the feature, including how it works and why.</p>
             <Button size="large" variant="primary">
               Read the Docs
