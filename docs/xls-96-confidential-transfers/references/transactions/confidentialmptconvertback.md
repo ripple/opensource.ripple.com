@@ -47,7 +47,7 @@ In addition to the [common fields](https://xrpl.org/docs/references/protocol/tra
 | `MPTAmount`               | String    | UInt64            | Yes       | The plaintext amount to credit to the public balance. |
 | `HolderEncryptedAmount`   | String    | Blob              | Yes       | 66-byte Ciphertext to be subtracted from the holder's `sfConfidentialBalanceSpending`. |
 | `IssuerEncryptedAmount`   | String    | Blob              | Yes       | 66-byte Ciphertext to be subtracted from the issuer's mirror balance. |
-| `AuditorEncryptedAmount`  | String    | Blob              | No        | 66-byte Ciphertext for the auditor. Required if `sfAuditorElGamalPublicKey` is present on the issuance. |
+| `AuditorEncryptedAmount`  | String    | Blob              | No        | 66-byte Ciphertext for the auditor. Required if `sfAuditorEncryptionKey` is present on the issuance. |
 | `BlindingFactor`          | String    | Blob              | Yes       | The 32-byte scalar value used to encrypt the amount. Used by validators to verify the ciphertexts match the plaintext `MPTAmount`. |
 | `ZKProof`                 | String    | Blob              | Yes       | A bundle containing the Pedersen Linkage Proof (linking the ElGamal balance to the commitment) and the Range Proof. |
 | `BalanceCommitment`       | String    | Blob              | Yes       | A 33-byte cryptographic commitment to the user's confidential spending balance. |
@@ -63,7 +63,7 @@ Besides errors that can occur for all transactions, {% code-page-name /%} transa
 | `temBAD_CIPHERTEXT`     | Ciphertext lengths or formats are invalid. |
 | `temBAD_AMOUNT`         | `MPTAmount` is zero or greater than the maximum allowable supply. |
 | `tecOBJECT_NOT_FOUND`   | The `MPToken` or `MPTokenIssuance` does not exist. |
-| `tecNO_PERMISSION`      | One of the following occurred:<ul><li>The issuance does not have the **Can Privacy** flag.</li><li>The user's `MPToken` is missing the `ConfidentialBalanceSpending` or `HolderElGamalPublicKey` fields.</li><li>The issuance has `AuditorElGamalPublicKey` set but the transaction does not include `AuditorEncryptedAmount`.</li></ul> |
+| `tecNO_PERMISSION`      | One of the following occurred:<ul><li>The issuance does not have the **Can Confidential Amount** flag.</li><li>The user's `MPToken` is missing the `ConfidentialBalanceSpending` or `HolderEncryptionKey` fields.</li><li>The issuance has `AuditorEncryptionKey` set but the transaction does not include `AuditorEncryptedAmount`.</li></ul> |
 | `tecINSUFFICIENT_FUNDS` | The global `sfConfidentialOutstandingAmount` is less than the requested `MPTAmount`, or the user's confidential balance is insufficient. |
 | `tecBAD_PROOF`          | One of the following occurred:<ul><li>The `BlindingFactor` fails to verify the integrity of the ciphertexts.</li><li>The `ZKProof` fails the Pedersen Linkage check (proving the commitment matches the on-ledger balance).</li><li>The `ZKProof` fails the Range Proof (proving the remaining balance is non-negative).</li></ul> |
 | `tecLOCKED`             | The MPT asset is locked for the account, or the asset is globally locked. |

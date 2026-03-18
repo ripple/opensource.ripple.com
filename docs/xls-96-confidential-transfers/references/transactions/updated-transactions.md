@@ -20,17 +20,17 @@ _(Requires the [ConfidentialTransfers amendment][] {% not-enabled /%})_
 
 In addition to the existing [MPTokenIssuanceCreate flags](https://xrpl.org/docs/references/protocol/transactions/types/mptokenissuancecreate#mptokenissuancecreate-flags), confidential `MPTokenIssuanceCreate` transactions support:
 
-| Flag Name          | Hex Value    | Decimal Value | Description |
-|:-------------------|:-------------|:--------------|:------------|
-| `tfMPTCanPrivacy`  | `0x00000080` | 128           | If enabled, the MPT issuance supports confidential transfers. |
+| Flag Name                    | Hex Value    | Decimal Value | Description |
+|:-----------------------------|:-------------|:--------------|:------------|
+| `tfMPTCanConfidentialAmount` | `0x00000080` | 128           | If enabled, the MPT issuance supports confidential transfers. |
 
 ### MPTokenIssuanceCreate Mutable Flags
 
 Confidential MPTokenIssuanceCreate transactions support the following value in the `MutableFlags` field:
 
-| Flag Name                    | Hex Value    | Decimal Value | Description |
-|:-----------------------------|:-------------|:--------------|:------------|
-| `tmfMPTCannotMutatePrivacy`  | `0x00040000` | 262144        | If enabled, issuers cannot change the **Can Privacy** flag after the token is issued. |
+| Flag Name                                  | Hex Value    | Decimal Value | Description |
+|:-------------------------------------------|:-------------|:--------------|:------------|
+| `tmfMPTCannotMutateCanConfidentialAmount`  | `0x00040000` | 262144        | If enabled, issuers cannot change the **Can Confidential Amount** flag after the token is issued. |
 
 ## MPTokenIssuanceSet
 
@@ -42,8 +42,8 @@ In addition to the existing [MPTokenIssuanceSet](https://xrpl.org/docs/reference
 
 | Field                     | JSON Type            | [Internal Type][]  |  Required? | Description |
 |:------------------------- |:-------------------- |:------------------ |:---------- |:------------|
-| `IssuerElGamalPublicKey`  | String               | Blob               | No         | The 33-byte EC-ElGamal public key used for the issuer's mirror balances. |
-| `AuditorElGamalPublicKey` | String               | Blob               | No         | Optional 33-byte EC-ElGamal public key used for regulatory oversight. Must be provided together with `IssuerElGamalPublicKey` in the same transaction. |
+| `IssuerEncryptionKey`     | String               | Blob               | No         | The 33-byte EC-ElGamal public key used for the issuer's mirror balances. |
+| `AuditorEncryptionKey`    | String               | Blob               | No         | Optional 33-byte EC-ElGamal public key used for regulatory oversight. Must be provided together with `IssuerEncryptionKey` in the same transaction. |
 | `MutableFlags`            | Number               | UInt32             | No         | Flags to enable or disable mutable properties of the MPT issuance. |
 
 #### MPTokenIssuanceSet Mutable Flags
@@ -52,8 +52,8 @@ The `MutableFlags` field allows an issuer to enable or disable specific flags on
 
 | Flag Name            | Hex Value    | Decimal Value | Description |
 |:---------------------|:-------------|:--------------|:------------|
-| `tmfMPTSetPrivacy`   | `0x00001000` | 4096          | Enable confidential transfers for this MPT issuance by enabling the **Can Privacy** flag. Can only be used if the **Cannot Mutate Privacy** flag is _disabled_ and there is no existing confidential outstanding amount. |
-| `tmfMPTClearPrivacy` | `0x00002000` | 8192          | Disable confidential transfers for this MPT issuance by disabling the **Can Privacy** flag. Can only be used if the **Cannot Mutate Privacy** flag is disabled and there is no existing confidential outstanding amount. |
+| `tmfMPTSetCanConfidentialAmount`   | `0x00001000` | 4096          | Enable confidential transfers for this MPT issuance by enabling the **Can Confidential Amount** flag. Can only be used if the **Cannot Mutate Can Confidential Amount** flag is _disabled_ and there is no existing confidential outstanding amount. |
+| `tmfMPTClearCanConfidentialAmount` | `0x00002000` | 8192          | Disable confidential transfers for this MPT issuance by disabling the **Can Confidential Amount** flag. Can only be used if the **Cannot Mutate Can Confidential Amount** flag is disabled and there is no existing confidential outstanding amount. |
 
 ### Error Cases
 
@@ -61,8 +61,8 @@ Besides errors that can occur for all transactions, `MPTokenIssuanceSet` transac
 
 | Error Code | Description |
 |:-----------|:------------|
-| `temINVALID_FLAG` | Both `tmfMPTSetPrivacy` and `tmfMPTClearPrivacy` flags were specified in the same transaction, which is not allowed. |
-| `temMALFORMED` | The `AuditorElGamalPublicKey` was provided without `IssuerElGamalPublicKey`, or the public key length is incorrect (must be 33 bytes). |
-| `tecNO_PERMISSION` | One of the following occurred:<ul><li>Attempted to update a public key that has already been set.</li><li>Attempted to change the privacy flag when the **Cannot Mutate Privacy** flag is enabled.</li><li>Attempted to set public keys when the **Can Privacy** flag is disabled.</li><li>Attempted to change the privacy setting when confidential balances already exist.</li><li>Attempted to set public keys when the `ConfidentialOutstandingAmount` field is present.</li></ul> |
+| `temINVALID_FLAG` | Both `tmfMPTSetCanConfidentialAmount` and `tmfMPTClearCanConfidentialAmount` flags were specified in the same transaction, which is not allowed. |
+| `temMALFORMED` | The `AuditorEncryptionKey` was provided without `IssuerEncryptionKey`, or the public key length is incorrect (must be 33 bytes). |
+| `tecNO_PERMISSION` | One of the following occurred:<ul><li>Attempted to update a public key that has already been set.</li><li>Attempted to change the privacy flag when the **Cannot Mutate Can Confidential Amount** flag is enabled.</li><li>Attempted to set public keys when the **Can Confidential Amount** flag is disabled.</li><li>Attempted to change the privacy setting when confidential balances already exist.</li><li>Attempted to set public keys when the `ConfidentialOutstandingAmount` field is present.</li></ul> |
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}

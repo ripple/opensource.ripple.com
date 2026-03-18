@@ -143,14 +143,14 @@ Validators verify the proof provides cryptographic certainty that the plaintext 
 
 ## Privacy Controls
 
-Issuers can enable confidential features by setting the **Can Privacy** flag on an MPT issuance. This can be done either during the initial [MPTokenIssuanceCreate transaction](../references/transactions/updated-transactions.md#mptokenissuancecreate) or later using an [MPTokenIssuanceSet transaction](../references/transactions/updated-transactions.md#mptokenissuanceset).
+Issuers can enable confidential features by setting the **Can Confidential Amount** flag on an MPT issuance. This can be done either during the initial [MPTokenIssuanceCreate transaction](../references/transactions/updated-transactions.md#mptokenissuancecreate) or later using an [MPTokenIssuanceSet transaction](../references/transactions/updated-transactions.md#mptokenissuanceset).
 
 By default, the privacy setting is mutable, so it can be toggled on and off as long as no confidential balances exist. Once confidential balances exist, the flag can no longer be disabled.
 
 When enabling confidential transfers, the issuer must also register their ElGamal public key, and if required, an auditor's public key.
 
 {% admonition type="warning" name="Warning" %}
-If the issuer enables the **Cannot Mutate Privacy** flag at any time, the privacy setting becomes permanent and cannot be changed, even if no confidential balances exist.
+If the issuer enables the **Cannot Mutate Can Confidential Amount** flag at any time, the privacy setting becomes permanent and cannot be changed, even if no confidential balances exist.
 {% /admonition %}
 
 ## Managing Confidential Balances

@@ -49,7 +49,7 @@ In addition to the [common fields](https://xrpl.org/docs/references/protocol/tra
 | `ZKProof`                 | String    | Blob              | Yes       | ZKP bundle establishing equality, linkage, and range sufficiency. |
 | `AmountCommitment`        | String    | Blob              | Yes       | A cryptographic commitment to the amount being transferred. |
 | `BalanceCommitment`       | String    | Blob              | Yes       | A cryptographic commitment to the user's confidential spending balance. |
-| `AuditorEncryptedAmount`  | String    | Blob              | No        | Ciphertext for the auditor. Required if `sfAuditorElGamalPublicKey` is present on the issuance. |
+| `AuditorEncryptedAmount`  | String    | Blob              | No        | Ciphertext for the auditor. Required if `sfAuditorEncryptionKey` is present on the issuance. |
 | `CredentialIDs`           | Array     | Vector256         | No        | Array of Credential IDs. If present, the transaction can only succeed if the sender is authorized by credentials that match these IDs. |
 
 ## Error Cases
@@ -63,7 +63,7 @@ Besides errors that can occur for all transactions, {% code-page-name /%} transa
 | `temBAD_CIPHERTEXT`     | The `AuditorEncryptedAmount`, if present, has invalid length or represents an invalid elliptic curve point. |
 | `tecNO_TARGET`          | The destination account does not exist. |
 | `tecNO_AUTH`            | The issuance does not have the **Can Transfer** flag enabled. |
-| `tecNO_PERMISSION`      | The transaction lacks required permissions. This can occur if:<ul><li>The issuance does not have the **Can Privacy** flag enabled.</li><li>One of the participating accounts lacks a registered ElGamal public key or required confidential fields.</li><li>The destination account has Deposit Authorization enabled and the sender is not preauthorized.</li><li>The destination account requires credentials, but the transaction does not include valid matching credentials in the `CredentialIDs` field.</li></ul> |
+| `tecNO_PERMISSION`      | The transaction lacks required permissions. This can occur if:<ul><li>The issuance does not have the **Can Confidential Amount** flag enabled.</li><li>One of the participating accounts lacks a registered ElGamal public key or required confidential fields.</li><li>The destination account has Deposit Authorization enabled and the sender is not preauthorized.</li><li>The destination account requires credentials, but the transaction does not include valid matching credentials in the `CredentialIDs` field.</li></ul> |
 | `tecNO_ENTRY`           | A credential ID specified in `CredentialIDs` does not exist on the ledger. |
 | `tecEXPIRED`            | A credential specified in `CredentialIDs` has expired. |
 | `terFROZEN`             | Either the sender or receiver's balance is currently frozen. |

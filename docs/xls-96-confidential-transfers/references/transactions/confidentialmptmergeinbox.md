@@ -47,7 +47,7 @@ Besides errors that can occur for all transactions, {% code-page-name /%} transa
 | `temDISABLED`           | The ConfidentialTransfer amendment is not enabled. |
 | `temMALFORMED`          | The account submitting the transaction is the Issuer. |
 | `tecOBJECT_NOT_FOUND`   | The `MPTokenIssuance` or the user's `MPToken` object does not exist. |
-| `tecNO_PERMISSION`      | The issuance does not have the **Can Privacy** flag enabled, or the user's `MPToken` object has not been initialized (missing `sfConfidentialBalanceInbox` or `sfConfidentialBalanceSpending`). |
+| `tecNO_PERMISSION`      | The issuance does not have the **Can Confidential Amount** flag enabled, or the user's `MPToken` object has not been initialized (missing `sfConfidentialBalanceInbox` or `sfConfidentialBalanceSpending`). |
 | `tefINTERNAL`           | A system invariant failure where the issuer attempts to merge. |
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}

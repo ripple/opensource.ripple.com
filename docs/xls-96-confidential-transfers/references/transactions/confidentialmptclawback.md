@@ -53,7 +53,7 @@ Besides errors that can occur for all transactions, {% code-page-name /%} transa
 | `temBAD_AMOUNT`         | `MPTAmount` is zero or exceeds the maximum limits. |
 | `tecNO_TARGET`          | The `Holder` account does not exist. |
 | `tecOBJECT_NOT_FOUND`   | The `MPTokenIssuance` or the holder's `MPToken` object does not exist. |
-| `tecNO_PERMISSION`      | The transaction lacks the required permissions. This can occur if:<ul><li>The issuance does not have the **Can Clawback** flag set.</li><li>The issuance is missing the `sfIssuerElGamalPublicKey`.</li><li>The holder's `MPToken` is missing the `sfIssuerEncryptedBalance`.</li></ul> |
+| `tecNO_PERMISSION`      | The transaction lacks the required permissions. This can occur if:<ul><li>The issuance does not have the **Can Clawback** flag set.</li><li>The issuance is missing the `sfIssuerEncryptionKey`.</li><li>The holder's `MPToken` is missing the `sfIssuerEncryptedBalance`.</li></ul> |
 | `tecINSUFFICIENT_FUNDS` | The `MPTAmount` exceeds the global `sfConfidentialOutstandingAmount`. |
 | `tecBAD_PROOF`          | The ZKP fails to prove that the `sfIssuerEncryptedBalance` (the mirror balance) encrypts the plaintext `MPTAmount`. |
 
