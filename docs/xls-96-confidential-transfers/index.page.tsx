@@ -51,7 +51,7 @@ export default function Page() {
               <br /><br />
               <strong>Confidential Devnet:</strong> https://confidential.devnet.rippletest.net
               <br />
-              <strong>Devnet Faucet:</strong> https://confidential-faucet.devnet.rippletest.net/accounts
+              <strong>Devnet Faucet:</strong> https://confidential-faucet.devnet.rippletest.net
             </>
           }
           keyDates={keyDates}
