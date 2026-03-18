@@ -44,13 +44,23 @@ export default function Page() {
         />
 
         <FeatureContent
-          description="The Confidential Transfers feature provides institutional-grade privacy for Multi-Purpose Tokens using advanced cryptography (EC-ElGamal and ZKPs). Individual balances and transfer amounts remain shielded from the public ledger while maintaining compliance mechanisms for issuers and regulators to verify total supply and meet regulatory obligations."
+          description={
+            <>
+              The Confidential Transfers feature provides institutional-grade privacy for Multi-Purpose Tokens using advanced cryptography (EC-ElGamal and ZKPs).
+              Individual balances and transfer amounts remain shielded from the public ledger while maintaining compliance mechanisms for authorized parties (issuers, auditors, or designated entities) to verify total supply and meet regulatory obligations.
+              <br /><br />
+              <strong>Confidential Devnet:</strong> https://confidential.devnet.rippletest.net
+              <br />
+              <strong>Devnet Faucet:</strong> https://confidential-faucet.devnet.rippletest.net/accounts
+            </>
+          }
           keyDates={keyDates}
         />
 
-        <AmendmentTracker 
+        <AmendmentTracker
           amendmentId="2110E4A19966E2EF517C0A8C56A5F35099D7665B0BB89D7B126B30D50B86AAD5"
           xlsSpecDate="2026-01-15"
+          devnetDate="2025-12-01"
           onKeyDatesUpdate={handleKeyDatesUpdate}
         />
 
@@ -77,7 +87,7 @@ export default function Page() {
               Read the Docs
             </Button>
           </Card>
-          
+
         </Cards>
       </LandingContainer>
     </LandingLayout>

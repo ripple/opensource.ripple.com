@@ -11,6 +11,10 @@ labels:
 
 Convert your confidential MPT balance back to a public balance. This debits the confidential spending balance and credits the public balance with the plaintext amount. For the issuer's _second account_, this returns confidential supply to the issuer account reserve.
 
+{% admonition type="info" name="Note" %}
+Only the spending balance can be converted back. Amounts in the inbox must first be merged into the spending balance using [ConfidentialMPTMergeInbox][].
+{% /admonition %}
+
 _(Requires the [ConfidentialTransfers amendment][] {% not-enabled /%})_
 
 ## Example {% $frontmatter.seo.title %} JSON
@@ -20,7 +24,7 @@ _(Requires the [ConfidentialTransfers amendment][] {% not-enabled /%})_
   "TransactionType": "ConfidentialMPTConvertBack",
   "Account": "rUserAccount...",
   "MPTokenIssuanceID": "610F33...",
-  "MPTAmount": 500,
+  "MPTAmount": "500",
   "HolderEncryptedAmount": "AD3F...",
   "IssuerEncryptedAmount": "BC2E...",
   "AuditorEncryptedAmount": "C1A9...",
@@ -62,6 +66,6 @@ Besides errors that can occur for all transactions, {% code-page-name /%} transa
 | `tecNO_PERMISSION`      | One of the following occurred:<ul><li>The issuance does not have the **Can Privacy** flag.</li><li>The user's `MPToken` is missing the `ConfidentialBalanceSpending` or `HolderElGamalPublicKey` fields.</li><li>The issuance has `AuditorElGamalPublicKey` set but the transaction does not include `AuditorEncryptedAmount`.</li></ul> |
 | `tecINSUFFICIENT_FUNDS` | The global `sfConfidentialOutstandingAmount` is less than the requested `MPTAmount`, or the user's confidential balance is insufficient. |
 | `tecBAD_PROOF`          | One of the following occurred:<ul><li>The `BlindingFactor` fails to verify the integrity of the ciphertexts.</li><li>The `ZKProof` fails the Pedersen Linkage check (proving the commitment matches the on-ledger balance).</li><li>The `ZKProof` fails the Range Proof (proving the remaining balance is non-negative).</li></ul> |
-| `terFROZEN`             | The account or issuance is frozen. |
+| `tecLOCKED`             | The MPT asset is locked for the account, or the asset is globally locked. |
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}

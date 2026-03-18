@@ -9,9 +9,9 @@ labels:
 
 [[Source]](https://github.com/XRPLF/rippled/blob/eeb0d15ea97ed506c65406635edf301eff62a6fd/src/libxrpl/tx/transactors/token/ConfidentialMPTClawback.cpp "Source")
 
-Claw back a holder's _entire_ confidential balance, removing it from circulation.
+Claw back a holder's _entire_ confidential balance (inbox and spending), removing it from circulation.
 
-Unlike a regular [Clawback](https://xrpl.org/docs/references/protocol/transactions/types/clawback), confidential balances are encrypted, so the issuer must provide the plaintext amount to claw back and a Zero-Knowledge Proof (ZKP) validating the amount.
+Unlike a regular [Clawback](https://xrpl.org/docs/references/protocol/transactions/types/clawback), confidential balances are encrypted, so the issuer must provide the plaintext total amount to claw back and a Zero-Knowledge Proof (ZKP) validating the amount.
 
 _(Requires the [ConfidentialTransfers amendment][] {% not-enabled /%})_
 
@@ -23,7 +23,7 @@ _(Requires the [ConfidentialTransfers amendment][] {% not-enabled /%})_
   "Account": "rIssuerAccount...",
   "Holder": "rMaliciousHolder...",
   "MPTokenIssuanceID": "610F33B8EBF7EC795F822A454FB852156AEFE50BE0CB8326338A81CD74801864",
-  "MPTAmount": 1000,
+  "MPTAmount": "1000",
   "ZKProof": "a1b2...",
   "Fee": "12",
   "Sequence": 2470665,

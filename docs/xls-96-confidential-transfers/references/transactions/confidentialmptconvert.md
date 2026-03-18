@@ -26,7 +26,7 @@ _(Requires the [ConfidentialTransfers amendment][] {% not-enabled /%})_
   "TransactionType": "ConfidentialMPTConvert",
   "Account": "rBob...",
   "MPTokenIssuanceID": "610F33...",
-  "MPTAmount": 1000,
+  "MPTAmount": "1000",
   "HolderElGamalPublicKey": "038d...",
   "HolderEncryptedAmount": "AD3F...",
   "IssuerEncryptedAmount": "BC2E...",

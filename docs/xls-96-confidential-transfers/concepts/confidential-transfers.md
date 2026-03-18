@@ -25,7 +25,18 @@ The Confidential Transfers feature is built on three core design principles: iss
 
 Issuers introduce confidential tokens into circulation via a dedicated **second account** instead of their primary issuer account. The issuer's primary account cannot hold confidential balances because its balance doesn't count toward tokens in circulation.
 
-To issue confidential tokens, issuers fund their second account with a public balance, then use the second account to convert the public balance to confidential form using the [ConfidentialMPTConvert transaction][]. Because the XRP Ledger treats the second account as a regular _holder_, its balance counts towards tokens in circulation, which allows validators to enforce [supply caps](https://xrpl.org/docs/concepts/tokens/fungible-tokens/multi-purpose-tokens#supply-cap) without needing to decrypt confidential balances.
+To issue confidential tokens, issuers fund their second account with a public balance, then use the second account to convert the public balance to confidential form using the [ConfidentialMPTConvert transaction][].
+
+The flow to issue confidential tokens is as follows:
+
+1. The Issuer creates an MPT issuance.
+2. The Issuer creates a dedicated _second account_.
+3. The Issuer sends a public MPT amount to the dedicated _second account_.
+4. The dedicated _second account_ converts the public balance to a confidential balance.
+
+Because the XRP Ledger treats the second account as a regular _holder_, its balance counts towards tokens in circulation, which allows validators to enforce [supply caps](https://xrpl.org/docs/concepts/tokens/fungible-tokens/multi-purpose-tokens#supply-cap) without needing to decrypt confidential balances.
+
+In summary, this approach enables confidential distribution, where the issuer converts tokens once on the second account and distributes them directly to users, rather than requiring each holder to individually convert their balances from public to private.
 
 ### Multi-Ciphertext Architecture
 
@@ -51,7 +62,7 @@ Issuers and auditors register their keys when [enabling confidential transfers](
 
 {% admonition type="danger" name="Warning" %}
 **If a holder loses their private key, their confidential funds are permanently lost.**
-Issuer and auditor keys also cannot be changed once registered. They can only be cleared by disabling confidentiality entirely, which is only possible when no confidential balances exist.
+Issuer and auditor keys also cannot be changed or cleared once registered.
 {% /admonition %}
 
 #### Zero-Knowledge Proofs
@@ -138,7 +149,7 @@ By default, the privacy setting is mutable, so it can be toggled on and off as l
 
 When enabling confidential transfers, the issuer must also register their ElGamal public key, and if required, an auditor's public key.
 
-{% admonition type="info" name="Note" %}
+{% admonition type="warning" name="Warning" %}
 If the issuer enables the **Cannot Mutate Privacy** flag at any time, the privacy setting becomes permanent and cannot be changed, even if no confidential balances exist.
 {% /admonition %}
 
@@ -155,7 +166,7 @@ Token holders can manage confidential balances through four operations:
 - **Convert back to public:** The [ConfidentialMPTConvertBack transaction][] converts confidential tokens back to public form, making the amount visible on the ledger again.
 
 {% admonition type="info" name="Note" %}
-Confidential transactions are larger and more computationally expensive than standard MPT transactions due to the inclusion of encrypted ciphertexts and ZKPs.
+Confidential transactions are larger and more computationally expensive than standard MPT transactions due to the inclusion of encrypted ciphertexts and ZKPs. However, they currently **don't** incur a higher transaction fee.
 {% /admonition %}
 
 ## Amendment Status
