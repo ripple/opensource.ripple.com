@@ -48,7 +48,7 @@ In addition to the [common fields](https://xrpl.org/docs/references/protocol/tra
 | `HolderEncryptedAmount`   | String    | Blob              | Yes       | 66-byte Ciphertext to be subtracted from the holder's `sfConfidentialBalanceSpending`. |
 | `IssuerEncryptedAmount`   | String    | Blob              | Yes       | 66-byte Ciphertext to be subtracted from the issuer's mirror balance. |
 | `AuditorEncryptedAmount`  | String    | Blob              | No        | 66-byte Ciphertext for the auditor. Required if `sfAuditorEncryptionKey` is present on the issuance. |
-| `BlindingFactor`          | String    | Blob              | Yes       | The 32-byte scalar value used to encrypt the amount. Used by validators to verify the ciphertexts match the plaintext `MPTAmount`. |
+| `BlindingFactor`          | String    | UInt256           | Yes       | The 32-byte scalar value used to encrypt the amount. Used by validators to verify the ciphertexts match the plaintext `MPTAmount`. |
 | `ZKProof`                 | String    | Blob              | Yes       | A bundle containing the Pedersen Linkage Proof (linking the ElGamal balance to the commitment) and the Range Proof. |
 | `BalanceCommitment`       | String    | Blob              | Yes       | A 33-byte cryptographic commitment to the user's confidential spending balance. |
 

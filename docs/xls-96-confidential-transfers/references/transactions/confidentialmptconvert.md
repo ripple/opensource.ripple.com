@@ -50,7 +50,7 @@ In addition to the [common fields](https://xrpl.org/docs/references/protocol/tra
 | `HolderEncryptedAmount`   | String    | Blob              | Yes       | 66-byte ElGamal ciphertext credited to the holder's inbox balance. |
 | `IssuerEncryptedAmount`   | String    | Blob              | Yes       | 66-byte ElGamal ciphertext credited to the issuer's mirror balance. |
 | `AuditorEncryptedAmount`  | String    | Blob              | No        | A 66-byte ElGamal Ciphertext for the auditor. Required if `sfAuditorEncryptionKey` is present on the issuance. |
-| `BlindingFactor`          | String    | Blob              | Yes       | The 32-byte scalar value used to encrypt the amount. Used by validators to verify the ciphertexts match the plaintext `MPTAmount`. |
+| `BlindingFactor`          | String    | UInt256           | Yes       | The 32-byte scalar value used to encrypt the amount. Used by validators to verify the ciphertexts match the plaintext `MPTAmount`. |
 | `ZKProof`                 | String    | Blob              | No        | A Schnorr Proof of Knowledge. Required only when `HolderEncryptionKey` is present. |
 
 ## Error Cases
