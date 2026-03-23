@@ -5,6 +5,12 @@
 [amendment]: https://xrpl.org/docs/concepts/networks-and-servers/amendments
 [common fields]: https://xrpl.org/docs/references/protocol/transactions/common-fields/
 [common ledger entry fields]: https://xrpl.org/docs/references/protocol/ledger-data/common-fields/
+[ConfidentialMPTClawback transaction]: /docs/xls-96-confidential-transfers/references/transactions/confidentialmptclawback.md
+[ConfidentialMPTConvert transaction]: /docs/xls-96-confidential-transfers/references/transactions/confidentialmptconvert.md
+[ConfidentialMPTConvertBack transaction]: /docs/xls-96-confidential-transfers/references/transactions/confidentialmptconvertback.md
+[ConfidentialMPTMergeInbox transaction]: /docs/xls-96-confidential-transfers/references/transactions/confidentialmptmergeinbox.md
+[ConfidentialMPTSend transaction]: /docs/xls-96-confidential-transfers/references/transactions/confidentialmptsend.md
+[ConfidentialTransfers amendment]: https://xls.xrpl.org/xls/XLS-0096-confidential-mpt.html 
 [credentials]: https://xrpl.org/docs/concepts/decentralized-storage/credentials
 [EscrowFinish]: https://xrpl.org/docs/references/protocol/transactions/types/escrowfinish
 [`flags` field]: https://xrpl.org/docs/references/protocol/transactions/common-fields#flags-field
