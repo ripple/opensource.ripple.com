@@ -71,6 +71,13 @@ export default function Page() {
               Learn more
             </Button>
           </Card>
+
+          <Card title="Smart Escrows" to="docs/xls-100-smart-escrows">
+            <p>Create escrows with custom, programmable release conditions.</p>
+            <Button size="large" variant="primary">
+              Learn more
+            </Button>
+          </Card>
         </Cards>
       </LandingContainer>
 
