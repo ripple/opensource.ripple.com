@@ -11,6 +11,10 @@ status: not_enabled
 
 The Sponsored Fees and Reserves feature allows an account to pay transaction fees and reserve requirements on behalf of another account. The account that pays is called the _Sponsor_, and the account that benefits is called the _Sponsee_. Sponsees maintain full control over their keys and accounts while sponsors handle transaction submission and cover the associated costs.
 
+{% admonition type="info" name="Note" %}
+Sponsorship does not transfer XRP to the sponsee's wallet. The sponsor's XRP stays in the sponsor's account, and the ledger tracks which account is responsible for holding the reserve. This is not an "onramp" for the sponsee; it is a mechanism for the sponsor to cover costs on the sponsee's behalf.
+{% /admonition %}
+
 Without sponsorship, accounts must self-fund both transaction fees and reserves before they can transact on the XRP Ledger. Sponsorship provides a mechanism for entities with established XRP balances to subsidize these costs while maintaining strong on-chain accountability.
 
 Sponsorship enables several important use cases, including:
@@ -33,7 +37,7 @@ For example, consider Spencer (sponsor) who wants to cover costs for Alice (spon
 
 - **Co-signing**: Alice constructs her transaction and includes Spencer's account and sponsorship type. Spencer signs the transaction, Alice adds his signature, then signs and submits it herself. This gives Spencer fine-grained control over every sponsored transaction.
 
-- **Pre-funding**: Spencer submits a [SponsorshipSet transaction][] to allocate funds for Alice. From then on, Alice can submit transactions that reference Spencer as her sponsor without needing his signature each time. Spencer's involvement ends after the initial setup.
+- **Pre-funding**: Spencer submits a [SponsorshipSet transaction][] to allocate funds for Alice. This can cover both transaction fees and reserves for new objects, such as trust lines, escrows, or NFTs. From then on, Alice can submit transactions that reference Spencer as her sponsor without needing his signature each time. Spencer's involvement ends after the initial setup.
 
 ### Enabling Sponsorship and Covering Costs
 
