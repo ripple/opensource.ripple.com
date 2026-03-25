@@ -30,6 +30,10 @@ The `Sponsor` field may appear on the following ledger entry types:
 - `DID`
 - Any other ledger entry type that contributes to an account's owner reserve.
 
+{% admonition type="info" name="Note" %}
+NFTs are stored in `NFTokenPage` objects, not as individual ledger entries. When sponsoring NFTs, the `Sponsor` field applies to the entire `NFTokenPage`, which can hold up to 32 NFTs. All NFTs within a sponsored page share the **same** sponsor.
+{% /admonition %}
+
 ## AccountRoot Updates
 
 ### Example JSON

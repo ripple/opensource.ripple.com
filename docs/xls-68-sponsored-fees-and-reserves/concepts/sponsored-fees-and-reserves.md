@@ -93,9 +93,9 @@ The sponsee cannot unilaterally change the sponsorship type, and the sponsor's f
 
 Over time, sponsors may want to recoup their reserves, and sponsees may want to change sponsors or take on the reserve burden themselves. The [SponsorshipTransfer transaction][] supports three operations:
 
-- **End sponsorship**: Either the sponsor or sponsee can end a sponsorship at any time. The reserve burden returns to the object owner.
 - **Create sponsorship**: Only the sponsee can create a new sponsorship. The new sponsor provides their signature via the standard signing flow.
 - **Reassign sponsorship**: Only the sponsee can transfer an existing sponsorship to a new sponsor. The old sponsor is not directly involved.
+- **End sponsorship**: Either the sponsor or sponsee can end a sponsorship at any time. The reserve burden returns to the object owner.
 
 {% admonition type="warning" name="Warning" %}
 When transferring the reserve burden back to a sponsee, the sponsee must have enough XRP to cover the reserve. If they do not, and the sponsor needs to exit the relationship quickly, the sponsor can pay the sponsee the XRP needed. However, the sponsor will **not** get their reserve back.

@@ -69,22 +69,6 @@ When successful:
 - For objects, the owner's `SponsoredOwnerCount` is also incremented.
 {% /tab %}
 
-{% tab label="End Sponsorship" %}
-Use the `tfSponsorshipEnd` flag to dissolve an existing sponsorship. Either the sponsor or the sponsee can submit the transaction with this configuration. The reserve burden returns to the object or account owner.
-
-To submit a transaction for this scenario:
-
-- Provide the `ObjectID` when ending sponsorship for an object. Omit when ending sponsorship for an account.
-- The target object or account must currently be sponsored.
-- Do not include the `Sponsor` and the `SponsorFlags.spfSponsorReserve` flag.
-
-When successful:
-
-- The `Sponsor` field is removed from the object or account.
-- The old sponsor's `SponsoringOwnerCount` or `SponsoringAccountCount` is decremented.
-- For objects, the owner's `SponsoredOwnerCount` is also decremented.
-{% /tab %}
-
 {% tab label="Reassign Sponsorship" %}
 Use the `tfSponsorshipReassign` flag to transfer an existing sponsorship to a new sponsor specified in the `Sponsor` field. Only the sponsee can submit the transaction with this configuration.
 
@@ -101,6 +85,22 @@ When successful:
 - The `Sponsor` field is updated to the new sponsor.
 - The old sponsor's `SponsoringOwnerCount` or `SponsoringAccountCount` is decremented.
 - The new sponsor's `SponsoringOwnerCount` or `SponsoringAccountCount` is incremented.
+{% /tab %}
+
+{% tab label="End Sponsorship" %}
+Use the `tfSponsorshipEnd` flag to dissolve an existing sponsorship. Either the sponsor or the sponsee can submit the transaction with this configuration. The reserve burden returns to the object or account owner.
+
+To submit a transaction for this scenario:
+
+- Provide the `ObjectID` when ending sponsorship for an object. Omit when ending sponsorship for an account.
+- The target object or account must currently be sponsored.
+- Do not include the `Sponsor` and the `SponsorFlags.spfSponsorReserve` flag.
+
+When successful:
+
+- The `Sponsor` field is removed from the object or account.
+- The old sponsor's `SponsoringOwnerCount` or `SponsoringAccountCount` is decremented.
+- For objects, the owner's `SponsoredOwnerCount` is also decremented.
 {% /tab %}
 
 {% /tabs %}
