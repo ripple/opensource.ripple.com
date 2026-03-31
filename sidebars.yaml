@@ -42,3 +42,7 @@
                 - page: docs/xls-96-confidential-transfers/references/transactions/confidentialmptsend.md
                 - page: docs/xls-96-confidential-transfers/references/transactions/updated-transactions.md
             - page: docs/xls-96-confidential-transfers/references/updated-ledger-entries.md
+    - page: docs/xls-100-smart-escrows/index.page.tsx
+      expanded: false
+      items:
+        - page: docs/xls-100-smart-escrows/concepts/programmability.md

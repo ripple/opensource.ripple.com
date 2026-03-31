@@ -62,7 +62,7 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Docs" to="/docs/xls-100-smart-contracts/concepts/programmability">
+          <Card title="Docs" to="/docs/xls-100-smart-escrows/concepts/programmability">
             <p>Documentation on the feature, including how it works and why.</p>
             <Button size="large" variant="primary">
               Read the Docs
@@ -70,9 +70,9 @@ export default function Page() {
           </Card>
 
           <Card title="WASM Developer Docs" to="https://ripple.github.io/xrpl-wasm-stdlib/xrpl_wasm_stdlib/guide/index.html">
-            <p>Documentation on the feature, including how it works and why.</p>
+            <p>Docs for developing custom smart functions in Rust using the XRPL WASM standard library.</p>
             <Button size="large" variant="primary">
-              Read the Docs
+              Read WASM Developer Docs
             </Button>
           </Card>
         </Cards>
