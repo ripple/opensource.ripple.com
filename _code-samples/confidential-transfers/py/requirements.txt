@@ -1,0 +1,2 @@
+xrpl-py[confidential] @ git+https://github.com/XRPLF/xrpl-py.git@refs/pull/919/head
+# xrpl-py[confidential]==4.6.0b0
