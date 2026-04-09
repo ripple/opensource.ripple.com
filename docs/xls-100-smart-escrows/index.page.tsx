@@ -55,7 +55,7 @@ export default function Page() {
         />
 
         <Cards columns={3}>
-          <Card title="XLS Spec" to="https://xls.xrpl.org/xls/XLS-0101-smart-contracts.html">
+          <Card title="XLS Spec" to="https://xls.xrpl.org/xls/XLS-0100-smart-escrows.html">
             <p>Technical spec for the feature outlining requirements, design, and implementation details, currently in review.</p>
             <Button size="large" variant="primary">
               Read the XLS Spec 
