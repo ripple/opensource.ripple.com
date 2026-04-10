@@ -31,7 +31,8 @@ _(Requires the [Sponsor amendment][] {% not-enabled /%})_
 
 ## How Sponsorship Works
 
-XRP Ledger accounts can include signatures from sponsors in their transactions, allowing sponsors to pay the transaction cost and the reserve for any accounts or objects created in the transaction. Alternatively, sponsors can pre-fund fees or reserves if they do not want to co-sign every sponsored transaction.
+XRP Ledger accounts can be sponsored in one of two ways: **co-signing** or **pre-funding**.
+Co-signing requires sponsors to sign each transaction, allowing them to pay the transaction cost and the reserve for any accounts or objects created in the transaction. Pre-funding lets sponsors allocate funds in advance to cover fees and reserves so they do not need to sign every sponsored transaction.
 
 For example, consider Spencer (sponsor) who wants to cover costs for Alice (sponsee):
 
@@ -49,7 +50,7 @@ For a transaction to be sponsored, at least one of the following flags must be e
 If a transaction has **both** flags enabled, the sponsor pays for the fee and any reserves for newly created accounts or objects. Additionally, a single transaction cannot have different sponsors for the fee and the reserve; both must come from the same sponsor.
 
 {% admonition type="warning" name="Note" %}
-All transactions, other than pseudo-transactions, can use the `spfSponsorFee` flag since they all have a fee.
+All transactions, other than [pseudo-transactions](https://xrpl.org/docs/references/protocol/transactions/pseudo-transaction-types), can use the `spfSponsorFee` flag since they all have a fee.
 
 However, some transactions do not support the `spfSponsorReserve` flag:
 

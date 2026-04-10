@@ -4,8 +4,6 @@ This page describes changes to existing ledger entry types for Sponsored Fees an
 
 ## Common Ledger Entry Updates
 
-### Common Ledger Entry Fields
-
 A new `Sponsor` field is added to the [common ledger entry fields](https://xrpl.org/docs/references/protocol/ledger-data/common-fields):
 
 | Field Name | JSON Type | [Internal Type][] | Required? | Description |
@@ -105,6 +103,6 @@ NFTs are stored in `NFTokenPage` objects, not as individual ledger entries. When
 | `HighSponsor` | String    | AccountID         | No        | The sponsor paying the reserve on behalf of the _high account_ on the trust line. |
 | `LowSponsor`  | String    | AccountID         | No        | The sponsor paying the reserve on behalf of the _low account_ on the trust line. |
 
-The `HighSponsor` and `LowSponsor` fields are necessary because bidirectional trust lines may have the reserve held by two accounts.
+The `HighSponsor` and `LowSponsor` fields exist because bidirectional trust lines may have the reserve held by two accounts.
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}
