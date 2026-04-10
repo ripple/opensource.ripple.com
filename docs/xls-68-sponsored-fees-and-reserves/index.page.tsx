@@ -78,6 +78,18 @@ export default function Page() {
               Read the Docs
             </Button>
           </Card>
+
+          <Card
+            title="Security Audit"
+            to="https://github.com/fyeo-io/public-audit-reports/blob/main/Code%20Audit%20Reports/2026/Ripple/Ripple%20-%20Security%20Code%20Review%20of%20XRPL%20Sponsored%20Fees%20and%20Reserves%20v1.0.pdf"
+          >
+            <p>
+              The security audit performed by third-party security experts, including a link to the full, detailed security audit report.
+            </p>
+            <Button size="large" variant="primary">
+              Read the Security Audit Report
+            </Button>
+          </Card>
         </Cards>
       </LandingContainer>
     </LandingLayout>
