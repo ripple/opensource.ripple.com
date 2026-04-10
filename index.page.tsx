@@ -85,6 +85,13 @@ export default function Page() {
               Learn more
             </Button>
           </Card>
+
+          <Card title="MPT DEX Integration" to="docs/xls-82-mpt-dex">
+            <p>Trade Multi-Purpose Tokens on the XRP Ledger's decentralized exchange across offers, payments, AMM, and checks.</p>
+            <Button size="large" variant="primary">
+              Learn more
+            </Button>
+          </Card>
         </Cards>
       </LandingContainer>
 
