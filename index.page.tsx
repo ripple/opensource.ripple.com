@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Header1, Header2, LandingContainer, LandingLayout, Jumbotron, ButtonToXRPL } from "./components/landing";
+import { Header1, Header2, LandingContainer, LandingLayout, Jumbotron } from "./components/landing";
 import { Button } from "@redocly/theme";
 import { Card } from '@redocly/theme/markdoc/components/Cards/Card';
 import { Cards } from '@redocly/theme/markdoc/components/Cards/Cards';
