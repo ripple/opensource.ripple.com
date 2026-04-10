@@ -46,3 +46,31 @@
       expanded: false
       items:
         - page: docs/xls-100-smart-escrows/concepts/programmability.md
+    - group: XLS-68 Sponsored Fees and Reserves
+      page: docs/xls-68-sponsored-fees-and-reserves/index.page.tsx
+      items:
+        - group: Concepts
+          expanded: false
+          items:
+            - page: docs/xls-68-sponsored-fees-and-reserves/concepts/sponsored-fees-and-reserves.md
+        - group: References
+          expanded: false
+          items:
+            - group: Ledger Entries
+              expanded: false
+              items:
+                - page: docs/xls-68-sponsored-fees-and-reserves/references/ledger-entries/sponsorship.md
+                - page: docs/xls-68-sponsored-fees-and-reserves/references/ledger-entries/updated-ledger-entries.md
+            - group: Transactions
+              expanded: false
+              items:
+                - page: docs/xls-68-sponsored-fees-and-reserves/references/transactions/sponsorshipset.md
+                - page: docs/xls-68-sponsored-fees-and-reserves/references/transactions/sponsorshiptransfer.md
+                - page: docs/xls-68-sponsored-fees-and-reserves/references/transactions/updated-common-transaction-fields.md
+                - page: docs/xls-68-sponsored-fees-and-reserves/references/transactions/updated-transactions.md
+            - group: APIs
+              expanded: false
+              items:
+                - page: docs/xls-68-sponsored-fees-and-reserves/references/apis/account_sponsoring.md
+                - page: docs/xls-68-sponsored-fees-and-reserves/references/apis/updated-apis.md
+            - page: docs/xls-68-sponsored-fees-and-reserves/references/updated-permission-values.md
