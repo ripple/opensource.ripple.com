@@ -74,5 +74,11 @@
                 - page: docs/xls-68-sponsored-fees-and-reserves/references/apis/account_sponsoring.md
                 - page: docs/xls-68-sponsored-fees-and-reserves/references/apis/updated-apis.md
             - page: docs/xls-68-sponsored-fees-and-reserves/references/updated-permission-values.md
-
+        - group: Tutorials
+          expanded: false
+          items:
+            - page: docs/xls-68-sponsored-fees-and-reserves/tutorials/sponsor-a-transaction.md
+            - page: docs/xls-68-sponsored-fees-and-reserves/tutorials/sponsor-a-transaction-with-a-pre-funded-pool.md
+            - page: docs/xls-68-sponsored-fees-and-reserves/tutorials/transfer-a-reserve-sponsorship.md
+            - page: docs/xls-68-sponsored-fees-and-reserves/tutorials/manage-a-sponsorship-pool.md
     - page: docs/xls-82-mpt-dex/index.page.tsx
