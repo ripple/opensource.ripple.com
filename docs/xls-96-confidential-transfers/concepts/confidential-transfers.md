@@ -69,17 +69,13 @@ Issuer and auditor keys also cannot be changed or cleared once registered.
 
 The XRP Ledger relies on a set of ZKPs to validate confidential transactions without revealing balances or transfer amounts. The following proof types are used:
 
-- **Schnorr Proof of Knowledge**: Proves ownership of the private key is associated with the ElGamal public key.
+- **Schnorr Proof of Knowledge:** Proves ownership of the private key associated with an ElGamal public key. Required when a holder first registers their encryption key.
 
-- **Plaintext–ciphertext equality proofs:** Prove that a publicly known amount is correctly encrypted.
+- **Compact sigma proofs:** Cryptographic proofs, also called _AND-composed compact sigma proofs_, that bundle multiple zero-knowledge statements into a single fixed-size proof verified in one pass. Each confidential transaction type uses its own dedicated compact sigma proof to verify that encrypted values are consistent and correctly linked.
 
-- **Plaintext equality proofs:** Prove that multiple ciphertexts encrypt the same plaintext value, ensuring consistency of a confidential amount across the sender, receiver, issuer, and optional auditor.
+- **Range proofs (Bulletproofs):** Prove that confidential amounts and post-transfer balances are non-negative and within a valid range, preventing overspending.
 
-- **ElGamal–Pedersen equality proofs:** Link encrypted values to Pedersen commitments, allowing confidential amounts and balances to be used as inputs to range proofs without revealing the underlying values.
-
-- **Range proofs:** Prove that confidential amounts and post-transfer balances are within valid ranges, enforcing non-negativity and preventing overspending.
-
-Validators can verify confidential transactions by checking these cryptographic proofs without ever learning the underlying amounts. For example, when a holder sends tokens confidentially, the transaction includes encrypted values and proofs that mathematically demonstrate: the sender has sufficient balance, the amount is non-negative, and all encrypted amounts (holder, issuer, auditor) represent the same value.
+Validators can verify confidential transactions by checking these cryptographic proofs without ever learning the underlying amounts. For example, when a holder sends tokens confidentially, the transaction includes encrypted values and proofs that mathematically demonstrate: the sender has sufficient balance, the amount is non-negative, and all encrypted copies of the transfer amount are consistent across the sender, receiver, issuer, and optional auditor.
 
 Validators can only check the mathematical correctness of these proofs to ensure the transaction is valid, but cannot see the actual amounts involved.
 
@@ -147,7 +143,7 @@ Issuers can enable confidential features by setting the **Can Confidential Amoun
 
 By default, the privacy setting is mutable, so it can be toggled on and off as long as no confidential balances exist. Once confidential balances exist, the flag can no longer be disabled.
 
-When enabling confidential transfers, the issuer must also register their ElGamal public key, and if required, an auditor's public key.
+When enabling confidential transfers, the issuer must also register their ElGamal public key, and if required, an auditor's public key. The MPT issuance must have a transfer fee of **0**, since transfer fees cannot be applied to encrypted amounts. If the issuance has a non-zero transfer fee, the issuer must remove it before enabling confidential transfers.
 
 {% admonition type="warning" name="Warning" %}
 If the issuer enables the **Cannot Mutate Can Confidential Amount** flag at any time, the privacy setting becomes permanent and cannot be changed, even if no confidential balances exist.

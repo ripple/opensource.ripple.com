@@ -60,7 +60,7 @@ Besides errors that can occur for all transactions, {% code-page-name /%} transa
 | Error Code              | Description |
 |:----------------------- |:----------- |
 | `temDISABLED`           | The ConfidentialTransfers amendment is not enabled. |
-| `temMALFORMED`          | The transaction is malformed for one of the following reasons:<ul><li>`HolderEncryptionKey` is provided but `ZKProof` is not.</li><li>`HolderEncryptionKey` is not provided but `ZKProof` is.</li><li>`HolderEncryptionKey` length is not exactly 64 bytes.</li><li>`BlindingFactor` length is not 32 bytes.</li><li>`ZKProof` length is not 65 bytes.</li></ul> |
+| `temMALFORMED`          | The transaction is malformed for one of the following reasons:<ul><li>`HolderEncryptionKey` is provided but `ZKProof` is not.</li><li>`HolderEncryptionKey` is not provided but `ZKProof` is.</li><li>`HolderEncryptionKey` length is not exactly 33 bytes.</li><li>`BlindingFactor` length is not 32 bytes.</li><li>`ZKProof` length is not 64 bytes.</li></ul> |
 | `temBAD_AMOUNT`         | The `MPTAmount` is less than 0 or exceeds the maximum allowable MPT amount. |
 | `temBAD_CIPHERTEXT`     | One or more encrypted amount fields (`HolderEncryptedAmount`, `IssuerEncryptedAmount`, or `AuditorEncryptedAmount`) have incorrect length or represent an invalid elliptic curve point. |
 | `tecNO_PERMISSION`      | The issuance has `sfAuditorEncryptionKey` set, but the transaction does not include `sfAuditorEncryptedAmount`. |

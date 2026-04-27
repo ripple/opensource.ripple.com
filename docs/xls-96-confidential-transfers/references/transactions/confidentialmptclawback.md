@@ -40,7 +40,7 @@ In addition to the [common fields](https://xrpl.org/docs/references/protocol/tra
 | `Holder`                  | String    | AccountID         | Yes       | The account from which funds are being clawed back. |
 | `MPTokenIssuanceID`       | String    | UInt192           | Yes       | The unique identifier for the MPT issuance. |
 | `MPTAmount`               | String    | UInt64            | Yes       | The plaintext total amount being removed. |
-| `ZKProof`                 | String    | Blob              | Yes       | An Equality Proof validating the amount. |
+| `ZKProof`                 | String    | Blob              | Yes       | A 64-byte compact Clawback sigma proof that proves the issuer's on-ledger encrypted balance mirror (`sfIssuerEncryptedBalance`) encrypts the plaintext `MPTAmount`. |
 
 ## Error Cases
 
