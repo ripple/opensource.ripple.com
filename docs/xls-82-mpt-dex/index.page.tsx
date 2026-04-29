@@ -14,7 +14,7 @@ import { Cards } from '@redocly/theme/markdoc/components/Cards/Cards';
 export const frontmatter = {
   seo: {
     title: 'XLS-82 MPT DEX Integration',
-    description: "Adds Multi-Purpose Token (MPT) support for the XRPL decentralized exchange, including offers, cross-currency payments, checks, and AMM."
+    description: "Adds Multi-Purpose Token (MPT) support for the XRPL decentralized exchange and related transactions, including offers, cross-currency payments, AMM, and checks."
   }
 };
 
@@ -43,13 +43,13 @@ export default function Page() {
         />
 
         <FeatureContent 
-          description="The MPT DEX Integration amendment extends the XRPL's decentralized exchange to natively support Multi-Purpose Tokens (MPTs) as a tradeable asset class. MPTs can be paired with XRP, trust line tokens, or other MPTs across existing DEX transactions such as OfferCreate, Payment, AMM, and Checks."
+          description="The MPT DEX Integration amendment extends the XRPL's decentralized exchange to natively support Multi-Purpose Tokens (MPTs) as a tradeable asset class. MPTs can be paired with XRP, trust line tokens, or other MPTs across existing DEX transactions such as OfferCreate, Payment, and AMM."
           keyDates={keyDates}
         />
 
         <AmendmentTracker 
           amendmentId="BE2D87DF21B690ED1497B593FDC013CC04276302380B1BD50A033DCF8DEFB2EB"
-          xlsSpecDate="2024-09-19"
+          xlsSpecDate="2026-04-07"
           onKeyDatesUpdate={handleKeyDatesUpdate}
         />
 
