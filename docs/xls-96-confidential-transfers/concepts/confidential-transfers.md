@@ -161,8 +161,15 @@ Token holders can manage confidential balances through four operations:
 
 - **Convert back to public:** The [ConfidentialMPTConvertBack transaction][] converts confidential tokens back to public form, making the amount visible on the ledger again.
 
+<!-- TODO: When moving to xrpl.org, add the confidential MPT fee rows to the Special Transaction Costs table: https://xrpl.org/docs/concepts/transactions/transaction-cost#special-transaction-costs -->
 {% admonition type="info" name="Note" %}
-Confidential transactions are larger and more computationally expensive than standard MPT transactions due to the inclusion of encrypted ciphertexts and ZKPs. However, they currently **don't** incur a higher transaction fee.
+Confidential transactions are larger and more computationally expensive than standard MPT transactions due to the inclusion of encrypted ciphertexts and ZKPs. They incur a higher [transaction cost](https://xrpl.org/docs/concepts/transactions/transaction-cost) than standard transactions:
+
+| Transaction                                  | Cost Before Load Scaling |
+|:---------------------------------------------|:------------------------ |
+| Confidential MPT Transaction (single-signed) | 10 drops × 10 |
+| Confidential MPT Transaction (multi-signed)  | 10 drops × (10 + Number of Signatures Provided) |
+
 {% /admonition %}
 
 ## Amendment Status
