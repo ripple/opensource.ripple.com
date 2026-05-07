@@ -40,7 +40,7 @@ In addition to the [common fields](https://xrpl.org/docs/references/protocol/tra
 | `Holder`                  | String    | AccountID         | Yes       | The account from which funds are being clawed back. |
 | `MPTokenIssuanceID`       | String    | UInt192           | Yes       | The unique identifier for the MPT issuance. |
 | `MPTAmount`               | String    | UInt64            | Yes       | The plaintext total amount being removed. |
-| `ZKProof`                 | String    | Blob              | Yes       | A 64-byte compact Clawback sigma proof that proves the issuer's on-ledger encrypted balance mirror (`sfIssuerEncryptedBalance`) encrypts the plaintext `MPTAmount`. |
+| `ZKProof`                 | String    | Blob              | Yes       | A 64-byte compact Clawback sigma proof that proves the issuer's on-ledger balance mirror (`IssuerEncryptedBalance`) decrypts to the plaintext total amount (`MPTAmount`) being clawed back. |
 
 ## Error Cases
 
@@ -53,8 +53,8 @@ Besides errors that can occur for all transactions, {% code-page-name /%} transa
 | `temBAD_AMOUNT`         | `MPTAmount` is zero or exceeds the maximum limits. |
 | `tecNO_TARGET`          | The `Holder` account does not exist. |
 | `tecOBJECT_NOT_FOUND`   | The `MPTokenIssuance` or the holder's `MPToken` object does not exist. |
-| `tecNO_PERMISSION`      | The transaction lacks the required permissions. This can occur if:<ul><li>The issuance does not have the **Can Clawback** flag set.</li><li>The issuance is missing the `sfIssuerEncryptionKey`.</li><li>The holder's `MPToken` is missing the `sfIssuerEncryptedBalance`.</li></ul> |
-| `tecINSUFFICIENT_FUNDS` | The `MPTAmount` exceeds the global `sfConfidentialOutstandingAmount`. |
-| `tecBAD_PROOF`          | The ZKP fails to prove that the `sfIssuerEncryptedBalance` (the mirror balance) encrypts the plaintext `MPTAmount`. |
+| `tecNO_PERMISSION`      | The transaction lacks the required permissions. This can occur if:<ul><li>The issuance does not have the **Can Clawback** flag set.</li><li>The issuance is missing the `IssuerEncryptionKey`.</li><li>The holder's `MPToken` is missing the `IssuerEncryptedBalance`.</li></ul> |
+| `tecINSUFFICIENT_FUNDS` | The `MPTAmount` exceeds the global `ConfidentialOutstandingAmount`. |
+| `tecBAD_PROOF`          | The ZKP fails to prove that the `IssuerEncryptedBalance` (the mirror balance) encrypts the plaintext `MPTAmount`. |
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}

@@ -49,7 +49,7 @@ In addition to the [common fields](https://xrpl.org/docs/references/protocol/tra
 | `ZKProof`                 | String    | Blob              | Yes       | A 946-byte proof bundle containing a compact Send sigma proof and an aggregated Bulletproof range proof. See [Proof Structure](#proof-structure) for details. |
 | `AmountCommitment`        | String    | Blob              | Yes       | A cryptographic commitment to the amount being transferred. |
 | `BalanceCommitment`       | String    | Blob              | Yes       | A cryptographic commitment to the user's confidential spending balance. |
-| `AuditorEncryptedAmount`  | String    | Blob              | No        | Ciphertext for the auditor. Required if `sfAuditorEncryptionKey` is present on the issuance. |
+| `AuditorEncryptedAmount`  | String    | Blob              | No        | Ciphertext for the auditor. Required if `AuditorEncryptionKey` is present on the issuance. |
 | `CredentialIDs`           | Array     | Vector256         | No        | Array of Credential IDs. If present, the transaction can only succeed if the sender is authorized by credentials that match these IDs. |
 
 ## Proof Structure
