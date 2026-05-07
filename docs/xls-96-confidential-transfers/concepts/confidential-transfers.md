@@ -75,7 +75,10 @@ The XRP Ledger relies on a set of ZKPs to validate confidential transactions wit
 
 - **Range proofs (Bulletproofs):** Prove that confidential amounts and post-transfer balances are non-negative and within a valid range, preventing overspending.
 
-Validators can verify confidential transactions by checking these cryptographic proofs without ever learning the underlying amounts. For example, when a holder sends tokens confidentially, the transaction includes encrypted values and proofs that mathematically demonstrate: the sender has sufficient balance, the amount is non-negative, and all encrypted copies of the transfer amount are consistent across the sender, receiver, issuer, and optional auditor.
+Validators can verify confidential transactions by checking these cryptographic proofs without ever learning the underlying amounts. For example, when a holder sends tokens confidentially, the transaction includes encrypted values and proofs that mathematically demonstrate:
+- The sender has sufficient balance.
+- The amount is non-negative.
+- All encrypted copies of the transfer amount are consistent across the sender, receiver, issuer, and optional auditor.
 
 Validators can only check the mathematical correctness of these proofs to ensure the transaction is valid, but cannot see the actual amounts involved.
 
@@ -167,7 +170,7 @@ Confidential transactions are larger and more computationally expensive than sta
 
 | Transaction                                  | Cost Before Load Scaling |
 |:---------------------------------------------|:------------------------ |
-| Confidential MPT Transaction (single-signed) | 10 drops × 10 |
+| Confidential MPT Transaction (single-signed) | 100 drops |
 | Confidential MPT Transaction (multi-signed)  | 10 drops × (10 + Number of Signatures Provided) |
 
 {% /admonition %}
