@@ -138,6 +138,14 @@ While issuers retain the same [compliance controls](https://xrpl.org/docs/concep
 
 The [ConfidentialMPTClawback transaction][] allows issuers to claw back a holder's **entire** confidential balance. Off-chain, the issuer decrypts their mirror copy of the holder's balance and generates a cryptographic proof validating the plaintext amount. The issuer then submits the transaction with the plaintext amount and proof.
 
+{% admonition type="danger" name="Warning" %}
+The clawback proof can become stale if a holder's confidential balance changes between proof generation and validation. To ensure proof correctness and state consistency so the transaction doesn't fail on-ledger, issuers should follow the recommended flow for confidential clawbacks:
+
+1. [Lock](https://xrpl.org/docs/concepts/tokens/fungible-tokens/deep-freeze#how-does-mpt-freezelock-behavior-differ-from-iou) the MPT issuance for the holder by sending an [MPTokenIssuanceSet transaction](https://xrpl.org/docs/references/protocol/transactions/types/mptokenissuanceset) with the `tfMPTLock` flag enabled.
+2. Submit the ConfidentialMPTClawback transaction.
+
+{% /admonition %}
+
 Validators verify the proof provides cryptographic certainty that the plaintext amount matches the encrypted balance. If valid, both the holder's spending and inbox balances are set to encrypted zero, the version counter is reset to 0, and the clawed back tokens are removed from circulation.
 
 ## Privacy Controls

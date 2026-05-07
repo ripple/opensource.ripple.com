@@ -13,6 +13,10 @@ Claw back a holder's _entire_ confidential balance (inbox and spending), removin
 
 Unlike a regular [Clawback](https://xrpl.org/docs/references/protocol/transactions/types/clawback), confidential balances are encrypted, so the issuer must provide the plaintext total amount to claw back and a Zero-Knowledge Proof (ZKP) validating the amount.
 
+{% admonition type="danger" name="Warning" %}
+Issuers should **lock** the MPT issuance for the holder before submitting this transaction to ensure state consistency during proof verification. See [Confidential Clawback](../../concepts/confidential-transfers#confidential-clawback).
+{% /admonition %}
+
 _(Requires the [ConfidentialTransfers amendment][] {% not-enabled /%})_
 
 ## Example {% $frontmatter.seo.title %} JSON
