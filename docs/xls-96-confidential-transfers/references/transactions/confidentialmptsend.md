@@ -46,11 +46,23 @@ In addition to the [common fields](https://xrpl.org/docs/references/protocol/tra
 | `SenderEncryptedAmount`   | String    | Blob              | Yes       | Ciphertext used to homomorphically debit the sender's spending balance. |
 | `DestinationEncryptedAmount` | String | Blob              | Yes       | Ciphertext credited to the receiver's inbox balance. |
 | `IssuerEncryptedAmount`   | String    | Blob              | Yes       | Ciphertext used to update the issuer mirror balance. |
-| `ZKProof`                 | String    | Blob              | Yes       | ZKP bundle establishing equality, linkage, and range sufficiency. |
+| `ZKProof`                 | String    | Blob              | Yes       | A 946-byte proof bundle containing a compact Send sigma proof and an aggregated Bulletproof range proof. See [Proof Structure](#proof-structure) for details. |
 | `AmountCommitment`        | String    | Blob              | Yes       | A cryptographic commitment to the amount being transferred. |
 | `BalanceCommitment`       | String    | Blob              | Yes       | A cryptographic commitment to the user's confidential spending balance. |
-| `AuditorEncryptedAmount`  | String    | Blob              | No        | Ciphertext for the auditor. Required if `sfAuditorEncryptionKey` is present on the issuance. |
+| `AuditorEncryptedAmount`  | String    | Blob              | No        | Ciphertext for the auditor. Required if `AuditorEncryptionKey` is present on the issuance. |
 | `CredentialIDs`           | Array     | Vector256         | No        | Array of Credential IDs. If present, the transaction can only succeed if the sender is authorized by credentials that match these IDs. |
+
+## Proof Structure
+
+The `ZKProof` field contains a 946-byte bundle made up of two parts:
+
+- A **compact Send sigma proof (192 bytes)** which simultaneously verifies:
+
+  - **Ciphertext consistency:** All encrypted copies of the transfer amount (sender, receiver, issuer, and optional auditor) encrypt the same value.
+  - **Amount linkage:** The `AmountCommitment` commits to the same transfer amount as the ciphertexts.
+  - **Balance linkage:** The `BalanceCommitment` encodes the same spending balance as the sender's on-ledger encrypted balance.
+
+- An **aggregated Bulletproof range proof (754 bytes)** which verifies that both the transfer amount and the remaining balance are non-negative.
 
 ## Error Cases
 
@@ -67,6 +79,6 @@ Besides errors that can occur for all transactions, {% code-page-name /%} transa
 | `tecNO_ENTRY`           | A credential ID specified in `CredentialIDs` does not exist on the ledger. |
 | `tecEXPIRED`            | A credential specified in `CredentialIDs` has expired. |
 | `terFROZEN`             | Either the sender or receiver's balance is currently frozen. |
-| `tecBAD_PROOF`          | The provided Zero-Knowledge Proof fails to verify equality or range constraints. This can occur if the proof was generated with an outdated `ConfidentialBalanceVersion`. |
+| `tecBAD_PROOF`          | The provided Zero-Knowledge Proof fails the compact sigma or range proof check. This can occur if the proof was generated with an outdated `ConfidentialBalanceVersion`. |
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}

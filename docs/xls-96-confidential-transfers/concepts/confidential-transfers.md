@@ -69,17 +69,16 @@ Issuer and auditor keys also cannot be changed or cleared once registered.
 
 The XRP Ledger relies on a set of ZKPs to validate confidential transactions without revealing balances or transfer amounts. The following proof types are used:
 
-- **Schnorr Proof of Knowledge**: Proves ownership of the private key is associated with the ElGamal public key.
+- **Schnorr Proof of Knowledge:** Proves ownership of the private key associated with an ElGamal public key. Required when a holder first registers their encryption key.
 
-- **Plaintext–ciphertext equality proofs:** Prove that a publicly known amount is correctly encrypted.
+- **Compact sigma proofs:** Cryptographic proofs, also called _AND-composed compact sigma proofs_, that bundle multiple zero-knowledge statements into a single fixed-size proof verified in one pass. Each confidential transaction type uses its own dedicated compact sigma proof to verify that encrypted values are consistent and correctly linked.
 
-- **Plaintext equality proofs:** Prove that multiple ciphertexts encrypt the same plaintext value, ensuring consistency of a confidential amount across the sender, receiver, issuer, and optional auditor.
+- **Range proofs (Bulletproofs):** Prove that confidential amounts and post-transfer balances are non-negative and within a valid range, preventing overspending.
 
-- **ElGamal–Pedersen equality proofs:** Link encrypted values to Pedersen commitments, allowing confidential amounts and balances to be used as inputs to range proofs without revealing the underlying values.
-
-- **Range proofs:** Prove that confidential amounts and post-transfer balances are within valid ranges, enforcing non-negativity and preventing overspending.
-
-Validators can verify confidential transactions by checking these cryptographic proofs without ever learning the underlying amounts. For example, when a holder sends tokens confidentially, the transaction includes encrypted values and proofs that mathematically demonstrate: the sender has sufficient balance, the amount is non-negative, and all encrypted amounts (holder, issuer, auditor) represent the same value.
+Validators can verify confidential transactions by checking these cryptographic proofs without ever learning the underlying amounts. For example, when a holder sends tokens confidentially, the transaction includes encrypted values and proofs that mathematically demonstrate:
+- The sender has sufficient balance.
+- The amount is non-negative.
+- All encrypted copies of the transfer amount are consistent across the sender, receiver, issuer, and optional auditor.
 
 Validators can only check the mathematical correctness of these proofs to ensure the transaction is valid, but cannot see the actual amounts involved.
 
@@ -139,6 +138,14 @@ While issuers retain the same [compliance controls](https://xrpl.org/docs/concep
 
 The [ConfidentialMPTClawback transaction][] allows issuers to claw back a holder's **entire** confidential balance. Off-chain, the issuer decrypts their mirror copy of the holder's balance and generates a cryptographic proof validating the plaintext amount. The issuer then submits the transaction with the plaintext amount and proof.
 
+{% admonition type="danger" name="Warning" %}
+The clawback proof can become stale if a holder's confidential balance changes between proof generation and validation. To ensure proof correctness and state consistency so the transaction doesn't fail on-ledger, issuers should follow the recommended flow for confidential clawbacks:
+
+1. [Lock](https://xrpl.org/docs/concepts/tokens/fungible-tokens/deep-freeze#how-does-mpt-freezelock-behavior-differ-from-iou) the MPT issuance for the holder by sending an [MPTokenIssuanceSet transaction](https://xrpl.org/docs/references/protocol/transactions/types/mptokenissuanceset) with the `tfMPTLock` flag enabled.
+2. Submit the ConfidentialMPTClawback transaction.
+
+{% /admonition %}
+
 Validators verify the proof provides cryptographic certainty that the plaintext amount matches the encrypted balance. If valid, both the holder's spending and inbox balances are set to encrypted zero, the version counter is reset to 0, and the clawed back tokens are removed from circulation.
 
 ## Privacy Controls
@@ -147,7 +154,7 @@ Issuers can enable confidential features by setting the **Can Confidential Amoun
 
 By default, the privacy setting is mutable, so it can be toggled on and off as long as no confidential balances exist. Once confidential balances exist, the flag can no longer be disabled.
 
-When enabling confidential transfers, the issuer must also register their ElGamal public key, and if required, an auditor's public key.
+When enabling confidential transfers, the issuer must also register their ElGamal public key, and if required, an auditor's public key. The MPT issuance must have a transfer fee of **0**, since transfer fees cannot be applied to encrypted amounts. If the issuance has a non-zero transfer fee, the issuer must remove it before enabling confidential transfers.
 
 {% admonition type="warning" name="Warning" %}
 If the issuer enables the **Cannot Mutate Can Confidential Amount** flag at any time, the privacy setting becomes permanent and cannot be changed, even if no confidential balances exist.
@@ -165,8 +172,15 @@ Token holders can manage confidential balances through four operations:
 
 - **Convert back to public:** The [ConfidentialMPTConvertBack transaction][] converts confidential tokens back to public form, making the amount visible on the ledger again.
 
+<!-- TODO: When moving to xrpl.org, add the confidential MPT fee rows to the Special Transaction Costs table: https://xrpl.org/docs/concepts/transactions/transaction-cost#special-transaction-costs -->
 {% admonition type="info" name="Note" %}
-Confidential transactions are larger and more computationally expensive than standard MPT transactions due to the inclusion of encrypted ciphertexts and ZKPs. However, they currently **don't** incur a higher transaction fee.
+Confidential transactions are larger and more computationally expensive than standard MPT transactions due to the inclusion of encrypted ciphertexts and ZKPs. They incur a higher [transaction cost](https://xrpl.org/docs/concepts/transactions/transaction-cost) than standard transactions:
+
+| Transaction                                  | Cost Before Load Scaling |
+|:---------------------------------------------|:------------------------ |
+| Confidential MPT Transaction (single-signed) | 100 drops |
+| Confidential MPT Transaction (multi-signed)  | 10 drops × (10 + Number of Signatures Provided) |
+
 {% /admonition %}
 
 ## Amendment Status
