@@ -94,7 +94,6 @@ export default function Page() {
           </Card>
         </Cards>
       </LandingContainer>
-
     </LandingLayout>
   );
 }
