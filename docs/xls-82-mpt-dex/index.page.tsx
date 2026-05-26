@@ -61,7 +61,7 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Documentation" to="https://xrpl-dev-portal--xls-82-mpt-dex.preview.redocly.app/docs/concepts/tokens/decentralized-exchange">
+          <Card title="Documentation" to="https://xrpl-dev-portal--d70d45.preview.redocly.app/docs/concepts/tokens/decentralized-exchange">
             <p>Explore key concepts, find detailed references, and follow
               step-by-step tutorials.</p>
             <Button size="large" variant="primary">Read the Docs</Button>
