@@ -12,6 +12,7 @@
 [ConfidentialMPTSend transaction]: /docs/xls-96-confidential-transfers/references/transactions/confidentialmptsend.md
 [ConfidentialTransfers amendment]: https://xls.xrpl.org/xls/XLS-0096-confidential-mpt.html 
 [credentials]: https://xrpl.org/docs/concepts/decentralized-storage/credentials
+[DynamicMPT amendment]: https://xls.xrpl.org/xls/XLS-0094-dynamic-MPT.html
 [EscrowFinish]: https://xrpl.org/docs/references/protocol/transactions/types/escrowfinish
 [`flags` field]: https://xrpl.org/docs/references/protocol/transactions/common-fields#flags-field
 [Hash]: https://xrpl.org/docs/references/protocol/data-types/basic-data-types#hashes
