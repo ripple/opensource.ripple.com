@@ -87,7 +87,6 @@ export default function Page() {
               Read the Docs
             </Button>
           </Card>
-
         </Cards>
       </LandingContainer>
     </LandingLayout>
