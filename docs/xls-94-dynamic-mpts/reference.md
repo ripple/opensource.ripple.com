@@ -31,7 +31,6 @@ This example creates an MPT issuance with mutable metadata:
   "AssetScale": 4,
   "TransferFee": 0,
   "MaximumAmount": "50000000",
-  "Flags": 83659,
   "MutableFlags": 65536, // tmfMPTCanMutateMetadata
   "MPTokenMetadata": "464F4F",
   "Fee": "12",
@@ -82,7 +81,7 @@ When updating mutable fields, issuers can change the field value to any allowed 
 
 ### Example JSON
 
-This example udpates the MPT metadata:
+This example updates the MPT metadata:
 
 ```json
 {
