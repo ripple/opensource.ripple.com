@@ -54,7 +54,7 @@ export default function Page() {
           onKeyDatesUpdate={handleKeyDatesUpdate}
         />
 
-        <Cards columns={2}>
+        <Cards columns={3}>
           <Card
             title="XLS Spec"
             to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0065-single-asset-vault"
@@ -77,19 +77,18 @@ export default function Page() {
               Read the Docs
             </ButtonToXRPL>
           </Card>
-        </Cards>
-        <Cards columns={2}>
         <Card
             title="Blog"
-            to="https://dev.to/ripplexdev/xrp-ledger-lending-protocol-2pla"
-          >
+            to="https://dev.to/ripplexdev/xrp-ledger-lending-protocol-2pla">
             <p>
               An overview of the feature and why it matters to developers, explained in our blog post.
             </p>
             <Button size="large" variant="primary">
               Read the Blog
             </Button>
-          </Card>
+          </Card>          
+        </Cards>
+        <Cards columns={3}>
           <Card
             title="Security Audit"
             to="https://www.halborn.com/audits/ripple/ripple---single-asset-vault---smart-contract-assessment-d39437"
@@ -99,6 +98,22 @@ export default function Page() {
             </p>
             <Button size="large" variant="primary">
               Read the Security Audit Report
+            </Button>
+          </Card>
+          <Card title="Security Update" to="https://dev.to/ripplexdev/the-road-toward-mainnet-a-security-first-approach-to-xrpl-lending-protocol-3bn6">
+            <p>
+              An update on the security philosophy and approach taken by the Ripple team to ensure the safety and reliability of the Lending Protocol and Single Asset Vaults.
+            </p>
+            <Button size="large" variant="primary">
+              Read the Post
+            </Button>
+          </Card>           
+          <Card title="Performance Testing" to="https://dev.to/ripplexdev/lending-protocol-performance-test-report-3cjn">
+            <p>
+              The performance testing report to assess the performance implications of the feature.  
+            </p>
+            <Button size="large" variant="primary">
+                Read the Perf Testing Report
             </Button>
           </Card>          
         </Cards>
