@@ -26,6 +26,12 @@ The `Sponsor` field may appear on the following ledger entry types:
 - `XChainOwnedClaimID`
 - `XChainOwnedCreateAccountClaimID`
 - `DID`
+- `MPToken`
+- `MPTokenIssuance`
+- `Delegate`
+- `SignerList`
+- `Credential`
+- `RippleState` (uses `HighSponsor` and `LowSponsor` instead of `Sponsor`). See [RippleState Updates](#ripplestate-updates).
 - Any other ledger entry type that contributes to an account's owner reserve.
 
 {% admonition type="info" name="Note" %}

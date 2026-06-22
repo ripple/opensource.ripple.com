@@ -1,0 +1,4 @@
+# Install xrpl-py from the sponsorship PR
+# This is required for XLS-68 (Sponsored Fees and Reserves) support
+xrpl-py @ git+https://github.com/XRPLF/xrpl-py.git@refs/pull/921/head
+
