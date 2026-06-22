@@ -76,8 +76,7 @@ export default function Page() {
               Read the Docs
             </ButtonToXRPL>
           </Card>
-
-          <Card title="Blog" to="https://crypto.forem.com/ripplexdev/the-xrpl-lending-protocol-why-it-matters-cd">
+          <Card title="Blog" to="https://dev.to/ripplexdev/xrp-ledger-lending-protocol-2pla">
             <p>
               An overview of the feature and why it matters to developers, explained in our blog post.
             </p>
@@ -85,7 +84,8 @@ export default function Page() {
               Read the Blog
             </Button>
           </Card>
-
+        </Cards>
+         <Cards columns={3}>       
           <Card title="Security Audit" to="https://www.halborn.com/audits/ripple/lending-protocol-6fe16a">
             <p>
               The security audit performed by third-party security experts, including a link to the full, detailed security audit report.
@@ -94,13 +94,20 @@ export default function Page() {
               Read the Security Audit Report
             </Button>
           </Card>
-
           <Card title="Security Update" to="https://dev.to/ripplexdev/the-road-toward-mainnet-a-security-first-approach-to-xrpl-lending-protocol-3bn6">
             <p>
               An update on the security philosophy and approach taken by the Ripple team to ensure the safety and reliability of the Lending Protocol and Single Asset Vaults.
             </p>
             <Button size="large" variant="primary">
               Read the Post
+            </Button>
+          </Card>  
+          <Card title="Performance Testing" to="https://dev.to/ripplexdev/lending-protocol-performance-test-report-3cjn">
+            <p>
+              The performance testing report to assess the performance implications of the feature.  
+            </p>
+            <Button size="large" variant="primary">
+                Read the Perf Testing Report
             </Button>
           </Card>
         </Cards>
