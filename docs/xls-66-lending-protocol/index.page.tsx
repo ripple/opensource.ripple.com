@@ -53,7 +53,7 @@ export default function Page() {
           onKeyDatesUpdate={handleKeyDatesUpdate}
         />
 
-        <Cards columns={2}>
+        <Cards columns={3}>
           <Card
             title="XLS Spec"
             to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0066-lending-protocol"
@@ -92,6 +92,15 @@ export default function Page() {
             </p>
             <Button size="large" variant="primary">
               Read the Security Audit Report
+            </Button>
+          </Card>
+
+          <Card title="Security Update" to="https://dev.to/ripplexdev/the-road-toward-mainnet-a-security-first-approach-to-xrpl-lending-protocol-3bn6">
+            <p>
+              An update on the security philosophy and approach taken by the Ripple team to ensure the safety and reliability of the Lending Protocol and Single Asset Vaults.
+            </p>
+            <Button size="large" variant="primary">
+              Read the Post
             </Button>
           </Card>
         </Cards>
