@@ -86,7 +86,7 @@ export default function Page() {
           </Card>
         </Cards>
          <Cards columns={3}>       
-          <Card title="Security Audit" to="https://www.halborn.com/audits/ripple/lending-protocol-6fe16a">
+          <Card title="Security Audit" to="https://www.halborn.com/audits/ripple/lending-protocol-re-audit-2769d2">
             <p>
               The security audit performed by third-party security experts, including a link to the full, detailed security audit report.
             </p>
