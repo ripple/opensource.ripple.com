@@ -87,12 +87,12 @@ export default function Page() {
               Read the Blog
             </Button>
           </Card>
-          <Card title="Insight" to="https://ripple.com/insights/the-xrpl-lending-protocol-bringing-credit-infrastructure-onchain/">
+          <Card title="Insights" to="https://ripple.com/insights/the-xrpl-lending-protocol-bringing-credit-infrastructure-onchain/">
             <p>
-              Learn how the Lending Protocol and Single Asset Vaults enable productive assets onchain.
+              Discover how the Lending Protocol and Single Asset Vaults unlock productive assets onchain.
             </p>
             <Button size="large" variant="primary">
-              Read the Insight
+              Read the Article
             </Button>
           </Card>
           <Card
