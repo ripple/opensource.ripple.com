@@ -84,8 +84,14 @@ export default function Page() {
               Read the Blog
             </Button>
           </Card>
-        </Cards>
-         <Cards columns={3}>       
+          <Card title="Insight" to="https://ripple.com/insights/the-xrpl-lending-protocol-bringing-credit-infrastructure-onchain/">
+            <p>
+              Learn how the Lending Protocol and Single Asset Vaults enable productive assets onchain.
+            </p>
+            <Button size="large" variant="primary">
+              Read the Insight
+            </Button>
+          </Card>   
           <Card title="Security Audit" to="https://www.halborn.com/audits/ripple/lending-protocol-re-audit-2769d2">
             <p>
               The security audit performed by third-party security experts, including a link to the full, detailed security audit report.
