@@ -73,8 +73,7 @@ export default function Page() {
             to="https://xrpl.org/docs/concepts/tokens/fungible-tokens/multi-purpose-tokens"
           >
             <p>
-              Explore key concepts, find detailed references, and follow
-              step-by-step tutorials.
+              Documentation on the feature, including how it works and why.
             </p>
             <ButtonToXRPL>Read the Docs</ButtonToXRPL>
           </Card>
@@ -88,9 +87,16 @@ export default function Page() {
             <Button size="large" variant="primary">
               Read the Blog
             </Button>
+          </Card>
+          <Card
+            title="Tutorials"
+            to="https://xrpl.org/docs/tutorials/tokens/mpts/issue-a-multi-purpose-token"
+          >
+            <p>
+              Follow step-by-step tutorials to start building.
+            </p>
+            <ButtonToXRPL>Read the Tutorials</ButtonToXRPL>
           </Card>          
-        </Cards>
-        <Cards columns={3}>
           <Card
             title="Use Cases"
             to="https://xrpl.org/docs/use-cases/tokenization/creating-an-asset-backed-multi-purpose-token"

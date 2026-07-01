@@ -69,8 +69,7 @@ export default function Page() {
 
           <Card title="Documentation" to="https://xrpl.org/docs/concepts/tokens/lending-protocol">
             <p>
-              Explore key concepts, find detailed references, and follow
-              step-by-step tutorials.
+              Documentation on the feature, including how it works and why.
             </p>
             <ButtonToXRPL>
               Read the Docs
@@ -92,6 +91,22 @@ export default function Page() {
               Read the Article
             </Button>
           </Card>   
+          <Card title="Tutorials" to="https://xrpl.org/docs/tutorials/defi/lending/use-the-lending-protocol/create-a-loan-broker">
+            <p>
+             Follow step-by-step tutorials to start building.
+            </p>
+            <ButtonToXRPL>
+              Read the Tutorials
+            </ButtonToXRPL>
+          </Card>
+          <Card title="Demo App" to="https://lending.xls-demo.com/">
+            <p>
+              Explore a full lending platform built on the Lending Protocol and Single Asset Vaults, featuring dedicated dashboards for brokers, depositors, and borrowers.
+            </p>
+            <Button size="large" variant="primary">
+              Try the Demo App
+            </Button>
+          </Card>
           <Card title="Security Audit" to="https://www.halborn.com/audits/ripple/lending-protocol-re-audit-2769d2">
             <p>
               The security audit performed by third-party security experts, including a link to the full, detailed security audit report.

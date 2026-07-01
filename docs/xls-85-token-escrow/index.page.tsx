@@ -72,22 +72,25 @@ export default function Page() {
 
           <Card title="Documentation" to="https://xrpl.org/docs/concepts/payment-types/escrow">
             <p>
-              Explore key concepts, find detailed references, and follow
-              step-by-step tutorials.
+              Documentation on the feature, including how it works and why.
             </p>
             <ButtonToXRPL>Read the Docs</ButtonToXRPL>
           </Card>
-          
-          <Card title="Blog" to="https://dev.to/dangell7/xrpl-token-escrow-features-benefits-and-getting-started-2ogi"> 
+
+          <Card title="Blog" to="https://dev.to/dangell7/xrpl-token-escrow-features-benefits-and-getting-started-2ogi">
             <p>An overview of the feature and why it matters to institutional issuers, explained in our blog post.</p>
             <Button size="large" variant="primary">
               Read the Blog
             </Button>
-          </Card> 
-        </Cards>
-        
-       <Cards columns={2}>
-         <Card title="Security Audit" to="https://dev.to/ripplexdev/token-escrow-security-audit-findings-39hn">
+          </Card>
+          
+          <Card title="Tutorials" to="https://xrpl.org/docs/tutorials/payments/send-fungible-token-escrows">
+            <p>
+              Follow step-by-step tutorials to start building.
+            </p>
+            <ButtonToXRPL>Read the Tutorials</ButtonToXRPL>
+          </Card>
+          <Card title="Security Audit" to="https://dev.to/ripplexdev/token-escrow-security-audit-findings-39hn">
             <p>The security audit performed by third-party security experts, including a link to the full, detailed security audit report.
             </p>
             <Button size="large" variant="primary">

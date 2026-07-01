@@ -38,7 +38,7 @@ export default function Page() {
           keyDates={keyDates}
         />
 
-        <Cards columns={2}>
+        <Cards columns={3}>
           <Card
             title="XLS Spec"
             to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0070-credentials"
@@ -57,13 +57,11 @@ export default function Page() {
             to="https://xrpl.org/docs/concepts/decentralized-storage/credentials"
           >
             <p>
-              Explore key concepts, find detailed references, and follow
-              step-by-step tutorials.
+              Documentation on the feature, including how it works and why.
             </p>
             <ButtonToXRPL>Read the Docs</ButtonToXRPL>
           </Card>
-        </Cards>
-        <Cards columns={2}>
+
           <Card
             title="Blog"
             to="https://www.idos.network/blog/debate-contribution-xrpl-credentials-are-a-game-changer?ref=twitter"
@@ -76,6 +74,15 @@ export default function Page() {
             </Button>
           </Card>
           <Card
+            title="Tutorials"
+            to="https://xrpl.org/docs/tutorials/compliance-features/manage-credentials"
+          >
+            <p>
+              Follow step-by-step tutorials to start building.
+            </p>
+            <ButtonToXRPL>Read the Tutorials</ButtonToXRPL>
+          </Card>
+          <Card
             title="Security Audit"
             to="https://www.halborn.com/audits/ripple/ripple---smart-contract-audit---credentials-c092b3"
           >
@@ -86,7 +93,6 @@ export default function Page() {
               Read the Security Audit Report
             </Button>
           </Card>
-
         </Cards>        
       </LandingContainer>
     </LandingLayout>
