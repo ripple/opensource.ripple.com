@@ -9,9 +9,13 @@ status: not_enabled
 ---
 # SponsorshipTransfer
 
-[[Source]](https://github.com/tequdev/rippled/blob/sponsor/src/libxrpl/tx/transactors/Sponsor/SponsorshipTransfer.cpp)
+[[Source]](https://github.com/XRPLF/rippled/blob/develop/src/libxrpl/tx/transactors/sponsor/SponsorshipTransfer.cpp "Source")
 
 Create, transfer, or end reserve sponsorship for a ledger object or account. The transaction can be submitted by the sponsor or sponsee, depending on the required operation. See [Sponsorship Scenarios](#sponsorship-scenarios) for details on each operation.
+
+{% admonition type="warning" name="Warning" %}
+This transaction cannot be [delegated](https://xrpl.org/docs/concepts/accounts/permission-delegation) to another account.
+{% /admonition %}
 
 _(Requires the [Sponsor amendment][] {% not-enabled /%})_
 
@@ -22,7 +26,9 @@ _(Requires the [Sponsor amendment][] {% not-enabled /%})_
     "TransactionType": "SponsorshipTransfer",
     "Account": "rN7n7otQDd6FczFgLdlqtyMVrn3HMfXpf",
     "ObjectID": "1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF",
-    "Flags": 2,
+    "Sponsor": "rfkDkFai4jUfCvAJiZ5Vm7XvvWjYvDqeYo",
+    "SponsorFlags": 2,        // spfSponsorReserve
+    "Flags": 131072,          // tfSponsorshipCreate
     "Fee": "12",
     "Sequence": 43
 }
@@ -30,7 +36,7 @@ _(Requires the [Sponsor amendment][] {% not-enabled /%})_
 
 ## {% $frontmatter.seo.title %} Fields
 
-In addition to the [common fields](./updated-common-transaction-fields.md#common-transaction-updates#common-transaction-fields), {% code-page-name /%} transactions use the following fields:
+In addition to the [common fields](./updated-common-transaction-fields.md#new-common-fields), {% code-page-name /%} transactions use the following fields:
 
 | Field Name | JSON Type | [Internal Type][] | Required? | Description |
 | :--------- | :-------- | :---------------- | :-------- | :---------- |
@@ -43,9 +49,9 @@ In addition to the [common fields](./updated-common-transaction-fields.md#common
 
 | Flag Name               | Hex Value    | Decimal Value | Description |
 | :---------------------- | :----------- | :------------ | :---------- |
-| `tfSponsorshipEnd`      | `0x00000001` | 1             | End an existing sponsorship. The reserve burden returns to the object's owner. |
-| `tfSponsorshipCreate`   | `0x00000002` | 2             | Create a new sponsorship for an unsponsored object or account. |
-| `tfSponsorshipReassign` | `0x00000004` | 4             | Transfer an existing sponsorship to a new sponsor. |
+| `tfSponsorshipEnd`      | `0x00010000` | 65536         | End an existing sponsorship. The reserve burden returns to the object's owner. |
+| `tfSponsorshipCreate`   | `0x00020000` | 131072        | Create a new sponsorship for an unsponsored object or account.  |
+| `tfSponsorshipReassign` | `0x00040000` | 262144        | Transfer an existing sponsorship to a new sponsor.  |
 
 ## Sponsorship Scenarios
 
@@ -57,6 +63,7 @@ Use the `tfSponsorshipCreate` flag to sponsor an object or account. Only the spo
 To submit a transaction for this scenario:
 
 - Include the `ObjectID` field when sponsoring an object. Omit when sponsoring an account.
+- The target object must be a [ledger entry type that supports sponsorship](../ledger-entries/updated-ledger-entries.md#common-ledger-entry-updates). Sponsoring any other object type fails with `tecNO_PERMISSION`.
 - The target object or account must not currently be sponsored.
 - Provide the `Sponsor` field and the `SponsorFlags.spfSponsorReserve` flag.
 - Include the `SponsorSignature` when sponsoring an account. This is optional when sponsoring an object.
@@ -94,7 +101,7 @@ To submit a transaction for this scenario:
 
 - Provide the `ObjectID` when ending sponsorship for an object. Omit when ending sponsorship for an account.
 - The target object or account must currently be sponsored.
-- Do not include the `Sponsor` and the `SponsorFlags.spfSponsorReserve` flag.
+- Do not include the `Sponsor` and `SponsorFlags` fields.
 
 When successful:
 
@@ -113,8 +120,9 @@ Besides errors that can occur for all transactions, {% code-page-name /%} transa
 | :------------------------ | :---------- |
 | `tecINSUFFICIENT_RESERVE` | The owner or new sponsor does not have sufficient XRP to cover the reserve for this object or account. |
 | `tecNO_ENTRY`             | The `ObjectID` is specified but does not exist on the ledger. |
-| `tecNO_PERMISSION`        | The transaction lacks the required permissions. This can occur when:<ul><li>The submitter is not the current sponsor or owner when ending a sponsorship.</li><li>The submitter is not the owner when creating or reassigning a sponsorship.</li><li>The object or account is already sponsored when creating a sponsorship.</li><li>The object or account is not sponsored when reassigning or ending a sponsorship.</li><li>The `Sponsor` field is missing when creating or reassigning a sponsorship.</li><li>The `Sponsor` field is present when ending a sponsorship.</li></ul> |
-| `temINVALID_FLAG`         | The transaction has invalid flags. This can occur when:<ul><li>The transaction does not have exactly one of `tfSponsorshipCreate`, `tfSponsorshipReassign`, or `tfSponsorshipEnd` set.</li><li>The `spfSponsorReserve` flag is missing when creating or reassigning a sponsorship.</li><li>The `spfSponsorReserve` flag is present when ending a sponsorship.</li></ul> |
-| `temMALFORMED`            | The transaction is malformed. This can occur when:<ul><li>The `Sponsee` field is present when creating or reassigning a sponsorship.</li><li>The `Sponsee` field is the same as the `Account` field.</li><li>Sponsoring an account without providing the `SponsorSignature` field.</li></ul> |
+| `tecNO_PERMISSION`        | The transaction lacks the required permissions. This can occur when:<ul><li>The object is a ledger entry type that does not support sponsorship.</li><li>The submitter is not the current sponsor or owner when ending a sponsorship.</li><li>The submitter is not the owner when creating or reassigning a sponsorship.</li><li>The object or account is already sponsored when creating a sponsorship.</li><li>The object or account is not sponsored when reassigning or ending a sponsorship.</li></ul> |
+| `temINVALID_FLAG`         | The transaction has invalid flags. This can occur when:<ul><li>The transaction does not have exactly one of `tfSponsorshipCreate`, `tfSponsorshipReassign`, or `tfSponsorshipEnd` set.</li><li>The `spfSponsorReserve` flag is missing when creating or reassigning a sponsorship.</li><li>The `SponsorFlags` field is present when ending a sponsorship.</li></ul> |
+| `temMALFORMED`            | The transaction is malformed. This can occur when:<ul><li>The `Sponsor` field is missing when creating or reassigning a sponsorship.</li><li>The `Sponsor` field is present when ending a sponsorship.</li><li>The `Sponsee` field is present when creating or reassigning a sponsorship.</li><li>The `Sponsee` field is the same as the `Account` field.</li><li>Sponsoring an account without providing the `SponsorSignature` field.</li></ul> |
+| `terNO_ACCOUNT`           | The `Sponsee` field is specified when ending a sponsorship, but that account does not exist on the ledger. |
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}
