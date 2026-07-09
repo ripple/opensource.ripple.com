@@ -68,14 +68,6 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Documentation" to="https://xrpl.org/docs/concepts/tokens/single-asset-vaults">
-            <p>
-              Documentation on the feature, including how it works and why.
-            </p>
-            <ButtonToXRPL>
-              Read the Docs
-            </ButtonToXRPL>
-          </Card>
           <Card
             title="Blog"
             to="https://dev.to/ripplexdev/xrp-ledger-lending-protocol-2pla">
@@ -93,6 +85,14 @@ export default function Page() {
             <Button size="large" variant="primary">
               Read the Article
             </Button>
+          </Card>
+          <Card title="Concepts" to="https://xrpl.org/docs/concepts/tokens/single-asset-vaults">
+            <p>
+              Documentation on the feature, including how it works and why.
+            </p>
+            <ButtonToXRPL>
+              Read the Concepts
+            </ButtonToXRPL>
           </Card>
           <Card title="Tutorials" to="https://xrpl.org/docs/tutorials/defi/lending/use-single-asset-vaults/create-a-single-asset-vault">
             <p>

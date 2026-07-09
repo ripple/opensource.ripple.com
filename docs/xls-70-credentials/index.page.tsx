@@ -53,13 +53,13 @@ export default function Page() {
           </Card>
 
           <Card
-            title="Documentation"
+            title="Concepts"
             to="https://xrpl.org/docs/concepts/decentralized-storage/credentials"
           >
             <p>
               Documentation on the feature, including how it works and why.
             </p>
-            <ButtonToXRPL>Read the Docs</ButtonToXRPL>
+            <ButtonToXRPL>Read the Concepts</ButtonToXRPL>
           </Card>
 
           <Card

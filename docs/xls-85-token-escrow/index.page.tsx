@@ -70,11 +70,11 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Documentation" to="https://xrpl.org/docs/concepts/payment-types/escrow">
+          <Card title="Concepts" to="https://xrpl.org/docs/concepts/payment-types/escrow">
             <p>
               Documentation on the feature, including how it works and why.
             </p>
-            <ButtonToXRPL>Read the Docs</ButtonToXRPL>
+            <ButtonToXRPL>Read the Concepts</ButtonToXRPL>
           </Card>
 
           <Card title="Blog" to="https://dev.to/dangell7/xrpl-token-escrow-features-benefits-and-getting-started-2ogi">

@@ -46,10 +46,10 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Documentation" to="https://xrpl.org/docs/concepts/tokens/decentralized-exchange/permissioned-domains">
+          <Card title="Concepts" to="https://xrpl.org/docs/concepts/tokens/decentralized-exchange/permissioned-domains">
             <p>Documentation on the feature, including how it works and why.</p>
             <ButtonToXRPL>
-              Read the Docs
+              Read the Concepts
             </ButtonToXRPL>
           </Card>
 

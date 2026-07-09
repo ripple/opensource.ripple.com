@@ -69,13 +69,13 @@ export default function Page() {
           </Card>
 
           <Card
-            title="Documentation"
+            title="Concepts"
             to="https://xrpl.org/docs/concepts/transactions/batch-transactions"
           >
             <p>
               Documentation on the feature, including how it works and why.
             </p>
-            <ButtonToXRPL>Read the Docs</ButtonToXRPL>
+            <ButtonToXRPL>Read the Concepts</ButtonToXRPL>
           </Card>
           <Card
             title="Tutorials"
