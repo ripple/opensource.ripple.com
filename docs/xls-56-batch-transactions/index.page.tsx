@@ -54,7 +54,7 @@ export default function Page() {
           onKeyDatesUpdate={handleKeyDatesUpdate}
         />
 
-        <Cards columns={2}>
+        <Cards columns={3}>
           <Card
             title="XLS Spec"
             to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0056d-batch"
@@ -69,14 +69,22 @@ export default function Page() {
           </Card>
 
           <Card
-            title="Documentation"
+            title="Concepts"
             to="https://xrpl.org/docs/concepts/transactions/batch-transactions"
           >
             <p>
-              Explore key concepts, find detailed references, and follow
-              step-by-step tutorials.
+              Documentation on the feature, including how it works and why.
             </p>
-            <ButtonToXRPL>Read the Docs</ButtonToXRPL>
+            <ButtonToXRPL>Read the Concepts</ButtonToXRPL>
+          </Card>
+          <Card
+            title="Tutorials"
+            to="https://xrpl.org/docs/tutorials/best-practices/transaction-sending/send-a-single-account-batch-transaction"
+          >
+            <p>
+              Follow step-by-step tutorials to start building.
+            </p>
+            <ButtonToXRPL>Read the Tutorials</ButtonToXRPL>
           </Card>
           <Card title="Security Audit" to="https://www.halborn.com/audits/ripple/ripple---batch---smart-contract-assessment-420598">
             <p>

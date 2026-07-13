@@ -46,10 +46,10 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Documentation" to="https://xrpl.org/docs/concepts/tokens/decentralized-exchange/permissioned-domains">
-            <p>Explore key concepts, find detailed references, and follow step-by-step tutorials.</p>
+          <Card title="Concepts" to="https://xrpl.org/docs/concepts/tokens/decentralized-exchange/permissioned-domains">
+            <p>Documentation on the feature, including how it works and why.</p>
             <ButtonToXRPL>
-              Read the Docs
+              Read the Concepts
             </ButtonToXRPL>
           </Card>
 
@@ -58,6 +58,13 @@ export default function Page() {
             <Button size="large" variant="primary">
               Read the Blog
             </Button>
+          </Card>
+
+          <Card title="Tutorials" to="https://xrpl.org/docs/tutorials/compliance-features/create-permissioned-domains-in-javascript">
+            <p>Follow step-by-step tutorials to start building.</p>
+            <ButtonToXRPL>
+              Read the Tutorials
+            </ButtonToXRPL>
           </Card>
 
           <Card title="QA Test Report" to="https://dev.to/ripplexdev/permissioned-domains-qa-test-report-3pjl">

@@ -74,9 +74,19 @@ export default function Page() {
               Read the Blog
             </Button>
           </Card>
-        </Cards>
 
-        <Cards columns={2}>
+          <Card
+            title="Code Samples"
+            to="https://github.com/XRPLF/xrpl-dev-portal/tree/master/_code-samples/delegate-permissions/"
+          >
+            <p>
+              Explore working code samples to get started.
+            </p>
+            <ButtonToXRPL>
+              View the Code Samples
+            </ButtonToXRPL>
+          </Card>
+
           <Card
             title="Security Audit"
             to="https://dev.to/ripplexdev/permission-delegation-security-audit-findings-2h83"
