@@ -44,7 +44,6 @@ When `tfSponsorCreatedAccount` is enabled, the following additional error cases 
 The [AccountDelete transaction](https://xrpl.org/docs/references/protocol/transactions/types/accountdelete) adds new constraints for sponsored accounts. If the account being deleted has a `Sponsor` field, the `Destination` must equal the `Sponsor` value to ensure the sponsor can recoup their reserve.
 
 On successful deletion, the sponsor's `SponsoringAccountCount` is decremented by one.
-Deleting the account also removes any objects it owned. If another account was paying the reserve for one of those objects, that sponsor no longer has to, so its `SponsoringOwnerCount` drops by one for each such object removed.
 
 ### Example JSON
 

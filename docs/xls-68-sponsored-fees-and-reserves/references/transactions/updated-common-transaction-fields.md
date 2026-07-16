@@ -57,6 +57,10 @@ Both flags can be used together in a single transaction. At least one flag must 
   - [SponsorshipTransfer](./sponsorshiptransfer.md)
   - [TrustSet](https://xrpl.org/docs/references/protocol/transactions/types/trustset)
 
+{% admonition type="info" name="Note" %}
+Fee-sponsored transactions cannot be queued. If a fee-sponsored transaction does not make it into the open ledger, it fails with `telCAN_NOT_QUEUE` instead of entering the transaction queue.
+{% /admonition %}
+
 ### SponsorSignature
 
 The `SponsorSignature` field is an object containing the sponsor's signing information.

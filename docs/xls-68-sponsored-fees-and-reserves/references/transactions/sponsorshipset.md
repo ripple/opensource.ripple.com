@@ -62,7 +62,7 @@ A sponsorship entry must keep at least some fee budget (`FeeAmount`) or reserve 
 | `tfSponsorshipClearRequireSignForFee`       | `0x00020000` | 131072        | Removes the restriction that every use of this sponsor for sponsoring fees requires a signature from the sponsor. |
 | `tfSponsorshipSetRequireSignForReserve`     | `0x00040000` | 262144        | Adds the restriction that every use of this sponsor for sponsoring reserves requires a signature from the sponsor. |
 | `tfSponsorshipClearRequireSignForReserve`   | `0x00080000` | 524288        | Removes the restriction that every use of this sponsor for sponsoring reserves requires a signature from the sponsor. |
-| `tfDeleteObject`                            | `0x00100000` | 1048576       | Deletes the `Sponsorship` ledger entry. When enabled, no other fields or flag-setting fields may be specified. Deleting returns any remaining XRP in `FeeAmount` to the sponsor's account. |
+| `tfDeleteObject`                            | `0x00100000` | 1048576       | Deletes the `Sponsorship` ledger entry. When enabled, no other fields (except `Sponsee` and `CounterpartySponsor`) or flag-setting fields may be specified. Deleting returns any remaining XRP in `FeeAmount` to the sponsor's account. |
 
 ## Deleting a Sponsorship Ledger Entry
 

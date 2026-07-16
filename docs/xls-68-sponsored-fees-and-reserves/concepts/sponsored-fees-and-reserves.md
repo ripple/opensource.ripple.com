@@ -12,7 +12,7 @@ status: not_enabled
 The Sponsored Fees and Reserves feature allows an account to pay transaction fees and reserve requirements on behalf of another account. The account that pays is called the _Sponsor_, and the account that benefits is called the _Sponsee_. Sponsees maintain full control over their keys and accounts.
 
 {% admonition type="info" name="Note" %}
-Sponsorship does not transfer XRP to the sponsee's wallet. The sponsor's XRP stays in the sponsor's account, and the ledger tracks which account is responsible for holding the reserve. This is not an "onramp" for the sponsee; it is a mechanism for the sponsor to cover costs on the sponsee's behalf.
+Sponsorship does not transfer XRP to the sponsee's wallet. The sponsor can cover transaction fees, and for reserve sponsorship, the ledger tracks which account is responsible for the reserve. This is not an "onramp" for the sponsee; it is a mechanism for the sponsor to cover costs on the sponsee's behalf.
 {% /admonition %}
 
 Without sponsorship, accounts must self-fund both transaction fees and reserves before they can transact on the XRP Ledger. Sponsorship provides a mechanism for entities with established XRP balances to subsidize these costs while maintaining strong on-chain accountability.
@@ -83,9 +83,9 @@ Sponsorship includes safeguards to protect both parties from misuse:
 
 - **Co-signed flow**: Both parties must consent to each transaction by providing their signatures. The sponsor signs the entire transaction, including the sponsee's `Account` and `Sequence` fields, which prevents signature replay attacks. The sponsor also approves the `Fee` value and any fields that affect reserve requirements, such as `Destination`.
 
-- **Pre-funded flow**: The sponsor consents once when submitting a `SponsorshipSet` transaction. The sponsee cannot modify the terms or exceed the limits the sponsor set. The sponsor can limit usage with `MaxFee` and `RemainingOwnerCount`, or require their signature for specific transactions using the `lsfSponsorshipRequireSignForFee` or `lsfSponsorshipRequireSignForReserve` flags.
+- **Pre-funded flow**: The sponsor consents once when submitting a `SponsorshipSet` transaction. The sponsee cannot modify the terms or exceed the limits the sponsor set. The sponsor can limit usage with `FeeAmount`, `MaxFee`, and `RemainingOwnerCount`, or require their signature for specific transactions using the `lsfSponsorshipRequireSignForFee` or `lsfSponsorshipRequireSignForReserve` flags.
 
-The sponsee cannot unilaterally change the sponsorship type, and the sponsor's funds cannot be used beyond the agreed terms. Only the sponsee can transfer a sponsorship to a new sponsor, and the new sponsor must co-sign the transaction to consent. Either party can exit a relationship at any time by submitting a [SponsorshipTransfer transaction][].
+The sponsee cannot unilaterally change the sponsorship type, and the sponsor's funds cannot be used beyond the agreed terms. Only the sponsee can transfer a sponsorship to a new sponsor, and the new sponsor must co-sign the transaction to consent. Either party can exit a sponsorship relationship at any time by submitting a [SponsorshipTransfer transaction][].
 
 ## Managing Sponsorships
 
@@ -96,7 +96,7 @@ Over time, sponsors may want to recoup their reserves, and sponsees may want to 
 - **End sponsorship**: Either the sponsor or sponsee can end a sponsorship at any time. The reserve burden returns to the object owner.
 
 {% admonition type="warning" name="Warning" %}
-When transferring the reserve burden back to a sponsee, the sponsee must have enough XRP to cover the reserve. If they do not, and the sponsor needs to exit the relationship quickly, the sponsor can pay the sponsee the XRP needed. However, the sponsor will **not** get their reserve back.
+When ending account sponsorship, the sponsee must have enough XRP to cover the account reserve. If they do not, and the sponsor needs to exit the sponsorship relationship quickly, the sponsor can pay the sponsee the XRP needed. However, the sponsor will **not** get their reserve back.
 
 These steps can be executed atomically via a [Batch transaction](https://xrpl.org/docs/concepts/transactions/batch-transactions), to ensure that the sponsee cannot use the funds for something else before the transfer is validated.
 {% /admonition %}
@@ -112,7 +112,7 @@ A sponsor who wants to recoup the reserve held for a sponsee's account has two o
 - **If the sponsee is done using their account**: The sponsee can submit an [AccountDelete transaction](https://xrpl.org/docs/references/protocol/transactions/types/accountdelete). The destination, where leftover XRP goes, must be the sponsor's account. This ensures the sponsor gets their reserve back.
 
   {% admonition type="info" name="Note" %}
-  Any sponsored objects owned by the sponsee are [deletion blockers](https://xrpl.org/docs/concepts/accounts/deleting-accounts/#requirements) and must be removed before the account can be deleted.
+  Sponsored objects owned by the sponsee, such as trust lines, escrows, checks, payment channels, and MPTokens, are [deletion blockers](https://xrpl.org/docs/concepts/accounts/deleting-accounts/#deletion-blockers) and must be removed before the account can be deleted.
   {% /admonition %}
 
 - **If the sponsee wants to keep their account**: Use the [SponsorshipTransfer transaction][] to remove the sponsorship or transfer it to a different sponsor.
