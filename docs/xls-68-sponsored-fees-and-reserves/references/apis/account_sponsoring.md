@@ -65,7 +65,7 @@ The request includes the following parameters:
 | `ledger_index`           | String or Unsigned Integer | No        | The [ledger index][] of the ledger to use, or a shortcut string to choose a ledger automatically. See [Specifying Ledgers][]. |
 | `limit`                  | Number                     | No        | The maximum number of objects to include in the results. |
 | `marker`                 | Marker                     | No        | Value from a previous paginated response. Resume retrieving data where that response left off. |
-| `type`                   | String                     | No        | Filter results by a ledger entry type. Some examples are `check` and `escrow`. |
+| `type`                   | String                     | No        | Filter results by a ledger entry type. Some examples are `check` and `escrow`. See [ledger entry types][] for a complete list. |
 
 ## Response Format
 

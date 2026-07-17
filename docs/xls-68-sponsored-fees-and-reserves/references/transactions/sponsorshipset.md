@@ -41,16 +41,12 @@ In addition to the [common fields](./updated-common-transaction-fields.md#new-co
 | Field Name            | JSON Type | [Internal Type][] | Required? | Description |
 | :-------------------- | :-------- | :---------------- | :-------- | :---------- |
 | `CounterpartySponsor` | String    | AccountID         | No        | The sponsor associated with this relationship. This account also pays for the reserve of this entry. If this field is included, the `Account` is assumed to be the sponsee. |
-| `FeeAmount`           | String    | Amount            | No        | The remaining amount of XRP that the sponsor has provided for the sponsee to use for fees. This value replaces what is currently in the `Sponsorship.FeeAmount` field, if it exists. |
+| `FeeAmount`           | String    | Amount            | No        | The remaining amount of XRP that the sponsor has provided for the sponsee to use for fees. This value replaces what is currently in the `Sponsorship.FeeAmount` field, if it exists, rather than adding to it. Raising `FeeAmount` deducts the additional XRP from the sponsor, while lowering it refunds the difference back to the sponsor. |
 | `MaxFee`              | String    | Amount            | No        | The maximum fee per transaction that will be sponsored. This prevents abuse or excessive draining of the sponsored fee pool. |
 | `RemainingOwnerCount` | Number    | UInt32            | No        | The remaining amount of reserves that the sponsor has provided for the sponsee to use. This value replaces what is currently in the `Sponsorship.RemainingOwnerCount` field, if it exists. |
 | `Sponsee`             | String    | AccountID         | No        | The sponsee associated with this relationship. If this field is included, the `Account` is assumed to be the sponsor. |
 
 A sponsorship entry must keep at least some fee budget (`FeeAmount`) or reserve budget (`RemainingOwnerCount`). If you try to create or update the entry with neither, the transaction fails, because an empty entry still consumes an owner reserve while giving the sponsee nothing to draw on.
-
-{% admonition type="info" name="Note" %}
-`FeeAmount` is a replacement value rather than an increment, meaning the new value overwrites the old one. Raising `FeeAmount` deducts the additional XRP from the sponsor, while lowering it refunds the difference back to the sponsor.
-{% /admonition %}
 
 ## {% $frontmatter.seo.title %} Flags
 
@@ -81,7 +77,7 @@ Besides errors that can occur for all transactions, {% code-page-name /%} transa
 | `tecNO_PERMISSION` | The transaction is not permitted. This can occur when:<ul><li>Creating or updating the entry would leave it with no budget (neither a positive `FeeAmount` nor a positive `RemainingOwnerCount`). Empty `Sponsorship` ledger entries are not allowed.</li><li>The sponsor or sponsee is a pseudo-account, which cannot participate in sponsorship.</li></ul> |
 | `tecUNFUNDED`     | The sponsor does not have sufficient XRP to fund the `FeeAmount` or to cover the reserve for the `Sponsorship` ledger entry. |
 | `temBAD_AMOUNT`   | An amount field is invalid. This can occur when:<ul><li>`FeeAmount` is negative or not denominated in XRP.</li><li>`MaxFee` is negative or not denominated in XRP.</li></ul> |
-| `temINVALID_FLAG` | The transaction has invalid flags. This can occur when:<ul><li>Conflicting flags are enabled, such as both `tfSponsorshipSetRequireSignForFee` and `tfSponsorshipClearRequireSignForFee`.</li><li>The `tfDeleteObject` flag is enabled with flags that modify the entry's settings.</li></ul> |
+| `temINVALID_FLAG` | The transaction has invalid flags. This can occur when:<ul><li>Conflicting flags are enabled, such as both `tfSponsorshipSetRequireSignForFee` and `tfSponsorshipClearRequireSignForFee`.</li><li>The `tfDeleteObject` flag is enabled along with additional flags. `tfDeleteObject` must be the only flag.</li></ul> |
 | `temMALFORMED`    | The transaction is malformed. This can occur when:<ul><li>The `Account` is not equal to either the sponsor or sponsee.</li><li>Both `CounterpartySponsor` and `Sponsee` are specified.</li><li>Neither `CounterpartySponsor` nor `Sponsee` is specified.</li><li>The sponsee attempts to create or update the entry. Only the sponsor can create or update.</li><li>The `tfDeleteObject` flag is enabled and `FeeAmount`, `MaxFee`, or `RemainingOwnerCount` is specified.</li><li>The sponsor and sponsee are the same account.</li></ul> |
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}

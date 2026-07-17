@@ -147,7 +147,7 @@ The [ledger_entry method](https://xrpl.org/docs/references/http-websocket-apis/p
 
 | Field                 | Type                 | Required? | Description |
 |:----------------------|:---------------------|:----------|:------------|
-| `sponsorship`         | Object or String     | Yes       | Retrieve a [Sponsorship ledger entry][]. If a string, must be the [object ID](https://xrpl.org/docs/references/protocol/ledger-data/common-fields) of the entry as hexadecimal. If an object, requires the `sponsor` and `sponsee` sub-fields. |
+| `sponsorship`         | Object or String     | Yes       | Retrieve a [Sponsorship ledger entry][]. If a string, must be the [ledger entry ID][] of the entry as hexadecimal. If an object, requires the `sponsor` and `sponsee` sub-fields. |
 | `sponsorship.sponsor` | String - [Address][] | No        | The address of the sponsor account. |
 | `sponsorship.sponsee` | String - [Address][] | No        | The address of the sponsee account. |
 

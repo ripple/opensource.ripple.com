@@ -43,6 +43,10 @@ In addition to the [common fields](./updated-common-transaction-fields.md#new-co
 | `ObjectID` | String    | Hash256           | No        | The ID of the ledger object to transfer sponsorship. Required if the transaction is dealing with a sponsored object, rather than a sponsored account. If omitted, the transaction refers to the `Account` sending the transaction. |
 | `Sponsee`  | String    | AccountID         | No        | The wallet address of the sponsee account. Required if the sponsor is ending a sponsorship on behalf of a sponsee. If omitted, the `Account` field is assumed to be the sponsee. |
 
+{% admonition type="info" name="Note" %}
+Which of these fields you must include, and whether they are required, depends on the operation. See [Sponsorship Scenarios](#sponsorship-scenarios) for the exact fields each operation needs.
+{% /admonition %}
+
 ## {% $frontmatter.seo.title %} Flags
 
 {% code-page-name /%} transactions support additional values in the `Flags` field, as follows:
@@ -55,10 +59,14 @@ In addition to the [common fields](./updated-common-transaction-fields.md#new-co
 
 ## Sponsorship Scenarios
 
+A {% code-page-name /%} transaction performs one of three operations: **create**, **reassign**, or **end** a sponsorship. Each is selected by its own flag (`tfSponsorshipCreate`, `tfSponsorshipReassign`, or `tfSponsorshipEnd`), and the fields you include and who can submit the transaction differ for each. 
+
+The tabs below describe the requirements for each operation.
+
 {% tabs %}
 
 {% tab label="Create Sponsorship" %}
-Use the `tfSponsorshipCreate` flag to sponsor an object or account. Only the sponsee can submit the transaction with this configuration. The reserve sponsorship transfers to the account specified in the `Sponsor` field.
+Use the `tfSponsorshipCreate` flag to sponsor an object or account that isn't currently sponsored. Only the sponsee can submit the transaction with this configuration. The reserve sponsorship transfers to the account specified in the `Sponsor` field.
 
 To submit a transaction for this scenario:
 

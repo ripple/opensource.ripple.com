@@ -96,7 +96,7 @@ Over time, sponsors may want to recoup their reserves, and sponsees may want to 
 - **End sponsorship**: Either the sponsor or sponsee can end a sponsorship at any time. The reserve burden returns to the object owner.
 
 {% admonition type="warning" name="Warning" %}
-When ending account sponsorship, the sponsee must have enough XRP to cover the account reserve. If they do not, and the sponsor needs to exit the sponsorship relationship quickly, the sponsor can pay the sponsee the XRP needed. However, the sponsor will **not** get their reserve back.
+When ending account sponsorship, the sponsee must have enough XRP to cover the account reserve. If they do not, and the sponsor needs to exit the sponsorship relationship quickly, the sponsor can send XRP to the sponsee with the `Payment` transaction. However, the sponsor will **not** get their reserve back.
 
 These steps can be executed atomically via a [Batch transaction](https://xrpl.org/docs/concepts/transactions/batch-transactions), to ensure that the sponsee cannot use the funds for something else before the transfer is validated.
 {% /admonition %}
