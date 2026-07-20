@@ -11,8 +11,8 @@ _(Requires the [Sponsor amendment][] {% not-enabled /%})_
 ```json
 {
   "TransactionType": "Payment",
-  "Account": "rN7n7otQDd6FczFgLdlqtyMVrn3HMfXpf", // The new sponsored account
-  "Destination": "rfkDkFai4jUfCvAJiZ5Vm7XvvWjYvDqeYo",
+  "Account": "rN7n7otQDd6FczFgLdlqtyMVrn3HMfXpf", // The sponsor funding the account creation
+  "Destination": "rfkDkFai4jUfCvAJiZ5Vm7XvvWjYvDqeYo", // The new account being created and sponsored
   "Amount": "1",  // 1 drop, the minimum
   "Flags": 524288, // tfSponsorCreatedAccount
   "Fee": "10",
@@ -37,13 +37,13 @@ When `tfSponsorCreatedAccount` is enabled, the following additional error cases 
 | `temINVALID_FLAG`          | `tfNoRippleDirect`, `tfPartialPayment`, or `tfLimitQuality` are enabled. The `tfSponsorCreatedAccount` flag cannot be combined with these flags. |
 | `temBAD_AMOUNT`            | The `Amount` specifies a non-XRP currency. |
 | `tecNO_SPONSOR_PERMISSION` | The `Destination` already exists. This flag is only valid when creating a new account. |
-| `tecNO_DST_INSUF_XRP`      | The `Account` does not have enough XRP to cover the account reserve requirement for the sponsored account. |
+| `tecUNFUNDED_PAYMENT`      | The sponsoring `Account` does not have enough XRP to deliver the `Amount` while still covering its own reserve (or the transaction fee, whichever is greater). |
 
 ## AccountDelete Transaction Updates
 
 The [AccountDelete transaction](https://xrpl.org/docs/references/protocol/transactions/types/accountdelete) adds new constraints for sponsored accounts. If the account being deleted has a `Sponsor` field, the `Destination` must equal the `Sponsor` value to ensure the sponsor can recoup their reserve.
 
-On successful deletion, the sponsor's `SponsoringAccountCount` is decremented by 1. If the deleted account had a `SponsoredOwnerCount` field, the sponsor's `SponsoringOwnerCount` is also decremented by that value.
+On successful deletion, the sponsor's `SponsoringAccountCount` is decremented by one.
 
 ### Example JSON
 

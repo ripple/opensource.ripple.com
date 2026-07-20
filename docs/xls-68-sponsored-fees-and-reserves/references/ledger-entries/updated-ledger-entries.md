@@ -13,24 +13,17 @@ A new `Sponsor` field is added to the [common ledger entry fields](https://xrpl.
 The `Sponsor` field may appear on the following ledger entry types:
 
 - `AccountRoot`
-- `Offer`
-- `Escrow`
 - `Check`
-- `PayChannel`
+- `Credential`
+- `Delegate`
 - `DepositPreauth`
-- `Ticket`
-- `NFTokenPage`
-- `NFTokenOffer`
-- `AMM`
-- `Bridge`
-- `XChainOwnedClaimID`
-- `XChainOwnedCreateAccountClaimID`
-- `DID`
-- Any other ledger entry type that contributes to an account's owner reserve.
+- `Escrow`
+- `MPToken`
+- `MPTokenIssuance`
+- `PayChannel`
+- `SignerList`
 
-{% admonition type="info" name="Note" %}
-NFTs are stored in `NFTokenPage` objects, not as individual ledger entries. When sponsoring NFTs, the `Sponsor` field applies to the entire `NFTokenPage`, which can hold up to 32 NFTs. All NFTs within a sponsored page share the **same** sponsor.
-{% /admonition %}
+`RippleState` entries also support sponsorship, but use the `HighSponsor` and `LowSponsor` fields instead of `Sponsor`. See [RippleState Updates](#ripplestate-updates).
 
 ## AccountRoot Updates
 

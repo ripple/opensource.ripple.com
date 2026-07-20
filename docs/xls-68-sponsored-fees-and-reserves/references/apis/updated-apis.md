@@ -47,12 +47,6 @@ An example of the request format:
 ```
 {% /tab %}
 
-{% tab label="Commandline" %}
-```sh
-rippled account_objects rN7n7otQDd6FczFgLdlqtyMVrn3HMfXpf sponsored=true ledger_index=validated type=state
-```
-{% /tab %}
-
 {% /tabs %}
 
 ### Response Format
@@ -145,43 +139,51 @@ An example of a successful response:
 ```
 {% /tab %}
 
-{% tab label="Commandline" %}
+{% /tabs %}
+
+## ledger_entry
+
+The [ledger_entry method](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/ledger-methods/ledger_entry) adds a new `sponsorship` field to retrieve a [Sponsorship ledger entry][] directly.
+
+| Field                 | Type                 | Required? | Description |
+|:----------------------|:---------------------|:----------|:------------|
+| `sponsorship`         | Object or String     | Yes       | Retrieve a [Sponsorship ledger entry][]. If a string, must be the [ledger entry ID][] of the entry as hexadecimal. If an object, requires the `sponsor` and `sponsee` sub-fields. |
+| `sponsorship.sponsor` | String - [Address][] | No        | The address of the sponsor account. |
+| `sponsorship.sponsee` | String - [Address][] | No        | The address of the sponsee account. |
+
+### Request Format
+
+An example of the request format:
+
+{% tabs %}
+
+{% tab label="WebSocket" %}
 ```json
 {
-  "result": {
-    "account": "rN7n7otQDd6FczFgLdlqtyMVrn3HMfXpf",
-    "account_objects": [
-      {
-        "Balance": {
-          "currency": "USD",
-          "issuer": "rrrrrrrrrrrrrrrrrrrrBZbvji",
-          "value": "100"
-        },
-        "Flags": 65536,
-        "HighLimit": {
-          "currency": "USD",
-          "issuer": "rN7n7otQDd6FczFgLdlqtyMVrn3HMfXpf",
-          "value": "1000"
-        },
-        "HighNode": "0000000000000000",
-        "HighSponsor": "rSponsor1VktvzBz8JF2oJC6qaww6RZ7Lw",
-        "LedgerEntryType": "RippleState",
-        "LowLimit": {
-          "currency": "USD",
-          "issuer": "rfkDkFai4jUfCvAJiZ5Vm7XvvWjYvDqeYo",
-          "value": "0"
-        },
-        "LowNode": "0000000000000000",
-        "PreviousTxnID": "1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF",
-        "PreviousTxnLgrSeq": 12345678,
-        "index": "ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890"
-      }
-    ],
-    "ledger_hash": "FEDCBA0987654321FEDCBA0987654321FEDCBA0987654321FEDCBA0987654321",
-    "ledger_index": 56789012,
-    "validated": true,
-    "status": "success"
-  }
+  "id": 1,
+  "command": "ledger_entry",
+  "sponsorship": {
+    "sponsor": "rSponsor1VktvzBz8JF2oJC6qaww6RZ7Lw",
+    "sponsee": "rN7n7otQDd6FczFgLdlqtyMVrn3HMfXpf"
+  },
+  "ledger_index": "validated"
+}
+```
+{% /tab %}
+
+{% tab label="JSON-RPC" %}
+```json
+{
+  "method": "ledger_entry",
+  "params": [
+    {
+      "sponsorship": {
+        "sponsor": "rSponsor1VktvzBz8JF2oJC6qaww6RZ7Lw",
+        "sponsee": "rN7n7otQDd6FczFgLdlqtyMVrn3HMfXpf"
+      },
+      "ledger_index": "validated"
+    }
+  ]
 }
 ```
 {% /tab %}
