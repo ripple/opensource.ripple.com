@@ -34,7 +34,7 @@ The `simpleXRPL` is an opinionated TypeScript SDK for the XRP Ledger, built for 
 For every operation, on every connector, `simpleXRPL` has a statically defined routing decision that it reports at initialization:
 
 - **Native**: Maps onto an endpoint a custodian exposes and natively handles.
-- **Raw Signing**: For an operation the custodian exposes no native support for, the SDK builds the underlying XRPL transactions, has the custodian sign the raw bytes, and submits them to the XRPL directly. Raw signing is off by default and enabled per connector; once on, it covers every operation that connector can't handle natively.
+- **Raw Signing**: For an operation the custodian exposes no native support for, the SDK builds the underlying XRPL transactions, the custodian signs the raw bytes, then the SDK submits them to the XRPL directly. Raw signing is off by default and enabled per connector; once on, it covers every operation that connector can't handle natively.
 - **Unavailable**: The custodian doesn't expose a native endpoint and raw signing isn't enabled on the connector, so this operation is rejected.
 
 {% admonition type="info" name="Note" %}
