@@ -2,7 +2,8 @@
 seo:
     description: IOU.lock freezes a holder's trust line via individual and deep freeze TrustSet transactions.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # iou.lock()

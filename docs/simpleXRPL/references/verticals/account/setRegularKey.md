@@ -2,7 +2,8 @@
 seo:
     description: Account.setRegularKey sets or removes the account's regular key via a SetRegularKey transaction.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # account.setRegularKey()

@@ -2,7 +2,8 @@
 seo:
     description: Token.destroy destroys an MPT issuance via an MPTokenIssuanceDestroy transaction.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # token.destroy()

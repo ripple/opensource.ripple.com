@@ -2,7 +2,8 @@
 seo:
     description: Account.listOffers lists the open DEX offers placed by an account. Read-only.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # account.listOffers()

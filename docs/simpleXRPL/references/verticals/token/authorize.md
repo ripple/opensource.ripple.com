@@ -2,7 +2,8 @@
 seo:
     description: Token.authorize opts the calling account in to holding an MPT issuance via an MPTokenAuthorize transaction.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # token.authorize()

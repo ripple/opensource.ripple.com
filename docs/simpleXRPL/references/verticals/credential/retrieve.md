@@ -2,7 +2,8 @@
 seo:
     description: Credential.retrieve reads a single credential by type and issuer. Read-only.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # credential.retrieve()

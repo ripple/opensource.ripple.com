@@ -2,7 +2,8 @@
 seo:
     description: Token.unauthorize opts the calling account out of holding an MPT issuance via an MPTokenAuthorize transaction.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # token.unauthorize()

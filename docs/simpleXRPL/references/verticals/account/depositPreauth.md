@@ -2,7 +2,8 @@
 seo:
     description: Account.depositPreauth grants or revokes deposit preauthorization for another account via a DepositPreauth transaction.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # account.depositPreauth()

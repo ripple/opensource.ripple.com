@@ -2,7 +2,8 @@
 seo:
     description: IOU.sellOffer places a DEX order to sell this IOU via an OfferCreate transaction.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # iou.sellOffer()

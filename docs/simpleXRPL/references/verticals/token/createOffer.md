@@ -2,7 +2,8 @@
 seo:
     description: Token.createOffer places an offer on the XRP Ledger decentralized exchange via an OfferCreate transaction.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # token.createOffer()

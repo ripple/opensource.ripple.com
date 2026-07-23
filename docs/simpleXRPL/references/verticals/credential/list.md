@@ -2,7 +2,8 @@
 seo:
     description: Credential.list lists the credentials an account holds or issued. Read-only.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # credential.list()

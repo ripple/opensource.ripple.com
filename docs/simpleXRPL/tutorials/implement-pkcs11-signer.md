@@ -2,7 +2,8 @@
 seo:
     description: Implement the ExternalSignerPort seam against a PKCS#11 HSM — you provide the public key and digest signing; the SDK owns the XRPL crypto.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # Implement A PKCS#11 HSM Signer

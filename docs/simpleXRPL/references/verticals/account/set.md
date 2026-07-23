@@ -2,7 +2,8 @@
 seo:
     description: Account.set updates account settings and flags via an AccountSet transaction.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # account.set()

@@ -2,7 +2,8 @@
 seo:
     description: Token.unlock unlocks an MPT issuance or a specific holder's balance via an MPTokenIssuanceSet transaction.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # token.unlock()

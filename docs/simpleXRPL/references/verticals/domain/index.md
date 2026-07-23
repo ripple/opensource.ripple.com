@@ -2,7 +2,8 @@
 seo:
     description: The Domain vertical in simpleXRPL creates, updates, and deletes permissioned domains.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # Domain

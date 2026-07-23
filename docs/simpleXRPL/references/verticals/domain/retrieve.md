@@ -2,7 +2,8 @@
 seo:
     description: Domain.retrieve reads a permissioned domain by id. Read-only.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # domain.retrieve()

@@ -2,7 +2,8 @@
 seo:
     description: The Account vertical in simpleXRPL manages account creation, funding, settings, regular keys, and deposit preauthorization.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # Account

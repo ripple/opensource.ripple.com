@@ -2,7 +2,8 @@
 seo:
     description: IOU.list lists every IOU trust line for an account. Read-only.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # iou.list()

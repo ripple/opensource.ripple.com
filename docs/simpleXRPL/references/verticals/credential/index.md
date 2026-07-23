@@ -2,7 +2,8 @@
 seo:
     description: The Credential vertical in simpleXRPL issues, accepts, and deletes on-ledger credentials.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # Credential

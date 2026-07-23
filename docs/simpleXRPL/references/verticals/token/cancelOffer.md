@@ -2,7 +2,8 @@
 seo:
     description: Token.cancelOffer cancels a standing DEX offer via an OfferCancel transaction.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # token.cancelOffer()

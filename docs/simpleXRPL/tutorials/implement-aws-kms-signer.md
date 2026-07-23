@@ -2,7 +2,8 @@
 seo:
     description: Sign transactions with a secp256k1 key held in AWS KMS using the simplexrpl/aws-kms adapter; the private key never leaves KMS.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # Sign With AWS KMS

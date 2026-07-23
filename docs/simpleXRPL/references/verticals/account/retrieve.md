@@ -2,7 +2,8 @@
 seo:
     description: Account.retrieve reads an account's on-chain state — balance, sequence, owner count, and flags. Read-only.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # account.retrieve()

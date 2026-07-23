@@ -2,7 +2,8 @@
 seo:
     description: IOU.buyOffer places a DEX order to acquire more of this IOU via an OfferCreate transaction.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # iou.buyOffer()

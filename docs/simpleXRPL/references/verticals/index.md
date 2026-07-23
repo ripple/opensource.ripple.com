@@ -2,7 +2,8 @@
 seo:
     description: A vertical is a domain-specific class of business-intent operations in simpleXRPL — one per area of XRPL functionality, reached off the client.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # Verticals

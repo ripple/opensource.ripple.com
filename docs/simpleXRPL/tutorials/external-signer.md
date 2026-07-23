@@ -2,7 +2,8 @@
 seo:
     description: Implement the ExternalSignerPort seam end to end with a mock signer, and switch between secp256k1 and ed25519.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # Implement An External Signer

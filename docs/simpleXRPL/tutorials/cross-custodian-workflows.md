@@ -2,7 +2,8 @@
 seo:
     description: Drive accounts held by different custodians from a single client, using per-call routing or an ordered multi-step sequence.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # Run A Workflow Across Custodians

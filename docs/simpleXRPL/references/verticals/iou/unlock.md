@@ -2,7 +2,8 @@
 seo:
     description: IOU.unlock restores a frozen holder's trust line by clearing deep and individual freeze via TrustSet transactions.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # iou.unlock()

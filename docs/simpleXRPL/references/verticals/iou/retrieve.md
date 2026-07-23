@@ -2,7 +2,8 @@
 seo:
     description: IOU.retrieve reads a single IOU trust line between an account and an issuer. Read-only.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # iou.retrieve()

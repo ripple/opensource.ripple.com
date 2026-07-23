@@ -2,7 +2,8 @@
 seo:
     description: Credential.delete deletes an on-ledger credential, as either its issuer or its holder, via a CredentialDelete transaction.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # credential.delete()

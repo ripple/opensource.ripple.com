@@ -2,7 +2,8 @@
 seo:
     description: Domain.create creates a new permissioned domain via a PermissionedDomainSet transaction.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # domain.create()

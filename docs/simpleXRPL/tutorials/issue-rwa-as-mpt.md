@@ -2,7 +2,8 @@
 seo:
     description: Issue a Real-World Asset as a Multi-Purpose Token (MPT) through Ripple Custody, with XLS-89 metadata validated before submission.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # Issue An RWA As An MPT

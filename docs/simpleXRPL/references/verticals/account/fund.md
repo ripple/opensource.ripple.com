@@ -2,7 +2,8 @@
 seo:
     description: Account.fund funds a created account from a testnet/devnet faucet, then enables rippling via an AccountSet transaction.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # account.fund()

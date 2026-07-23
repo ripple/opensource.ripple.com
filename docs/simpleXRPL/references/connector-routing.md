@@ -2,7 +2,8 @@
 seo:
     description: The connector routing table — per XRPL transactor and per custodian, whether an operation routes native, requires the raw-signing fallback, or is unavailable.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # Connector Routing

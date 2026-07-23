@@ -2,7 +2,8 @@
 seo:
     description: Domain.delete deletes a permissioned domain via a PermissionedDomainDelete transaction.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # domain.delete()

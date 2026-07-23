@@ -2,7 +2,8 @@
 seo:
     description: Token.list lists the MPTs an account holds or issued. Read-only.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # token.list()

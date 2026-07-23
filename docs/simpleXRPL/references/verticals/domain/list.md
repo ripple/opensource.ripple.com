@@ -2,7 +2,8 @@
 seo:
     description: Domain.list lists every permissioned domain owned by an account. Read-only.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # domain.list()

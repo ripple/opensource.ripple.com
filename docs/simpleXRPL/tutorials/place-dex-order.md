@@ -2,7 +2,8 @@
 seo:
     description: Place buy and sell orders on the XRP Ledger DEX with the iou and token verticals, using familiar order types.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # Place A DEX Order

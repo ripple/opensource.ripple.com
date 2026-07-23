@@ -2,7 +2,8 @@
 seo:
     description: Ask how a transactor would route for an account — native, raw-signing fallback, local, or rejected — before you submit.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # Read Routing Reports

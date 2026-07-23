@@ -2,7 +2,8 @@
 seo:
     description: Construct and authenticate each simpleXRPL connector, then bind them so every vertical verb routes to the custodian that owns the account.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # Connect To Custodians

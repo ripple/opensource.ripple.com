@@ -2,7 +2,8 @@
 seo:
     description: Credential.issue issues an on-ledger credential to a destination account via a CredentialCreate transaction.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # credential.issue()

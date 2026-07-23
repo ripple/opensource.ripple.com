@@ -2,7 +2,8 @@
 seo:
     description: IOU.cancelOffer cancels a standing DEX offer placed by the issuer via an OfferCancel transaction.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # iou.cancelOffer()

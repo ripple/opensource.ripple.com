@@ -2,7 +2,8 @@
 seo:
     description: List and resolve the accounts each custodian discovered, and re-discover at runtime, from the single account index init builds.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # Discover Accounts

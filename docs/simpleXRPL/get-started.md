@@ -2,7 +2,8 @@
 seo:
     description: Install simpleXRPL, initialize the client, connect a custodian, and run your first XRP Ledger operation.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # Get Started
@@ -96,7 +97,7 @@ const client = await SimpleXRPL.init({
 Read credentials from your environment or secrets manager — never hard-code keys. Once bound, every vertical verb works the same regardless of which connector owns the account: the SDK routes each write to the custodian that holds it.
 
 {% admonition type="info" name="Note" %}
-Whether an operation runs through a custodian's **native** path or the **raw-signing fallback** is decided per operation, and fallback is off unless you opt in. See [Operation Execution](index.md#operation-execution) and the [Connector Routing](references/connector-routing.md) table.
+Whether an operation runs through a custodian's **native** path or the **raw-signing fallback** is decided per operation; the fallback is off by default and enabled per connector via `allowRawSigning`. See [Operation Execution](index.md#operation-execution) and the [Connector Routing](references/connector-routing.md) table.
 {% /admonition %}
 
 See [Connect to custodians](tutorials/connect-custodians.md) for the full per-connector setup.

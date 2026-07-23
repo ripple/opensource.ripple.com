@@ -2,7 +2,8 @@
 seo:
     description: Reference index for the simpleXRPL SDK — its verticals, connectors, the amount and asset model, submission results, and the error hierarchy.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # Reference

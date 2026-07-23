@@ -2,7 +2,8 @@
 seo:
     description: The XRP vertical in simpleXRPL handles native XRP value transfers.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # XRP

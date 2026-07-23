@@ -2,7 +2,8 @@
 seo:
     description: Initialize the simpleXRPL client with SimpleXRPL.init — bind connectors to a network and build the account index.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # Initialize The Client

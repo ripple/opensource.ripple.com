@@ -2,7 +2,8 @@
 seo:
     description: Token.transfer sends MPT units to another account via a Payment transaction.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # token.transfer()

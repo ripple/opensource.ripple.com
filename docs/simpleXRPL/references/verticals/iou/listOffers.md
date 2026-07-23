@@ -2,7 +2,8 @@
 seo:
     description: IOU.listOffers lists all open offers in the market for an IOU (both sides of the order book). Read-only.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # iou.listOffers()

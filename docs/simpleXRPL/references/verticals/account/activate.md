@@ -2,7 +2,8 @@
 seo:
     description: Account.activate activates a created account by sending it XRP from the operator account, then enabling rippling.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # account.activate()

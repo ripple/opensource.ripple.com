@@ -2,7 +2,8 @@
 seo:
     description: Token.grantHolder lets an issuer authorize a specific holder to hold an MPT via an MPTokenAuthorize transaction.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # token.grantHolder()

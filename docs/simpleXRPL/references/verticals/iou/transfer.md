@@ -2,7 +2,8 @@
 seo:
     description: IOU.transfer sends issued-currency value to a destination account via a Payment transaction.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # iou.transfer()

@@ -2,7 +2,8 @@
 seo:
     description: The IOU vertical in simpleXRPL issues and manages trust-line-based issued currencies.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # IOU

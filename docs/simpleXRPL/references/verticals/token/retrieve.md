@@ -2,7 +2,8 @@
 seo:
     description: Token.retrieve reads a single MPT issuance by id, with flags and XLS-89 metadata decoded. Read-only.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # token.retrieve()

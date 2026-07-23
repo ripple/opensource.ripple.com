@@ -2,7 +2,8 @@
 seo:
     description: Domain.setCredentials updates the accepted credentials of an existing permissioned domain via a PermissionedDomainSet transaction.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # domain.setCredentials()

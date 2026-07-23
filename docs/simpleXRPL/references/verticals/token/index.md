@@ -2,7 +2,8 @@
 seo:
     description: The Token vertical in simpleXRPL issues and manages Multi-Purpose Tokens (MPTs) and places DEX offers.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # Token

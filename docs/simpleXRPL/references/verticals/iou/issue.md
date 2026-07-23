@@ -2,7 +2,8 @@
 seo:
     description: IOU.issue bootstraps a new trust-line-based IOU between two environment-sourced accounts via AccountSet and TrustSet transactions.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # iou.issue()

@@ -2,7 +2,8 @@
 seo:
     description: IOU.clawback reclaims a holder's balance back to the issuer via a Clawback transaction.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # iou.clawback()

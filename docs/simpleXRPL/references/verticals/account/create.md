@@ -2,7 +2,8 @@
 seo:
     description: Account.create generates a new XRPL keypair locally and registers it. No transaction is submitted.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # account.create()

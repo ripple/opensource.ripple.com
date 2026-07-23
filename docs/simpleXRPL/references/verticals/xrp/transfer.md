@@ -2,7 +2,8 @@
 seo:
     description: XRP.transfer sends native XRP from one account to another via a Payment transaction.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # xrp.transfer()

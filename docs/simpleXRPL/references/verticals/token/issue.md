@@ -2,7 +2,8 @@
 seo:
     description: Token.issue creates a new Multi-Purpose Token (MPT) issuance via an MPTokenIssuanceCreate transaction.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # token.issue()

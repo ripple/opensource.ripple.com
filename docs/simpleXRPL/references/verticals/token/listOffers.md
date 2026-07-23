@@ -2,7 +2,8 @@
 seo:
     description: Token.listOffers lists the open DEX offers placed by an account. Read-only.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # token.listOffers()

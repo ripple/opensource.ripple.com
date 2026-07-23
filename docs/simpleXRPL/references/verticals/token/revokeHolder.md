@@ -2,7 +2,8 @@
 seo:
     description: Token.revokeHolder lets an issuer revoke a specific holder's permission to hold an MPT via an MPTokenAuthorize transaction.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # token.revokeHolder()

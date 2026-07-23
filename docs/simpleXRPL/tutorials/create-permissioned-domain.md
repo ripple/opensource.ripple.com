@@ -2,7 +2,8 @@
 seo:
     description: Set up a permissioned domain that restricts participation to credential holders, then scope DEX offers to it.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # Create A Permissioned Domain

@@ -2,7 +2,8 @@
 seo:
     description: Credential.accept accepts a credential issued to the calling account via a CredentialAccept transaction.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # credential.accept()

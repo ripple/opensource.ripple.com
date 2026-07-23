@@ -2,7 +2,8 @@
 seo:
     description: IOU.authorize authorizes a holder to hold an IOU via a TrustSet transaction with the authorize flag.
 labels:
-  - SDKs
+  - simpleXRPL
+  - SDK
 ---
 
 # iou.authorize()
