@@ -1,6 +1,6 @@
 ---
 seo:
-    description: Issue a trust-line currency (IOU) and distribute it: bootstrap the issuer and hot wallet, then transfer the currency out.
+    description: "Issue a trust-line currency (IOU) and distribute it: bootstrap the issuer and hot wallet, then transfer the currency out."
 labels:
   - SDKs
 ---
