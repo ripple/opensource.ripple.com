@@ -21,7 +21,7 @@ export default function Page() {
       </Jumbotron>
      
       <LandingContainer>
-        <Cards columns={2}>
+        <Cards columns={3}>
 
           <Card title="Batch transactions" to="docs/xls-56-batch-transactions/">
             <p>Prepare and submit up to 8 transactions in a single batch.</p>

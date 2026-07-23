@@ -14,12 +14,12 @@ redirects:
   $ref: redirects.yaml
 navbar:
   items:
-    - label: Home
-      page: index.page.tsx
     - label: Open Source Projects
       page: docs/index.md
     - label: Roadmap
-      page: ripplex-roadmap.md 
+      page: ripplex-roadmap.md
+    - label: simpleXRPL
+      page: docs/simpleXRPL/index.md
 footer:
   items:
     - group: About

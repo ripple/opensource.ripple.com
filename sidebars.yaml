@@ -1,7 +1,151 @@
-- page: ripplex-roadmap.md
 - page: docs/index.md
-- group: Prerelease Docs
-  expanded: true
+- page: ripplex-roadmap.md
+- group: simpleXRPL
+  page: docs/simpleXRPL/index.md
+  expanded: false
+  items:
+    - page: docs/simpleXRPL/get-started.md
+    - group: Tutorials
+      expanded: false
+      items:
+        - page: docs/simpleXRPL/tutorials/inititialize-clients.md
+        - page: docs/simpleXRPL/tutorials/connect-custodians.md
+        - page: docs/simpleXRPL/tutorials/discover-acounts.md
+        - page: docs/simpleXRPL/tutorials/issue-rwa-as-mpt.md
+        - page: docs/simpleXRPL/tutorials/issue-and-distribute-iou.md
+        - page: docs/simpleXRPL/tutorials/place-dex-order.md
+        - page: docs/simpleXRPL/tutorials/create-permissioned-domain.md
+        - page: docs/simpleXRPL/tutorials/cross-custodian-workflows.md
+        - page: docs/simpleXRPL/tutorials/read-routing-reports.md
+        - page: docs/simpleXRPL/tutorials/external-signer.md
+        - page: docs/simpleXRPL/tutorials/implement-aws-kms-signer.md
+        - page: docs/simpleXRPL/tutorials/implement-pkcs11-signer.md
+    - group: References
+      page: docs/simpleXRPL/references/index.md
+      expanded: false
+      items:
+        - page: docs/simpleXRPL/references/connector-routing.md
+          label: Connector Routing
+        - group: Verticals
+          page: docs/simpleXRPL/references/verticals/index.md
+          expanded: false
+          items:
+            - group: XRP
+              page: docs/simpleXRPL/references/verticals/xrp/index.md
+              expanded: false
+              items:
+                - page: docs/simpleXRPL/references/verticals/xrp/transfer.md
+                  label: transfer()
+            - group: Token
+              page: docs/simpleXRPL/references/verticals/token/index.md
+              expanded: false
+              items:
+                - page: docs/simpleXRPL/references/verticals/token/issue.md
+                  label: issue()
+                - page: docs/simpleXRPL/references/verticals/token/transfer.md
+                  label: transfer()
+                - page: docs/simpleXRPL/references/verticals/token/authorize.md
+                  label: authorize()
+                - page: docs/simpleXRPL/references/verticals/token/unauthorize.md
+                  label: unauthorize()
+                - page: docs/simpleXRPL/references/verticals/token/grantHolder.md
+                  label: grantHolder()
+                - page: docs/simpleXRPL/references/verticals/token/revokeHolder.md
+                  label: revokeHolder()
+                - page: docs/simpleXRPL/references/verticals/token/lock.md
+                  label: lock()
+                - page: docs/simpleXRPL/references/verticals/token/unlock.md
+                  label: unlock()
+                - page: docs/simpleXRPL/references/verticals/token/destroy.md
+                  label: destroy()
+                - page: docs/simpleXRPL/references/verticals/token/createOffer.md
+                  label: createOffer()
+                - page: docs/simpleXRPL/references/verticals/token/cancelOffer.md
+                  label: cancelOffer()
+                - page: docs/simpleXRPL/references/verticals/token/retrieve.md
+                  label: retrieve()
+                - page: docs/simpleXRPL/references/verticals/token/list.md
+                  label: list()
+                - page: docs/simpleXRPL/references/verticals/token/listOffers.md
+                  label: listOffers()
+            - group: IOU
+              page: docs/simpleXRPL/references/verticals/iou/index.md
+              expanded: false
+              items:
+                - page: docs/simpleXRPL/references/verticals/iou/issue.md
+                  label: issue()
+                - page: docs/simpleXRPL/references/verticals/iou/transfer.md
+                  label: transfer()
+                - page: docs/simpleXRPL/references/verticals/iou/authorize.md
+                  label: authorize()
+                - page: docs/simpleXRPL/references/verticals/iou/lock.md
+                  label: lock()
+                - page: docs/simpleXRPL/references/verticals/iou/unlock.md
+                  label: unlock()
+                - page: docs/simpleXRPL/references/verticals/iou/clawback.md
+                  label: clawback()
+                - page: docs/simpleXRPL/references/verticals/iou/buyOffer.md
+                  label: buyOffer()
+                - page: docs/simpleXRPL/references/verticals/iou/sellOffer.md
+                  label: sellOffer()
+                - page: docs/simpleXRPL/references/verticals/iou/cancelOffer.md
+                  label: cancelOffer()
+                - page: docs/simpleXRPL/references/verticals/iou/retrieve.md
+                  label: retrieve()
+                - page: docs/simpleXRPL/references/verticals/iou/list.md
+                  label: list()
+                - page: docs/simpleXRPL/references/verticals/iou/listOffers.md
+                  label: listOffers()
+            - group: Credential
+              page: docs/simpleXRPL/references/verticals/credential/index.md
+              expanded: false
+              items:
+                - page: docs/simpleXRPL/references/verticals/credential/issue.md
+                  label: issue()
+                - page: docs/simpleXRPL/references/verticals/credential/accept.md
+                  label: accept()
+                - page: docs/simpleXRPL/references/verticals/credential/delete.md
+                  label: delete()
+                - page: docs/simpleXRPL/references/verticals/credential/retrieve.md
+                  label: retrieve()
+                - page: docs/simpleXRPL/references/verticals/credential/list.md
+                  label: list()
+            - group: Domain
+              page: docs/simpleXRPL/references/verticals/domain/index.md
+              expanded: false
+              items:
+                - page: docs/simpleXRPL/references/verticals/domain/create.md
+                  label: create()
+                - page: docs/simpleXRPL/references/verticals/domain/setCredentials.md
+                  label: setCredentials()
+                - page: docs/simpleXRPL/references/verticals/domain/delete.md
+                  label: delete()
+                - page: docs/simpleXRPL/references/verticals/domain/retrieve.md
+                  label: retrieve()
+                - page: docs/simpleXRPL/references/verticals/domain/list.md
+                  label: list()
+            - group: Account
+              page: docs/simpleXRPL/references/verticals/account/index.md
+              expanded: false
+              items:
+                - page: docs/simpleXRPL/references/verticals/account/create.md
+                  label: create()
+                - page: docs/simpleXRPL/references/verticals/account/activate.md
+                  label: activate()
+                - page: docs/simpleXRPL/references/verticals/account/fund.md
+                  label: fund()
+                - page: docs/simpleXRPL/references/verticals/account/set.md
+                  label: set()
+                - page: docs/simpleXRPL/references/verticals/account/setRegularKey.md
+                  label: setRegularKey()
+                - page: docs/simpleXRPL/references/verticals/account/depositPreauth.md
+                  label: depositPreauth()
+                - page: docs/simpleXRPL/references/verticals/account/retrieve.md
+                  label: retrieve()
+                - page: docs/simpleXRPL/references/verticals/account/listOffers.md
+                  label: listOffers()
+- group: Amendments
+  expanded: false
   items:
     - page: docs/xls-85-token-escrow/index.page.tsx
     - page: docs/xls-81-permissioned-dexes/index.page.tsx
