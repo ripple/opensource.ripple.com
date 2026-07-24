@@ -21,7 +21,7 @@ domain.create(
 ): Promise<SubmissionResult<DomainIntent>>
 ```
 
-### Parameters
+## Parameters
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -34,17 +34,17 @@ Each `AcceptedCredential` is:
 | `issuer` | `string` | Yes | The issuer r-address. |
 | `credType` | `string` | Yes | The credential type, as a plain string (hex-encoded on the ledger). |
 
-### Options
+## Options
 
 {% raw-partial file="/docs/_snippets/simplexrpl-write-options.md" /%}
 
-### Response
+## Returns
 
 Resolves to a `SubmissionResult<DomainIntent>`.
 
 {% raw-partial file="/docs/_snippets/simplexrpl-response-fields.md" /%}
 
-#### Response values
+### Return fields
 
 For `Domain.create`, the `intent` (`DomainIntent`) carries:
 
@@ -52,7 +52,7 @@ For `Domain.create`, the `intent` (`DomainIntent`) carries:
 | --- | --- | --- |
 | `domainID` | `string` | The id of the newly created domain, discovered from the transaction result. |
 
-### Underlying XRPL transactor
+## Underlying XRPL transactor
 
 Builds and submits a single [`PermissionedDomainSet`](https://xrpl.org/docs/references/protocol/transactions/types/permissioneddomainset) transaction (with no domain id, creating a new domain).
 

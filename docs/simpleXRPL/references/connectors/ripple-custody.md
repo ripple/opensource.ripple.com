@@ -17,6 +17,8 @@ Ripple Custody authenticates with an intent-author key exchanged for a token. A 
 
 Construct with every value passed explicitly.
 
+### Signature
+
 ```ts
 RippleCustody.create(options: RippleCustodyOptions): Promise<RippleCustody>
 ```
@@ -42,6 +44,8 @@ RippleCustody.create(options: RippleCustodyOptions): Promise<RippleCustody>
 ## RippleCustody.fromEnv()
 
 Reads the endpoints, credentials, and domain from environment variables.
+
+### Signature
 
 ```ts
 RippleCustody.fromEnv(options: RippleCustodyFromEnvOptions): Promise<RippleCustody>

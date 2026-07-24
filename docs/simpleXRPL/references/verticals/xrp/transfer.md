@@ -21,24 +21,24 @@ xrp.transfer(
 ): Promise<SubmissionResult<XrpTransferIntent>>
 ```
 
-### Parameters
+## Parameters
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | `to` | `string` | Yes | Destination r-address. |
 | `amount` | `string` | Yes | Amount to send, as a decimal string in XRP (e.g. `'10'`, `'0.25'`). |
 
-### Options
+## Options
 
 {% raw-partial file="/docs/_snippets/simplexrpl-write-options.md" /%}
 
-### Response
+## Returns
 
 Resolves to a `SubmissionResult<XrpTransferIntent>`.
 
 {% raw-partial file="/docs/_snippets/simplexrpl-response-fields.md" /%}
 
-#### Response values
+### Return fields
 
 For `XRP.transfer`, the `intent` (`XrpTransferIntent`) carries:
 
@@ -47,7 +47,7 @@ For `XRP.transfer`, the `intent` (`XrpTransferIntent`) carries:
 | `to` | `string` | Destination r-address. |
 | `amount` | `string` | Amount sent, in XRP. |
 
-### Underlying XRPL transactor
+## Underlying XRPL transactor
 
 Builds and submits a single [`Payment`](https://xrpl.org/docs/references/protocol/transactions/types/payment) transaction.
 

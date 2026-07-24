@@ -21,28 +21,28 @@ account.activate(
 ): Promise<SubmissionResult<undefined>>
 ```
 
-### Parameters
+## Parameters
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | `destination` | `string` | Yes | The r-address to activate (typically from `Account.create`). |
 | `amount` | `string` | No | XRP to send. Defaults to the network's base reserve (plus a small buffer). |
 
-### Options
+## Options
 
 {% raw-partial file="/docs/_snippets/simplexrpl-write-options.md" /%}
 
-### Response
+## Returns
 
 Resolves to a `SubmissionResult<undefined>` (from the `defaultRipple` settings change).
 
 {% raw-partial file="/docs/_snippets/simplexrpl-response-fields.md" /%}
 
-#### Response values
+### Return fields
 
 `Account.activate` attaches no `intent` output; `intent` is `undefined`.
 
-### Underlying XRPL transactors
+## Underlying XRPL transactors
 
 Runs as an ordered, multi-step sequence:
 

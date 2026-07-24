@@ -24,14 +24,14 @@ iou.listOffers(
 ): Promise<ListOffersResult>
 ```
 
-### Parameters
+## Parameters
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | `ticker` | `string` | Yes | The IOU currency code to anchor the book on. |
 | `issuer` | `string` | Yes | The IOU issuer's r-address. |
 
-### Response
+## Returns
 
 Resolves to a `ListOffersResult`:
 
@@ -39,7 +39,7 @@ Resolves to a `ListOffersResult`:
 | --- | --- | --- |
 | `data` | `readonly OfferSummary[]` | The shaped open offers, tagged buy/sell relative to the IOU. See [`token.listOffers`](../token/listOffers.md#offersummary) for `OfferSummary`. |
 
-### Underlying XRPL request
+## Underlying XRPL request
 
 Read-only — no signer is required and nothing is submitted. Queries both sides of the order book with [`book_offers`](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/path-and-order-book-methods/book_offers).
 

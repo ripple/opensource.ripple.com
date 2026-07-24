@@ -21,7 +21,7 @@ token.issue(
 ): Promise<SubmissionResult<MptIssueIntent>>
 ```
 
-### Parameters
+## Parameters
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -46,17 +46,17 @@ The `flags` object accepts:
 `issue()` applies opinionated, overridable defaults so a bare call yields a usable token: `canLock`, `canEscrow`, `canTrade`, `canTransfer`, and `canClawback` are all enabled, and `requireAuth` is off. Pass any flag explicitly to override it. MPT capability flags are **permanent** once the issuance exists.
 {% /admonition %}
 
-### Options
+## Options
 
 {% raw-partial file="/docs/_snippets/simplexrpl-write-options.md" /%}
 
-### Response
+## Returns
 
 Resolves to a `SubmissionResult<MptIssueIntent>`.
 
 {% raw-partial file="/docs/_snippets/simplexrpl-response-fields.md" /%}
 
-#### Response values
+### Return fields
 
 For `Token.issue`, the `intent` (`MptIssueIntent`) carries:
 
@@ -64,7 +64,7 @@ For `Token.issue`, the `intent` (`MptIssueIntent`) carries:
 | --- | --- | --- |
 | `mptIssuanceId` | `string` | The id of the newly created MPT issuance. |
 
-### Underlying XRPL transactor
+## Underlying XRPL transactor
 
 Builds and submits a single [`MPTokenIssuanceCreate`](https://xrpl.org/docs/references/protocol/transactions/types/mptokenissuancecreate) transaction.
 

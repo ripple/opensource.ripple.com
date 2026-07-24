@@ -16,6 +16,8 @@ A local connector holds one or more XRPL accounts in-process and signs operation
 
 Builds one wallet per `XRPL_*_SEED` environment variable (matching `XRPL_<NAME>_SEED` and a plain `XRPL_SEED`) — one wallet per match. The primary defaults to the first seed found.
 
+### Signature
+
 ```ts
 LocalSigner.fromEnv(options?: LocalSignerFromEnvOptions): LocalSigner
 ```
@@ -32,6 +34,8 @@ LocalSigner.fromEnv(options?: LocalSignerFromEnvOptions): LocalSigner
 
 Builds a single wallet from a seed string.
 
+### Signature
+
 ```ts
 LocalSigner.fromSeed(seed: string): LocalSigner
 ```
@@ -46,6 +50,8 @@ LocalSigner.fromSeed(seed: string): LocalSigner
 ## LocalSigner.create()
 
 Builds from pre-constructed `xrpl` `Wallet` objects.
+
+### Signature
 
 ```ts
 LocalSigner.create(options: LocalSignerCreateOptions): LocalSigner

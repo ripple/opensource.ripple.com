@@ -21,23 +21,23 @@ token.authorize(
 ): Promise<SubmissionResult<
 ```
 
-### Parameters
+## Parameters
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | `mptIssuanceId` | `string` | Yes | The MPT issuance id to opt in to. |
 
-### Options
+## Options
 
 {% raw-partial file="/docs/_snippets/simplexrpl-write-options.md" /%}
 
-### Response
+## Returns
 
 Resolves to a `SubmissionResult<{ mptIssuanceId: string }>`.
 
 {% raw-partial file="/docs/_snippets/simplexrpl-response-fields.md" /%}
 
-#### Response values
+### Return fields
 
 For `Token.authorize`, the `intent` echoes:
 
@@ -45,7 +45,7 @@ For `Token.authorize`, the `intent` echoes:
 | --- | --- | --- |
 | `mptIssuanceId` | `string` | The MPT issuance id that was authorized. |
 
-### Underlying XRPL transactor
+## Underlying XRPL transactor
 
 Builds and submits a single [`MPTokenAuthorize`](https://xrpl.org/docs/references/protocol/transactions/types/mptokenauthorize) transaction.
 

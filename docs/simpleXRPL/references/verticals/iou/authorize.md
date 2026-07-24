@@ -25,24 +25,24 @@ iou.authorize(
 ): Promise<SubmissionResult<IOUAuthorizeIntent>>
 ```
 
-### Parameters
+## Parameters
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | `ticker` | `string` | Yes | The currency code (3-character ISO-4217-style or 40-character hex; other codes are auto-encoded to hex). |
 | `holder` | `string` | Yes | The holder's r-address being authorized. |
 
-### Options
+## Options
 
 {% raw-partial file="/docs/_snippets/simplexrpl-write-options.md" /%}
 
-### Response
+## Returns
 
 Resolves to a `SubmissionResult<IOUAuthorizeIntent>`.
 
 {% raw-partial file="/docs/_snippets/simplexrpl-response-fields.md" /%}
 
-#### Response values
+### Return fields
 
 For `IOU.authorize`, the `intent` (`IOUAuthorizeIntent`) echoes:
 
@@ -50,7 +50,7 @@ For `IOU.authorize`, the `intent` (`IOUAuthorizeIntent`) echoes:
 | --- | --- | --- |
 | `holder` | `string` | The holder's r-address that was authorized. |
 
-### Underlying XRPL transactor
+## Underlying XRPL transactor
 
 Builds and submits a single [`TrustSet`](https://xrpl.org/docs/references/protocol/transactions/types/trustset) transaction with the authorize flag set.
 

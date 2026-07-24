@@ -20,7 +20,7 @@ credential.retrieve(
 ): Promise<CredentialRetrieveResult>
 ```
 
-### Parameters
+## Parameters
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -28,7 +28,7 @@ credential.retrieve(
 | `issuer` | `string` | Yes | The issuer r-address. |
 | `account` | `string` | No | The holder (subject). Defaults to the primary signer's account. |
 
-### Response
+## Returns
 
 Resolves to a `CredentialRetrieveResult`:
 
@@ -39,7 +39,7 @@ Resolves to a `CredentialRetrieveResult`:
 | `holder` | `string` | The holder (subject) r-address. |
 | `data` | `CredentialData \| undefined` | The credential snapshot, or `undefined` if none exists. |
 
-#### CredentialData
+### CredentialData
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -50,7 +50,7 @@ Resolves to a `CredentialRetrieveResult`:
 | `uri` | `string` _(optional)_ | The optional URI (decoded from hex). |
 | `expiration` | `number` _(optional)_ | Expiration (seconds since the Ripple epoch), if set. |
 
-### Underlying XRPL request
+## Underlying XRPL request
 
 Read-only — no signer is required and nothing is submitted. Queries the ledger with [`ledger_entry`](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/ledger-methods/ledger_entry).
 

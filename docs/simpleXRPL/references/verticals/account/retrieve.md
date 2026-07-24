@@ -20,13 +20,13 @@ account.retrieve(
 ): Promise<AccountRetrieveResult>
 ```
 
-### Parameters
+## Parameters
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | `account` | `string` | No | The account to read. Defaults to the primary signer's account. |
 
-### Response
+## Returns
 
 Resolves to an `AccountRetrieveResult`:
 
@@ -34,7 +34,7 @@ Resolves to an `AccountRetrieveResult`:
 | --- | --- | --- |
 | `data` | `AccountData` | The point-in-time account snapshot. |
 
-#### AccountData
+### AccountData
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -44,7 +44,7 @@ Resolves to an `AccountRetrieveResult`:
 | `ownerCount` | `number` | The number of owned ledger objects (drives the reserve). |
 | `flags` | `Readonly<Record<string, boolean>>` | Account flags as booleans, as reported by `account_flags`. |
 
-### Underlying XRPL request
+## Underlying XRPL request
 
 Read-only — no signer is required and nothing is submitted. Queries the ledger with [`account_info`](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_info) (flags are resolved via `account_flags`).
 

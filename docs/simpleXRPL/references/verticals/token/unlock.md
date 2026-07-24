@@ -21,24 +21,24 @@ token.unlock(
 ): Promise<SubmissionResult<
 ```
 
-### Parameters
+## Parameters
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | `mptIssuanceId` | `string` | Yes | The MPT issuance id. |
 | `holder` | `string` | No | A specific holder to unlock. Omit to unlock the whole issuance. |
 
-### Options
+## Options
 
 {% raw-partial file="/docs/_snippets/simplexrpl-write-options.md" /%}
 
-### Response
+## Returns
 
 Resolves to a `SubmissionResult<{ mptIssuanceId: string; locked: boolean }>`.
 
 {% raw-partial file="/docs/_snippets/simplexrpl-response-fields.md" /%}
 
-#### Response values
+### Return fields
 
 For `Token.unlock`, the `intent` carries:
 
@@ -47,7 +47,7 @@ For `Token.unlock`, the `intent` carries:
 | `mptIssuanceId` | `string` | The MPT issuance id that was unlocked. |
 | `locked` | `boolean` | The resulting lock state (`false`). |
 
-### Underlying XRPL transactor
+## Underlying XRPL transactor
 
 Builds and submits a single [`MPTokenIssuanceSet`](https://xrpl.org/docs/references/protocol/transactions/types/mptokenissuanceset) transaction with the unlock flag set.
 

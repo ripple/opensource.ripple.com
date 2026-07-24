@@ -24,19 +24,19 @@ iou.issue(
 ): Promise<SubmissionResult<IOUIssueIntent>>
 ```
 
-### Parameters
+## Parameters
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | `ticker` | `string` | Yes | The currency code: a 3-character ISO-4217-style code or a 40-character hex code. Any other code (e.g. a 5-character ticker) is auto-encoded to the 40-character hex form. |
 
-### Response
+## Returns
 
 Resolves to a `SubmissionResult<IOUIssueIntent>` (from the final step).
 
 {% raw-partial file="/docs/_snippets/simplexrpl-response-fields.md" /%}
 
-#### Response values
+### Return fields
 
 For `IOU.issue`, the `intent` (`IOUIssueIntent`) carries:
 
@@ -44,7 +44,7 @@ For `IOU.issue`, the `intent` (`IOUIssueIntent`) carries:
 | --- | --- | --- |
 | `iouID` | `string` | The currency code and issuer of the new IOU, e.g. `USD.rIssuer...`. |
 
-### Underlying XRPL transactors
+## Underlying XRPL transactors
 
 Runs as an ordered, multi-step sequence (no rollback on partial failure):
 

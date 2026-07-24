@@ -21,27 +21,27 @@ account.setRegularKey(
 ): Promise<SubmissionResult<undefined>>
 ```
 
-### Parameters
+## Parameters
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | `regularKey` | `string` | No | The regular key r-address to set. Omit to remove the current regular key. |
 
-### Options
+## Options
 
 {% raw-partial file="/docs/_snippets/simplexrpl-write-options.md" /%}
 
-### Response
+## Returns
 
 Resolves to a `SubmissionResult<undefined>`.
 
 {% raw-partial file="/docs/_snippets/simplexrpl-response-fields.md" /%}
 
-#### Response values
+### Return fields
 
 `Account.setRegularKey` attaches no `intent` output; `intent` is `undefined`.
 
-### Underlying XRPL transactor
+## Underlying XRPL transactor
 
 Builds and submits a single [`SetRegularKey`](https://xrpl.org/docs/references/protocol/transactions/types/setregularkey) transaction.
 

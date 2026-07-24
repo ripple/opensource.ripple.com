@@ -22,15 +22,15 @@ Nothing is written to the ledger until the account is funded. The returned `seed
 account.create(): AccountCredentials
 ```
 
-### Parameters
+## Parameters
 
 None. `Account.create` takes no arguments.
 
-### Response
+## Returns
 
 Returns an `AccountCredentials` object **synchronously** — this is the one `Account` verb that does not submit a transaction, so it does not return a `SubmissionResult`.
 
-#### Response values
+### Return fields
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -39,7 +39,7 @@ Returns an `AccountCredentials` object **synchronously** — this is the one `Ac
 | `privateKey` | `string` | The private key (hex) — sensitive. |
 | `seed` | `string` | The account seed (secret) — sensitive. |
 
-### Underlying XRPL transactor
+## Underlying XRPL transactor
 
 None. `Account.create` generates a keypair locally and writes nothing to the ledger. Use [`activate`](activate.md) or [`fund`](fund.md) to bring the account on-ledger.
 

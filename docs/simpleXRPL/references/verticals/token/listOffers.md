@@ -20,13 +20,13 @@ token.listOffers(
 ): Promise<ListOffersResult>
 ```
 
-### Parameters
+## Parameters
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | `account` | `string` | No | The account whose offers to list. Defaults to the primary signer's account. |
 
-### Response
+## Returns
 
 Resolves to a `ListOffersResult`:
 
@@ -34,7 +34,7 @@ Resolves to a `ListOffersResult`:
 | --- | --- | --- |
 | `data` | `readonly OfferSummary[]` | The shaped open offers. |
 
-#### OfferSummary
+### OfferSummary
 
 Each offer mirrors the `createOffer` / `buyOffer` / `sellOffer` input format, so it's composable back into those write verbs.
 
@@ -46,7 +46,7 @@ Each offer mirrors the `createOffer` / `buyOffer` / `sellOffer` input format, so
 | `orderType` | `'limit' \| 'passive'` | Resting offers are `limit`, or `passive` when the passive flag is set. |
 | `type` | `'buy' \| 'sell'` | Whether the offer buys or sells the base asset. |
 
-### Underlying XRPL request
+## Underlying XRPL request
 
 Read-only — no signer is required and nothing is submitted. Queries the ledger with [`account_offers`](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_offers).
 

@@ -21,7 +21,7 @@ iou.buyOffer(
 ): Promise<SubmissionResult<undefined>>
 ```
 
-### Parameters
+## Parameters
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -41,21 +41,21 @@ iou.buyOffer(
 | `{ mptIssuanceId: string; amount: number }` | Priced in an MPT. |
 | `{ ticker: string; issuer: string; amount: number }` | Priced in another IOU. |
 
-### Options
+## Options
 
 {% raw-partial file="/docs/_snippets/simplexrpl-write-options.md" /%}
 
-### Response
+## Returns
 
 Resolves to a `SubmissionResult<undefined>`.
 
 {% raw-partial file="/docs/_snippets/simplexrpl-response-fields.md" /%}
 
-#### Response values
+### Return fields
 
 `IOU.buyOffer` attaches no `intent` output; `intent` is `undefined`.
 
-### Underlying XRPL transactor
+## Underlying XRPL transactor
 
 Builds and submits a single [`OfferCreate`](https://xrpl.org/docs/references/protocol/transactions/types/offercreate) transaction. Throws an `IntentValidationError` if `price` is MPT-denominated.
 

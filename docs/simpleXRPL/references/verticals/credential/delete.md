@@ -21,7 +21,7 @@ credential.delete(
 ): Promise<SubmissionResult<
 ```
 
-### Parameters
+## Parameters
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -29,17 +29,17 @@ credential.delete(
 | `holder` | `string` | No | The holder r-address. Set this when deleting as the issuer. |
 | `issuer` | `string` | No | The issuer r-address. Set this when deleting as the holder. |
 
-### Options
+## Options
 
 {% raw-partial file="/docs/_snippets/simplexrpl-write-options.md" /%}
 
-### Response
+## Returns
 
 Resolves to a `SubmissionResult<{ credType: string }>`.
 
 {% raw-partial file="/docs/_snippets/simplexrpl-response-fields.md" /%}
 
-#### Response values
+### Return fields
 
 For `Credential.delete`, the `intent` echoes:
 
@@ -47,7 +47,7 @@ For `Credential.delete`, the `intent` echoes:
 | --- | --- | --- |
 | `credType` | `string` | The credential type that was deleted. |
 
-### Underlying XRPL transactor
+## Underlying XRPL transactor
 
 Builds and submits a single [`CredentialDelete`](https://xrpl.org/docs/references/protocol/transactions/types/credentialdelete) transaction.
 

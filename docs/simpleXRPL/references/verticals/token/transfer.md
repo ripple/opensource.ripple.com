@@ -21,24 +21,24 @@ token.transfer(
 ): Promise<SubmissionResult<
 ```
 
-### Parameters
+## Parameters
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | `to` | `string` | Yes | Destination r-address. |
 | `amount` | `Amount` | Yes | The MPT amount to send. Its asset must be an MPT (build one with `mpt()`; see the [amount model](../../index.md#amounts-and-assets)). |
 
-### Options
+## Options
 
 {% raw-partial file="/docs/_snippets/simplexrpl-write-options.md" /%}
 
-### Response
+## Returns
 
 Resolves to a `SubmissionResult<{ to: string; amount: string }>`.
 
 {% raw-partial file="/docs/_snippets/simplexrpl-response-fields.md" /%}
 
-#### Response values
+### Return fields
 
 For `Token.transfer`, the `intent` echoes:
 
@@ -47,7 +47,7 @@ For `Token.transfer`, the `intent` echoes:
 | `to` | `string` | Destination r-address. |
 | `amount` | `string` | The amount sent, as a decimal string. |
 
-### Underlying XRPL transactor
+## Underlying XRPL transactor
 
 Builds and submits a single [`Payment`](https://xrpl.org/docs/references/protocol/transactions/types/payment) transaction. Throws an `IntentValidationError` if `amount`'s asset is not an MPT — use [`XRP.transfer`](../xrp/transfer.md) for XRP.
 

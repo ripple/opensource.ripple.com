@@ -25,7 +25,7 @@ account.set(
 ): Promise<SubmissionResult<undefined>>
 ```
 
-### Parameters
+## Parameters
 
 All parameters are optional individually, but at least one must be provided.
 
@@ -44,21 +44,21 @@ All parameters are optional individually, but at least one must be provided.
 | `tickSize` | `number` | No | Tick size for offers (3–15, or `0` to disable). |
 | `domain` | `string` | No | The account domain, as a plain string (hex-encoded on the ledger). |
 
-### Options
+## Options
 
 {% raw-partial file="/docs/_snippets/simplexrpl-write-options.md" /%}
 
-### Response
+## Returns
 
 Resolves to a `SubmissionResult<undefined>`.
 
 {% raw-partial file="/docs/_snippets/simplexrpl-response-fields.md" /%}
 
-#### Response values
+### Return fields
 
 `Account.set` attaches no `intent` output; `intent` is `undefined`.
 
-### Underlying XRPL transactor
+## Underlying XRPL transactor
 
 Builds and submits a single [`AccountSet`](https://xrpl.org/docs/references/protocol/transactions/types/accountset) transaction.
 

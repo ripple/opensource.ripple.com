@@ -21,23 +21,23 @@ token.destroy(
 ): Promise<SubmissionResult<
 ```
 
-### Parameters
+## Parameters
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | `mptIssuanceId` | `string` | Yes | The MPT issuance id to destroy. |
 
-### Options
+## Options
 
 {% raw-partial file="/docs/_snippets/simplexrpl-write-options.md" /%}
 
-### Response
+## Returns
 
 Resolves to a `SubmissionResult<{ mptIssuanceId: string }>`.
 
 {% raw-partial file="/docs/_snippets/simplexrpl-response-fields.md" /%}
 
-#### Response values
+### Return fields
 
 For `Token.destroy`, the `intent` echoes:
 
@@ -45,7 +45,7 @@ For `Token.destroy`, the `intent` echoes:
 | --- | --- | --- |
 | `mptIssuanceId` | `string` | The MPT issuance id that was destroyed. |
 
-### Underlying XRPL transactor
+## Underlying XRPL transactor
 
 Builds and submits a single [`MPTokenIssuanceDestroy`](https://xrpl.org/docs/references/protocol/transactions/types/mptokenissuancedestroy) transaction.
 

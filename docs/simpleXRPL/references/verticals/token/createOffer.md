@@ -21,7 +21,7 @@ token.createOffer(
 ): Promise<SubmissionResult<undefined>>
 ```
 
-### Parameters
+## Parameters
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -40,21 +40,21 @@ The `flags` object accepts:
 | `fillOrKill` | `boolean` | No | Consume the full amount or cancel entirely. |
 | `sell` | `boolean` | No | Interpret the offer as selling `takerGets`. |
 
-### Options
+## Options
 
 {% raw-partial file="/docs/_snippets/simplexrpl-write-options.md" /%}
 
-### Response
+## Returns
 
 Resolves to a `SubmissionResult<undefined>`.
 
 {% raw-partial file="/docs/_snippets/simplexrpl-response-fields.md" /%}
 
-#### Response values
+### Return fields
 
 `Token.createOffer` attaches no `intent` output; `intent` is `undefined`.
 
-### Underlying XRPL transactor
+## Underlying XRPL transactor
 
 Builds and submits a single [`OfferCreate`](https://xrpl.org/docs/references/protocol/transactions/types/offercreate) transaction. Throws an `IntentValidationError` if either amount is an MPT.
 

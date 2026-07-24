@@ -20,7 +20,7 @@ iou.retrieve(
 ): Promise<IOURetrieveResult>
 ```
 
-### Parameters
+## Parameters
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -28,7 +28,7 @@ iou.retrieve(
 | `issuer` | `string` | Yes | The IOU issuer's r-address. |
 | `account` | `string` | No | The holder account to read from. Defaults to the primary signer's account. |
 
-### Response
+## Returns
 
 Resolves to an `IOURetrieveResult`:
 
@@ -37,7 +37,7 @@ Resolves to an `IOURetrieveResult`:
 | `iouID` | `string` | Currency code and issuer, e.g. `USD.rIssuer...` — pass to the write verbs. |
 | `data` | `IOUTrustLine \| undefined` | The point-in-time trust line snapshot, or `undefined` if no line exists. |
 
-#### IOUTrustLine
+### IOUTrustLine
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -50,7 +50,7 @@ Resolves to an `IOURetrieveResult`:
 | `frozen` | `boolean` | Whether the queried account has frozen this line. |
 | `authorized` | `boolean` | Whether the line is authorized (issuer authorized the holder). |
 
-### Underlying XRPL request
+## Underlying XRPL request
 
 Read-only — no signer is required and nothing is submitted. Queries the ledger with [`account_lines`](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_lines).
 

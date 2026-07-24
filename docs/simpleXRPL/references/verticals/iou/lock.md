@@ -21,24 +21,24 @@ iou.lock(
 ): Promise<SubmissionResult<IOULockIntent>>
 ```
 
-### Parameters
+## Parameters
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | `ticker` | `string` | Yes | The currency code (3-character ISO-4217-style or 40-character hex; other codes are auto-encoded to hex). |
 | `holder` | `string` | Yes | The holder's r-address whose trust line is locked. |
 
-### Options
+## Options
 
 {% raw-partial file="/docs/_snippets/simplexrpl-write-options.md" /%}
 
-### Response
+## Returns
 
 Resolves to a `SubmissionResult<IOULockIntent>` (from the final step).
 
 {% raw-partial file="/docs/_snippets/simplexrpl-response-fields.md" /%}
 
-#### Response values
+### Return fields
 
 For `IOU.lock`, the `intent` (`IOULockIntent`) echoes:
 
@@ -46,7 +46,7 @@ For `IOU.lock`, the `intent` (`IOULockIntent`) echoes:
 | --- | --- | --- |
 | `holder` | `string` | The holder's r-address whose trust line was locked. |
 
-### Underlying XRPL transactors
+## Underlying XRPL transactors
 
 Runs as an ordered, multi-step sequence (no rollback on partial failure):
 

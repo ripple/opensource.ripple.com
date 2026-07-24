@@ -20,13 +20,13 @@ token.retrieve(
 ): Promise<TokenRetrieveResult>
 ```
 
-### Parameters
+## Parameters
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | `mptIssuanceId` | `string` | Yes | The MPT issuance id to fetch. |
 
-### Response
+## Returns
 
 Resolves to a `TokenRetrieveResult`:
 
@@ -35,7 +35,7 @@ Resolves to a `TokenRetrieveResult`:
 | `tokenID` | `string` | The queried MPT issuance id. |
 | `data` | `TokenData \| undefined` | The issuance snapshot, or `undefined` if no such issuance exists. |
 
-#### TokenData
+### TokenData
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -48,7 +48,7 @@ Resolves to a `TokenRetrieveResult`:
 | `flags` | `MptFlags` | Capability flags decoded to booleans: `canLock`, `requireAuth`, `canEscrow`, `canTrade`, `canTransfer`, `canClawback`. |
 | `metadata` | `MPTokenMetadata` _(optional)_ | Decoded XLS-89 metadata, if present and well-formed. |
 
-### Underlying XRPL request
+## Underlying XRPL request
 
 Read-only — no signer is required and nothing is submitted. Queries the ledger with [`ledger_entry`](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/ledger-methods/ledger_entry).
 

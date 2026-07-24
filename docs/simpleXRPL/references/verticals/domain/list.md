@@ -20,13 +20,13 @@ domain.list(
 ): Promise<DomainListResult>
 ```
 
-### Parameters
+## Parameters
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | `account` | `string` | No | The owner whose domains to list. Defaults to the primary signer's account. |
 
-### Response
+## Returns
 
 Resolves to a `DomainListResult`, where `domains[i]` corresponds to `data[i]`:
 
@@ -35,7 +35,7 @@ Resolves to a `DomainListResult`, where `domains[i]` corresponds to `data[i]`:
 | `domains` | `readonly string[]` | The domain id of each owned domain. |
 | `data` | `readonly DomainData[]` | The shaped domains. See [`domain.retrieve`](retrieve.md#domaindata) for `DomainData`. |
 
-### Underlying XRPL request
+## Underlying XRPL request
 
 Read-only — no signer is required and nothing is submitted. Queries the ledger with [`account_objects`](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_objects).
 

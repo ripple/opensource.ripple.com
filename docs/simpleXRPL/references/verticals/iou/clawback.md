@@ -25,7 +25,7 @@ iou.clawback(
 ): Promise<SubmissionResult<IOUClawbackIntent>>
 ```
 
-### Parameters
+## Parameters
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -33,17 +33,17 @@ iou.clawback(
 | `holder` | `string` | Yes | The holder's r-address to claw the currency back from. |
 | `amount` | `number` | Yes | The amount to claw back. |
 
-### Options
+## Options
 
 {% raw-partial file="/docs/_snippets/simplexrpl-write-options.md" /%}
 
-### Response
+## Returns
 
 Resolves to a `SubmissionResult<IOUClawbackIntent>`.
 
 {% raw-partial file="/docs/_snippets/simplexrpl-response-fields.md" /%}
 
-#### Response values
+### Return fields
 
 For `IOU.clawback`, the `intent` (`IOUClawbackIntent`) echoes:
 
@@ -52,7 +52,7 @@ For `IOU.clawback`, the `intent` (`IOUClawbackIntent`) echoes:
 | `holder` | `string` | The holder's r-address clawed back from. |
 | `amount` | `number` | The amount clawed back. |
 
-### Underlying XRPL transactor
+## Underlying XRPL transactor
 
 Builds and submits a single [`Clawback`](https://xrpl.org/docs/references/protocol/transactions/types/clawback) transaction.
 

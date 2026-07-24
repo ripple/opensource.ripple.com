@@ -17,6 +17,8 @@ Palisade is a Wallet-as-a-Service. This connector authenticates via OAuth2 clien
 
 Exchanges the credentials and discovers the org's wallets.
 
+### Signature
+
 ```ts
 PalisadeCustody.create(config: PalisadeCustodyConfig): Promise<PalisadeCustody>
 ```

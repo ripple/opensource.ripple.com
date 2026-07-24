@@ -25,27 +25,27 @@ account.fund(
 ): Promise<SubmissionResult<undefined>>
 ```
 
-### Parameters
+## Parameters
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | `destination` | `string` | Yes | The r-address to fund (typically from `Account.create`). |
 
-### Options
+## Options
 
 {% raw-partial file="/docs/_snippets/simplexrpl-write-options.md" /%}
 
-### Response
+## Returns
 
 Resolves to a `SubmissionResult<undefined>` (from the `defaultRipple` settings change).
 
 {% raw-partial file="/docs/_snippets/simplexrpl-response-fields.md" /%}
 
-#### Response values
+### Return fields
 
 `Account.fund` attaches no `intent` output; `intent` is `undefined`.
 
-### Underlying XRPL transactor
+## Underlying XRPL transactor
 
 Funds the account via the network faucet (an off-ledger request, not a submitted transaction), then builds and submits a single [`AccountSet`](https://xrpl.org/docs/references/protocol/transactions/types/accountset) transaction to enable rippling (`defaultRipple`).
 

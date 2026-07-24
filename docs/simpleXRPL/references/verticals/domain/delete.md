@@ -21,23 +21,23 @@ domain.delete(
 ): Promise<SubmissionResult<DomainIntent>>
 ```
 
-### Parameters
+## Parameters
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | `domain` | `string` | Yes | The domain id to delete. |
 
-### Options
+## Options
 
 {% raw-partial file="/docs/_snippets/simplexrpl-write-options.md" /%}
 
-### Response
+## Returns
 
 Resolves to a `SubmissionResult<DomainIntent>`.
 
 {% raw-partial file="/docs/_snippets/simplexrpl-response-fields.md" /%}
 
-#### Response values
+### Return fields
 
 For `Domain.delete`, the `intent` (`DomainIntent`) echoes:
 
@@ -45,7 +45,7 @@ For `Domain.delete`, the `intent` (`DomainIntent`) echoes:
 | --- | --- | --- |
 | `domainID` | `string` | The domain id that was deleted. |
 
-### Underlying XRPL transactor
+## Underlying XRPL transactor
 
 Builds and submits a single [`PermissionedDomainDelete`](https://xrpl.org/docs/references/protocol/transactions/types/permissioneddomaindelete) transaction.
 

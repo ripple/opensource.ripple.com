@@ -20,14 +20,14 @@ token.list(
 ): Promise<TokenListResult>
 ```
 
-### Parameters
+## Parameters
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | `role` | `'holder' \| 'issuer'` | No | List tokens the account holds (default) or issued. |
 | `account` | `string` | No | The account to query. Defaults to the primary signer's account. |
 
-### Response
+## Returns
 
 Resolves to a `TokenListResult`, where `tokens[i]` corresponds to `data[i]`:
 
@@ -36,7 +36,7 @@ Resolves to a `TokenListResult`, where `tokens[i]` corresponds to `data[i]`:
 | `tokens` | `readonly string[]` | The MPT issuance id of each token. |
 | `data` | `readonly TokenListEntry[]` | The shaped entries. |
 
-#### TokenListEntry
+### TokenListEntry
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -44,7 +44,7 @@ Resolves to a `TokenListResult`, where `tokens[i]` corresponds to `data[i]`:
 | `balance` | `string` _(optional)_ | The account's balance (present for `role: 'holder'`). |
 | `issuance` | `TokenData` _(optional)_ | The full issuance snapshot (present for `role: 'issuer'`). See [`token.retrieve`](retrieve.md#tokendata) for `TokenData`. |
 
-### Underlying XRPL request
+## Underlying XRPL request
 
 Read-only — no signer is required and nothing is submitted. Queries the ledger with [`account_objects`](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_objects).
 

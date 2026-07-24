@@ -21,7 +21,7 @@ iou.transfer(
 ): Promise<SubmissionResult<IOUTransferIntent>>
 ```
 
-### Parameters
+## Parameters
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -29,17 +29,17 @@ iou.transfer(
 | `destination` | `string` | Yes | The destination r-address. |
 | `amount` | `number` | Yes | The amount to send. |
 
-### Options
+## Options
 
 {% raw-partial file="/docs/_snippets/simplexrpl-write-options.md" /%}
 
-### Response
+## Returns
 
 Resolves to a `SubmissionResult<IOUTransferIntent>`.
 
 {% raw-partial file="/docs/_snippets/simplexrpl-response-fields.md" /%}
 
-#### Response values
+### Return fields
 
 For `IOU.transfer`, the `intent` (`IOUTransferIntent`) echoes:
 
@@ -48,7 +48,7 @@ For `IOU.transfer`, the `intent` (`IOUTransferIntent`) echoes:
 | `destination` | `string` | Destination r-address. |
 | `amount` | `number` | Amount sent. |
 
-### Underlying XRPL transactor
+## Underlying XRPL transactor
 
 Builds and submits a single [`Payment`](https://xrpl.org/docs/references/protocol/transactions/types/payment) transaction.
 

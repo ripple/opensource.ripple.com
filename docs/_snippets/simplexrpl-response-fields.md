@@ -2,7 +2,7 @@ Every simpleXRPL write resolves to a `SubmissionResult<T>` — a union tagged by
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `intent` | `T` | The method-specific output. See the method's response values below. |
+| `intent` | `T` | The method-specific output. See the method's return fields below. |
 | `source` | `'rippled' \| 'custody' \| 'palisade'` | Which backend produced the result; discriminates `response`. |
 | `response` | `TxResponse` \| custody record \| Palisade record | The backend's raw response, preserved verbatim. |
 | `txHash` | `string` _(optional)_ | The XRPL transaction hash, once the transaction is on-ledger. |
