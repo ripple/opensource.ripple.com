@@ -71,8 +71,8 @@ await client.disconnect()
 
 ## See Also
 
-- [`iou.issue()`](../references/verticals/iou/issue.md)
-- [`iou.transfer()`](../references/verticals/iou/transfer.md)
-- [`iou.authorize()`](../references/verticals/iou/authorize.md)
-- [`iou.retrieve()`](../references/verticals/iou/retrieve.md)
-- [`iou.list()`](../references/verticals/iou/list.md)
+- [iou.issue()](../references/verticals/iou/issue.md)
+- [iou.transfer()](../references/verticals/iou/transfer.md)
+- [iou.authorize()](../references/verticals/iou/authorize.md)
+- [iou.retrieve()](../references/verticals/iou/retrieve.md)
+- [iou.list()](../references/verticals/iou/list.md)

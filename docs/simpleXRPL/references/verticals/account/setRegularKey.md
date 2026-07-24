@@ -43,7 +43,7 @@ Resolves to a `SubmissionResult<undefined>`.
 
 ## Underlying XRPL transactor
 
-Builds and submits a single [`SetRegularKey`](https://xrpl.org/docs/references/protocol/transactions/types/setregularkey) transaction.
+Builds and submits a single [SetRegularKey](https://xrpl.org/docs/references/protocol/transactions/types/setregularkey) transaction.
 
 ## Example
 

@@ -42,11 +42,11 @@ Resolves to a `TokenListResult`, where `tokens[i]` corresponds to `data[i]`:
 | --- | --- | --- |
 | `tokenID` | `string` | The MPT issuance id. |
 | `balance` | `string` _(optional)_ | The account's balance (present for `role: 'holder'`). |
-| `issuance` | `TokenData` _(optional)_ | The full issuance snapshot (present for `role: 'issuer'`). See [`token.retrieve`](retrieve.md#tokendata) for `TokenData`. |
+| `issuance` | `TokenData` _(optional)_ | The full issuance snapshot (present for `role: 'issuer'`). See [token.retrieve](retrieve.md#tokendata) for `TokenData`. |
 
 ## Underlying XRPL request
 
-Read-only — no signer is required and nothing is submitted. Queries the ledger with [`account_objects`](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_objects).
+Read-only — no signer is required and nothing is submitted. Queries the ledger with [account_objects](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_objects).
 
 ## Example
 

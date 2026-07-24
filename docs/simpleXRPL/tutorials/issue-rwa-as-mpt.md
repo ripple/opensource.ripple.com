@@ -74,5 +74,5 @@ await client.disconnect()
 
 ## See Also
 
-- [`token.issue()`](../references/verticals/token/issue.md)
-- [`token.retrieve()`](../references/verticals/token/retrieve.md)
+- [token.issue()](../references/verticals/token/issue.md)
+- [token.retrieve()](../references/verticals/token/retrieve.md)

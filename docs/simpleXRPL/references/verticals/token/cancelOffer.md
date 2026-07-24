@@ -47,7 +47,7 @@ For `Token.cancelOffer`, the `intent` echoes:
 
 ## Underlying XRPL transactor
 
-Builds and submits a single [`OfferCancel`](https://xrpl.org/docs/references/protocol/transactions/types/offercancel) transaction.
+Builds and submits a single [OfferCancel](https://xrpl.org/docs/references/protocol/transactions/types/offercancel) transaction.
 
 ## Example
 

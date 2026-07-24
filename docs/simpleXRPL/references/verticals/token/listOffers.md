@@ -48,7 +48,7 @@ Each offer mirrors the `createOffer` / `buyOffer` / `sellOffer` input format, so
 
 ## Underlying XRPL request
 
-Read-only — no signer is required and nothing is submitted. Queries the ledger with [`account_offers`](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_offers).
+Read-only — no signer is required and nothing is submitted. Queries the ledger with [account_offers](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_offers).
 
 ## Example
 

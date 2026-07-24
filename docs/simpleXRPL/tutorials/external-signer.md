@@ -115,5 +115,5 @@ await signAndSubmit(
 
 ## See Also
 
-- [`account.create()`](../references/verticals/account/create.md)
-- [`xrp.transfer()`](../references/verticals/xrp/transfer.md)
+- [account.create()](../references/verticals/account/create.md)
+- [xrp.transfer()](../references/verticals/xrp/transfer.md)

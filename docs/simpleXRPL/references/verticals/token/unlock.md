@@ -49,7 +49,7 @@ For `Token.unlock`, the `intent` carries:
 
 ## Underlying XRPL transactor
 
-Builds and submits a single [`MPTokenIssuanceSet`](https://xrpl.org/docs/references/protocol/transactions/types/mptokenissuanceset) transaction with the unlock flag set.
+Builds and submits a single [MPTokenIssuanceSet](https://xrpl.org/docs/references/protocol/transactions/types/mptokenissuanceset) transaction with the unlock flag set.
 
 ## Example
 

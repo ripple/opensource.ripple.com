@@ -49,7 +49,7 @@ For `Credential.accept`, the `intent` echoes:
 
 ## Underlying XRPL transactor
 
-Builds and submits a single [`CredentialAccept`](https://xrpl.org/docs/references/protocol/transactions/types/credentialaccept) transaction.
+Builds and submits a single [CredentialAccept](https://xrpl.org/docs/references/protocol/transactions/types/credentialaccept) transaction.
 
 ## Example
 

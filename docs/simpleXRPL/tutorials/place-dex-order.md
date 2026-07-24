@@ -82,9 +82,9 @@ await client.disconnect()
 
 ## See Also
 
-- [`iou.buyOffer()`](../references/verticals/iou/buyOffer.md)
-- [`iou.sellOffer()`](../references/verticals/iou/sellOffer.md)
-- [`iou.cancelOffer()`](../references/verticals/iou/cancelOffer.md)
-- [`iou.listOffers()`](../references/verticals/iou/listOffers.md)
-- [`token.createOffer()`](../references/verticals/token/createOffer.md)
-- [`account.listOffers()`](../references/verticals/account/listOffers.md)
+- [iou.buyOffer()](../references/verticals/iou/buyOffer.md)
+- [iou.sellOffer()](../references/verticals/iou/sellOffer.md)
+- [iou.cancelOffer()](../references/verticals/iou/cancelOffer.md)
+- [iou.listOffers()](../references/verticals/iou/listOffers.md)
+- [token.createOffer()](../references/verticals/token/createOffer.md)
+- [account.listOffers()](../references/verticals/account/listOffers.md)

@@ -47,7 +47,7 @@ For `Domain.delete`, the `intent` (`DomainIntent`) echoes:
 
 ## Underlying XRPL transactor
 
-Builds and submits a single [`PermissionedDomainDelete`](https://xrpl.org/docs/references/protocol/transactions/types/permissioneddomaindelete) transaction.
+Builds and submits a single [PermissionedDomainDelete](https://xrpl.org/docs/references/protocol/transactions/types/permissioneddomaindelete) transaction.
 
 ## Example
 

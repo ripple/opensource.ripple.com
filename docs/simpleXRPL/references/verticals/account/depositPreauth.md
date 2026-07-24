@@ -44,7 +44,7 @@ Resolves to a `SubmissionResult<undefined>`.
 
 ## Underlying XRPL transactor
 
-Builds and submits a single [`DepositPreauth`](https://xrpl.org/docs/references/protocol/transactions/types/depositpreauth) transaction.
+Builds and submits a single [DepositPreauth](https://xrpl.org/docs/references/protocol/transactions/types/depositpreauth) transaction.
 
 ## Example
 

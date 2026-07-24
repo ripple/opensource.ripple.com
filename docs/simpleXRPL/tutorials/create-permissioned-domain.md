@@ -68,8 +68,8 @@ await client.disconnect()
 
 ## See Also
 
-- [`domain.create()`](../references/verticals/domain/create.md)
-- [`domain.setCredentials()`](../references/verticals/domain/setCredentials.md)
-- [`domain.retrieve()`](../references/verticals/domain/retrieve.md)
-- [`domain.list()`](../references/verticals/domain/list.md)
-- [`iou.sellOffer()`](../references/verticals/iou/sellOffer.md)
+- [domain.create()](../references/verticals/domain/create.md)
+- [domain.setCredentials()](../references/verticals/domain/setCredentials.md)
+- [domain.retrieve()](../references/verticals/domain/retrieve.md)
+- [domain.list()](../references/verticals/domain/list.md)
+- [iou.sellOffer()](../references/verticals/iou/sellOffer.md)

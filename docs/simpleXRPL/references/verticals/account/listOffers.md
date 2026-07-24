@@ -32,11 +32,11 @@ Resolves to a `ListOffersResult`:
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `readonly OfferSummary[]` | The shaped open offers. See [`token.listOffers`](../token/listOffers.md#offersummary) for `OfferSummary`. |
+| `data` | `readonly OfferSummary[]` | The shaped open offers. See [token.listOffers](../token/listOffers.md#offersummary) for `OfferSummary`. |
 
 ## Underlying XRPL request
 
-Read-only — no signer is required and nothing is submitted. Queries the ledger with [`account_offers`](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_offers).
+Read-only — no signer is required and nothing is submitted. Queries the ledger with [account_offers](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_offers).
 
 ## Example
 

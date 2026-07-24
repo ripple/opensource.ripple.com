@@ -10,10 +10,10 @@ labels:
 
 [Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/account.ts#L124)
 
-Fund a created account via the network faucet (testnet/devnet), then enable rippling. The account must be one this client can sign for (e.g. from [`create`](create.md)).
+Fund a created account via the network faucet (testnet/devnet), then enable rippling. The account must be one this client can sign for (e.g. from [create](create.md)).
 
 {% admonition type="info" name="Note" %}
-`fund` requires a faucet-capable ledger (testnet/devnet). On other networks it throws — use [`activate`](activate.md) to fund from an operator account instead.
+`fund` requires a faucet-capable ledger (testnet/devnet). On other networks it throws — use [activate](activate.md) to fund from an operator account instead.
 {% /admonition %}
 
 ## Signature
@@ -47,7 +47,7 @@ Resolves to a `SubmissionResult<undefined>` (from the `defaultRipple` settings c
 
 ## Underlying XRPL transactor
 
-Funds the account via the network faucet (an off-ledger request, not a submitted transaction), then builds and submits a single [`AccountSet`](https://xrpl.org/docs/references/protocol/transactions/types/accountset) transaction to enable rippling (`defaultRipple`).
+Funds the account via the network faucet (an off-ledger request, not a submitted transaction), then builds and submits a single [AccountSet](https://xrpl.org/docs/references/protocol/transactions/types/accountset) transaction to enable rippling (`defaultRipple`).
 
 ## Example
 

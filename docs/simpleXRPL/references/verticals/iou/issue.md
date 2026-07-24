@@ -13,7 +13,7 @@ labels:
 Generate a new trust line-based IOU between two developer-controlled accounts sourced from the environment.
 
 {% admonition type="info" name="Note" %}
-Unlike the other IOU verbs, `issue` takes no `options`. It bootstraps both accounts from the environment: it reads `XRPL_ISSUER_SEED` and `XRPL_HOT_WALLET_SEED`, has the issuer enable rippling, then has the hot wallet extend trust up to the maximum limit. No `Payment` runs, so no value exists yet — use [`IOU.transfer`](transfer.md) to send some.
+Unlike the other IOU verbs, `issue` takes no `options`. It bootstraps both accounts from the environment: it reads `XRPL_ISSUER_SEED` and `XRPL_HOT_WALLET_SEED`, has the issuer enable rippling, then has the hot wallet extend trust up to the maximum limit. No `Payment` runs, so no value exists yet — use [IOU.transfer](transfer.md) to send some.
 {% /admonition %}
 
 ## Signature
@@ -48,8 +48,8 @@ For `IOU.issue`, the `intent` (`IOUIssueIntent`) carries:
 
 Runs as an ordered, multi-step sequence (no rollback on partial failure):
 
-1. [`AccountSet`](https://xrpl.org/docs/references/protocol/transactions/types/accountset) — the issuer enables rippling (`defaultRipple`).
-2. [`TrustSet`](https://xrpl.org/docs/references/protocol/transactions/types/trustset) — the hot wallet extends trust to the issuer, up to the maximum limit.
+1. [AccountSet](https://xrpl.org/docs/references/protocol/transactions/types/accountset) — the issuer enables rippling (`defaultRipple`).
+2. [TrustSet](https://xrpl.org/docs/references/protocol/transactions/types/trustset) — the hot wallet extends trust to the issuer, up to the maximum limit.
 
 Throws an `IntentValidationError` if the required seeds aren't set, or a `MultiStepFailureError` if either step fails.
 

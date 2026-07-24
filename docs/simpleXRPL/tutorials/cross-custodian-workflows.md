@@ -91,5 +91,5 @@ await client.disconnect()
 
 ## See Also
 
-- [`iou.issue()`](../references/verticals/iou/issue.md)
-- [`xrp.transfer()`](../references/verticals/xrp/transfer.md)
+- [iou.issue()](../references/verticals/iou/issue.md)
+- [xrp.transfer()](../references/verticals/xrp/transfer.md)

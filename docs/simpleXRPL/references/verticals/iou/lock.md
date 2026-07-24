@@ -50,8 +50,8 @@ For `IOU.lock`, the `intent` (`IOULockIntent`) echoes:
 
 Runs as an ordered, multi-step sequence (no rollback on partial failure):
 
-1. [`TrustSet`](https://xrpl.org/docs/references/protocol/transactions/types/trustset) — sets the individual freeze.
-2. [`TrustSet`](https://xrpl.org/docs/references/protocol/transactions/types/trustset) — sets the deep freeze.
+1. [TrustSet](https://xrpl.org/docs/references/protocol/transactions/types/trustset) — sets the individual freeze.
+2. [TrustSet](https://xrpl.org/docs/references/protocol/transactions/types/trustset) — sets the deep freeze.
 
 Throws a `MultiStepFailureError` if either step fails.
 

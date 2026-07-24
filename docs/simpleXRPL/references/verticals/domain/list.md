@@ -33,11 +33,11 @@ Resolves to a `DomainListResult`, where `domains[i]` corresponds to `data[i]`:
 | Field | Type | Description |
 | --- | --- | --- |
 | `domains` | `readonly string[]` | The domain id of each owned domain. |
-| `data` | `readonly DomainData[]` | The shaped domains. See [`domain.retrieve`](retrieve.md#domaindata) for `DomainData`. |
+| `data` | `readonly DomainData[]` | The shaped domains. See [domain.retrieve](retrieve.md#domaindata) for `DomainData`. |
 
 ## Underlying XRPL request
 
-Read-only — no signer is required and nothing is submitted. Queries the ledger with [`account_objects`](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_objects).
+Read-only — no signer is required and nothing is submitted. Queries the ledger with [account_objects](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_objects).
 
 ## Example
 

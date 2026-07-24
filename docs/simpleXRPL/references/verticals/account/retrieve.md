@@ -46,7 +46,7 @@ Resolves to an `AccountRetrieveResult`:
 
 ## Underlying XRPL request
 
-Read-only — no signer is required and nothing is submitted. Queries the ledger with [`account_info`](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_info) (flags are resolved via `account_flags`).
+Read-only — no signer is required and nothing is submitted. Queries the ledger with [account_info](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_info) (flags are resolved via `account_flags`).
 
 ## Example
 

@@ -51,7 +51,7 @@ For `Credential.issue`, the `intent` echoes:
 
 ## Underlying XRPL transactor
 
-Builds and submits a single [`CredentialCreate`](https://xrpl.org/docs/references/protocol/transactions/types/credentialcreate) transaction.
+Builds and submits a single [CredentialCreate](https://xrpl.org/docs/references/protocol/transactions/types/credentialcreate) transaction.
 
 ## Example
 

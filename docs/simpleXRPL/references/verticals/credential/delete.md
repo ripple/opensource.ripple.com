@@ -49,7 +49,7 @@ For `Credential.delete`, the `intent` echoes:
 
 ## Underlying XRPL transactor
 
-Builds and submits a single [`CredentialDelete`](https://xrpl.org/docs/references/protocol/transactions/types/credentialdelete) transaction.
+Builds and submits a single [CredentialDelete](https://xrpl.org/docs/references/protocol/transactions/types/credentialdelete) transaction.
 
 ## Example
 

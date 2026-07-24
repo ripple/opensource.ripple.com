@@ -34,11 +34,11 @@ Resolves to an `IOUListResult`, where `ious[i]` corresponds to `data[i]`:
 | Field | Type | Description |
 | --- | --- | --- |
 | `ious` | `readonly string[]` | The `iouID` of each line, composable into the write verbs. |
-| `data` | `readonly IOUTrustLine[]` | The shaped trust lines. See [`iou.retrieve`](retrieve.md#ioutrustline) for `IOUTrustLine`. |
+| `data` | `readonly IOUTrustLine[]` | The shaped trust lines. See [iou.retrieve](retrieve.md#ioutrustline) for `IOUTrustLine`. |
 
 ## Underlying XRPL request
 
-Read-only — no signer is required and nothing is submitted. Queries the ledger with [`account_lines`](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_lines).
+Read-only — no signer is required and nothing is submitted. Queries the ledger with [account_lines](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_lines).
 
 ## Example
 

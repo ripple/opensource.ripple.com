@@ -49,7 +49,7 @@ For `Token.lock`, the `intent` carries:
 
 ## Underlying XRPL transactor
 
-Builds and submits a single [`MPTokenIssuanceSet`](https://xrpl.org/docs/references/protocol/transactions/types/mptokenissuanceset) transaction with the lock flag set.
+Builds and submits a single [MPTokenIssuanceSet](https://xrpl.org/docs/references/protocol/transactions/types/mptokenissuanceset) transaction with the lock flag set.
 
 ## Example
 

@@ -47,7 +47,7 @@ For `Token.authorize`, the `intent` echoes:
 
 ## Underlying XRPL transactor
 
-Builds and submits a single [`MPTokenAuthorize`](https://xrpl.org/docs/references/protocol/transactions/types/mptokenauthorize) transaction.
+Builds and submits a single [MPTokenAuthorize](https://xrpl.org/docs/references/protocol/transactions/types/mptokenauthorize) transaction.
 
 ## Example
 

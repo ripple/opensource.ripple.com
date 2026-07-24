@@ -54,7 +54,7 @@ For `IOU.clawback`, the `intent` (`IOUClawbackIntent`) echoes:
 
 ## Underlying XRPL transactor
 
-Builds and submits a single [`Clawback`](https://xrpl.org/docs/references/protocol/transactions/types/clawback) transaction.
+Builds and submits a single [Clawback](https://xrpl.org/docs/references/protocol/transactions/types/clawback) transaction.
 
 ## Example
 

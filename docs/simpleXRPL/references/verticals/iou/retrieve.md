@@ -52,7 +52,7 @@ Resolves to an `IOURetrieveResult`:
 
 ## Underlying XRPL request
 
-Read-only — no signer is required and nothing is submitted. Queries the ledger with [`account_lines`](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_lines).
+Read-only — no signer is required and nothing is submitted. Queries the ledger with [account_lines](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_lines).
 
 ## Example
 

@@ -13,7 +13,7 @@ labels:
 Grant authorization for a holder to hold this IOU. Only meaningful when the issuer's account has `asfRequireAuth` set.
 
 {% admonition type="info" name="Note" %}
-There is no matching `unauthorize`: the underlying authorize flag is one-way and cannot be cleared once set. To reversibly block a trust line, use [`IOU.lock`](lock.md) instead.
+There is no matching `unauthorize`: the underlying authorize flag is one-way and cannot be cleared once set. To reversibly block a trust line, use [IOU.lock](lock.md) instead.
 {% /admonition %}
 
 ## Signature
@@ -52,7 +52,7 @@ For `IOU.authorize`, the `intent` (`IOUAuthorizeIntent`) echoes:
 
 ## Underlying XRPL transactor
 
-Builds and submits a single [`TrustSet`](https://xrpl.org/docs/references/protocol/transactions/types/trustset) transaction with the authorize flag set.
+Builds and submits a single [TrustSet](https://xrpl.org/docs/references/protocol/transactions/types/trustset) transaction with the authorize flag set.
 
 ## Example
 

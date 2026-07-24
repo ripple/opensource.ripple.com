@@ -50,4 +50,4 @@ await client.disconnect()
 
 ## See Also
 
-- [`xrp.transfer()`](../references/verticals/xrp/transfer.md)
+- [xrp.transfer()](../references/verticals/xrp/transfer.md)

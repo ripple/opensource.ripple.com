@@ -56,7 +56,7 @@ Resolves to a `SubmissionResult<undefined>`.
 
 ## Underlying XRPL transactor
 
-Builds and submits a single [`OfferCreate`](https://xrpl.org/docs/references/protocol/transactions/types/offercreate) transaction. Throws an `IntentValidationError` if either amount is an MPT.
+Builds and submits a single [OfferCreate](https://xrpl.org/docs/references/protocol/transactions/types/offercreate) transaction. Throws an `IntentValidationError` if either amount is an MPT.
 
 ## Example
 

@@ -34,11 +34,11 @@ Resolves to a `CredentialListResult`, where `credentials[i]` corresponds to `dat
 | Field | Type | Description |
 | --- | --- | --- |
 | `credentials` | `readonly CredentialRef[]` | The identifier of each credential (`credType`, `issuer`, `holder`). |
-| `data` | `readonly CredentialData[]` | The shaped credentials. See [`credential.retrieve`](retrieve.md#credentialdata) for `CredentialData`. |
+| `data` | `readonly CredentialData[]` | The shaped credentials. See [credential.retrieve](retrieve.md#credentialdata) for `CredentialData`. |
 
 ## Underlying XRPL request
 
-Read-only — no signer is required and nothing is submitted. Queries the ledger with [`account_objects`](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_objects).
+Read-only — no signer is required and nothing is submitted. Queries the ledger with [account_objects](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_objects).
 
 ## Example
 

@@ -50,7 +50,7 @@ Resolves to a `TokenRetrieveResult`:
 
 ## Underlying XRPL request
 
-Read-only — no signer is required and nothing is submitted. Queries the ledger with [`ledger_entry`](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/ledger-methods/ledger_entry).
+Read-only — no signer is required and nothing is submitted. Queries the ledger with [ledger_entry](https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/ledger-methods/ledger_entry).
 
 ## Example
 

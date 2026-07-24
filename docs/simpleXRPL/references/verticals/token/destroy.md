@@ -47,7 +47,7 @@ For `Token.destroy`, the `intent` echoes:
 
 ## Underlying XRPL transactor
 
-Builds and submits a single [`MPTokenIssuanceDestroy`](https://xrpl.org/docs/references/protocol/transactions/types/mptokenissuancedestroy) transaction.
+Builds and submits a single [MPTokenIssuanceDestroy](https://xrpl.org/docs/references/protocol/transactions/types/mptokenissuancedestroy) transaction.
 
 ## Example
 

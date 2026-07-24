@@ -49,7 +49,7 @@ For `Token.transfer`, the `intent` echoes:
 
 ## Underlying XRPL transactor
 
-Builds and submits a single [`Payment`](https://xrpl.org/docs/references/protocol/transactions/types/payment) transaction. Throws an `IntentValidationError` if `amount`'s asset is not an MPT — use [`XRP.transfer`](../xrp/transfer.md) for XRP.
+Builds and submits a single [Payment](https://xrpl.org/docs/references/protocol/transactions/types/payment) transaction. Throws an `IntentValidationError` if `amount`'s asset is not an MPT — use [XRP.transfer](../xrp/transfer.md) for XRP.
 
 ## Example
 

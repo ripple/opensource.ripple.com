@@ -41,7 +41,7 @@ Returns an `AccountCredentials` object **synchronously** — this is the one `Ac
 
 ## Underlying XRPL transactor
 
-None. `Account.create` generates a keypair locally and writes nothing to the ledger. Use [`activate`](activate.md) or [`fund`](fund.md) to bring the account on-ledger.
+None. `Account.create` generates a keypair locally and writes nothing to the ledger. Use [activate](activate.md) or [fund](fund.md) to bring the account on-ledger.
 
 ## Example
 

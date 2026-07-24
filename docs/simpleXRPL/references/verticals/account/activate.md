@@ -10,7 +10,7 @@ labels:
 
 [Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/account.ts#L151)
 
-Activate a created account by sending it XRP from the operator (primary) account, then enabling rippling. This is the any-network counterpart to [`fund`](fund.md); the account must be signable by this client (e.g. from [`create`](create.md)).
+Activate a created account by sending it XRP from the operator (primary) account, then enabling rippling. This is the any-network counterpart to [fund](fund.md); the account must be signable by this client (e.g. from [create](create.md)).
 
 ## Signature
 
@@ -46,8 +46,8 @@ Resolves to a `SubmissionResult<undefined>` (from the `defaultRipple` settings c
 
 Runs as an ordered, multi-step sequence:
 
-1. [`Payment`](https://xrpl.org/docs/references/protocol/transactions/types/payment) — the operator sends XRP to the destination.
-2. [`AccountSet`](https://xrpl.org/docs/references/protocol/transactions/types/accountset) — the new account enables rippling (`defaultRipple`).
+1. [Payment](https://xrpl.org/docs/references/protocol/transactions/types/payment) — the operator sends XRP to the destination.
+2. [AccountSet](https://xrpl.org/docs/references/protocol/transactions/types/accountset) — the new account enables rippling (`defaultRipple`).
 
 ## Example
 

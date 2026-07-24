@@ -54,7 +54,7 @@ For `Domain.create`, the `intent` (`DomainIntent`) carries:
 
 ## Underlying XRPL transactor
 
-Builds and submits a single [`PermissionedDomainSet`](https://xrpl.org/docs/references/protocol/transactions/types/permissioneddomainset) transaction (with no domain id, creating a new domain).
+Builds and submits a single [PermissionedDomainSet](https://xrpl.org/docs/references/protocol/transactions/types/permissioneddomainset) transaction (with no domain id, creating a new domain).
 
 ## Example
 

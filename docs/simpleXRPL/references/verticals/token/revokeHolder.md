@@ -48,7 +48,7 @@ For `Token.revokeHolder`, the `intent` echoes:
 
 ## Underlying XRPL transactor
 
-Builds and submits a single [`MPTokenAuthorize`](https://xrpl.org/docs/references/protocol/transactions/types/mptokenauthorize) transaction naming the holder, with the unauthorize flag set.
+Builds and submits a single [MPTokenAuthorize](https://xrpl.org/docs/references/protocol/transactions/types/mptokenauthorize) transaction naming the holder, with the unauthorize flag set.
 
 ## Example
 

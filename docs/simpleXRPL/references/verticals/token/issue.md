@@ -66,7 +66,7 @@ For `Token.issue`, the `intent` (`MptIssueIntent`) carries:
 
 ## Underlying XRPL transactor
 
-Builds and submits a single [`MPTokenIssuanceCreate`](https://xrpl.org/docs/references/protocol/transactions/types/mptokenissuancecreate) transaction.
+Builds and submits a single [MPTokenIssuanceCreate](https://xrpl.org/docs/references/protocol/transactions/types/mptokenissuancecreate) transaction.
 
 ## Example
 

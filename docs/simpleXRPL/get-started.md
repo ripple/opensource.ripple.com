@@ -88,7 +88,7 @@ Operations are grouped into domain-specific **verticals** — `xrp`, `token`, `i
 Every write resolves to a `SubmissionResult` carrying the transaction hash, the backend's raw response, and a typed `intent` output. See [Results and handles](references/index.md#results-and-handles).
 
 {% admonition type="success" name="Tip" %}
-On a test network, create and fund an account first with [`account.create()`](references/verticals/account/create.md) and [`account.fund()`](references/verticals/account/fund.md), then use its address as the source or destination.
+On a test network, create and fund an account first with [account.create()](references/verticals/account/create.md) and [account.fund()](references/verticals/account/fund.md), then use its address as the source or destination.
 {% /admonition %}
 
 ## Next steps

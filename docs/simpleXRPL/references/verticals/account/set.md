@@ -60,7 +60,7 @@ Resolves to a `SubmissionResult<undefined>`.
 
 ## Underlying XRPL transactor
 
-Builds and submits a single [`AccountSet`](https://xrpl.org/docs/references/protocol/transactions/types/accountset) transaction.
+Builds and submits a single [AccountSet](https://xrpl.org/docs/references/protocol/transactions/types/accountset) transaction.
 
 ## Example
 

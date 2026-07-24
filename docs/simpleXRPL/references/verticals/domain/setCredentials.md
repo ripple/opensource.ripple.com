@@ -55,7 +55,7 @@ For `Domain.setCredentials`, the `intent` (`DomainIntent`) echoes:
 
 ## Underlying XRPL transactor
 
-Builds and submits a single [`PermissionedDomainSet`](https://xrpl.org/docs/references/protocol/transactions/types/permissioneddomainset) transaction naming the existing domain id.
+Builds and submits a single [PermissionedDomainSet](https://xrpl.org/docs/references/protocol/transactions/types/permissioneddomainset) transaction naming the existing domain id.
 
 ## Example
 

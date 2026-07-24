@@ -50,7 +50,7 @@ For `IOU.transfer`, the `intent` (`IOUTransferIntent`) echoes:
 
 ## Underlying XRPL transactor
 
-Builds and submits a single [`Payment`](https://xrpl.org/docs/references/protocol/transactions/types/payment) transaction.
+Builds and submits a single [Payment](https://xrpl.org/docs/references/protocol/transactions/types/payment) transaction.
 
 ## Example
 
