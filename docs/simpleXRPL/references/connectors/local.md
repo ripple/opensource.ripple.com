@@ -27,7 +27,7 @@ LocalSigner.fromEnv(options?: LocalSignerFromEnvOptions): LocalSigner
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `primary` | `string` | No | The primary account's r-address. Defaults to the first seed in scan order. |
-| `env` | `object` | No | Environment source to scan — a map of variable names to values. Defaults to `process.env`. |
+| `env` | `Record<string, string \| undefined>` | No | Environment source to scan — a map of variable names to values. Defaults to `process.env`. |
 
 
 ## LocalSigner.fromSeed()
@@ -61,7 +61,7 @@ LocalSigner.create(options: LocalSignerCreateOptions): LocalSigner
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `wallets` | `array` | Yes | The xrpl `Wallet` objects this signer holds (at least one). |
+| `wallets` | `readonly Wallet[]` | Yes | The xrpl `Wallet` objects this signer holds (at least one), e.g. `[Wallet.fromSeed(seed)]`. |
 | `primary` | `string` | No | The primary account's r-address. Defaults to the first wallet. |
 
 

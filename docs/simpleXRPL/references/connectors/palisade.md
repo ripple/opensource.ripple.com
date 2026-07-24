@@ -30,13 +30,13 @@ PalisadeCustody.create(config: PalisadeCustodyConfig): Promise<PalisadeCustody>
 | `baseUrl` | `string` | Yes | Palisade API base URL (must be HTTPS). |
 | `clientId` | `string` | Yes | OAuth2 client-credentials id. |
 | `clientSecret` | `string` | Yes | OAuth2 client-credentials secret (held in memory only). |
-| `primary` | `object` | Yes | The wallet used when a verb is called without an explicit account. |
+| `primary` | `PalisadeWalletRef` | Yes | The wallet used when a verb is called without an explicit account. |
 | `primary.vaultId` | `string` | Yes | The primary wallet's vault id. |
 | `primary.walletId` | `string` | Yes | The primary wallet's id. |
 | `allowRawSigning` | `boolean` | No | Allow the raw fallback for transactors/fields Palisade can't map. Defaults to `false`. |
 | `defaultTimeoutMs` | `number` | No | How long to wait for a native submission to reach a terminal status. |
-| `http` | `object` | No | Advanced: a custom HTTP transport (implements `PalisadeHttpPort`). Defaults to the production fetch port; most callers omit it. |
-| `now` | `function` | No | Injectable clock for the auth service, returning epoch ms (`() => number`). Defaults to `Date.now`. |
+| `http` | `PalisadeHttpPort` | No | Advanced: a custom HTTP transport, shape `{ send: (request) => Promise<response> }`. Defaults to the production fetch port; most callers omit it. |
+| `now` | `() => number` | No | Injectable clock for the auth service, returning epoch ms, e.g. `() => Date.now()`. Defaults to `Date.now`. |
 
 
 ## Example

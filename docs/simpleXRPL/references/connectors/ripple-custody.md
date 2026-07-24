@@ -28,17 +28,17 @@ RippleCustody.create(options: RippleCustodyOptions): Promise<RippleCustody>
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `gatewayUrl` | `string` | Yes | The Custody gateway base URL. |
-| `auth` | `object` | Yes | Intent-author credentials and token endpoint. |
+| `auth` | `RippleCustodyAuthOptions` | Yes | Intent-author credentials and token endpoint. |
 | `auth.signingKey` | `string` | Yes | Intent-author private key: PEM contents, or a path to a `.pem` file. |
 | `auth.tokenUrl` | `string` | Yes | The Custody token endpoint URL. |
 | `auth.publicKey` | `string` | No | Matching public key, base64 SPKI DER. Derived from `signingKey` if omitted. |
 | `domainId` | `string` | Yes | The Custody domain this custodian operates in. |
 | `primary` | `string` | Yes | The primary account's r-address; validated against the discovered set. |
 | `allowRawSigning` | `boolean` | No | Enable the raw-signing fallback. Defaults to `false`. |
-| `defaultFee` | `object` | No | Fee tier: `{ priority?: 'low' \| 'medium' \| 'high' }`. Backends that can't honor the tier auto-price and warn. Defaults to `low`. |
+| `defaultFee` | `FeeIntent` | No | Fee tier: `{ priority?: 'low' \| 'medium' \| 'high' }`. Backends that can't honor the tier auto-price and warn. Defaults to `low`. |
 | `defaultDryRun` | `boolean` | No | Pre-flight every write through Custody's dry-run. Defaults to `false`. |
 | `defaultTimeoutMs` | `number` | No | How long `submitAndWait` polls before throwing `IntentPendingError`. |
-| `http` | `object` | No | Advanced: a custom HTTP transport (implements `CustodyHttpPort`). Defaults to the production fetch port; most callers omit it. |
+| `http` | `CustodyHttpPort` | No | Advanced: a custom HTTP transport, shape `{ send: (request) => Promise<response> }`. Defaults to the production fetch port; most callers omit it. |
 
 
 ## RippleCustody.fromEnv()
@@ -57,11 +57,11 @@ RippleCustody.fromEnv(options: RippleCustodyFromEnvOptions): Promise<RippleCusto
 | --- | --- | --- | --- |
 | `primary` | `string` | Yes | The primary account's r-address; validated against the discovered set. |
 | `allowRawSigning` | `boolean` | No | Enable the raw-signing fallback. Defaults to `false`. |
-| `defaultFee` | `object` | No | Fee tier: `{ priority?: 'low' \| 'medium' \| 'high' }`. Backends that can't honor the tier auto-price and warn. Defaults to `low`. |
+| `defaultFee` | `FeeIntent` | No | Fee tier: `{ priority?: 'low' \| 'medium' \| 'high' }`. Backends that can't honor the tier auto-price and warn. Defaults to `low`. |
 | `defaultDryRun` | `boolean` | No | Pre-flight every write through Custody's dry-run. Defaults to `false`. |
 | `defaultTimeoutMs` | `number` | No | How long `submitAndWait` polls before throwing `IntentPendingError`. |
-| `env` | `object` | No | The object those variables are read from — a map of names to values. Defaults to `process.env`. |
-| `http` | `object` | No | Advanced: a custom HTTP transport (implements `CustodyHttpPort`). Defaults to the production fetch port; most callers omit it. |
+| `env` | `Record<string, string \| undefined>` | No | The object those variables are read from — a map of names to values. Defaults to `process.env`. |
+| `http` | `CustodyHttpPort` | No | Advanced: a custom HTTP transport, shape `{ send: (request) => Promise<response> }`. Defaults to the production fetch port; most callers omit it. |
 
 {% admonition type="info" name="Note" %}
 `env` requires these keys:
