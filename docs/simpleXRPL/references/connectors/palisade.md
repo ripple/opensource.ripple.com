@@ -10,19 +10,18 @@ labels:
 
 [Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/custodians/palisade/config.ts#L10)
 
-`PalisadeCustody` routes through Palisade (Wallet-as-a-Service). It authenticates via OAuth2 client credentials and acts on a specific vault/wallet.
+Palisade is a Wallet-as-a-Service. This connector authenticates via OAuth2 client credentials and acts on specific vaults/wallets.
+
 
 ## PalisadeCustody.create()
+
+Exchanges the credentials and discovers the org's wallets.
 
 ```ts
 PalisadeCustody.create(config: PalisadeCustodyConfig): Promise<PalisadeCustody>
 ```
 
-Exchanges the credentials and discovers the org's wallets.
-
-### Parameters
-
-`config` (`PalisadeCustodyConfig`):
+### Config
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -36,6 +35,7 @@ Exchanges the credentials and discovers the org's wallets.
 | `defaultTimeoutMs` | `number` | No | How long to wait for a native submission to reach a terminal status. |
 | `http` | `object` | No | Advanced: a custom HTTP transport (implements `PalisadeHttpPort`). Defaults to the production fetch port; most callers omit it. |
 | `now` | `function` | No | Injectable clock for the auth service, returning epoch ms (`() => number`). Defaults to `Date.now`. |
+
 
 ## Example
 

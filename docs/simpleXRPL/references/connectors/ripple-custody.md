@@ -10,19 +10,18 @@ labels:
 
 [Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/custodians/ripple/construction.ts#L30)
 
-`RippleCustody` routes through Ripple Custody, operating within one Custody domain. It authenticates with an intent-author key exchanged for a token. A Custody deployment is per-tenant, so its gateway and token URLs point at the instance provisioned for you.
+Ripple Custody authenticates with an intent-author key exchanged for a token. A Custody deployment is per-tenant, so its gateway and token URLs point at the instance provisioned for you.
+
 
 ## RippleCustody.create()
+
+Construct with every value passed explicitly.
 
 ```ts
 RippleCustody.create(options: RippleCustodyOptions): Promise<RippleCustody>
 ```
 
-Construct with every value passed explicitly.
-
-### Parameters
-
-`options` (`RippleCustodyOptions`):
+### Options
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -39,17 +38,16 @@ Construct with every value passed explicitly.
 | `defaultTimeoutMs` | `number` | No | How long `submitAndWait` polls before throwing `IntentPendingError`. |
 | `http` | `object` | No | Advanced: a custom HTTP transport (implements `CustodyHttpPort`). Defaults to the production fetch port; most callers omit it. |
 
+
 ## RippleCustody.fromEnv()
+
+Reads the endpoints, credentials, and domain from environment variables.
 
 ```ts
 RippleCustody.fromEnv(options: RippleCustodyFromEnvOptions): Promise<RippleCustody>
 ```
 
-Reads the endpoints, credentials, and domain from environment variables — `RIPPLE_CUSTODY_GATEWAY_URL`, `RIPPLE_CUSTODY_AUTH_SIGNING_KEY`, `RIPPLE_CUSTODY_AUTH_TOKEN_URL`, `RIPPLE_CUSTODY_AUTH_PUBLIC_KEY` (optional), and `RIPPLE_CUSTODY_DOMAIN_ID` — then applies these options:
-
-### Parameters
-
-`options` (`RippleCustodyFromEnvOptions`):
+### Options
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -58,8 +56,18 @@ Reads the endpoints, credentials, and domain from environment variables — `RIP
 | `defaultFee` | `object` | No | Fee tier: `{ priority?: 'low' \| 'medium' \| 'high' }`. Backends that can't honor the tier auto-price and warn. Defaults to `low`. |
 | `defaultDryRun` | `boolean` | No | Pre-flight every write through Custody's dry-run. Defaults to `false`. |
 | `defaultTimeoutMs` | `number` | No | How long `submitAndWait` polls before throwing `IntentPendingError`. |
-| `env` | `object` | No | Environment source to scan — a map of variable names to values. Defaults to `process.env`. |
+| `env` | `object` | No | The object those variables are read from — a map of names to values. Defaults to `process.env`. |
 | `http` | `object` | No | Advanced: a custom HTTP transport (implements `CustodyHttpPort`). Defaults to the production fetch port; most callers omit it. |
+
+{% admonition type="info" name="Note" %}
+`env` requires these keys:
+- `RIPPLE_CUSTODY_GATEWAY_URL`
+- `RIPPLE_CUSTODY_AUTH_SIGNING_KEY`
+- `RIPPLE_CUSTODY_AUTH_TOKEN_URL`
+- `RIPPLE_CUSTODY_AUTH_PUBLIC_KEY` (optional)
+- `RIPPLE_CUSTODY_DOMAIN_ID`
+{% /admonition %}
+
 
 ## Example
 
