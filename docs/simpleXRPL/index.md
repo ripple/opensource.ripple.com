@@ -38,7 +38,7 @@ For every operation, on every connector, `simpleXRPL` has a statically defined r
 - **Unavailable**: The custodian doesn't expose a native endpoint and raw signing isn't enabled on the connector, so this operation is rejected.
 
 {% admonition type="info" name="Note" %}
-For a complete list of supported operations by connector, see [Connector Routing](./references/connector-routing.md)
+For a complete list of supported operations by connector, see [Connector Routing](./references/connectors/connector-routing.md)
 {% /admonition %}
 
 

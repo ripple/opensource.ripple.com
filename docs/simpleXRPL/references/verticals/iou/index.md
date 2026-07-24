@@ -1,6 +1,6 @@
 ---
 seo:
-    description: The IOU vertical in simpleXRPL issues and manages trust-line-based issued currencies.
+    description: The IOU vertical in simpleXRPL issues and manages trust line-based issued currencies.
 labels:
   - simpleXRPL
   - SDK
@@ -8,11 +8,11 @@ labels:
 
 # IOU
 
-The `IOU` vertical issues and manages trust-line-based issued currencies. Each verb acts as the IOU's **issuer** — the account resolved from `from` (default: the primary signer's account) signs, and its address is the currency issuer. Callers name their own counterparty (`holder` / `destination`) per call.
+The `IOU` vertical issues and manages trust line-based issued currencies. Each verb acts as the IOU's **issuer** — the account resolved from `from` (default: the primary signer's account) signs, and its address is the currency issuer. Callers name their own counterparty (`holder` / `destination`) per call.
 
 | Method | Description |
 | --- | --- |
-| [issue](issue.md) | Bootstrap a new trust-line-based IOU between two environment-sourced accounts. |
+| [issue](issue.md) | Bootstrap a new trust line-based IOU between two environment-sourced accounts. |
 | [transfer](transfer.md) | Send IOU value to a destination account. |
 | [authorize](authorize.md) | Authorize a holder to hold this IOU. |
 | [lock](lock.md) | Freeze a holder's trust line (individual + deep freeze). |

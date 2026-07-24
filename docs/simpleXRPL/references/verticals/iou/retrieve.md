@@ -35,7 +35,7 @@ Resolves to an `IOURetrieveResult`:
 | Field | Type | Description |
 | --- | --- | --- |
 | `iouID` | `string` | Currency code and issuer, e.g. `USD.rIssuer...` — pass to the write verbs. |
-| `data` | `IOUTrustLine \| undefined` | The point-in-time trust-line snapshot, or `undefined` if no line exists. |
+| `data` | `IOUTrustLine \| undefined` | The point-in-time trust line snapshot, or `undefined` if no line exists. |
 
 #### IOUTrustLine
 
@@ -43,7 +43,7 @@ Resolves to an `IOURetrieveResult`:
 | --- | --- | --- |
 | `currency` | `string` | The currency ticker (hex codes decoded to ASCII where printable). |
 | `peer` | `string` | The counterparty r-address (the issuer, when querying as `holder`). |
-| `balance` | `string` | The trust-line balance, from the queried account's perspective. |
+| `balance` | `string` | The trust line balance, from the queried account's perspective. |
 | `limit` | `string` | The queried account's trust limit. |
 | `limitPeer` | `string` | The counterparty's trust limit. |
 | `noRipple` | `boolean` | Whether rippling is disabled on this line. |

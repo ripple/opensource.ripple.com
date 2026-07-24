@@ -1,6 +1,6 @@
 ---
 seo:
-    description: IOU.issue bootstraps a new trust-line-based IOU between two environment-sourced accounts via AccountSet and TrustSet transactions.
+    description: IOU.issue bootstraps a new trust line-based IOU between two environment-sourced accounts via AccountSet and TrustSet transactions.
 labels:
   - simpleXRPL
   - SDK
@@ -10,7 +10,7 @@ labels:
 
 [Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/iou.ts#L83)
 
-Generate a new trust-line-based IOU between two developer-controlled accounts sourced from the environment.
+Generate a new trust line-based IOU between two developer-controlled accounts sourced from the environment.
 
 {% admonition type="info" name="Note" %}
 Unlike the other IOU verbs, `issue` takes no `options`. It bootstraps both accounts from the environment: it reads `XRPL_ISSUER_SEED` and `XRPL_HOT_WALLET_SEED`, has the issuer enable rippling, then has the hot wallet extend trust up to the maximum limit. No `Payment` runs, so no value exists yet — use [`IOU.transfer`](transfer.md) to send some.

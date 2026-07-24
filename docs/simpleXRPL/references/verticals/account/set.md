@@ -33,7 +33,7 @@ All parameters are optional individually, but at least one must be provided.
 | --- | --- | --- | --- |
 | `noFreeze` | `boolean` | No | Permanently give up the ability to freeze trust lines (irreversible). |
 | `clawbackEnabled` | `boolean` | No | Permanently allow this issuer to claw back issued tokens (irreversible). |
-| `trustLineLocking` | `boolean` | No | Permanently allow trust-line locking (irreversible). |
+| `trustLineLocking` | `boolean` | No | Permanently allow trust line locking (irreversible). |
 | `disableMaster` | `boolean` | No | Permanently disable the master key pair (irreversible). |
 | `requireAuth` | `boolean` | No | Require holders to be authorized before they can hold issued tokens. |
 | `requireDest` | `boolean` | No | Require a destination tag on incoming payments. |

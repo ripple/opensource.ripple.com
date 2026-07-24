@@ -33,13 +33,7 @@ Operations are grouped into domain-specific **verticals**, one per area of XRPL 
 
 ## Connectors
 
-The connector is the execution model — it determines how operations run and who holds the keys. See [Operation Execution](../index.md#operation-execution) for how each operation routes.
-
-| Connector | Use | Key configuration types |
-| --- | --- | --- |
-| `LocalSigner` | Development and testing; holds `xrpl` wallets in-process. | `LocalSignerCreateOptions`, `LocalSignerFromEnvOptions` |
-| `RippleCustody` | Production; routes through Ripple Custody. | `RippleCustodyOptions`, `RippleCustodyAuthOptions`, `RippleCustodyFromEnvOptions` |
-| `PalisadeCustody` | Production; routes through Palisade. | `PalisadeCustodyConfig`, `PalisadeWalletRef` |
+The connector is the execution model — it determines how operations run and who holds the keys. See [Connectors](connectors/index.md) for each connector ([LocalSigner](connectors/local.md), [RippleCustody](connectors/ripple-custody.md), [PalisadeCustody](connectors/palisade.md)) and its configuration fields, and [Operation Execution](../index.md#operation-execution) for how each operation routes.
 
 ## Amounts and assets
 
@@ -90,5 +84,5 @@ All errors extend `SimpleXRPLError`, so you can catch the base class or narrow t
 Companion reference pages that live alongside this index:
 
 - **Function-to-transactor mapping** — the underlying XRPL transactor(s) each method expands into (also shown inline on each method page).
-- [**Connector routing table**](connector-routing.md) — per operation and per connector, whether it routes native, requires raw-signing fallback, or is unavailable.
+- [**Connector routing table**](connectors/connector-routing.md) — per operation and per connector, whether it routes native, requires raw-signing fallback, or is unavailable.
 - **Institutional defaults** — the full set of defaults the SDK applies unless overridden.

@@ -1,6 +1,6 @@
 ---
 seo:
-    description: Install simpleXRPL, initialize the client, connect a custodian, and run your first XRP Ledger operation.
+    description: Install simpleXRPL, initialize the client, connect a custodian, discover your accounts, check routing, and send your first XRP Ledger payment.
 labels:
   - simpleXRPL
   - SDK
@@ -8,116 +8,84 @@ labels:
 
 # Get Started
 
-This guide takes you from install to your first on-ledger operation in three steps: **initialize the client**, **set up a custodian**, and **run a vertical operation**. The examples target the XRPL Testnet with a local signer so you can run them as-is, then swap in a production custodian when you're ready.
+This tutorial takes you through the basics of sending your first operation on the XRP Ledger with simpleXRPL.
+
+
+## Goals
+
+By the end of this tutorial, you will be able to:
+
+- Initialize a client.
+- Connect a custodian.
+- Discover your accounts.
+- Check how an operation will route before you submit it.
+- Transfer XRP between accounts.
+
 
 ## Prerequisites
 
-- **Node.js >= 20.19.** simpleXRPL is Node-targeted and not intended to run in the browser.
-- Install the package:
+To complete this tutorial, you should:
+
+- Have some familiarity with writing code in TypeScript.
+- Have **Node.js version 20.19** or later.
+
+
+## Source Code
+
+You can find the complete source code for this tutorial's examples in the [code samples section of this website's repository](https://github.com/ripple/opensource.ripple.com/tree/main/_code-samples/simplexrpl/getStarted.ts)
+
+
+## Steps
+
+### 1. Install dependencies
 
 ```sh
 npm install simplexrpl
 ```
 
-## 1. Initialize the client
+### 2. Initialize the client
 
 `SimpleXRPL.init(...)` is the single entry point — you never construct the client with `new`. It binds one or more already-authenticated signing backends (the **connectors**) to a network and builds the account index.
 
-```ts
-import { LocalSigner, SimpleXRPL } from 'simplexrpl'
-
-const client = await SimpleXRPL.init({
-  // Point at a rippled endpoint. `faucetUrl` is only used on test networks
-  // (by `client.account.fund`).
-  rippledUrl: 'wss://s.altnet.rippletest.net:51233',
-  faucetUrl: 'https://faucet.altnet.rippletest.net/accounts',
-
-  // Bind one or more connectors. Here, a single local-signing backend that
-  // reads its seeds from the environment (`XRPL_*_SEED`).
-  signers: [LocalSigner.fromEnv()],
-})
-
-// ... use the client ...
-
-await client.disconnect()
-```
+{% code-snippet file="/_code-samples/simplexrpl/getStarted.ts" language="ts" before="// --- Discover your accounts ---" /%}
 
 - **`primarySigner`** is the default backend for verbs called without an explicit account. It defaults to `signers[0]`, so you only set it when you bind more than one connector.
 - With **no `signers`**, the client is read-only: reads work, but write verbs throw `NoSignerError` until a signer is added.
 - Bind an account at runtime (for example, a freshly created wallet) with `client.registerLocalAccount(seed)`.
 
-See [Initialize the client](tutorials/inititialize-clients.md) for the full walkthrough, and [Client and initialization](references/index.md#client-and-initialization) for the configuration reference.
+See [Client and initialization](references/index.md#client-and-initialization) for the full configuration reference.
 
-## 2. Set up a custodian
+### 3. Connect a custodian
 
-The **connector** determines how operations run and who holds the keys. simpleXRPL ships three, each constructed and authenticated on its own, then handed to `init`:
+The local signer above is enough for development. For production, construct a custodian connector and pass it to `init`'s `signers` — in place of, or alongside, the local one. simpleXRPL ships **Ripple Custody** and **Palisade**, each constructed and authenticated on its own:
 
-- **`LocalSigner`** — self-custody; keys held in-process. For development and testing.
-- **`RippleCustody`** — routes through Ripple Custody. For production.
-- **`PalisadeCustody`** — routes through Palisade. For production.
-
-The local signer in Step 1 is enough for development. For production, construct a custodian connector and bind it instead of (or alongside) the local one:
-
-```ts
-import {
-  LocalSigner,
-  PalisadeCustody,
-  RippleCustody,
-  SimpleXRPL,
-} from 'simplexrpl'
-
-// Ripple Custody — authenticates with an intent-author key and operates within
-// one Custody domain. `fromEnv` reads the `RIPPLE_CUSTODY_*` variables.
-const rippleCustody = await RippleCustody.fromEnv({
-  primary: process.env.RIPPLE_CUSTODY_PRIMARY ?? '',
-})
-
-// Palisade — authenticates via OAuth client credentials and acts on a
-// specific vault/wallet.
-const palisade = await PalisadeCustody.create({
-  baseUrl: 'https://api.sandbox.palisade.co',
-  clientId: process.env.PALISADE_CLIENT_ID ?? '',
-  clientSecret: process.env.PALISADE_CLIENT_SECRET ?? '',
-  primary: {
-    vaultId: process.env.PALISADE_VAULT_ID ?? '',
-    walletId: process.env.PALISADE_WALLET_ID ?? '',
-  },
-  // Enable the raw sign-only fallback for transactors the custodian has no
-  // native operation for. Off by default.
-  allowRawSigning: false,
-})
-
-const client = await SimpleXRPL.init({
-  rippledUrl: 'wss://s.altnet.rippletest.net:51233',
-  signers: [rippleCustody, palisade, LocalSigner.fromEnv()],
-  primarySigner: rippleCustody,
-})
-```
+{% code-snippet file="/_code-samples/simplexrpl/getStarted.ts" language="ts" from="// --- Connect a custodian (production) ---" /%}
 
 Read credentials from your environment or secrets manager — never hard-code keys. Once bound, every vertical verb works the same regardless of which connector owns the account: the SDK routes each write to the custodian that holds it.
 
 {% admonition type="info" name="Note" %}
-Whether an operation runs through a custodian's **native** path or the **raw-signing fallback** is decided per operation; the fallback is off by default and enabled per connector via `allowRawSigning`. See [Operation Execution](index.md#operation-execution) and the [Connector Routing](references/connector-routing.md) table.
+Whether an operation runs through a custodian's **native** path or the **raw-signing fallback** is decided per operation; the fallback is off by default and enabled per connector via `allowRawSigning`. See [Operation Execution](index.md#operation-execution) and the [Connector Routing](references/connectors/connector-routing.md) table.
 {% /admonition %}
 
-See [Connect to custodians](tutorials/connect-custodians.md) for the full per-connector setup.
+### 4. Discover your accounts
 
-## 3. Run a vertical operation
+Connectors discover their accounts at init; the client merges them into a single index keyed by r-address. List them, resolve the primary, and read on-chain state — a read needs no signer:
 
-Operations are grouped into domain-specific **verticals** — `xrp`, `token`, `iou`, `credential`, `domain`, and `account` — reached off the client. Each verb reads as business intent rather than protocol mechanics. Here's the simplest one, a native XRP payment:
+{% code-snippet file="/_code-samples/simplexrpl/getStarted.ts" language="ts" from="// --- Discover your accounts ---" before="// --- Check how operations route ---" /%}
 
-```ts
-const result = await client.xrp.transfer({
-  to: 'rDestination...',
-  amount: '10',
-})
+### 5. Check how operations route
 
-console.log(result.txHash)
-```
+Before you submit, ask how a given transactor would route for an account — signed locally, through a custodian's native operation, via the raw sign-only fallback, or rejected:
 
-- A write verb uses the **primary account** by default; target a different bound account by passing `from` in the options.
-- Every write resolves to a `SubmissionResult` carrying the transaction hash, the backend's response, and a typed `intent` output. See [Results and handles](references/index.md#results-and-handles).
-- **Reads** (such as `client.account.retrieve()`) need no signer and submit nothing.
+{% code-snippet file="/_code-samples/simplexrpl/getStarted.ts" language="ts" from="// --- Check how operations route ---" before="// --- Send a payment ---" /%}
+
+### 6. Send a payment
+
+Operations are grouped into domain-specific **verticals** — `xrp`, `token`, `iou`, `credential`, `domain`, and `account` — reached off the client. Each verb uses the primary account by default; target a different bound account with `from`. Here's a native XRP payment:
+
+{% code-snippet file="/_code-samples/simplexrpl/getStarted.ts" language="ts" from="// --- Send a payment ---" before="// --- Connect a custodian (production) ---" /%}
+
+Every write resolves to a `SubmissionResult` carrying the transaction hash, the backend's raw response, and a typed `intent` output. See [Results and handles](references/index.md#results-and-handles).
 
 {% admonition type="success" name="Tip" %}
 On a test network, create and fund an account first with [`account.create()`](references/verticals/account/create.md) and [`account.fund()`](references/verticals/account/fund.md), then use its address as the source or destination.

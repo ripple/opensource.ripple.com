@@ -8,15 +8,11 @@
     - group: Tutorials
       expanded: false
       items:
-        - page: docs/simpleXRPL/tutorials/inititialize-clients.md
-        - page: docs/simpleXRPL/tutorials/connect-custodians.md
-        - page: docs/simpleXRPL/tutorials/discover-acounts.md
         - page: docs/simpleXRPL/tutorials/issue-rwa-as-mpt.md
         - page: docs/simpleXRPL/tutorials/issue-and-distribute-iou.md
         - page: docs/simpleXRPL/tutorials/place-dex-order.md
         - page: docs/simpleXRPL/tutorials/create-permissioned-domain.md
         - page: docs/simpleXRPL/tutorials/cross-custodian-workflows.md
-        - page: docs/simpleXRPL/tutorials/read-routing-reports.md
         - page: docs/simpleXRPL/tutorials/external-signer.md
         - page: docs/simpleXRPL/tutorials/implement-aws-kms-signer.md
         - page: docs/simpleXRPL/tutorials/implement-pkcs11-signer.md
@@ -24,8 +20,14 @@
       page: docs/simpleXRPL/references/index.md
       expanded: false
       items:
-        - page: docs/simpleXRPL/references/connector-routing.md
-          label: Connector Routing
+        - group: Connectors
+          page: docs/simpleXRPL/references/connectors/index.md
+          expanded: false
+          items:
+            - page: docs/simpleXRPL/references/connectors/local.md
+            - page: docs/simpleXRPL/references/connectors/ripple-custody.md
+            - page: docs/simpleXRPL/references/connectors/palisade.md
+            - page: docs/simpleXRPL/references/connectors/connector-routing.md
         - group: Verticals
           page: docs/simpleXRPL/references/verticals/index.md
           expanded: false

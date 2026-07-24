@@ -1,6 +1,6 @@
 ---
 seo:
-    description: "Issue a trust-line currency (IOU) and distribute it: bootstrap the issuer and hot wallet, then transfer the currency out."
+    description: "Issue a trust line currency (IOU) and distribute it: bootstrap the issuer and hot wallet, then transfer the currency out."
 labels:
   - simpleXRPL
   - SDK
@@ -12,7 +12,7 @@ labels:
 
 ```ts
 /**
- * Issue and distribute an IOU (trust-line currency).
+ * Issue and distribute an IOU (trust line currency).
  *
  * `issue` bootstraps the issuer and a hot wallet from the environment
  * (`XRPL_ISSUER_SEED`, `XRPL_HOT_WALLET_SEED`): the issuer enables rippling and
