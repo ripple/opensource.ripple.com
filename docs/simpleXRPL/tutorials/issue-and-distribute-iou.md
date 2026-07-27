@@ -8,7 +8,7 @@ labels:
 
 # Issue And Distribute An IOU
 
-`issue` bootstraps the issuer and a hot wallet from the environment (the issuer enables rippling and the hot wallet extends a trust line); no value exists until `transfer` sends the currency out. Every verb acts as the issuer, selected via `from`.
+`issue` bootstraps the issuer and a hot wallet from the environment (the issuer enables rippling and the hot wallet extends a trust line). No value exists until `transfer` sends the currency out. Every verb acts as the issuer, selected via `from`.
 
 ```ts
 /**
