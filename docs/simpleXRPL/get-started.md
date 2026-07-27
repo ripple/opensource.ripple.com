@@ -8,7 +8,7 @@ labels:
 
 # Get Started
 
-This tutorial takes you through the basics of sending your first operation on the XRP Ledger with simpleXRPL.
+This tutorial takes you through the basics of sending your first operation on the XRP Ledger with **simpleXRPL**.
 
 
 ## Goals
