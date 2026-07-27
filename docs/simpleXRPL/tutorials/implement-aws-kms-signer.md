@@ -8,7 +8,7 @@ labels:
 
 # Sign With AWS KMS
 
-simpleXRPL ships an AWS KMS adapter as a subpath import (`simplexrpl/aws-kms`). The private key stays in KMS and never enters the process — the SDK hands KMS a digest and assembles the signature.
+`simpleXRPL` ships an [AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html) adapter as a subpath import (`simplexrpl/aws-kms`). The private key stays in KMS and never enters the process — the SDK hands KMS a digest and assembles the signature.
 
 ```ts
 /**

@@ -8,7 +8,7 @@ labels:
 
 # Palisade
 
-[Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/custodians/palisade/config.ts#L10)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/custodians/palisade/config.ts#L10)
 
 Palisade is a Wallet-as-a-Service. This connector authenticates via OAuth2 client credentials and acts on specific vaults/wallets.
 
@@ -35,7 +35,7 @@ PalisadeCustody.create(config: PalisadeCustodyConfig): Promise<PalisadeCustody>
 | `primary.walletId` | `string` | Yes | The primary wallet's id. |
 | `allowRawSigning` | `boolean` | No | Allow the raw fallback for transactors/fields Palisade can't map. Defaults to `false`. |
 | `defaultTimeoutMs` | `number` | No | How long to wait for a native submission to reach a terminal status. |
-| `http` | `PalisadeHttpPort` | No | Advanced: a custom HTTP transport, shape `{ send: (request) => Promise<response> }`. Defaults to the production fetch port; most callers omit it. |
+| `http` | `object` | No | A custom HTTP transport (implements `PalisadeHttpPort`). Defaults to the production fetch port; most callers omit it. |
 | `now` | `() => number` | No | Injectable clock for the auth service, returning epoch ms, e.g. `() => Date.now()`. Defaults to `Date.now`. |
 
 

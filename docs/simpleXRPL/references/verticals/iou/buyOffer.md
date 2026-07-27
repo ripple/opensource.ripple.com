@@ -8,7 +8,7 @@ labels:
 
 # iou.buyOffer()
 
-[Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/iou.ts#L303)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/iou.ts#L303)
 
 Place an order on the DEX to acquire more of this IOU.
 

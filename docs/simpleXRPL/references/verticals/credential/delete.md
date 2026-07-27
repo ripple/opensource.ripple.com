@@ -8,7 +8,7 @@ labels:
 
 # credential.delete()
 
-[Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/credential.ts#L133)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/credential.ts#L133)
 
 Delete a credential, as either its issuer or its holder.
 
@@ -18,7 +18,7 @@ Delete a credential, as either its issuer or its holder.
 credential.delete(
   params: CredentialDeleteParams,
   options?: CredentialWriteOptions,
-): Promise<SubmissionResult<
+): Promise<SubmissionResult>
 ```
 
 ## Parameters

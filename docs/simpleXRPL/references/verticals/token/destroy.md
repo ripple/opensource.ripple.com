@@ -8,7 +8,7 @@ labels:
 
 # token.destroy()
 
-[Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/token.ts#L239)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/token.ts#L239)
 
 Destroy an MPT issuance. Only succeeds when no tokens are outstanding.
 

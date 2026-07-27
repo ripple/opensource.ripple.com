@@ -8,12 +8,12 @@ labels:
 
 # iou.issue()
 
-[Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/iou.ts#L83)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/iou.ts#L83)
 
 Generate a new trust line-based IOU between two developer-controlled accounts sourced from the environment.
 
 {% admonition type="info" name="Note" %}
-Unlike the other IOU verbs, `issue` takes no `options`. It bootstraps both accounts from the environment: it reads `XRPL_ISSUER_SEED` and `XRPL_HOT_WALLET_SEED`, has the issuer enable rippling, then has the hot wallet extend trust up to the maximum limit. No `Payment` runs, so no value exists yet — use [IOU.transfer](transfer.md) to send some.
+Unlike the other IOU verbs, `issue` takes no `options`. It bootstraps both accounts from the environment: it reads `XRPL_ISSUER_SEED` and `XRPL_HOT_WALLET_SEED`, has the issuer enable rippling, then has the hot wallet extend trust up to the maximum limit. No `Payment` runs, so no value exists yet. Use [IOU.transfer](transfer.md) to send some.
 {% /admonition %}
 
 ## Signature
@@ -28,7 +28,7 @@ iou.issue(
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ticker` | `string` | Yes | The currency code: a 3-character ISO-4217-style code or a 40-character hex code. Any other code (e.g. a 5-character ticker) is auto-encoded to the 40-character hex form. |
+| `ticker` | `string` | Yes | The currency code: a 3-character ISO-4217-style code or a 40-character hex code. Any other code (e.g., a 5-character ticker) is auto-encoded to the 40-character hex form. |
 
 ## Returns
 

@@ -8,13 +8,13 @@ labels:
 
 # Local
 
-[Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/custodians/local/local-signer.ts#L22)
+ [[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/custodians/local/local-signer.ts#L22)
 
 A local connector holds one or more XRPL accounts in-process and signs operations locally. This connector is intended for development and testing purposes. Since this method doesn't require external authentication, it is constructed synchornously unlike other connectors.
 
 ## LocalSigner.fromEnv()
 
-Builds one wallet per `XRPL_*_SEED` environment variable (matching `XRPL_<NAME>_SEED` and a plain `XRPL_SEED`) — one wallet per match. The primary defaults to the first seed found.
+Builds one wallet per `XRPL_*_SEED` environment variable (matching `XRPL_<NAME>_SEED` and a plain `XRPL_SEED`). The primary defaults to the first seed found.
 
 ### Signature
 

@@ -8,7 +8,7 @@ labels:
 
 # xrp.transfer()
 
-[Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/xrp.ts#L67)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/xrp.ts#L67)
 
 Send native XRP from one account to another.
 
@@ -25,7 +25,7 @@ xrp.transfer(
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| `to` | `string` | Yes | Destination r-address. |
+| `to` | `string` | Yes | Destination account XRPL address. |
 | `amount` | `string` | Yes | Amount to send, as a decimal string in XRP (e.g. `'10'`, `'0.25'`). |
 
 ## Options

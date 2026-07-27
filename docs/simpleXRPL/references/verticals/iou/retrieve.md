@@ -8,7 +8,7 @@ labels:
 
 # iou.retrieve()
 
-[Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/iou.ts#L109)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/iou.ts#L109)
 
 Read a single IOU trust line (point-in-time).
 

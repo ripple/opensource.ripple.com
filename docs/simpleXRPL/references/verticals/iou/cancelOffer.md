@@ -8,7 +8,7 @@ labels:
 
 # iou.cancelOffer()
 
-[Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/iou.ts#L335)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/iou.ts#L335)
 
 Cancel a standing offer placed by this IOU's issuer.
 
@@ -18,7 +18,7 @@ Cancel a standing offer placed by this IOU's issuer.
 iou.cancelOffer(
   params: IOUCancelOfferParams,
   options?: IOUWriteOptions,
-): Promise<SubmissionResult<
+): Promise<SubmissionResult>
 ```
 
 ## Parameters

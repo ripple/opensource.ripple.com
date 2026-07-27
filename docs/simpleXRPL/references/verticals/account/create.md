@@ -8,12 +8,12 @@ labels:
 
 # account.create()
 
-[Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/account.ts#L72)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/account.ts#L72)
 
 Generate a new XRPL keypair locally and register it so it can be funded and used right away. Use this only to mint an additional account outside of `SimpleXRPL.init`.
 
 {% admonition type="warning" name="Warning" %}
-Nothing is written to the ledger until the account is funded. The returned `seed` (and `privateKey`) are secret and are the only way to control the account — store them securely and never log or transmit them.
+Nothing is written to the ledger until the account is funded. The returned `seed` (and `privateKey`) are secret and are the only way to control the account. Store them securely and never log or transmit them.
 {% /admonition %}
 
 ## Signature
@@ -28,7 +28,7 @@ None. `Account.create` takes no arguments.
 
 ## Returns
 
-Returns an `AccountCredentials` object **synchronously** — this is the one `Account` verb that does not submit a transaction, so it does not return a `SubmissionResult`.
+Returns an `AccountCredentials` object **synchronously**. This is the one `Account` operation that does not submit a transaction, so it does not return a `SubmissionResult`.
 
 ### Return fields
 

@@ -8,7 +8,7 @@ labels:
 
 # Connector Routing
 
-[Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/docs/connector-routing.md)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/docs/connector-routing.md)
 
 How simpleXRPL dispatches each XRPL transactor per connector. Derived directly from each custodian's native-operation set and the transactors the verticals build, so it always matches the code.
 

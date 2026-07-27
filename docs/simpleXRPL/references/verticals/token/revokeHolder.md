@@ -8,7 +8,7 @@ labels:
 
 # token.revokeHolder()
 
-[Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/token.ts#L197)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/token.ts#L197)
 
 As the issuer, revoke a specific holder's permission to hold this MPT.
 
@@ -18,7 +18,7 @@ As the issuer, revoke a specific holder's permission to hold this MPT.
 token.revokeHolder(
   params: MptHolderParams,
   options?: TokenWriteOptions,
-): Promise<SubmissionResult<
+): Promise<SubmissionResult>
 ```
 
 ## Parameters

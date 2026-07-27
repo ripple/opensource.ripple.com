@@ -8,7 +8,7 @@ labels:
 
 # token.createOffer()
 
-[Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/token.ts#L299)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/token.ts#L299)
 
 Place an offer on the decentralized exchange (DEX).
 

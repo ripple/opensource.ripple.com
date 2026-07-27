@@ -8,12 +8,12 @@ labels:
 
 # account.set()
 
-[Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/account.ts#L190)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/account.ts#L190)
 
 Update account settings. Flags are named booleans (`true` enables, `false` disables); `transferRate`, `tickSize`, and `domain` are set directly. At least one parameter is required.
 
 {% admonition type="info" name="Note" %}
-A single `AccountSet` can enable at most one flag and disable at most one, so toggling more than one flag in the same direction is rejected — call `set()` once per such change.
+A single `AccountSet` enables at most one flag and disables at most one. Toggling more than one flag in the same direction is rejected. Call `set()` once per such change.
 {% /admonition %}
 
 ## Signature

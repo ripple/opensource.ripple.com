@@ -8,7 +8,7 @@ labels:
 
 # iou.unlock()
 
-[Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/iou.ts#L209)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/iou.ts#L209)
 
 Restore a holder's ability to send and receive this IOU: clears the deep freeze, then the individual freeze.
 

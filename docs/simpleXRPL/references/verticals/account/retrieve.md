@@ -8,7 +8,7 @@ labels:
 
 # account.retrieve()
 
-[Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/account.ts#L93)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/account.ts#L93)
 
 Read an account's on-chain state — XRP balance, sequence, owner count, and flags.
 

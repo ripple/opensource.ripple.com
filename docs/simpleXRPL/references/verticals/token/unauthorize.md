@@ -8,7 +8,7 @@ labels:
 
 # token.unauthorize()
 
-[Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/token.ts#L169)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/token.ts#L169)
 
 Opt the calling account out of holding an MPT issuance. The account's balance must be `0`.
 
@@ -18,7 +18,7 @@ Opt the calling account out of holding an MPT issuance. The account's balance mu
 token.unauthorize(
   params: MptAuthorizeParams,
   options?: TokenWriteOptions,
-): Promise<SubmissionResult<
+): Promise<SubmissionResult>
 ```
 
 ## Parameters

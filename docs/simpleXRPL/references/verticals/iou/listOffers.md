@@ -8,7 +8,7 @@ labels:
 
 # iou.listOffers()
 
-[Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/iou.ts#L130)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/iou.ts#L130)
 
 List all open offers in the market for this IOU (both sides), tagged buy/sell relative to it.
 

@@ -8,9 +8,9 @@ labels:
 
 # account.activate()
 
-[Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/account.ts#L151)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/account.ts#L151)
 
-Activate a created account by sending it XRP from the operator (primary) account, then enabling rippling. This is the any-network counterpart to [fund](fund.md); the account must be signable by this client (e.g. from [create](create.md)).
+Activate a created account by sending it XRP from the operator (primary) account, then enabling rippling. This is the any-network counterpart to [fund](fund.md). The account must be signable by this client (e.g., from [create](create.md)).
 
 ## Signature
 

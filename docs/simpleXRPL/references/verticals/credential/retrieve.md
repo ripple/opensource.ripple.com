@@ -8,7 +8,7 @@ labels:
 
 # credential.retrieve()
 
-[Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/credential.ts#L42)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/credential.ts#L42)
 
 Retrieve a single credential by type and issuer (point-in-time).
 

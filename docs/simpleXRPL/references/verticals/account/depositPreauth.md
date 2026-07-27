@@ -8,7 +8,7 @@ labels:
 
 # account.depositPreauth()
 
-[Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/account.ts#L263)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/account.ts#L263)
 
 Grant or revoke deposit preauthorization for another account.
 

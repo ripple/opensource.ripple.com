@@ -8,7 +8,7 @@ labels:
 
 # token.issue()
 
-[Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/token.ts#L134)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/token.ts#L134)
 
 Create a new MPT issuance.
 
@@ -25,7 +25,7 @@ token.issue(
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| `metadata` | `MPTokenMetadata \| string` | Yes | Token metadata: a structured object (encoded per the XLS-89 standard) or a raw string (UTF-8 hex-encoded as-is). Validated against XLS-89; non-compliant metadata is rejected before submission. |
+| `metadata` | `MPTokenMetadata \| string` | Yes | Token metadata: a structured object (encoded per the [XLS-89 standard](https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0089-multi-purpose-token-metadata-schema)) or a raw string (UTF-8 hex-encoded as-is). Validated against XLS-89; non-compliant metadata is rejected before submission. |
 | `assetScale` | `number` | No | Decimal places between the display value and base units. Defaults to `2`. |
 | `maximumAmount` | `string` | No | Maximum issuable amount, in base units. |
 | `transferFee` | `number` | No | Transfer fee on secondary sales, as a percentage (`0.5` = 0.5%, range 0–50). |

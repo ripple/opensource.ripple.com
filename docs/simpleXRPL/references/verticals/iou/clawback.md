@@ -8,12 +8,12 @@ labels:
 
 # iou.clawback()
 
-[Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/iou.ts#L234)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/iou.ts#L234)
 
 Reclaim a holder's balance back to the issuer.
 
 {% admonition type="info" name="Note" %}
-Verifies the issuer has `asfAllowTrustLineClawback` enabled first (a ledger read), throwing a clear error if not. That flag can only be enabled before the issuer owns any trust lines, offers, or other ledger objects, which this SDK does not itself pre-check.
+Verifies the issuer has `asfAllowTrustLineClawback` enabled first (a ledger read), throwing a clear error if not. The flag can only be enabled before the issuer owns any trust lines, offers, or other ledger objects, which this SDK does not itself pre-check.
 {% /admonition %}
 
 ## Signature

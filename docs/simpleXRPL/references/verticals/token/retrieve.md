@@ -8,7 +8,7 @@ labels:
 
 # token.retrieve()
 
-[Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/token.ts#L67)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/token.ts#L67)
 
 Retrieve a single MPT issuance by id (point-in-time), with flags decoded to booleans and XLS-89 metadata decoded.
 

@@ -8,7 +8,7 @@ labels:
 
 # token.transfer()
 
-[Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/token.ts#L266)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/token.ts#L266)
 
 Send an MPT amount to another account.
 
@@ -18,7 +18,7 @@ Send an MPT amount to another account.
 token.transfer(
   params: TokenTransferParams,
   options?: TokenWriteOptions,
-): Promise<SubmissionResult<
+): Promise<SubmissionResult>
 ```
 
 ## Parameters

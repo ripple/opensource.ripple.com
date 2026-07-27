@@ -8,7 +8,7 @@ labels:
 
 # credential.accept()
 
-[Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/credential.ts#L103)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/credential.ts#L103)
 
 Accept a credential issued to the calling account. The calling account is the holder.
 
@@ -18,7 +18,7 @@ Accept a credential issued to the calling account. The calling account is the ho
 credential.accept(
   params: CredentialAcceptParams,
   options?: CredentialWriteOptions,
-): Promise<SubmissionResult<
+): Promise<SubmissionResult>
 ```
 
 ## Parameters

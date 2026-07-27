@@ -8,7 +8,7 @@ labels:
 
 # token.authorize()
 
-[Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/token.ts#L155)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/token.ts#L155)
 
 Opt the calling account in to hold an MPT issuance.
 

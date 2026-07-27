@@ -8,7 +8,7 @@ labels:
 
 # Ripple Custody
 
-[Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/custodians/ripple/construction.ts#L30)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/custodians/ripple/construction.ts#L30)
 
 Ripple Custody authenticates with an intent-author key exchanged for a token. A Custody deployment is per-tenant, so its gateway and token URLs point at the instance provisioned for you.
 
@@ -60,8 +60,8 @@ RippleCustody.fromEnv(options: RippleCustodyFromEnvOptions): Promise<RippleCusto
 | `defaultFee` | `FeeIntent` | No | Fee tier: `{ priority?: 'low' \| 'medium' \| 'high' }`. Backends that can't honor the tier auto-price and warn. Defaults to `low`. |
 | `defaultDryRun` | `boolean` | No | Pre-flight every write through Custody's dry-run. Defaults to `false`. |
 | `defaultTimeoutMs` | `number` | No | How long `submitAndWait` polls before throwing `IntentPendingError`. |
-| `env` | `Record<string, string \| undefined>` | No | The object those variables are read from — a map of names to values. Defaults to `process.env`. |
-| `http` | `CustodyHttpPort` | No | Advanced: a custom HTTP transport, shape `{ send: (request) => Promise<response> }`. Defaults to the production fetch port; most callers omit it. |
+| `env` | `object` | No | The source the `RIPPLE_CUSTODY_*` environment variables are read from, as a map of names to values. Defaults to `process.env`. |
+| `http` | `object` | No | A custom HTTP transport (implements `CustodyHttpPort`). Defaults to the production fetch port; most callers omit it. |
 
 {% admonition type="info" name="Note" %}
 `env` requires these keys:

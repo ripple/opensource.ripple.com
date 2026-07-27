@@ -8,7 +8,7 @@ labels:
 
 # domain.setCredentials()
 
-[Source](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/domain.ts#L96)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/domain.ts#L96)
 
 Update the accepted credentials of an existing permissioned domain.
 
