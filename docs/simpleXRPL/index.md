@@ -23,9 +23,9 @@ labels:
 
 `simpleXRPL` is built around four concepts:
 
-- **Clients**: Establishes the network connection and the connector configuration. Both are immutable for the client's lifetime; to change either, you create a new client.
-- **Connectors**: The execution model that determines *how* operations run and *who* holds account keys. Each connector exposes a uniform interface to the rest of the SDK, so the same code runs across all of them.
-- **Accounts**: An XRPL [account](https://xrpl.org/docs/concepts/accounts) paired with the connector that signs for it.
+- **Clients**: Establish the network connection and the connector configuration. Both are immutable for a client's lifetime; to change either, you create a new client.
+- **Connectors**: Make up the execution model that determines *how* operations run and *who* holds account keys. Each connector exposes a uniform interface to the rest of the SDK, so the same code runs across all of them.
+- **Accounts**: XRPL [accounts](https://xrpl.org/docs/concepts/accounts), each paired with the connector that signs for it.
 - **Verticals**: Domain-specific classes and methods that group related business operations.
 
 
