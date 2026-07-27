@@ -25,6 +25,7 @@
           expanded: false
           items:
             - page: docs/simpleXRPL/references/connectors/local.md
+            - page: docs/simpleXRPL/references/connectors/external.md
             - page: docs/simpleXRPL/references/connectors/ripple-custody.md
             - page: docs/simpleXRPL/references/connectors/palisade.md
             - page: docs/simpleXRPL/references/connectors/connector-routing.md

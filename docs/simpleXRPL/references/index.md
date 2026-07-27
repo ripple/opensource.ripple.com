@@ -33,7 +33,7 @@ Operations are grouped into domain-specific **verticals**, one per area of XRPL 
 
 ## Connectors
 
-The connector is the execution model. It determines how operations run and who holds the keys. See [Connectors](connectors/index.md) for each connector ([LocalSigner](connectors/local.md), [RippleCustody](connectors/ripple-custody.md), [PalisadeCustody](connectors/palisade.md)) and its configuration fields, and [Operation Execution](../index.md#operation-execution) for how each operation routes.
+The connector is the execution model. It determines how operations run and who holds the keys. See [Connectors](connectors/index.md) for each connector ([LocalSigner](connectors/local.md), [ExternalSigner](connectors/external.md), [RippleCustody](connectors/ripple-custody.md), [PalisadeCustody](connectors/palisade.md)) and its configuration fields, and [Operation Execution](../index.md#operation-execution) for how each operation routes.
 
 ## Amounts and assets
 
