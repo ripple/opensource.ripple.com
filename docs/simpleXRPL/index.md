@@ -9,7 +9,7 @@ labels:
 # simpleXRPL
 [Source](https://github.com/ripple/simpleXRPL)
 
-The `simpleXRPL` is an opinionated TypeScript SDK for the XRP Ledger, built for institutional developers who interact with the ledger through a custodian. It raises the level of your code from XRPL protocol mechanics to business operations that the SDK routes through your institutional custodians. Concretely, this means:
+`simpleXRPL` is an opinionated TypeScript SDK for the XRP Ledger, built for institutional developers who interact with the ledger through a custodian. It raises the level of your code from XRPL protocol mechanics to business operations that the SDK routes through your institutional custodians. Concretely, this means:
 
 - `simpleXRPL` defines the shape of business operations, handling the underlying XRPL transactions and custodian API calls.
 - Your code doesn't change even if you switch custodians or operate across several at once.
