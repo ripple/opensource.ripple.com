@@ -148,6 +148,7 @@
                   label: retrieve()
                 - page: docs/simpleXRPL/references/verticals/account/listOffers.md
                   label: listOffers()
+        - page: docs/simpleXRPL/references/errors.md
 - group: Amendments
   expanded: false
   items:
