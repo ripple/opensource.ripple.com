@@ -17,7 +17,6 @@
         - page: docs/simpleXRPL/tutorials/implement-aws-kms-signer.md
         - page: docs/simpleXRPL/tutorials/implement-pkcs11-signer.md
     - group: References
-      page: docs/simpleXRPL/references/index.md
       expanded: false
       items:
         - page: docs/simpleXRPL/references/client.md
