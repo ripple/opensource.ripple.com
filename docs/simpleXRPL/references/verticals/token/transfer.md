@@ -26,7 +26,9 @@ token.transfer(
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | `to` | `string` | Yes | Destination r-address. |
-| `amount` | `Amount` | Yes | The MPT amount to send. Its asset must be an MPT (build one with `mpt()`; see the [amount model](../../index.md#amounts-and-assets)). |
+| `amount` | `Amount` | Yes | The MPT amount to send; its asset must be an MPT (build it with `mpt()`). |
+
+{% raw-partial file="/docs/_snippets/simplexrpl-amount.md" /%}
 
 ## Options
 

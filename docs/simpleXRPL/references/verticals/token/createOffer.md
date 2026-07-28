@@ -40,6 +40,8 @@ The `flags` object accepts:
 | `fillOrKill` | `boolean` | No | Consume the full amount or cancel entirely. |
 | `sell` | `boolean` | No | Interpret the offer as selling `takerGets`. |
 
+{% raw-partial file="/docs/_snippets/simplexrpl-amount.md" /%}
+
 ## Options
 
 {% raw-partial file="/docs/_snippets/simplexrpl-write-options.md" /%}

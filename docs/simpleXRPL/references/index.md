@@ -8,7 +8,7 @@ labels:
 
 # Reference
 
-This section is the map of simpleXRPL's public API surface: the client entry point, the business-intent verticals, the custodian connectors, the amount and asset model, submission results, and the error hierarchy. Complete type-level signatures for every symbol are generated from the source with TypeDoc; the tables below are the curated index of what you actually build against.
+This section is the map of `simpleXRPL`'s public API surface: the client entry point, the business-intent verticals, the custodian connectors, the amount and asset model, submission results, and the error hierarchy. Complete type-level signatures for every symbol are generated from the source with TypeDoc; the tables below are the curated index of what you actually build against.
 
 New to simpleXRPL? Start with [What is simpleXRPL](../index.md) for the concepts, then [Get Started](../get-started.md) to install and connect a custodian.
 
@@ -16,43 +16,6 @@ New to simpleXRPL? Start with [What is simpleXRPL](../index.md) for the concepts
 This index covers the public surface only. Internal and testing seams (the dispatch pipeline, injected I/O ports, and the production ledger port) are intentionally omitted — you don't call them directly.
 {% /admonition %}
 
-## Client and initialization
-
-`SimpleXRPL.init(...)` establishes the network, connector, and account bindings and returns the runtime client, which owns the network connection and connector configuration (both immutable for its lifetime) and exposes the verticals. See [Client](client.md) for the initialization config and the full client surface — its properties, verticals, and methods.
-
-## Verticals
-
-Operations are grouped into domain-specific **verticals**, one per area of XRPL functionality and reached off the client. See [Verticals](verticals/index.md) for what a vertical is and the full list of verticals and their methods.
-
-## Connectors
-
-The connector is the execution model. It determines how operations run and who holds the keys. See [Connectors](connectors/index.md) for each connector ([LocalSigner](connectors/local.md), [ExternalSigner](connectors/external.md), [RippleCustody](connectors/ripple-custody.md), [PalisadeCustody](connectors/palisade.md)) and its configuration fields, and [Operation Execution](../index.md#operation-execution) for how each operation routes.
-
-## Amounts and assets
-
-The amount model represents XRP, IOU, and MPT values and handles decimal/scale conversion.
-
-| Symbol | Description |
-| --- | --- |
-| `Amount` | A value paired with the asset it denominates. |
-| `Asset` | The asset an amount is in (XRP, IOU, or MPT). |
-| `XRP_ASSET` | The canonical XRP asset constant. |
-| `iou(currency, issuer)` | Construct an issued-currency asset. |
-| `mpt(mptIssuanceId, scale?)` | Construct an MPT asset; `scale` is the decimal places between display value and on-ledger base units. |
-| `toLedgerAmount` / `fromLedgerAmount` | Convert between display amounts and on-ledger base units. |
-| `LedgerAmount` | The on-ledger (base-unit) amount representation. |
-
-## Results and handles
-
-| Symbol | Description |
-| --- | --- |
-| `SubmissionResult<T>` | The terminal result of an operation; carries the discriminated `source`/`response` pairing and the vertical's typed `intent` output. |
-| `SubmissionResultFields` | The common fields present on every submission result. |
-| `SubmissionPath` | Which path the operation took (native vs. raw-signing). |
-| `SubmissionHandle` | Handle over an asynchronously-submitted operation, for flows that resolve later. |
-| `CustodyTransactionResult` / `PalisadeTransactionResult` | The connector-specific transaction record inside the result. |
-
-The `*Intent` types (`XrpTransferIntent`, `MptIssueIntent`, `IOUIssueIntent`, `DomainIntent`, and the rest) are the typed `intent` payloads attached to each result.
 
 ## Errors
 
