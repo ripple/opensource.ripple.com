@@ -10,7 +10,7 @@ labels:
 
 [[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/custodians/ripple/construction.ts#L30)
 
-Ripple Custody authenticates with an intent-author key exchanged for a token. A Custody deployment is per-tenant, so its gateway and token URLs point at the instance provisioned for you.
+Ripple Custody authenticates with an intent-author key exchanged for a token. A Custody deployment is per-tenant, so its gateway and token URLs point at the instance provisioned for you. See: [Generate a key pair and register a public key](https://docs.ripple.com/products/custody/identity-and-access/authentication/generate-api-keys-and-register) for instructions on creating API credentials to fill in this constructor.
 
 
 ## RippleCustody.create()

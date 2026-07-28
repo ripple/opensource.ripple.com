@@ -10,7 +10,7 @@ labels:
 
 [[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/custodians/palisade/config.ts#L10)
 
-Palisade is a Wallet-as-a-Service. This connector authenticates via OAuth2 client credentials and acts on specific vaults/wallets.
+Palisade is a Wallet-as-a-Service. This connector authenticates via OAuth2 client credentials and acts on specific vaults/wallets. See: [Getting started with the API](https://docs.ripple.com/products/wallet/getting-started/getting-started-api) for instructions on creating API credentials to fill in this constructor.
 
 
 ## PalisadeCustody.create()

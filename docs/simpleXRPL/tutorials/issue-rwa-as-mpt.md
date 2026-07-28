@@ -8,7 +8,7 @@ labels:
 
 # Issue An RWA As An MPT
 
-Real-World Assets are issued as Multi-Purpose Tokens (MPTs) via the `token` vertical. Here the issuer is a Ripple Custody account, so Custody signs and submits the issuance as one governed action, with XLS-89 metadata validated before submission.
+Real-World Assets are issued as Multi-Purpose Tokens (MPTs) via the `token` vertical. Here the issuer is a Ripple Custody account, so Custody signs and submits the issuance as one governed action, with XLS-89 metadata validated before submission. The XRP Ledger supports to token standards (MPT and trust line tokens). MPTs have been designed for greater efficiency and ease of use based on lessons learned from trust line tokens, however there are some cases where you may prefer trust line tokens. See: [Which Fungible Token Type to Use](https://xrpl.org/docs/concepts/tokens/fungible-tokens#which-fungible-token-type-to-use).
 
 ```ts
 /**

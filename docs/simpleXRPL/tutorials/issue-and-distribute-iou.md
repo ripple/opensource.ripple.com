@@ -8,7 +8,7 @@ labels:
 
 # Issue And Distribute An IOU
 
-`issue` bootstraps the issuer and a hot wallet from the environment (the issuer enables rippling and the hot wallet extends a trust line). No value exists until `transfer` sends the currency out. Every verb acts as the issuer, selected via `from`.
+`issue` bootstraps the issuer and a hot wallet from the environment (the issuer enables rippling and the hot wallet extends a trust line). No value exists until `transfer` sends the currency out. Every verb acts as the issuer, selected via `from`. The XRP Ledger supports two token standards (MPT and trust line tokens). MPTs have been designed for greater efficiency and ease of use based on lessons learned from trust line tokens, however there are some cases where you may prefer trust line tokens. See: [Which Fungible Token Type to Use](https://xrpl.org/docs/concepts/tokens/fungible-tokens#which-fungible-token-type-to-use).
 
 ```ts
 /**
