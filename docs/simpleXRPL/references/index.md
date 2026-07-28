@@ -18,14 +18,7 @@ This index covers the public surface only. Internal and testing seams (the dispa
 
 ## Client and initialization
 
-The client owns the network connection and the connector configuration, both immutable for its lifetime.
-
-| Symbol | Description |
-| --- | --- |
-| `SimpleXRPL` | The entry point. `SimpleXRPL.init(...)` establishes the network, connector, and account bindings. |
-| `SimpleXRPLClient` | The runtime client returned by `init`; exposes the verticals. |
-| `SimpleXRPLConfig` | The initialization configuration shape (network, connector, accounts). |
-| `NetworkInfo` | Resolved network details for the connected client. |
+`SimpleXRPL.init(...)` establishes the network, connector, and account bindings and returns the runtime client, which owns the network connection and connector configuration (both immutable for its lifetime) and exposes the verticals. See [Client](client.md) for the initialization config and the full client surface — its properties, verticals, and methods.
 
 ## Verticals
 

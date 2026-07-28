@@ -20,6 +20,7 @@
       page: docs/simpleXRPL/references/index.md
       expanded: false
       items:
+        - page: docs/simpleXRPL/references/client.md
         - group: Connectors
           page: docs/simpleXRPL/references/connectors/index.md
           expanded: false
