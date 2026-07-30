@@ -18,7 +18,8 @@ Real-World Assets are issued as Multi-Purpose Tokens (MPTs) via the `token` vert
  * Metadata follows the XLS-89 standard and is validated before submission
  * (`asset_class: 'rwa'` requires an `asset_subclass`). Here the issuer is a
  * Ripple Custody account: Custody signs and submits the issuance as one
- * governed action, subject to the domain's approval policy.
+ * governed action, subject to the domain's approval policy. `MPTokenIssuanceCreate`
+ * is native to Ripple Custody, so it flows through the governed native path.
  */
 import { RippleCustody, SimpleXRPL } from 'simplexrpl'
 
@@ -30,34 +31,23 @@ const ISSUER_ADDRESS = process.env.RIPPLE_CUSTODY_PRIMARY ?? ''
 const custody = await RippleCustody.fromEnv({ primary: ISSUER_ADDRESS })
 
 const client = await SimpleXRPL.init({
-  rippledUrl: 'wss://s.altnet.rippletest.net:51233', // XRPL Testnet
+  xrpldUrl: 'wss://s.altnet.rippletest.net:51233', // XRPL Testnet
   signers: [custody],
 })
 
-const result = await client.token.issue(
-  {
-    metadata: {
-      ticker: 'TBILL',
-      name: 'Acme 3-Month T-Bill',
-      icon: 'https://acme.example/tbill.png',
-      asset_class: 'rwa',
-      asset_subclass: 'treasury',
-      issuer_name: 'Acme Capital',
-    },
-    // 2 decimal places of display precision.
-    assetScale: 2,
-    // 0.5% fee on secondary transfers.
-    transferFee: 0.5,
-    // Keep the issuer able to claw back (compliance); other capabilities on.
-    flags: { canClawback: true, canTransfer: true },
+// Metadata is the only required input. The issuer is the primary signer (the
+// Custody account), and everything else — assetScale, transfer fee, and the
+// capability flags (clawback, transfer, …) — is left at its SDK default.
+const result = await client.token.issue({
+  metadata: {
+    ticker: 'TBILL',
+    name: 'Acme 3-Month T-Bill',
+    icon: 'https://acme.example/tbill.png',
+    asset_class: 'rwa',
+    asset_subclass: 'treasury',
+    issuer_name: 'Acme Capital',
   },
-  // Issue as the Custody account. Omit `from` to use the primary signer.
-  { from: ISSUER_ADDRESS },
-)
-
-// `MPTokenIssuanceCreate` is native to Ripple Custody, so this returns once the
-// governed action reaches a terminal state — or throws `IntentPendingError` if
-// it's still awaiting approval past the timeout.
+})
 console.log('issued MPT:', result.intent.mptIssuanceId)
 
 // Read the issuance back (no signer required): flags are decoded to booleans,

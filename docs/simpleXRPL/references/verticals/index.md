@@ -10,7 +10,7 @@ labels:
 
 A **vertical** is a domain-specific class that groups related operations — one per area of XRPL functionality. Each vertical's methods are the _business-intent verbs_ for that domain (`token.issue(...)`, `iou.transfer(...)`), and each vertical is reached off the client under a lowercase name (`client.token`, `client.iou`). The term contrasts with _horizontal_ operations that cut across domains, such as payments and batch transactions.
 
-Most vertical methods submit a transaction and resolve to a `Promise<SubmissionResult<T>>`, where `T` is the method's typed [intent output](../index.md#results-and-handles); they also accept an optional second argument to target a non-primary account and override the fee. (A few helpers differ — for example, `Account.create` generates a keypair and returns synchronously.) Each vertical's page lists its methods; every method has its own page with parameters, response, and the underlying XRPL transactor(s).
+Most vertical methods submit a transaction and resolve to a `Promise<SubmissionResult<T>>`, where `T` is the method's typed intent output; they also accept an optional second argument to target a non-primary account and override the fee. (A few helpers differ — for example, `Account.create` generates a keypair and returns synchronously.) Each vertical's page lists its methods; every method has its own page with parameters, response, and the underlying XRPL transactor(s).
 
 | Vertical | Reached as | What it does |
 | --- | --- | --- |

@@ -21,7 +21,7 @@ A permissioned domain restricts who can participate based on the credentials the
 import { LocalSigner, SimpleXRPL } from 'simplexrpl'
 
 const client = await SimpleXRPL.init({
-  rippledUrl: 'wss://s.altnet.rippletest.net:51233',
+  xrpldUrl: 'wss://s.altnet.rippletest.net:51233',
   signers: [LocalSigner.fromEnv()],
 })
 

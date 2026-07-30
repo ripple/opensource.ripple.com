@@ -76,7 +76,7 @@ Operations are grouped into domain-specific verticals reached off the client. Th
 
 - **References**:
   - [LocalSigner.fromEnv()](./references/connectors/local.md#localsignerfromenv)
-  - [SimpleXRPL.init()](./references/index.md#client-and-initialization)
+  - [SimpleXRPL.init()](./references/client.md#simplexrplinit)
   - [account.retrieve()](./references/verticals/account/retrieve.md)
   - [xrp.transfer()](./references/verticals/xrp/transfer.md)
  

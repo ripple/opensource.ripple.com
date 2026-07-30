@@ -33,7 +33,7 @@ const signer = AwsKmsSigner.create({
 const custody = await ExternalSigner.create({ signer })
 
 const client = await SimpleXRPL.init({
-  rippledUrl: 'wss://s.altnet.rippletest.net:51233', // XRPL Testnet
+  xrpldUrl: 'wss://s.altnet.rippletest.net:51233', // XRPL Testnet
   signers: [custody],
 })
 
