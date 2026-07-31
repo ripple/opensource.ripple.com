@@ -47,7 +47,7 @@ Read-only members of the `SimpleXRPLClient` that `SimpleXRPL.init()` returns, se
 | `network` | `object` | The network the client is bound to — a `NetworkInfo` with `rippledUrl` (and `faucetUrl` on test networks). |
 | `signers` | `array` | The registered connectors, 0 or more (a `Custodian[]`). |
 | `primarySigner` | `object` | The default connector, used when a verb is called without an explicit account. `undefined` on a no-signer client. |
-| `accounts` | `object` | Every discovered account as a read-only map keyed by r-address (`ReadonlyMap<string, Account>`). |
+| `accounts` | `object` | Every discovered account as a read-only map keyed by r-address (`ReadonlyMap<string, Account>`). See [`Account`](types.md#account). |
 | `ledger` | `object` | The shared ledger connection for reads, autofill, and Local/raw submission. Created lazily from `network.rippledUrl` when none was injected. |
 | `intent` | `object` | Read-only inspector for custodian governance intents (status/await). |
 

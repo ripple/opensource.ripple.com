@@ -23,6 +23,13 @@ export default function Page() {
       <LandingContainer>
         <Cards columns={3}>
 
+          <Card title="simpleXRPL" to="docs/simplexrpl/">
+            <p>Integrate with your custodian and build on the XRPL.</p>
+            <Button size="large" variant="primary">
+              Learn more
+            </Button>
+          </Card>
+
           <Card title="Batch transactions" to="docs/xls-56-batch-transactions/">
             <p>Prepare and submit up to 8 transactions in a single batch.</p>
             <Button size="large" variant="primary">

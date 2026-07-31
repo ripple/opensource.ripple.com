@@ -8,7 +8,7 @@ labels:
 
 # Account
 
-The `Account` vertical handles account creation, funding, and administration. (The class is named `AccountVertical` to avoid colliding with the `Account` record type; it is reached as `client.account`.)
+The `Account` vertical handles account creation, funding, and administration. (The class is named `AccountVertical` to avoid colliding with the [`Account`](../../types.md#account) record type — a [core type](../../types.md) used across the SDK; it is reached as `client.account`.)
 
 | Method | Description |
 | --- | --- |
