@@ -42,7 +42,7 @@ export default function Page() {
         <Cards columns={3}>
           <Card
             title="XLS Spec"
-            to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0075d-permission-delegation"
+            to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0075-permission-delegation"
           >
             <p>
               Technical spec for the feature outlining requirements, design,
