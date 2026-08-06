@@ -57,7 +57,7 @@ export default function Page() {
         <Cards columns={3}>
           <Card
             title="XLS Spec"
-            to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0056d-batch"
+            to="https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0056-batch"
           >
             <p>
               Technical spec for the feature outlining requirements, design,
