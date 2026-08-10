@@ -3,7 +3,8 @@ import {
   LandingContainer,
   LandingLayout,
   FeatureHeader,
-  FeatureContent
+  FeatureContent,
+  ButtonToXRPL
 } from "../../components/landing";
 import { AmendmentTracker } from "../../components/AmendmentTracker";
 import { Button } from "@redocly/theme";
@@ -67,16 +68,15 @@ export default function Page() {
           </Card>
 
           <Card
-            title="Documentation"
-            to="docs/xls-68-sponsored-fees-and-reserves/concepts/sponsored-fees-and-reserves"
+            title="Concepts"
+            to="https://xrpl.org/docs/concepts/accounts/sponsored-fees-and-reserves"
           >
             <p>
-              Explore key concepts, find detailed references, and follow
-              step-by-step tutorials.
+              Documentation on the feature, including how it works and why.
             </p>
-            <Button size="large" variant="primary">
-              Read the Docs
-            </Button>
+            <ButtonToXRPL>
+              Read the Concepts
+            </ButtonToXRPL>
           </Card>
 
           <Card

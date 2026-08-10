@@ -13,65 +13,12 @@
     - page: docs/xls-66-lending-protocol/index.page.tsx
     - page: docs/xls-65-single-asset-vault/index.page.tsx
     - page: docs/xls-56-batch-transactions/index.page.tsx
-    - group: 
-      page: docs/xls-94-dynamic-mpts/index.page.tsx
-      expanded: false
-      items:
-        - page: docs/xls-94-dynamic-mpts/dynamic-mpts.md
-          label: About Dynamic MPTs
-        - page: docs/xls-94-dynamic-mpts/reference.md
-          label: Reference Documentation
-    - group: XLS-96 Confidential Transfers
-      page: docs/xls-96-confidential-transfers/index.page.tsx
-      expanded: false
-      items:
-        - group: Concepts
-          expanded: false
-          items:
-            - page: docs/xls-96-confidential-transfers/concepts/confidential-transfers.md
-        - group: References
-          expanded: false
-          items:
-            - group: Transactions
-              expanded: false
-              items:
-                - page: docs/xls-96-confidential-transfers/references/transactions/confidentialmptclawback.md
-                - page: docs/xls-96-confidential-transfers/references/transactions/confidentialmptconvert.md
-                - page: docs/xls-96-confidential-transfers/references/transactions/confidentialmptconvertback.md
-                - page: docs/xls-96-confidential-transfers/references/transactions/confidentialmptmergeinbox.md
-                - page: docs/xls-96-confidential-transfers/references/transactions/confidentialmptsend.md
-                - page: docs/xls-96-confidential-transfers/references/transactions/updated-transactions.md
-            - page: docs/xls-96-confidential-transfers/references/updated-ledger-entries.md
+    - page: docs/xls-94-dynamic-mpts/index.page.tsx
+    - page: docs/xls-96-confidential-transfers/index.page.tsx
     - page: docs/xls-100-smart-escrows/index.page.tsx
       expanded: false
       items:
         - page: docs/xls-100-smart-escrows/concepts/programmability.md
-    - group: XLS-68 Sponsored Fees and Reserves
-      page: docs/xls-68-sponsored-fees-and-reserves/index.page.tsx
-      items:
-        - group: Concepts
-          expanded: false
-          items:
-            - page: docs/xls-68-sponsored-fees-and-reserves/concepts/sponsored-fees-and-reserves.md
-        - group: References
-          expanded: false
-          items:
-            - group: Ledger Entries
-              expanded: false
-              items:
-                - page: docs/xls-68-sponsored-fees-and-reserves/references/ledger-entries/sponsorship.md
-                - page: docs/xls-68-sponsored-fees-and-reserves/references/ledger-entries/updated-ledger-entries.md
-            - group: Transactions
-              expanded: false
-              items:
-                - page: docs/xls-68-sponsored-fees-and-reserves/references/transactions/sponsorshipset.md
-                - page: docs/xls-68-sponsored-fees-and-reserves/references/transactions/sponsorshiptransfer.md
-                - page: docs/xls-68-sponsored-fees-and-reserves/references/transactions/updated-common-transaction-fields.md
-                - page: docs/xls-68-sponsored-fees-and-reserves/references/transactions/updated-transactions.md
-            - group: APIs
-              expanded: false
-              items:
-                - page: docs/xls-68-sponsored-fees-and-reserves/references/apis/account_sponsoring.md
-                - page: docs/xls-68-sponsored-fees-and-reserves/references/apis/updated-apis.md
+    - page: docs/xls-68-sponsored-fees-and-reserves/index.page.tsx
 
     - page: docs/xls-82-mpt-dex/index.page.tsx
