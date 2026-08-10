@@ -330,19 +330,39 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
             throw new Error('Could not extract version number');
           }
           
-          // Create the release branch name
-          const releaseBranch = `release-${majorMinorVersion}`;
-          
-          const buildInfoCommitsResponse = await fetch(
-            `${GITHUB_API_BASE_URI}/commits?path=src/libxrpl/protocol/BuildInfo.cpp&sha=${releaseBranch}&per_page=100`
-          );
+          // rippled's release branches moved from "release-X.Y" (e.g. release-3.1)
+          // to "release/X.Y.x" (e.g. release/3.3.x), so try the current scheme
+          // first, then the legacy one, then the version tag.
+          const candidateRefs = [
+            `release/${majorMinorVersion}.x`,
+            `release-${majorMinorVersion}`,
+            baseVersion,
+          ];
 
-          if (buildInfoCommitsResponse.ok) {
+          // Match "Set version to X.Y.Z" or "Bump version to X.Y.Z" for the exact
+          // release only; the lookahead excludes -rc and -b pre-releases.
+          const escapedVersion = baseVersion.replace(/\./g, '\\.');
+          const versionPattern = new RegExp(`(?:Set|Bump) version to ${escapedVersion}(?![\\d.-])`, 'i');
+
+          let buildInfoFetched = false;
+          for (const ref of candidateRefs) {
+            const buildInfoCommitsResponse = await fetch(
+              `${GITHUB_API_BASE_URI}/commits?path=src/libxrpl/protocol/BuildInfo.cpp&sha=${ref}&per_page=100`
+            );
+
+            if (!buildInfoCommitsResponse.ok) {
+              // Only keep trying other refs when the branch genuinely doesn't
+              // exist (404). On rate limiting (403) or other errors, stop so we
+              // don't spend extra requests, matching the original single call.
+              if (buildInfoCommitsResponse.status !== 404) {
+                break;
+              }
+              continue;
+            }
+            buildInfoFetched = true;
+
             const buildInfoCommits = await buildInfoCommitsResponse.json();
-            
-            // Create pattern to match "Set version to X.Y.Z" (exact version, no rc/b builds)
-            const versionPattern = new RegExp(`Set version to ${baseVersion.replace(/\./g, '\\.')}`, 'i');
-            
+
             // Search through BuildInfo.cpp commit messages
             for (const commitData of buildInfoCommits) {
               if (versionPattern.test(commitData.commit.message)) {  
@@ -358,7 +378,12 @@ export const AmendmentTracker: React.FC<AmendmentTrackerProps> = ({
                 break;  
               }  
             }  
-          } else {
+            if (versionCommit) {
+              break;
+            }
+          }
+
+          if (!buildInfoFetched) {
             throw new Error();
           }
         } catch (error) {
