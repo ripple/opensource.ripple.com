@@ -19,12 +19,20 @@ export const frontmatter = {
 };
 
 export default function Page() {
-  const keyDates = [
-    { date: "May 8, 2025", event: "XLS Spec Live" },
-    { date: "TBA", event: "Available to Test on Devnet" },
-    { date: "TBA", event: "Open for Voting on Mainnet" },
-    { date: "TBA", event: "Vote Consensus" }
+  const KEY_DATE_EVENTS = [
+    "XLS Spec Live",
+    "Available to Test on Devnet",
+    "Open for Voting on Mainnet",
+    "Vote Consensus"
   ];
+
+  const [keyDates, setKeyDates] = React.useState(
+    KEY_DATE_EVENTS.map(event => ({ date: "🔄 Loading...", event }))
+  );
+
+  const handleKeyDatesUpdate = React.useCallback((newKeyDates: any[]) => {
+    setKeyDates(newKeyDates);
+  }, []);
 
   return (
     <LandingLayout>
@@ -34,9 +42,15 @@ export default function Page() {
           subtitle="An on-chain primitive for delegating transaction permissions between accounts."
         />
 
-        <FeatureContent 
+        <FeatureContent
           description="XRPL accounts can delegate both transaction permissions and granular permissions to other accounts, enhancing flexibility and enabling use cases such as implementing role-based access control."
           keyDates={keyDates}
+        />
+
+        <AmendmentTracker
+          amendmentId="0F48FF561C709540328F31F1C97FD512ACC8B4E42138A161CB0E21ECA292540B"
+          xlsSpecDate="2025-05-08"
+          onKeyDatesUpdate={handleKeyDatesUpdate}
         />
 
         <Cards columns={3}>
@@ -53,13 +67,12 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Documentation" to="./docs/xls-75d-permission-delegation/concepts/permission-delegation/">
+          <Card title="Concepts" to="https://xrpl.org/docs/concepts/accounts/permission-delegation">
             <p>
-              Explore key concepts, find detailed references, and follow
-              step-by-step tutorials.
+              Documentation on the feature, including how it works and why.
             </p>
             <ButtonToXRPL>
-              Read the Docs
+              Read the Concepts
             </ButtonToXRPL>
           </Card>
 
@@ -101,10 +114,19 @@ export default function Page() {
 
           <Card title="Performance Testing" to="https://dev.to/ripplexdev/xls-0075d-permission-delegation-performance-test-report-3jmm">
             <p>
-            The performance testing report to assess the performance implications of the feature.  
+            The performance testing report to assess the performance implications of the feature.
             </p>
             <Button size="large" variant="primary">
               Read the Perf Testing Report
+            </Button>
+          </Card>
+
+          <Card title="QA Test Report" to="https://dev.to/ripplexdev/account-permission-delegation-qa-test-report-3j69">
+            <p>
+            The QA Test Report presents results of QA testing performed on the feature across rippled and Clio servers.
+            </p>
+            <Button size="large" variant="primary">
+              Read the QA Testing Report
             </Button>
           </Card>
         </Cards>

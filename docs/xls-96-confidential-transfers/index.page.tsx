@@ -48,10 +48,6 @@ export default function Page() {
             <>
               The Confidential Transfers feature provides institutional-grade privacy for Multi-Purpose Tokens using advanced cryptography (EC-ElGamal and ZKPs).
               Individual balances and transfer amounts remain shielded from the public ledger while maintaining compliance mechanisms for authorized parties (issuers, auditors, or designated entities) to verify total supply and meet regulatory obligations.
-              <br /><br />
-              <strong>Confidential Devnet:</strong> https://confidential.devnet.rippletest.net
-              <br />
-              <strong>Devnet Faucet:</strong> https://confidential-faucet.devnet.rippletest.net
             </>
           }
           keyDates={keyDates}
@@ -78,13 +74,24 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Documentation" to="/docs/xls-96-confidential-transfers/concepts/confidential-transfers">
+          <Card title="Concepts" to="https://xrpl.org/docs/concepts/tokens/fungible-tokens/confidential-transfers">
             <p>
-              Explore key concepts, find detailed references, and follow
-              step-by-step tutorials.
+              Documentation on the feature, including how it works and why.
+            </p>
+            <ButtonToXRPL>
+              Read the Concepts
+            </ButtonToXRPL>
+          </Card>
+
+          <Card
+            title="Security Audit"
+            to="https://trailofbits.com/library/ripple-labs-xrp-ledger-confidential-transfer/"
+          >
+            <p>
+              The security audit performed by third-party security experts, including a link to the full, detailed security audit report.
             </p>
             <Button size="large" variant="primary">
-              Read the Docs
+              Read the Security Audit Report
             </Button>
           </Card>
 

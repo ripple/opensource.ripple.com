@@ -570,3 +570,67 @@ docs/xls-73d/ammclawback:
 /docs/xls-33d-multi-purpose-tokens/reference/payment:
   to: https://xrpl.org/docs/references/protocol/transactions/types/payment
   type: 301
+
+
+# dynamic mpt docs (XLS-94)
+/docs/xls-94-dynamic-mpts/dynamic-mpts:
+  to: https://xrpl.org/docs/concepts/tokens/fungible-tokens/mutable-mpts
+  type: 301
+/docs/xls-94-dynamic-mpts/reference:
+  to: https://xrpl.org/docs/concepts/tokens/fungible-tokens/mutable-mpts
+  type: 301
+
+# confidential transfers docs (XLS-96)
+/docs/xls-96-confidential-transfers/concepts/confidential-transfers:
+  to: https://xrpl.org/docs/concepts/tokens/fungible-tokens/confidential-transfers
+  type: 301
+/docs/xls-96-confidential-transfers/references/transactions/confidentialmptclawback:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/confidentialmptclawback
+  type: 301
+/docs/xls-96-confidential-transfers/references/transactions/confidentialmptconvert:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/confidentialmptconvert
+  type: 301
+/docs/xls-96-confidential-transfers/references/transactions/confidentialmptconvertback:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/confidentialmptconvertback
+  type: 301
+/docs/xls-96-confidential-transfers/references/transactions/confidentialmptmergeinbox:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/confidentialmptmergeinbox
+  type: 301
+/docs/xls-96-confidential-transfers/references/transactions/confidentialmptsend:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/confidentialmptsend
+  type: 301
+/docs/xls-96-confidential-transfers/references/transactions/updated-transactions:
+  to: https://xrpl.org/docs/concepts/tokens/fungible-tokens/confidential-transfers
+  type: 301
+/docs/xls-96-confidential-transfers/references/updated-ledger-entries:
+  to: https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/mptokenissuance
+  type: 301
+
+# sponsored fees and reserves docs (XLS-68)
+/docs/xls-68-sponsored-fees-and-reserves/concepts/sponsored-fees-and-reserves:
+  to: https://xrpl.org/docs/concepts/accounts/sponsored-fees-and-reserves
+  type: 301
+/docs/xls-68-sponsored-fees-and-reserves/references/ledger-entries/sponsorship:
+  to: https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/sponsorship
+  type: 301
+/docs/xls-68-sponsored-fees-and-reserves/references/ledger-entries/updated-ledger-entries:
+  to: https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/sponsorship
+  type: 301
+/docs/xls-68-sponsored-fees-and-reserves/references/transactions/sponsorshipset:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/sponsorshipset
+  type: 301
+/docs/xls-68-sponsored-fees-and-reserves/references/transactions/sponsorshiptransfer:
+  to: https://xrpl.org/docs/references/protocol/transactions/types/sponsorshiptransfer
+  type: 301
+/docs/xls-68-sponsored-fees-and-reserves/references/transactions/updated-common-transaction-fields:
+  to: https://xrpl.org/docs/references/protocol/transactions/common-fields
+  type: 301
+/docs/xls-68-sponsored-fees-and-reserves/references/transactions/updated-transactions:
+  to: https://xrpl.org/docs/concepts/accounts/sponsored-fees-and-reserves
+  type: 301
+/docs/xls-68-sponsored-fees-and-reserves/references/apis/account_sponsoring:
+  to: https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_objects
+  type: 301
+/docs/xls-68-sponsored-fees-and-reserves/references/apis/updated-apis:
+  to: https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_objects
+  type: 301

@@ -46,11 +46,9 @@ export default function Page() {
           keyDates={keyDates}
         />
 
-        <AmendmentTracker 
-          amendmentId="894646DD5284E97DECFE6674A6D6152686791C4A95F8C132CCA9BAF9E5812FB6"
+        <AmendmentTracker
+          amendmentId="9F287AED3CDB50A7BD1ACEC24296A30C9B5230CCD136219317AC790E3B884377"
           xlsSpecDate="2025-01-23"
-          devnetDate="2025-05-24"
-          mainnetDate="2025-06-24"
           onKeyDatesUpdate={handleKeyDatesUpdate}
         />
 
@@ -78,6 +76,17 @@ export default function Page() {
             <ButtonToXRPL>Read the Concepts</ButtonToXRPL>
           </Card>
           <Card
+            title="Blog"
+            to="https://dev.to/ripplexdev/introducing-batch-transactions-on-the-xrp-ledger-more-opportunities-less-friction-50h5"
+          >
+            <p>
+              An overview of the feature and why it matters to developers, explained in our blog post.
+            </p>
+            <Button size="large" variant="primary">
+              Read the Blog
+            </Button>
+          </Card>
+          <Card
             title="Tutorials"
             to="https://xrpl.org/docs/tutorials/best-practices/transaction-sending/send-a-single-account-batch-transaction"
           >
@@ -96,12 +105,21 @@ export default function Page() {
           </Card>
           <Card title="Performance Testing" to="https://dev.to/ripplexdev/batch-transaction-performance-testing-report-13j8">
             <p>
-            The performance testing report to assess the performance implications of the feature.  
+            The performance testing report to assess the performance implications of the feature.
             </p>
             <Button size="large" variant="primary">
               Read the Perf Testing Report
             </Button>
-          </Card>        </Cards>
+          </Card>
+          <Card title="QA Test Report" to="https://dev.to/ripplexdev/batch-transaction-qa-test-report-17em">
+            <p>
+            The QA Test Report presents results of QA testing performed on the feature across rippled and Clio servers.
+            </p>
+            <Button size="large" variant="primary">
+              Read the QA Testing Report
+            </Button>
+          </Card>
+        </Cards>
       </LandingContainer>
     </LandingLayout>
   );

@@ -5,11 +5,11 @@
 [amendment]: https://xrpl.org/docs/concepts/networks-and-servers/amendments
 [common fields]: https://xrpl.org/docs/references/protocol/transactions/common-fields/
 [common ledger entry fields]: https://xrpl.org/docs/references/protocol/ledger-data/common-fields/
-[ConfidentialMPTClawback transaction]: /docs/xls-96-confidential-transfers/references/transactions/confidentialmptclawback.md
-[ConfidentialMPTConvert transaction]: /docs/xls-96-confidential-transfers/references/transactions/confidentialmptconvert.md
-[ConfidentialMPTConvertBack transaction]: /docs/xls-96-confidential-transfers/references/transactions/confidentialmptconvertback.md
-[ConfidentialMPTMergeInbox transaction]: /docs/xls-96-confidential-transfers/references/transactions/confidentialmptmergeinbox.md
-[ConfidentialMPTSend transaction]: /docs/xls-96-confidential-transfers/references/transactions/confidentialmptsend.md
+[ConfidentialMPTClawback transaction]: https://xrpl.org/docs/references/protocol/transactions/types/confidentialmptclawback
+[ConfidentialMPTConvert transaction]: https://xrpl.org/docs/references/protocol/transactions/types/confidentialmptconvert
+[ConfidentialMPTConvertBack transaction]: https://xrpl.org/docs/references/protocol/transactions/types/confidentialmptconvertback
+[ConfidentialMPTMergeInbox transaction]: https://xrpl.org/docs/references/protocol/transactions/types/confidentialmptmergeinbox
+[ConfidentialMPTSend transaction]: https://xrpl.org/docs/references/protocol/transactions/types/confidentialmptsend
 [ConfidentialTransfers amendment]: https://xls.xrpl.org/xls/XLS-0096-confidential-mpt.html 
 [credentials]: https://xrpl.org/docs/concepts/decentralized-storage/credentials
 [DynamicMPT amendment]: https://xls.xrpl.org/xls/XLS-0094-dynamic-MPT.html
@@ -31,10 +31,10 @@
 [SHA-512Half]: https://xrpl.org/docs/references/protocol/data-types/basic-data-types#hashes
 [Specifying Ledgers]: https://xrpl.org/docs/references/protocol/data-types/basic-data-types/#specifying-ledgers
 [Sponsor amendment]: https://xls.xrpl.org/xls/XLS-0068-sponsored-fees-and-reserves.html
-[Sponsorship ledger entry]: /docs/xls-68-sponsored-fees-and-reserves/references/ledger-entries/sponsorship.md
-[SponsorshipSet transaction]: /docs/xls-68-sponsored-fees-and-reserves/references/transactions/sponsorshipset.md
-[SponsorshipTransfer]: /docs/xls-68-sponsored-fees-and-reserves/references/transactions/sponsorshiptransfer.md
-[SponsorshipTransfer transaction]: /docs/xls-68-sponsored-fees-and-reserves/references/transactions/sponsorshiptransfer.md
+[Sponsorship ledger entry]: https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/sponsorship
+[SponsorshipSet transaction]: https://xrpl.org/docs/references/protocol/transactions/types/sponsorshipset
+[SponsorshipTransfer]: https://xrpl.org/docs/references/protocol/transactions/types/sponsorshiptransfer
+[SponsorshipTransfer transaction]: https://xrpl.org/docs/references/protocol/transactions/types/sponsorshiptransfer
 [standard format]: https://xrpl.org/docs/references/http-websocket-apis/api-conventions/response-formatting/
 [transaction result codes]: https://xrpl.org/docs/references/protocol/transactions/transaction-results
 [universal error types]: https://xrpl.org/docs/references/http-websocket-apis/api-conventions/error-formatting#universal-errors

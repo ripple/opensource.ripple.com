@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { 
-  LandingContainer, 
-  LandingLayout, 
-//   ButtonToXRPL, // TODO: Uncomment when we move docs to xrpl.org
+import {
+  LandingContainer,
+  LandingLayout,
+  ButtonToXRPL,
   FeatureHeader,
   FeatureContent
 } from "../../components/landing";
@@ -49,7 +49,7 @@ export default function Page() {
         />
 
         <AmendmentTracker 
-          amendmentId="N/A"
+          amendmentId="58E92F338758479C06084E1B6BA366BAD8F75E5329A7F0EEAFFFDA51E5106B7F"
           xlsSpecDate="2025-09-06"
           onKeyDatesUpdate={handleKeyDatesUpdate}
         />
@@ -62,11 +62,11 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="Docs" to="/docs/xls-94-dynamic-mpts/dynamic-mpts">
+          <Card title="Concepts" to="https://xrpl.org/docs/concepts/tokens/fungible-tokens/mutable-mpts">
             <p>Documentation on the feature, including how it works and why.</p>
-            <Button size="large" variant="primary">
-              Read the Docs
-            </Button>
+            <ButtonToXRPL>
+              Read the Concepts
+            </ButtonToXRPL>
           </Card>
         </Cards>
       </LandingContainer>
