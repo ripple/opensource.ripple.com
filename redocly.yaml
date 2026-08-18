@@ -12,6 +12,12 @@ scripts:
     - src: ./static/js/gtm-head.js
 redirects:
   $ref: redirects.yaml
+search:
+  engine: typesense
+  filters:
+    hide: true
+aiAssistant:
+  hide: false
 navbar:
   items:
     - label: Home
