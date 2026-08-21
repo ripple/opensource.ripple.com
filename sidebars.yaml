@@ -21,6 +21,7 @@
       expanded: false
       items:
         - page: docs/simpleXRPL/references/client.md
+        - page: docs/simpleXRPL/references/intent-inspector.md
         - page: docs/simpleXRPL/references/types.md
         - group: Connectors
           page: docs/simpleXRPL/references/connectors/index.md

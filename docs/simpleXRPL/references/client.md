@@ -8,7 +8,7 @@ labels:
 
 # Client
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/client/client.ts#L42)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/2e7cf1f85dbecb529e95da97cc1178e0813259d6/src/client/client.ts#L43)
 
 `SimpleXRPL.init()` is `simpleXRPL`'s entry point, and it resolves to a **`SimpleXRPLClient`** — the runtime client. The client binds your pre-constructed [connectors](./connectors/index.md) to a network, discovers the accounts they hold, and exposes the [verticals](./verticals/index.md) you call to build operations. Its network connection and connector configuration are fixed for its lifetime.
 
@@ -29,11 +29,11 @@ SimpleXRPL.init(config: SimpleXRPLConfig): Promise<SimpleXRPLClient>
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `rippledUrl` | `string` | Yes | The rippled endpoint (`ws(s)://` or `http(s)://`). |
+| `xrpldUrl` | `string` | Yes | The xrpld endpoint (`ws(s)://` or `http(s)://`). |
 | `faucetUrl` | `string` | No | Faucet endpoint, used on test networks only. |
-| `signers` | `array` | No | The pre-constructed connectors (a `Custodian[]`). Omit for a no-signer client that can still read the ledger; write verbs then throw `NoSignerError` until a signer is added. |
-| `primarySigner` | `object` | No | The default connector for verbs called without an explicit account. Defaults to the first entry in `signers`. |
-| `ledger` | `object` | No | Advanced: the ledger connection used for reads, autofill, and Local/raw submission. Defaults to a connection built from `rippledUrl`; inject a fake in tests. |
+| `signers` | `array` | No | The pre-constructed connectors (a `Custodian[]`). Omit for a no-signer client that can still read the ledger; write operations then throw `NoSignerError` until a signer is added. |
+| `primarySigner` | `object` | No | The default connector for operations called without an explicit account. Defaults to the first entry in `signers`. |
+| `ledger` | `object` | No | Advanced: the ledger connection used for reads, autofill, and Local/raw submission. Defaults to a connection built from `xrpldUrl`; inject a fake in tests. |
 
 
 ## SimpleXRPLClient
@@ -44,12 +44,13 @@ Read-only members of the `SimpleXRPLClient` that `SimpleXRPL.init()` returns, se
 
 | Property | Type | Description |
 | --- | --- | --- |
-| `network` | `object` | The network the client is bound to — a `NetworkInfo` with `rippledUrl` (and `faucetUrl` on test networks). |
+| `network` | `object` | The network the client is bound to — a `NetworkInfo` with `xrpldUrl` (and `faucetUrl` on test networks). |
 | `signers` | `array` | The registered connectors, 0 or more (a `Custodian[]`). |
-| `primarySigner` | `object` | The default connector, used when a verb is called without an explicit account. `undefined` on a no-signer client. |
+| `primarySigner` | `object` | The default connector, used when an operation is called without an explicit account. `undefined` on a no-signer client. |
 | `accounts` | `object` | Every discovered account as a read-only map keyed by r-address (`ReadonlyMap<string, Account>`). See [`Account`](types.md#account). |
-| `ledger` | `object` | The shared ledger connection for reads, autofill, and Local/raw submission. Created lazily from `network.rippledUrl` when none was injected. |
-| `intent` | `object` | Read-only inspector for custodian governance intents (status/await). |
+| `ledger` | `object` | The shared ledger connection for reads, autofill, and Local/raw submission. Created lazily from `network.xrpldUrl` when none was injected. |
+| `intent` | `object` | Read-only inspector for custodian governance intents. See [Intent Inspector](intent-inspector.md). |
+| `pollMptIssuanceId` | `function` | Poll until the MPT issuance linked to an intent id is confirmed, then return its issuance ID: `(intentId: string) => Promise<string>`. `undefined` unless a Ripple Custody signer is configured. |
 
 
 ### connect()
@@ -91,7 +92,7 @@ SimpleXRPLClient.primaryAddress(): string | undefined
 import { SimpleXRPL, LocalSigner } from 'simplexrpl'
 
 const client = await SimpleXRPL.init({
-  rippledUrl: 'wss://s.altnet.rippletest.net:51233', // XRPL Testnet
+  xrpldUrl: 'wss://s.altnet.rippletest.net:51233', // XRPL Testnet
   signers: [LocalSigner.fromEnv()],
 })
 

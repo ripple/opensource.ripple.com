@@ -34,7 +34,7 @@ Resolves to an `IOURetrieveResult`:
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `iouID` | `string` | Currency code and issuer, e.g. `USD.rIssuer...` — pass to the write verbs. |
+| `iouID` | `string` | Currency code and issuer, e.g. `USD.rIssuer...` — pass to the write operations. |
 | `data` | `IOUTrustLine \| undefined` | The point-in-time trust line snapshot, or `undefined` if no line exists. |
 
 ### IOUTrustLine

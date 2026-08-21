@@ -9,7 +9,7 @@ const signer = LocalSigner.fromEnv()
 
 // --- Initialize the client ---
 const client = await SimpleXRPL.init({
-  rippledUrl: 'wss://s.altnet.rippletest.net:51233',
+  xrpldUrl: 'wss://s.altnet.rippletest.net:51233',
   faucetUrl: 'https://faucet.altnet.rippletest.net/accounts',
   signers: [signer],
 })

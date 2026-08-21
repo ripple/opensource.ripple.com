@@ -1,6 +1,6 @@
 ---
 seo:
-    description: Drive accounts held by different custodians from a single client, using per-call routing or an ordered multi-step sequence.
+    description: Drive accounts held by different custodians from a single client, routing each operation to the connector that owns the account.
 labels:
   - simpleXRPL
   - SDK
@@ -8,7 +8,7 @@ labels:
 
 # Run A Workflow Across Custodians
 
-A single client can drive accounts held by different connectors. Sequence work across them either with per-call `from` routing (the common case) or with `runMultiStep`, which commits an ordered (transaction, account) sequence — steps that can target different custodians — from one call site.
+A single client can drive accounts held by different connectors. Each vertical operation routes to the connector that owns the account it acts on — named per call with `from`, or the primary signer by default — so a workflow spanning custodians is just an ordered sequence of ordinary operation calls.
 
 ```ts
 /**

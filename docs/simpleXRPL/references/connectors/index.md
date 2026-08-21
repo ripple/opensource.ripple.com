@@ -22,10 +22,10 @@ Every connector implements the `Custodian` interface. Once constructed, it expos
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `kind` | `string` | The backend the connector adapts: `local`, `ripple-custody`, `palisade-custody`, or `external`. |
-| `primary` | `object` | The connector's primary account reference. Used when a vertical operation runs without an explicit account. |
+| `kind` | [`CustodianKind`](../types.md#custodiankind) | The backend the connector adapts: `local`, `ripple-custody`, `palisade-custody`, or `external`. |
+| `primary` | [`AccountRef`](../types.md#accountref) | The connector's primary account reference. Used when a vertical operation runs without an explicit account. |
 | `primary.address` | `string` | The primary account's XRPL r-address. |
-| `primary.custodianRef` | `string` or `object`|  _(Optional)_ The connector's opaque native id for the account. A `string` for account-id connectors, or a `{vaultId, walletId}` object for vault-based connectors. Absent for local wallets. |
+| `primary.custodianRef` | [`CustodianRef`](../types.md#custodianref) | _(Optional)_ The connector's opaque native id for the account. |
 
 
 ## Methods

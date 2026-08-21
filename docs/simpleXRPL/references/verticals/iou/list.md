@@ -33,7 +33,7 @@ Resolves to an `IOUListResult`, where `ious[i]` corresponds to `data[i]`:
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ious` | `readonly string[]` | The `iouID` of each line, composable into the write verbs. |
+| `ious` | `readonly string[]` | The `iouID` of each line, composable into the write operations. |
 | `data` | `readonly IOUTrustLine[]` | The shaped trust lines. See [iou.retrieve](retrieve.md#ioutrustline) for `IOUTrustLine`. |
 
 ## Underlying XRPL request

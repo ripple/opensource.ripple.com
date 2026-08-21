@@ -13,7 +13,7 @@ labels:
 Generate a new trust line-based IOU between two developer-controlled accounts sourced from the environment.
 
 {% admonition type="info" name="Note" %}
-Unlike the other IOU verbs, `issue` takes no `options`. It bootstraps both accounts from the environment: it reads `XRPL_ISSUER_SEED` and `XRPL_HOT_WALLET_SEED`, has the issuer enable rippling, then has the hot wallet extend trust up to the maximum limit. No `Payment` runs, so no value exists yet. Use [IOU.transfer](transfer.md) to send some.
+Unlike the other IOU operations, `issue` takes no `options`. It bootstraps both accounts from the environment: it reads `XRPL_ISSUER_SEED` and `XRPL_HOT_WALLET_SEED`, has the issuer enable rippling, then has the hot wallet extend trust up to the maximum limit. No `Payment` runs, so no value exists yet. Use [IOU.transfer](transfer.md) to send some.
 {% /admonition %}
 
 ## Signature

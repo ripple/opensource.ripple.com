@@ -8,7 +8,7 @@ labels:
 
 # IOU
 
-The `IOU` vertical issues and manages trust line-based issued currencies. Each verb acts as the IOU's **issuer** — the account resolved from `from` (default: the primary signer's account) signs, and its address is the currency issuer. Callers name their own counterparty (`holder` / `destination`) per call.
+The `IOU` vertical issues and manages trust line-based issued currencies. Each operation acts as the IOU's **issuer** — the account resolved from `from` (default: the primary signer's account) signs, and its address is the currency issuer. Callers name their own counterparty (`holder` / `destination`) per call.
 
 | Method | Description |
 | --- | --- |

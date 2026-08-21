@@ -36,7 +36,7 @@ Resolves to a `ListOffersResult`:
 
 ### OfferSummary
 
-Each offer mirrors the `createOffer` / `buyOffer` / `sellOffer` input format, so it's composable back into those write verbs.
+Each offer mirrors the `createOffer` / `buyOffer` / `sellOffer` input format, so it's composable back into those write operations.
 
 | Field | Type | Description |
 | --- | --- | --- |
