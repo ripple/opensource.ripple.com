@@ -1,0 +1,68 @@
+---
+seo:
+    description: Issue a Real-World Asset as a Multi-Purpose Token (MPT) through Ripple Custody, with XLS-89 metadata validated before submission.
+labels:
+  - simpleXRPL
+  - SDK
+---
+
+# Issue An RWA As An MPT
+
+Real-World Assets are issued as Multi-Purpose Tokens (MPTs) via the `token` vertical. Here the issuer is a Ripple Custody account, so Custody signs and submits the issuance as one governed action, with XLS-89 metadata validated before submission. The XRP Ledger supports to token standards (MPT and trust line tokens). MPTs have been designed for greater efficiency and ease of use based on lessons learned from trust line tokens, however there are some cases where you may prefer trust line tokens. See: [Which Fungible Token Type to Use](https://xrpl.org/docs/concepts/tokens/fungible-tokens#which-fungible-token-type-to-use).
+
+```ts
+/**
+ * Issue a Real-World Asset (RWA) through Ripple Custody.
+ *
+ * RWAs are issued as Multi-Purpose Tokens (MPTs) via the `token` vertical.
+ * Metadata follows the XLS-89 standard and is validated before submission
+ * (`asset_class: 'rwa'` requires an `asset_subclass`). Here the issuer is a
+ * Ripple Custody account: Custody signs and submits the issuance as one
+ * governed action, subject to the domain's approval policy. `MPTokenIssuanceCreate`
+ * is native to Ripple Custody, so it flows through the governed native path.
+ */
+import { RippleCustody, SimpleXRPL } from 'simplexrpl'
+
+// The Custody-held issuer account; Custody governs every write it signs.
+const ISSUER_ADDRESS = process.env.RIPPLE_CUSTODY_PRIMARY ?? ''
+
+// Config (gateway, token endpoint, domain, intent-author key) comes from
+// `RIPPLE_CUSTODY_*` environment variables via `fromEnv`.
+const custody = await RippleCustody.fromEnv({ primary: ISSUER_ADDRESS })
+
+const client = await SimpleXRPL.init({
+  xrpldUrl: 'wss://s.altnet.rippletest.net:51233', // XRPL Testnet
+  signers: [custody],
+})
+
+// Metadata is the only required input. The issuer is the primary signer (the
+// Custody account), and everything else — assetScale, transfer fee, and the
+// capability flags (clawback, transfer, …) — is left at its SDK default.
+const result = await client.token.issue({
+  metadata: {
+    ticker: 'TBILL',
+    name: 'Acme 3-Month T-Bill',
+    icon: 'https://acme.example/tbill.png',
+    asset_class: 'rwa',
+    asset_subclass: 'treasury',
+    issuer_name: 'Acme Capital',
+  },
+})
+console.log('issued MPT:', result.intent.mptIssuanceId)
+
+// Read the issuance back (no signer required): flags are decoded to booleans,
+// the transfer fee to a percentage, and XLS-89 metadata is parsed.
+const token = await client.token.retrieve({
+  mptIssuanceId: result.intent.mptIssuanceId,
+})
+console.log('transfer fee (%):', token.data?.transferFee)
+console.log('can claw back:', token.data?.flags.canClawback)
+console.log('metadata:', token.data?.metadata?.name)
+
+await client.disconnect()
+```
+
+## See Also
+
+- [token.issue()](../references/verticals/token/issue.md)
+- [token.retrieve()](../references/verticals/token/retrieve.md)
