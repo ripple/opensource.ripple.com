@@ -22,12 +22,16 @@ For an HSM, you implement the same `ExternalSignerPort` seam against your device
  * As shipped this file is illustrative: the PKCS#11 adapter and its in-process
  * demo HSM at the bottom are commented out. Uncomment them (or wire the `Hsm`
  * interface to your real PKCS#11 binding, e.g. `pkcs11js`) for the snippet to
- * run.
+ * run. Everything it needs is in this file — nothing else to copy.
  */
 import { ExternalSigner, SimpleXRPL } from 'simplexrpl'
-import type { Secp256k1SignerPort } from 'simplexrpl'
-
-import { inMemoryLedger } from './mocks.js'
+import type {
+  LedgerPort,
+  Secp256k1SignerPort,
+  SubmitResponse,
+  Transaction,
+  TxResponse,
+} from 'simplexrpl'
 
 // === What you write with simpleXRPL ===
 // `signer` is your Secp256k1SignerPort backed by the HSM (see the adapter
@@ -51,14 +55,39 @@ async function transferWithHsm(signer: Secp256k1SignerPort): Promise<void> {
   await client.disconnect()
 }
 
+// === Test scaffolding — NOT production code ===
+// In a real app you omit `ledger` from `SimpleXRPL.init` and the SDK uses the
+// live XRPL connection. This in-memory stand-in lets the example run offline:
+// it fills the network fields and reports a successful submission without
+// touching a network.
+
+/** An in-memory `LedgerPort`: accepts any signed blob and reports success. */
+function inMemoryLedger(): LedgerPort {
+  return {
+    autofill: async (tx: Transaction): Promise<Transaction> => ({
+      ...tx,
+      Sequence: 1,
+      Fee: '12',
+      LastLedgerSequence: 100,
+    }),
+    submit: async (): Promise<SubmitResponse> =>
+      ({ result: {} }) as unknown as SubmitResponse,
+    submitAndWait: async (): Promise<TxResponse> =>
+      ({
+        result: { hash: 'MOCKHASH', meta: { TransactionResult: 'tesSUCCESS' } },
+      }) as unknown as TxResponse,
+    request: async <T>(): Promise<T> => ({}) as T,
+  }
+}
+
 // === Bring-your-own HSM (PKCS#11) — uncomment to run, or wire your device ===
 // HSM setups vary (slot, PIN, key label, vendor library), so this is a
-// reference to adapt. `demoHsm()` (from ./mocks) is an in-process stand-in so
-// the file runs offline; swap it for a real PKCS#11 binding. The SDK owns low-S
+// reference to adapt. `demoHsm()` below is an in-process stand-in so the file
+// runs offline; swap it for a real PKCS#11 binding. The SDK owns low-S
 // normalization + DER encoding; your port returns the raw `r‖s` scalars.
 //
+// import { secp256k1 } from '@noble/curves/secp256k1'
 // import type { EcdsaSignature } from 'simplexrpl'
-// import { demoHsm } from './mocks.js'
 //
 // // secp256k1 sizes: 32-byte scalars, 65-byte uncompressed point (0x04‖X‖Y).
 // const SCALAR_BYTES = 32
@@ -103,6 +132,26 @@ async function transferWithHsm(signer: Secp256k1SignerPort): Promise<void> {
 //       r: BigInt(`0x${raw.subarray(0, SCALAR_BYTES).toString('hex')}`),
 //       s: BigInt(`0x${raw.subarray(SCALAR_BYTES).toString('hex')}`),
 //     }
+//   }
+// }
+//
+// /**
+//  * DEMO ONLY: an in-process secp256k1 key that stands in for a real HSM so
+//  * this example runs end to end offline. It returns exactly the shapes a
+//  * PKCS#11 binding would — an uncompressed EC point and a raw `r‖s`
+//  * signature — so `Pkcs11Signer` is identical against this stub or a real
+//  * device. In production you delete this and wire the adapter to your device.
+//  */
+// function demoHsm(): Hsm {
+//   const priv = Buffer.from(
+//     'c9537c5a2f3f7e1d4b6a8c0e2f4d6b8a1c3e5f7091b3d5f7a9c1e3050709b0d0f',
+//     'hex',
+//   )
+//   return {
+//     ecPoint: async (): Promise<Uint8Array> =>
+//       secp256k1.getPublicKey(priv, false),
+//     signDigest: async (digest: Uint8Array): Promise<Uint8Array> =>
+//       secp256k1.sign(digest, priv).toCompactRawBytes(),
 //   }
 // }
 //

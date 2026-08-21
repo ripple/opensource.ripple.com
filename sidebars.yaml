@@ -16,6 +16,7 @@
         - page: docs/simpleXRPL/tutorials/external-signer.md
         - page: docs/simpleXRPL/tutorials/implement-aws-kms-signer.md
         - page: docs/simpleXRPL/tutorials/implement-pkcs11-signer.md
+        - page: docs/simpleXRPL/tutorials/call-palisade-operations-directly.md
     - group: References
       expanded: false
       items:

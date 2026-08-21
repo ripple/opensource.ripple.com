@@ -47,9 +47,9 @@ await client.domain.setCredentials({
 //    to hybrid (also crosses the open DEX) unless `hybrid: false` is passed.
 await client.iou.sellOffer({
   ticker: 'USD',
-  amount: 100,
+  amount: '100',
   orderType: 'limit',
-  price: { currency: 'XRP', amount: 50 },
+  price: { currency: 'XRP', amount: '50' },
   domainID,
   hybrid: false, // permissioned-only: do not touch the open DEX
 })

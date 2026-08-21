@@ -30,21 +30,21 @@ const client = await SimpleXRPL.init({
 // 'fok' = fill-or-kill; 'passive' = rest without crossing.
 const sell = await client.iou.sellOffer({
   ticker: 'USD',
-  amount: 100,
+  amount: '100',
   orderType: 'limit',
-  price: { currency: 'XRP', amount: 50 },
+  price: { currency: 'XRP', amount: '50' },
 })
 console.log('sell offer submitted:', sell.txHash)
 
 // Buy 100 USD, paying in another IOU (EUR):
 await client.iou.buyOffer({
   ticker: 'USD',
-  amount: 100,
+  amount: '100',
   orderType: 'fok',
   price: {
     ticker: 'EUR',
     issuer: 'rEurIssuer000000000000000000000000',
-    amount: 90,
+    amount: '90',
   },
 })
 

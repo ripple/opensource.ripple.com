@@ -24,9 +24,14 @@ The `ExternalSignerPort` seam lets you plug in your own signer. This sample impl
  * `ExternalSignerPort`) for the snippet to run.
  */
 import { ExternalSigner, SimpleXRPL } from 'simplexrpl'
-import type { Ed25519SignerPort, Secp256k1SignerPort } from 'simplexrpl'
-
-import { inMemoryLedger } from './mocks.js'
+import type {
+  Ed25519SignerPort,
+  LedgerPort,
+  Secp256k1SignerPort,
+  SubmitResponse,
+  Transaction,
+  TxResponse,
+} from 'simplexrpl'
 
 // === What you write with simpleXRPL ===
 // Bind your external signer, then build → sign → submit. The pipeline is the
@@ -50,6 +55,31 @@ async function signAndSubmit(
       `(source=${result.source}, hash=${result.txHash})`,
   )
   await client.disconnect()
+}
+
+// === Test scaffolding — NOT production code ===
+// In a real app you omit `ledger` from `SimpleXRPL.init` and the SDK uses the
+// live XRPL connection. This in-memory stand-in lets the example run offline:
+// it fills the network fields and reports a successful submission without
+// touching a network.
+
+/** An in-memory `LedgerPort`: accepts any signed blob and reports success. */
+function inMemoryLedger(): LedgerPort {
+  return {
+    autofill: async (tx: Transaction): Promise<Transaction> => ({
+      ...tx,
+      Sequence: 1,
+      Fee: '12',
+      LastLedgerSequence: 100,
+    }),
+    submit: async (): Promise<SubmitResponse> =>
+      ({ result: {} }) as unknown as SubmitResponse,
+    submitAndWait: async (): Promise<TxResponse> =>
+      ({
+        result: { hash: 'MOCKHASH', meta: { TransactionResult: 'tesSUCCESS' } },
+      }) as unknown as TxResponse,
+    request: async <T>(): Promise<T> => ({}) as T,
+  }
 }
 
 // === Demo signers — uncomment to run, or replace with your own KMS/HSM ===

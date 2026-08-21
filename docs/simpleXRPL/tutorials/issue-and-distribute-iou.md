@@ -51,20 +51,19 @@ const client = await SimpleXRPL.init({
 // the issuer, and both accounts are signed by Palisade.
 const hotWallet = process.env.PALISADE_HOLDER_ADDRESS ?? ''
 
-// 1. Issue: AccountSet on the issuer (the primary) + a max-limit TrustSet on the
-//    hot wallet. Returns the IOU id, e.g. "USD.rIssuer...".
-const issued = await client.iou.issue({ ticker: 'USD', holder: hotWallet })
-console.log('issued', issued.intent.iouID)
-
-// 2. Distribute: send 1,000 USD from the issuer to the hot wallet, which now
-//    trusts it. Other holders extend their own trust line first.
-await client.iou.transfer({
+// 1. Issue and distribute in one call: AccountSet on the issuer (the primary), a
+//    max-limit TrustSet on the hot wallet, then a Payment of 1,000 USD to it.
+//    Amounts are decimal strings, so they reach the ledger exactly.
+//    Omit `amount` to set the trust line up now and distribute later in tranches
+//    via `client.iou.transfer(...)`. Other holders extend their own trust line first.
+const issued = await client.iou.issue({
   ticker: 'USD',
-  destination: hotWallet,
-  amount: 1000,
+  holder: hotWallet,
+  amount: '1000',
 })
+console.log('issued', issued.intent.iouID, 'distributed', issued.intent.amount)
 
-// 3. Read it back (no signer required): the hot wallet's shaped USD trust line.
+// 2. Read it back (no signer required): the hot wallet's shaped USD trust line.
 //    The issuer is the second half of the iouID ("USD.rIssuer...").
 const [, issuer] = issued.intent.iouID.split('.')
 const line = await client.iou.retrieve({
