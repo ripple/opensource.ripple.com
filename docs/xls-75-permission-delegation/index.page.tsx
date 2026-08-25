@@ -102,7 +102,7 @@ export default function Page() {
 
           <Card
             title="Security Audit"
-            to="https://dev.to/ripplexdev/permission-delegation-security-audit-findings-2h83"
+            to="https://cantina.xyz/portfolio/0a506caa-5532-437e-8b29-62258b652db7"
           >
             <p>
               The security audit performed by third-party security experts, including a link to the full, detailed security audit report.  
