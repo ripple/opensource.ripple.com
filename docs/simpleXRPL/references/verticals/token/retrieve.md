@@ -8,7 +8,7 @@ labels:
 
 # token.retrieve()
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/token.ts#L67)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/95b977b15f8950c5bc076b25165217869c0b06d3/src/verticals/token.ts#L60)
 
 Retrieve a single MPT issuance by id (point-in-time), with flags decoded to booleans and XLS-89 metadata decoded.
 
@@ -45,7 +45,7 @@ Resolves to a `TokenRetrieveResult`:
 | `maximumAmount` | `string` _(optional)_ | Maximum issuable amount (base units), if capped. |
 | `outstandingAmount` | `string` | Amount currently in circulation (base units). |
 | `transferFee` | `number` | Secondary-transfer fee, as a percentage. |
-| `flags` | `MptFlags` | Capability flags decoded to booleans: `canLock`, `requireAuth`, `canEscrow`, `canTrade`, `canTransfer`, `canClawback`. |
+| `flags` | `TokenFlags` | Capability flags decoded to booleans: `canLock`, `requireAuth`, `canEscrow`, `canTrade`, `canTransfer`, `canClawback`. |
 | `metadata` | `MPTokenMetadata` _(optional)_ | Decoded XLS-89 metadata, if present and well-formed. |
 
 ## Underlying XRPL request

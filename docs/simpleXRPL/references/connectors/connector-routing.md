@@ -62,8 +62,8 @@ above to see how a given method routes on each connector.
 | `credential` | `CredentialAccept`, `CredentialCreate`, `CredentialDelete` |
 | `domain` | `PermissionedDomainDelete`, `PermissionedDomainSet` |
 | `iou` | `AccountSet`, `Clawback`, `OfferCancel`, `OfferCreate`, `Payment`, `TrustSet` |
-| `token` | `MPTokenAuthorize`, `MPTokenIssuanceCreate`, `MPTokenIssuanceDestroy`, `MPTokenIssuanceSet`, `OfferCancel`, `OfferCreate`, `Payment` |
-| `xrp` | `Payment` |
+| `token` | `Clawback`, `MPTokenAuthorize`, `MPTokenIssuanceCreate`, `MPTokenIssuanceDestroy`, `MPTokenIssuanceSet`, `Payment` |
+| `xrp` | `OfferCancel`, `OfferCreate`, `Payment` |
 
 ## Operation → native support
 
@@ -75,7 +75,10 @@ operation in-process. Read operations emit no transactor and are omitted.
 | Operation | Transactor(s) | Ripple Custody | Palisade |
 | ------ | ------ | ------ | ------ |
 | `XRP.transfer()` | `Payment` | **native** | **native** |
-| `IOU.issue()` | `TrustSet`, `AccountSet` | **native** | **native** |
+| `XRP.buyOffer()` | `OfferCreate` | **native** | **native** |
+| `XRP.sellOffer()` | `OfferCreate` | **native** | **native** |
+| `XRP.cancelOffer()` | `OfferCancel` | raw fallback¹ | **native** |
+| `IOU.issue()` | `TrustSet`, `AccountSet`, `Payment` | **native** | **native** |
 | `IOU.authorize()` | `TrustSet` | **native** | **native** |
 | `IOU.lock()` | `TrustSet` | **native** | **native** |
 | `IOU.unlock()` | `TrustSet` | **native** | **native** |
@@ -93,8 +96,7 @@ operation in-process. Read operations emit no transactor and are omitted.
 | `Token.unlock()` | `MPTokenIssuanceSet` | **native** | raw fallback¹ |
 | `Token.destroy()` | `MPTokenIssuanceDestroy` | **native** | raw fallback¹ |
 | `Token.transfer()` | `Payment` | **native** | raw fallback¹ |
-| `Token.createOffer()` | `OfferCreate` | **native** | **native** |
-| `Token.cancelOffer()` | `OfferCancel` | raw fallback¹ | **native** |
+| `Token.clawback()` | `Clawback` | **native** | raw fallback¹ |
 | `Domain.create()` | `PermissionedDomainSet` | raw fallback¹ | raw fallback¹ |
 | `Domain.setCredentials()` | `PermissionedDomainSet` | raw fallback¹ | raw fallback¹ |
 | `Domain.delete()` | `PermissionedDomainDelete` | raw fallback¹ | raw fallback¹ |
@@ -111,11 +113,14 @@ operation in-process. Read operations emit no transactor and are omitted.
 (`allowRawSigning`); otherwise the operation is rejected with
 `SignerCapabilityError`. A multi-transactor operation (e.g. `IOU.issue`) is
 native only when every step is native. **Palisade has no native MPT support**,
-so `Token.transfer` — which carries an MPT amount — falls back to raw there
-even though `Payment` is otherwise native; Ripple Custody handles MPT natively.
-`Token.createOffer` / `Token.cancelOffer` stay **native** on Palisade because
-they don't carry an MPT — an offer can't hold an MPT (it isn't DEX-tradeable),
-so they operate on XRP/IOU legs via `OfferCreate` / `OfferCancel`.
+so the MPT-carrying operations `Token.transfer` and `Token.clawback` fall back
+to raw there even though `Payment` and `Clawback` are otherwise native; Ripple
+Custody handles MPT natively. The DEX offer operations
+(`buyOffer` / `sellOffer` / `cancelOffer` on `iou` and `xrp`) never carry an
+MPT — MPTs aren't DEX-tradeable — so they route purely on their `OfferCreate` /
+`OfferCancel` legs: `buyOffer` / `sellOffer` are native on both custodians,
+while `cancelOffer` is native on Palisade but falls back to raw on Ripple
+Custody, which doesn't natively model `OfferCancel`.
 
 ---
 

@@ -13,7 +13,7 @@ Core types are the shared records the SDK uses across the client, connectors, an
 
 ## Account
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/2e7cf1f85dbecb529e95da97cc1178e0813259d6/src/domain/model.ts#L37)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/95b977b15f8950c5bc076b25165217869c0b06d3/src/domain/model.ts#L37)
 
 A discovered account: its r-address paired with the connector that owns and signs for it. The SDK hands you an `Account` from `client.accounts` and [`connector.listAccounts()`](connectors/index.md). It extends [`AccountRef`](#accountref), so `address` and `custodianRef` come from there.
 
@@ -32,7 +32,7 @@ This is distinct from `AccountData`, the on-chain snapshot returned by [`account
 
 ## AccountRef
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/2e7cf1f85dbecb529e95da97cc1178e0813259d6/src/domain/model.ts#L25)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/95b977b15f8950c5bc076b25165217869c0b06d3/src/domain/model.ts#L25)
 
 The minimal reference to an account — just its r-address and the owning connector's native id. [`Account`](#account) extends it, and a connector's `primary` field is an `AccountRef`.
 
@@ -44,7 +44,7 @@ The minimal reference to an account — just its r-address and the owning connec
 
 ## AccountSelector
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/2e7cf1f85dbecb529e95da97cc1178e0813259d6/src/domain/model.ts#L69)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/95b977b15f8950c5bc076b25165217869c0b06d3/src/domain/model.ts#L79)
 
 How you choose the source account for an operation — the `from` option on writes. It is one of three forms:
 
@@ -57,7 +57,7 @@ How you choose the source account for an operation — the `from` option on writ
 
 ## SubmissionResult
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/2e7cf1f85dbecb529e95da97cc1178e0813259d6/src/domain/model.ts#L163)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/95b977b15f8950c5bc076b25165217869c0b06d3/src/domain/model.ts#L194)
 
 `SubmissionResult<T>` is generic over `T`, the operation-specific `intent` payload — each operation's reference page lists its own return fields. The table below is the same one those pages inline under **Returns**.
 
@@ -70,7 +70,7 @@ How you choose the source account for an operation — the `from` option on writ
 
 ## SubmissionHandle
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/2e7cf1f85dbecb529e95da97cc1178e0813259d6/src/domain/model.ts#L181)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/95b977b15f8950c5bc076b25165217869c0b06d3/src/domain/model.ts#L212)
 
 Returned by an async submission, and by [`client.intent.handleFor()`](intent-inspector.md#handlefor). `kind` is a [`CustodianKind`](#custodiankind); `custodian` is the [connector](connectors/index.md) itself.
 
@@ -79,7 +79,7 @@ Returned by an async submission, and by [`client.intent.handleFor()`](intent-ins
 
 ## OnChainResult
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/2e7cf1f85dbecb529e95da97cc1178e0813259d6/src/domain/model.ts#L276)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/95b977b15f8950c5bc076b25165217869c0b06d3/src/domain/model.ts#L308)
 
 The outcome of a transaction confirmed on-ledger, returned by [`client.intent.awaitOnChain()`](intent-inspector.md#awaitonchain).
 
@@ -88,7 +88,7 @@ The outcome of a transaction confirmed on-ledger, returned by [`client.intent.aw
 
 ## FeeIntent
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/2e7cf1f85dbecb529e95da97cc1178e0813259d6/src/domain/model.ts#L89)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/95b977b15f8950c5bc076b25165217869c0b06d3/src/domain/model.ts#L99)
 
 A normalized fee intent. The public surface never takes raw drops for the fee itself — each path translates this to its backend's fee model. Used as a connector's `defaultFee` and as the per-write `fee` option.
 
@@ -100,7 +100,7 @@ A normalized fee intent. The public surface never takes raw drops for the fee it
 
 ## CustodianKind
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/2e7cf1f85dbecb529e95da97cc1178e0813259d6/src/domain/model.ts#L10)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/95b977b15f8950c5bc076b25165217869c0b06d3/src/domain/model.ts#L10)
 
 Which signing backend a [connector](connectors/index.md) adapts. One of four string literals:
 
@@ -109,7 +109,7 @@ Which signing backend a [connector](connectors/index.md) adapts. One of four str
 
 ## CustodianRef
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/2e7cf1f85dbecb529e95da97cc1178e0813259d6/src/domain/model.ts#L18)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/95b977b15f8950c5bc076b25165217869c0b06d3/src/domain/model.ts#L18)
 
 A connector's opaque native identifier for an account, read only by the connector that owns it. One of:
 

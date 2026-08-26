@@ -8,7 +8,7 @@ labels:
 
 # iou.clawback()
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/24bdf29e215fd559229e24a9f57505952bfb39f7/src/verticals/iou.ts#L267)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/95b977b15f8950c5bc076b25165217869c0b06d3/src/verticals/iou.ts#L267)
 
 Reclaim a holder's balance back to the issuer.
 

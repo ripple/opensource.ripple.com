@@ -8,7 +8,7 @@ labels:
 
 # account.activate()
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/account.ts#L151)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/95b977b15f8950c5bc076b25165217869c0b06d3/src/verticals/account.ts#L153)
 
 Activate a created account by sending it XRP from the operator (primary) account, then enabling rippling. This is the any-network counterpart to [fund](fund.md). The account must be signable by this client (e.g., from [create](create.md)).
 
@@ -26,7 +26,7 @@ account.activate(
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | `destination` | `string` | Yes | The r-address to activate (typically from `Account.create`). |
-| `amount` | `string` | No | XRP to send. Defaults to the network's base reserve (plus a small buffer). |
+| `amount` | `string` | No | XRP to send, as a decimal string. Must be non-negative, with at most 6 decimal places (1 drop, XRP's smallest unit). Defaults to the network's base reserve (plus a small buffer). |
 
 ## Options
 

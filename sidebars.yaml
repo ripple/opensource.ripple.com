@@ -10,7 +10,6 @@
       items:
         - page: docs/simpleXRPL/tutorials/connect-to-custodian.md
         - page: docs/simpleXRPL/tutorials/account-discovery.md
-        - page: docs/simpleXRPL/tutorials/call-routing-report.md
         - page: docs/simpleXRPL/tutorials/issue-rwa-as-mpt.md
         - page: docs/simpleXRPL/tutorials/issue-and-distribute-iou.md
         - page: docs/simpleXRPL/tutorials/place-dex-order.md

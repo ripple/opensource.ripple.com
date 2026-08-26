@@ -8,7 +8,7 @@ labels:
 
 # iou.issue()
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/24bdf29e215fd559229e24a9f57505952bfb39f7/src/verticals/iou.ts#L101)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/95b977b15f8950c5bc076b25165217869c0b06d3/src/verticals/iou.ts#L101)
 
 Generate a new trust line-based IOU in one call: the issuer enables rippling, the hot wallet extends trust to the maximum limit, and if `amount` is given, the issuer distributes that amount to the hot wallet.
 

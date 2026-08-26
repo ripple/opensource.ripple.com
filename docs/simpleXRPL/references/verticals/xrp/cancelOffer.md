@@ -8,7 +8,7 @@ labels:
 
 # xrp.cancelOffer()
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/24bdf29e215fd559229e24a9f57505952bfb39f7/src/verticals/xrp.ts#L206)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/95b977b15f8950c5bc076b25165217869c0b06d3/src/verticals/xrp.ts#L205)
 
 Cancel a standing offer placed by the acting account.
 

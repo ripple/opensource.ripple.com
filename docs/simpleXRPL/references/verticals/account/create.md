@@ -8,7 +8,7 @@ labels:
 
 # account.create()
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/account.ts#L72)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/95b977b15f8950c5bc076b25165217869c0b06d3/src/verticals/account.ts#L74)
 
 Generate a new XRPL keypair locally and register it so it can be funded and used right away. Use this only to mint an additional account outside of `SimpleXRPL.init`. This method is intended for local connectors only.
 

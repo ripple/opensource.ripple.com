@@ -8,7 +8,7 @@ labels:
 
 # token.issue()
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/token.ts#L134)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/95b977b15f8950c5bc076b25165217869c0b06d3/src/verticals/token.ts#L112)
 
 Create a new MPT issuance.
 
@@ -16,9 +16,9 @@ Create a new MPT issuance.
 
 ```ts
 token.issue(
-  params: MptIssueParams,
+  params: TokenIssueParams,
   options?: TokenWriteOptions,
-): Promise<SubmissionResult<MptIssueIntent>>
+): Promise<SubmissionResult<TokenIssueIntent>>
 ```
 
 ## Parameters
@@ -28,8 +28,8 @@ token.issue(
 | `metadata` | `MPTokenMetadata \| string` | Yes | Token metadata: a structured object (encoded per the [XLS-89 standard](https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0089-multi-purpose-token-metadata-schema)) or a raw string (UTF-8 hex-encoded as-is). Validated against XLS-89; non-compliant metadata is rejected before submission. |
 | `assetScale` | `number` | No | Decimal places between the display value and base units. Defaults to `2`. |
 | `maximumAmount` | `string` | No | Maximum issuable amount, in base units. |
-| `transferFee` | `number` | No | Transfer fee on secondary sales, as a percentage (`0.5` = 0.5%, range 0–50). |
-| `flags` | `MptIssueFlags` | No | Capability flags (see below). |
+| `transferFee` | `number` | No | Transfer fee on secondary sales, as a percentage (`0.5` = 0.5%, range 0–50). Defaults to `0`. |
+| `flags` | `TokenIssueFlags` | No | Capability flags (see below). |
 
 The `flags` object accepts:
 
@@ -52,13 +52,13 @@ The `flags` object accepts:
 
 ## Returns
 
-Resolves to a `SubmissionResult<MptIssueIntent>`.
+Resolves to a `SubmissionResult<TokenIssueIntent>`.
 
 {% raw-partial file="/docs/_snippets/simplexrpl-response-fields.md" /%}
 
 ### Return fields
 
-For `Token.issue`, the `intent` (`MptIssueIntent`) carries:
+For `Token.issue`, the `intent` (`TokenIssueIntent`) carries:
 
 | Field | Type | Description |
 | --- | --- | --- |

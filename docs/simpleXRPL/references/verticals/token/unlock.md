@@ -8,7 +8,7 @@ labels:
 
 # token.unlock()
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/token.ts#L225)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/95b977b15f8950c5bc076b25165217869c0b06d3/src/verticals/token.ts#L216)
 
 Unlock a previously locked MPT issuance, or a specific holder's balance when `holder` is given.
 
@@ -16,7 +16,7 @@ Unlock a previously locked MPT issuance, or a specific holder's balance when `ho
 
 ```ts
 token.unlock(
-  params: MptLockParams,
+  params: TokenLockParams,
   options?: TokenWriteOptions,
 ): Promise<SubmissionResult>
 ```

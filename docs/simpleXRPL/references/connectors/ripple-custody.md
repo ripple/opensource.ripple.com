@@ -8,7 +8,7 @@ labels:
 
 # Ripple Custody
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/2e7cf1f85dbecb529e95da97cc1178e0813259d6/src/custodians/ripple/construction.ts#L37)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/95b977b15f8950c5bc076b25165217869c0b06d3/src/custodians/ripple/construction.ts#L35)
 
 Ripple Custody authenticates with an intent-author key exchanged for a token. A Custody deployment is per-tenant, so its gateway and token URLs point at the instance provisioned for you. See: [Generate a key pair and register a public key](https://docs.ripple.com/products/custody/identity-and-access/authentication/generate-api-keys-and-register) for instructions on creating API credentials to fill in this constructor.
 
@@ -31,7 +31,6 @@ RippleCustody.create(options: RippleCustodyOptions): Promise<RippleCustody>
 | `auth` | `RippleCustodyAuthOptions` | Yes | Intent-author credentials and token endpoint. |
 | `auth.signingKey` | `string` | Yes | Intent-author private key, as PEM contents. |
 | `auth.tokenUrl` | `string` | Yes | The Custody token endpoint URL. |
-| `auth.publicKey` | `string` | No | Matching public key, base64 SPKI DER. Derived from `signingKey` if omitted. |
 | `auth.clientId` | `string` | No | The OIDC client id to authenticate as. Defaults to `customer_api`. |
 | `domainId` | `string` | Yes | The Custody domain this custodian operates in. |
 | `primary` | `string` | Yes | The primary account's r-address; validated against the discovered set. |
@@ -56,7 +55,6 @@ The `env` requires these keys:
 - `RIPPLE_CUSTODY_GATEWAY_URL`
 - `RIPPLE_CUSTODY_AUTH_SIGNING_KEY`
 - `RIPPLE_CUSTODY_AUTH_TOKEN_URL`
-- `RIPPLE_CUSTODY_AUTH_PUBLIC_KEY` (optional)
 - `RIPPLE_CUSTODY_AUTH_CLIENT_ID` (optional)
 - `RIPPLE_CUSTODY_DOMAIN_ID`
 
@@ -100,7 +98,6 @@ For the Secrets Manager path, the secret's value must be a JSON object (not a ra
 | --- | --- | --- |
 | `private_key` | Yes | The intent-author private key, PEM contents. |
 | `user_alias` | Yes | The Custody user this keypair belongs to. Validated as present so an incomplete secret fails fast. |
-| `public_key` | No | The matching public key. Used when `RIPPLE_CUSTODY_AUTH_PUBLIC_KEY` is not set. |
 
 The AWS client is constructed with no explicit credentials, so it uses the default AWS SDK credential provider chain: environment variables, a shared profile, or the runtime's IAM role. Resolution throws `SimpleXRPLError` if the secret is empty, isn't valid JSON, or is missing `private_key` or `user_alias`.
 

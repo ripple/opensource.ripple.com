@@ -8,7 +8,7 @@ labels:
 
 # token.list()
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/token.ts#L79)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/95b977b15f8950c5bc076b25165217869c0b06d3/src/verticals/token.ts#L72)
 
 List the MPTs an account holds or issued.
 
@@ -24,7 +24,7 @@ token.list(
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| `role` | `'holder' \| 'issuer'` | No | List tokens the account holds or issued. Defaults to tokens held if ommitted. |
+| `role` | `'holder' \| 'issuer'` | No | List tokens the account holds or issued. Defaults to tokens held if omitted. |
 | `account` | `string` | No | The account to query. Defaults to the primary signer's account. |
 
 ## Returns

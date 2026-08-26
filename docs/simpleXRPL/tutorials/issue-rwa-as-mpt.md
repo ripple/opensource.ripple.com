@@ -35,9 +35,8 @@ const client = await SimpleXRPL.init({
   signers: [custody],
 })
 
-// Metadata is the only required input. The issuer is the primary signer (the
-// Custody account), and everything else — assetScale, transfer fee, and the
-// capability flags (clawback, transfer, …) — is left at its SDK default.
+// Metadata is the only required input, the SDK sets everything else.
+// The issuer is the primary signer (the Custody account).
 const result = await client.token.issue({
   metadata: {
     ticker: 'TBILL',
@@ -51,11 +50,10 @@ const result = await client.token.issue({
 console.log('issued MPT:', result.intent.mptIssuanceId)
 
 // Read the issuance back (no signer required): flags are decoded to booleans,
-// the transfer fee to a percentage, and XLS-89 metadata is parsed.
+// and XLS-89 metadata is parsed.
 const token = await client.token.retrieve({
   mptIssuanceId: result.intent.mptIssuanceId,
 })
-console.log('transfer fee (%):', token.data?.transferFee)
 console.log('can claw back:', token.data?.flags.canClawback)
 console.log('metadata:', token.data?.metadata?.name)
 

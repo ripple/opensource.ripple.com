@@ -8,7 +8,7 @@ labels:
 
 # Client
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/2e7cf1f85dbecb529e95da97cc1178e0813259d6/src/client/client.ts#L43)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/95b977b15f8950c5bc076b25165217869c0b06d3/src/client/client.ts#L70)
 
 `SimpleXRPL.init()` is `simpleXRPL`'s entry point, and it resolves to a **`SimpleXRPLClient`** — the runtime client. The client binds your pre-constructed [connectors](./connectors/index.md) to a network, discovers the accounts they hold, and exposes the [verticals](./verticals/index.md) you call to build operations. Its network connection and connector configuration are fixed for its lifetime.
 

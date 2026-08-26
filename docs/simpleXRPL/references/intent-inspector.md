@@ -8,7 +8,7 @@ labels:
 
 # Intent Inspector
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/2e7cf1f85dbecb529e95da97cc1178e0813259d6/src/client/intent-inspector.ts#L36)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/95b977b15f8950c5bc076b25165217869c0b06d3/src/client/intent-inspector.ts#L36)
 
 `client.intent` is a read-only view of custodian governance intents the SDK previously created. Use it to pick an intent back up by ID after its original submission has already returned. For example when a `submitAndWait` times out with `IntentPendingError`, or an async submission's handle wasn't retained.
 

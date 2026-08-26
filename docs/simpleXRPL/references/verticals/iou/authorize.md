@@ -8,7 +8,7 @@ labels:
 
 # iou.authorize()
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/iou.ts#L152)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/95b977b15f8950c5bc076b25165217869c0b06d3/src/verticals/iou.ts#L183)
 
 Grant authorization for a holder to hold this IOU. Only meaningful when the issuer's account has `asfRequireAuth` set.
 

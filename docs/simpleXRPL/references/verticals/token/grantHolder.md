@@ -8,7 +8,7 @@ labels:
 
 # token.grantHolder()
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/token.ts#L183)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/95b977b15f8950c5bc076b25165217869c0b06d3/src/verticals/token.ts#L174)
 
 As the issuer, grant a specific holder permission to hold this MPT (allow-listing). Use this when the issuance requires authorization.
 
@@ -16,7 +16,7 @@ As the issuer, grant a specific holder permission to hold this MPT (allow-listin
 
 ```ts
 token.grantHolder(
-  params: MptHolderParams,
+  params: TokenHolderParams,
   options?: TokenWriteOptions,
 ): Promise<SubmissionResult>
 ```

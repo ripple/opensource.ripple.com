@@ -8,7 +8,7 @@ labels:
 
 # token.lock()
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/token.ts#L211)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/95b977b15f8950c5bc076b25165217869c0b06d3/src/verticals/token.ts#L202)
 
 Lock an MPT issuance, or a specific holder's balance when `holder` is given.
 
@@ -16,7 +16,7 @@ Lock an MPT issuance, or a specific holder's balance when `holder` is given.
 
 ```ts
 token.lock(
-  params: MptLockParams,
+  params: TokenLockParams,
   options?: TokenWriteOptions,
 ): Promise<SubmissionResult>
 ```

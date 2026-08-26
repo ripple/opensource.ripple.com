@@ -8,7 +8,7 @@ labels:
 
 # token.authorize()
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/token.ts#L155)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/95b977b15f8950c5bc076b25165217869c0b06d3/src/verticals/token.ts#L146)
 
 Opt the calling account in to hold an MPT issuance.
 
@@ -16,7 +16,7 @@ Opt the calling account in to hold an MPT issuance.
 
 ```ts
 token.authorize(
-  params: MptAuthorizeParams,
+  params: TokenAuthorizeParams,
   options?: TokenWriteOptions,
 ): Promise<SubmissionResult<
 ```

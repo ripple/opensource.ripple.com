@@ -8,7 +8,7 @@ labels:
 
 # account.fund()
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/account.ts#L124)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/95b977b15f8950c5bc076b25165217869c0b06d3/src/verticals/account.ts#L126)
 
 Fund a created account via the network faucet (Testnet/Devnet), then enable [rippling](https://xrpl.org/docs/concepts/tokens/fungible-tokens/rippling). The account must be one this client can sign for (e.g. from [create](create.md)).
 

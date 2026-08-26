@@ -8,7 +8,7 @@ labels:
 
 # External
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/custodians/external/external-signer.ts#L40)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/95b977b15f8950c5bc076b25165217869c0b06d3/src/custodians/external/external-signer.ts#L42)
 
 An external connector signs with a key held by a KMS (AWS, GCP) or an HSM (PKCS#11, CloudHSM). The SDK owns the rest of the business operation lifecycle.
 
