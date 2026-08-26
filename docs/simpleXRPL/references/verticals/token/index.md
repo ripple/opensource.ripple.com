@@ -1,6 +1,6 @@
 ---
 seo:
-    description: The Token vertical in simpleXRPL issues and manages Multi-Purpose Tokens (MPTs) and places DEX offers.
+    description: The Token vertical in simpleXRPL issues and manages Multi-Purpose Tokens (MPTs).
 labels:
   - simpleXRPL
   - SDK
@@ -8,7 +8,7 @@ labels:
 
 # Token
 
-The `Token` vertical issues and manages [Multi-Purpose Tokens (MPTs)](https://xrpl.org/docs/concepts/tokens/fungible-tokens/multi-purpose-tokens) and places offers on the decentralized exchange.
+The `Token` vertical issues and manages [Multi-Purpose Tokens (MPTs)](https://xrpl.org/docs/concepts/tokens/fungible-tokens/multi-purpose-tokens).
 
 | Method | Description |
 | --- | --- |
@@ -20,9 +20,11 @@ The `Token` vertical issues and manages [Multi-Purpose Tokens (MPTs)](https://xr
 | [revokeHolder](revokeHolder.md) | Issuer revokes a specific holder's permission. |
 | [lock](lock.md) | Lock a token issuance, or a specific holder's balance. |
 | [unlock](unlock.md) | Unlock a token issuance, or a specific holder's balance. |
+| [clawback](clawback.md) | Reclaim a holder's MPT balance back to the issuer. |
 | [destroy](destroy.md) | Destroy an MPT issuance. |
-| [createOffer](createOffer.md) | Place an offer on the DEX. |
-| [cancelOffer](cancelOffer.md) | Cancel a standing offer. |
 | [retrieve](retrieve.md) | Read a single MPT issuance by id. |
 | [list](list.md) | List the MPTs an account holds or issued. |
-| [listOffers](listOffers.md) | List the DEX offers placed by an account. |
+
+{% admonition type="info" name="Note" %}
+The `Token` vertical places no DEX offers. MPTs are not yet tradeable on the XRPL DEX, so all offers go through the [XRP](../xrp/index.md) and [IOU](../iou/index.md) verticals.
+{% /admonition %}

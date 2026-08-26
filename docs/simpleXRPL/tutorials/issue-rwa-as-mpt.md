@@ -24,7 +24,7 @@ Real-World Assets are issued as Multi-Purpose Tokens (MPTs) via the `token` vert
 import { RippleCustody, SimpleXRPL } from 'simplexrpl'
 
 // The Custody-held issuer account; Custody governs every write it signs.
-const ISSUER_ADDRESS = process.env.RIPPLE_CUSTODY_PRIMARY ?? ''
+const ISSUER_ADDRESS = process.env.RIPPLE_CUSTODY_PRIMARY_ADDRESS ?? ''
 
 // Config (gateway, token endpoint, domain, intent-author key) comes from
 // `RIPPLE_CUSTODY_*` environment variables via `fromEnv`.

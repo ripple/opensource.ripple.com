@@ -8,7 +8,7 @@ labels:
 
 # iou.buyOffer()
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/iou.ts#L303)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/24bdf29e215fd559229e24a9f57505952bfb39f7/src/verticals/iou.ts#L332)
 
 Place an order on the DEX to acquire more of this IOU.
 
@@ -26,7 +26,7 @@ iou.buyOffer(
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | `ticker` | `string` | Yes | The currency code (3-character ISO-4217-style or 40-character hex; other codes are auto-encoded to hex). |
-| `amount` | `number` | Yes | The number of units of this IOU to buy. |
+| `amount` | `string` | Yes | The number of units of this IOU to buy, as a decimal string. Must be non-negative, with at most 15 significant digits. |
 | `orderType` | `IOUOrderType` | Yes | The order type: `'limit'`, `'market'`, `'fok'`, or `'passive'`. |
 | `price` | `IOUOfferPrice` | Yes | What's offered in payment — XRP, an MPT, or another IOU (see below). |
 | `domainID` | `string` | No | Restrict the offer to a permissioned domain. Omit for the open DEX. |
@@ -37,9 +37,9 @@ iou.buyOffer(
 
 | Shape | Description |
 | --- | --- |
-| `{ currency: 'XRP'; amount: number }` | Priced in XRP. |
-| `{ mptIssuanceId: string; amount: number }` | Priced in an MPT. |
-| `{ ticker: string; issuer: string; amount: number }` | Priced in another IOU. |
+| `{ currency: 'XRP'; amount: string }` | Priced in XRP. Must be non-negative, with at most 6 decimal places (1 drop, XRP's smallest unit). |
+| `{ mptIssuanceId: string; amount: string }` | Priced in an MPT. However, the XRPL DEX doesn't support MPTs yet and will always be rejected. |
+| `{ ticker: string; issuer: string; amount: string }` | Priced in another IOU. Must be non-negative, with at most 15 significant digits — the XRPL issued-currency limit. |
 
 ## Options
 
@@ -64,8 +64,8 @@ Builds and submits a single [OfferCreate](https://xrpl.org/docs/references/proto
 ```ts
 await client.iou.buyOffer({
   ticker: 'USD',
-  amount: 100,
+  amount: '100',
   orderType: 'limit',
-  price: { currency: 'XRP', amount: 50 },
+  price: { currency: 'XRP', amount: '50' },
 })
 ```

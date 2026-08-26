@@ -8,6 +8,9 @@
     - group: Tutorials
       expanded: false
       items:
+        - page: docs/simpleXRPL/tutorials/connect-to-custodian.md
+        - page: docs/simpleXRPL/tutorials/account-discovery.md
+        - page: docs/simpleXRPL/tutorials/call-routing-report.md
         - page: docs/simpleXRPL/tutorials/issue-rwa-as-mpt.md
         - page: docs/simpleXRPL/tutorials/issue-and-distribute-iou.md
         - page: docs/simpleXRPL/tutorials/place-dex-order.md
@@ -42,6 +45,12 @@
               items:
                 - page: docs/simpleXRPL/references/verticals/xrp/transfer.md
                   label: transfer()
+                - page: docs/simpleXRPL/references/verticals/xrp/buyOffer.md
+                  label: buyOffer()
+                - page: docs/simpleXRPL/references/verticals/xrp/sellOffer.md
+                  label: sellOffer()
+                - page: docs/simpleXRPL/references/verticals/xrp/cancelOffer.md
+                  label: cancelOffer()
             - group: Token
               page: docs/simpleXRPL/references/verticals/token/index.md
               expanded: false
@@ -62,18 +71,14 @@
                   label: lock()
                 - page: docs/simpleXRPL/references/verticals/token/unlock.md
                   label: unlock()
+                - page: docs/simpleXRPL/references/verticals/token/clawback.md
+                  label: clawback()
                 - page: docs/simpleXRPL/references/verticals/token/destroy.md
                   label: destroy()
-                - page: docs/simpleXRPL/references/verticals/token/createOffer.md
-                  label: createOffer()
-                - page: docs/simpleXRPL/references/verticals/token/cancelOffer.md
-                  label: cancelOffer()
                 - page: docs/simpleXRPL/references/verticals/token/retrieve.md
                   label: retrieve()
                 - page: docs/simpleXRPL/references/verticals/token/list.md
                   label: list()
-                - page: docs/simpleXRPL/references/verticals/token/listOffers.md
-                  label: listOffers()
             - group: IOU
               page: docs/simpleXRPL/references/verticals/iou/index.md
               expanded: false

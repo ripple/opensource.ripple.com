@@ -8,7 +8,7 @@ labels:
 
 # iou.cancelOffer()
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/iou.ts#L335)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/24bdf29e215fd559229e24a9f57505952bfb39f7/src/verticals/iou.ts#L364)
 
 Cancel a standing offer placed by this IOU's issuer.
 

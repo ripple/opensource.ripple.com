@@ -24,7 +24,7 @@ import { PalisadeCustody, RippleCustody, SimpleXRPL } from 'simplexrpl'
 // approvals), the distribution/hot wallet in Palisade. One client drives both.
 // Config comes from the environment / your secrets manager.
 const custody = await RippleCustody.fromEnv({
-  primary: process.env.RIPPLE_CUSTODY_PRIMARY ?? '',
+  primary: process.env.RIPPLE_CUSTODY_PRIMARY_ADDRESS ?? '',
 })
 const palisade = await PalisadeCustody.create({
   baseUrl: 'https://api.sandbox.palisade.co', // sandbox (TESTNET data)
@@ -53,10 +53,20 @@ const client = await SimpleXRPL.init({
 // The distribution/hot wallet on the Palisade connector.
 const hotWallet = client.resolveAccount(palisade.primary.address)
 
-// Each operation targets a different custodian. Issue an IOU as the Custody issuer
-// (the primary signer), then pay out from the Palisade hot wallet via `from` —
-// the client routes each call to the connector that owns the account.
-await client.iou.issue({ ticker: 'USD' })
+// Each step targets a different custodian, and the client routes each call to
+// the connector that owns the acting account. Issue a USD IOU with the Custody
+// account as issuer (the primary signer, default `from`) and the Palisade wallet
+// as the holder that extends trust — a genuinely cross-custodian issuance, since
+// `issue` sequences AccountSet (issuer) → TrustSet (holder) → Payment (issuer).
+// Naming `holder` is what selects this path; omitting it would instead bootstrap
+// both accounts from the local `XRPL_ISSUER_SEED` / `XRPL_HOT_WALLET_SEED` seeds.
+await client.iou.issue({
+  ticker: 'USD',
+  holder: hotWallet.address,
+  amount: '1000',
+})
+
+// Then pay out from the Palisade hot wallet via `from`.
 await client.xrp.transfer(
   { to: 'rBeneficiary00000000000000000000000', amount: '25' },
   { from: hotWallet.address },

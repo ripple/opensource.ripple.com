@@ -1,6 +1,6 @@
 ---
 seo:
-    description: Place buy and sell orders on the XRP Ledger DEX with the iou and token verticals, using familiar order types.
+    description: Place buy and sell orders on the XRP Ledger DEX with the iou vertical, using familiar order types.
 labels:
   - simpleXRPL
   - SDK
@@ -8,17 +8,20 @@ labels:
 
 # Place A DEX Order
 
-The `iou` vertical places orders to buy or sell an issued currency; the `token` vertical places generic offers between any two DEX-tradeable assets (XRP or IOU). The order type controls how the offer is worked.
+The `iou` vertical places orders to buy or sell an issued currency, priced in XRP or another IOU. The order type controls how the offer is worked.
 
 ```ts
 /**
  * Place an order on the DEX.
  *
- * The `iou` vertical places orders to buy or sell an issued currency; the
- * `token` vertical places generic offers between any two DEX-tradeable assets
- * (XRP or IOU). Order type controls how the offer is worked.
+ * The `iou` vertical places orders to buy or sell an issued currency, priced in
+ * XRP or another IOU. Order type controls how the offer is worked.
+ *
+ * MPTs (the `token` vertical) are deliberately absent here: the MPT DEX
+ * amendment is not yet live on-chain, so MPTs cannot be traded on the order
+ * book and there is no token-offer verb. All DEX offers go through `iou`.
  */
-import { iou, LocalSigner, SimpleXRPL, XRP_ASSET } from 'simplexrpl'
+import { LocalSigner, SimpleXRPL } from 'simplexrpl'
 
 const client = await SimpleXRPL.init({
   xrpldUrl: 'wss://s.altnet.rippletest.net:51233',
@@ -67,16 +70,6 @@ if (mine.data.length > 0) {
   await client.iou.cancelOffer({ offerSequence: mine.data[0].offerSequence })
 }
 
-// --- Via the token vertical: a generic XRP/IOU offer -----------------------
-await client.token.createOffer({
-  takerGets: { asset: XRP_ASSET, value: '50' },
-  takerPays: {
-    asset: iou('USD', 'rIssuer00000000000000000000000000000'),
-    value: '100',
-  },
-  flags: { immediateOrCancel: true },
-})
-
 await client.disconnect()
 ```
 
@@ -86,5 +79,4 @@ await client.disconnect()
 - [iou.sellOffer()](../references/verticals/iou/sellOffer.md)
 - [iou.cancelOffer()](../references/verticals/iou/cancelOffer.md)
 - [iou.listOffers()](../references/verticals/iou/listOffers.md)
-- [token.createOffer()](../references/verticals/token/createOffer.md)
 - [account.listOffers()](../references/verticals/account/listOffers.md)

@@ -8,7 +8,7 @@ labels:
 
 # iou.transfer()
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/iou.ts#L267)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/24bdf29e215fd559229e24a9f57505952bfb39f7/src/verticals/iou.ts#L300)
 
 Send a specified amount of this IOU to a destination account.
 
@@ -26,8 +26,8 @@ iou.transfer(
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | `ticker` | `string` | Yes | The currency code (3-character ISO-4217-style or 40-character hex; other codes are auto-encoded to hex). |
-| `destination` | `string` | Yes | The destination r-address. |
-| `amount` | `number` | Yes | The amount to send. |
+| `to` | `string` | Yes | The destination r-address. |
+| `amount` | `string` | Yes | The amount to send, as a decimal string (e.g. `'10'`, `'0.25'`). Must be non-negative, with at most 15 significant digits. |
 
 ## Options
 
@@ -45,8 +45,8 @@ For `IOU.transfer`, the `intent` (`IOUTransferIntent`) echoes:
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `destination` | `string` | Destination r-address. |
-| `amount` | `number` | Amount sent. |
+| `to` | `string` | Destination r-address. |
+| `amount` | `string` | Amount sent. |
 
 ## Underlying XRPL transactor
 
@@ -57,7 +57,7 @@ Builds and submits a single [Payment](https://xrpl.org/docs/references/protocol/
 ```ts
 await client.iou.transfer({
   ticker: 'USD',
-  destination: 'rHolder...',
-  amount: 100,
+  to: 'rHolder...',
+  amount: '100',
 })
 ```

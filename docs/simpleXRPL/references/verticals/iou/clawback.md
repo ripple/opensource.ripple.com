@@ -8,7 +8,7 @@ labels:
 
 # iou.clawback()
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/iou.ts#L234)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/24bdf29e215fd559229e24a9f57505952bfb39f7/src/verticals/iou.ts#L267)
 
 Reclaim a holder's balance back to the issuer.
 
@@ -31,7 +31,7 @@ iou.clawback(
 | --- | --- | --- | --- |
 | `ticker` | `string` | Yes | The currency code (3-character ISO-4217-style or 40-character hex; other codes are auto-encoded to hex). |
 | `holder` | `string` | Yes | The holder's r-address to claw the currency back from. |
-| `amount` | `number` | Yes | The amount to claw back. |
+| `amount` | `string` | Yes | The amount to claw back, as a decimal string. Must be non-negative, with at most 15 significant digits. |
 
 ## Options
 
@@ -50,7 +50,7 @@ For `IOU.clawback`, the `intent` (`IOUClawbackIntent`) echoes:
 | Field | Type | Description |
 | --- | --- | --- |
 | `holder` | `string` | The holder's r-address clawed back from. |
-| `amount` | `number` | The amount clawed back. |
+| `amount` | `string` | The amount clawed back. |
 
 ## Underlying XRPL transactor
 
@@ -62,6 +62,6 @@ Builds and submits a single [Clawback](https://xrpl.org/docs/references/protocol
 await client.iou.clawback({
   ticker: 'USD',
   holder: 'rHolder...',
-  amount: 50,
+  amount: '50',
 })
 ```

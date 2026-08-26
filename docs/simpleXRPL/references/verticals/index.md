@@ -14,9 +14,9 @@ Most vertical methods submit a transaction and resolve to a `Promise<SubmissionR
 
 | Vertical | Reached as | What it does |
 | --- | --- | --- |
-| [XRP](xrp/index.md) | `client.xrp` | Native XRP payments. |
-| [Token](token/index.md) | `client.token` | Issue and manage [Multi-Purpose Tokens (MPTs)](https://xrpl.org/docs/concepts/tokens/fungible-tokens/multi-purpose-tokens) and place DEX offers. |
-| [IOU](iou/index.md) | `client.iou` | Issue and manage trust line-based issued currencies. |
+| [XRP](xrp/index.md) | `client.xrp` | Native XRP payments, and DEX orders with XRP as the base asset. |
+| [Token](token/index.md) | `client.token` | Issue and manage [Multi-Purpose Tokens (MPTs)](https://xrpl.org/docs/concepts/tokens/fungible-tokens/multi-purpose-tokens). |
+| [IOU](iou/index.md) | `client.iou` | Issue and manage trust line-based issued currencies, and place DEX orders in them. |
 | [Credential](credential/index.md) | `client.credential` | Issue, accept, and delete on-ledger [credentials](https://xrpl.org/docs/concepts/decentralized-storage/credentials). |
 | [Domain](domain/index.md) | `client.domain` | Create, update, and delete [permissioned domains](https://xrpl.org/docs/concepts/tokens/decentralized-exchange/permissioned-dexes). |
 | [Account](account/index.md) | `client.account` | Account creation, funding, and administration. |

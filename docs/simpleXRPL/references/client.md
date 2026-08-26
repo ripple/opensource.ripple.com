@@ -85,6 +85,31 @@ The primary connector's account address, or `undefined` on a no-signer client. R
 SimpleXRPLClient.primaryAddress(): string | undefined
 ```
 
+### resolveAccount()
+
+Resolve an [AccountSelector](types.md#accountselector) to the full [Account](types.md#account) record — the r-address paired with the connector that signs for it. This is the same resolution every write performs on its `from` option, exposed so you can inspect or reuse the result: pass the returned account's `signer` to another call, or read its `custodianRef` and `ledgerId`.
+
+Called with no selector, it returns the primary connector's primary account. Unlike [primaryAddress()](#primaryaddress), it throws rather than returning `undefined`.
+
+```ts
+SimpleXRPLClient.resolveAccount(selector?: AccountSelector): Account
+```
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `selector` | `AccountSelector` | No | An r-address, an object `{ address }`, or `{ signer, account? }`. Defaults to the primary connector's primary account. |
+
+Throws `NoSignerError` if no selector is given and the client has no signers, or `AccountNotFoundError` if the address isn't registered — or if an explicit `{ signer, account }` names an account that signer doesn't own.
+
+```ts
+// The primary account, whichever connector owns it.
+const primary = client.resolveAccount()
+
+// A specific address, resolved to the connector that holds it.
+const hotWallet = client.resolveAccount('rHotWallet...')
+console.log(hotWallet.signer.kind)
+```
+
 
 ## Example
 

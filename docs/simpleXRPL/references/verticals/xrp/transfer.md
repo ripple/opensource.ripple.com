@@ -8,7 +8,7 @@ labels:
 
 # xrp.transfer()
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/xrp.ts#L67)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/24bdf29e215fd559229e24a9f57505952bfb39f7/src/verticals/xrp.ts#L145)
 
 Send native XRP from one account to another.
 

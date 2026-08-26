@@ -8,7 +8,7 @@ labels:
 
 # account.listOffers()
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/account.ts#L105)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/24bdf29e215fd559229e24a9f57505952bfb39f7/src/verticals/account.ts#L106)
 
 List the open DEX offers placed by an account.
 
@@ -32,7 +32,21 @@ Resolves to a `ListOffersResult`:
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `readonly OfferSummary[]` | The shaped open offers. See [token.listOffers](../token/listOffers.md#offersummary) for `OfferSummary`. |
+| `data` | `readonly OfferSummary[]` | The shaped open offers. |
+
+### OfferSummary
+
+Each offer mirrors the `buyOffer` / `sellOffer` input format, so it's composable back into those write operations.
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `offerSequence` | `number` | The offer's sequence number (pass to `cancelOffer`). |
+| `amount` | `string` | The quantity of the base asset being traded, as a decimal string. |
+| `price` | `IOUOfferPrice` | What is paid/received for it, in offer-price form. |
+| `orderType` | `'limit' \| 'passive'` | Resting offers are `limit`, or `passive` when the passive flag is set. |
+| `type` | `'buy' \| 'sell'` | Whether the offer buys or sells the base asset. |
+
+Amounts stay strings rather than being coerced to `number`: these values compose back into [iou.buyOffer](../iou/buyOffer.md) / [iou.sellOffer](../iou/sellOffer.md), and rounding an exact ledger amount through a double would silently change the order you re-place from a read.
 
 ## Underlying XRPL request
 

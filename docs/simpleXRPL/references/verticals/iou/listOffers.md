@@ -8,12 +8,12 @@ labels:
 
 # iou.listOffers()
 
-[[Source]](https://github.com/ripple/simpleXRPL/blob/50619258cf753008e8a185eaeb3ceca489e5998a/src/verticals/iou.ts#L130)
+[[Source]](https://github.com/ripple/simpleXRPL/blob/24bdf29e215fd559229e24a9f57505952bfb39f7/src/verticals/iou.ts#L161)
 
 List all open offers in the market for this IOU (both sides), tagged buy/sell relative to it.
 
 {% admonition type="info" name="Note" %}
-Unlike [token.listOffers](../token/listOffers.md) and [account.listOffers](../account/listOffers.md) — which list a single **account's own** resting offers — `iou.listOffers` reads the whole **order book** for the IOU across all accounts.
+Unlike [account.listOffers](../account/listOffers.md) — which lists a single **account's own** resting offers — `iou.listOffers` reads the whole **order book** for the IOU across all accounts.
 {% /admonition %}
 
 ## Signature
@@ -37,7 +37,7 @@ Resolves to a `ListOffersResult`:
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `readonly OfferSummary[]` | The shaped open offers, tagged buy/sell relative to the IOU. See [token.listOffers](../token/listOffers.md#offersummary) for `OfferSummary`. |
+| `data` | `readonly OfferSummary[]` | The shaped open offers, tagged buy/sell relative to the IOU. See [account.listOffers](../account/listOffers.md#offersummary) for `OfferSummary`. |
 
 ## Underlying XRPL request
 
