@@ -133,7 +133,7 @@ export default function Page() {
             </Button>
           </Card>
 
-          <Card title="QA Test Report" to="https://dev.to/ripplexdev/account-permission-delegation-qa-test-report-3j69">
+          <Card title="QA Test Report" to="https://dev.to/ripplexdev/account-permission-delegation-qa-test-report-4ia0">
             <p>
             The QA Test Report presents results of QA testing performed on the feature across rippled and Clio servers.
             </p>
