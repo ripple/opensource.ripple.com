@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import * as React from "react";
 import { H1, H2, Button } from "@redocly/theme";
+import { GithubIcon } from "@redocly/theme/icons/GithubIcon/GithubIcon";
 
 const Header1 = styled(H1)`
   color: white !important;
@@ -76,6 +77,56 @@ function ButtonToXRPL({ children }) {
   </XRPLStyledButton>
 }
 
+const GitHubStyledButton = styled(Button)`
+  margin-left: auto;
+  flex-shrink: 0;
+  color: var(--card-text-color);
+
+  svg path {
+    fill: currentColor;
+  }
+
+  &:hover {
+    color: var(--color-primary-base);
+  }
+`;
+
+// A button, not an anchor: the enclosing Card is already a link.
+function ButtonToGitHub({ to, label = "GitHub" }) {
+  return (
+    <GitHubStyledButton
+      variant="text"
+      size="large"
+      icon={<GithubIcon />}
+      title="View the source on GitHub"
+      onClick={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        window.open(to, "_blank", "noopener,noreferrer");
+      }}
+    >
+      {label}
+    </GitHubStyledButton>
+  );
+}
+
+const CardActionsRow = styled.div`
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  width: 100%;
+`;
+
+// Card CTA row, with an optional right-aligned GitHub link.
+function CardActions({ github, children }) {
+  return (
+    <CardActionsRow className="card-actions">
+      {children}
+      {github && <ButtonToGitHub to={github} />}
+    </CardActionsRow>
+  );
+}
+
 // Key Dates component for feature pages
 function KeyDatesCard(props: {
     title:string, 
@@ -141,6 +192,8 @@ export {
   LandingLayout, 
   Jumbotron, 
   ButtonToXRPL, 
+  ButtonToGitHub,
+  CardActions,
   KeyDatesCard, 
   KeyDate,
   FeatureHeader,

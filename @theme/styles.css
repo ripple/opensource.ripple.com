@@ -559,18 +559,22 @@ html:not(.light) .feature-event {
   color: #FFF;
 }
 
-/* Fix Card Buttons Alignment */
-.redocly-card-filled {
-  min-height: 155px;
-  display: flex;
-  flex-direction: column;
-}
-
-.redocly-card-filled > p {
+/* Align card buttons to the bottom of each card */
+.card-variant-filled > div:last-child > div:last-child {
   flex-grow: 1;
 }
 
-.redocly-card-filled button {
+.card-variant-filled > div:last-child > div:last-child > div:last-child {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-variant-filled > div:last-child > div:last-child > div:last-child > button:last-child,
+.card-variant-filled > div:last-child > div:last-child > div:last-child > .card-actions:last-child {
   margin-top: auto;
-  display: inline-flex;
+}
+
+.card-variant-filled > div:last-child > div:last-child > div:last-child > button:last-child {
+  align-self: flex-start;
 }
