@@ -30,6 +30,13 @@ export default function Page() {
             </Button>
           </Card>
 
+          <Card title="Lending Protocol V1_1" to="docs/lending-protocol-v1-1/">
+            <p>Extends Single Asset Vaults and the Lending Protocol with closed-ended vaults and cash-basis accounting.</p>
+            <Button size="large" variant="primary">
+              Learn more
+            </Button>
+          </Card>
+
           <Card title="Lending Protocol" to="docs/xls-66-lending-protocol/">
             <p>The XRPL-native lending protocol offers on-chain, fixed-term loans, utilizing pooled funds from single-asset vaults.</p>
             <Button size="large" variant="primary">

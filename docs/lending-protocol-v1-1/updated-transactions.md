@@ -1,7 +1,7 @@
 ---
 seo:
     title: Updated Transactions
-    description: The Lending Protocol V1.1 amendment adds closed-ended vault fields to VaultCreate and adds phase restrictions to VaultDeposit and VaultWithdraw.
+    description: The Lending Protocol V1.1 amendment adds closed-ended vault fields to VaultCreate and adds phase restrictions to VaultDeposit, VaultWithdraw, and LoanSet.
 labels:
     - Transactions
     - Single Asset Vault
@@ -11,7 +11,7 @@ status: not_enabled
 
 # Updated Transactions
 
-The [LendingProtocolV1_1 amendment][] updates three existing transactions to support [closed-ended vaults](./closed-ended-vaults.md).
+The [LendingProtocolV1_1 amendment][] updates four existing transactions to support [closed-ended vaults](./closed-ended-vaults.md).
 
 _(Requires the [LendingProtocolV1_1 amendment][] {% not-enabled /%})_
 
@@ -68,13 +68,34 @@ Withdrawals from an open-ended vault are unaffected.
 | :------------- | :---------- |
 | `tecTOO_SOON`  | The vault is closed-ended and is in its Investment phase. |
 
+## LoanSet
+
+A loan can only be originated against a closed-ended vault during its **Investment** phase, and only if the loan matures before the vault does. Specifically, the loan's final scheduled payment must fall strictly before the vault's `RedemptionDate`:
+
+```text
+StartDate + (PaymentInterval × PaymentTotal) < RedemptionDate
+```
+
+This means the maximum term of a new loan shrinks as the vault approaches its `RedemptionDate`. A vault with three months left in its Investment phase can't originate a twelve-month loan.
+
+Loans against an open-ended vault are unaffected.
+
+### New Error Cases
+
+| Error Code         | Description |
+| :----------------- | :---------- |
+| `tecTOO_SOON`      | The vault is closed-ended and is still in its Subscription phase. |
+| `tecEXPIRED`       | The vault is closed-ended and has entered its Redemption phase. |
+| `tecNO_PERMISSION` | The vault is closed-ended and the loan's final scheduled payment falls on or after the vault's `RedemptionDate`. |
+
 ## See Also
 
 - [Closed-Ended Vaults](./closed-ended-vaults.md)
+- [Cash-Basis Accounting](./cash-basis-accounting.md)
 - [Updated Ledger Entries](./updated-ledger-entries.md)
 - [VaultCreate transaction][]
 - [VaultDeposit transaction][]
 - [VaultWithdraw transaction][]
-- [Updated Transactions (Lending Protocol)](../../xls-66-lending-protocol/lending-protocol-1-1/updated-transactions.md)
+- [LoanSet transaction][]
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}

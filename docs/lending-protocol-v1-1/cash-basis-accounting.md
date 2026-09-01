@@ -76,7 +76,7 @@ Treat an absent `LEVersion` as Legacy — whole-life accounting — rather than 
 
 ## See Also
 
-- [Closed-Ended Vaults](../../xls-65-single-asset-vault/lending-protocol-1-1/closed-ended-vaults.md)
+- [Closed-Ended Vaults](./closed-ended-vaults.md)
 - [Updated Transactions](./updated-transactions.md)
 - [Vault entry][]
 - [Loan entry][]
