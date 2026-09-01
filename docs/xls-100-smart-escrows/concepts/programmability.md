@@ -19,7 +19,7 @@ The conversion between units of gas and units of XRP is flexible, and can be cha
 
 Code in many programming languages can be compiled to machine code that runs in the XRP Ledger's WASM engine, but Rust is recommended as the language of choice for smart function and smart contract development. The `xrpl_wasm_stdlib` library provides higher-level abstractions to the host functions that the XRPL's WASM engine provides for interacting with transaction and ledger data.
 
-For setup instructions, smart function examples, API definitions and more, see the **[XRPL WebAssembly Standard Library Documentation](https://ripple.github.io/xrpl-wasm-stdlib/xrpl_wasm_stdlib/guide/index.html)**.
+For setup instructions, smart function examples, API definitions and more, see the **[XRPL WebAssembly Standard Library Documentation](https://ripple.github.io/xrpl-wasm-stdlib/xrpl_common_stdlib/guide/index.html)**.
 
 ## Smart Escrows
 
