@@ -4,7 +4,8 @@ import {
   LandingLayout,
   FeatureHeader,
   FeatureContent,
-  ButtonToXRPL
+  ButtonToXRPL,
+  CardActions
 } from "../../components/landing";
 import { AmendmentTracker } from "../../components/AmendmentTracker";
 import { Button } from "@redocly/theme";
@@ -106,9 +107,11 @@ export default function Page() {
             <p>
               Explore a full lending platform built on the Lending Protocol and Single Asset Vaults, featuring dedicated dashboards for brokers, depositors, and borrowers.
             </p>
-            <Button size="large" variant="primary">
-              Try the Demo App
-            </Button>
+            <CardActions github="https://github.com/ripple/xrpl-reference-app-lending-sav">
+              <Button size="large" variant="primary">
+                Try the Demo App
+              </Button>
+            </CardActions>
           </Card>
           <Card
             title="Security Audit"
