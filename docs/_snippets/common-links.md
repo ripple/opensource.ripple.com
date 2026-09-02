@@ -22,10 +22,12 @@
 [ledger entry types]: https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/
 [Ledger Index]: https://xrpl.org/docs/references/protocol/data-types/basic-data-types#ledger-index
 [ledger index]: https://xrpl.org/docs/references/protocol/data-types/basic-data-types/#ledger-index
+[LendingProtocolV1_1]: https://xrpl.org/resources/known-amendments#lendingprotocolv1_1
 [LendingProtocolV1_1 amendment]: https://xrpl.org/resources/known-amendments#lendingprotocolv1_1
 [Lending Protocol]: https://xrpl.org/docs/concepts/tokens/lending-protocol
 [LoanSet transaction]: https://xrpl.org/docs/references/protocol/transactions/types/loanset
 [Loan entry]: https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/loan
+[LoanBroker entry]: https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/loanbroker
 [PaymentChannelClaim]: https://xrpl.org/docs/references/protocol/transactions/types/paymentchannelclaim
 [Payment]: https://xrpl.org/docs/references/protocol/transactions/types/payment
 [PermissionedDomain entry]: /docs/xls-80d-permissioned-domains/permissioneddomain.md
