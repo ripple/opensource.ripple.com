@@ -1,18 +1,6 @@
----
-seo:
-    title: Updated Ledger Entries
-    description: The Lending Protocol V1.1 amendment adds three fields to the Vault ledger entry to support closed-ended vaults.
-labels:
-    - Single Asset Vault
-    - Lending Protocol
-status: not_enabled
----
-
 # Updated Ledger Entries
 
-The [LendingProtocolV1_1 amendment][] adds three fields to the [Vault entry][] to support [closed-ended vaults](./closed-ended-vaults.md).
-
-_(Requires the [LendingProtocolV1_1 amendment][] {% not-enabled /%})_
+The [LendingProtocolV1_1 amendment][] updates the following ledger entries:
 
 ## Vault
 
@@ -20,13 +8,21 @@ _(Requires the [LendingProtocolV1_1 amendment][] {% not-enabled /%})_
 
 | Name                | JSON Type | [Internal Type][] | Required? | Description |
 | :------------------ | :-------- | :---------------- | :-------- | :---------- |
-| `VaultKind`         | Number    | UInt8             | No        | The kind of vault. `0` (the default) is an open-ended vault; `1` is a closed-ended vault. **Omitted from API responses when the value is `0`** — treat an absent `VaultKind` as open-ended. Immutable. |
-| `SubscriptionDate`  | Number    | UInt32            | No        | _(Closed-ended vaults only)_ The time, in [seconds since the Ripple Epoch][], when the vault's subscription window closes and its investment period begins. Required when `VaultKind` is `1`, and never present otherwise. Immutable. |
-| `RedemptionDate`    | Number    | UInt32            | No        | _(Closed-ended vaults only)_ The time, in [seconds since the Ripple Epoch][], when the vault's investment period ends and depositors can redeem their shares. Required when `VaultKind` is `1`, and never present otherwise. Immutable. |
+| `LEVersion`         | Number    | UInt8             | No        | Indicates what type of accounting the vault uses. `1` indicates the vault uses cash-basis accounting. If this field is ommitted, the vault uses whole-life accounting. |
+| `VaultKind`         | Number    | UInt8             | No        | Indicates the kind of vault. `0` is an open-ended vault; `1` is a closed-ended vault. |
+| `SubscriptionDate`  | Number    | UInt32            | No        | _(Closed-ended vaults only)_ The time, in [seconds since the Ripple Epoch][], when the vault's subscription window closes and its investment period begins. |
+| `RedemptionDate`    | Number    | UInt32            | No        | _(Closed-ended vaults only)_ The time, in [seconds since the Ripple Epoch][], when the vault's investment period ends and depositors can redeem their shares. |
 
-All three fields are set by the [VaultCreate transaction][] and can't be changed afterwards. The [VaultSet transaction][] doesn't accept them, and a ledger-level invariant rejects any transaction that modifies them.
+{% admonition type="info" name="Note" %}
+`VaultKind`, `SubscriptionDate`, and `RedemptionDate` are set using the [VaultCreate transaction][] and can't be changed afterwards. `LEVersion` is also set by `VaultCreate`, but the value is determined by if the `LendingProtocolV1_1` amendment is enabled.
+{% /admonition %}
 
-For closed-ended vaults, `RedemptionDate` - `SubscriptionDate` is always at least `60` seconds and less than `946708560` seconds (30 Gregorian years).
+### Changed Fields
+
+| Name                | JSON Type | [Internal Type][] | Required? | Description |
+| :------------------ | :-------- | :---------------- | :-------- | :---------- |
+| `AssetsTotal`       | Number    | Number            |       Yes | The total value of the vault. It doesn't include potential earnings from unpaid loans. |
+| `LossUnrealized`    | Number    | Number            | Yes       | The potential loss amount that is not yet realized, expressed as the vault's asset. Only a protocol connected to the vault can modify this attribute. Unrealized losses from interest aren't included in this value. |
 
 ### Example Closed-Ended Vault JSON
 
@@ -43,6 +39,7 @@ For closed-ended vaults, `RedemptionDate` - `SubscriptionDate` is always at leas
   "AssetsTotal": "0",
   "Data": "5661756C74206D65746164617461",
   "Flags": 0,
+  "LEVersion": 1,
   "LossUnrealized": "0",
   "Owner": "rNGHoQwNG753zyfDrib4qDvvswbrtmV8Es",
   "OwnerNode": "0",
@@ -56,12 +53,12 @@ For closed-ended vaults, `RedemptionDate` - `SubscriptionDate` is always at leas
 }
 ```
 
-An open-ended vault created with the amendment enabled looks exactly like one created before it: none of the three fields appear.
+## LoanBroker
 
-## See Also
+### Changed Fields
 
-- [Closed-Ended Vaults](./closed-ended-vaults.md)
-- [Vault entry][]
-- [VaultCreate transaction][]
+| Name        | JSON Type | [Internal Type][] | Required? | Description |
+| :---------- | :-------- | :---------------- | :-------- | :---------- |
+| `DebtTotal` | String    | Number            | Yes       | The principal asset amount the protocol owes the vault. |
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}

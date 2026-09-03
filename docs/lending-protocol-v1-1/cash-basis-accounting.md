@@ -22,8 +22,8 @@ Vaults created with whole-life accounting remain so permanently, even after the 
 
 ## Additional Accounting Changes
 
-- Vault share prices are tracked against realized income from interest and fees actually paid. A vault's `AssetsTotal` no longer rises at the moment a loan is written, so a vault's shares aren't marked up on scheduled income.
-- Losses show as smaller values, since it only accounts for outstanding principal amount. Whole-life accounting included lost income from fees and interest, adding to the loss amount.
-- Loan brokers can potentially issue more loans, since their `DebtTotal` and `DebtMaximum` values only factor realized amounts, not including all scheduled fees and interest.
+- Vault share prices are tracked against realized income from interest actually paid. A vault's `AssetsTotal` no longer rises at the moment a loan is written, so a vault's shares aren't marked up on scheduled income.
+- Losses show as smaller values, since it only accounts for outstanding principal amount. Whole-life accounting included lost income from interest added to the principal loss amount.
+- Loan brokers can potentially issue more loans, since their `DebtTotal` and `DebtMaximum` values only account for realized amounts, not including all scheduled income from interest.
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}
