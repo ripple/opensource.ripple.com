@@ -23,8 +23,8 @@ The [LendingProtocolV1_1 amendment][] updates the following ledger entries:
 
 | Name                | JSON Type | [Internal Type][] | Required? | Description |
 | :------------------ | :-------- | :---------------- | :-------- | :---------- |
-| `AssetsTotal`       | Number    | Number            |       Yes | The total value of the vault. It doesn't include potential earnings from unpaid loans. |
-| `LossUnrealized`    | Number    | Number            | Yes       | The potential loss amount that is not yet realized, expressed as the vault's asset. Only a protocol connected to the vault can modify this attribute. Unrealized losses from interest aren't included in this value. |
+| `AssetsTotal`       | String    | Number            | Yes       | The total value of the vault. Calculated as: `assets available + assets on loan`.<ul><li>_Cash-basis vaults_: Potential interest from scheduled, unpaid loans **doesn't** count toward the total.</li><li>_Whole-life vaults_: Potential interest from scheduled, unpaid loans **does** count toward the total.</li></ul> |
+| `LossUnrealized`    | String    | Number            | Yes       | The potential loss amount that is not yet realized, expressed as the vault's asset. Only a protocol connected to the vault can modify this attribute.<ul><li>_Cash-basis vaults_: Unrealized losses from interest **aren't** included in this value.</li><li>_Whole-life vaults_: Unrealized losses from interest **are** included in this value.</li></ul> |
 
 ### Example Closed-Ended Vault JSON
 
