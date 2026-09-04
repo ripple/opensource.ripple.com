@@ -25,6 +25,21 @@ The [LendingProtocolV1_1 amendment][] updates the following transactions to supp
 | `tecEXPIRED`   | `SubscriptionDate` or `RedemptionDate` isn't ahead of the parent ledger's close time. |
 | `temDISABLED`  | `VaultKind`, `SubscriptionDate`, or `RedemptionDate` is present and the [LendingProtocolV1_1 amendment][] isn't enabled. |
 
+## VaultDelete
+
+### New Fields
+
+| Field Name | JSON Type | [Internal Type][] | Required? | Description |
+| :--------- | :-------- | :---------------- | :-------- | :---------- |
+| `MemoData` | String    | Blob              | No        | A data field to record why the vault was deleted, as hexadecimal. Limited to 256 bytes. |
+
+### New Error Cases
+
+| Error Code     | Description |
+| :------------- | :---------- |
+| `temMALFORMED` | <li>`MemoData` is present but empty.</li><li>`MemoData` is larger than `256` bytes.</li> |
+| `temDISABLED`  | `MemoData` is present and the [LendingProtocolV1_1 amendment][] isn't enabled. |
+
 ## VaultDeposit
 
 ### New Error Cases
