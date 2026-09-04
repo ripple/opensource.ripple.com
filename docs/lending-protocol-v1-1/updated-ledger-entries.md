@@ -6,10 +6,12 @@ The [LendingProtocolV1_1 amendment][] updates the following ledger entries:
 
 ### New Fields
 
+<!-- Update vault_info method page with these new/changed fields. -->
+
 | Name                | JSON Type | [Internal Type][] | Required? | Description |
 | :------------------ | :-------- | :---------------- | :-------- | :---------- |
 | `LEVersion`         | Number    | UInt8             | No        | Indicates what type of accounting the vault uses. `1` indicates the vault uses cash-basis accounting. If this field is ommitted, the vault uses whole-life accounting. |
-| `VaultKind`         | Number    | UInt8             | No        | Indicates the kind of vault. `0` is an open-ended vault; `1` is a closed-ended vault. |
+| `VaultKind`         | Number    | UInt8             | No        | Indicates the kind of vault. `1` is a closed-ended vault. If this field is omitted, it's an open-ended vault. |
 | `SubscriptionDate`  | Number    | UInt32            | No        | _(Closed-ended vaults only)_ The time, in [seconds since the Ripple Epoch][], when the vault's subscription window closes and its investment period begins. |
 | `RedemptionDate`    | Number    | UInt32            | No        | _(Closed-ended vaults only)_ The time, in [seconds since the Ripple Epoch][], when the vault's investment period ends and depositors can redeem their shares. |
 

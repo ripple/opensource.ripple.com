@@ -25,7 +25,6 @@
         - page: docs/lending-protocol-v1-1/cash-basis-accounting.md
         - page: docs/lending-protocol-v1-1/updated-ledger-entries.md
         - page: docs/lending-protocol-v1-1/updated-transactions.md
-        - page: docs/lending-protocol-v1-1/updated-api-methods.md
     - page: docs/xls-66-lending-protocol/index.page.tsx
     - page: docs/xls-65-single-asset-vault/index.page.tsx
     - page: docs/xls-56-batch-transactions/index.page.tsx
