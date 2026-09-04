@@ -16,7 +16,7 @@ You can't choose which accounting model to use when creating a vault. It is deci
 - If not enabled, vaults use whole-life accounting.
 - If enabled, vaults use cash-basis accounting.
 
-{% admonition type="info" name="Reading a vault's accounting model" %}
+{% admonition type="info" name="Note" %}
 Vaults created with whole-life accounting remain so permanently, even after the amendment activates.
 {% /admonition %}
 
