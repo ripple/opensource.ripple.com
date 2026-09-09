@@ -11,7 +11,7 @@ With the amendment, new vaults use _cash-basis_ accounting instead and interest 
 
 ## Which Model a Vault Uses
 
-You can't choose which accounting model to use when creating a vault. It is decided based on if `LendingProtocolV1_1` is enabled or not.
+You can't choose which accounting model to use when creating a vault. The status of the `LendingProtocolV1_1` amendment determines the model:
 
 - If not enabled, vaults use whole-life accounting.
 - If enabled, vaults use cash-basis accounting.
