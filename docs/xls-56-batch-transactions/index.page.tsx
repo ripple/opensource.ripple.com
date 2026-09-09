@@ -95,7 +95,7 @@ export default function Page() {
             </p>
             <ButtonToXRPL>Read the Tutorials</ButtonToXRPL>
           </Card>
-          <Card title="Security Audit" to="https://www.halborn.com/audits/ripple/ripple---batch---smart-contract-assessment-420598">
+          <Card title="Security Audit" to="https://www.halborn.com/audits/ripple/batch-re-audit-314089">
             <p>
             The security audit performed by third-party security experts, including a link to the full, detailed security audit report. 
             </p>
@@ -111,7 +111,7 @@ export default function Page() {
               Read the Perf Testing Report
             </Button>
           </Card>
-          <Card title="QA Test Report" to="https://dev.to/ripplexdev/batch-transaction-qa-test-report-17em">
+          <Card title="QA Test Report" to="https://dev.to/ripplexdev/batch-transaction-qa-test-report-5g5g">
             <p>
             The QA Test Report presents results of QA testing performed on the feature across rippled and Clio servers.
             </p>
