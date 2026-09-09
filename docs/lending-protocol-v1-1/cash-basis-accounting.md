@@ -2,7 +2,7 @@
 
 The `LendingProtocolV1_1` amendment changes how a vault recognizes interest income from the loans it funds.
 
-Before the amendment, the lending protocol used a _whole-life_ (accrual) model: the moment a loan was originated, the full interest the borrower was scheduled to pay over the life of the loan was recognized as vault income. The vault's accounting reflected money it hadn't received yet, and that recognition had to be unwound if the borrower stopped paying.
+Before the amendment, the Lending Protocol used a _whole-life_ (accrual) model: the moment a loan was originated, the full interest the borrower was scheduled to pay over the life of the loan was recognized as vault income. The vault's accounting reflected money it hadn't received yet, and that recognition had to be unwound if the borrower stopped paying.
 
 With the amendment, new vaults use _cash-basis_ accounting instead and interest is accounted for only when a payment actually delivers it. To see which fields are affected by this change, see:
 
