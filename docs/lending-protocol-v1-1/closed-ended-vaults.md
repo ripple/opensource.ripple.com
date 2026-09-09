@@ -22,7 +22,7 @@ The move from one stage to the next happens automatically at set dates that are 
 | `LoanDelete`    | ✅         | ✅           | ✅         | ✅         |
 
 {% admonition type="info" name="Note" %}
-`LoanBrokerSet` is restricted on open-ended vaults, however the other loan-related transactions are intentionally enabled so you can manage any loans that are created after `LendingProtocol` is enabled and before `LendingProtocolV1_1` adds the loan broker restriction.
+`LoanBrokerSet` is restricted on open-ended vaults. The other loan-related transactions are intentionally enabled so you can manage any loans that are created after `LendingProtocol` is enabled and before `LendingProtocolV1_1` adds the loan broker restriction.
 {% /admonition %}
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}
