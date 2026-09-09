@@ -158,22 +158,28 @@
 - group: Amendments
   expanded: false
   items:
+    - page: docs/xls-100-smart-escrows/index.page.tsx
+      expanded: false
+      items:
+        - page: docs/xls-100-smart-escrows/concepts/programmability.md
+    - page: docs/xls-96-confidential-transfers/index.page.tsx
+    - page: docs/xls-94-dynamic-mpts/index.page.tsx
     - page: docs/xls-85-token-escrow/index.page.tsx
+    - page: docs/xls-82-mpt-dex/index.page.tsx
     - page: docs/xls-81-permissioned-dexes/index.page.tsx
     - page: docs/xls-80-permissioned-domains/index.page.tsx
     - page: docs/xls-77-deep-freeze/index.page.tsx
     - page: docs/xls-75-permission-delegation/index.page.tsx
     - page: docs/xls-70-credentials/index.page.tsx
     - page: docs/xls-69-simulate/index.page.tsx
+    - page: docs/xls-68-sponsored-fees-and-reserves/index.page.tsx
+    - page: docs/lending-protocol-v1-1/index.page.tsx
+      expanded: false
+      items:
+        - page: docs/lending-protocol-v1-1/closed-ended-vaults.md
+        - page: docs/lending-protocol-v1-1/cash-basis-accounting.md
+        - page: docs/lending-protocol-v1-1/updated-ledger-entries.md
+        - page: docs/lending-protocol-v1-1/updated-transactions.md
     - page: docs/xls-66-lending-protocol/index.page.tsx
     - page: docs/xls-65-single-asset-vault/index.page.tsx
     - page: docs/xls-56-batch-transactions/index.page.tsx
-    - page: docs/xls-94-dynamic-mpts/index.page.tsx
-    - page: docs/xls-96-confidential-transfers/index.page.tsx
-    - page: docs/xls-100-smart-escrows/index.page.tsx
-      expanded: false
-      items:
-        - page: docs/xls-100-smart-escrows/concepts/programmability.md
-    - page: docs/xls-68-sponsored-fees-and-reserves/index.page.tsx
-
-    - page: docs/xls-82-mpt-dex/index.page.tsx
