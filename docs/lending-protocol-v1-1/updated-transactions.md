@@ -58,7 +58,7 @@ The [LendingProtocolV1_1 amendment][] updates the following transactions to supp
 
 ## LoanSet
 
-A loan can only be originated against a closed-ended vault during its _Investment_ phase, and only if the loan's final scheduled payment is at least 60 seconds before the vault enters its _Redemption_ phase. This means the maximum term of new loans shrink as the vault approaches its `RedemptionDate`.
+A loan can only be originated against a closed-ended vault during its _Investment_ phase, and only if the loan's final scheduled payment is at least 60 seconds before the vault enters its _Redemption_ phase. This means the maximum term of new loans shrinks as the vault approaches its `RedemptionDate`.
 
 ### New Error Cases
 
