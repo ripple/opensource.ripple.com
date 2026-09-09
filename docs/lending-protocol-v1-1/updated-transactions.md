@@ -8,7 +8,7 @@ The [LendingProtocolV1_1 amendment][] updates the following transactions to supp
 
 | Field Name         | JSON Type | [Internal Type][] | Required? | Description |
 | :----------------- | :-------- | :---------------- | :-------- | :---------- |
-| `VaultKind`        | Number    | UInt8             | No        | The kind of vault to create. The default value `0` creates an open-ended vault; `1` creates a closed-ended vault. Immutable after the vault is created. |
+| `VaultKind`        | Number    | UInt8             | No        | The kind of vault to create. If omitted, defaults to `0` and creates an open-ended vault; `1` creates a closed-ended vault. Immutable after the vault is created. |
 | `SubscriptionDate` | Number    | UInt32            | No        | _(Closed-ended vaults only)_ The time, in [seconds since the Ripple Epoch][], when the vault's subscription window closes and its investment period begins. Required when `VaultKind` is `1` and immutable after the vault is created. |
 | `RedemptionDate`   | Number    | UInt32            | No        | _(Closed-ended vaults only)_ The time, in [seconds since the Ripple Epoch][], when the vault's investment period ends and depositors can redeem their shares. Required when `VaultKind` is `1` and immutable after the vault is created. |
 
@@ -70,7 +70,9 @@ A loan can only be originated against a closed-ended vault during its _Investmen
 
 ## LoanBrokerSet
 
-A loan broker can only be attached to a _closed-ended_ vault. This only applies to loan brokers created after `LendingProtocolV1_1` is enabled.
+{% admonition type="info" name="Note" %}
+A loan broker can only be attached to a _closed-ended_ vault. This restriction only applies to loan brokers created after `LendingProtocolV1_1` is enabled. If a loan broker was created before the amendment, it can still originate loans from _open-ended_ vaults.
+{% /admonition %}
 
 ### New Error Cases
 
