@@ -57,3 +57,4 @@
 [VaultSet transaction]: https://xrpl.org/docs/references/protocol/transactions/types/vaultset
 [VaultWithdraw transaction]: https://xrpl.org/docs/references/protocol/transactions/types/vaultwithdraw
 [vault_info method]: https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/vault-methods/vault_info
+[fix1523 amendment]: https://xrpl.org/resources/known-amendments#fix1523
