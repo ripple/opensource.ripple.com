@@ -7,7 +7,10 @@
     "start": "realm develop"
   },
   "dependencies": {
-    "@redocly/realm": "0.127.0",
-    "@redocly/theme": "0.59.0"
+    "@redocly/realm": "0.137.0",
+    "@redocly/theme": "0.69.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true
   }
 }
