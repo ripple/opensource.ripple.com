@@ -72,7 +72,7 @@ const XRPLStyledButton = styled(Button)`
 
 function ButtonToXRPL({ children }) {
   return <XRPLStyledButton size="large">
-     <img src={require("../images/xrpl-dev-logo-white.png")} alt="(XRPL)" width={24} height={20} />
+     <img src={require("../../images/xrpl-dev-logo-white.png")} alt="(XRPL)" width={24} height={20} />
     {children}
   </XRPLStyledButton>
 }
