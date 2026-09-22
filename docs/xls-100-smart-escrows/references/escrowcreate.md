@@ -10,7 +10,7 @@ requiredAmendment: Escrow
 # EscrowCreate
 {% source-link path="src/libxrpl/tx/transactors/escrow/EscrowCreate.cpp" /%}
 
-Set aside funds in an [escrow](../../../../concepts/payment-types/escrow.md) that delivers them to a predetermined recipient when certain conditions are met. If the escrow has an expiration, the funds can also be returned to the sender after it expires.
+Set aside funds in an [escrow](https://xrpl.org/docs/concepts/payment-types/escrow.md) that delivers them to a predetermined recipient when certain conditions are met. If the escrow has an expiration, the funds can also be returned to the sender after it expires.
 
 {% admonition type="info" name="Note" %}
 To escrow fungible tokens you must take note of the following:
@@ -68,7 +68,7 @@ It is not possible to create a conditional escrow with no expiration, but you ca
 
 ## Error Cases
 
-Besides errors that can occur for all transactions, {% $frontmatter.seo.title %} transactions can result in the following [transaction result codes](../transaction-results/index.md):
+Besides errors that can occur for all transactions, {% $frontmatter.seo.title %} transactions can result in the following [transaction result codes](https://xrpl.org/docs/references/protocol/transactions/transaction-results/):
 
 | Error Code            | Description                                  |
 |:--------------------- |:---------------------------------------------|

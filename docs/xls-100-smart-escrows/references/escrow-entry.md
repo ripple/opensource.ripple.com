@@ -7,7 +7,7 @@ labels:
 # Escrow ledger entry
 [[Source]](https://github.com/XRPLF/rippled/blob/a5d238e7d4fa6ef2b539b759d58744d0a1c33c0c/include/xrpl/protocol/detail/ledger_entries.macro#L329-L345 "Source")
 
-An `Escrow` ledger entry represents an [escrow](../../../../concepts/payment-types/escrow.md), which holds funds until specific conditions are met. You can create an escrow by sending an [EscrowCreate transaction][].
+An `Escrow` ledger entry represents an [escrow](https://xrpl.org/docs/concepts/payment-types/escrow), which holds funds until specific conditions are met. You can create an escrow by sending an [EscrowCreate transaction][].
 
 {% amendment-disclaimer name="TokenEscrow" mode="updated" /%}
 
@@ -35,13 +35,13 @@ An `Escrow` ledger entry represents an [escrow](../../../../concepts/payment-typ
 
 ## {% $frontmatter.seo.title %} Fields
 
-In addition to the [common fields](../common-fields.md), {% code-page-name /%} entries have the following fields:
+In addition to the [common fields](https://xrpl.org/docs/references/protocol/transactions/types/common-fields), {% code-page-name /%} entries have the following fields:
 
 | Name                | JSON Type | [Internal Type][] | Required? | Description            |
 |:--------------------|:----------|:------------------|:----------|:-----------------------|
 | `Account`           | String    | AccountID         | Yes       | The address of the owner (sender) of this escrow. This is the account that provided the funds, and gets it back if the escrow is canceled. |
 | `Amount`            | Object or String    | Amount            | Yes       | The amount to be delivered by the payment in escrow. The amount can be XRP, or with the TokenEscrow amendment, a fungible token. {% amendment-disclaimer name="TokenEscrow" mode="updated" /%} |
-| `Bytecode`          | String    | Blob              | No        | Compiled WebAssembly (WASM) code with a [Smart Escrow](../programmability.md) function that must return success for the escrow to finish. {% amendment-disclaimer name="SmartEscrow" /%} |
+| `Bytecode`          | String    | Blob              | No        | Compiled WebAssembly (WASM) code with a [Smart Escrow](../concepts/programmability.md) function that must return success for the escrow to finish. {% amendment-disclaimer name="SmartEscrow" /%} |
 | `CancelAfter`       | Number    | UInt32            | No        | The escrow can be canceled if and only if this field is present _and_ the time it specifies has passed. Specifically, this is specified as [seconds since the Ripple Epoch][] and it "has passed" if it's earlier than the close time of the previous validated ledger. |
 | `Condition`         | String    | Blob              | No        | A [PREIMAGE-SHA-256 crypto-condition](https://tools.ietf.org/html/draft-thomas-crypto-conditions-02#section-8.1), as hexadecimal. If present, the [EscrowFinish transaction][] must contain a fulfillment that satisfies this condition. |
 | `Data`              | String    | Blob              | No        | Arbitrary data that can be read and written by this escrow's smart function. {% amendment-disclaimer name="SmartEscrow" /%} |
@@ -74,7 +74,7 @@ The ID of an `Escrow` entry is the [SHA-512Half][] of the following values, conc
 * The Escrow space key (`0x0075`)
 * The AccountID of the sender of the [EscrowCreate transaction][] that created the `Escrow` entry
 * The Sequence number of the [EscrowCreate transaction][] that created the `Escrow` entry
-    If the EscrowCreate transaction used a [Ticket](../../../../concepts/accounts/tickets.md), use the `TicketSequence` value instead.
+    If the EscrowCreate transaction used a [Ticket](https://xrpl.org/docs/concepts/accounts/tickets), use the `TicketSequence` value instead.
 
 ## See Also
 
