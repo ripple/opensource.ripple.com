@@ -64,7 +64,11 @@ There are no flags defined for {% code-page-name /%} entries.
 
 ## {% $frontmatter.seo.title %} Reserve
 
-{% code-page-name /%} entries count as one item towards the sender's owner reserve as long as the entry is in the ledger. Finishing or canceling the escrow frees up this reserve.
+By default, {% code-page-name /%} entries count as one item towards the sender's owner reserve as long as the entry is in the ledger.
+
+If the escrow has a `Bytecode` field that is more than 500 bytes, it counts as one item per 500 bytes, rounded up.
+
+Finishing or canceling the escrow frees up the reserve.
 
 
 ## Escrow ID Format
