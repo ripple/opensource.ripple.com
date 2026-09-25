@@ -578,3 +578,8 @@ html:not(.light) .feature-event {
 .card-variant-filled > div:last-child > div:last-child > div:last-child > button:last-child {
   align-self: flex-start;
 }
+
+[data-component-name="Markdown/Markdown"] article .shield {
+	display: inline-block !important;
+	vertical-align: middle;
+}

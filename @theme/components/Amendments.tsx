@@ -66,8 +66,9 @@ function AmendmentBadge(props: { name: string }) {
   // Heavily stripped down version of the badge;
   // doesn't support live status or link to details.
   const message = "Status"
+  const details = "..."
   const color = "blue"
-  const badgeUrl = `https://img.shields.io/badge/${props.name}-${message}-${color}`
+  const badgeUrl = `https://img.shields.io/badge/${message}-${details}-${color}`
 
   return <img src={badgeUrl} alt={props.name + " " + message} className="shield" />
 }
@@ -91,30 +92,23 @@ export function AmendmentDisclaimer(props: {
   if (props.compact) {
     return (
       <>
-        {amendmentName}
-        {" "}
-        <AmendmentBadge name={props.name} />
+        {amendmentName} <AmendmentBadge name={props.name} />
       </>
     )
   }
 
   if (props.mode === "updated") {
     return (
-      <p><em>Updated by the
-      (
-        {amendmentName}
-        {". "}
-        <AmendmentBadge name={props.name} />
-      )</em></p>
+      <p><em>
+        (Updated by the {amendmentName}. <AmendmentBadge name={props.name} />)
+      </em></p>
     )
   }
   
   return (
-    <p><em>Requires the (
-      {amendmentName}
-      {". "}
-      <AmendmentBadge name={props.name} />
-    )</em></p>
+    <p><em>
+      (Requires the {amendmentName}. <AmendmentBadge name={props.name} />)
+    </em></p>
   )
 }
 
