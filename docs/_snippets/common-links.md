@@ -45,6 +45,8 @@
 [SponsorshipTransfer transaction]: https://xrpl.org/docs/references/protocol/transactions/types/sponsorshiptransfer
 [standard format]: https://xrpl.org/docs/references/http-websocket-apis/api-conventions/response-formatting/
 [transaction result codes]: https://xrpl.org/docs/references/protocol/transactions/transaction-results
+[transaction cost]: https://xrpl.org/docs/concepts/transactions/transaction-cost.md
+[reserves]: https://xrpl.org/docs/concepts/accounts/reserves.md
 [universal error types]: https://xrpl.org/docs/references/http-websocket-apis/api-conventions/error-formatting#universal-errors
 <!-- TODO: replace with link to roadmap page when that's ready -->
 [PermissionedDEX amendment]: /docs/xls-81-permissioned-dexes/index.page.tsx
@@ -58,3 +60,7 @@
 [VaultWithdraw transaction]: https://xrpl.org/docs/references/protocol/transactions/types/vaultwithdraw
 [vault_info method]: https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/vault-methods/vault_info
 [fix1523 amendment]: https://xrpl.org/resources/known-amendments#fix1523
+[fee method]: https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/server-info-methods/fee
+[server_info method]: https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/server-info-methods/server_info
+[XRPFees Amendment]: https://xrpl.org/resources/known-amendments#xrpfees
+[drops of XRP]: https://xrpl.org/docs/references/protocol/data-types/basic-data-types.md#specifying-currency-amounts

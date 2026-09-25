@@ -162,9 +162,26 @@
       expanded: false
       items:
         - page: docs/xls-100-smart-escrows/concepts/programmability.md
+        - page: docs/xls-100-smart-escrows/concepts/fee-voting.md
+          badges:
+            - name: Updated
+              color: carrot
         - page: docs/xls-100-smart-escrows/references/escrow-entry.md
+          badges:
+            - name: Updated
+              color: carrot
         - page: docs/xls-100-smart-escrows/references/escrowcreate.md
+          badges:
+            - name: Updated
+              color: carrot
         - page: docs/xls-100-smart-escrows/references/escrowfinish.md
+          badges:
+            - name: Updated
+              color: carrot
+        - page: docs/xls-100-smart-escrows/references/setfee.md
+          badges:
+            - name: Updated
+              color: carrot
     - page: docs/xls-96-confidential-transfers/index.page.tsx
     - page: docs/xls-94-dynamic-mpts/index.page.tsx
     - page: docs/xls-85-token-escrow/index.page.tsx
