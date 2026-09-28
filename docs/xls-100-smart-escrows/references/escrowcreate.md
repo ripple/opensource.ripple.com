@@ -10,7 +10,7 @@ requiredAmendment: Escrow
 # EscrowCreate
 {% source-link path="src/libxrpl/tx/transactors/escrow/EscrowCreate.cpp" /%}
 
-Set aside funds in an [escrow](https://xrpl.org/docs/concepts/payment-types/escrow.md) that delivers them to a predetermined recipient when certain conditions are met. If the escrow has an expiration, the funds can also be returned to the sender after it expires.
+Set aside funds in an [escrow](https://xrpl.org/docs/concepts/payment-types/escrow.md) that delivers them to a predetermined recipient when certain conditions are met. If the escrow has an expiration, the funds can also be returned to the sender after it expires. The conditions for release can include a specific maturity time, a hash-based cryptocondition, or a [smart function](../concepts/programmability.md).
 
 {% admonition type="info" name="Note" %}
 To escrow fungible tokens you must take note of the following:
@@ -21,6 +21,7 @@ To escrow fungible tokens you must take note of the following:
 {% /admonition %}
 
 {% amendment-disclaimer name="TokenEscrow" mode="updated" /%}
+{% amendment-disclaimer name="SmartEscrow" mode="updated" /%}
 
 
 ## Example {% $frontmatter.seo.title %} JSON
@@ -75,22 +76,44 @@ If an escrow has multiple criteria for release, including any combination of a t
 
 ## Special Transaction Cost and Reserve
 
-If the escrow has a `Bytecode` field, it has a special transaction cost of 10 times the base fee plus an additional 5 drops per byte. ***TODO: confirm whether the 5 drops per byte scales with the base fee too.***
+If the escrow has a `Bytecode` field, it has a special transaction cost of 10 times the base fee plus an additional 5 drops per byte. The exact formula is:
+
+```
+(base_fee × 10) + (bytecode_size × 5)
+```
+
+- `base_fee` is the reference [transaction cost][], in drops of XRP.
+- `bytecode_size` is the size of the `Bytecode` field, in bytes.
+
+{% admonition type="info" name="Note" %}
+The 5 drops per byte does not change even if fee voting changes the base fee.
+{% /admonition %}
+
 
 ## Error Cases
 
 Besides errors that can occur for all transactions, {% $frontmatter.seo.title %} transactions can result in the following [transaction result codes](https://xrpl.org/docs/references/protocol/transactions/transaction-results/):
 
-| Error Code            | Description                                  |
-|:--------------------- |:---------------------------------------------|
-| `tecNO_PERMISSION`    | The necessary permissions for token escrow are not in place. For example, the issuer hasn't enabled the Allow Trust Line Locking flag for a Trust Line Token.|
-| `tecNO_AUTH`          | Authorization requirements for the token were not met. For example, the sender lacks authorization when creating the escrow. |
-| `tecUNFUNDED`         | The sender lacks sufficient spendable balance. For Trust Line Tokens, this means the sender's trust line with the issuer has insufficient available balance. For XRP escrows, this means the sender doesn't have enough XRP. |
-| `tecOBJECT_NOT_FOUND` | The sender does not hold the MPT. |
-| `tecFROZEN`           | The token is frozen (for Trust Line Tokens) or locked (for MPTs) for the sender. |
-| `temBAD_AMOUNT`       | The `Amount` is invalid. For example, it is negative; it is not XRP and the {% amendment-disclaimer name="TokenEscrow" compact=true /%} is not enabled; or it is larger than the maximum possible MPT amount. |
-| `temBAD_EXPIRATION`   | The was a problem with the expiration (`CancelAfter`) or finish time (`FinishAfter`). For example, the transaction did not specify a required field, or the expiration is before the finish time. |
-| `temTEMP_DISABLED`    | Smart functions have been temporarily disabled by [fee voting](../concepts/fee-voting.md). |
+| Error Code              | Description                                  |
+|:------------------------|:---------------------------------------------|
+| `tecDIR_FULL`           | Either the sender or the destination owns too many objects in the ledger. <br>This error is effectively impossible to receive if {% amendment-disclaimer name="fixDirectoryLimit" compact=true /%} is enabled. |
+| `tecDST_TAG_NEEDED`     | The destination account [requires destination tags](https://xrpl.org/docs/tutorials/compliance-features/require-destination-tags) but this transaction did not provide one. |
+| `tecFROZEN`             | For a trust line token escrow, the token is [frozen](https://xrpl.org/docs/concepts/tokens/fungible-tokens/freezes): this includes the sender being individually frozen, the destination being deep frozen, or the token being globally frozen. |
+| `tecINSUFFICIENT_FUNDS` | For token escrows, the sender does not currently hold enough funds to pay for the escrow. |
+| `tecLOCKED`             | For an MPT escrow, the token is locked. |
+| `tecNO_PERMISSION`      | The sender does not have permission to create this escrow. There are several cases that can cause this error, including: <ul><li>The escrow destination is a [pseudo-account](https://xrpl.org/docs/concepts/accounts/pseudo-accounts).</li><li>For a trust line token escrow, the sender is the issuer of the token or they hold a negative balance of the token.</li><li>For an MPT escrow, the sender is the issuer of the token.</li><li>For a trust line token escrow, the issuer hasn't enabled the **Allow Trust Line Locking** flag.</li><li>For a trust line token escrow, the issuer requires authorization but the sender is not authorized.</li><li>For an MPT escrow, the MPT issuance does not have the **Can Escrow** flag enabled.</li><li>For a timed escrow, the specified time has not yet passed.</li><li>The escrow is expired.</li></ul> |
+| `tecNO_AUTH`            | For token escrows, the sender is not authorized to create this escrow. There are several cases that can cause this error, including: <ul><li>The sender does not have an MPToken entry to hold this MPT.</li><li>The MPT issuance does not have the **Can Transfer** flag enabled.</li><li>The MPT or trust line token requires authorization, but the sender is not authorized.</li><li>The MPT is restricted to a [permissioned domain][], but the sender is not part of that domain.</li></ul> |
+| `tecNO_DST`             | The specified destination account does not exist in the ledger. |
+| `tecNO_ISSUER`          | For a trust line token escrow, the issuer of the token (as specified in `Amount`) does not exist in the ledger. |
+| `tecNO_LINE`            | For a trust line token escrow, the sender does not have a trust line for the specified token. |
+| `tecOBJECT_NOT_FOUND`   | For an MPT escrow, the MPT issuance does not exist or the sender does not hold the MPT; or, the MPT requires access to a [permissioned domain][] but the domain does not exist in the ledger. |
+| `tecPRECISION_LOSS`     | For a trust line token escrow, the amount of the escrow is too small relative to the sender's balance, which would cause it to be rounded to 0. |
+| `tecUNFUNDED`           | For XRP escrows, the sender lacks sufficient spendable balance, which excludes XRP set aside for [reserves][]. |
+| `temBAD_AMOUNT`         | The `Amount` is invalid. For example, it is negative; it is not XRP and the {% amendment-disclaimer name="TokenEscrow" compact=true /%} is not enabled; or it is larger than the maximum possible MPT amount. |
+| `temBAD_CURRENCY`       | The `Amount` specifies an invalid currency, such as a trust line token with the currency code for XRP. |
+| `temBAD_EXPIRATION`     | The was a problem with the expiration (`CancelAfter`) or finish time (`FinishAfter`). For example, the transaction did not specify a required field, or the expiration is before the finish time. |
+| `temINVALID_BYTECODE`   | The `Bytecode` field did not contain a valid smart function. {% amendment-disclaimer name="SmartEscrow" /%} |
+| `temTEMP_DISABLED`      | Smart functions have been temporarily disabled by [fee voting](../concepts/fee-voting.md). {% amendment-disclaimer name="SmartEscrow" /%} |
 
 ## See Also
 
@@ -100,3 +123,4 @@ Besides errors that can occur for all transactions, {% $frontmatter.seo.title %}
 
 <!-- Remove when porting back to xrpl.org: -->
 [Escrow entry]: ./escrow-entry.md
+[permissioned domain]: https://xrpl.org/docs/concepts/tokens/decentralized-exchange/permissioned-domains
