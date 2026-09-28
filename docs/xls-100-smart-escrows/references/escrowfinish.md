@@ -92,7 +92,7 @@ Besides errors that can occur for all transactions, {% $frontmatter.seo.title %}
 | `tefNO_BYTECODE`           | The transaction specified a `Gas` field but the escrow does not have a smart function. {% amendment-disclaimer name="SmartEscrow" /%} |
 | `tefBYTECODE_NOT_INCLUDED` | The transaction did not specify a `Gas` field, but escrow has a smart function so it requires gas to run. {% amendment-disclaimer name="SmartEscrow" /%} |
 | `temBAD_LIMIT`             | The `Gas` field of the transaction is `0` or is larger than the network's current gas limit. {% amendment-disclaimer name="SmartEscrow" /%} |
-| `temTEMP_DISABLED`         | Smart functions have been temporarily disabled by [fee voting](../concepts/fee-voting.md). |
+| `temTEMP_DISABLED`         | Smart functions have been temporarily disabled by [fee voting](../concepts/fee-voting.md). {% amendment-disclaimer name="SmartEscrow" /% |
 
 ## See Also
 
