@@ -163,10 +163,15 @@
       items:
         - page: docs/xls-100-smart-escrows/concepts/programmability.md
         - page: docs/xls-100-smart-escrows/concepts/fee-voting.md
-        - page: docs/xls-100-smart-escrows/references/escrow-entry.md
-        - page: docs/xls-100-smart-escrows/references/escrowcreate.md
-        - page: docs/xls-100-smart-escrows/references/escrowfinish.md
-        - page: docs/xls-100-smart-escrows/references/setfee.md
+        - group: Updated Ledger Entries
+          items:
+            - page: docs/xls-100-smart-escrows/references/escrow-entry.md
+            - page: docs/xls-100-smart-escrows/references/feesettings.md
+        - group: Updated Transaction Types
+          items:
+            - page: docs/xls-100-smart-escrows/references/escrowcreate.md
+            - page: docs/xls-100-smart-escrows/references/escrowfinish.md
+            - page: docs/xls-100-smart-escrows/references/setfee.md
     - page: docs/xls-96-confidential-transfers/index.page.tsx
     - page: docs/xls-94-dynamic-mpts/index.page.tsx
     - page: docs/xls-85-token-escrow/index.page.tsx

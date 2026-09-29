@@ -21,8 +21,8 @@ The parameters you can set are as follows:
 | `account_reserve` | The **base account reserve.** This is the minimum amount of XRP, in _drops_, that an account must hold in reserve, which is also the minimum requirement to fund a new account. | `1000000` ({% $env.PUBLIC_BASE_RESERVE %}) |
 | `owner_reserve` | The **owner reserve increment.** This is how much more XRP, in _drops_, that an account must hold for _each_ object it owns in the ledger. | `200000` ({% $env.PUBLIC_OWNER_RESERVE %}) |
 | `bytecode_size_limit` | The maximum size, in bytes, of a WASM smart function, such as the `Bytecode` field of a [smart escrow](./programmability.md). Smart functions can be temporarily disabled in general by the network voting this value to `0`. {% amendment-disclaimer name="SmartEscrow" /%} | `100000` (100 kb) |
-| `gas_limit` | The maximum amount of gas that can be consumed by [smart functions](./programmability.md) in a single transaction. Gas is a measure of the resources (including CPU and memory) used by smart function code, defined by the WASM engine. {% amendment-disclaimer name="SmartEscrow" /%} | `1000000` |
-| `gas_price` | The cost of gas, in millionths of a drop of XRP per 1 gas. In other words, a value of `1000000` (1 million) means that 1 gas costs 0.000001 decimal XRP. Smart functions can be temporarily disabled in general by the network voting this value to `0`. {% amendment-disclaimer name="SmartEscrow" /%} | `1000000` |
+| `gas_limit` | The maximum amount of gas that can be consumed by [smart functions](./programmability.md) in a single transaction. Gas is a measure of the resources (including CPU and memory) used by smart function code, defined by the WASM engine. {% amendment-disclaimer name="SmartEscrow" /%} | `1000000` (1 million gas) |
+| `gas_price` | The cost of gas, in millionths of a drop of XRP per 1 gas. In other words, a value of `1000000` (1 million) means that 1 gas costs 0.000001 decimal XRP. Smart functions can be temporarily disabled in general by the network voting this value to `0`. {% amendment-disclaimer name="SmartEscrow" /%} | `1000000` (1 drop per gas) |
 
 <!-- RESERVES_REMINDER: update recommendations in drops if reserves change -->
 
@@ -77,10 +77,11 @@ On Mainnet and any other networks with the XRPFees amendment enabled, all three 
 - **References:**
     - [fee method][]
     - [server_info method][]
-    - [FeeSettings object](https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/feesettings.md)
+    - [FeeSettings entry][]
     - [SetFee pseudo-transaction][]
 
 {% raw-partial file="/docs/_snippets/common-links.md" /%}
 
 <!-- TODO: remove when migrating back to xrpl.org -->
 [SetFee pseudo-transaction]: ../references/setfee.md
+[FeeSettings entry]: ../references/feesettings.md

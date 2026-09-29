@@ -4,7 +4,7 @@ seo:
 labels:
   - Escrow
 ---
-# Escrow ledger entry
+# Escrow
 [[Source]](https://github.com/XRPLF/rippled/blob/a5d238e7d4fa6ef2b539b759d58744d0a1c33c0c/include/xrpl/protocol/detail/ledger_entries.macro#L329-L345 "Source")
 
 An `Escrow` ledger entry represents an [escrow](https://xrpl.org/docs/concepts/payment-types/escrow), which holds funds until specific conditions are met. You can create an escrow by sending an [EscrowCreate transaction][].
