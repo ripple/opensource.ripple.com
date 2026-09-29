@@ -62,15 +62,95 @@ export function Badge(props: {
     }
 }
 
-function AmendmentBadge(props: { name: string }) {
-  // Heavily stripped down version of the badge;
-  // doesn't support live status or link to details.
-  const message = "Status"
-  const details = "..."
-  const color = "blue"
-  const badgeUrl = `https://img.shields.io/badge/${message}-${details}-${color}`
+type Amendment = {
+  name: string
+  rippled_version: string
+  tx_hash?: string
+  consensus?: string
+  date?: string
+  id: string
+  eta?: string
+  deprecated: boolean
+}
 
-  return <img src={badgeUrl} alt={props.name + " " + message} className="shield" />
+type AmendmentsResponse = {
+  amendments: Amendment[]
+}
+
+// Fetch a single amendments endpoint (vote or info).
+async function fetchAmendmentList(endpoint: string): Promise<Amendment[]> {
+  const response = await fetch(endpoint)
+  if (!response.ok) {
+    throw new Error(`HTTP error ${response.status} from ${endpoint}`)
+  }
+  const data: AmendmentsResponse = await response.json()
+  return data.amendments
+}
+
+const mainnetVoteEndpoint = 'https://vhs.prod.ripplex.io/v1/network/amendments/vote/main/'
+const devnetVoteEndpoint = 'https://vhs.prod.ripplex.io/v1/network/amendments/vote/dev/'
+
+type AmendmentStatus = {
+  statusName: string,
+  statusMessage: string,
+  statusColor: string
+}
+async function getAmendmentStatus(name: string): Promise<AmendmentStatus> {
+  const [devnetInfo, mainnetInfo] = await Promise.all([
+    fetchAmendmentList(devnetVoteEndpoint),
+    fetchAmendmentList(mainnetVoteEndpoint),
+  ])
+  const mainnetStatus = mainnetInfo.find(a => a.name === name)
+  if (mainnetStatus) {
+    if (mainnetStatus.tx_hash) return {
+      statusName: "Mainnet",
+      statusMessage: "Enabled",
+      statusColor: "green"
+    }
+    if (mainnetStatus.eta || mainnetStatus.consensus) return {
+      statusName: "Mainnet",
+      statusMessage: "Voting",
+      statusColor: "80d0e0"
+    }
+  }
+  const devnetStatus = devnetInfo.find(a => a.name === name)
+  if (devnetStatus) {
+    if (devnetStatus.tx_hash) return {
+      statusName: "Devnet",
+      statusMessage: "Available",
+      statusColor: "blue"
+    }
+  }
+  return {
+    // If it's not at least enabled on Devnet, assume that it at least
+    // has an XLS. (It should, if we're using an amendmend disclaimer.)
+    // But that could be misleading if amendment name has a typo.
+    statusName: "XLS",
+    statusMessage: "Specified",
+    statusColor: "lightgray"
+  }
+}
+
+function AmendmentBadge(props: { name: string }) {
+  // Pared-down version of the amendment status badge, which only shows
+  // the statuses from getAmendmentStatus above and not as much detail as
+  // the version from xrpl.org, but it does check Devnet status.
+  const [status, setStatus] = React.useState<string>('Loading')
+  const [message, setMessage] = React.useState<string>('...')
+  const [color, setColor] = React.useState<string>('gray')
+
+  React.useEffect(() => {
+    getAmendmentStatus(props.name).then( aStatus => {
+      setStatus(aStatus.statusName)
+      setMessage(aStatus.statusMessage)
+      setColor(aStatus.statusColor)
+    })
+  }, [status,message,color])
+
+  const href = `https://img.shields.io/badge/${shieldsIoEscape(status)}-${shieldsIoEscape(message)}-${color}`
+  const altText = `${status}: ${message}`
+
+  return <img src={href} alt={altText} className="shield" />
 }
 
 export function AmendmentDisclaimer(props: {
