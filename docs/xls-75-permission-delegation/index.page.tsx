@@ -5,8 +5,8 @@ import {
   FeatureHeader,
   FeatureContent,
   ButtonToXRPL
-} from "../../components/landing";
-import { AmendmentTracker } from "../../components/AmendmentTracker";
+} from "../../@theme/components/landing";
+import { AmendmentTracker } from "../../@theme/components/AmendmentTracker";
 import { Button } from "@redocly/theme";
 import { Card } from "@redocly/theme/markdoc/components/Cards/Card";
 import { Cards } from "@redocly/theme/markdoc/components/Cards/Cards";

@@ -5,7 +5,7 @@ import {
   ButtonToXRPL,
   FeatureHeader,
   FeatureContent
-} from "../../components/landing";
+} from "../../@theme/components/landing";
 import { Button } from "@redocly/theme";
 import { Card } from '@redocly/theme/markdoc/components/Cards/Card';
 import { Cards } from '@redocly/theme/markdoc/components/Cards/Cards';
