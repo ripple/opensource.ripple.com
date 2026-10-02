@@ -78,7 +78,7 @@ Besides errors that can occur for all transactions, {% $frontmatter.seo.title %}
 | Error Code                 | Description |
 |:---------------------------|:------------|
 | `tecBYTECODE_REJECTED`     | The escrow's smart function did not return success. It may have returned `0` or a negative value, or thrown an error. {% amendment-disclaimer name="SmartEscrow" /%} |
-| `tecCRYPTOCONDITION_ERROR` | The fulfillment did not match the escrow's crypto-condition; or the transaction specified a fulfillment but the escrow doesn't have a crypto-condition; or the crypto-condition specified in the transaction doesn't match the one in the escrow entry. |
+| `tecCRYPTOCONDITION_ERROR` | The crypto-condition check failed. This can happen when: <ul><li>The fulfillment did not match the escrow's crypto-condition.</li><li>The transaction specified a fulfillment but the escrow doesn't have a crypto-condition.</li><li>The crypto-condition specified in the transaction doesn't match the one in the escrow entry.</li></ul> |
 | `tecFROZEN`                | The destination's trust line for the escrowed trust line token is deep frozen. {% amendment-disclaimer name="TokenEscrow" /%} |
 | `tecINSUFFICIENT_RESERVE`  | Unable to create a trust line or `MPToken` entry due to lack of reserves. {% amendment-disclaimer name="TokenEscrow" /%} |
 | `tecLOCKED`                | The destination's `MPToken` entry for the escrowed MPT is locked. {% amendment-disclaimer name="TokenEscrow" /%} |
