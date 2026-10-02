@@ -70,8 +70,10 @@ const XRPLStyledButton = styled(Button)`
   }
 `;
 
-function ButtonToXRPL({ children }) {
-  return <XRPLStyledButton size="large">
+/* May be a link or might be a cosmetic-only button inside a card where the
+ * whole card is the link. */
+function ButtonToXRPL({ children, to=undefined }) {
+  return <XRPLStyledButton size="large" to={to}>
      <img src={require("../../images/xrpl-dev-logo-white.png")} alt="(XRPL)" width={24} height={20} />
     {children}
   </XRPLStyledButton>
