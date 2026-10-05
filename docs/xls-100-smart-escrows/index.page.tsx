@@ -5,9 +5,9 @@ import {
 //   ButtonToXRPL, // TODO: Uncomment when we move docs to xrpl.org
   FeatureHeader,
   FeatureContent
-} from "../../components/landing";
+} from "../../@theme/components/landing";
 
-import { AmendmentTracker } from "../../components/AmendmentTracker";
+import { AmendmentTracker } from "../../@theme/components/AmendmentTracker";
 import { Button } from "@redocly/theme";
 import { Card } from '@redocly/theme/markdoc/components/Cards/Card';
 import { Cards } from '@redocly/theme/markdoc/components/Cards/Cards';

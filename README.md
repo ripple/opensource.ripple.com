@@ -18,7 +18,7 @@ You can start a local dev server with:
 npm run start
 ```
 
-Documentation is in `docs/`, and custom components and templates are in `components/` and `@theme/`. For proposed XRP Ledger features, we try to match the documentation style of the [xrpl-dev-portal](https://github.com/XRPLF/xrpl-dev-portal/), to minimize the effort of porting docs to that site when they are accepted into the general XRP Ledger codebase.
+Documentation is in `docs/`, and custom components and templates are in `@theme/`. For proposed XRP Ledger features, we try to match the documentation style of the [xrpl-dev-portal](https://github.com/XRPLF/xrpl-dev-portal/), to minimize the effort of porting docs to that site when they are accepted into the general XRP Ledger codebase. Many custom components are also shared with the dev portal for ease of porting documentation between the sites.
 
 PRs from within the repo get a preview build automatically. (In the automated checks section, under **Project preview** click the "..." and "→ View details".) PRs from outside forks do not get a preview build, for security reasons. The site automatically deploys to production when changes are merged to the `main` branch.
 
