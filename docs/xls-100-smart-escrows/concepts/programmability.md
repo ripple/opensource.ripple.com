@@ -13,7 +13,7 @@ A programmability layer, powered by a WebAssembly (WASM) engine, allows users to
 
 Since every node in the network must calculate the outcome of a smart function to reach the same conclusion about a smart transaction's outcome, it's essential that smart functions cannot use unbounded compute time or memory. To ensure this is handled fairly and deterministically, the WASM engine calculates a "gas" cost any time it's running. The more memory it allocates or compute time it uses, the higher the gas cost. If a smart function exceeds certain gas limits, the WASM engine terminates the smart function and fails the transaction with a `tec` code. Whether the transaction succeeded or failed, the calculated gas value is translated into an amount of XRP and destroyed as part of the cost of processing the transaction. Transactions that cause smart function code to run must specify a maximum "gas allowance" that the sender is willing to spend, and the sender must have enough XRP to pay the full gas allowance.
 
-The conversion between units of gas and units of XRP is flexible, and can be changed by a consensus of validators as part of [Fee Voting](https://xrpl.org/docs/concepts/consensus-protocol/fee-voting). In the default configuration, 1000 gas is equal to 1 drop of XRP.
+The conversion between units of gas and units of XRP is flexible, and can be changed by a consensus of validators as part of [Fee Voting](./fee-voting.md). In the default configuration, 1000 gas is equal to 1 drop of XRP.
 
 ## Developing Smart Code
 
