@@ -37,6 +37,13 @@ export default function Page() {
             </Button>
           </Card>
 
+          <Card title="Lending Protocol V1_2" to="docs/lending-protocol-v1-2/">
+            <p>Extends Single Asset Vaults and the Lending Protocol with fixed-precision accounting, two-step loan creation, private loan brokers, early-exit fees, and vault deposit controls.</p>
+            <Button size="large" variant="primary">
+              Learn more
+            </Button>
+          </Card>
+
           <Card title="Lending Protocol V1_1" to="docs/lending-protocol-v1-1/">
             <p>Extends Single Asset Vaults and the Lending Protocol with closed-ended vaults and cash-basis accounting.</p>
             <Button size="large" variant="primary">
