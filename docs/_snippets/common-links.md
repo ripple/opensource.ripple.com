@@ -24,6 +24,8 @@
 [ledger index]: https://xrpl.org/docs/references/protocol/data-types/basic-data-types/#ledger-index
 [LendingProtocolV1_1]: https://xrpl.org/resources/known-amendments#lendingprotocolv1_1
 [LendingProtocolV1_1 amendment]: https://xrpl.org/resources/known-amendments#lendingprotocolv1_1
+[LendingProtocolV1_2]: https://xrpl.org/resources/known-amendments#lendingprotocolv1_2
+[LendingProtocolV1_2 amendment]: https://xrpl.org/resources/known-amendments#lendingprotocolv1_2
 [Lending Protocol]: https://xrpl.org/docs/concepts/tokens/lending-protocol
 [LoanSet transaction]: https://xrpl.org/docs/references/protocol/transactions/types/loanset
 [Loan entry]: https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/loan
